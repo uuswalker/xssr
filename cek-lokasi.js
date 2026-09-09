@@ -189,9 +189,11 @@
   var softLeadTerkirim = false;
   function kirimSoftLead() {
     if (softLeadTerkirim) return;
-    // v5 strict: soft-lead tanpa WA/longlat tidak dikirim — Sheet hanya terima data lengkap
+    // v5.1: soft-lead tanpa WA tidak dikirim — alamat ATAU lat/lng cukup jika WA ada
     var waTmp = (document.getElementById('cl-wa') && document.getElementById('cl-wa').value || '').replace(/\D/g,'').replace(/^0/,'62');
-    if (waTmp.length < 9 || currentLat == null || currentLng == null) return;
+    var alamatOk = currentAlamatText && currentAlamatText.trim().length >= 5;
+    var latOk = currentLat != null && currentLng != null;
+    if (waTmp.length < 9 || !(alamatOk || latOk)) return;
     softLeadTerkirim = true;
 
     var mapsLink = (currentLat != null && currentLng != null)
@@ -495,12 +497,10 @@
       tampilkanErrorForm('Nomor WhatsApp sepertinya belum benar. Contoh: 081234567890 (8-13 digit).');
       return;
     }
-    if (currentLat == null || currentLng == null) {
-      tampilkanErrorForm('Silakan pilih lokasi via GPS atau alamat manual terlebih dahulu (long/lat wajib).');
-      return;
-    }
-    if (!currentAlamatText || currentAlamatText.trim().length < 5) {
-      tampilkanErrorForm('Alamat wajib diisi minimal 5 karakter.');
+    var alamatOk = currentAlamatText && currentAlamatText.trim().length >= 5;
+    var latOk = currentLat != null && currentLng != null;
+    if (!alamatOk && !latOk) {
+      tampilkanErrorForm('Silakan pilih lokasi via GPS atau tulis alamat minimal 5 karakter (salah satu cukup).');
       return;
     }
     document.getElementById('cl-wa').value = wa;

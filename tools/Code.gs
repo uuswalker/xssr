@@ -10,6 +10,10 @@
    - v3 (27 Agu 2026): DEDUP BY NOMOR HP — nomor HP yang sama
      tidak lagi membuat baris ganda; update baris terbaru milik
      nomor itu dengan data yang lebih lengkap.
+   - v4 (29 Agu 2026): cek token anti-spam + validasi minimal
+     (tolak simpan kalau tidak ada WA valid / koordinat / alamat berisi).
+   - v5.1 (9 Sep 2026): WAJIB WA+nama, lokasi cukup alamat ATAU lat/lng
+     (ngetest 123 tanpa pin tetap masuk kalau WA ada — bisa follow up).
    ============================================================ */
 
 var SHEET_NAME = 'Lead'; // sesuaikan dengan nama sheet kamu
@@ -157,16 +161,14 @@ function doPost(e) {
     }
 
     // ---- 3) Baris baru (append) ----
-    // Validasi minimal: jangan simpan data kosong/spam. Simpan hanya jika ada
-    // minimal satu dari: nomor WA valid (>=9 digit setelah normalisasi),
-    // koordinat valid (lat & lng keduanya angka), ATAU alamat dengan teks wajar (>=5 char).
+    // WAJIB: WA + nama wajib, lokasi cukup salah satu: pin peta (lat/lng) ATAU alamat teks ≥5
     var waLen = String(wa || '').length;
-    var latNum = Number(json.latitude), lngNum = Number(json.longitude);
-    var latOk = !isNaN(latNum) && String(json.latitude || '').trim() !== '';
-    var lngOk = !isNaN(lngNum) && String(json.longitude || '').trim() !== '';
-    var alamatLen = String(json.alamat || '').trim().length;
-    if (!(waLen >= 9 || (latOk && lngOk) || alamatLen >= 5)) {
-      return ContentService.createTextOutput('ok:dropped-empty')
+    var latOk = !isNaN(Number(json.latitude)) && String(json.latitude||'').trim() !== '';
+    var lngOk = !isNaN(Number(json.longitude)) && String(json.longitude||'').trim() !== '';
+    var namaOk = String(json.nama||'').trim().length >= 2;
+    var alamatOk = String(json.alamat||'').trim().length >= 5;
+    if (!(waLen >= 9 && namaOk && ((latOk && lngOk) || alamatOk))) {
+      return ContentService.createTextOutput('ok:dropped-missing')
         .setMimeType(ContentService.MimeType.TEXT);
     }
 
