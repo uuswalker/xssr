@@ -44,7 +44,7 @@
 
 (function () {
   // ====== KONFIGURASI ======
-  var GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzKgSJ1EWEM20mlu4GTa7_wod8nm4fmSGTSjOLgJ6fzrklvSvnvBhsUatoWfIawWNzo/exec";
+  var GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzSEK_DbqWpKw_sXLHa5T0wuLtTyfJvGjf-GPq9N9tnmLveDZ5leEKZPAZwPyd2ZLUX/exec";
   var TOKEN = "xlsr_2026_s0lor4y4";
   var NOMOR_WA_SALES = "6287778999141";
 
@@ -189,6 +189,9 @@
   var softLeadTerkirim = false;
   function kirimSoftLead() {
     if (softLeadTerkirim) return;
+    // v5 strict: soft-lead tanpa WA/longlat tidak dikirim — Sheet hanya terima data lengkap
+    var waTmp = (document.getElementById('cl-wa') && document.getElementById('cl-wa').value || '').replace(/\D/g,'').replace(/^0/,'62');
+    if (waTmp.length < 9 || currentLat == null || currentLng == null) return;
     softLeadTerkirim = true;
 
     var mapsLink = (currentLat != null && currentLng != null)
@@ -490,6 +493,14 @@
     }
     if (wa.length < 11 || wa.length > 14) {
       tampilkanErrorForm('Nomor WhatsApp sepertinya belum benar. Contoh: 081234567890 (8-13 digit).');
+      return;
+    }
+    if (currentLat == null || currentLng == null) {
+      tampilkanErrorForm('Silakan pilih lokasi via GPS atau alamat manual terlebih dahulu (long/lat wajib).');
+      return;
+    }
+    if (!currentAlamatText || currentAlamatText.trim().length < 5) {
+      tampilkanErrorForm('Alamat wajib diisi minimal 5 karakter.');
       return;
     }
     document.getElementById('cl-wa').value = wa;
