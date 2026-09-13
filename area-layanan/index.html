@@ -19,7 +19,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cek area XL SATU Solo Raya 2026: 5 kota & 79 kecamatan — Solo Surakarta, Sukoharjo, Karanganyar, Boyolali (fiber) & Klaten (wireless). Cek alamatmu tercover?">
+  <meta name="description" content="Cek area XL SATU Solo Raya 2026: 5 kota, 79 kecamatan & 102 kelurahan — Solo Surakarta, Sukoharjo, Karanganyar, Boyolali (fiber) & Klaten (wireless). Cek alamatmu tercover?">
   <meta name="keywords" content="cek area xl satu solo raya 2026, cakupan xl satu 5 kota 79 kecamatan, wifi solo surakarta karanganyar sukoharjo boyolali klaten">
   <meta name="author" content="XL SATU Solo Raya">
   <meta name="robots" content="index, follow">
@@ -112,6 +112,13 @@
     .kec-chips span { background: var(--gray-bg); padding: 6px 14px; border-radius: 999px; font-size: 13px; color: #333; }
     .kec-chips a.kec-link { background: var(--green-light); color: var(--green-dark); font-weight: 700; padding: 6px 14px; border-radius: 999px; font-size: 13px; text-decoration: none; transition: background .2s; }
     .kec-chips a.kec-link:hover { background: var(--green); color: #fff; }
+    .kel-search { width: 100%; max-width: 560px; display: block; margin: 0 auto 8px; padding: 12px 18px; border: 1.5px solid var(--border); border-radius: 999px; font-size: 14px; font-family: inherit; }
+    .kel-count { text-align: center; font-size: 13px; color: var(--text-muted); margin-bottom: 8px; min-height: 20px; }
+    .kel-details { margin-top: 12px; }
+    .kel-details summary { cursor: pointer; font-size: 13.5px; font-weight: 700; color: var(--green-dark); }
+    .kel-group { font-size: 13px; color: #333; margin-top: 8px; line-height: 2; }
+    .kel-group strong { color: var(--text); }
+    .kel-group span { background: var(--gray-bg); padding: 2px 10px; border-radius: 999px; white-space: nowrap; }
     .note-box { background: var(--green-light); border-left: 4px solid var(--green); border-radius: 8px; padding: 18px 22px; margin: 32px 0; font-size: 14.5px; }
     .note-box strong { color: var(--green-dark); }
     h2.section-title { font-size: 24px; font-weight: 800; margin: 48px 0 16px; }
@@ -158,54 +165,90 @@
 <div class="hero">
   <div class="breadcrumb"><a href="/">Beranda</a> / Area Layanan</div>
   <h1>Cakupan Lengkap Area XL SATU di Solo Raya</h1>
-  <p class="subtitle">Internet rumah fiber optic &amp; wireless unlimited untuk 5 kota/kabupaten dan 79 kecamatan — dicek langsung oleh sales lokal, bukan call center pusat.</p>
+  <p class="subtitle">Internet rumah fiber optic &amp; wireless unlimited untuk 5 kota/kabupaten, 79 kecamatan, dan 102 kelurahan — dicek langsung oleh sales lokal, bukan call center pusat.</p>
   <div class="stats-row">
     <div class="stat-item"><span class="num">5</span><span class="lbl">Kota / Kabupaten</span></div>
     <div class="stat-item"><span class="num">79</span><span class="lbl">Kecamatan Terpetakan</span></div>
+    <div class="stat-item"><span class="num">102</span><span class="lbl">Kelurahan Terdaftar</span></div>
     <div class="stat-item"><span class="num">24/7</span><span class="lbl">Layanan Sales</span></div>
   </div>
 </div>
 
 <div class="content">
 
+  <input type="search" id="kel-search" class="kel-search" placeholder="Cari kelurahan... mis. Penumping, Delanggu, Mojosongo" aria-label="Cari kelurahan">
+  <p id="kel-count" class="kel-count"></p>
+
   <div class="kota-block">
-    <div class="kota-head"><h2>Kota Solo (Surakarta)</h2><span class="count">5 kecamatan</span></div>
+    <div class="kota-head"><h2>Kota Solo (Surakarta)</h2><span class="count">5 kecamatan · 54 kelurahan</span></div>
     <p class="kota-desc">Jantung Solo Raya. Jaringan fiber paling lengkap — cocok untuk rumah, kos, dan usaha. Halaman khusus: <a href="/wifi-solo/"><strong>Pasang WiFi Solo</strong></a> · <a href="/wifi-surakarta/"><strong>Pasang WiFi Surakarta</strong></a>.</p>
     <div class="kec-chips">
       <span>Laweyan</span><span>Serengan</span><span>Pasar Kliwon</span><span>Jebres</span><span>Banjarsari</span>
     </div>
+    <details class="kel-details">
+      <summary>Lihat 54 kelurahan di Kota Solo</summary>
+      <div class="kel-group" data-kec="Banjarsari"><strong>Banjarsari:</strong> <span>Banyuanyar</span> <span>Banjarsari</span> <span>Gilingan</span> <span>Joglo</span> <span>Kadipiro</span> <span>Keprabon</span> <span>Kestalan</span> <span>Ketelan</span> <span>Manahan</span> <span>Mangkubumen</span> <span>Nusukan</span> <span>Punggawan</span> <span>Setabelan</span> <span>Sumber</span> <span>Timuran</span></div>
+      <div class="kel-group" data-kec="Jebres"><strong>Jebres:</strong> <span>Gandekan</span> <span>Jagalan</span> <span>Jebres</span> <span>Kepatihan Kulon</span> <span>Kepatihan Wetan</span> <span>Mojosongo</span> <span>Pucang Sawit</span> <span>Purwodiningratan</span> <span>Sewu</span> <span>Sudiroprajan</span> <span>Tegalharjo</span></div>
+      <div class="kel-group" data-kec="Laweyan"><strong>Laweyan:</strong> <span>Bumi</span> <span>Jajar</span> <span>Karangasem</span> <span>Kerten</span> <span>Laweyan</span> <span>Pajang</span> <span>Panularan</span> <span>Penumping</span> <span>Purwosari</span> <span>Sondakan</span> <span>Sriwedari</span></div>
+      <div class="kel-group" data-kec="Pasar Kliwon"><strong>Pasar Kliwon:</strong> <span>Baluwarti</span> <span>Gajahan</span> <span>Joyosuran</span> <span>Kampung Baru</span> <span>Kauman</span> <span>Kedung Lumbu</span> <span>Mojo</span> <span>Pasar Kliwon</span> <span>Sangkrah</span> <span>Semanggi</span></div>
+      <div class="kel-group" data-kec="Serengan"><strong>Serengan:</strong> <span>Danukusuman</span> <span>Jayengan</span> <span>Joyotakan</span> <span>Kemlayan</span> <span>Kratonan</span> <span>Serengan</span> <span>Tipes</span></div>
+    </details>
   </div>
 
   <div class="kota-block">
-    <div class="kota-head"><h2>Kabupaten Sukoharjo</h2><span class="count">12 kecamatan</span></div>
+    <div class="kota-head"><h2>Kabupaten Sukoharjo</h2><span class="count">12 kecamatan · 17 kelurahan</span></div>
     <p class="kota-desc">Wilayah aglomerasi selatan — Grogol &amp; Baki nyambung langsung dengan Kota Solo. Detail lengkap: <a href="/wifi-sukoharjo/"><strong>Pasang WiFi Sukoharjo</strong></a>.</p>
     <div class="kec-chips">
       <span>Sukoharjo</span><span>Grogol</span><span>Baki</span><span>Gatak</span><span>Kartasura</span><span>Mojolaban</span><span>Polokarto</span><span>Bendosari</span><span>Nguter</span><span>Tawangsari</span><span>Bulu</span><span>Weru</span>
     </div>
+    <details class="kel-details">
+      <summary>Lihat 17 kelurahan di Sukoharjo</summary>
+      <div class="kel-group" data-kec="Bendosari"><strong>Bendosari:</strong> <span>Jombor</span></div>
+      <div class="kel-group" data-kec="Kartasura"><strong>Kartasura:</strong> <span>Kartasura</span> <span>Ngadirejo</span></div>
+      <div class="kel-group" data-kec="Sukoharjo"><strong>Sukoharjo:</strong> <span>Banmati</span> <span>Begajah</span> <span>Bulakan</span> <span>Bulakrejo</span> <span>Combongan</span> <span>Dukuh</span> <span>Gayam</span> <span>Jetis</span> <span>Joho</span> <span>Kenep</span> <span>Kriwen</span> <span>Mandan</span> <span>Sonorejo</span> <span>Sukoharjo</span></div>
+    </details>
   </div>
 
   <div class="kota-block">
-    <div class="kota-head"><h2>Kabupaten Karanganyar</h2><span class="count">17 kecamatan</span></div>
+    <div class="kota-head"><h2>Kabupaten Karanganyar</h2><span class="count">17 kecamatan · 15 kelurahan</span></div>
     <p class="kota-desc">Gerbang timur Solo Raya — Colomadu &amp; Gondangrejo paling rapat pertumbuhan huniannya. Detail lengkap: <a href="/wifi-karanganyar/"><strong>Pasang WiFi Karanganyar</strong></a>.</p>
     <div class="kec-chips">
       <span>Colomadu</span><span>Gondangrejo</span><span>Jaten</span><span>Karanganyar</span><span>Tasikmadu</span><span>Matesih</span><span>Jumantono</span><span>Jumapolo</span><span>Karangpandan</span><span>Kebakkramat</span><span>Kerjo</span><span>Mojogedang</span><span>Ngargoyoso</span><span>Tawangmangu</span><span>Jatipuro</span><span>Jatiyoso</span><span>Jenawi</span>
     </div>
+    <details class="kel-details">
+      <summary>Lihat 15 kelurahan di Karanganyar</summary>
+      <div class="kel-group" data-kec="Karanganyar"><strong>Karanganyar:</strong> <span>Bejen</span> <span>Bolong</span> <span>Cangakan</span> <span>Delingan</span> <span>Gayamdompo</span> <span>Gedong</span> <span>Jantiharjo</span> <span>Jungke</span> <span>Karanganyar</span> <span>Lalung</span> <span>Popongan</span> <span>Tegalgede</span></div>
+      <div class="kel-group" data-kec="Tawangmangu"><strong>Tawangmangu:</strong> <span>Blumbang</span> <span>Kalisoro</span> <span>Tawangmangu</span></div>
+    </details>
   </div>
 
   <div class="kota-block">
-    <div class="kota-head"><h2>Kabupaten Klaten</h2><span class="count">26 kecamatan</span></div>
+    <div class="kota-head"><h2>Kabupaten Klaten</h2><span class="count">26 kecamatan · 10 kelurahan</span></div>
     <p class="kota-desc">Wilayah terluas cakupan kami — wireless unlimited dari Ceper &amp; Delanggu yang industrial sampai Prambanan di utara. Detail lengkap: <a href="/wifi-klaten/"><strong>Pasang WiFi Klaten</strong></a>.</p>
     <div class="kec-chips">
       <span>Klaten Selatan</span><span>Klaten Tengah</span><span>Klaten Utara</span><span>Cawas</span><span>Trucuk</span><span>Jogonalan</span><span>Ceper</span><span>Delanggu</span><span>Polanharjo</span><span>Wedi</span><span>Bayat</span><span>Prambanan</span><span>Gantiwarno</span><span>Kalikotes</span><span>Kebonarum</span><span>Manisrenggo</span><span>Karangnongko</span><span>Ngawen</span><span>Pedan</span><span>Karangdowo</span><span>Juwiring</span><span>Wonosari</span><span>Kemalang</span><span>Tulung</span><span>Jatinom</span><span>Karanganom</span>
     </div>
+    <details class="kel-details">
+      <summary>Lihat 10 kelurahan di Klaten</summary>
+      <div class="kel-group" data-kec="Jatinom"><strong>Jatinom:</strong> <span>Jatinom</span></div>
+      <div class="kel-group" data-kec="Klaten Selatan"><strong>Klaten Selatan:</strong> <span>Gayamprit</span></div>
+      <div class="kel-group" data-kec="Klaten Tengah"><strong>Klaten Tengah:</strong> <span>Bareng</span> <span>Buntalan</span> <span>Kabupaten</span> <span>Klaten</span> <span>Mojayan</span> <span>Tonggalan</span></div>
+      <div class="kel-group" data-kec="Klaten Utara"><strong>Klaten Utara:</strong> <span>Bareng Lor</span> <span>Gergunung</span></div>
+    </details>
   </div>
 
   <div class="kota-block">
-    <div class="kota-head"><h2>Kabupaten Boyolali</h2><span class="count">19 kecamatan</span></div>
+    <div class="kota-head"><h2>Kabupaten Boyolali</h2><span class="count">19 kecamatan · 6 kelurahan</span></div>
     <p class="kota-desc">Gerbang barat Solo Raya — koridor Boyolali-Mojosongo-Selo tumbuh pesat. Detail lengkap: <a href="/wifi-boyolali/"><strong>Pasang WiFi Boyolali</strong></a>.</p>
     <div class="kec-chips">
       <span>Boyolali</span><span>Mojosongo</span><span>Teras</span><span>Ampel</span><span>Sawit</span><span>Banyudono</span><span>Ngemplak</span><span>Sambi</span><span>Nogosari</span><span>Simo</span><span>Klego</span><span>Andong</span><span>Wonosegoro</span><span>Kemusu</span><span>Juwangi</span><span>Karanggede</span><span>Cepogo</span><span>Musuk</span><span>Selo</span>
     </div>
+    <details class="kel-details">
+      <summary>Lihat 6 kelurahan di Boyolali</summary>
+      <div class="kel-group" data-kec="Boyolali"><strong>Boyolali:</strong> <span>Banaran</span> <span>Pulisen</span> <span>Siswodipuran</span></div>
+      <div class="kel-group" data-kec="Juwangi"><strong>Juwangi:</strong> <span>Sambeng</span></div>
+      <div class="kel-group" data-kec="Mojosongo"><strong>Mojosongo:</strong> <span>Kemiri</span> <span>Mojosongo</span></div>
+    </details>
   </div>
 
   <div class="note-box">
@@ -216,7 +259,7 @@
 
   <div class="faq-item">
     <h3>Di kota apa saja XL SATU tersedia di Solo Raya?</h3>
-    <p>XL SATU melayani 5 wilayah: Kota Solo (Surakarta), Sukoharjo, Karanganyar, Klaten, dan Boyolali — total 79 kecamatan seperti dipetakan di halaman ini.</p>
+    <p>XL SATU melayani 5 wilayah: Kota Solo (Surakarta), Sukoharjo, Karanganyar, Klaten, dan Boyolali — total 79 kecamatan dan 102 kelurahan seperti dipetakan di halaman ini. Ketik nama kelurahanmu di kolom pencarian di atas untuk cek cepat.</p>
   </div>
   <div class="faq-item">
     <h3>Apakah semua kecamatan sudah bisa dipasang fiber optic?</h3>
@@ -280,6 +323,33 @@
 // Anti-copy ringan: cegah drag & save gambar, teks tetap bisa dicopy
  document.addEventListener('contextmenu', function(e){ if(e.target.tagName==='IMG') e.preventDefault(); }, false);
  document.addEventListener('dragstart', function(e){ if(e.target.tagName==='IMG') e.preventDefault(); }, false);
+</script>
+<script>
+// Filter kelurahan: cari nama kelurahan di dalam kecamatan
+(function () {
+  var input = document.getElementById('kel-search');
+  var count = document.getElementById('kel-count');
+  if (!input) return;
+  var groups = Array.prototype.slice.call(document.querySelectorAll('.kel-group'));
+  var details = Array.prototype.slice.call(document.querySelectorAll('.kel-details'));
+  var total = document.querySelectorAll('.kel-group span').length;
+  function terapkan() {
+    var q = input.value.trim().toLowerCase();
+    var cocok = 0;
+    groups.forEach(function (g) {
+      var adaCocok = false;
+      g.querySelectorAll('span').forEach(function (s) {
+        var hit = !q || s.textContent.toLowerCase().indexOf(q) !== -1;
+        s.style.display = hit ? '' : 'none';
+        if (hit) { adaCocok = true; cocok++; }
+      });
+      g.style.display = adaCocok ? '' : 'none';
+    });
+    details.forEach(function (d) { if (q) d.open = true; });
+    count.textContent = q ? (cocok > 0 ? cocok + ' dari ' + total + ' kelurahan cocok.' : 'Tidak ada kelurahan yang cocok — coba kata lain atau chat sales.') : '';
+  }
+  input.addEventListener('input', terapkan);
+})();
 </script>
 </body>
 </html>
