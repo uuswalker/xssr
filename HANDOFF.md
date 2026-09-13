@@ -61,3 +61,15 @@
 3. Kalau utak-atik template/JSON → regenerate + copy + cek sinkron
 4. Tidak ada jejak paket/harga lama yang seharusnya hilang (`rg`)
 5. Push → verifikasi live (Invoke-WebRequest status code) → ingatkan user request indexing jika halaman baru/konten besar berubah
+
+## Workflow Agent (untuk AI agent lain)
+
+Repo: `https://github.com/uuswalker/xssr` (Vercel auto-deploy dari `main`).
+
+1. **Komunikasi**: Bahasa Indonesia, singkat, fakta + `file:line`. Baca file dulu (`read`/`grep`) sebelum simpulkan; bukti menang atas tebakan.
+2. **Push**: hanya setelah kata eksplisit (`push`, `kirim`, `oke kerjakan`, `boleh`, `gas`). Alur: `git status` → `git diff` review → commit jelas → push → lapor hash.
+3. **Kota**: edit `tools/template-kota.html` atau `tools/data-kota.json` → `node tools/generate.js` → copy `tools/output/wifi-*` ke root → verifikasi → push. `wifi-solo` = gateway (`skip_generate`). Klaten = wireless only.
+4. **Verifikasi**: JS baru wajib `node --check`; hitungan (span, tier) via executed code. `TodoWrite` untuk multi-langkah, 1 `in_progress`.
+5. **SEO**: harga pra-PPN + label `belum termasuk PPN`; klaim STB dilarang. Tambah konten > ubah title yang ranking. Satu URL satu intent (query kontak = 1 FAQ, bukan artikel baru).
+6. **Indexing**: backend (webhook/validasi/anti-copy) tidak perlu Request Indexing; title/FAQ/konten baru perlu (sebutkan URL-nya). `sitemap.xml` lastmod = tanggal ubah aktual (`git log`), tanpa BOM. Sinkron `llms.txt`/`README.md`/file ini bila struktur berubah.
+7. **Sentuh**: `cek-lokasi.js` (funnel), `tools/Code.gs` (webhook), `index.html` (homepage), `site-consent.js` (Consent Mode, jangan auto-granted). Nomor tunggal `0877-7899-9141` = `6287778999141` = `wa.me/xlsatusolo`.
