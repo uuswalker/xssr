@@ -160,10 +160,16 @@ function _formatSingleRow(ws, r) {
 
 // ── NOTIF WA: kirim ringkasan lead ke owner via Fonnte ─────────
 // Gagal kirim = lead tetap tersimpan (try/catch di dalam).
-function kirimNotifWA(nama, wa, alamat, kota, halaman) {
+function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng) {
   try {
-    var pesan = "Lead baru xlsatusolo.com\nNama: " + nama + "\nWA: " + wa +
-      "\nAlamat: " + alamat + "\nKota: " + kota + "\nHalaman: " + halaman;
+    var d = new Date();
+    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+    var waktu = pad(d.getDate()) + "-" + pad(d.getMonth() + 1) + "-" + d.getFullYear() +
+      " " + pad(d.getHours()) + ":" + pad(d.getMinutes());
+    var maps = (lat !== "" && lat != null && lng !== "" && lng != null)
+      ? "https://maps.google.com/?q=" + lat + "," + lng : "-";
+    var pesan = "Lead baru xlsatusolo.com\nWaktu: " + waktu + "\nNama: " + nama + "\nWA: " + wa +
+      "\nAlamat: " + alamat + "\nKota: " + kota + "\nMaps: " + maps + "\nHalaman: " + halaman;
     var res = UrlFetchApp.fetch("https://api.fonnte.com/send", {
       method: "post",
       headers: { Authorization: FONNTE_TOKEN },
@@ -219,7 +225,7 @@ function doPost(e) {
           ws.getRange(row, 7).setValue(pilih(kota, cur[6]));
           ws.getRange(row, 9).setValue(pilih(json.halaman, cur[8]));
           _formatSingleRow(ws, row);
-          kirimNotifWA(pilih(json.nama, cur[1]), wa, pilih(json.alamat, cur[5]), pilih(kota, cur[6]), pilih(json.halaman, cur[8]));
+          kirimNotifWA(pilih(json.nama, cur[1]), wa, pilih(json.alamat, cur[5]), pilih(kota, cur[6]), pilih(json.halaman, cur[8]), pilih(json.latitude, cur[3]), pilih(json.longitude, cur[4]));
           return ContentService
             .createTextOutput(JSON.stringify({ status: "updated", row: row }))
             .setMimeType(ContentService.MimeType.JSON);
@@ -242,7 +248,7 @@ function doPost(e) {
     ]]);
 
     _formatSingleRow(ws, newRow);
-    kirimNotifWA(String(json.nama || "").trim(), wa, String(json.alamat || "").trim(), kota, json.halaman || "");
+    kirimNotifWA(String(json.nama || "").trim(), wa, String(json.alamat || "").trim(), kota, json.halaman || "", json.latitude, json.longitude);
 
     return ContentService
       .createTextOutput(JSON.stringify({ status: "ok", row: newRow }))
