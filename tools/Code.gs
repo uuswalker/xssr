@@ -15,6 +15,8 @@ var SHEET_NAME   = "Database Lead";
 var HEADER_ROW   = 3;
 var DATA_START   = 4;
 var SECRET_TOKEN = "xlsr_2026_s0lor4y4"; // sama dengan TOKEN di cek-lokasi.js
+var FONNTE_TOKEN = "GANTI_DENGAN_TOKEN_FONNTE"; // token device Fonnte (isi di Apps Script saja)
+var NOMOR_NOTIF = "087778999141"; // WA owner penerima notif lead
 
 var COLOR = {
   HEADER_BG  : "#1A56A0",
@@ -156,6 +158,20 @@ function _formatSingleRow(ws, r) {
     .setHorizontalAlignment("center").setVerticalAlignment("middle");
 }
 
+// ── NOTIF WA: kirim ringkasan lead ke owner via Fonnte ─────────
+// Gagal kirim = lead tetap tersimpan (try/catch di dalam).
+function kirimNotifWA(nama, wa, alamat, kota, halaman) {
+  try {
+    var pesan = "Lead baru xlsatusolo.com\nNama: " + nama + "\nWA: " + wa +
+      "\nAlamat: " + alamat + "\nKota: " + kota + "\nHalaman: " + halaman;
+    UrlFetchApp.fetch("https://api.fonnte.com/send", {
+      method: "post",
+      headers: { Authorization: FONNTE_TOKEN },
+      payload: { target: NOMOR_NOTIF, message: pesan }
+    });
+  } catch (err) {}
+}
+
 // ── WEBHOOK: Terima lead dari website (v5.1 gabungan) ─────────
 function doPost(e) {
   try {
@@ -199,6 +215,7 @@ function doPost(e) {
           ws.getRange(row, 7).setValue(pilih(kota, cur[6]));
           ws.getRange(row, 9).setValue(pilih(json.halaman, cur[8]));
           _formatSingleRow(ws, row);
+          kirimNotifWA(pilih(json.nama, cur[1]), wa, pilih(json.alamat, cur[5]), pilih(kota, cur[6]), pilih(json.halaman, cur[8]));
           return ContentService
             .createTextOutput(JSON.stringify({ status: "updated", row: row }))
             .setMimeType(ContentService.MimeType.JSON);
@@ -221,6 +238,7 @@ function doPost(e) {
     ]]);
 
     _formatSingleRow(ws, newRow);
+    kirimNotifWA(String(json.nama || "").trim(), wa, String(json.alamat || "").trim(), kota, json.halaman || "");
 
     return ContentService
       .createTextOutput(JSON.stringify({ status: "ok", row: newRow }))
