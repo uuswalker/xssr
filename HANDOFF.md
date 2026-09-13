@@ -50,7 +50,7 @@
 
 1. **Auto-WA ke lead** via Fonnte/Apps Script — user menunda; desain & contoh kode sudah ada (sesi 25 Agu).
 2. **Google Business Profile** per kota — moat lokal terbesar yang belum ada.
-3. Banner monthly masih bertuliskan *"Pilot Agustus 2026"* — ganti jika program sudah permanen.
+3. Banner monthly *"Pilot Agustus 2026"* — SELESAI 13 Sep 2026: program monthly permanen, label Pilot dihapus site-wide (homepage + template + 5 kota).
 4. Konfirmasi spek *"Hingga 10 Perangkat"* di kartu Fiber Starter 50 (asumsi agent, belum dikonfirmasi user).
 5. Indexing GSC untuk URL baru: `/wifi-surakarta/`, `/area-layanan/`, `/kebijakan-privasi/` — user sudah request manual (26 Agu).
 
