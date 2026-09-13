@@ -3,233 +3,240 @@
    Deploy sebagai Web App (Execute as: Me, whoHasAccess: Anyone).
 
    RIWAYAT:
-   - v1: append baris mentah.
-   - v2 (26 Agu 2026): soft-lead merge — full lead yang cocok
-     koordinatnya dengan row 'lokasi-saja' (±5 menit, ±0.0005°)
-     meng-update row tsb. Tambah kolom 10 "Tipe" (lokasi-saja/lengkap).
-   - v3 (27 Agu 2026): DEDUP BY NOMOR HP — nomor HP yang sama
-     tidak lagi membuat baris ganda; update baris terbaru milik
-     nomor itu dengan data yang lebih lengkap.
-   - v4 (29 Agu 2026): cek token anti-spam + validasi minimal
-     (tolak simpan kalau tidak ada WA valid / koordinat / alamat berisi).
-   - v5.1 (9 Sep 2026): WAJIB WA+nama, lokasi cukup alamat ATAU lat/lng
-     (ngetest 123 tanpa pin tetap masuk kalau WA ada — bisa follow up).
+   - v1-v4: sheet 'Lead' (append mentah, soft-lead merge, dedup HP, token+validasi).
+   - v5.1: WAJIB WA+nama, lokasi cukup alamat ATAU lat/lng.
+   - v6 (13 Sep 2026): sheet baru 'Database Lead' (header baris 3,
+     format zebra + freeze + filter) — doPost gabungan: token,
+     validasi v5.1, dedup HP, mapping kotaTerdeteksi.
    ============================================================ */
 
-var SHEET_NAME = 'Lead'; // sesuaikan dengan nama sheet kamu
+// ── KONFIGURASI ─────────────────────────────────────────────
+var SHEET_NAME   = "Database Lead";
+var HEADER_ROW   = 3;
+var DATA_START   = 4;
+var SECRET_TOKEN = "xlsr_2026_s0lor4y4"; // sama dengan TOKEN di cek-lokasi.js
 
-// Token sederhana untuk memblokir bot acak yang menembak endpoint tanpa lewat situs.
-// Cocokkan dengan konstanta TOKEN di cek-lokasi.js. Bukan kriptografi sempurna
-// (bisa terlihat dari source static site), tapi cukup menolak spam /curl/ acak.
-var SECRET_TOKEN = 'xlsr_2026_s0lor4y4';
+var COLOR = {
+  HEADER_BG  : "#1A56A0",
+  HEADER_FG  : "#FFFFFF",
+  TITLE_BG   : "#D6E4F7",
+  TITLE_FG   : "#1A56A0",
+  ROW_ODD    : "#EEF4FB",
+  ROW_EVEN   : "#FFFFFF",
+  BORDER     : "#B8CCE4",
+};
 
+var HEADERS = [
+  "Timestamp", "Nama", "WhatsApp",
+  "Latitude", "Longitude", "Alamat",
+  "Kota", "Link Maps", "Halaman", "Status Follow Up"
+];
+
+var COL_WIDTHS = [145, 180, 130, 90, 90, 300, 115, 225, 165, 150]; // pixel
+
+// ── ENTRY POINT: jalankan sekali untuk apply semua formatting ─
+function applyFormatting() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ws   = ss.getSheetByName(SHEET_NAME);
+
+  if (!ws) {
+    ws = ss.getActiveSheet();
+    ws.setName(SHEET_NAME);
+  }
+
+  _setupTitleRow(ws);
+  _setupHeaderRow(ws);
+  _applyDataFormatting(ws);
+  _setColumnWidths(ws);
+  _freezeAndFilter(ws);
+
+  SpreadsheetApp.flush();
+  SpreadsheetApp.getUi().alert("Formatting selesai diapply!");
+}
+
+// ── TITLE ROW (row 1) ────────────────────────────────────────
+function _setupTitleRow(ws) {
+  var lastCol = HEADERS.length;
+
+  if (ws.getLastRow() < 3) {
+    ws.insertRowsBefore(1, 3);
+  }
+
+  var titleRange = ws.getRange(1, 1, 1, lastCol);
+  titleRange.merge();
+  titleRange
+    .setValue("Database Lead — xlsatusolo.com")
+    .setBackground(COLOR.TITLE_BG)
+    .setFontColor(COLOR.TITLE_FG)
+    .setFontFamily("Arial")
+    .setFontSize(13)
+    .setFontWeight("bold")
+    .setHorizontalAlignment("center")
+    .setVerticalAlignment("middle");
+
+  ws.setRowHeight(1, 36);
+
+  ws.setRowHeight(2, 8);
+  ws.getRange(2, 1, 1, lastCol).setBackground("#FFFFFF");
+}
+
+// ── HEADER ROW (row 3) ───────────────────────────────────────
+function _setupHeaderRow(ws) {
+  var headerRange = ws.getRange(HEADER_ROW, 1, 1, HEADERS.length);
+
+  headerRange
+    .setValues([HEADERS])
+    .setBackground(COLOR.HEADER_BG)
+    .setFontColor(COLOR.HEADER_FG)
+    .setFontFamily("Arial")
+    .setFontSize(10)
+    .setFontWeight("bold")
+    .setHorizontalAlignment("center")
+    .setVerticalAlignment("middle")
+    .setWrap(true);
+
+  _applyBorder(headerRange);
+  ws.setRowHeight(HEADER_ROW, 40);
+}
+
+// ── DATA ROWS ─────────────────────────────────────────────────
+function _applyDataFormatting(ws) {
+  var lastRow = ws.getLastRow();
+  if (lastRow < DATA_START) return;
+
+  for (var r = DATA_START; r <= lastRow; r++) {
+    _formatSingleRow(ws, r);
+  }
+}
+
+// ── COLUMN WIDTHS ─────────────────────────────────────────────
+function _setColumnWidths(ws) {
+  COL_WIDTHS.forEach(function (w, i) { ws.setColumnWidth(i + 1, w); });
+}
+
+// ── FREEZE + FILTER ───────────────────────────────────────────
+function _freezeAndFilter(ws) {
+  ws.setFrozenRows(HEADER_ROW);
+  ws.setFrozenColumns(0);
+
+  var lastRow = ws.getLastRow();
+  var lastCol = HEADERS.length;
+  if (lastRow >= HEADER_ROW) {
+    ws.getRange(HEADER_ROW, 1, lastRow - HEADER_ROW + 1, lastCol)
+      .createFilter();
+  }
+}
+
+// ── BORDER HELPER ─────────────────────────────────────────────
+function _applyBorder(range) {
+  range.setBorder(
+    true, true, true, true, true, true,
+    COLOR.BORDER,
+    SpreadsheetApp.BorderStyle.SOLID
+  );
+}
+
+// ── FORMAT SATU BARIS (dipakai onEdit & webhook) ──────────────
+function _formatSingleRow(ws, r) {
+  var isOdd = (r - DATA_START) % 2 === 0;
+  var rowBg = isOdd ? COLOR.ROW_ODD : COLOR.ROW_EVEN;
+  var rowRange = ws.getRange(r, 1, 1, HEADERS.length);
+
+  rowRange.setBackground(rowBg).setFontFamily("Arial").setFontSize(9);
+  _applyBorder(rowRange);
+  ws.setRowHeight(r, 22);
+
+  ws.getRange(r, 1).setNumberFormat("dd-mm-yyyy hh:mm").setVerticalAlignment("middle").setHorizontalAlignment("left");
+  ws.getRange(r, 3).setNumberFormat("@").setVerticalAlignment("middle").setHorizontalAlignment("left");
+  ws.getRange(r, 4).setNumberFormat("0.000000").setHorizontalAlignment("center").setVerticalAlignment("middle");
+  ws.getRange(r, 5).setNumberFormat("0.000000").setHorizontalAlignment("center").setVerticalAlignment("middle");
+  ws.getRange(r, 6).setWrap(true).setHorizontalAlignment("left").setVerticalAlignment("middle");
+  ws.getRange(r, 8)
+    .setFormula("=IF(ISBLANK(D" + r + '),"","https://maps.google.com/?q="&ROUND(D' + r + ",6)&\",\"&ROUND(E" + r + ",6))")
+    .setHorizontalAlignment("center").setVerticalAlignment("middle");
+}
+
+// ── WEBHOOK: Terima lead dari website (v5.1 gabungan) ─────────
 function doPost(e) {
   try {
     var json = JSON.parse(e.postData.contents);
     if (!json.token || json.token !== SECRET_TOKEN) {
-      return ContentService.createTextOutput('error:forbidden')
-        .setMimeType(ContentService.MimeType.TEXT);
+      return ContentService
+        .createTextOutput(JSON.stringify({ status: "forbidden" }))
+        .setMimeType(ContentService.MimeType.JSON);
     }
+    var norm = function (w) { return String(w || "").replace(/\D/g, "").replace(/^0/, "62"); };
+    var wa = norm(json.whatsapp);
+    var namaOk = String(json.nama || "").trim().length >= 2;
+    var latOk = !isNaN(Number(json.latitude)) && String(json.latitude == null ? "" : json.latitude).trim() !== "";
+    var lngOk = !isNaN(Number(json.longitude)) && String(json.longitude == null ? "" : json.longitude).trim() !== "";
+    var alamatOk = String(json.alamat || "").trim().length >= 5;
+    if (!(wa.length >= 9 && namaOk && ((latOk && lngOk) || alamatOk))) {
+      return ContentService
+        .createTextOutput(JSON.stringify({ status: "dropped-missing" }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
     var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet = ss.getSheetByName(SHEET_NAME);
-    if (!sheet) sheet = ss.getActiveSheet();
+    var ws = ss.getSheetByName(SHEET_NAME);
+    var kota = json.kotaTerdeteksi || json.kota || "";
 
-    // Deteksi kolom berdasarkan nama header (tahan terhadap urutan yang berubah).
-    // Pastikan baris pertama sheet berisi header: Timestamp, Nama, WhatsApp, dst.
-    var lastCol = sheet.getLastColumn();
-    var headers = (lastCol >= 1)
-      ? sheet.getRange(1, 1, 1, lastCol).getValues()[0]
-      : [];
-
-    var COLS = {
-      'timestamp':      /^timestamp$/i,
-      'tipe':           /^tipe$/i,
-      'nama':           /^nama$/i,
-      'whatsapp':       /^(whatsapp|wa|no.*wa|nomor.*wa|hape|hp)$/i,
-      'latitude':       /^(latitude|lat)$/i,
-      'longitude':      /^(longitude|lng|lon)$/i,
-      'alamat':         /^alamat$/i,
-      'kota':           /^(kota|kota.*terdeteksi|area)$/i,
-      'mapsLink':       /^(maps.*link|peta|g.*maps)$/i,
-      'halaman':        /^(halaman|page|url|path)$/i,
-      'referrer':       /^(referrer|referral)$/i
-    };
-
-    function col(name) {
-      var re = COLS[name];
-      if (re) {
-        for (var i = 0; i < headers.length; i++) {
-          if (re.test(String(headers[i]))) return i + 1;
-        }
-      }
-      return -1;
-    }
-
-    var cTime = col('timestamp'), cTipe = col('tipe'), cNama = col('nama'),
-        cWA = col('whatsapp'), cLat = col('latitude'), cLng = col('longitude'),
-        cAlamat = col('alamat'), cKota = col('kota'), cMaps = col('mapsLink'),
-        cHalaman = col('halaman'), cReferrer = col('referrer');
-
-    var tipe = json.tipe || 'lengkap';
-    var wa = String(json.whatsapp || '').replace(/\D/g, '').replace(/^0/, '62');
-
-    var now = new Date();
-    var lastRow = sheet.getLastRow();
-
-    // ---- 1) DEDUP BY NOMOR HP: cari baris terbaru dengan nomor sama ----
-    var rowTarget = null;
-    if (wa && wa.length >= 8) {
-      var waRange = sheet.getRange(2, cWA, Math.max(1, lastRow - 1)).getValues();
-      for (var r = waRange.length - 1; r >= 0; r--) { // dari bawah (terbaru) ke atas
-        var existing = String(waRange[r][0] || '').replace(/\D/g, '').replace(/^0/, '62');
-        if (existing && existing === wa) {
-          rowTarget = r + 2; // baris aktual (mulai 2)
-          break;
+    var lastRow = ws.getLastRow();
+    if (lastRow >= DATA_START) {
+      var waVals = ws.getRange(DATA_START, 3, lastRow - DATA_START + 1, 1).getValues();
+      for (var r = waVals.length - 1; r >= 0; r--) {
+        if (waVals[r][0] && norm(waVals[r][0]) === wa) {
+          var row = r + DATA_START;
+          var pilih = function (baru, lama) {
+            var b = String(baru == null ? "" : baru).trim();
+            return (b && b !== "undefined" && b !== "null") ? b : String(lama == null ? "" : lama);
+          };
+          var cur = ws.getRange(row, 1, 1, 10).getValues()[0];
+          ws.getRange(row, 2).setValue(pilih(json.nama, cur[1]));
+          ws.getRange(row, 4).setValue(pilih(json.latitude, cur[3]));
+          ws.getRange(row, 5).setValue(pilih(json.longitude, cur[4]));
+          ws.getRange(row, 6).setValue(pilih(json.alamat, cur[5]));
+          ws.getRange(row, 7).setValue(pilih(kota, cur[6]));
+          ws.getRange(row, 9).setValue(pilih(json.halaman, cur[8]));
+          _formatSingleRow(ws, row);
+          return ContentService
+            .createTextOutput(JSON.stringify({ status: "updated", row: row }))
+            .setMimeType(ContentService.MimeType.JSON);
         }
       }
     }
 
-    if (rowTarget) {
-      // ---- Nomor HP sudah ada: update baris tsb dengan data paling lengkap ----
-      var rowVals = sheet.getRange(rowTarget, 1, 1, 11).getValues()[0];
+    var newRow = ws.getLastRow() + 1;
+    ws.getRange(newRow, 1, 1, 10).setValues([[
+      new Date(json.timestamp || Date.now()),
+      String(json.nama || "").trim(),
+      wa,
+      (json.latitude == null ? "" : json.latitude),
+      (json.longitude == null ? "" : json.longitude),
+      String(json.alamat || "").trim(),
+      kota,
+      "",
+      json.halaman || "",
+      json.status || ""
+    ]]);
 
-      function pilih(baru, lama) {
-        var b = String(baru == null ? '' : baru).trim();
-        var l = String(lama == null ? '' : lama).trim();
-        if (b && b !== 'undefined' && b !== 'null') return b;
-        return l;
-      }
+    _formatSingleRow(ws, newRow);
 
-      var finalNama = pilih(json.nama, rowVals[cNama - 1]);
-      var finalWA = pilih(wa, rowVals[cWA - 1]);
-      var finalLat = pilih(json.latitude, rowVals[cLat - 1]);
-      var finalLng = pilih(json.longitude, rowVals[cLng - 1]);
-      var finalAlamat = pilih(json.alamat, rowVals[cAlamat - 1]);
-      var finalKota = pilih(json.kotaTerdeteksi, rowVals[cKota - 1]);
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "ok", row: newRow }))
+      .setMimeType(ContentService.MimeType.JSON);
 
-      // baris yang sudah 'lengkap' tidak diturunkan jadi 'lokasi-saja'
-      var tipeLama = String(rowVals[cTipe - 1] || '');
-      var finalTipe = (tipe === 'lengkap' || tipeLama === 'lengkap') ? 'lengkap' : 'lokasi-saja';
-
-      if (cTime > 0) sheet.getRange(rowTarget, cTime).setValue(rowVals[cTime - 1]); // pertahankan timestamp asli
-      if (cTipe > 0) sheet.getRange(rowTarget, cTipe).setValue(finalTipe);
-      if (cNama > 0) sheet.getRange(rowTarget, cNama).setValue(finalNama);
-      if (cWA > 0) sheet.getRange(rowTarget, cWA).setValue(finalWA);
-      if (cLat > 0) sheet.getRange(rowTarget, cLat).setValue(finalLat);
-      if (cLng > 0) sheet.getRange(rowTarget, cLng).setValue(finalLng);
-      if (cAlamat > 0) sheet.getRange(rowTarget, cAlamat).setValue(finalAlamat);
-      if (cKota > 0) sheet.getRange(rowTarget, cKota).setValue(finalKota);
-
-      // maps link sudah diisi
-      if (cMaps > 0) {
-        var mapsLink = (finalLat && finalLat !== 'null' && finalLng && finalLng !== 'null')
-          ? 'https://www.google.com/maps?q=' + finalLat + ',' + finalLng : '';
-        sheet.getRange(rowTarget, cMaps).setValue(mapsLink);
-      }
-      if (cHalaman > 0) sheet.getRange(rowTarget, cHalaman).setValue(pilih(json.halaman, rowVals[cHalaman - 1]));
-
-      return ContentService.createTextOutput('ok:updated ' + rowTarget)
-        .setMimeType(ContentService.MimeType.TEXT);
-    }
-
-    // ---- 2) Soft-lead merge: full lead cocok koordinat dgn row 'lokasi-saja' ----
-    if (tipe === 'lengkap') {
-      var latIn = parseFloat(json.latitude);
-      var lngIn = parseFloat(json.longitude);
-      if (!isNaN(latIn) && !isNaN(lngIn) && lastRow > 1) {
-        var latRng = sheet.getRange(2, cLat, lastRow - 1).getValues();
-        var lngRng = sheet.getRange(2, cLng, lastRow - 1).getValues();
-        for (var i = latRng.length - 1; i >= 0; i--) {
-          var latOld = parseFloat(latRng[i][0]);
-          var lngOld = parseFloat(lngRng[i][0]);
-          if (isNaN(latOld) || isNaN(lngOld)) continue;
-          if (Math.abs(latOld - latIn) <= 0.0005 && Math.abs(lngOld - lngIn) <= 0.0005) {
-            var baris = i + 2;
-            var tsOld = sheet.getRange(baris, cTime).getValue();
-            var diffMs = Math.abs(now.getTime() - new Date(tsOld).getTime());
-            var tipeOld = String((sheet.getRange(baris, cTipe).getValue()) || '');
-            if (diffMs <= 5 * 60 * 1000 && tipeOld === 'lokasi-saja') {
-              sheet.getRange(baris, cNama).setValue(json.nama);
-              sheet.getRange(baris, cWA).setValue(wa);
-              sheet.getRange(baris, cTipe).setValue('lengkap');
-              return ContentService.createTextOutput('ok:merged ' + baris)
-                .setMimeType(ContentService.MimeType.TEXT);
-            }
-          }
-        }
-      }
-    }
-
-    // ---- 3) Baris baru (append) ----
-    // WAJIB: WA + nama wajib, lokasi cukup salah satu: pin peta (lat/lng) ATAU alamat teks ≥5
-    var waLen = String(wa || '').length;
-    var latOk = !isNaN(Number(json.latitude)) && String(json.latitude||'').trim() !== '';
-    var lngOk = !isNaN(Number(json.longitude)) && String(json.longitude||'').trim() !== '';
-    var namaOk = String(json.nama||'').trim().length >= 2;
-    var alamatOk = String(json.alamat||'').trim().length >= 5;
-    if (!(waLen >= 9 && namaOk && ((latOk && lngOk) || alamatOk))) {
-      return ContentService.createTextOutput('ok:dropped-missing')
-        .setMimeType(ContentService.MimeType.TEXT);
-    }
-
-    var newRow = [
-      now, tipe, json.nama || '', wa || '',
-      (json.latitude != null ? json.latitude : ''),
-      (json.longitude != null ? json.longitude : ''),
-      json.alamat || '', json.kotaTerdeteksi || '',
-      json.mapsLink || '', json.halaman || '', json.referrer || ''
-    ];
-    // tentukan kolom mana yang ada untuk isi sesuai header; default urutan kolom di bawah
-    var MAXCOLS = 11;
-    var order = [
-      { h: 'Timestamp',  v: now },
-      { h: 'Tipe',       v: tipe },
-      { h: 'Nama',       v: json.nama || '' },
-      { h: 'WhatsApp',   v: wa || '' },
-      { h: 'Latitude',   v: (json.latitude != null ? json.latitude : '') },
-      { h: 'Longitude',  v: (json.longitude != null ? json.longitude : '') },
-      { h: 'Alamat',     v: json.alamat || '' },
-      { h: 'Kota',       v: json.kotaTerdeteksi || '' },
-      { h: 'Maps Link',  v: json.mapsLink || '' },
-      { h: 'Halaman',    v: json.halaman || '' },
-      { h: 'Referrer',   v: json.referrer || '' }
-    ];
-
-    // jika belum ada header, buat header (urutan default di atas)
-    if (lastRow <= 1) {
-      var headerRow = [];
-      for (var hx = 0; hx < order.length; hx++) headerRow.push(order[hx].h);
-      sheet.getRange(1, 1, 1, order.length).setValues([headerRow]);
-    }
-
-    // isi baris baru berdasarkan kolom yang terdeteksi
-    var targetRow = sheet.getLastRow() + 1;
-    var set = [];
-    for (var oy = 0; oy < order.length; oy++) {
-      // cocokkan header case-insensitive dengan menghapus spasi
-      var cIdx = -1;
-      var want = String(order[oy].h).toLowerCase().replace(/\s+/g, '');
-      for (var hh = 0; hh < headers.length; hh++) {
-        if (String(headers[hh]).toLowerCase().replace(/\s+/g, '') === want) { cIdx = hh + 1; break; }
-      }
-      if (cIdx > 0 && cIdx <= MAXCOLS) set.push([targetRow, cIdx, order[oy].v]);
-    }
-    if (set.length) {
-      for (var s = 0; s < set.length; s++) {
-        sheet.getRange(set[s][0], set[s][1]).setValue(set[s][2]);
-      }
-    } else {
-      sheet.appendRow(arrayToRow(newRow));
-    }
-
-    return ContentService.createTextOutput('ok:appended')
-      .setMimeType(ContentService.MimeType.TEXT);
   } catch (err) {
-    return ContentService.createTextOutput('error: ' + err.message)
-      .setMimeType(ContentService.MimeType.TEXT);
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "error", message: err.message }))
+      .setMimeType(ContentService.MimeType.JSON);
   }
 }
 
-function arrayToRow(a) {
-  return a;
+// ── REFORMAT ULANG SEMUA BARIS (kalau ada perubahan masif) ────
+function reformatAll() {
+  var ws = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+  _applyDataFormatting(ws);
+  SpreadsheetApp.flush();
+  SpreadsheetApp.getUi().alert("Semua baris sudah direformat!");
 }
