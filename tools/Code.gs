@@ -16,7 +16,7 @@ var HEADER_ROW   = 3;
 var DATA_START   = 4;
 var SECRET_TOKEN = "xlsr_2026_s0lor4y4"; // sama dengan TOKEN di cek-lokasi.js
 var FONNTE_TOKEN = "GANTI_DENGAN_TOKEN_FONNTE"; // token device Fonnte (isi di Apps Script saja)
-var NOMOR_NOTIF = "087778999141"; // WA owner penerima notif lead
+var NOMOR_NOTIF = "6287778999141"; // WA owner penerima notif lead (format 62, tanpa 0)
 
 var COLOR = {
   HEADER_BG  : "#1A56A0",
@@ -164,12 +164,16 @@ function kirimNotifWA(nama, wa, alamat, kota, halaman) {
   try {
     var pesan = "Lead baru xlsatusolo.com\nNama: " + nama + "\nWA: " + wa +
       "\nAlamat: " + alamat + "\nKota: " + kota + "\nHalaman: " + halaman;
-    UrlFetchApp.fetch("https://api.fonnte.com/send", {
+    var res = UrlFetchApp.fetch("https://api.fonnte.com/send", {
       method: "post",
       headers: { Authorization: FONNTE_TOKEN },
-      payload: { target: NOMOR_NOTIF, message: pesan }
+      payload: { target: NOMOR_NOTIF, message: pesan },
+      muteHttpExceptions: true
     });
-  } catch (err) {}
+    console.log("FONNTE:" + res.getContentText());
+  } catch (err) {
+    console.log("FONNTE-ERR:" + err.message);
+  }
 }
 
 // ── WEBHOOK: Terima lead dari website (v5.1 gabungan) ─────────
