@@ -29,7 +29,7 @@
 - **`wifi-surakarta`** = halaman kota Solo/Surakarta (fiber & wireless, primer untuk keyword "pasang wifi solo")
 - **`wifi-solo`** = **gateway pemilihan kota** — halaman minimalis yang menangkap traffic "wifi solo" dan mengarahkan ke kota yang tepat. Bukan halaman produk.
 - **`wifi-klaten`** = **WIRELESS SAJA** (tidak ada fiber di Klaten). Template mendukung conditional block `{{#has_fiber}}...{{/has_fiber}}` — jika kota berubah jadi wireless-only, set `has_fiber: false` di `data-kota.json` lalu regenerate.
-- **`/area-layanan/`** = hub 5 wilayah + 79 kecamatan (Solo 5, Sukoharjo 12, Karanganyar 17, Klaten 26, Boyolali 19).
+- **`/area-layanan/`** = hub 5 wilayah + 79 kecamatan + 102 kelurahan searchable (Solo 54, Sukoharjo 17, Karanganyar 15, Klaten 10, Boyolali 6).
 - Urutan section halaman: Hero(+trust strip) → Area → Paket → Wireless → Kenapa Sales → FAQ → Hubungi. Alasan: jawab pertanyaan pengunjung sesuai urutan pikirannya.
 - Aset gambar/icon **self-hosted** di `images/xl-cdn/` — jangan kembalikan ke CDN satu.xl.co.id.
 

@@ -26,7 +26,8 @@ Static landing page untuk layanan XL SATU (fiber optic & wireless internet) area
 ├── wifi-tanpa-fup-unlimited/                   # Artikel panduan
 ├── 5-hal-wajib-dicek-sebelum-pasang-wifi-rumah/ # Artikel: checklist sebelum pasang wifi
 ├── solusi-internet-daerah-belum-ada-fiber-optik/ # Artikel: FWA untuk area belum ada fiber
-├── area-layanan/                                  # Hub cakupan 5 kota & 79 kecamatan
+├── area-layanan/                                  # Hub cakupan 5 kota, 79 kecamatan & 102 kelurahan
+├── paket-wifi-tahunan-bayar-10-dapat-12/          # Artikel: paket tahunan hemat 10 dapat 12
 ├── kebijakan-privasi/                             # Kebijakan privasi & cookie (UU PDP)
 ├── cek-lokasi.js                                  # Widget cek ketersediaan bersama (semua halaman funnel)
 ├── site-consent.js                                # Banner cookie + Consent Mode v2
