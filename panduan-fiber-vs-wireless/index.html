@@ -373,6 +373,148 @@
 
   <p>Salah satu pertanyaan paling umum sebelum pasang internet rumah: pilih fiber optic atau wireless? Jawabannya sebenarnya bukan soal mana yang "lebih baik" secara mutlak, tapi mana yang paling sesuai dengan kondisi rumah dan lokasi kamu di Solo Raya. Artikel ini bantu kamu memutuskan dengan lebih percaya diri.</p>
 
+  <div id="kuis-fw" style="background:#fff; border:1px solid var(--border, #e5e7eb); border-left:4px solid var(--green, #037e64); border-radius:8px; padding:20px 24px; margin:24px 0;">
+    <strong style="display:block; margin-bottom:4px; font-size:16px;">Kuis 1 Menit: Fiber atau Wireless untuk Rumahmu?</strong>
+    <p style="font-size:14px; margin-bottom:12px; color:#555;">Jawab 5 pertanyaan, dapat rekomendasi + tombol chat sales.</p>
+    <div style="background:#eef2f7; border-radius:999px; height:8px; margin-bottom:14px; overflow:hidden;">
+      <div id="kuis-bar" style="height:100%; width:0%; background:var(--green, #037e64); border-radius:999px; transition:width .3s;"></div>
+    </div>
+    <div id="kuis-step" style="font-size:13px; font-weight:700; color:#666; margin-bottom:10px;"></div>
+    <div id="kuis-q" style="font-size:16px; font-weight:700; margin-bottom:12px;"></div>
+    <div id="kuis-opts" style="display:grid; gap:8px;"></div>
+    <div id="kuis-hasil" style="display:none;"></div>
+    <div style="display:flex; gap:8px; margin-top:12px;">
+      <button type="button" id="kuis-back" style="display:none; background:#fff; color:#444; border:1px solid #d5dbe3; padding:10px 16px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer;">← Kembali</button>
+      <button type="button" id="kuis-share" style="display:none; flex:1; background:#fff; color:var(--green-dark, #026b55); border:1.5px solid var(--green, #037e64); padding:10px 16px; border-radius:8px; font-size:14px; font-weight:700; cursor:pointer;">Bagikan Hasilku</button>
+      <button type="button" id="kuis-ulang" style="display:none; flex:1; background:#f3f4f6; color:#444; border:none; padding:10px 16px; border-radius:8px; font-size:14px; font-weight:700; cursor:pointer;">Ulangi Kuis</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var QS = [
+      { q: "1. Apakah area rumahmu sudah terjangkau kabel fiber optik XL SATU?",
+        opts: [
+          { t: "Sudah, ada tiang/kabel fiber di dekat rumah", f: 2, w: 0 },
+          { t: "Belum tahu — perlu dicek dulu", f: 0, w: 0, note: 'Belum tahu? <a href="https://wa.me/6287778999141?text=Halo%20kak,%20tolong%20cek%20apakah%20alamat%20saya%20sudah%20tercover%20fiber" target="_blank" rel="noopener noreferrer">Minta sales cek coverage gratis di sini</a>.' },
+          { t: "Belum — daerahku belum ada kabel fiber", f: 0, w: 2 } ] },
+      { q: "2. Berapa orang internetan bareng di jam tersibuk?",
+        opts: [
+          { t: "1–2 orang", f: 0, w: 1 },
+          { t: "3–5 orang", f: 1, w: 0 },
+          { t: "6 orang atau lebih", f: 2, w: 0 } ] },
+      { q: "3. Apa aktivitas internet terberat di rumahmu?",
+        opts: [
+          { t: "Ringan: browsing, sosmed, streaming sesekali", f: 0, w: 2 },
+          { t: "Sedang: streaming HD tiap hari + video call WFH", f: 1, w: 1 },
+          { t: "Berat: 4K multi-layar, gaming kompetitif, upload besar", f: 2, w: 0 } ] },
+      { q: "4. Budget internet per bulan?",
+        opts: [
+          { t: "Di bawah Rp200 ribu", f: 0, w: 2 },
+          { t: "Rp200–350 ribu", f: 1, w: 1 },
+          { t: "Di atas Rp350 ribu / fleksibel", f: 2, w: 0 } ] },
+      { q: "5. Butuh internet aktif secepat apa?",
+        opts: [
+          { t: "Mendesak — maunya cepat tanpa tarik kabel", f: 0, w: 2 },
+          { t: "Bisa menunggu proses survei + instalasi", f: 1, w: 0 } ] }
+    ];
+    var idx = 0, answers = [], F = 0, W = 0;
+    var elQ = document.getElementById('kuis-q'),
+        elOpts = document.getElementById('kuis-opts'),
+        elStep = document.getElementById('kuis-step'),
+        elBar = document.getElementById('kuis-bar'),
+        elHasil = document.getElementById('kuis-hasil'),
+        btnBack = document.getElementById('kuis-back'),
+        btnShare = document.getElementById('kuis-share'),
+        btnUlang = document.getElementById('kuis-ulang');
+    function render() {
+      elHasil.style.display = 'none';
+      btnShare.style.display = 'none';
+      btnUlang.style.display = 'none';
+      btnBack.style.display = idx > 0 ? 'block' : 'none';
+      var s = QS[idx];
+      elStep.textContent = 'Pertanyaan ' + (idx + 1) + ' dari ' + QS.length;
+      elBar.style.width = Math.round(idx / QS.length * 100) + '%';
+      elQ.textContent = s.q;
+      elOpts.innerHTML = '';
+      s.opts.forEach(function (o, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.style.cssText = 'text-align:left; background:#f6f8fa; border:1.5px solid #e2e8f0; padding:12px 14px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; color:#1a1a1a;';
+        b.textContent = o.t;
+        b.addEventListener('click', function () { jawab(i); });
+        elOpts.appendChild(b);
+      });
+      if (idx === 0 && typeof gtag === 'function') { gtag('event', 'quiz_start', { quiz: 'fiber_vs_wireless', page_path: window.location.pathname }); }
+    }
+    function jawab(i) {
+      var o = QS[idx].opts[i];
+      answers[idx] = i; F += o.f; W += o.w;
+      if (typeof gtag === 'function') { gtag('event', 'quiz_answer', { quiz: 'fiber_vs_wireless', q: idx + 1, a: i, page_path: window.location.pathname }); }
+      idx++;
+      if (idx < QS.length) { render(); } else { hasil(); }
+    }
+    function hasil() {
+      elBar.style.width = '100%';
+      elStep.textContent = 'Hasil';
+      elQ.textContent = '';
+      elOpts.innerHTML = '';
+      btnBack.style.display = 'none';
+      var type = F > W ? 'fiber' : (W > F ? 'wireless' : 'seri');
+      var html = '';
+      if (type === 'fiber') {
+        html = '<p style="font-size:15px;"><strong>🏆 Hasil: Fiber Optic XL SATU cocok untukmu.</strong></p>' +
+          '<p style="font-size:14px;">Koneksi kabel paling stabil, latensi rendah untuk gaming & video call, kecepatan hingga 1000 Mbps. Mulai Rp185rb/bln (Starter 20).</p>' +
+          '<a href="https://wa.me/6287778999141?text=' + encodeURIComponent('Halo kak, hasil kuisku: FIBER. Tolong info paket + cek coverage di alamat saya') + '" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:var(--green, #037e64); color:#fff; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; margin:8px 8px 0 0;">Chat Sales: Paket Fiber</a>' +
+          '<a href="https://xlsatusolo.com/biaya-pasang-wifi-solo-raya/" style="display:inline-block; padding:12px 0; font-weight:700; font-size:14px;">Lihat harga paket →</a>';
+      } else if (type === 'wireless') {
+        html = '<p style="font-size:15px;"><strong>📡 Hasil: Wireless XL SATU cocok untukmu.</strong></p>' +
+          '<p style="font-size:14px;">Tanpa tarik kabel — aktif cepat, solusi area belum fiber, hemat mulai ±Rp162rb/bln (program bayar di muka). Cocok untuk pemakaian ringan–sedang.</p>' +
+          '<a href="https://wa.me/6287778999141?text=' + encodeURIComponent('Halo kak, hasil kuisku: WIRELESS. Tolong info program wireless + cek sinyal di alamat saya') + '" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:var(--green, #037e64); color:#fff; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; margin:8px 8px 0 0;">Chat Sales: Wireless</a>' +
+          '<a href="https://xlsatusolo.com/solusi-internet-daerah-belum-ada-fiber-optik/" style="display:inline-block; padding:12px 0; font-weight:700; font-size:14px;">Pelajari wireless →</a>';
+      } else {
+        html = '<p style="font-size:15px;"><strong>🤝 Hasil: Seimbang — konsultasi dulu yang paling pas.</strong></p>' +
+          '<p style="font-size:14px;">Jawabanmu cocok untuk keduanya. Faktor penentu akhir: hasil cek coverage + budget. Ceritakan alamatmu, sales bantu putuskan.</p>' +
+          '<a href="https://wa.me/6287778999141?text=' + encodeURIComponent('Halo kak, hasil kuisku SERI (fiber vs wireless). Tolong bantu pilihkan + cek coverage') + '" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:var(--green, #037e64); color:#fff; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; margin-top:8px;">Konsultasi Gratis via WA</a>';
+      }
+      var note = QS[0].opts[answers[0]] && QS[0].opts[answers[0]].note;
+      if (answers[0] === 1 && note) html += '<p style="font-size:13px; margin-top:10px;">' + note + '</p>';
+      elHasil.innerHTML = html;
+      elHasil.style.display = 'block';
+      btnShare.style.display = 'block';
+      btnUlang.style.display = 'block';
+      if (typeof gtag === 'function') { gtag('event', 'quiz_result', { quiz: 'fiber_vs_wireless', result: type, page_path: window.location.pathname }); }
+    }
+    btnBack.addEventListener('click', function () {
+      if (idx <= 0) return;
+      idx--;
+      var o = QS[idx].opts[answers[idx]];
+      F -= o.f; W -= o.w;
+      render();
+    });
+    btnUlang.addEventListener('click', function () { idx = 0; answers = []; F = 0; W = 0; render(); });
+    btnShare.addEventListener('click', function () {
+      var url = 'https://xlsatusolo.com/panduan-fiber-vs-wireless/#kuis-' + answers.join('');
+      function done() {
+        btnShare.textContent = 'Link Tersalin! Sebar yuk ✓';
+        if (typeof gtag === 'function') { gtag('event', 'quiz_share', { quiz: 'fiber_vs_wireless', page_path: window.location.pathname }); }
+        setTimeout(function () { btnShare.textContent = 'Bagikan Hasilku'; }, 3000);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(function () { prompt('Salin link ini:', url); });
+      } else { prompt('Salin link ini:', url); }
+    });
+    // Buka link hasil dari orang lain → lompat ke hasil
+    (function () {
+      var h = (location.hash || '').replace('#kuis-', '');
+      if (!/^[012]{5}$/.test(h)) { render(); return; }
+      answers = h.split('').map(Number); F = 0; W = 0; idx = QS.length;
+      answers.forEach(function (a, qi) { F += QS[qi].opts[a].f; W += QS[qi].opts[a].w; });
+      render(); hasil();
+      document.getElementById('kuis-fw').scrollIntoView();
+    })();
+  })();
+  </script>
+
   <h2>Apa Bedanya Secara Teknis?</h2>
   <p><strong>Fiber optic</strong> menggunakan kabel serat kaca yang ditarik langsung dari titik distribusi ke rumah kamu. Karena sinyalnya berupa cahaya yang berjalan di dalam kabel tertutup, koneksinya sangat stabil dan nyaris tidak terpengaruh cuaca atau interferensi.</p>
   <p><strong>Wireless</strong> mengirim sinyal internet lewat gelombang radio dari pemancar terdekat ke perangkat penerima di rumah kamu, tanpa perlu penarikan kabel fisik sepanjang jalan. Ini bikin proses instalasi jauh lebih cepat, terutama di area yang belum terjangkau infrastruktur kabel.</p>
