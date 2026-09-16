@@ -19,7 +19,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Berapa Mbps untuk berapa orang? Hitung kebutuhan WiFi 20–600 Mbps pakai kalkulator — masukkan jumlah orang & aktivitas, dapat rekomendasi paket XL SATU.">
+  <meta name="description" content="Berapa Mbps untuk berapa orang? Hitung kebutuhan WiFi 20–600 Mbps pakai kalkulator interaktif — isi perangkat aktif, lihat grafik, dapat rekomendasi paket XL SATU + link hasil shareable.">
   <meta name="keywords" content="berapa mbps untuk berapa orang, kalkulator kebutuhan wifi, hitung kebutuhan mbps, 250 mbps untuk berapa orang, 100 mbps untuk berapa orang, wifi berapa mbps untuk rumah">
   <meta name="author" content="XL SATU">
   <meta name="robots" content="index, follow">
@@ -88,7 +88,7 @@
       {
         "@type": "Question",
         "name": "Bagaimana cara menghitung kebutuhan Mbps untuk rumah saya?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Jumlahkan kebutuhan tiap aktivitas yang jalan bersamaan: browsing 3 Mbps per orang, streaming HD 5 Mbps, streaming 4K 25 Mbps, video call 3 Mbps, gaming 3 Mbps, smart home/CCTV 10 Mbps flat — lalu tambah buffer 30% dan bulatkan ke paket terdekat (20, 50, 250, 350, 400, 600, 1000 Mbps). Kalkulator di artikel ini menghitung otomatis." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Hitung perangkat aktif yang jalan bersamaan: TV 4K 22 Mbps, streaming HD 6 Mbps, video call 4 Mbps, gaming 8 Mbps, browsing 3 Mbps, smart home maks 10 Mbps flat — jumlahkan, tambah buffer 30%, lalu bulatkan ke paket terdekat (20, 50, 250, 350, 400, 600, 1000 Mbps). Kalkulator di artikel ini menghitung otomatis lengkap dengan grafiknya." }
       }
     ]
   }
@@ -194,7 +194,7 @@
 <div class="article-hero">
   <div class="breadcrumb"><a href="https://xlsatusolo.com/">Beranda</a> / Berapa Mbps untuk Berapa Orang</div>
   <h1>Berapa Mbps untuk Berapa Orang? Kalkulator & Panduan 20–600 Mbps</h1>
-  <p class="subtitle">Hitung kebutuhan WiFi pakai kalkulator: masukkan jumlah orang & aktivitas, dapat rekomendasi Mbps + tabel 20–600 Mbps per jumlah orang.</p>
+  <p class="subtitle">Hitung kebutuhan WiFi pakai kalkulator interaktif: isi perangkat aktif, lihat grafik bandwidth, dapat rekomendasi Mbps + link hasil yang bisa disebar.</p>
   <p class="article-meta">Diperbarui 13 September 2026 · XL SATU Solo Raya</p>
 </div>
 
@@ -203,48 +203,93 @@
   <p>Pertanyaan paling umum sebelum pasang WiFi rumah: <strong>"Berapa Mbps sih yang cukup untuk orang sekian?"</strong>. Jawabannya tergantung jumlah pengguna, aktivitas yang paling sering jalan bersamaan, dan jenis koneksi (fiber vs wireless). Artikel ini merangkum angka angkanya biar kamu bisa memutuskan sendiri dengan cepat.</p>
 
   <div class="info-box" id="kalkulator-mbps" style="background:#fff; border:1px solid var(--border); border-left:4px solid var(--green);">
-    <strong style="display:block; margin-bottom:8px; font-size:16px;">Kalkulator Kebutuhan Mbps</strong>
-    <p style="font-size:14px; margin-bottom:12px;">Masukkan jumlah orang & aktivitas yang jalan bersamaan:</p>
-    <label style="display:block; font-size:14px; font-weight:700; margin-bottom:6px;" for="calc-orang">Jumlah orang / pengguna aktif</label>
-    <input id="calc-orang" type="number" min="1" max="50" value="4" style="width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:8px; font-size:15px; margin-bottom:12px;">
-    <div style="font-size:14px; font-weight:700; margin-bottom:6px;">Aktivitas bersamaan</div>
-    <div style="display:grid; gap:8px; font-size:14px; margin-bottom:14px;">
-      <label><input type="checkbox" class="calc-act" value="hd" checked> Streaming HD (1080p)</label>
-      <label><input type="checkbox" class="calc-act" value="uhd"> Streaming 4K</label>
-      <label><input type="checkbox" class="calc-act" value="call" checked> Video call / WFH</label>
-      <label><input type="checkbox" class="calc-act" value="game"> Gaming online</label>
-      <label><input type="checkbox" class="calc-act" value="smart"> Smart home / CCTV</label>
+    <strong style="display:block; margin-bottom:8px; font-size:16px;">Kalkulator Kebutuhan Mbps Lanjutan</strong>
+    <p style="font-size:14px; margin-bottom:12px;">Isi jumlah <strong>perangkat aktif bersamaan</strong> (jam tersibuk), bukan total perangkat di rumah:</p>
+    <div style="display:grid; gap:10px; font-size:14px; margin-bottom:14px;">
+      <label>TV streaming 4K <input id="calc-4k" type="number" min="0" max="20" value="1" style="width:70px; padding:8px 10px; border:1px solid var(--border); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>TV/HP streaming HD <input id="calc-hd" type="number" min="0" max="20" value="2" style="width:70px; padding:8px 10px; border:1px solid var(--border); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Video call / meeting <input id="calc-vc" type="number" min="0" max="20" value="1" style="width:70px; padding:8px 10px; border:1px solid var(--border); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Gaming online <input id="calc-game" type="number" min="0" max="20" value="1" style="width:70px; padding:8px 10px; border:1px solid var(--border); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Browsing / sosmed <input id="calc-browse" type="number" min="0" max="30" value="3" style="width:70px; padding:8px 10px; border:1px solid var(--border); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Smart home / CCTV <input id="calc-smart" type="number" min="0" max="50" value="4" style="width:70px; padding:8px 10px; border:1px solid var(--border); border-radius:8px; font-size:15px; float:right;"></label>
     </div>
     <button type="button" id="calc-hitung" style="width:100%; background:var(--green); color:#fff; border:none; padding:12px; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer;">Hitung Kebutuhan</button>
     <div id="calc-hasil" style="display:none; margin-top:14px; font-size:15px;"></div>
+    <button type="button" id="calc-share" style="display:none; width:100%; background:#fff; color:var(--green-dark); border:1.5px solid var(--green); padding:10px; border-radius:8px; font-size:14px; font-weight:700; cursor:pointer; margin-top:10px;">Salin Link Hasil Ini</button>
   </div>
   <script>
   (function () {
-    var PER_ORANG = { base: 3, hd: 5, uhd: 25, call: 3, game: 3 };
-    var SMART_FLAT = 10;
+    var NEED = { k4: 22, hd: 6, vc: 4, game: 8, browse: 3, smart: 0.5 };
+    var SMART_CAP = 10;
     var TIERS = [20, 50, 250, 350, 400, 600, 1000];
     var PAKET = { 20: 'Starter 20 Mbps', 50: 'Starter 50 Mbps', 250: 'Spark 250 Mbps', 350: 'Spark 350 Mbps', 400: 'Spark 400 Mbps', 600: 'Spark 600 Mbps', 1000: 'Spark 1000 Mbps' };
-    function hitung() {
-      var orang = parseInt(document.getElementById('calc-orang').value, 10);
-      if (isNaN(orang) || orang < 1) orang = 1;
-      if (orang > 50) orang = 50;
-      var acts = {};
-      document.querySelectorAll('.calc-act').forEach(function (c) { acts[c.value] = c.checked; });
-      var total = orang * PER_ORANG.base;
-      if (acts.hd) total += orang * PER_ORANG.hd;
-      if (acts.uhd) total += orang * PER_ORANG.uhd;
-      if (acts.call) total += orang * PER_ORANG.call;
-      if (acts.game) total += orang * PER_ORANG.game;
-      if (acts.smart) total += SMART_FLAT;
-      total = Math.round(total * 1.3);
-      var tier = TIERS.find(function (t) { return t >= total; }) || 1000;
-      var el = document.getElementById('calc-hasil');
-      var wa = 'https://wa.me/6287778999141?text=' + encodeURIComponent('Halo kak, hasil kalkulator saya butuh ±' + total + ' Mbps untuk ' + orang + ' orang, paket apa yang pas?');
-      el.style.display = 'block';
-      el.innerHTML = 'Perkiraan kebutuhan: <strong>±' + total + ' Mbps</strong> untuk ' + orang + ' orang.<br>Paket yang pas: <strong>XL SATU ' + PAKET[tier] + '</strong><br><br><a href="' + wa + '" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:var(--green); color:#fff; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none;">Tanya Paket Ini via WA</a>';
-      if (typeof gtag === 'function') { gtag('event', 'hitung_mbps', { orang: orang, hasil_mbps: total, page_path: window.location.pathname }); }
+    var FIELDS = ['4k', 'hd', 'vc', 'game', 'browse', 'smart'];
+    var LABELS = { '4k': 'TV 4K', hd: 'Streaming HD', vc: 'Video call', game: 'Gaming', browse: 'Browsing', smart: 'Smart home' };
+    var COLORS = { '4k': '#7c3aed', hd: '#2563eb', vc: '#0891b2', game: '#db2777', browse: '#65a30d', smart: '#9ca3af' };
+    function num(id) {
+      var v = parseInt(document.getElementById('calc-' + id).value, 10);
+      return (isNaN(v) || v < 0) ? 0 : Math.min(v, 50);
     }
-    document.getElementById('calc-hitung').addEventListener('click', hitung);
+    function hitung(fromShare) {
+      var vals = {};
+      FIELDS.forEach(function (f) { vals[f] = num(f); });
+      var parts = [
+        { k: '4k', mbps: vals['4k'] * NEED.k4 },
+        { k: 'hd', mbps: vals.hd * NEED.hd },
+        { k: 'vc', mbps: vals.vc * NEED.vc },
+        { k: 'game', mbps: vals.game * NEED.game },
+        { k: 'browse', mbps: vals.browse * NEED.browse },
+        { k: 'smart', mbps: Math.min(vals.smart * NEED.smart, SMART_CAP) }
+      ];
+      var subtotal = parts.reduce(function (s, p) { return s + p.mbps; }, 0);
+      var total = Math.round(subtotal * 1.3);
+      var tier = TIERS.find(function (t) { return t >= total; }) || 1000;
+      var maxPart = Math.max.apply(null, parts.map(function (p) { return p.mbps; }).concat([1]));
+      var bars = parts.filter(function (p) { return p.mbps > 0; }).map(function (p) {
+        var w = Math.max(3, Math.round(p.mbps / maxPart * 100));
+        return '<div style="display:flex; align-items:center; gap:8px; font-size:13px; margin-bottom:6px;">' +
+          '<span style="width:110px; flex-shrink:0;">' + LABELS[p.k] + '</span>' +
+          '<span style="flex:1; background:#eef2f7; border-radius:6px; overflow:hidden;"><span style="display:block; height:14px; width:' + w + '%; background:' + COLORS[p.k] + ';"></span></span>' +
+          '<span style="width:64px; text-align:right; font-weight:700;">±' + (Math.round(p.mbps * 10) / 10) + '</span></div>';
+      }).join('');
+      var perangkat = vals['4k'] + vals.hd + vals.vc + vals.game + vals.browse;
+      var wa = 'https://wa.me/6287778999141?text=' + encodeURIComponent('Halo kak, hasil kalkulator saya butuh ±' + total + ' Mbps (' + perangkat + ' perangkat aktif), paket apa yang pas?');
+      var el = document.getElementById('calc-hasil');
+      el.style.display = 'block';
+      el.innerHTML = bars +
+        '<p style="margin:10px 0 4px;">Subtotal: <strong>±' + Math.round(subtotal) + ' Mbps</strong> + buffer 30% = <strong>±' + total + ' Mbps</strong> untuk ' + perangkat + ' perangkat aktif.</p>' +
+        '<p>Paket yang pas: <strong>XL SATU ' + PAKET[tier] + '</strong></p>' +
+        '<a href="' + wa + '" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:var(--green); color:#fff; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; margin-top:8px;">Tanya Paket Ini via WA</a>';
+      document.getElementById('calc-share').style.display = 'block';
+      if (typeof gtag === 'function') { gtag('event', 'hitung_mbps', { hasil_mbps: total, perangkat_aktif: perangkat, page_path: window.location.pathname }); }
+      return vals;
+    }
+    document.getElementById('calc-hitung').addEventListener('click', function () { hitung(false); });
+    document.getElementById('calc-share').addEventListener('click', function () {
+      var vals = hitung(false);
+      var q = FIELDS.map(function (f) { return f + '=' + vals[f]; }).join('&');
+      var url = 'https://xlsatusolo.com/berapa-mbps-untuk-berapa-orang/#calc-' + q;
+      function done() {
+        var b = document.getElementById('calc-share');
+        b.textContent = 'Link Tersalin! Sebar ke keluarga/grup ✓';
+        if (typeof gtag === 'function') { gtag('event', 'share_kalkulator', { page_path: window.location.pathname }); }
+        setTimeout(function () { b.textContent = 'Salin Link Hasil Ini'; }, 3000);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(function () { prompt('Salin link ini:', url); });
+      } else { prompt('Salin link ini:', url); }
+    });
+    // Buka link hasil dari orang lain → isi otomatis + hitung langsung
+    (function () {
+      var h = (location.hash || '').replace('#calc-', '');
+      if (!h || h.indexOf('=') < 0) return;
+      h.split('&').forEach(function (pair) {
+        var kv = pair.split('=');
+        var el = document.getElementById('calc-' + kv[0]);
+        if (el && !isNaN(parseInt(kv[1], 10))) el.value = Math.max(0, parseInt(kv[1], 10));
+      });
+      hitung(true);
+    })();
   })();
   </script>
 
@@ -321,7 +366,7 @@
   <p>20 Mbps cukup untuk <strong>1-2 orang</strong> dengan aktivitas ringan seperti browsing, media sosial, dan streaming satu layar. Tidak disarankan untuk streaming 4K atau banyak perangkat sekaligus.</p>
 
   <h3>Bagaimana cara menghitung kebutuhan Mbps untuk rumah saya?</h3>
-  <p>Jumlahkan kebutuhan tiap aktivitas yang jalan bersamaan: browsing 3 Mbps per orang, streaming HD 5 Mbps, streaming 4K 25 Mbps, video call 3 Mbps, gaming 3 Mbps, smart home/CCTV 10 Mbps flat — lalu tambah buffer 30% dan bulatkan ke paket terdekat (20, 50, 250, 350, 400, 600, 1000 Mbps). <a href="#kalkulator-mbps">Kalkulator di atas</a> menghitung otomatis.</p>
+  <p>Hitung <strong>perangkat aktif bersamaan</strong>, bukan jumlah orang: TV 4K ±22 Mbps, streaming HD ±6 Mbps, video call ±4 Mbps, gaming ±8 Mbps, browsing ±3 Mbps, smart home maks 10 Mbps flat — jumlahkan, tambah buffer 30%, bulatkan ke paket terdekat (20, 50, 250, 350, 400, 600, 1000 Mbps). <a href="#kalkulator-mbps">Kalkulator di atas</a> menghitung otomatis lengkap dengan grafiknya.</p>
 
   <div class="cta-box">
     <h3>Masih Ragu Pilih Mbps yang Pas?</h3>
