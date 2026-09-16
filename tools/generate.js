@@ -10,6 +10,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const BUILD_DIR = __dirname;
 const OUTPUT_ROOT = path.join(__dirname, 'output');
@@ -44,6 +45,9 @@ for (const city of cities) {
     continue;
   }
   let html = template;
+
+  // Unique watermark token per page (proves original authorship if cloned)
+  html = html.replace(/{{wm_token}}/g, crypto.createHash('sha256').update('xlsatusolo:' + city.slug).digest('hex').slice(0, 8));
 
   // Conditional blocks: {{#has_fiber}}...{{/has_fiber}} / {{#has_wireless}}...{{/has_wireless}}
   // If flag is truthy, keep content; if falsy, remove entire block (including markers).
