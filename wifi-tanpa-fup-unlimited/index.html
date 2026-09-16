@@ -207,7 +207,87 @@
 
   <p>Banyak yang skeptis dengan kata "unlimited" pada paket internet rumah — wajar, karena banyak provider yang diam-diam menurunkan kecepatan setelah pemakaian tertentu lewat kebijakan FUP (Fair Usage Policy). Daripada bikin klaim kosong, artikel ini menjelaskan apa adanya: mana paket XL SATU yang benar-benar tanpa FUP, dan mana yang ada batasnya beserta angka pastinya.</p>
 
-  <h2>Apa itu FUP?</h2>
+    <div id="sim-fup" style="background:#fff; border:1px solid var(--border, #e5e7eb); border-left:4px solid var(--green, #037e64); border-radius:8px; padding:20px 24px; margin:24px 0;">
+    <strong style="display:block; margin-bottom:4px; font-size:16px;">Simulator: Cek Kapan Internetmu Kena FUP</strong>
+    <p style="font-size:14px; margin-bottom:12px; color:#555;">Isi kebiasaan harian. Lihat tanggal berapa kecepatanmu dipangkas di provider ber-FUP — vs aman di XL SATU Fiber.</p>
+    <label style="display:block; font-size:14px; font-weight:700; margin-bottom:6px;" for="fup-paket">Paket pembanding (ber-FUP)</label>
+    <select id="fup-paket" style="width:100%; padding:10px 12px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; margin-bottom:12px;">
+      <option value="30">IndiHome 30 Mbps (FUP 700 GB ke 1200 GB)</option>
+      <option value="50">IndiHome 50 Mbps (FUP 1200 GB ke 2000 GB)</option>
+      <option value="100">IndiHome 100 Mbps (FUP 2000 GB)</option>
+    </select>
+    <div style="display:grid; gap:10px; font-size:14px; margin-bottom:14px;">
+      <label>Streaming 4K (jam/hari) <input id="fup-4k" type="number" min="0" max="24" value="2" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Streaming HD (jam/hari) <input id="fup-hd" type="number" min="0" max="24" value="2" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Video call (jam/hari) <input id="fup-vc" type="number" min="0" max="24" value="1" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Sosmed/TikTok (jam/hari) <input id="fup-sos" type="number" min="0" max="24" value="2" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Download besar/bulan (GB, mis. game) <input id="fup-dl" type="number" min="0" max="2000" value="50" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
+    </div>
+    <button type="button" id="fup-hitung" style="width:100%; background:var(--green, #037e64); color:#fff; border:none; padding:12px; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer;">Cek Nasib FUP-ku</button>
+    <div id="fup-hasil" style="display:none; margin-top:14px; font-size:15px;"></div>
+    <button type="button" id="fup-share" style="display:none; width:100%; background:#fff; color:var(--green-dark, #026b55); border:1.5px solid var(--green, #037e64); padding:10px; border-radius:8px; font-size:14px; font-weight:700; cursor:pointer; margin-top:10px;">Bagikan Hasil Ini</button>
+    <p style="font-size:12px; color:#888; margin-top:10px;">Estimasi berdasarkan tabel FUP publik + angka resmi Netflix (7 GB/jam 4K, 3 GB/jam HD) dan Zoom (1 GB/jam). Kebijakan provider dapat berubah sewaktu-waktu.</p>
+  </div>
+  <script>
+  (function () {
+    var FUP = {
+      '30': { f1: 700, s1: '22,5 Mbps', f2: 1200, s2: '12 Mbps' },
+      '50': { f1: 1200, s1: '37,5 Mbps', f2: 2000, s2: '20 Mbps' },
+      '100': { f1: 2000, s1: '75 Mbps', f2: null, s2: null }
+    };
+    function fnum(id) {
+      var v = parseFloat(document.getElementById(id).value);
+      return (isNaN(v) || v < 0) ? 0 : v;
+    }
+    function frun() {
+      var p = document.getElementById('fup-paket').value;
+      var t = FUP[p];
+      var daily = fnum('fup-4k') * 7 + fnum('fup-hd') * 3 + fnum('fup-vc') * 1 + fnum('fup-sos') * 0.8;
+      var monthly = Math.round(daily * 30 + fnum('fup-dl'));
+      var pct = Math.min(100, Math.round(monthly / t.f1 * 100));
+      var barColor = monthly <= t.f1 ? '#16a34a' : '#dc2626';
+      var html = '<p>Estimasi pemakaianmu: <strong>' + monthly + ' GB/bulan</strong> (' + (Math.round(daily * 10) / 10) + ' GB/hari).</p>' +
+        '<div style="background:#eef2f7; border-radius:999px; height:16px; overflow:hidden; margin:10px 0 4px;"><div style="height:100%; width:' + pct + '%; background:' + barColor + '; border-radius:999px;"></div></div>' +
+        '<p style="font-size:13px; color:#666;">' + pct + '% dari FUP pertama (' + t.f1 + ' GB)</p>';
+      var status = '';
+      if (monthly <= t.f1) {
+        status = 'aman';
+        html += '<p style="background:#e6f7f3; border-radius:8px; padding:12px 14px;"><strong>AMAN bulan ini.</strong> Sisa ' + (t.f1 - monthly) + ' GB sebelum FUP. Tapi tambah 1 TV 4K tiap malam (+210 GB) dan kamu mulai mepet.</p>';
+      } else if (t.f2 && monthly > t.f2) {
+        status = 'fup2';
+        var d2 = daily > 0 ? Math.min(30, Math.ceil(t.f2 / daily)) : 30;
+        html += '<p style="background:#fee2e2; border-radius:8px; padding:12px 14px;"><strong>KENA FUP 2x lipat.</strong> Sekitar tanggal <strong>' + d2 + '</strong>, kecepatanmu dipangkas ke <strong>' + t.s1 + '</strong>, lalu anjlok ke <strong>' + t.s2 + '</strong>. Sisa bulan = buffering.</p>';
+      } else {
+        status = 'fup1';
+        var d1 = daily > 0 ? Math.min(30, Math.ceil(t.f1 / daily)) : 30;
+        html += '<p style="background:#fef3c7; border-radius:8px; padding:12px 14px;"><strong>KENA FUP.</strong> Sekitar tanggal <strong>' + d1 + '</strong>, kecepatanmu turun ke <strong>' + t.s1 + '</strong> sampai ganti bulan.</p>';
+      }
+      html += '<p style="background:#e6f7f3; border-left:4px solid var(--green, #037e64); border-radius:8px; padding:12px 14px; margin-top:10px;"><strong>Di XL SATU Fiber, angka di atas tidak ada artinya.</strong> Tanpa FUP — 250 Mbps tanggal 1 tetap 250 Mbps tanggal 30.</p>' +
+        '<a href="https://wa.me/6287778999141?text=' + encodeURIComponent('Halo kak, hasil simulatorku ' + monthly + ' GB/bulan dan KENA FUP (' + status + '). Info paket XL SATU tanpa FUP dong') + '" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:var(--green, #037e64); color:#fff; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; margin-top:8px;">Bebas FUP via WA</a>';
+      var el = document.getElementById('fup-hasil');
+      el.innerHTML = html;
+      el.style.display = 'block';
+      document.getElementById('fup-share').style.display = 'block';
+      if (typeof gtag === 'function') { gtag('event', 'fup_simulate', { gb_bulan: monthly, status_fup: status, page_path: window.location.pathname }); }
+      return { p: p, status: status, gb: monthly };
+    }
+    document.getElementById('fup-hitung').addEventListener('click', frun);
+    document.getElementById('fup-share').addEventListener('click', function () {
+      var r = frun();
+      var url = 'https://xlsatusolo.com/wifi-tanpa-fup-unlimited/#fup-' + r.p + '-' + r.status + '-' + r.gb;
+      function fdone() {
+        var b = document.getElementById('fup-share');
+        b.textContent = 'Link Tersalin! Pamer ke yang masih kena FUP';
+        if (typeof gtag === 'function') { gtag('event', 'fup_share', { page_path: window.location.pathname }); }
+        setTimeout(function () { b.textContent = 'Bagikan Hasil Ini'; }, 3000);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(fdone).catch(function () { prompt('Salin link ini:', url); });
+      } else { prompt('Salin link ini:', url); }
+    });
+  })();
+  </script>
+<h2>Apa itu FUP?</h2>
   <p>FUP adalah kebijakan penggunaan wajar yang diterapkan sebagian ISP pada paket unlimited. Setelah pemakaian data melewati batas tertentu dalam satu periode tagihan, kecepatan internet akan diturunkan — koneksi tidak diputus, tapi jadi jauh lebih lambat dari biasanya. Kebijakan ini umum diterapkan terutama pada layanan yang mengandalkan jaringan bersama seperti wireless/seluler.</p>
 
   <h2>Fiber vs Wireless: Beda Kebijakan FUP-nya</h2>
