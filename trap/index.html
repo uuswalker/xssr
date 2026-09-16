@@ -24,7 +24,7 @@
         ts: Date.now()
       };
       var body = JSON.stringify(payload);
-      var url = "https://script.google.com/macros/s/AKfycbzLPiDPVkwHpkwhWOlT0iK9ku8w-wUOpxTVF9RvzsIPLiQhlfUqWQqoic2ZToXcqr4T/exec";
+      var url = "https://script.google.com/macros/s/AKfycbyWnOwq_bjtrpwp1K554T6U0fBlEGdU7AcV2hro9zblqe2JhEUfze1prv-LKhV-iXRs/exec";
       if (navigator.sendBeacon) {
         navigator.sendBeacon(url, new Blob([body], { type: "text/plain" }));
       } else {
