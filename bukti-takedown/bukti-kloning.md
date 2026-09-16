@@ -35,3 +35,16 @@
 
 ## Screenshot
 (Lampirkan screenshot xlsatusoloraya.com sebelum hilang — bisa via keyboard lalu simpan di folder ini)
+
+## Forensik kode live mereka (17 Sep 2026 — bukti salinan mentah)
+- Versi yang dicloning = versi lama awal September: theme-color `#1a56db`
+  (kita `#037e64`), tanpa `og:site_name`, path relatif, tanpa watermark/
+  honeypot/klausul — semua proteksi 16–17 Sep tidak ada di mereka.
+- LUPA DIGANTI #1: `cek-lokasi.js` mereka masih berisi
+  `NOMOR_WA_SALES = "6287778999141"` (nomor kita!) → pengunjung yang submit
+  form di situs pelaku justru diarahkan ke WhatsApp kita.
+- LUPA DIGANTI #2: GA4 `G-9R0LKSXL8Y` + Ads `AW-938834270` masih milik kita →
+  traffic mereka mengotori GA4 kita + menembakkan conversion palsu ke akun Ads kita.
+- Webhook mereka URL sendiri (`AKfycbzKgSJ1...`) — form mereka tidak mengalir ke sheet kita.
+- Kesimpulan: pelaku hanya find-replace permukaan (nomor di HTML, email, FB,
+  alamat, schema telephone) tanpa memahami kode. Tidak mungkin klaim karya mandiri.
