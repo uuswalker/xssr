@@ -191,6 +191,15 @@ function doPost(e) {
         .createTextOutput(JSON.stringify({ status: "forbidden" }))
         .setMimeType(ContentService.MimeType.JSON);
     }
+    // ── HONEYPOT TRAP (v6.2, 17 Sep 2026): catat pengunjung /trap/ ke sheet
+    // "Trap Log" TANPA notif Fonnte. Bot legit (Googlebot dkk) tidak pernah
+    // ke sini karena /trap/ di-Disallow di robots.txt + noindex.
+    if (json.action === "trap") {
+      _logTrap(json);
+      return ContentService
+        .createTextOutput(JSON.stringify({ status: "ok-trap" }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
     var norm = function (w) { return String(w || "").replace(/\D/g, "").replace(/^0/, "62"); };
     var wa = norm(json.whatsapp);
     var namaOk = String(json.nama || "").trim().length >= 2;
@@ -259,6 +268,19 @@ function doPost(e) {
       .createTextOutput(JSON.stringify({ status: "error", message: err.message }))
       .setMimeType(ContentService.MimeType.JSON);
   }
+}
+
+// ── HONEYPOT TRAP LOG (v6.2): catat hit ke /trap/ — tanpa notif ────
+function _logTrap(json) {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ws = ss.getSheetByName("Trap Log");
+  if (!ws) {
+    ws = ss.insertSheet("Trap Log");
+    ws.getRange(1, 1, 1, 5).setValues([["Timestamp", "User-Agent", "URL", "Referrer", "Client-TS"]]);
+    ws.setFrozenRows(1);
+  }
+  ws.appendRow([new Date(), String(json.ua || ""), String(json.href || ""),
+    String(json.ref || ""), String(json.ts || "")]);
 }
 
 // ── REFORMAT ULANG SEMUA BARIS (kalau ada perubahan masif) ────

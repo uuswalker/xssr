@@ -1,0 +1,5 @@
+# File internal/build-time — JANGAN ikut ter-deploy ke Vercel (publik).
+# Hanya file runtime situs (html/js/css/images/sitemap/robots/llms.txt/dll) yang naik.
+tools/
+bukti-takedown/
+HANDOFF.md
