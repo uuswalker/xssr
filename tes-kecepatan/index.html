@@ -349,7 +349,8 @@
       finalD = d; finalU = u;
       var v = verdict(d);
       var wa = 'https://wa.me/6287778999141?text=' + encodeURIComponent('Halo kak, hasil tes kecepatanku: ' + fmt(d) + ' Mbps download / ' + fmt(u) + ' Mbps upload. Minta diagnosa + info paket dong');
-      elHasil.innerHTML = (v ? '<div class="info-box" style="background:' + v[1] + ';"><strong>Hasil: ' + fmt(d) + ' Mbps.</strong> ' + v[0] + '</div>' : '') +
+      var upTxt = (u == null || isNaN(u)) ? 'tidak terukur' : fmt(u) + ' Mbps';
+      elHasil.innerHTML = (v ? '<div class="info-box" style="background:' + v[1] + ';"><strong>Hasil lengkap — Download ' + fmt(d) + ' Mbps / Upload ' + upTxt + '.</strong><br>' + v[0] + '</div>' : '') +
         '<a href="' + wa + '" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:var(--green); color:#fff; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; margin-top:4px;">Konsultasi Hasil Ini via WA</a>';
       elHasil.style.display = 'block';
       btnShare.style.display = 'block';
