@@ -214,14 +214,14 @@
     <select id="fup-paket" style="width:100%; padding:10px 12px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; margin-bottom:12px;">
       <option value="30">Paket 30 Mbps (FUP 700 GB ke 1200 GB)</option>
       <option value="50">Paket 50 Mbps (FUP 1200 GB ke 2000 GB)</option>
-      <option value="100">Paket 100 Mbps (FUP 2000 GB)</option>
+      <option value="100">Paket 100 Mbps (FUP 2000 GB)</option><option value="fwa">XL SATU Wireless / FWA (FUP 1024 GB)</option>
     </select>
     <div style="display:grid; gap:10px; font-size:14px; margin-bottom:14px;">
-      <label>Streaming 4K (jam/hari) <input id="fup-4k" type="number" min="0" max="24" value="2" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
-      <label>Streaming HD (jam/hari) <input id="fup-hd" type="number" min="0" max="24" value="2" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
-      <label>Video call (jam/hari) <input id="fup-vc" type="number" min="0" max="24" value="1" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
-      <label>Sosmed/TikTok (jam/hari) <input id="fup-sos" type="number" min="0" max="24" value="2" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
-      <label>Download besar/bulan (GB, mis. game) <input id="fup-dl" type="number" min="0" max="2000" value="50" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Streaming 4K (jam/hari) <input id="fup-4k" type="number" min="0" max="24" value="0" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Streaming HD (jam/hari) <input id="fup-hd" type="number" min="0" max="24" value="0" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Video call (jam/hari) <input id="fup-vc" type="number" min="0" max="24" value="0" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Sosmed/TikTok (jam/hari) <input id="fup-sos" type="number" min="0" max="24" value="0" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Download besar/bulan (GB, mis. game) <input id="fup-dl" type="number" min="0" max="2000" value="0" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
     </div>
     <button type="button" id="fup-hitung" style="width:100%; background:var(--green, #037e64); color:#fff; border:none; padding:12px; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer;">Cek Nasib FUP-ku</button>
     <div id="fup-hasil" style="display:none; margin-top:14px; font-size:15px;"></div>
@@ -231,9 +231,9 @@
   <script>
   (function () {
     var FUP = {
-      '30': { f1: 700, s1: '22,5 Mbps', f2: 1200, s2: '12 Mbps' },
-      '50': { f1: 1200, s1: '37,5 Mbps', f2: 2000, s2: '20 Mbps' },
-      '100': { f1: 2000, s1: '75 Mbps', f2: null, s2: null }
+      '30': { f1: 700, hit: 'kecepatanmu turun ke <strong>22,5 Mbps</strong>', f2: 1200, hit2: 'lalu anjlok ke <strong>12 Mbps</strong>' },
+      '50': { f1: 1200, hit: 'kecepatanmu turun ke <strong>37,5 Mbps</strong>', f2: 2000, hit2: 'lalu anjlok ke <strong>20 Mbps</strong>' },
+      '100': { f1: 2000, hit: 'kecepatanmu turun ke <strong>75 Mbps</strong>', f2: null, hit2: null },'fwa': { f1: 1024, hit: 'pemakaian melewati <strong>batas wajar 1024 GB</strong> - kecepatan diturunkan sementara', f2: null, hit2: null }
     };
     function fnum(id) {
       var v = parseFloat(document.getElementById(id).value);
@@ -256,11 +256,11 @@
       } else if (t.f2 && monthly > t.f2) {
         status = 'fup2';
         var d2 = daily > 0 ? Math.min(30, Math.ceil(t.f2 / daily)) : 30;
-        html += '<p style="background:#fee2e2; border-radius:8px; padding:12px 14px;"><strong>KENA FUP 2x lipat.</strong> Sekitar tanggal <strong>' + d2 + '</strong> (bisa maju/mundur beberapa hari), kecepatanmu dipangkas ke <strong>' + t.s1 + '</strong>, lalu anjlok ke <strong>' + t.s2 + '</strong>. Sisa bulan = buffering.</p>';
+        html += '<p style="background:#fee2e2; border-radius:8px; padding:12px 14px;"><strong>KENA FUP 2x lipat.</strong> Sekitar tanggal <strong>' + d2 + '</strong> (bisa maju/mundur beberapa hari), ' + t.hit + ', ' + t.hit2 + '. Sisa bulan = buffering.</p>';
       } else {
         status = 'fup1';
         var d1 = daily > 0 ? Math.min(30, Math.ceil(t.f1 / daily)) : 30;
-        html += '<p style="background:#fef3c7; border-radius:8px; padding:12px 14px;"><strong>KENA FUP.</strong> Sekitar tanggal <strong>' + d1 + '</strong> (bisa maju/mundur beberapa hari), kecepatanmu turun ke <strong>' + t.s1 + '</strong> sampai ganti bulan.</p>';
+        html += '<p style="background:#fef3c7; border-radius:8px; padding:12px 14px;"><strong>KENA FUP.</strong> Sekitar tanggal <strong>' + d1 + '</strong> (bisa maju/mundur beberapa hari), ' + t.hit + ' sampai ganti bulan.</p>';
       }
       html += '<p style="background:#e6f7f3; border-left:4px solid var(--green, #037e64); border-radius:8px; padding:12px 14px; margin-top:10px;"><strong>Di XL SATU Fiber, angka di atas tidak ada artinya.</strong> Tanpa FUP — 250 Mbps tanggal 1 tetap 250 Mbps tanggal 30.</p>' +
         '<a href="https://wa.me/6287778999141?text=' + encodeURIComponent('Halo kak, hasil simulatorku ' + monthly + ' GB/bulan dan KENA FUP (' + status + '). Info paket XL SATU tanpa FUP dong') + '" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:var(--green, #037e64); color:#fff; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; margin-top:8px;">Bebas FUP via WA</a>';
