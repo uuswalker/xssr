@@ -6,7 +6,7 @@
 (function () {
   var CSS = "\r\n  .cl-modal-overlay {\r\n    position: fixed; inset: 0; background: rgba(0,0,0,0.55);\r\n    z-index: 9999; display: flex; align-items: center; justify-content: center;\r\n    padding: 16px;\r\n  }\r\n  .cl-modal-box {\r\n    background: #fff; border-radius: 16px; max-width: 480px; width: 100%;\r\n    max-height: 90vh; overflow-y: auto; padding: 28px 24px; position: relative;\r\n    box-shadow: 0 20px 60px rgba(0,0,0,0.3);\r\n  }\r\n  .cl-modal-close {\r\n    position: absolute; top: 14px; right: 16px; background: none; border: none;\r\n    font-size: 28px; line-height: 1; color: #999; cursor: pointer; padding: 4px;\r\n  }\r\n  .cl-modal-close:hover { color: #333; }\r\n  .cl-title { font-size: 19px; font-weight: 700; margin: 0 0 8px 0; color: #1a1a1a; display:flex; align-items:center; gap:8px; }\r\n  .cl-title i { color: #037e64; }\r\n  .cl-sub { font-size: 14px; color: #666; margin: 0 0 20px 0; line-height: 1.5; }\r\n  .cl-btn-primary {\r\n    width: 100%; background: linear-gradient(135deg, #0d7a5f 0%, #037e64 100%);\r\n    color: #fff; border: none; padding: 14px; border-radius: 12px; font-size: 15px;\r\n    font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center;\r\n    gap: 8px; transition: opacity 0.2s;\r\n  }\r\n  .cl-btn-primary:hover { opacity: 0.9; }\r\n  .cl-btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }\r\n  .cl-btn-secondary {\r\n    width: 100%; background: #f0f9f7; color: #037e64; border: 1.5px solid #037e64;\r\n    padding: 12px; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer;\r\n    display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px;\r\n  }\r\n  .cl-btn-text {\r\n    width: 100%; background: none; border: none; color: #888; font-size: 13px;\r\n    text-decoration: underline; cursor: pointer; margin-top: 10px; padding: 6px;\r\n  }\r\n  .cl-geo-fallback { background: #fff8f0; border: 1px solid #fed7aa; border-radius: 12px; padding: 16px; margin-top: 14px; }\r\n  .cl-geo-fallback .cl-label { margin-top: 10px; }\r\n  .cl-geo-fallback .cl-input { border-color: #fdba74; }\r\n  .cl-divider { text-align: center; margin: 18px 0; position: relative; color: #aaa; font-size: 13px; }\r\n  .cl-divider::before, .cl-divider::after {\r\n    content: ''; position: absolute; top: 50%; width: 40%; height: 1px; background: #e5e5e5;\r\n  }\r\n  .cl-divider::before { left: 0; }\r\n  .cl-divider::after { right: 0; }\r\n  .cl-label { display: block; font-size: 13px; font-weight: 600; color: #444; margin: 14px 0 6px 0; }\r\n  .cl-input {\r\n    width: 100%; padding: 12px 14px; border: 1.5px solid #e0e0e0; border-radius: 10px;\r\n    font-size: 14px; box-sizing: border-box;\r\n  }\r\n  .cl-input:focus { outline: none; border-color: #037e64; }\r\n  .cl-autocomplete-wrap { position: relative; }\r\n  .cl-suggestions {\r\n    position: absolute; top: calc(100% + 4px); left: 0; right: 0;\r\n    background: #fff; border: 1.5px solid #e0e0e0; border-radius: 10px;\r\n    max-height: 220px; overflow-y: auto; z-index: 10;\r\n    box-shadow: 0 8px 24px rgba(0,0,0,0.12);\r\n  }\r\n  .cl-suggestion-item {\r\n    padding: 11px 14px; font-size: 13.5px; color: #333; cursor: pointer;\r\n    border-bottom: 1px solid #f0f0f0; display: flex; align-items: flex-start; gap: 8px;\r\n  }\r\n  .cl-suggestion-item:last-child { border-bottom: none; }\r\n  .cl-suggestion-item:hover, .cl-suggestion-item.active { background: #f0f9f7; }\r\n  .cl-suggestion-item i { color: #037e64; margin-top: 2px; flex-shrink: 0; }\r\n  .cl-suggestion-empty { padding: 12px 14px; font-size: 13px; color: #999; text-align: center; }\r\n  #cl-map {\r\n    width: 100%; height: 220px; border-radius: 12px; margin-top: 16px; overflow: hidden;\r\n    border: 1.5px solid #e0e0e0;\r\n  }\r\n  .cl-status {\r\n    font-size: 13px; color: #666; margin-top: 12px; text-align: center; min-height: 18px;\r\n  }\r\n  .cl-status.error { color: #d33; }\r\n  .cl-status.success { color: #037e64; font-weight: 600; }\r\n";
 
-  var HTML = "<div id=\"modal-cek-lokasi\" class=\"cl-modal-overlay\" style=\"display:none;\">\r\n  <div class=\"cl-modal-box\">\r\n    <button type=\"button\" id=\"btn-tutup-cek-lokasi\" class=\"cl-modal-close\" aria-label=\"Tutup\">&times;</button>\r\n\r\n    <div id=\"cl-step-lokasi\">\r\n      <h3 class=\"cl-title\"><i class=\"fas fa-map-marker-alt\"></i> Cek Ketersediaan di Lokasimu</h3>\r\n      <p class=\"cl-sub\">Bagikan lokasimu supaya sales kami bisa cek jangkauan XL SATU lebih cepat dan akurat.</p>\r\n\r\n      <button type=\"button\" id=\"btn-gunakan-lokasi\" class=\"cl-btn-primary\">\r\n        <i class=\"fas fa-location-crosshairs\"></i> Gunakan Lokasi Saya Sekarang\r\n      </button>\r\n\r\n      <div class=\"cl-divider\"><span>atau</span></div>\r\n\r\n      <label for=\"cl-alamat-manual\" class=\"cl-label\">Masukkan alamat manual</label>\r\n      <div class=\"cl-autocomplete-wrap\">\r\n        <input type=\"text\" id=\"cl-alamat-manual\" class=\"cl-input\" placeholder=\"Contoh: Jl. Slamet Riyadi, Solo\" autocomplete=\"off\">\r\n        <div id=\"cl-suggestions\" class=\"cl-suggestions\" style=\"display:none;\"></div>\r\n      </div>\r\n      <button type=\"button\" id=\"btn-cari-alamat\" class=\"cl-btn-secondary\">\r\n        <i class=\"fas fa-search\"></i> Cari Alamat\r\n      </button>\r\n\r\n      <div id=\"cl-map\" style=\"display:none;\"></div>\r\n      <p id=\"cl-status-lokasi\" class=\"cl-status\"></p>\r\n    </div>\r\n\r\n    <div id=\"cl-step-form\" style=\"display:none;\">\r\n      <h3 class=\"cl-title\"><i class=\"fas fa-check-circle\" style=\"color:#037e64;\"></i> Lokasi Ditemukan!</h3>\r\n      <p class=\"cl-sub\" id=\"cl-lokasi-info\"></p>\r\n\r\n      <label for=\"cl-nama\" class=\"cl-label\">Nama Lengkap</label>\r\n      <input type=\"text\" id=\"cl-nama\" class=\"cl-input\" placeholder=\"Nama kamu\" required>\r\n\r\n      <label for=\"cl-wa\" class=\"cl-label\">Nomor WhatsApp</label>\r\n      <input type=\"tel\" id=\"cl-wa\" class=\"cl-input\" placeholder=\"08xxxxxxxxxx\" required>\r\n\r\n      <button type=\"button\" id=\"btn-kirim-cek-lokasi\" class=\"cl-btn-primary\">\r\n        <i class=\"fab fa-whatsapp\"></i> Kirim & Lanjut ke WhatsApp\r\n      </button>\r\n      <button type=\"button\" id=\"btn-ganti-lokasi\" class=\"cl-btn-text\">Ganti Lokasi</button>\r\n    </div>\r\n  </div>\r\n</div>\n";
+  var HTML = "<div id=\"modal-cek-lokasi\" class=\"cl-modal-overlay\" style=\"display:none;\">\r\n  <div class=\"cl-modal-box\">\r\n    <button type=\"button\" id=\"btn-tutup-cek-lokasi\" class=\"cl-modal-close\" aria-label=\"Tutup\">&times;</button>\r\n\r\n    <div id=\"cl-step-lokasi\">\r\n      <h3 class=\"cl-title\"><i class=\"fas fa-map-marker-alt\"></i> Cek Ketersediaan di Lokasimu</h3>\r\n      <p class=\"cl-sub\">Bagikan lokasimu — sistem cek otomatis ke 16.828 titik fiber terdekat.</p>\r\n\r\n      <button type=\"button\" id=\"btn-gunakan-lokasi\" class=\"cl-btn-primary\">\r\n        <i class=\"fas fa-location-crosshairs\"></i> Gunakan Lokasi Saya Sekarang\r\n      </button>\r\n\r\n      <div class=\"cl-divider\"><span>atau</span></div>\r\n\r\n      <label for=\"cl-alamat-manual\" class=\"cl-label\">Masukkan alamat manual</label>\r\n      <div class=\"cl-autocomplete-wrap\">\r\n        <input type=\"text\" id=\"cl-alamat-manual\" class=\"cl-input\" placeholder=\"Contoh: Jl. Slamet Riyadi, Solo\" autocomplete=\"off\">\r\n        <div id=\"cl-suggestions\" class=\"cl-suggestions\" style=\"display:none;\"></div>\r\n      </div>\r\n      <button type=\"button\" id=\"btn-cari-alamat\" class=\"cl-btn-secondary\">\r\n        <i class=\"fas fa-search\"></i> Cari Alamat\r\n      </button>\r\n\r\n      <div id=\"cl-map\" style=\"display:none;\"></div>\r\n      <p id=\"cl-status-lokasi\" class=\"cl-status\"></p>\r\n    </div>\r\n\r\n    <div id=\"cl-step-form\" style=\"display:none;\">\r\n      <h3 class=\"cl-title\"><i class=\"fas fa-check-circle\" style=\"color:#037e64;\"></i> Lokasi Ditemukan!</h3>\r\n      <p class=\"cl-sub\" id=\"cl-lokasi-info\"></p><div id=\"cl-coverage\" style=\"display:none; border-radius:12px; padding:12px 14px; font-size:14px; margin:0 0 16px;\"></div>\r\n\r\n      <label for=\"cl-nama\" class=\"cl-label\">Nama Lengkap</label>\r\n      <input type=\"text\" id=\"cl-nama\" class=\"cl-input\" placeholder=\"Nama kamu\" required>\r\n\r\n      <label for=\"cl-wa\" class=\"cl-label\">Nomor WhatsApp</label>\r\n      <input type=\"tel\" id=\"cl-wa\" class=\"cl-input\" placeholder=\"08xxxxxxxxxx\" required>\r\n\r\n      <button type=\"button\" id=\"btn-kirim-cek-lokasi\" class=\"cl-btn-primary\">\r\n        <i class=\"fab fa-whatsapp\"></i> Kirim & Lanjut ke WhatsApp\r\n      </button>\r\n      <button type=\"button\" id=\"btn-ganti-lokasi\" class=\"cl-btn-text\">Ganti Lokasi</button>\r\n    </div>\r\n  </div>\r\n</div>\n";
 
   // injeksi style + markup modal
   var styleEl = document.createElement('style');
@@ -56,6 +56,61 @@
     { nama: "Boyolali",     lat: -7.5333, lng: 110.6000, radiusKm: 18 }
   ];
 
+  // ====== COVERAGE FIBER (16.828 titik homepass FTTH, lazy-load) ======
+  var coveragePts = null, coverageLoading = null, currentCoverage = null, lastCovKey = '';
+  function loadCoverage() {
+    if (coveragePts || coverageLoading) return;
+    coverageLoading = fetch('/data/coverage.json').then(function (r) { return r.json(); }).then(function (d) {
+      coveragePts = d.pts || [];
+    }).catch(function () { coveragePts = []; });
+  }
+  function haversineM(lat1, lng1, lat2, lng2) {
+    var R = 6371000, t = Math.PI / 180;
+    var a = Math.sin((lat2 - lat1) * t / 2), b = Math.sin((lng2 - lng1) * t / 2);
+    return 2 * R * Math.asin(Math.sqrt(a * a + Math.cos(lat1 * t) * Math.cos(lat2 * t) * b * b));
+  }
+  function cekCoverage(lat, lng, kota) {
+    if (kota === 'Klaten' || kota === 'Boyolali') return { status: 'wireless', jarakM: null };
+    if (!coveragePts || !coveragePts.length) return { status: 'loading', jarakM: null };
+    var best = Infinity;
+    for (var i = 0; i < coveragePts.length; i++) {
+      var d = haversineM(lat, lng, coveragePts[i][1], coveragePts[i][0]);
+      if (d < best) best = d;
+      if (best <= 20) break;
+    }
+    best = Math.round(best);
+    if (best <= 100) return { status: 'fiber', jarakM: best };
+    if (best <= 250) return { status: 'mungkin', jarakM: best };
+    return { status: 'manual', jarakM: best };
+  }
+  var COV_TEXT = {
+    fiber: ['#e6f7f3', '#026b55', 'TERCOVER FIBER OPTIC'],
+    mungkin: ['#fef3c7', '#92400e', 'KEMUNGKINAN TERCOVER'],
+    manual: ['#f3f4f6', '#444444', 'CEK MANUAL SALES'],
+    wireless: ['#e0f2fe', '#075985', 'JALUR WIRELESS'],
+    loading: ['#f3f4f6', '#666666', 'MENGECEK COVERAGE...']
+  };
+  function fireCoverageEvent(lat, lng, cv) {
+    if (!cv || cv.status === 'loading') return;
+    var key = lat.toFixed(5) + ',' + lng.toFixed(5) + cv.status;
+    if (key === lastCovKey) return;
+    lastCovKey = key;
+    if (typeof gtag === 'function') { gtag('event', 'coverage_check', { status: cv.status, jarak_m: cv.jarakM == null ? -1 : cv.jarakM, page_path: window.location.pathname }); }
+  }
+  function tampilCoverage(cv) {
+    currentCoverage = cv;
+    var box = document.getElementById('cl-coverage');
+    if (!box) return;
+    var t = COV_TEXT[cv.status] || COV_TEXT.loading;
+    var detail = cv.status === 'fiber' ? 'Titik fiber terdekat hanya sekitar ' + cv.jarakM + ' m dari lokasimu. ' :
+      cv.status === 'mungkin' ? 'Titik fiber terdekat sekitar ' + cv.jarakM + ' m. Sales verifikasi + siapkan opsi wireless. ' :
+      cv.status === 'manual' ? 'Di luar jangkauan data fiber kami. Sales cek manual / tawarkan wireless. ' :
+      cv.status === 'wireless' ? 'Area ini jalur wireless (tanpa kabel) — aktif cepat. ' : 'Menghitung jarak ke titik fiber terdekat...';
+    box.style.display = 'block';
+    box.style.background = t[0];
+    box.style.color = t[1];
+    box.innerHTML = '<strong>' + t[2] + '</strong><br><span style="font-size:13px;">' + detail + '</span>';
+  }
   var modal = document.getElementById('modal-cek-lokasi');
   var btnBuka = document.getElementById('btn-buka-cek-lokasi');
   var btnTutup = document.getElementById('btn-tutup-cek-lokasi');
@@ -209,6 +264,8 @@
       longitude: currentLng,
       alamat: currentAlamatText || '',
       kotaTerdeteksi: currentKota || '',
+      coverage: currentCoverage ? currentCoverage.status : '',
+      jarakFiberM: currentCoverage ? currentCoverage.jarakM : '',
       mapsLink: mapsLink,
       halaman: window.location.pathname,
       referrer: document.referrer || ''
@@ -262,6 +319,18 @@
 
     var hasil = deteksiKota(lat, lng);
     currentKota = hasil.nama;
+    var cv0 = cekCoverage(lat, lng, currentKota);
+    tampilCoverage(cv0);
+    fireCoverageEvent(lat, lng, cv0);
+    if (cv0.status === 'loading' && coverageLoading) {
+      coverageLoading.then(function () {
+        if (currentLat === lat && currentLng === lng) {
+          var cv2 = cekCoverage(lat, lng, currentKota);
+          tampilCoverage(cv2);
+          fireCoverageEvent(lat, lng, cv2);
+        }
+      });
+    }
     if (typeof gtag === 'function') {
       gtag('event', 'lokasi_dikonfirmasi', { kota_terdeteksi: currentKota || 'unknown', page_path: window.location.pathname });
     }
@@ -283,7 +352,7 @@
   }
 
   if (btnBuka) btnBuka.addEventListener('click', function () {
-    modal.style.display = 'flex';
+    modal.style.display = 'flex'; loadCoverage();
     window.__loadLeaflet();
     if (typeof gtag === 'function') {
       gtag('event', 'open_cek_lokasi', { page_path: window.location.pathname });
@@ -293,7 +362,7 @@
 
   document.querySelectorAll('.btn-cek-lokasi-trigger').forEach(function (el) {
     el.addEventListener('click', function () {
-      modal.style.display = 'flex';
+      modal.style.display = 'flex'; loadCoverage();
       window.__loadLeaflet();
       if (typeof gtag === 'function') {
         gtag('event', 'open_cek_lokasi', { page_path: window.location.pathname, trigger: 'header' });
@@ -521,6 +590,8 @@
       longitude: currentLng,
       alamat: currentAlamatText || '',
       kotaTerdeteksi: currentKota || '',
+      coverage: currentCoverage ? currentCoverage.status : '',
+      jarakFiberM: currentCoverage ? currentCoverage.jarakM : '',
       mapsLink: mapsLink,
       halaman: window.location.pathname,
       referrer: document.referrer || ''
@@ -534,10 +605,14 @@
         });
       }
       lsSet(LS_LEAD, { ts: Date.now() }); // lead didapat: matikan semua prompt lokasi permanen
+      var covLine = '';
+      if (currentCoverage && currentCoverage.status && currentCoverage.status !== 'loading') {
+        covLine = 'Hasil cek coverage: ' + currentCoverage.status.toUpperCase() + (currentCoverage.jarakM != null ? ' (sekitar ' + currentCoverage.jarakM + ' m)' : '') + '\n';
+      }
       var pesan = 'Halo kak, saya ' + nama + ', mau cek ketersediaan XL SATU.\n' +
         (currentAlamatText ? 'Alamat: ' + currentAlamatText + '\n' : '') +
         (mapsLink ? 'Peta lokasi: ' + mapsLink + '\n' : '') +
-        (currentKota ? 'Area terdekat: ' + currentKota : '');
+        (currentKota ? 'Area terdekat: ' + currentKota + '\n' : '') + covLine;
       var waUrl = 'https://wa.me/' + NOMOR_WA_SALES + '?text=' + encodeURIComponent(pesan);
       window.open(waUrl, '_blank');
       modal.style.display = 'none';
@@ -631,13 +706,13 @@
       hapusStrip();
       lsSet(LS_SUPPRESS, { ts: Date.now() });
       if (!navigator.geolocation) {
-        modal.style.display = 'flex';
+        modal.style.display = 'flex'; loadCoverage();
         window.__loadLeaflet();
         return;
       }
       statusEl.textContent = 'Meminta izin lokasi...';
       navigator.geolocation.getCurrentPosition(function (pos) {
-        modal.style.display = 'flex';
+        modal.style.display = 'flex'; loadCoverage();
         window.__loadLeaflet();
         if (typeof gtag === 'function') {
           gtag('event', 'open_cek_lokasi', { page_path: location.pathname, trigger: 'strip' });
@@ -645,7 +720,7 @@
         prosesLokasi(pos.coords.latitude, pos.coords.longitude, null);
       }, function () {
         // izin ditolak/gagal: arahkan ke modal jalur manual
-        modal.style.display = 'flex';
+        modal.style.display = 'flex'; loadCoverage();
         window.__loadLeaflet();
         statusEl.className = 'cl-status error';
         statusEl.textContent = 'Izin lokasi tidak diberikan. Gunakan alamat manual di bawah.';

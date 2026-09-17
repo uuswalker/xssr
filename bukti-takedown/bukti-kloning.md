@@ -48,3 +48,19 @@
 - Webhook mereka URL sendiri (`AKfycbzKgSJ1...`) — form mereka tidak mengalir ke sheet kita.
 - Kesimpulan: pelaku hanya find-replace permukaan (nomor di HTML, email, FB,
   alamat, schema telephone) tanpa memahami kode. Tidak mungkin klaim karya mandiri.
+
+## Blunder pelaku (forensik 17 Sep 2026 — situsnya cacat & kontradiktif)
+1. Schema `telephone` halaman /wifi-klaten/ = `+628778999141` (nomor KITA) —
+   Google membaca itu sebagai nomor bisnis resmi mereka.
+2. `NOMOR_WA_SALES` di cek-lokasi.js mereka = `6287778999141` (nomor KITA) —
+   submit form di situs pelaku membuka chat ke WA kita.
+3. GA4 `G-9R0LKSXL8Y` + Ads `AW-938834270` masih milik kita (2x di tiap halaman).
+4. Footer "Copyright Ac 2026" — karakter © rusak akibat find-replace serampangan.
+5. `og:image` path relatif → preview share WA/FB/Twitter kosong.
+6. Artefak HTTrack `../../cdnjs.cloudflare.com/...` → CSS Font Awesome 404,
+   ikon situs kemungkinan besar mati.
+7. Tanpa sitemap.xml dan robots.txt (keduanya 404).
+8. Email andalan `adminxlsatusolo@gmail.com` menempel nama domain kita =
+   impersonation tertulis tangannya sendiri.
+9. FAQ koar "sales resmi 0878-..." sementara schema+JS menunjuk nomor kita —
+   situsnya kontradiksi dengan dirinya sendiri.
