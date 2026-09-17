@@ -217,16 +217,16 @@
       <option value="100">Paket 100 Mbps (FUP 2000 GB)</option><option value="fwa">XL SATU Wireless / FWA (FUP 1024 GB)</option>
     </select>
     <div style="display:grid; gap:10px; font-size:14px; margin-bottom:14px;">
-      <label>Streaming 4K (jam/hari) <input id="fup-4k" type="number" min="0" max="24" value="0" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
-      <label>Streaming HD (jam/hari) <input id="fup-hd" type="number" min="0" max="24" value="0" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
-      <label>Video call (jam/hari) <input id="fup-vc" type="number" min="0" max="24" value="0" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
-      <label>Sosmed/TikTok (jam/hari) <input id="fup-sos" type="number" min="0" max="24" value="0" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
-      <label>Download besar/bulan (GB, mis. game) <input id="fup-dl" type="number" min="0" max="2000" value="0" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Nonton TV 4K (jam/hari, serumah) <input id="fup-4k" type="number" min="0" max="24" value="0" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>TV / YouTube HD (jam/hari, serumah) <input id="fup-hd" type="number" min="0" max="24" value="0" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Video call / WFH (jam/hari) <input id="fup-vc" type="number" min="0" max="24" value="0" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Sosmed / short video (jam/hari PER ORANG) <input id="fup-sos" type="number" min="0" max="24" value="0" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
+      <label>Penghuni yang aktif internetan (orang) <input id="fup-orang" type="number" min="0" max="20" value="0" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label><label>Download besar/bulan (GB, mis. game) <input id="fup-dl" type="number" min="0" max="2000" value="0" style="width:70px; padding:8px 10px; border:1px solid var(--border, #e5e7eb); border-radius:8px; font-size:15px; float:right;"></label>
     </div>
     <button type="button" id="fup-hitung" style="width:100%; background:var(--green, #037e64); color:#fff; border:none; padding:12px; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer;">Cek Nasib FUP-ku</button>
     <div id="fup-hasil" style="display:none; margin-top:14px; font-size:15px;"></div>
     <button type="button" id="fup-share" style="display:none; width:100%; background:#fff; color:var(--green-dark, #026b55); border:1.5px solid var(--green, #037e64); padding:10px; border-radius:8px; font-size:14px; font-weight:700; cursor:pointer; margin-top:10px;">Bagikan Hasil Ini</button>
-    <p style="font-size:12px; color:#888; margin-top:10px;">Simulasi ilustrasi berdasarkan tabel FUP publik + angka resmi Netflix (7 GB/jam 4K, 3 GB/jam HD) dan Zoom (1 GB/jam). Angka aktual tiap provider dapat berbeda dan berubah sewaktu-waktu.</p>
+    <p style="font-size:12px; color:#888; margin-top:10px;">Simulasi ilustrasi: tarif aktivitas dari Netflix/Zoom resmi; benchmark OpenVault OVBI 2026 & APJII 2025. Angka aktual tiap provider dapat berbeda dan berubah sewaktu-waktu.</p>
   </div>
   <script>
   (function () {
@@ -242,11 +242,11 @@
     function frun() {
       var p = document.getElementById('fup-paket').value;
       var t = FUP[p];
-      var daily = fnum('fup-4k') * 7 + fnum('fup-hd') * 3 + fnum('fup-vc') * 1 + fnum('fup-sos') * 0.8;
+      var orang = fnum('fup-orang'); var daily = fnum('fup-4k') * 7 + fnum('fup-hd') * 2 + fnum('fup-vc') * 1 + orang * fnum('fup-sos') * 0.8;
       var monthly = Math.round(daily * 30 + fnum('fup-dl'));
       var pct = Math.min(100, Math.round(monthly / t.f1 * 100));
       var barColor = monthly <= t.f1 ? '#16a34a' : '#dc2626';
-      var html = '<p>Estimasi pemakaianmu: <strong>' + monthly + ' GB/bulan</strong> (' + (Math.round(daily * 10) / 10) + ' GB/hari).</p>' +
+      var html = '<p>Estimasi pemakaianmu: <strong>' + monthly + ' GB/bulan</strong> (' + (Math.round(daily * 10) / 10) + ' GB/hari).</p>' + '<p style="font-size:13px; color:#666;">Pembanding data riil: rata-rata rumah tangga 711 GB/bln, mediannya 482 GB (OpenVault 2026).</p>' +
         '<div style="background:#eef2f7; border-radius:999px; height:16px; overflow:hidden; margin:10px 0 4px;"><div style="height:100%; width:' + pct + '%; background:' + barColor + '; border-radius:999px;"></div></div>' +
         '<p style="font-size:13px; color:#666;">' + pct + '% dari FUP pertama (' + t.f1 + ' GB)</p>';
       var status = '';
