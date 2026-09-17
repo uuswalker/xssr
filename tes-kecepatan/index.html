@@ -19,7 +19,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tes kecepatan internet gratis: ukur download, upload & ping ke server terdekat otomatis (infrastruktur M-Lab). Hasil + rekomendasi paket XL SATU.">
+  <meta name="description" content="Tes kecepatan internet gratis: ukur download & upload ke server terdekat otomatis (infrastruktur M-Lab). Hasil + rekomendasi paket XL SATU.">
   <meta name="keywords" content="tes kecepatan internet, cek kecepatan wifi, speed test indonesia, cek download upload ping, internet lemot cek kecepatan">
   <meta name="author" content="XL SATU">
   <meta name="robots" content="index, follow">
@@ -27,8 +27,8 @@
 
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="XL SATU Solo Raya">
-  <meta property="og:title" content="Tes Kecepatan Internet: Download, Upload & Ping">
-  <meta property="og:description" content="Ukur kecepatan internetmu ke server terdekat (±20 detik): download, upload, ping + vonis cukup-tidaknya + rekomendasi paket.">
+  <meta property="og:title" content="Tes Kecepatan Internet: Download & Upload">
+  <meta property="og:description" content="Ukur kecepatan internetmu ke server terdekat (±20 detik): download & upload + vonis cukup-tidaknya + rekomendasi paket.">
   <meta property="og:image" content="/images/promo-wifi-rumah-koneksi-pasti.webp">
   <meta property="og:url" content="https://xlsatusolo.com/tes-kecepatan/">
 
@@ -40,14 +40,14 @@
   <link rel="apple-touch-icon" sizes="180x180" href="https://xlsatusolo.com/apple-touch-icon.png">
   <link rel="manifest" href="https://xlsatusolo.com/site.webmanifest">
 
-  <title>Tes Kecepatan Internet: Download, Upload & Ping | XL SATU</title>
+  <title>Tes Kecepatan Internet: Download & Upload | XL SATU</title>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Tes Kecepatan Internet: Download, Upload & Ping",
-    "description": "Ukur kecepatan download, upload, dan ping internet ke server terdekat otomatis, lengkap dengan vonis cukup-tidaknya untuk streaming 4K, WFH, dan gaming.",
+    "headline": "Tes Kecepatan Internet: Download & Upload",
+    "description": "Ukur kecepatan download dan upload internet ke server terdekat otomatis, lengkap dengan vonis cukup-tidaknya untuk streaming 4K, WFH, dan gaming.",
     "author": { "@type": "Organization", "name": "XL SATU Solo Raya" },
     "publisher": { "@type": "Organization", "name": "XL SATU Solo Raya" },
     "datePublished": "2026-09-17",
@@ -63,7 +63,7 @@
       {
         "@type": "Question",
         "name": "Berapa lama tes kecepatan ini?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Sekitar 20–30 detik: pencarian server terdekat otomatis, lalu pengukuran download ±10 detik dan upload ±10 detik, plus ping." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Sekitar 20 detik: pencarian server terdekat otomatis, lalu pengukuran download ±10 detik dan upload ±10 detik." }
       },
       {
         "@type": "Question",
@@ -74,6 +74,11 @@
         "@type": "Question",
         "name": "Apakah data saya direkam saat tes?",
         "acceptedAnswer": { "@type": "Answer", "text": "Ya — sesuai kebijakan data M-Lab, hasil pengukuran termasuk alamat IP dipublikasikan di arsip terbuka mereka untuk riset. Karena itu tes hanya jalan setelah kamu mencentang persetujuan." }
+      },
+      {
+        "@type": "Question",
+        "name": "Kenapa tidak ada hasil ping?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Server tes terdekat berada di luar negeri (misalnya Singapura), sehingga angka ping selalu tinggi dan tidak mewakili kualitas koneksi lokalmu. Yang menentukan pengalaman (streaming, WFH, gaming) adalah download & upload — itulah yang ditampilkan." }
       },
       {
         "@type": "Question",
@@ -133,11 +138,11 @@
     .article-body strong { color: var(--text); }
     .info-box { background: var(--green-light); border-left: 4px solid var(--green); border-radius: 8px; padding: 20px 24px; margin: 24px 0; font-size: 15px; }
     .info-box strong { color: var(--green-dark); }
-    .speed-gauge { text-align: center; background: #0d2b52; color: #fff; border-radius: 16px; padding: 32px 24px; margin: 24px 0; }
-    .speed-gauge .big { font-size: 56px; font-weight: 800; line-height: 1; color: #ffd400; }
-    .speed-gauge .unit { font-size: 16px; font-weight: 600; opacity: .85; }
-    .speed-gauge .phase { font-size: 13px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; opacity: .8; margin-bottom: 8px; }
-    .speed-gauge .server { font-size: 12px; opacity: .65; margin-top: 10px; }
+    .speed-gauge { text-align: center; background: var(--green-light); color: var(--text); border: 1.5px solid var(--green); border-radius: 16px; padding: 32px 24px; margin: 24px 0; }
+    .speed-gauge .big { font-size: 56px; font-weight: 800; line-height: 1; color: var(--green-dark); }
+    .speed-gauge .unit { font-size: 16px; font-weight: 600; color: var(--text-muted); }
+    .speed-gauge .phase { font-size: 13px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--green-dark); margin-bottom: 8px; }
+    .speed-gauge .server { font-size: 12px; color: var(--text-muted); margin-top: 10px; }
     .speed-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
     .speed-card { background: var(--gray-bg); border-radius: 12px; padding: 16px; text-align: center; }
     .speed-card .v { font-size: 26px; font-weight: 800; }
@@ -192,7 +197,7 @@
 
 <div class="article-hero">
   <div class="breadcrumb"><a href="https://xlsatusolo.com/">Beranda</a> / Tes Kecepatan</div>
-  <h1>Tes Kecepatan Internet: Download, Upload & Ping</h1>
+  <h1>Tes Kecepatan Internet: Download & Upload</h1>
   <p class="subtitle">Ukur kecepatan riil ke server terdekat otomatis (±20–30 detik), dapat vonis + rekomendasi paket.</p>
   <p class="article-meta">Diperbarui 17 September 2026 · XL SATU Solo Raya</p>
 </div>
@@ -205,17 +210,17 @@
     <div class="unit">Mbps download</div>
     <div class="server" id="speed-server">Server terdekat dipilih otomatis saat tes dimulai</div>
     <div style="max-width:420px; margin:18px auto 0; text-align:left;">
-      <label style="display:flex; gap:8px; align-items:flex-start; font-size:13px; opacity:.9; cursor:pointer;">
+      <label style="display:flex; gap:8px; align-items:flex-start; font-size:13px; color:var(--text-muted); cursor:pointer;">
         <input type="checkbox" id="speed-consent" style="margin-top:4px;">
-        <span>Saya setuju hasil tes (termasuk IP) dipublikasikan di arsip terbuka M-Lab untuk riset. <a href="https://www.measurementlab.net/privacy/" target="_blank" rel="noopener noreferrer" style="color:#ffd400;">Kebijakan data</a>.</span>
+        <span>Saya setuju hasil tes (termasuk IP) dipublikasikan di arsip terbuka M-Lab untuk riset. <a href="https://www.measurementlab.net/privacy/" target="_blank" rel="noopener noreferrer" style="color:var(--green-dark);">Kebijakan data</a>.</span>
       </label>
-      <button type="button" id="speed-start" style="width:100%; margin-top:12px; background:#ffd400; color:#0d2b52; border:none; padding:14px; border-radius:10px; font-size:16px; font-weight:800; cursor:pointer;">Mulai Tes Kecepatan</button>
+      <button type="button" id="speed-start" style="width:100%; margin-top:12px; background:var(--green); color:#fff; border:none; padding:14px; border-radius:10px; font-size:16px; font-weight:800; cursor:pointer;">Mulai Tes Kecepatan</button>
     </div>
   </div>
 
   <div class="speed-cards">
     <div class="speed-card"><div class="v" id="speed-up">–</div><div class="l">Mbps upload</div></div>
-    <div class="speed-card"><div class="v" id="speed-ping">–</div><div class="l">ms ping</div></div>
+    <div class="speed-card"><div class="v" id="speed-srv" style="font-size:16px;">–</div><div class="l">server tes</div></div>
   </div>
 
   <div id="speed-hasil" style="display:none;"></div>
@@ -257,6 +262,9 @@
 
   <h3>Apakah data saya direkam saat tes?</h3>
   <p>Ya — sesuai kebijakan data M-Lab, hasil pengukuran termasuk alamat IP dipublikasikan di arsip terbuka mereka untuk riset. Karena itu tes hanya berjalan setelah kamu mencentang persetujuan.</p>
+
+  <h3>Kenapa tidak ada hasil ping?</h3>
+  <p>Server tes terdekat berada di luar negeri (misalnya Singapura), sehingga angka ping selalu tinggi dan tidak mewakili kualitas koneksi lokalmu. Yang menentukan pengalaman (streaming, WFH, gaming) adalah download & upload — itulah yang ditampilkan.</p>
 
   <h3>Kenapa hasil tes lebih kecil dari paket saya?</h3>
   <p>Penyebab umum: tes via WiFi (bukan kabel LAN), jarak ke router, banyak perangkat online bersamaan, atau jam sibuk. Coba tes ulang via kabel LAN dekat router. Kalau tetap jauh di bawah paket, hubungi sales untuk dicek.</p>
@@ -317,25 +325,18 @@
         elBig = document.getElementById('speed-big'),
         elServer = document.getElementById('speed-server'),
         elUp = document.getElementById('speed-up'),
-        elPing = document.getElementById('speed-ping'),
+        elSrv = document.getElementById('speed-srv'),
         elHasil = document.getElementById('speed-hasil'),
         btnStart = document.getElementById('speed-start'),
         btnShare = document.getElementById('speed-share'),
         btnRetest = document.getElementById('speed-retest'),
         chkConsent = document.getElementById('speed-consent');
-    var running = false, finalD = null, finalU = null, finalP = null;
+    var running = false, finalD = null, finalU = null;
 
     function setPhase(t) { elPhase.textContent = t; }
     function fmt(n) {
       if (n == null || isNaN(n)) return '–';
       return n >= 100 ? Math.round(n).toString() : (Math.round(n * 10) / 10).toString();
-    }
-    // Ping kasar: ukur RTT ke endpoint locate M-Lab
-    function ukurPing(cb) {
-      var t0 = performance.now();
-      fetch('https://locate.measurementlab.net/ndt?format=json', { mode: 'cors', cache: 'no-store' })
-        .then(function () { cb(Math.max(1, Math.round(performance.now() - t0))); })
-        .catch(function () { cb(null); });
     }
     function verdict(d) {
       if (d == null) return null;
@@ -344,10 +345,10 @@
       if (d >= 20) return ['Pas-pasan — browsing oke, tapi 4K & multi-device bakal buffering.', '#fef3c7'];
       return ['Lemot untuk standar 2026 — waktunya upgrade atau pindah provider.', '#fee2e2'];
     }
-    function tampilHasil(d, u, p) {
-      finalD = d; finalU = u; finalP = p;
+    function tampilHasil(d, u) {
+      finalD = d; finalU = u;
       var v = verdict(d);
-      var wa = 'https://wa.me/6287778999141?text=' + encodeURIComponent('Halo kak, hasil tes kecepatanku: ' + fmt(d) + ' Mbps download / ' + fmt(u) + ' Mbps upload / ' + (p == null ? '-' : p) + ' ms ping. Minta diagnosa + info paket dong');
+      var wa = 'https://wa.me/6287778999141?text=' + encodeURIComponent('Halo kak, hasil tes kecepatanku: ' + fmt(d) + ' Mbps download / ' + fmt(u) + ' Mbps upload. Minta diagnosa + info paket dong');
       elHasil.innerHTML = (v ? '<div class="info-box" style="background:' + v[1] + ';"><strong>Hasil: ' + fmt(d) + ' Mbps.</strong> ' + v[0] + '</div>' : '') +
         '<a href="' + wa + '" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:var(--green); color:#fff; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; margin-top:4px;">Konsultasi Hasil Ini via WA</a>';
       elHasil.style.display = 'block';
@@ -355,9 +356,9 @@
       btnRetest.style.display = 'block';
     }
     function reset() {
-      elBig.textContent = '–'; elUp.textContent = '–'; elPing.textContent = '–';
+      elBig.textContent = '–'; elUp.textContent = '–'; elSrv.textContent = '–';
       elHasil.style.display = 'none'; btnShare.style.display = 'none'; btnRetest.style.display = 'none';
-      finalD = finalU = finalP = null;
+      finalD = finalU = null;
     }
     function gagal(msg) {
       running = false;
@@ -380,13 +381,10 @@
       btnStart.disabled = true;
       btnStart.textContent = 'Mengukur...';
       if (typeof gtag === 'function') { gtag('event', 'speed_start', { page_path: window.location.pathname }); }
-      setPhase('Mengukur ping...');
-      ukurPing(function (ping) {
-        finalP = ping;
-        elPing.textContent = ping == null ? 'n/a' : ping;
-        setPhase('Mencari server terdekat...');
-        elServer.textContent = 'Menghubungi jaringan M-Lab...';
-        try {
+      setPhase('Mencari server terdekat...');
+      elServer.textContent = 'Menghubungi jaringan M-Lab...';
+      elSrv.textContent = '...';
+      try {
           ndt7.test(
             {
               userAcceptedDataPolicy: true,
@@ -398,6 +396,7 @@
               serverChosen: function (s) {
                 var kota = (s.location && s.location.city) || '';
                 elServer.textContent = 'Server: ' + (s.machine || '') + (kota ? ' (' + kota + ')' : '') + ' — otomatis terdekat';
+                elSrv.textContent = kota || 'Otomatis';
               },
               downloadMeasurement: function (ev) {
                 if (ev.Source === 'client' && ev.Data && ev.Data.MeanClientMbps != null) {
@@ -433,20 +432,19 @@
             if (code !== 0 && finalD == null) gagal('Tes tidak selesai (kode ' + code + ').');
           }).catch(function () { gagal('Tes tidak selesai.'); });
         } catch (e) { gagal('Browser tidak mendukung Web Worker/WebSocket.'); }
-      });
     }
     function selesai() {
       running = false;
       btnStart.disabled = false;
       btnStart.textContent = 'Mulai Tes Kecepatan';
       setPhase('Selesai');
-      tampilHasil(finalD, finalU, finalP);
+      tampilHasil(finalD, finalU);
       if (typeof gtag === 'function') { gtag('event', 'speed_done', { down_mbps: Math.round(finalD || 0), up_mbps: Math.round(finalU || 0), page_path: window.location.pathname }); }
     }
     btnStart.addEventListener('click', mulai);
     btnRetest.addEventListener('click', mulai);
     btnShare.addEventListener('click', function () {
-      var url = 'https://xlsatusolo.com/tes-kecepatan/#speed-' + Math.round(finalD || 0) + '-' + Math.round(finalU || 0) + '-' + (finalP == null ? 'x' : finalP);
+      var url = 'https://xlsatusolo.com/tes-kecepatan/#speed-' + Math.round(finalD || 0) + '-' + Math.round(finalU || 0);
       function done() {
         btnShare.textContent = 'Link Tersalin! Pamer ✓';
         if (typeof gtag === 'function') { gtag('event', 'speed_share', { page_path: window.location.pathname }); }
@@ -459,14 +457,13 @@
     // Buka link hasil dari orang lain → tampilkan statis
     (function () {
       var h = (location.hash || '').replace('#speed-', '');
-      var m = h.match(/^(\d+)-(\d+)-(\d+|x)$/);
+      var m = h.match(/^(\d+)-(\d+)(?:-(\d+|x))?$/);
       if (!m) return;
       setPhase('Hasil tes');
       elBig.textContent = m[1];
       elUp.textContent = m[2];
-      elPing.textContent = m[3] === 'x' ? 'n/a' : m[3];
       elServer.textContent = 'Hasil bagikan — jalankan tes sendiri untuk angka live.';
-      tampilHasil(parseFloat(m[1]), parseFloat(m[2]), m[3] === 'x' ? null : parseFloat(m[3]));
+      tampilHasil(parseFloat(m[1]), parseFloat(m[2]));
       document.getElementById('speed-box').scrollIntoView();
     })();
   })();
