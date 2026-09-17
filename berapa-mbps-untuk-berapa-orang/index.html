@@ -77,8 +77,8 @@
       },
       {
         "@type": "Question",
-        "name": "600 Mbps untuk berapa orang?",
-        "acceptedAnswer": { "@type": "Answer", "text": "600 Mbps melayani 8+ pengguna aktif sekaligus, termasuk aktivitas berat seperti streaming 4K multi-perangkat, gaming competitif, upload sejumlah besar file, dan rumah dengan smart home yang lengkap. Cocok untuk rumah besar atau kantor rumahan." }
+        "name": "500 Mbps untuk berapa orang?",
+        "acceptedAnswer": { "@type": "Answer", "text": "500 Mbps melayani 7+ pengguna aktif sekaligus, termasuk aktivitas berat seperti streaming 4K multi-perangkat, gaming, upload file besar, dan rumah dengan smart home yang lengkap. Cocok untuk rumah besar atau kantor rumahan." }
       },
       {
         "@type": "Question",
@@ -88,7 +88,7 @@
       {
         "@type": "Question",
         "name": "Bagaimana cara menghitung kebutuhan Mbps untuk rumah saya?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Hitung perangkat aktif yang jalan bersamaan: TV 4K 22 Mbps, streaming HD 6 Mbps, video call 4 Mbps, gaming 8 Mbps, browsing 3 Mbps, smart home maks 10 Mbps flat — jumlahkan, tambah buffer 30%, lalu bulatkan ke paket terdekat (20, 50, 250, 350, 400, 600, 1000 Mbps). Kalkulator di artikel ini menghitung otomatis lengkap dengan grafiknya." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Hitung perangkat aktif yang jalan bersamaan: TV 4K 22 Mbps, streaming HD 6 Mbps, video call 4 Mbps, gaming 8 Mbps, browsing 3 Mbps, smart home maks 10 Mbps flat — jumlahkan, tambah buffer 30%, lalu bulatkan ke paket terdekat (20, 100, 250, 300, 400, 500, 1000 Mbps). Kalkulator di artikel ini menghitung otomatis lengkap dengan grafiknya." }
       }
     ]
   }
@@ -221,8 +221,8 @@
   (function () {
     var NEED = { k4: 22, hd: 6, vc: 4, game: 8, browse: 3, smart: 0.5 };
     var SMART_CAP = 10;
-    var TIERS = [20, 50, 250, 350, 400, 600, 1000];
-    var PAKET = { 20: 'Starter 20 Mbps', 50: 'Starter 50 Mbps', 250: 'Spark 250 Mbps', 350: 'Spark 350 Mbps', 400: 'Spark 400 Mbps', 600: 'Spark 600 Mbps', 1000: 'Spark 1000 Mbps' };
+    var TIERS = [20, 100, 250, 300, 400, 500, 1000];
+    var PAKET = { 20: 'Starter 20 Mbps', 100: '100 Mbps', 250: 'Spark 250 Mbps', 300: 'Spark 300 Mbps', 400: 'Spark 400 Mbps', 500: 'Spark 500 Mbps', 1000: 'Spark 1000 Mbps' };
     var FIELDS = ['4k', 'hd', 'vc', 'game', 'browse', 'smart'];
     var LABELS = { '4k': 'TV 4K', hd: 'Streaming HD', vc: 'Video call', game: 'Gaming', browse: 'Browsing', smart: 'Smart home' };
     var COLORS = { '4k': '#7c3aed', hd: '#2563eb', vc: '#0891b2', game: '#db2777', browse: '#65a30d', smart: '#9ca3af' };
@@ -313,8 +313,8 @@
       <td>Streaming 4K, smart home, banyak perangkat aktif sekaligus</td>
     </tr>
     <tr>
-      <td>600 Mbps</td><td>8+ orang</td>
-      <td>Rumah besar/kantor kecil, 4K multi-perangkat, upload berat</td>
+      <td>500 Mbps</td><td>7+ orang</td>
+      <td>Rumah besar, 4K multi-perangkat, upload berat</td>
     </tr>
   </table>
 
@@ -359,14 +359,14 @@
   <h3>400 Mbps untuk berapa orang?</h3>
   <p>400 Mbps nyaman untuk <strong>6-8 pengguna aktif</strong>, atau rumah dengan banyak perangkat (smart home, CCTV, streaming 4K) yang dipakai bersamaan. Sangat cukup untuk keluarga besar.</p>
 
-  <h3>600 Mbps untuk berapa orang?</h3>
-  <p>600 Mbps melayani <strong>8+ pengguna aktif</strong> sekaligus, termasuk streaming 4K multi-perangkat, gaming, dan upload file besar. Cocok untuk rumah besar atau kantor rumahan.</p>
+  <h3>500 Mbps untuk berapa orang?</h3>
+  <p>500 Mbps melayani <strong>7+ pengguna aktif</strong> sekaligus, termasuk streaming 4K multi-perangkat, gaming, dan upload file besar. Cocok untuk rumah besar atau kantor rumahan.</p>
 
   <h3>20 Mbps cukup untuk berapa orang?</h3>
   <p>20 Mbps cukup untuk <strong>1-2 orang</strong> dengan aktivitas ringan seperti browsing, media sosial, dan streaming satu layar. Tidak disarankan untuk streaming 4K atau banyak perangkat sekaligus.</p>
 
   <h3>Bagaimana cara menghitung kebutuhan Mbps untuk rumah saya?</h3>
-  <p>Hitung <strong>perangkat aktif bersamaan</strong>, bukan jumlah orang: TV 4K ±22 Mbps, streaming HD ±6 Mbps, video call ±4 Mbps, gaming ±8 Mbps, browsing ±3 Mbps, smart home maks 10 Mbps flat — jumlahkan, tambah buffer 30%, bulatkan ke paket terdekat (20, 50, 250, 350, 400, 600, 1000 Mbps). <a href="#kalkulator-mbps">Kalkulator di atas</a> menghitung otomatis lengkap dengan grafiknya.</p>
+  <p>Hitung <strong>perangkat aktif bersamaan</strong>, bukan jumlah orang: TV 4K ±22 Mbps, streaming HD ±6 Mbps, video call ±4 Mbps, gaming ±8 Mbps, browsing ±3 Mbps, smart home maks 10 Mbps flat — jumlahkan, tambah buffer 30%, bulatkan ke paket terdekat (20, 100, 250, 300, 400, 500, 1000 Mbps). <a href="#kalkulator-mbps">Kalkulator di atas</a> menghitung otomatis lengkap dengan grafiknya.</p>
 
   <div class="cta-box">
     <h3>Masih Ragu Pilih Mbps yang Pas?</h3>
