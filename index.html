@@ -60,17 +60,81 @@
     "name": "XL SATU Solo Raya",
     "alternateName": "XL SATU Solo",
     "url": "https://xlsatusolo.com/",
-    "inLanguage": "id"
+    "inLanguage": "id",
+    "publisher": {"@id": "https://xlsatusolo.com/#business"},
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://xlsatusolo.com/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
   }
   </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": "https://xlsatusolo.com/#business",
     "name": "XL SATU Solo Raya",
+    "alternateName": ["XL SATU Solo", "First Media Solo", "XL Home Solo"],
+    "description": "Reseller resmi XL SATU (fiber optic & wireless internet) untuk wilayah Solo Raya: Kota Solo, Sukoharjo, Karanganyar, Klaten, dan Boyolali. Internet rumah unlimited tanpa FUP mulai Rp 185.000/bulan.",
     "url": "https://xlsatusolo.com/",
-    "areaServed": ["Solo", "Sukoharjo", "Karanganyar", "Klaten", "Boyolali"],
     "telephone": "+6287778999141",
+    "image": "https://xlsatusolo.com/images/promo-wifi-rumah-koneksi-pasti.webp",
+    "priceRange": "Rp185.000 – Rp399.000/bulan",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Surakarta",
+      "addressLocality": "Surakarta",
+      "addressRegion": "Jawa Tengah",
+      "postalCode": "57100",
+      "addressCountry": "ID"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -7.57533,
+      "longitude": 110.82481
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Surakarta"},
+      {"@type": "City", "name": "Solo"},
+      {"@type": "City", "name": "Sukoharjo"},
+      {"@type": "City", "name": "Karanganyar"},
+      {"@type": "City", "name": "Klaten"},
+      {"@type": "City", "name": "Boyolali"}
+    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "08:00",
+      "closes": "21:00"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Paket Internet XL SATU",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {"@type": "Service", "name": "XL SATU Fiber 20 Mbps"},
+          "price": "185000",
+          "priceCurrency": "IDR",
+          "priceSpecification": {"@type": "UnitPriceSpecification", "billingDuration": "P1M"}
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {"@type": "Service", "name": "XL SATU Fiber 100 Mbps"},
+          "price": "245000",
+          "priceCurrency": "IDR",
+          "priceSpecification": {"@type": "UnitPriceSpecification", "billingDuration": "P1M"}
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {"@type": "Service", "name": "XL SATU Fiber 250 Mbps"},
+          "price": "299000",
+          "priceCurrency": "IDR",
+          "priceSpecification": {"@type": "UnitPriceSpecification", "billingDuration": "P1M"}
+        }
+      ]
+    },
     "sameAs": ["https://satu.xl.co.id", "https://share.google/98sEij0jKY6VsIwcP", "https://maps.app.goo.gl/exTMsZCCVmCvtZzs9"]
   }
   </script>
