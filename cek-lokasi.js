@@ -76,8 +76,8 @@
     return 2 * R * Math.asin(Math.sqrt(a * a + Math.cos(lat1 * t) * Math.cos(lat2 * t) * b * b));
   }
   function cekCoverage(lat, lng, kota) {
-    if (kota === 'Klaten' || kota === 'Boyolali') return { status: 'wireless', jarakM: null, zona: null };
-    if (!coveragePts || !coveragePts.length || !wLoaded) return { status: 'loading', jarakM: null };
+    if (kota === 'Klaten' || kota === 'Boyolali') return { status: 'wireless', jarakM: null, zona: null, fiberM: null };
+    if (!coveragePts || !coveragePts.length || !wLoaded) return { status: 'loading', jarakM: null, zona: null, fiberM: null };
     var best = Infinity;
     for (var i = 0; i < coveragePts.length; i++) {
       var d = haversineM(lat, lng, coveragePts[i][1], coveragePts[i][0]);
@@ -85,11 +85,11 @@
       if (best <= 20) break;
     }
     best = Math.round(best);
-    if (best <= 100) return { status: 'fiber', jarakM: best, zona: null };
-    if (best <= 250) return { status: 'mungkin', jarakM: best, zona: null };
     var w = cekWireless(lat, lng);
-    if (w) return w;
-    return { status: 'manual', jarakM: best, zona: null };
+    if (best <= 100) return { status: 'fiber', jarakM: best, zona: w ? w.zona : null, fiberM: null };
+    if (w) return { status: 'wireless', jarakM: w.jarakM, zona: w.zona, fiberM: best <= 250 ? best : null };
+    if (best <= 250) return { status: 'mungkin', jarakM: best, zona: null, fiberM: null };
+    return { status: 'manual', jarakM: best, zona: null, fiberM: null };
   }
   // Verdict wireless (data KMZ Sukoharjo, radius 300 m)
   function cekWireless(lat, lng) {
@@ -124,10 +124,20 @@
     var box = document.getElementById('cl-coverage');
     if (!box) return;
     var t = COV_TEXT[cv.status] || COV_TEXT.loading;
-    var detail = cv.status === 'fiber' ? 'Titik fiber terdekat hanya sekitar ' + cv.jarakM + ' m dari lokasimu. ' :
-      cv.status === 'mungkin' ? 'Titik fiber terdekat sekitar ' + cv.jarakM + ' m. Sales verifikasi + siapkan opsi wireless. ' :
-      cv.status === 'manual' ? 'Di luar jangkauan data fiber kami. Sales cek manual / tawarkan wireless. ' :
-      cv.status === 'wireless' ? (cv.zona ? 'Masuk Zona ' + cv.zona + ' — wireless tercover' + (cv.jarakM != null ? ' (±' + cv.jarakM + ' m)' : '') + ', aktif cepat. ' : 'Area ini jalur wireless (tanpa kabel) — aktif cepat. ') : 'Menghitung jarak ke titik fiber terdekat...';
+var detail;
+    if (cv.status === 'fiber') {
+      detail = 'Titik fiber terdekat hanya sekitar ' + cv.jarakM + ' m dari lokasimu. ';
+      if (cv.zona) detail += 'Wireless (Zona ' + cv.zona + ') juga tersedia di area ini. ';
+    } else if (cv.status === 'mungkin') {
+      detail = 'Titik fiber terdekat sekitar ' + cv.jarakM + ' m. Sales verifikasi + siapkan opsi wireless. ';
+    } else if (cv.status === 'manual') {
+      detail = 'Di luar jangkauan data fiber kami. Sales cek manual / tawarkan wireless. ';
+    } else if (cv.status === 'wireless') {
+      detail = cv.zona ? 'Masuk Zona ' + cv.zona + ' — wireless tercover' + (cv.jarakM != null ? ' (±' + cv.jarakM + ' m)' : '') + ', aktif cepat. ' : 'Area ini jalur wireless (tanpa kabel) — aktif cepat. ';
+      if (cv.fiberM) detail += 'Fiber terdekat ±' + cv.fiberM + ' m — sales bisa cek opsi fiber dahulu. ';
+    } else {
+      detail = 'Menghitung jarak ke titik fiber terdekat...';
+    }
     box.style.display = 'block';
     box.style.background = t[0];
     box.style.color = t[1];
@@ -287,7 +297,7 @@
       alamat: currentAlamatText || '',
       kotaTerdeteksi: currentKota || '',
       coverage: currentCoverage ? currentCoverage.status : '',
-      jarakFiberM: currentCoverage ? currentCoverage.jarakM : '',
+      jarakFiberM: currentCoverage ? (currentCoverage.status === 'wireless' ? (currentCoverage.fiberM != null ? currentCoverage.fiberM : '') : currentCoverage.jarakM) : '',
       zona: currentCoverage ? currentCoverage.zona : '',
       mapsLink: mapsLink,
       halaman: window.location.pathname,
@@ -614,7 +624,7 @@
       alamat: currentAlamatText || '',
       kotaTerdeteksi: currentKota || '',
       coverage: currentCoverage ? currentCoverage.status : '',
-      jarakFiberM: currentCoverage ? currentCoverage.jarakM : '',
+      jarakFiberM: currentCoverage ? (currentCoverage.status === 'wireless' ? (currentCoverage.fiberM != null ? currentCoverage.fiberM : '') : currentCoverage.jarakM) : '',
       zona: currentCoverage ? currentCoverage.zona : '',
       mapsLink: mapsLink,
       halaman: window.location.pathname,
