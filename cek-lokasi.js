@@ -58,11 +58,17 @@
 
   // ====== COVERAGE FIBER (lazy-load) ======
   var coveragePts = null, coverageLoading = null, currentCoverage = null, lastCovKey = '';
+  var wCoveragePts = null, wZones = [], wLoaded = false;
   function loadCoverage() {
     if (coveragePts || coverageLoading) return;
     coverageLoading = fetch('/data/coverage.json').then(function (r) { return r.json(); }).then(function (d) {
       coveragePts = d.pts || [];
     }).catch(function () { coveragePts = []; });
+    fetch('/data/coverage-wireless.json').then(function (r) { return r.json(); }).then(function (d) {
+      wCoveragePts = d.pts || [];
+      wZones = d.zones || [];
+      wLoaded = true;
+    }).catch(function () { wCoveragePts = []; wLoaded = true; });
   }
   function haversineM(lat1, lng1, lat2, lng2) {
     var R = 6371000, t = Math.PI / 180;
@@ -70,8 +76,8 @@
     return 2 * R * Math.asin(Math.sqrt(a * a + Math.cos(lat1 * t) * Math.cos(lat2 * t) * b * b));
   }
   function cekCoverage(lat, lng, kota) {
-    if (kota === 'Klaten' || kota === 'Boyolali') return { status: 'wireless', jarakM: null };
-    if (!coveragePts || !coveragePts.length) return { status: 'loading', jarakM: null };
+    if (kota === 'Klaten' || kota === 'Boyolali') return { status: 'wireless', jarakM: null, zona: null };
+    if (!coveragePts || !coveragePts.length || !wLoaded) return { status: 'loading', jarakM: null };
     var best = Infinity;
     for (var i = 0; i < coveragePts.length; i++) {
       var d = haversineM(lat, lng, coveragePts[i][1], coveragePts[i][0]);
@@ -79,15 +85,31 @@
       if (best <= 20) break;
     }
     best = Math.round(best);
-    if (best <= 100) return { status: 'fiber', jarakM: best };
-    if (best <= 250) return { status: 'mungkin', jarakM: best };
-    return { status: 'manual', jarakM: best };
+    if (best <= 100) return { status: 'fiber', jarakM: best, zona: null };
+    if (best <= 250) return { status: 'mungkin', jarakM: best, zona: null };
+    var w = cekWireless(lat, lng);
+    if (w) return w;
+    return { status: 'manual', jarakM: best, zona: null };
+  }
+  // Verdict wireless (data KMZ Sukoharjo, radius 300 m)
+  function cekWireless(lat, lng) {
+    if (!wCoveragePts || !wCoveragePts.length) return null;
+    var best = Infinity, bz = null;
+    for (var i = 0; i < wCoveragePts.length; i++) {
+      var p = wCoveragePts[i];
+      var d = haversineM(lat, lng, p[1], p[0]);
+      if (d < best) { best = d; bz = wZones[p[2]] || null; }
+      if (best <= 20) break;
+    }
+    best = Math.round(best);
+    if (best <= 300) return { status: 'wireless', jarakM: best, zona: bz };
+    return null;
   }
   var COV_TEXT = {
     fiber: ['#e6f7f3', '#026b55', 'TERCOVER FIBER OPTIC'],
     mungkin: ['#fef3c7', '#92400e', 'KEMUNGKINAN TERCOVER'],
     manual: ['#f3f4f6', '#444444', 'CEK MANUAL SALES'],
-    wireless: ['#e0f2fe', '#075985', 'JALUR WIRELESS'],
+    wireless: ['#e0f2fe', '#075985', 'WIRELESS TERCOVER'],
     loading: ['#f3f4f6', '#666666', 'MENGECEK COVERAGE...']
   };
   function fireCoverageEvent(lat, lng, cv) {
@@ -95,7 +117,7 @@
     var key = lat.toFixed(5) + ',' + lng.toFixed(5) + cv.status;
     if (key === lastCovKey) return;
     lastCovKey = key;
-    if (typeof gtag === 'function') { gtag('event', 'coverage_check', { status: cv.status, jarak_m: cv.jarakM == null ? -1 : cv.jarakM, page_path: window.location.pathname }); }
+    if (typeof gtag === 'function') { gtag('event', 'coverage_check', { status: cv.status, jarak_m: cv.jarakM == null ? -1 : cv.jarakM, zona: cv.zona || '', page_path: window.location.pathname }); }
   }
   function tampilCoverage(cv) {
     currentCoverage = cv;
@@ -105,7 +127,7 @@
     var detail = cv.status === 'fiber' ? 'Titik fiber terdekat hanya sekitar ' + cv.jarakM + ' m dari lokasimu. ' :
       cv.status === 'mungkin' ? 'Titik fiber terdekat sekitar ' + cv.jarakM + ' m. Sales verifikasi + siapkan opsi wireless. ' :
       cv.status === 'manual' ? 'Di luar jangkauan data fiber kami. Sales cek manual / tawarkan wireless. ' :
-      cv.status === 'wireless' ? 'Area ini jalur wireless (tanpa kabel) — aktif cepat. ' : 'Menghitung jarak ke titik fiber terdekat...';
+      cv.status === 'wireless' ? (cv.zona ? 'Masuk Zona ' + cv.zona + ' — wireless tercover' + (cv.jarakM != null ? ' (±' + cv.jarakM + ' m)' : '') + ', aktif cepat. ' : 'Area ini jalur wireless (tanpa kabel) — aktif cepat. ') : 'Menghitung jarak ke titik fiber terdekat...';
     box.style.display = 'block';
     box.style.background = t[0];
     box.style.color = t[1];
@@ -266,6 +288,7 @@
       kotaTerdeteksi: currentKota || '',
       coverage: currentCoverage ? currentCoverage.status : '',
       jarakFiberM: currentCoverage ? currentCoverage.jarakM : '',
+      zona: currentCoverage ? currentCoverage.zona : '',
       mapsLink: mapsLink,
       halaman: window.location.pathname,
       referrer: document.referrer || ''
@@ -592,6 +615,7 @@
       kotaTerdeteksi: currentKota || '',
       coverage: currentCoverage ? currentCoverage.status : '',
       jarakFiberM: currentCoverage ? currentCoverage.jarakM : '',
+      zona: currentCoverage ? currentCoverage.zona : '',
       mapsLink: mapsLink,
       halaman: window.location.pathname,
       referrer: document.referrer || ''
@@ -607,7 +631,7 @@
       lsSet(LS_LEAD, { ts: Date.now() }); // lead didapat: matikan semua prompt lokasi permanen
       var covLine = '';
       if (currentCoverage && currentCoverage.status && currentCoverage.status !== 'loading') {
-        covLine = 'Hasil cek coverage: ' + currentCoverage.status.toUpperCase() + (currentCoverage.jarakM != null ? ' (sekitar ' + currentCoverage.jarakM + ' m)' : '') + '\n';
+        covLine = 'Hasil cek coverage: ' + currentCoverage.status.toUpperCase() + (currentCoverage.zona ? ' Zona ' + currentCoverage.zona : '') + (currentCoverage.jarakM != null ? ' (sekitar ' + currentCoverage.jarakM + ' m)' : '') + '\n';
       }
       var pesan = 'Halo kak, saya ' + nama + ', mau cek ketersediaan XL SATU.\n' +
         (currentAlamatText ? 'Alamat: ' + currentAlamatText + '\n' : '') +
