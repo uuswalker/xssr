@@ -13,7 +13,7 @@
       --border: #e5e7eb;
       --white: #ffffff;
     }
-    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body { 
       font-family: 'Plus Jakarta Sans', sans-serif; 
       background: var(--white); 
