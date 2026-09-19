@@ -89,8 +89,7 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
               alt={s.alt}
               width={s.w}
               height={s.h}
-              fetchPriority={s.eager ? "high" : undefined}
-              loading={s.eager ? "eager" : "lazy"}
+              priority={s.eager}
             />
           </div>
         ))}

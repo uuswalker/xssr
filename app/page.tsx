@@ -1,10 +1,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Hero from "@/components/home/Hero";
-import PaketSection from "@/components/home/PaketSection";
-import InfoSections from "@/components/home/InfoSections";
-import Faq from "@/components/home/Faq";
-import WaFloat from "@/components/WaFloat";
+import dynamic from "next/dynamic";
+const PaketSection = dynamic(() => import("@/components/home/PaketSection"));
+const InfoSections = dynamic(() => import("@/components/home/InfoSections"));
+const Faq = dynamic(() => import("@/components/home/Faq"));
+const WaFloat = dynamic(() => import("@/components/WaFloat"));
 import { FAQ_HOME } from "@/lib/faq-home";
 import {
   JsonLd,
@@ -21,7 +22,7 @@ export const metadata = pageMetadata({
   path: "/",
 });
 
-import ScrollReveal from "@/components/animations/ScrollReveal";
+const ScrollReveal = dynamic(() => import("@/components/animations/ScrollReveal"));
 import Marquee from "@/components/animations/Marquee";
 
 export default function Home() {
