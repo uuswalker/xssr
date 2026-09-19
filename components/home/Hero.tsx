@@ -84,13 +84,27 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
                 : scrollToId("hubungi")
             }
           >
-            <Image
-              src={s.img}
-              alt={s.alt}
-              width={s.w}
-              height={s.h}
-              priority={s.eager}
-            />
+            {s.eager ? (
+              <img
+                src={s.img}
+                alt={s.alt}
+                width={s.w}
+                height={s.h}
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
+                style={{ width: "100%", height: "auto", objectFit: "cover" }}
+              />
+            ) : (
+              <Image
+                src={s.img}
+                alt={s.alt}
+                width={s.w}
+                height={s.h}
+                loading="lazy"
+                style={{ width: "100%", height: "auto", objectFit: "cover" }}
+              />
+            )}
           </div>
         ))}
       </div>
