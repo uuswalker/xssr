@@ -21,15 +21,25 @@ export const metadata = pageMetadata({
   path: "/",
 });
 
+import ScrollReveal from "@/components/animations/ScrollReveal";
+
 export default function Home() {
   return (
     <>
       <Header />
       <main>
-        <Hero />
-        <PaketSection />
-        <InfoSections />
-        <Faq faqs={FAQ_HOME} />
+        <ScrollReveal delay={0.1}>
+          <Hero />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <PaketSection />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <InfoSections />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <Faq faqs={FAQ_HOME} />
+        </ScrollReveal>
         <WaFloat />
       </main>
       <Footer />

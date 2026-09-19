@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 
 import { useEffect, useState } from "react";
 import {
@@ -12,7 +13,7 @@ import {
 
 function FiberCard({ t }: { t: FiberTier }) {
   return (
-    <div className="paket-card">
+    <motion.div className="paket-card" whileHover={{ scale: 1.03, boxShadow: "0px 15px 35px rgba(5,169,134,0.2)" }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
       {t.badge && <div className="badge-laris">{t.badge}</div>}
       <div className={`paket-card-header ${t.headerClass}`}>
         <div className="paket-title">{t.name}</div>
@@ -81,7 +82,7 @@ function FiberCard({ t }: { t: FiberTier }) {
           </a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -226,7 +227,7 @@ export function TahunanPaket() {
 
         <div className="paket-grid">
           {TAHUNAN_TIERS.map((t) => (
-            <div className="paket-card" key={t.name}>
+            <motion.div className="paket-card" key={t.name} whileHover={{ scale: 1.03, y: -5, boxShadow: "0px 15px 30px rgba(5,169,134,0.15)" }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
               <div
                 className="paket-card-header"
                 style={{ background: t.headerGradient }}
@@ -293,7 +294,7 @@ export function TahunanPaket() {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
