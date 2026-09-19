@@ -46,6 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="id">
       <head>
+        <link rel="webmcp" id="webmcp" href="/webmcp.json" />
         
         
         
