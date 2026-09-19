@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
   // Gambar sudah teroptimasi (AVIF/WebP) di public/images; tanpa image optimizer server.
   images: { unoptimized: true },
   experimental: {
+    optimizePackageImports: ["lucide-react"],
     optimizeCss: true,
   },
 };
