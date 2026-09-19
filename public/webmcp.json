@@ -1,0 +1,22 @@
+{
+  "tools": [
+    {
+      "name": "checkLocation",
+      "description": "Submit user location and contact details to register for WiFi installation",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "nama": {
+            "type": "string",
+            "description": "Full name of the user"
+          },
+          "wa": {
+            "type": "string",
+            "description": "WhatsApp phone number of the user starting with 08"
+          }
+        },
+        "required": ["nama", "wa"]
+      }
+    }
+  ]
+}
