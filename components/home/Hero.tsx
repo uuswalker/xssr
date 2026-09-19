@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+
 import { MapPin, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import { WA_DAFTAR, WA_INFO, waLink } from "@/lib/site";
@@ -51,8 +51,6 @@ function scrollToId(id: string) {
 export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
   const [cur, setCur] = useState(0);
   const total = SLIDES.length;
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 800], [0, 250]);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const goToSlide = useCallback(
@@ -86,15 +84,17 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
           >
             {s.eager ? (
               <img
-                src={s.img}
-                alt={s.alt}
-                width={s.w}
-                height={s.h}
-                fetchPriority="high"
-                loading="eager"
-                decoding="async"
-                style={{ width: "100%", height: "auto", objectFit: "cover" }}
-              />
+  src={s.img}
+  srcSet={`${s.img.replace('.webp', '-mobile.webp')} 500w, ${s.img} 1080w`}
+  sizes="(max-width: 768px) 500px, 1080px"
+  alt={s.alt}
+  width={s.w}
+  height={s.h}
+  fetchPriority="high"
+  loading="eager"
+  decoding="async"
+  style={{ width: "100%", height: "auto", objectFit: "cover" }}
+/>
             ) : (
               <Image
                 src={s.img}

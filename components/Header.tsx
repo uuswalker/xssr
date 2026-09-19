@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+
 import { usePathname } from "next/navigation";
 import { MessageCircle, MapPin } from "lucide-react";
 
@@ -20,19 +20,12 @@ export default function Header({
   const anchorBase = isHome ? "" : "/";
 
   return (
-    <motion.header 
-      role="banner"
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 100, damping: 20 }}
-    >
+    <header role="banner" className="site-header">
       <div className="header-inner">
         <div className="logo">
           {/* Logo ALWAYS goes to home */}
           <a href="/" title="XL SATU">
-            <motion.img
-              whileHover={{ scale: 1.05 }}
-              src="/images/logo-xl-satu.png"
+            <img className="hover-scale" src="/images/logo-xl-satu.png"
               alt="XL SATU"
               width={106}
               height={85}
@@ -41,35 +34,28 @@ export default function Header({
           </a>
         </div>
         <nav role="navigation">
-          {showFiber && <motion.a whileHover={{ y: -2 }} href={`${anchorBase}#paket`}>Paket Fiber</motion.a>}
-          {showWireless && <motion.a whileHover={{ y: -2 }} href={`${anchorBase}#wireless`}>Wireless</motion.a>}
-          <motion.a whileHover={{ y: -2 }} href={`${anchorBase}#area`}>Area Layanan</motion.a>
-          <motion.a whileHover={{ y: -2 }} href={`${anchorBase}#bantuan`}>Bantuan</motion.a>
-          <motion.a whileHover={{ y: -2 }} href={`${anchorBase}#hubungi`}>Hubungi Kami</motion.a>
+          {showFiber && <a className="hover-lift" href={`${anchorBase}#paket`}>Paket Fiber</a>}
+          {showWireless && <a className="hover-lift" href={`${anchorBase}#wireless`}>Wireless</a>}
+          <a className="hover-lift" href={`${anchorBase}#area`}>Area Layanan</a>
+          <a className="hover-lift" href={`${anchorBase}#bantuan`}>Bantuan</a>
+          <a className="hover-lift" href={`${anchorBase}#hubungi`}>Hubungi Kami</a>
         </nav>
         {ctaHref ? (
-          <motion.a
-            whileHover={{ scale: 1.05, boxShadow: "0px 5px 15px rgba(5,169,134,0.4)" }}
-            whileTap={{ scale: 0.95 }}
-            href={ctaHref}
+          <a className="btn-chat hover-glow btn-wa-header" href={ctaHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-wa-header"
             style={{ display: "inline-block" }}
           >
             <MessageCircle size={18} /> Chat WA
-          </motion.a>
+          </a>
         ) : (
-          <motion.button 
-            whileHover={{ scale: 1.05, boxShadow: "0px 5px 15px rgba(5,169,134,0.4)" }}
-            whileTap={{ scale: 0.95 }}
-            type="button" 
-            className="btn-wa-header btn-cek-lokasi-trigger"
+          <button type="button" 
+            className="btn-wa-header btn-cek-lokasi-trigger hover-glow"
           >
             <MapPin size={18} /> Cek Ketersediaan
-          </motion.button>
+          </button>
         )}
       </div>
-    </motion.header>
+    </header>
   );
 }

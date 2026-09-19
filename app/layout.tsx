@@ -49,7 +49,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         
         
         
-        <link rel="preload" as="image" href="/images/promo-wifi-rumah-koneksi-pasti.webp" fetchPriority="high" />
+        <link 
+    rel="preload" 
+    as="image" 
+    imageSrcSet="/images/promo-wifi-rumah-koneksi-pasti-mobile.webp 500w, /images/promo-wifi-rumah-koneksi-pasti.webp 1080w"
+    imageSizes="(max-width: 768px) 500px, 1080px"
+    fetchPriority="high" 
+  />
         <link rel="preconnect" href="https://ipwho.is" crossOrigin="anonymous" />
         
         

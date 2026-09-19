@@ -1199,3 +1199,12 @@
     @media (max-width: 768px) {
       .paket-card.best-seller { transform: scale(1); }
 }
+    .site-header { position: sticky; top: 0; z-index: 50; }
+    .hover-scale { transition: transform 0.2s ease; }
+    .hover-scale:hover { transform: scale(1.05); }
+    .hover-lift { transition: transform 0.2s ease; }
+    .hover-lift:hover { transform: translateY(-2px); }
+    .hover-glow { transition: all 0.2s ease; }
+    .hover-glow:hover { transform: scale(1.05); box-shadow: 0px 5px 15px rgba(5,169,134,0.4); }
+    .hover-glow:active { transform: scale(0.95); }
+  
