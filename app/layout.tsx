@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
+import WebMCPRegistry from "@/components/WebMCPRegistry";
 import Trackers from "@/components/Trackers";
 import CekLokasi from "@/components/CekLokasi";
 import ConsentBanner from "@/components/ConsentBanner";
@@ -75,6 +76,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <link rel="preconnect" href="https://ipwho.is" crossOrigin="anonymous" />
         <Trackers />
+        <WebMCPRegistry />
         <CekLokasi />
         <ConsentBanner />
         {!IS_STAGING && (
