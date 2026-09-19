@@ -61,7 +61,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="image/webp"
           fetchPriority="high"
         />
-        <link rel="preconnect" href="https://ipwho.is" />
+        <link rel="preconnect" href="https://ipwho.is" crossOrigin="anonymous" />
         
         
       </head>

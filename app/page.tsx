@@ -29,9 +29,7 @@ export default function Home() {
     <>
       <Header />
       <main>
-        <ScrollReveal delay={0.1}>
-          <Hero />
-        </ScrollReveal>
+        <Hero />
         <Marquee />
         <ScrollReveal delay={0.1}>
           <PaketSection />

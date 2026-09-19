@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { MapPin, Gift, CheckCircle2, Settings, PlayCircle } from "lucide-react";
+import { MapPin, Gift, CheckCircle2, Settings, PlayCircle, ChevronUp, ChevronDown, CalendarCheck } from "lucide-react";
 import NumberCounter from "@/components/animations/NumberCounter";
 
 import { useEffect, useState } from "react";
@@ -514,10 +514,7 @@ export function WirelessPaket({
                   color: "#ac3c00",
                 }}
               >
-                <i
-                  className="fas fa-calendar-check"
-                  style={{ marginRight: 6 }}
-                ></i>{" "}
+                <CalendarCheck size={16} style={{ marginRight: 8, color: "var(--green)" }} />{" "}
                 Bayar bulanan, tanpa advance
               </div>
               <div

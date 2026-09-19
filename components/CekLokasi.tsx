@@ -1,4 +1,6 @@
 "use client";
+import { MessageCircle, MapPin, CheckCircle2, Target, Search, ArrowRight } from "lucide-react";
+
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -653,7 +655,7 @@ export default function CekLokasi() {
             lineHeight: 1.4,
           }}
         >
-          <i className="fas fa-location-crosshairs" style={{ fontSize: 18, flexShrink: 0 }}></i>
+          <Target size={18} />
           <span style={{ flex: 1 }}>
             {strip
               ? `Kamu di area ${strip}? Aktifkan lokasi untuk cek ketersediaan cepat.`
@@ -714,7 +716,7 @@ export default function CekLokasi() {
               {step === "lokasi" ? (
               <motion.div key="lokasi" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 30 }} transition={{ type: "spring", stiffness: 300, damping: 30 }} id="cl-step-lokasi">
                 <h3 className="cl-title">
-                  <i className="fas fa-map-marker-alt"></i> Cek Ketersediaan di Lokasimu
+                  <MapPin size={18} /> Cek Ketersediaan di Lokasimu
                 </h3>
                 <p className="cl-sub">
                   Bagikan lokasimu — sistem cek otomatis coverage fiber di lokasimu.
@@ -725,7 +727,7 @@ export default function CekLokasi() {
                   disabled={geoDisabled}
                   onClick={gunakanLokasi}
                 >
-                  <i className="fas fa-location-crosshairs"></i> Gunakan Lokasi Saya Sekarang
+                  <Target size={18} /> Gunakan Lokasi Saya Sekarang
                 </button>
                 <div className="cl-divider">
                   <span>atau</span>
@@ -761,7 +763,7 @@ export default function CekLokasi() {
                               prosesLokasi(parseFloat(s.lat), parseFloat(s.lon), s.display_name);
                             }}
                           >
-                            <i className="fas fa-map-marker-alt"></i>
+                            <MapPin size={18} />
                             <span>{s.display_name}</span>
                           </div>
                         ))
@@ -775,7 +777,7 @@ export default function CekLokasi() {
                   disabled={searching}
                   onClick={() => cariAlamat(query.trim())}
                 >
-                  <i className="fas fa-search"></i> Cari Alamat
+                  <Search size={18} /> Cari Alamat
                 </button>
                 {tanpaPeta && (
                   <button
@@ -784,7 +786,7 @@ export default function CekLokasi() {
                     style={{ marginTop: 10 }}
                     onClick={() => prosesLokasiTanpaKoordinat(tanpaPeta)}
                   >
-                    <i className="fas fa-arrow-right"></i> Tetap Lanjutkan dengan Alamat Ini
+                    <ArrowRight size={18} /> Tetap Lanjutkan dengan Alamat Ini
                   </button>
                 )}
                 <div
@@ -826,7 +828,7 @@ export default function CekLokasi() {
             ) : (
               <motion.div key="form" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ type: "spring", stiffness: 300, damping: 30 }} id="cl-step-form">
                 <h3 className="cl-title">
-                  <i className="fas fa-check-circle" style={{ color: "#037e64" }}></i>{" "}
+                  <CheckCircle2 size={18} color="var(--green)" />{" "}
                   Lokasi Ditemukan!
                 </h3>
                 <p className="cl-sub" id="cl-lokasi-info">
@@ -898,7 +900,7 @@ export default function CekLokasi() {
                   onClick={kirim}
                   style={{ marginTop: 12 }}
                 >
-                  <i className="fab fa-whatsapp"></i>{" "}
+                  <MessageCircle size={18} />{" "}
                   {sending ? "Memproses..." : "Kirim & Lanjut ke WhatsApp"}
                 </button>
                 <button
@@ -935,7 +937,7 @@ export default function CekLokasi() {
             gap: 8,
           }}
         >
-          <i className="fas fa-map-pin"></i> Opsional: Isi Alamat Manual
+          <MapPin size={18} /> Opsional: Isi Alamat Manual
         </div>
         <label htmlFor="cl-fallback-alamat" className="cl-label">
           Nama area / jalan / landmark
@@ -953,7 +955,7 @@ export default function CekLokasi() {
           className="cl-btn-secondary"
           onClick={() => onLanjut(v.trim())}
         >
-          <i className="fas fa-arrow-right"></i> Lanjutkan dengan Alamat Ini
+          <ArrowRight size={18} /> Lanjutkan dengan Alamat Ini
         </button>
       </div>
     );

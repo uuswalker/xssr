@@ -1,5 +1,5 @@
 "use client";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle , Plus , Minus } from "lucide-react";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -88,7 +88,7 @@ export default function Faq({
             className="more-btn"
           >
             Punya Pertanyaan Lainnya? Chat Sales{" "}
-            <i className="fab fa-whatsapp"></i>
+            <MessageCircle size={18} />
           </a>
         </div>
       </div>

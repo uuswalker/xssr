@@ -1,4 +1,4 @@
-import { Building2 } from "lucide-react";
+import { Building2, MapPin, CheckCircle2, HelpCircle, Map as MapIcon } from "lucide-react";
 import { HeroSlider, QuickActions, FiturPills } from "@/components/home/Hero";
 import {
   areaTipe,
@@ -48,10 +48,7 @@ export function KotaHero({ city }: { city: City }) {
               cursor: "pointer",
             }}
           >
-            <i
-              className="fas fa-map-marker-alt"
-              style={{ marginRight: 8 }}
-            ></i>
+            <MapPin size={18} />
             Cek Ketersediaan di Area Saya
           </button>
           <div className="hero-lokal-stats">
@@ -92,10 +89,7 @@ export function KotaHero({ city }: { city: City }) {
               "Ditemani Sampai Internet Nyala",
             ].map((t) => (
               <span key={t}>
-                <i
-                  className="fas fa-check-circle"
-                  style={{ color: "var(--green)", marginRight: 6 }}
-                ></i>
+                <CheckCircle2 size={18} color="var(--green)" />
                 {t}
               </span>
             ))}
@@ -156,10 +150,7 @@ export function KotaArea({
               borderColor: "var(--green)",
             }}
           >
-            <i
-              className="fas fa-question-circle"
-              style={{ color: "#fff" }}
-            ></i>
+            <HelpCircle size={20} color="var(--green)" />
             <div className="area-name" style={{ color: "#fff" }}>
               Area Lain?
             </div>
@@ -193,10 +184,7 @@ export function KotaArea({
               textDecoration: "none",
             }}
           >
-            <i
-              className="fas fa-map-location-dot"
-              style={{ marginRight: 6 }}
-            ></i>
+            <MapIcon size={24} color="var(--green)" />
             Lihat Cakupan Lengkap: 5 Kota, 79 Kecamatan, 102 Kelurahan
           </a>
         </p>
@@ -230,10 +218,7 @@ export function KecamatanBlock({ city }: { city: City }) {
               color: "#3a4a45",
             }}
           >
-            <i
-              className="fas fa-map-marker-alt"
-              style={{ color: "var(--green)", marginRight: 6 }}
-            ></i>
+            <MapPin size={18} />
             Kami melayani pemasangan XL SATU di {city.h1_kota as string},
             termasuk kecamatan{" "}
             {kecamatanText(city.kecamatan_list as string[])}. Belum yakin area

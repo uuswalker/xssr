@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { MapPin } from "lucide-react";
+import { MapPin, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import { WA_DAFTAR, WA_INFO, waLink } from "@/lib/site";
 
@@ -278,10 +278,7 @@ export function HomeHeroLokal() {
             "Ditemani Sampai Internet Nyala",
           ].map((t) => (
             <span key={t}>
-              <i
-                className="fas fa-check-circle"
-                style={{ color: "var(--green)", marginRight: 6 }}
-              ></i>
+              <CheckCircle2 size={16} color="var(--green)" style={{ marginRight: 6 }} />
               {t}
             </span>
           ))}
