@@ -1201,5 +1201,3 @@
     @media (max-width: 768px) {
       .paket-card.best-seller { transform: scale(1); }
     }
-      100% { filter: blur(12px); opacity: 0.8; }
-    }
