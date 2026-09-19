@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { WA_DAFTAR, WA_INFO, waLink } from "@/lib/site";
 
 const SLIDES = [
@@ -82,7 +83,7 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
                 : scrollToId("hubungi")
             }
           >
-            <img
+            <Image
               src={s.img}
               alt={s.alt}
               width={s.w}
@@ -131,7 +132,7 @@ export function QuickActions() {
           rel="noopener noreferrer"
           className="qa-item"
         >
-          <img
+          <Image
             src="/images/xl-cdn/icon-kalender.svg"
             alt=""
             width={22}
@@ -141,7 +142,7 @@ export function QuickActions() {
           Daftar Sekarang
         </a>
         <a href="#paket" className="qa-item">
-          <img
+          <Image
             src="/images/xl-cdn/icon-jaringan.svg"
             alt=""
             width={22}
@@ -156,7 +157,7 @@ export function QuickActions() {
           rel="noopener noreferrer"
           className="qa-item"
         >
-          <img
+          <Image
             src="/images/xl-cdn/icon-prabayar.svg"
             alt=""
             width={22}
@@ -181,7 +182,7 @@ export function FiturPills() {
           ["icon-xl-satu.svg", "SATU Aplikasi"],
         ].map(([icon, label]) => (
           <div className="pill-item" key={label}>
-            <img
+            <Image
               src={`/images/xl-cdn/${icon}`}
               alt=""
               width={28}

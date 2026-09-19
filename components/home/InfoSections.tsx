@@ -213,13 +213,8 @@ export function Kenapa() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-50px" }}
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))",
-              gap: 20,
-              marginTop: 32,
-              textAlign: "left",
-            }}
+            className="bento-grid"
+              style={{ textAlign: "left" }}
           >
             {KENAPA.map((k) => (
               <motion.div

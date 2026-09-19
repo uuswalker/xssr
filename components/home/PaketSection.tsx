@@ -14,7 +14,7 @@ import {
 
 function FiberCard({ t }: { t: FiberTier }) {
   return (
-    <motion.div className="paket-card" whileHover={{ scale: 1.03, boxShadow: "0px 15px 35px rgba(5,169,134,0.2)" }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
+    <motion.div className={`paket-card ${t.badge ? "best-seller" : ""}`} whileHover={{ scale: 1.03, boxShadow: "0px 15px 35px rgba(5,169,134,0.2)" }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
       {t.badge && <div className="badge-laris">{t.badge}</div>}
       <div className={`paket-card-header ${t.headerClass}`}>
         <div className="paket-title">{t.name}</div>
