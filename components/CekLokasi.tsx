@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "./ceklokasi.css";
 import "./ceklokasi.css";
 import {
@@ -699,7 +700,7 @@ export default function CekLokasi() {
 
       {open && (
         <div id="modal-cek-lokasi" className="cl-modal-overlay" style={{ display: "flex" }}>
-          <div className="cl-modal-box">
+          <motion.div className="cl-modal-box" initial={{ opacity: 0, y: 50, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ type: "spring", damping: 25, stiffness: 300 }}>
             <button
               type="button"
               className="cl-modal-close"
@@ -709,8 +710,9 @@ export default function CekLokasi() {
               &times;
             </button>
 
-            {step === "lokasi" ? (
-              <div id="cl-step-lokasi">
+            <AnimatePresence mode="wait">
+              {step === "lokasi" ? (
+              <motion.div key="lokasi" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 30 }} transition={{ type: "spring", stiffness: 300, damping: 30 }} id="cl-step-lokasi">
                 <h3 className="cl-title">
                   <i className="fas fa-map-marker-alt"></i> Cek Ketersediaan di Lokasimu
                 </h3>
@@ -820,9 +822,9 @@ export default function CekLokasi() {
                     }}
                   />
                 )}
-              </div>
+              </motion.div>
             ) : (
-              <div id="cl-step-form">
+              <motion.div key="form" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ type: "spring", stiffness: 300, damping: 30 }} id="cl-step-form">
                 <h3 className="cl-title">
                   <i className="fas fa-check-circle" style={{ color: "#037e64" }}></i>{" "}
                   Lokasi Ditemukan!
@@ -910,9 +912,10 @@ export default function CekLokasi() {
                 >
                   Ganti lokasi
                 </button>
-              </div>
+              </motion.div>
             )}
-          </div>
+            </AnimatePresence>
+          </motion.div>
         </div>
       )}
     </>

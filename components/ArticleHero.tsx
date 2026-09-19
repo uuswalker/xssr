@@ -1,22 +1,49 @@
+"use client";
 import type { HeroBand } from "@/lib/artikel";
+import { motion } from "framer-motion";
 
-// Pita hero artikel — breadcrumb + h1 + subtitle + meta (HTML verbatim xssr).
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+
+const fadeUp: any = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { type: "spring", damping: 20 } }
+};
+
 export default function ArticleHero({ hero }: { hero: HeroBand }) {
   return (
-    <div className="article-hero">
-      <div
+    <motion.div 
+      className="article-hero"
+      variants={staggerContainer}
+      initial="hidden"
+      animate="show"
+    >
+      <motion.div
+        variants={fadeUp}
         className="breadcrumb"
         dangerouslySetInnerHTML={{ __html: hero.crumb }}
       />
-      <h1 dangerouslySetInnerHTML={{ __html: hero.h1 }} />
-      <p
+      <motion.h1 
+        variants={fadeUp}
+        dangerouslySetInnerHTML={{ __html: hero.h1 }} 
+      />
+      <motion.p
+        variants={fadeUp}
         className="subtitle"
         dangerouslySetInnerHTML={{ __html: hero.sub }}
       />
-      <p
+      <motion.p
+        variants={fadeUp}
         className="article-meta"
         dangerouslySetInnerHTML={{ __html: hero.meta }}
       />
-    </div>
+    </motion.div>
   );
 }
