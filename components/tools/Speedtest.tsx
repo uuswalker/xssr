@@ -65,6 +65,16 @@ export default function Speedtest() {
       
       const finish = () => {
         xhrs.forEach(x => x.abort());
+        
+        // Safeguard untuk mobile: kalkulasi akhir
+        const totalLoaded = loaded.reduce((a, b) => a + b, 0);
+        const duration = (performance.now() - startTime) / 1000;
+        if (totalLoaded > 0 && duration > 0.1) {
+            const speedBps = (totalLoaded * 8) / duration;
+            const finalCalculated = speedBps / 1000000;
+            if (finalCalculated > 0) lastSpeed = finalCalculated;
+        }
+        
         resolve(lastSpeed);
       };
       
@@ -87,7 +97,9 @@ export default function Speedtest() {
             setFill(Math.min(100, (lastSpeed / 500) * 100));
           }
         };
-        xhr.onload = () => {
+        xhr.onload = (e) => {
+          // Fallback jika onprogress di-throttle oleh iOS Safari
+          loaded[i] = xhr.response ? xhr.response.length : (e as any).loaded || 25000000;
           active--;
           if (active === 0) {
             clearTimeout(timeoutId);
@@ -106,25 +118,25 @@ export default function Speedtest() {
       
       // Save for cleanup
       // @ts-ignore
-      xhrRef.current = { abort: () => xhrs.forEach(x => x.abort()) };
+      xhrRef.current = { abort: () => { clearTimeout(timeoutId); xhrs.forEach(x => x.abort()); } };
     });
   }, []);
 
   const runUploadTest = useCallback((): Promise<number> => {
     return new Promise((resolve) => {
       setPhase("Upload...");
-      const CHUNK_SIZE = 5000000; // 5MB per chunk
+      // KECILKAN UKURAN CHUNK agar totalUploaded bisa update cepat di mobile (slow network)
+      const CHUNK_SIZE = 250000; // 250 KB per chunk (vs 5MB sebelumnya)
       const CONNECTIONS = 4; // 4 concurrent workers
       let totalUploaded = 0;
       let lastSpeed = 0;
       let running = true;
       
-      // Generate non-compressible random data once
       const payload = new Uint8Array(CHUNK_SIZE);
       for(let i=0; i<payload.length; i+=65536) {
         window.crypto.getRandomValues(payload.subarray(i, Math.min(i + 65536, payload.length)));
       }
-      const blob = new Blob([payload], { type: 'text/plain' });
+      const blob = new Blob([payload], { type: 'application/octet-stream' });
       
       const startTime = performance.now();
       
@@ -145,13 +157,11 @@ export default function Speedtest() {
         resolve(lastSpeed);
       };
       
-      // Force finish exactly at 8 seconds
       const timeoutId = setTimeout(finish, 8000);
       
       const worker = async () => {
         while(running) {
           try {
-            // fetch prevents OS buffer cheating by waiting for full HTTP response
             const res = await fetch(`https://speed.cloudflare.com/__up?r=${Math.random()}`, {
               method: 'POST',
               body: blob,
@@ -161,7 +171,6 @@ export default function Speedtest() {
               totalUploaded += CHUNK_SIZE;
             }
           } catch (e) {
-            // If network fails, wait a bit before retrying
             await new Promise(r => setTimeout(r, 100));
           }
         }
@@ -173,7 +182,7 @@ export default function Speedtest() {
       
       // Save for cleanup
       // @ts-ignore
-      xhrRef.current = { abort: finish };
+      xhrRef.current = { abort: () => { clearTimeout(timeoutId); finish(); } };
     });
   }, []);
 
