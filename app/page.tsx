@@ -22,6 +22,7 @@ export const metadata = pageMetadata({
 });
 
 import ScrollReveal from "@/components/animations/ScrollReveal";
+import Marquee from "@/components/animations/Marquee";
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
         <ScrollReveal delay={0.1}>
           <Hero />
         </ScrollReveal>
+        <Marquee />
         <ScrollReveal delay={0.1}>
           <PaketSection />
         </ScrollReveal>
