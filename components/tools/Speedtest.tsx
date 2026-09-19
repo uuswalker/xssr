@@ -4,13 +4,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { gtag } from "@/lib/lead";
 
-declare global {
-  interface Window {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ndt7?: any;
-  }
-}
-
 function fmt(n: number | null): string {
   if (n == null || isNaN(n)) return "-";
   return n >= 100 ? Math.round(n).toString() : (Math.round(n * 10) / 10).toString();
@@ -19,12 +12,12 @@ function fmt(n: number | null): string {
 function verdict(d: number | null): [string, string] | null {
   if (d == null) return null;
   if (d >= 100)
-    return ["Ngebut — cukup untuk 4K multi-layar + WFH + gaming bareng.", "#e6f7f3"];
+    return ["Ngebut 🚀 cukup untuk 4K multi-layar + WFH + gaming bareng.", "#e6f7f3"];
   if (d >= 50)
-    return ["Lancar — cukup untuk streaming HD, WFH, dan gaming santai.", "#e6f7f3"];
+    return ["Lancar ⚡ cukup untuk streaming HD, WFH, dan gaming santai.", "#e6f7f3"];
   if (d >= 20)
-    return ["Pas-pasan — browsing oke, tapi 4K & multi-device bakal buffering.", "#fef3c7"];
-  return ["Lemot untuk standar 2026 — waktunya upgrade atau pindah provider.", "#fee2e2"];
+    return ["Pas-pasan ⚠️ browsing oke, tapi 4K & multi-device bakal buffering.", "#fef3c7"];
+  return ["Lemot untuk standar 2026 😭 waktunya upgrade atau pindah provider.", "#fee2e2"];
 }
 
 export default function Speedtest() {
@@ -32,157 +25,152 @@ export default function Speedtest() {
   const [big, setBig] = useState("-");
   const [up, setUp] = useState("-");
   const [srv, setSrv] = useState("-");
-  const [server, setServer] = useState("Server terdekat dipilih otomatis saat tes dimulai");
-  const [hasilHtml, setHasilHtml] = useState<string | null>(null);
+  const [server, setServer] = useState("Tekan mulai untuk menguji jaringanmu.");
   const [running, setRunning] = useState(false);
-  const [consent, setConsent] = useState(false);
+  const [hasilHtml, setHasilHtml] = useState("");
+  const [fill, setFill] = useState(0); // For the gauge circle
+
   const finalD = useRef<number | null>(null);
   const finalU = useRef<number | null>(null);
-
-  useEffect(() => {
-    const s = document.createElement("script");
-    s.src = "/vendor/ndt7/ndt7.js";
-    s.async = true;
-    document.head.appendChild(s);
-    return () => {
-      s.remove();
-    };
-  }, []);
+  const xhrRef = useRef<XMLHttpRequest | null>(null);
 
   const gagal = useCallback((msg: string) => {
-    finalD.current = finalU.current = null;
     setRunning(false);
     setPhase("Gagal");
-    setServer(msg + " Coba lagi, atau tes di speed.measurementlab.net.");
-    gtag("event", "speed_error", { page_path: window.location.pathname });
+    setServer(msg);
+    setFill(0);
   }, []);
 
   const tampilHasil = useCallback((d: number | null, u: number | null) => {
     const v = verdict(d);
-    const wa =
-      "https://wa.me/6287778999141?text=" +
-      encodeURIComponent(
-        `Halo kak, hasil tes kecepatanku: ${fmt(d)} Mbps download / ${fmt(u)} Mbps upload. Minta diagnosa + info paket dong`
-      );
-    const upTxt = u == null || isNaN(u) ? "tidak terukur" : fmt(u) + " Mbps";
+    if (!v) return;
     setHasilHtml(
-      (v
-        ? `<div class="info-box" style="background:${v[1]};"><strong>Hasil lengkap — Download ${fmt(d)} Mbps / Upload ${upTxt}.</strong><br>${v[0]}</div>`
-        : "") +
-        `<a href="${wa}" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:var(--green); color:#fff; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; margin-top:4px;">Konsultasi Hasil Ini via WA</a>`
+      `<div style="background:${v[1]};padding:16px;border-radius:12px;margin-top:24px;">` +
+        `<strong style="display:block;margin-bottom:6px;font-size:16px;color:#1f2937;">Kesimpulan:</strong>` +
+        `<p style="margin:0;font-size:14px;line-height:1.5;color:#374151;">${v[0]}</p>` +
+        `</div>`
     );
   }, []);
 
-  const mulai = useCallback(() => {
-    if (running) return;
-    if (typeof window.ndt7 === "undefined") {
-      gagal("Library tes gagal dimuat.");
-      return;
-    }
-    if (!consent) {
-      setServer("Centang persetujuan data dulu untuk mulai tes.");
-      return;
-    }
-    setRunning(true);
-    setBig("-");
-    setUp("-");
-    setSrv("-");
-    setHasilHtml(null);
-    finalD.current = finalU.current = null;
-    gtag("event", "speed_start", { page_path: window.location.pathname });
-    setPhase("Mencari server terdekat...");
-    setServer("Menghubungi jaringan M-Lab...");
-    setSrv("...");
-    try {
-      window.ndt7
-        .test(
-          {
-            userAcceptedDataPolicy: true,
-            downloadworkerfile: "/vendor/ndt7/ndt7-download-worker.js",
-            uploadworkerfile: "/vendor/ndt7/ndt7-upload-worker.js",
-            metadata: { client_name: "xlsatusolo-speedtest" },
-          },
-          {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            serverChosen: (s: any) => {
-              const kota = (s.location && s.location.city) || "";
-              setServer(
-                `Server: ${s.machine || ""}${kota ? ` (${kota})` : ""} — otomatis terdekat`
-              );
-              setSrv(kota || "Otomatis");
-            },
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            downloadMeasurement: (ev: any) => {
-              if (ev.Source === "client" && ev.Data && ev.Data.MeanClientMbps != null) {
-                setPhase("Download...");
-                setBig(fmt(ev.Data.MeanClientMbps));
-              }
-            },
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            downloadComplete: (data: any) => {
-              const d =
-                data && data.LastClientMeasurement
-                  ? data.LastClientMeasurement.MeanClientMbps
-                  : null;
-              if (d != null) {
-                finalD.current = d;
-                setBig(fmt(d));
-              }
-              setPhase("Upload...");
-              setBig("-");
-            },
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            uploadMeasurement: (ev: any) => {
-              if (
-                ev.Source === "server" &&
-                ev.Data &&
-                ev.Data.TCPInfo &&
-                ev.Data.TCPInfo.ElapsedTime > 0
-              ) {
-                const u =
-                  (ev.Data.TCPInfo.BytesReceived * 8) / ev.Data.TCPInfo.ElapsedTime;
-                setUp(fmt(u));
-              }
-            },
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            uploadComplete: (data: any) => {
-              let u: number | null = null;
-              try {
-                const t = data.LastServerMeasurement.TCPInfo;
-                u = (t.BytesReceived * 8) / t.ElapsedTime;
-              } catch {
-                u = null;
-              }
-              finalU.current = u;
-              if (u != null) setUp(fmt(u));
-              setRunning(false);
-              setPhase("Selesai");
-              tampilHasil(finalD.current, finalU.current);
-              gtag("event", "speed_done", {
-                down_mbps: Math.round(finalD.current || 0),
-                up_mbps: Math.round(finalU.current || 0),
-                page_path: window.location.pathname,
-              });
-            },
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            error: (err: any) => {
-              gagal("Error: " + ((err && err.message) || "tes terputus") + ".");
-            },
+  const runDownloadTest = useCallback((): Promise<number> => {
+    return new Promise((resolve, reject) => {
+      setPhase("Download...");
+      const xhr = new XMLHttpRequest();
+      xhrRef.current = xhr;
+      
+      // Use Cloudflare speedtest endpoint (15MB file)
+      const url = `https://speed.cloudflare.com/__down?bytes=15000000&r=${Math.random()}`;
+      const startTime = performance.now();
+      
+      xhr.open("GET", url, true);
+      xhr.onprogress = (e) => {
+        if (e.loaded > 0) {
+          const duration = (performance.now() - startTime) / 1000;
+          if (duration > 0.1) {
+            const speedBps = (e.loaded * 8) / duration;
+            const speedMbps = speedBps / 1000000;
+            setBig(fmt(speedMbps));
+            // Update gauge based on realistic max 500Mbps
+            setFill(Math.min(100, (speedMbps / 500) * 100));
           }
-        )
-        .then((code: number) => {
-          if (code !== 0 && finalD.current == null)
-            gagal(`Tes tidak selesai (kode ${code}).`);
-        })
-        .catch(() => {
-          gagal("Tes tidak selesai.");
-        });
-    } catch {
-      gagal("Browser tidak mendukung Web Worker/WebSocket.");
-    }
-  }, [running, consent, gagal, tampilHasil]);
+        }
+      };
+      xhr.onload = () => {
+        const duration = (performance.now() - startTime) / 1000;
+        const speedMbps = ((15000000 * 8) / duration) / 1000000;
+        resolve(speedMbps);
+      };
+      xhr.onerror = () => reject(new Error("Download test failed"));
+      xhr.send();
+    });
+  }, []);
 
-  // Buka link hasil dari orang lain → tampilkan statis
+  const runUploadTest = useCallback((): Promise<number> => {
+    return new Promise((resolve, reject) => {
+      setPhase("Upload...");
+      const xhr = new XMLHttpRequest();
+      xhrRef.current = xhr;
+      
+      const url = `https://speed.cloudflare.com/__up?r=${Math.random()}`;
+      // Generate 5MB of random data
+      const payload = new Uint8Array(5000000);
+      for(let i=0; i<payload.length; i++) payload[i] = Math.random() * 255;
+      
+      const startTime = performance.now();
+      
+      xhr.open("POST", url, true);
+      xhr.upload.onprogress = (e) => {
+        if (e.loaded > 0) {
+          const duration = (performance.now() - startTime) / 1000;
+          if (duration > 0.1) {
+            const speedBps = (e.loaded * 8) / duration;
+            const speedMbps = speedBps / 1000000;
+            setUp(fmt(speedMbps));
+            setFill(Math.min(100, (speedMbps / 200) * 100)); // Max 200 upload scale
+          }
+        }
+      };
+      xhr.onload = () => {
+        const duration = (performance.now() - startTime) / 1000;
+        const speedMbps = ((5000000 * 8) / duration) / 1000000;
+        resolve(speedMbps);
+      };
+      xhr.onerror = () => reject(new Error("Upload test failed"));
+      xhr.send(payload);
+    });
+  }, []);
+
+  const mulai = useCallback(async () => {
+    if (running) return;
+    
+    setRunning(true);
+    setHasilHtml("");
+    finalD.current = null;
+    finalU.current = null;
+    setBig("0");
+    setUp("0");
+    setFill(0);
+    setServer("Menghubungi Cloudflare Edge Server...");
+    setSrv("Cloudflare");
+
+    try {
+      // 1. Download Test
+      const dlSpeed = await runDownloadTest();
+      finalD.current = dlSpeed;
+      setBig(fmt(dlSpeed));
+      setFill(0); // reset gauge
+      
+      // 2. Upload Test
+      const ulSpeed = await runUploadTest();
+      finalU.current = ulSpeed;
+      setUp(fmt(ulSpeed));
+      
+      // Done
+      setRunning(false);
+      setPhase("Selesai");
+      setFill(100);
+      setServer("Server: Cloudflare Edge - Selesai");
+      tampilHasil(finalD.current, finalU.current);
+      
+      gtag("event", "speed_done", {
+        down_mbps: Math.round(finalD.current || 0),
+        up_mbps: Math.round(finalU.current || 0),
+        page_path: window.location.pathname,
+      });
+
+    } catch (err: any) {
+      gagal("Error: Gagal mengukur jaringan. Pastikan koneksi stabil.");
+    }
+  }, [running, gagal, tampilHasil, runDownloadTest, runUploadTest]);
+
+  // Clean up XHR on unmount
+  useEffect(() => {
+    return () => {
+      if (xhrRef.current) xhrRef.current.abort();
+    };
+  }, []);
+
+  // Buka link hasil dari orang lain
   useEffect(() => {
     const h = (window.location.hash || "").replace("#speed-", "");
     const m = h.match(/^(\d+)-(\d+)(?:-(\d+|x))?$/);
@@ -190,11 +178,11 @@ export default function Speedtest() {
     setPhase("Hasil tes");
     setBig(m[1]);
     setUp(m[2]);
-    setServer("Hasil bagikan — jalankan tes sendiri untuk angka live.");
+    setFill(100);
+    setServer("Hasil bagikan ➔ jalankan tes sendiri untuk angka live.");
     tampilHasil(parseFloat(m[1]), parseFloat(m[2]));
     document.getElementById("speed-box")?.scrollIntoView();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [tampilHasil]);
 
   const share = () => {
     const url = `https://xlsatusolo.com/tes-kecepatan/#speed-${Math.round(finalD.current || 0)}-${Math.round(finalU.current || 0)}`;
@@ -213,82 +201,82 @@ export default function Speedtest() {
 
   return (
     <div id="speed-box">
-      <div className="phase" id="speed-phase">
+      <div style={{ textAlign: "center", marginBottom: 20 }}>
+        <motion.div
+          animate={{ scale: running ? [1, 1.02, 1] : 1 }}
+          transition={{ repeat: Infinity, duration: 1 }}
+          style={{ position: "relative", width: 200, height: 200, margin: "0 auto" }}
+        >
+          <svg viewBox="0 0 36 36" style={{ width: "100%", height: "100%" }}>
+            <path
+              d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              fill="none"
+              stroke="#eee"
+              strokeWidth="2"
+              strokeDasharray="100 100"
+            />
+            <motion.path
+              d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              fill="none"
+              stroke="var(--green)"
+              strokeWidth="3"
+              initial={{ strokeDasharray: "0 100" }}
+              animate={{ strokeDasharray: `${fill} 100` }}
+              transition={{ type: "spring", bounce: 0, duration: 0.5 }}
+            />
+          </svg>
+          <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", textAlign: "center" }}>
+             <div style={{ fontSize: 42, fontWeight: 900, color: "var(--green-dark)", lineHeight: 1 }}>{big}</div>
+             <div style={{ fontSize: 12, color: "#666", fontWeight: 700, marginTop: 4 }}>Mbps Download</div>
+          </div>
+        </motion.div>
+      </div>
+
+      <div className="phase" id="speed-phase" style={{ textAlign: "center", fontWeight: 700, fontSize: 18, marginBottom: 8, color: "var(--green)" }}>
         {phase}
       </div>
-      <div className="big" id="speed-big">
-        {big}
-      </div>
-      <div className="unit">Mbps download</div>
-      <div className="server" id="speed-server">
+      
+      <div className="server" id="speed-server" style={{ textAlign: "center", fontSize: 13, color: "#666", marginBottom: 24 }}>
         {server}
       </div>
-      <div style={{ maxWidth: 420, margin: "18px auto 0", textAlign: "left" }}>
-        <label
-          style={{
-            display: "flex",
-            gap: 8,
-            alignItems: "flex-start",
-            fontSize: 13,
-            color: "var(--text-muted)",
-            cursor: "pointer",
-          }}
-        >
-          <input
-            type="checkbox"
-            id="speed-consent"
-            style={{ marginTop: 4 }}
-            checked={consent}
-            onChange={(e) => setConsent(e.target.checked)}
-          />
-          <span>
-            Saya setuju hasil tes (termasuk IP) dipublikasikan di arsip terbuka
-            M-Lab untuk riset.{" "}
-            <a
-              href="https://www.measurementlab.net/privacy/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "var(--green-dark)" }}
-            >
-              Kebijakan data
-            </a>
-            .
-          </span>
-        </label>
-        <button
+
+      <div style={{ maxWidth: 420, margin: "0 auto", textAlign: "left" }}>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          animate={{ boxShadow: running ? "none" : ["0 0 0 0 rgba(5,169,134,0.4)", "0 0 0 15px rgba(5,169,134,0)"] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
           type="button"
-          id="speed-start"
           onClick={mulai}
           disabled={running}
           style={{
             width: "100%",
-            marginTop: 12,
-            background: "var(--green)",
+            background: running ? "#9ca3af" : "var(--green)",
             color: "#fff",
             border: "none",
             padding: 14,
             borderRadius: 10,
             fontSize: 16,
             fontWeight: 800,
-            cursor: "pointer",
+            cursor: running ? "not-allowed" : "pointer",
           }}
         >
           {running ? "Mengukur..." : "Mulai Tes Kecepatan"}
-        </button>
+        </motion.button>
       </div>
 
-      <div className="speed-cards">
-        <div className="speed-card">
-          <div className="v" id="speed-up">
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 24 }}>
+        <div style={{ background: "#f9fafb", border: "1px solid #e5e7eb", borderRadius: 12, padding: 16, textAlign: "center" }}>
+          <div style={{ fontSize: 24, fontWeight: 800, color: "#374151" }}>
             {up}
           </div>
-          <div className="l">Mbps upload</div>
+          <div style={{ fontSize: 12, color: "#6b7280", fontWeight: 700, marginTop: 4 }}>Mbps Upload</div>
         </div>
-        <div className="speed-card">
-          <div className="v" id="speed-srv" style={{ fontSize: 16 }}>
+        <div style={{ background: "#f9fafb", border: "1px solid #e5e7eb", borderRadius: 12, padding: 16, textAlign: "center" }}>
+          <div style={{ fontSize: 16, fontWeight: 800, color: "#374151" }}>
             {srv}
           </div>
-          <div className="l">server tes</div>
+          <div style={{ fontSize: 12, color: "#6b7280", fontWeight: 700, marginTop: 4 }}>Server Tes</div>
         </div>
       </div>
 
@@ -299,12 +287,13 @@ export default function Speedtest() {
         />
       )}
 
-      <div style={{ display: "flex", gap: 8, margin: "8px 0 24px" }}>
+      <div style={{ display: "flex", gap: 8, margin: "16px 0 24px" }}>
         {hasilHtml && (
           <>
-            <button
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               type="button"
-              id="speed-share"
               onClick={share}
               style={{
                 flex: 1,
@@ -317,11 +306,12 @@ export default function Speedtest() {
                 cursor: "pointer",
               }}
             >
-              {shared ? "Link Tersalin! Pamer 📶" : "Bagikan Hasilku"}
-            </button>
-            <button
+              {shared ? "Link Tersalin! Pamer 🚀" : "Bagikan Hasilku"}
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               type="button"
-              id="speed-retest"
               onClick={mulai}
               style={{
                 flex: 1,
@@ -335,7 +325,7 @@ export default function Speedtest() {
               }}
             >
               Tes Ulang
-            </button>
+            </motion.button>
           </>
         )}
       </div>
