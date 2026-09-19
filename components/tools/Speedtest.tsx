@@ -58,29 +58,38 @@ export default function Speedtest() {
       const xhr = new XMLHttpRequest();
       xhrRef.current = xhr;
       
-      // Use Cloudflare speedtest endpoint (15MB file)
-      const url = `https://speed.cloudflare.com/__down?bytes=15000000&r=${Math.random()}`;
+      const url = `https://speed.cloudflare.com/__down?bytes=50000000&r=${Math.random()}`;
       const startTime = performance.now();
+      let lastSpeed = 0;
       
+      const timeoutId = setTimeout(() => {
+        xhr.abort();
+        resolve(lastSpeed);
+      }, 8000); // 8 seconds max
+
       xhr.open("GET", url, true);
       xhr.onprogress = (e) => {
         if (e.loaded > 0) {
           const duration = (performance.now() - startTime) / 1000;
           if (duration > 0.1) {
             const speedBps = (e.loaded * 8) / duration;
-            const speedMbps = speedBps / 1000000;
-            setBig(fmt(speedMbps));
-            // Update gauge based on realistic max 500Mbps
-            setFill(Math.min(100, (speedMbps / 500) * 100));
+            lastSpeed = speedBps / 1000000;
+            setBig(fmt(lastSpeed));
+            setFill(Math.min(100, (lastSpeed / 500) * 100));
           }
         }
       };
       xhr.onload = () => {
-        const duration = (performance.now() - startTime) / 1000;
-        const speedMbps = ((15000000 * 8) / duration) / 1000000;
-        resolve(speedMbps);
+        clearTimeout(timeoutId);
+        resolve(lastSpeed);
       };
-      xhr.onerror = () => reject(new Error("Download test failed"));
+      xhr.onerror = () => {
+        clearTimeout(timeoutId);
+        if (lastSpeed > 0) resolve(lastSpeed); else reject(new Error("Download failed"));
+      };
+      xhr.onabort = () => {
+        // Abort is called by timeout
+      };
       xhr.send();
     });
   }, []);
@@ -92,11 +101,15 @@ export default function Speedtest() {
       xhrRef.current = xhr;
       
       const url = `https://speed.cloudflare.com/__up?r=${Math.random()}`;
-      // Generate 5MB of random data
-      const payload = new Uint8Array(5000000);
-      for(let i=0; i<payload.length; i++) payload[i] = Math.random() * 255;
+      const payload = new Uint8Array(15000000);
       
       const startTime = performance.now();
+      let lastSpeed = 0;
+
+      const timeoutId = setTimeout(() => {
+        xhr.abort();
+        resolve(lastSpeed);
+      }, 8000); // 8 seconds max
       
       xhr.open("POST", url, true);
       xhr.upload.onprogress = (e) => {
@@ -104,18 +117,21 @@ export default function Speedtest() {
           const duration = (performance.now() - startTime) / 1000;
           if (duration > 0.1) {
             const speedBps = (e.loaded * 8) / duration;
-            const speedMbps = speedBps / 1000000;
-            setUp(fmt(speedMbps));
-            setFill(Math.min(100, (speedMbps / 200) * 100)); // Max 200 upload scale
+            lastSpeed = speedBps / 1000000;
+            setUp(fmt(lastSpeed));
+            setFill(Math.min(100, (lastSpeed / 200) * 100));
           }
         }
       };
       xhr.onload = () => {
-        const duration = (performance.now() - startTime) / 1000;
-        const speedMbps = ((5000000 * 8) / duration) / 1000000;
-        resolve(speedMbps);
+        clearTimeout(timeoutId);
+        resolve(lastSpeed);
       };
-      xhr.onerror = () => reject(new Error("Upload test failed"));
+      xhr.onerror = () => {
+        clearTimeout(timeoutId);
+        if (lastSpeed > 0) resolve(lastSpeed); else reject(new Error("Upload failed"));
+      };
+      xhr.onabort = () => {};
       xhr.send(payload);
     });
   }, []);
