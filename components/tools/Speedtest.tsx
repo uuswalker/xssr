@@ -12,12 +12,12 @@ function fmt(n: number | null): string {
 function verdict(d: number | null): [string, string] | null {
   if (d == null) return null;
   if (d >= 100)
-    return ["Ngebut 🚀 cukup untuk 4K multi-layar + WFH + gaming bareng.", "#e6f7f3"];
+    return ["Sangat Cepat — cukup untuk 4K multi-layar + WFH + gaming bareng.", "#e6f7f3"];
   if (d >= 50)
-    return ["Lancar ⚡ cukup untuk streaming HD, WFH, dan gaming santai.", "#e6f7f3"];
+    return ["Lancar — cukup untuk streaming HD, WFH, dan gaming santai.", "#e6f7f3"];
   if (d >= 20)
-    return ["Pas-pasan ⚠️ browsing oke, tapi 4K & multi-device bakal buffering.", "#fef3c7"];
-  return ["Lemot untuk standar 2026 😭 waktunya upgrade atau pindah provider.", "#fee2e2"];
+    return ["Pas-pasan — browsing oke, tapi 4K & multi-device bakal buffering.", "#fef3c7"];
+  return ["Lambat — waktunya upgrade atau pindah provider.", "#fee2e2"];
 }
 
 export default function Speedtest() {
@@ -236,7 +236,7 @@ export default function Speedtest() {
     setBig(m[1]);
     setUp(m[2]);
     setFill(100);
-    setServer("Hasil bagikan ➔ jalankan tes sendiri untuk angka live.");
+    setServer("Hasil dibagikan — jalankan tes sendiri untuk angka live.");
     tampilHasil(parseFloat(m[1]), parseFloat(m[2]));
     document.getElementById("speed-box")?.scrollIntoView();
   }, [tampilHasil]);
@@ -369,7 +369,7 @@ export default function Speedtest() {
                 cursor: "pointer",
               }}
             >
-              {shared ? "Link Tersalin! Pamer 🚀" : "Bagikan Hasilku"}
+              {shared ? "Link Tersalin!" : "Bagikan Hasilku"}
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.02 }}

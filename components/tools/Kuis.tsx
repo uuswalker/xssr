@@ -260,7 +260,7 @@ export default function Kuis() {
               {type === "fiber" && (
                 <>
                   <p style={{ fontSize: 15 }}>
-                    <strong>✅ Hasil: Fiber Optic XL SATU cocok untukmu.</strong>
+                    <strong> Hasil: Fiber Optic XL SATU cocok untukmu.</strong>
                   </p>
                   <p style={{ fontSize: 14 }}>
                     Koneksi kabel paling stabil, latensi rendah untuk gaming &amp;
@@ -295,14 +295,14 @@ export default function Kuis() {
                       fontSize: 14,
                     }}
                   >
-                    Lihat harga paket ➔
+                    Lihat harga paket 
                   </a>
                 </>
               )}
               {type === "wireless" && (
                 <>
                   <p style={{ fontSize: 15 }}>
-                    <strong>✅ Hasil: Wireless XL SATU cocok untukmu.</strong>
+                    <strong> Hasil: Wireless XL SATU cocok untukmu.</strong>
                   </p>
                   <p style={{ fontSize: 14 }}>
                     Tanpa tarik kabel ?" aktif cepat, solusi area belum fiber, hemat
@@ -337,7 +337,7 @@ export default function Kuis() {
                       fontSize: 14,
                     }}
                   >
-                    Pelajari wireless ➔
+                    Pelajari wireless 
                   </a>
                 </>
               )}
@@ -345,7 +345,7 @@ export default function Kuis() {
                 <>
                   <p style={{ fontSize: 15 }}>
                     <strong>
-                      ✅ Hasil: Seimbang ?" konsultasi dulu yang paling pas.
+                       Hasil: Seimbang ?" konsultasi dulu yang paling pas.
                     </strong>
                   </p>
                   <p style={{ fontSize: 14 }}>
@@ -393,7 +393,7 @@ export default function Kuis() {
         {done && (
           <>
             <button type="button" onClick={share} style={BTN_BACK}>
-              {shared ? "Link Tersalin! Sebar yuk 🎉" : "Bagikan Hasilku"}
+              {shared ? "Link Tersalin! Sebar yuk " : "Bagikan Hasilku"}
             </button>
             <button type="button" onClick={ulangi} style={BTN_BACK}>
               Ulangi Kuis

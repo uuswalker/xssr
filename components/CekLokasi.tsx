@@ -246,7 +246,7 @@ export default function CekLokasi() {
       });
       if (hasil.dalamArea) {
         setStatusClass("cl-status success");
-        setStatusMsg(`✓ Lokasi terdeteksi di area ${hasil.nama}`);
+        setStatusMsg(` Lokasi terdeteksi di area ${hasil.nama}`);
       } else {
         setStatusClass("cl-status");
         setStatusMsg(

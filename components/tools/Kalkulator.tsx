@@ -251,7 +251,7 @@ export default function Kalkulator() {
             marginTop: 10,
           }}
         >
-          {shared ? "Link Tersalin! Sebar ke keluarga/grup 🎉" : "Salin Link Hasil Ini"}
+          {shared ? "Link Tersalin! Sebar ke keluarga/grup " : "Salin Link Hasil Ini"}
         </button>
       )}
     </div>

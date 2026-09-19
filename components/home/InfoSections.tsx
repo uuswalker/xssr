@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { Ticket, HandCoins, MapPinned, Building2, HelpCircle, Map, MessageCircle } from "lucide-react";
 // Seksi informatif homepage — port 1:1 dari xssr (server components, link relatif).
 
 const AREA_CARDS = [
@@ -12,22 +13,22 @@ const AREA_CARDS = [
 
 const KENAPA = [
   {
-    icon: "fab fa-whatsapp",
+    icon: MessageCircle,
     title: "Sigap Membalas Pesan",
     text: 'Chat langsung ke satu nomor sales yang sama dari awal konsultasi sampai internet aktif — bukan admin generik yang cuma "read" tanpa balasan.',
   },
   {
-    icon: "fas fa-ticket-alt",
+    icon: Ticket,
     title: "Kendala? Kami Buatkan Tiket Aduan",
     text: "Kalau internet bermasalah, Anda tidak perlu bingung sendiri hubungi call center. Kami yang langsung buatkan tiket aduan resmi ke pihak XL dan kawal sampai selesai.",
   },
   {
-    icon: "fas fa-hand-holding-usd",
+    icon: HandCoins,
     title: "Harga Transparan Sejak Awal",
     text: "Semua biaya paket dan instalasi dijelaskan di depan sebelum Anda daftar — tidak ada biaya tersembunyi yang muncul belakangan.",
   },
   {
-    icon: "fas fa-map-marked-alt",
+    icon: MapPinned,
     title: "Paham Medan Solo Raya",
     text: "Sales lokal yang benar-benar tahu area Solo, Sukoharjo, Karanganyar, Klaten, dan Boyolali — bukan customer service pusat yang tidak familiar dengan lokasi Anda.",
   },
@@ -36,25 +37,25 @@ const KENAPA = [
 const TOOLS = [
   {
     href: "/tes-kecepatan/",
-    emoji: "🚀",
+    emoji: "",
     title: "Tes Kecepatan Internet",
     desc: "Ukur download & upload ke server terdekat ±20 detik.",
   },
   {
     href: "/berapa-mbps-untuk-berapa-orang/",
-    emoji: "🧮",
+    emoji: "",
     title: "Kalkulator Mbps",
     desc: "Isi perangkat aktif, dapat rekomendasi paket + link share.",
   },
   {
     href: "/panduan-fiber-vs-wireless/",
-    emoji: "❓",
+    emoji: "",
     title: "Kuis Fiber vs Wireless",
     desc: "5 pertanyaan, tahu mana yang pas untuk rumahmu.",
   },
   {
     href: "/250-mbps-untuk-berapa-orang/",
-    emoji: "📶",
+    emoji: "",
     title: "Panduan 250 Mbps",
     desc: "Untuk berapa orang? Tabel aktivitas + harga paket.",
   },
@@ -88,7 +89,7 @@ export function AreaHome() {
                 style={{ textDecoration: "none" }}
                 key={a.href}
               >
-                <i className="fas fa-city"></i>
+                <Building2 size={20} color="var(--green)" />
                 <div className="area-name">{a.name}</div>
                 <div className="area-desc">{a.desc}</div>
               </a>
@@ -97,7 +98,7 @@ export function AreaHome() {
               className="area-card"
               style={{ background: "var(--green)", borderColor: "var(--green)" }}
             >
-              <i className="fas fa-question-circle" style={{ color: "#fff" }}></i>
+              <HelpCircle size={20} color="#fff" />
               <div className="area-name" style={{ color: "#fff" }}>
                 Area Lain?
               </div>
@@ -170,10 +171,7 @@ export function AreaHome() {
                 textDecoration: "none",
               }}
             >
-              <i
-                className="fas fa-map-location-dot"
-                style={{ marginRight: 6 }}
-              ></i>
+              <Map size={16} style={{ marginRight: 6 }} />
               Lihat Cakupan Lengkap: 5 Kota, 79 Kecamatan, 102 Kelurahan
             </a>
           </p>
@@ -216,7 +214,9 @@ export function Kenapa() {
             className="bento-grid"
               style={{ textAlign: "left" }}
           >
-            {KENAPA.map((k) => (
+            {KENAPA.map((k) => {
+const Icon = k.icon;
+return (
               <motion.div
                 key={k.title}
                 variants={item}
@@ -229,21 +229,14 @@ export function Kenapa() {
                   transition: "box-shadow 0.3s"
                 }}
               >
-                <i
-                  className={k.icon}
-                  style={{
-                    color: "var(--green)",
-                    fontSize: 28,
-                    marginBottom: 12,
-                    display: "block",
-                  }}
-                ></i>
+                <Icon size={28} color="var(--green)" />
                 <h3 style={{ fontSize: 16, marginBottom: 8 }}>{k.title}</h3>
                 <p style={{ fontSize: 14, color: "#5a6b66", margin: 0 }}>
                   {k.text}
                 </p>
               </motion.div>
-            ))}
+                );
+              })}
           </motion.div>
           <p
             style={{

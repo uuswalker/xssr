@@ -1,15 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { 
+  Network, 
+  Infinity as InfinityIcon, 
+  Activity, 
+  Wrench, 
+  Gift, 
+  Headset, 
+  ShieldCheck 
+} from "lucide-react";
 
 const items = [
-  "🚀 100% Fiber Optic",
-  "🔥 Tanpa FUP (Batas Kuota)",
-  "⚡ Ping Super Stabil",
-  "🛠️ Gratis Instalasi",
-  "🎁 Free Vidio & Catchplay",
-  "📞 Teknisi Siap Sedia",
-  "✅ Tagihan Flat (Pasti)",
+  { text: "100% Fiber Optic", icon: Network },
+  { text: "Tanpa FUP (Batas Kuota)", icon: InfinityIcon },
+  { text: "Ping Super Stabil", icon: Activity },
+  { text: "Gratis Instalasi", icon: Wrench },
+  { text: "Free Vidio & Catchplay", icon: Gift },
+  { text: "Teknisi Siap Sedia", icon: Headset },
+  { text: "Tagihan Flat (Pasti)", icon: ShieldCheck },
 ];
 
 export default function Marquee() {
@@ -44,20 +53,24 @@ export default function Marquee() {
           paddingRight: "3rem", // Match the gap to make the loop seamless
         }}
       >
-        {duplicatedItems.map((item, i) => (
-          <span
-            key={i}
-            style={{
-              fontWeight: 700,
-              fontSize: "15px",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            {item}
-          </span>
-        ))}
+        {duplicatedItems.map((item, i) => {
+          const Icon = item.icon;
+          return (
+            <span
+              key={i}
+              style={{
+                fontWeight: 700,
+                fontSize: "15px",
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              <Icon size={18} strokeWidth={2.5} />
+              {item.text}
+            </span>
+          );
+        })}
       </motion.div>
     </div>
   );

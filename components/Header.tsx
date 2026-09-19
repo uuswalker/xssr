@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { MessageCircle, MapPin } from "lucide-react";
 
 export default function Header({
   showFiber = true,
@@ -56,7 +57,7 @@ export default function Header({
             className="btn-wa-header"
             style={{ display: "inline-block" }}
           >
-            <i className="fab fa-whatsapp"></i> Chat WA
+            <MessageCircle size={18} /> Chat WA
           </motion.a>
         ) : (
           <motion.button 
@@ -65,7 +66,7 @@ export default function Header({
             type="button" 
             className="btn-wa-header btn-cek-lokasi-trigger"
           >
-            <i className="fas fa-map-marker-alt"></i> Cek Ketersediaan
+            <MapPin size={18} /> Cek Ketersediaan
           </motion.button>
         )}
       </div>
