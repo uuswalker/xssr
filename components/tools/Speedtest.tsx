@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { gtag } from "@/lib/lead";
 
 function fmt(n: number | null): string {
@@ -254,6 +254,12 @@ export default function Speedtest() {
       prompt("Salin link ini:", url);
     }
   };
+  const [toastMsg, setToastMsg] = useState<string | null>(null);
+  const showToast = (msg: string) => {
+    setToastMsg(msg);
+    setTimeout(() => setToastMsg(null), 4000);
+  };
+
   const [shared, setShared] = useState(false);
 
   return (

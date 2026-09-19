@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { WA_DAFTAR, WA_INFO, waLink } from "@/lib/site";
 
 const SLIDES = [
@@ -48,6 +49,8 @@ function scrollToId(id: string) {
 export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
   const [cur, setCur] = useState(0);
   const total = SLIDES.length;
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 800], [0, 250]);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const goToSlide = useCallback(

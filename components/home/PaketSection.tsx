@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import NumberCounter from "@/components/animations/NumberCounter";
 
 import { useEffect, useState } from "react";
 import {
@@ -68,7 +69,7 @@ function FiberCard({ t }: { t: FiberTier }) {
         </div>
         <div className="price-box">
           <div className="price-main">
-            {t.price}
+            {t.price.includes("Rp") ? <NumberCounter value={parseInt(t.price.replace(/\D/g, ""), 10)} prefix="Rp " /> : t.price}
             <span>/bulan</span>
           </div>
           <div className="price-ppn">Belum termasuk PPN</div>
