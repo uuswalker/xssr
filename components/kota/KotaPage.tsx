@@ -8,6 +8,8 @@ import Watermark from "@/components/Watermark";
 import Faq from "@/components/home/Faq";
 import { FiberPaket, TahunanPaket, WirelessPaket } from "@/components/home/PaketSection";
 import { About, Hubungi, Kenapa, Myxl } from "@/components/home/InfoSections";
+import ScrollReveal from "@/components/animations/ScrollReveal";
+import Marquee from "@/components/animations/Marquee";
 import { KecamatanBlock, KotaArea, KotaHero } from "@/components/kota/KotaSections";
 import {
   CITIES,
@@ -68,26 +70,49 @@ export function KotaPage({ slug }: { slug: string }) {
       <Watermark token={wmToken(city.slug)} />
       <Header showFiber={!!city.has_fiber} showWireless={!!city.has_wireless} />
       <main>
-        <KotaHero city={city} />
-        <KotaArea active={city} cities={CITIES} />
-        <KecamatanBlock city={city} />
+        <ScrollReveal delay={0.1}>
+          <KotaHero city={city} />
+        </ScrollReveal>
+        <Marquee />
+        <ScrollReveal delay={0.1}>
+          <KotaArea active={city} cities={CITIES} />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <KecamatanBlock city={city} />
+        </ScrollReveal>
         {city.has_fiber && (
           <>
-            <FiberPaket promoBadge={city.promo_badge as string} />
-            <TahunanPaket />
+            <ScrollReveal delay={0.1}>
+          <FiberPaket promoBadge={city.promo_badge as string} />
+        </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+          <TahunanPaket />
+        </ScrollReveal>
           </>
         )}
         {city.has_wireless && (
+          <ScrollReveal delay={0.1}>
           <WirelessPaket
             badge={city.wireless_badge as string}
             intro="kota"
           />
+        </ScrollReveal>
         )}
-        <Kenapa />
-        <About />
-        <Myxl />
-        <Faq faqs={faqs} />
-        <Hubungi />
+        <ScrollReveal delay={0.1}>
+          <Kenapa />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <About />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <Myxl />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <Faq faqs={faqs} />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <Hubungi />
+        </ScrollReveal>
         <WaFloat text={city.wa_float_text as string} />
       </main>
       <Footer />

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import type { FaqItem } from "@/lib/seo";
 
 export default function Faq({
@@ -22,22 +23,44 @@ export default function Faq({
         <h2 className="section-title">{title}</h2>
         <p className="section-sub">{sub}</p>
 
-        {faqs.map((f, i) => (
-          <div
-            className={"faq-item" + (open === i ? ` ${activeClass}` : "")}
-            onClick={() => setOpen(open === i ? null : i)}
-            key={f.q}
-          >
-            <div className="faq-q">
-              <span>{f.q}</span>
-              <i className="fas fa-plus icon"></i>
-            </div>
+        {faqs.map((f, i) => {
+          const isOpen = open === i;
+          return (
             <div
-              className="faq-a"
-              dangerouslySetInnerHTML={{ __html: f.a }}
-            />
-          </div>
-        ))}
+              className={`faq-item ${isOpen ? activeClass : ""}`}
+              onClick={() => setOpen(isOpen ? null : i)}
+              key={f.q}
+              style={{ overflow: "hidden", cursor: "pointer" }}
+            >
+              <div className="faq-q">
+                <span>{f.q}</span>
+                <motion.i
+                  className="fas fa-plus icon"
+                  animate={{ rotate: isOpen ? 45 : 0 }}
+                  transition={{ duration: 0.2 }}
+                />
+              </div>
+
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    style={{ overflow: "hidden" }}
+                  >
+                    <div
+                      className="faq-a"
+                      style={{ display: "block" }} // Ensure css doesn't hide it using display:none 
+                      dangerouslySetInnerHTML={{ __html: f.a }}
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          );
+        })}
 
         <div
           style={{ marginTop: 20, fontSize: 13, color: "var(--text-muted)" }}

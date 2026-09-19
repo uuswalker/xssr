@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 // Seksi informatif homepage — port 1:1 dari xssr (server components, link relatif).
 
 const AREA_CARDS = [
@@ -183,6 +185,19 @@ export function AreaHome() {
 }
 
 export function Kenapa() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
+  
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 300, damping: 24 } }
+  };
+
   return (
     <>
       {/* KENAPA PILIH KAMI */}
@@ -190,10 +205,14 @@ export function Kenapa() {
         <div className="area-inner">
           <h2 className="section-title">Kenapa Pilih Sales Resmi Kami?</h2>
           <p className="section-sub">
-            Bukan sekadar jualan — kami yang pegang tanggung jawab dari daftar
+            Bukan sekadar jualan ?" kami yang pegang tanggung jawab dari daftar
             sampai internet nyala
           </p>
-          <div
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-50px" }}
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))",
@@ -203,13 +222,16 @@ export function Kenapa() {
             }}
           >
             {KENAPA.map((k) => (
-              <div
+              <motion.div
                 key={k.title}
+                variants={item}
+                whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,0,0,0.05)" }}
                 style={{
                   background: "#fff",
                   border: "1px solid #e3ece9",
                   borderRadius: 14,
                   padding: 24,
+                  transition: "box-shadow 0.3s"
                 }}
               >
                 <i
@@ -225,9 +247,9 @@ export function Kenapa() {
                 <p style={{ fontSize: 14, color: "#5a6b66", margin: 0 }}>
                   {k.text}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
           <p
             style={{
               marginTop: 24,

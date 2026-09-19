@@ -1,6 +1,8 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { PHONE_DISPLAY, waLink } from "@/lib/site";
 
-// Floating WA — teks default generik; halaman tertentu mengoper varian sendiri.
 export default function WaFloat({
   text = "Info XL SATU",
   small = "Hubungi Sales",
@@ -9,17 +11,25 @@ export default function WaFloat({
   small?: string;
 }) {
   return (
-    <a
+    <motion.a
       href={waLink(text)}
       target="_blank"
       rel="noopener noreferrer"
       className="float-wa"
+      animate={{ scale: [1, 1.08, 1] }}
+      transition={{
+        repeat: Infinity,
+        duration: 1.5,
+        repeatDelay: 3,
+        ease: "easeInOut",
+      }}
+      whileHover={{ scale: 1.05 }}
     >
       <i className="fab fa-whatsapp"></i>
       <div className="float-wa-text">
         <small>{small}</small>
-        <strong>{PHONE_DISPLAY}</strong>
+        <span>{PHONE_DISPLAY}</span>
       </div>
-    </a>
+    </motion.a>
   );
 }
