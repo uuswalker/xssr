@@ -53,86 +53,124 @@ export default function Speedtest() {
   }, []);
 
   const runDownloadTest = useCallback((): Promise<number> => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       setPhase("Download...");
-      const xhr = new XMLHttpRequest();
-      xhrRef.current = xhr;
-      
-      const url = `https://speed.cloudflare.com/__down?bytes=50000000&r=${Math.random()}`;
-      const startTime = performance.now();
+      const CONNECTIONS = 4;
+      const xhrs: XMLHttpRequest[] = [];
+      const loaded = new Array(CONNECTIONS).fill(0);
       let lastSpeed = 0;
+      let active = CONNECTIONS;
       
-      const timeoutId = setTimeout(() => {
-        xhr.abort();
+      const startTime = performance.now();
+      
+      const finish = () => {
+        xhrs.forEach(x => x.abort());
         resolve(lastSpeed);
-      }, 8000); // 8 seconds max
-
-      xhr.open("GET", url, true);
-      xhr.onprogress = (e) => {
-        if (e.loaded > 0) {
+      };
+      
+      const timeoutId = setTimeout(finish, 8000); // 8 detik max
+      
+      for(let i = 0; i < CONNECTIONS; i++) {
+        const xhr = new XMLHttpRequest();
+        xhrs.push(xhr);
+        const url = `https://speed.cloudflare.com/__down?bytes=25000000&r=${Math.random()}&c=${i}`;
+        
+        xhr.open("GET", url, true);
+        xhr.onprogress = (e) => {
+          loaded[i] = e.loaded;
+          const totalLoaded = loaded.reduce((a, b) => a + b, 0);
           const duration = (performance.now() - startTime) / 1000;
-          if (duration > 0.1) {
-            const speedBps = (e.loaded * 8) / duration;
+          if (duration > 0.2) {
+            const speedBps = (totalLoaded * 8) / duration;
             lastSpeed = speedBps / 1000000;
             setBig(fmt(lastSpeed));
             setFill(Math.min(100, (lastSpeed / 500) * 100));
           }
-        }
-      };
-      xhr.onload = () => {
-        clearTimeout(timeoutId);
-        resolve(lastSpeed);
-      };
-      xhr.onerror = () => {
-        clearTimeout(timeoutId);
-        if (lastSpeed > 0) resolve(lastSpeed); else reject(new Error("Download failed"));
-      };
-      xhr.onabort = () => {
-        // Abort is called by timeout
-      };
-      xhr.send();
+        };
+        xhr.onload = () => {
+          active--;
+          if (active === 0) {
+            clearTimeout(timeoutId);
+            finish();
+          }
+        };
+        xhr.onerror = () => {
+          active--;
+          if (active === 0) {
+            clearTimeout(timeoutId);
+            finish();
+          }
+        };
+        xhr.send();
+      }
+      
+      // Save for cleanup
+      // @ts-ignore
+      xhrRef.current = { abort: () => xhrs.forEach(x => x.abort()) };
     });
   }, []);
 
   const runUploadTest = useCallback((): Promise<number> => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       setPhase("Upload...");
-      const xhr = new XMLHttpRequest();
-      xhrRef.current = xhr;
+      const CONNECTIONS = 2;
+      const xhrs: XMLHttpRequest[] = [];
+      const loaded = new Array(CONNECTIONS).fill(0);
+      let lastSpeed = 0;
+      let active = CONNECTIONS;
       
-      const url = `https://speed.cloudflare.com/__up?r=${Math.random()}`;
-      const payload = new Uint8Array(15000000);
+      // Generate non-compressible random data (prevents falsely high speeds)
+      const payload = new Uint8Array(10000000); // 10MB per conn
+      for(let i=0; i<payload.length; i+=65536) {
+        window.crypto.getRandomValues(payload.subarray(i, Math.min(i + 65536, payload.length)));
+      }
       
       const startTime = performance.now();
-      let lastSpeed = 0;
-
-      const timeoutId = setTimeout(() => {
-        xhr.abort();
-        resolve(lastSpeed);
-      }, 8000); // 8 seconds max
       
-      xhr.open("POST", url, true);
-      xhr.upload.onprogress = (e) => {
-        if (e.loaded > 0) {
+      const finish = () => {
+        xhrs.forEach(x => x.abort());
+        resolve(lastSpeed);
+      };
+      
+      const timeoutId = setTimeout(finish, 8000);
+      
+      for(let i = 0; i < CONNECTIONS; i++) {
+        const xhr = new XMLHttpRequest();
+        xhrs.push(xhr);
+        const url = `https://speed.cloudflare.com/__up?r=${Math.random()}&c=${i}`;
+        
+        xhr.open("POST", url, true);
+        xhr.upload.onprogress = (e) => {
+          loaded[i] = e.loaded;
+          const totalLoaded = loaded.reduce((a, b) => a + b, 0);
           const duration = (performance.now() - startTime) / 1000;
-          if (duration > 0.1) {
-            const speedBps = (e.loaded * 8) / duration;
+          if (duration > 0.2) {
+            const speedBps = (totalLoaded * 8) / duration;
             lastSpeed = speedBps / 1000000;
             setUp(fmt(lastSpeed));
             setFill(Math.min(100, (lastSpeed / 200) * 100));
           }
-        }
-      };
-      xhr.onload = () => {
-        clearTimeout(timeoutId);
-        resolve(lastSpeed);
-      };
-      xhr.onerror = () => {
-        clearTimeout(timeoutId);
-        if (lastSpeed > 0) resolve(lastSpeed); else reject(new Error("Upload failed"));
-      };
-      xhr.onabort = () => {};
-      xhr.send(payload);
+        };
+        xhr.onload = () => {
+          active--;
+          if (active === 0) {
+            clearTimeout(timeoutId);
+            finish();
+          }
+        };
+        xhr.onerror = () => {
+          active--;
+          if (active === 0) {
+            clearTimeout(timeoutId);
+            finish();
+          }
+        };
+        xhr.send(payload);
+      }
+      
+      // Save for cleanup
+      // @ts-ignore
+      xhrRef.current = { abort: () => xhrs.forEach(x => x.abort()) };
     });
   }, []);
 
