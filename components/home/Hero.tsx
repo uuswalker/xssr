@@ -92,18 +92,14 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
   height={s.h}
   fetchPriority="high"
   loading="eager"
-  decoding="async"
-  style={{ width: "100%", height: "auto", objectFit: "cover" }}
-/>
+  decoding="async" />
             ) : (
               <Image
                 src={s.img}
                 alt={s.alt}
                 width={s.w}
                 height={s.h}
-                loading="lazy"
-                style={{ width: "100%", height: "auto", objectFit: "cover" }}
-              />
+                loading="lazy" />
             )}
           </div>
         ))}
@@ -128,8 +124,7 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
             key={s.img}
             className={"dot" + (i === cur ? " active" : "")}
             aria-label={"Ke slide " + (i + 1)}
-            onClick={() => goToSlide(i)}
-          />
+            onClick={() => goToSlide(i)} />
         ))}
       </div>
     </div>
@@ -151,8 +146,7 @@ export function QuickActions() {
             alt=""
             width={22}
             height={22}
-            loading="lazy"
-          />
+            loading="lazy" />
           Daftar Sekarang
         </a>
         <a href="#paket" className="qa-item">
@@ -161,8 +155,7 @@ export function QuickActions() {
             alt=""
             width={22}
             height={22}
-            loading="lazy"
-          />
+            loading="lazy" />
           Cek Paket
         </a>
         <a
@@ -176,8 +169,7 @@ export function QuickActions() {
             alt=""
             width={22}
             height={22}
-            loading="lazy"
-          />
+            loading="lazy" />
           Hubungi Sales
         </a>
       </div>
@@ -201,8 +193,7 @@ export function FiturPills() {
               alt=""
               width={28}
               height={28}
-              loading="lazy"
-            />
+              loading="lazy" />
             {label}
           </div>
         ))}
