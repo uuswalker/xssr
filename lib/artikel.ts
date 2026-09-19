@@ -189,10 +189,56 @@ ARTIKEL["xl-satu-vs-indihome-myrepublic-solo"] = {
   },
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20perbandingan%20XL%20SATU",
   bodyHtml: `
-
   <p>Memilih provider internet (ISP) di Solo Raya saat ini cukup membingungkan. Tiga nama besar yang sering dibandingkan adalah <strong>XL SATU</strong>, <strong>IndiHome</strong>, dan <strong>MyRepublic</strong>. Masing-masing memiliki kelebihan tersendiri, namun mana yang paling cocok untuk keluarga Anda di tahun 2026?</p>
 
-  <p>Berikut adalah perbandingan jujur dan objektif dari ketiga raksasa internet fiber optik ini.</p>
+  <p>Berikut adalah perbandingan jujur dan objektif dari ketiga raksasa internet fiber optik ini agar Anda tidak salah pilih.</p>
+
+  <h2>Tabel Perbandingan: XL SATU vs IndiHome vs MyRepublic</h2>
+  <div style="overflow-x: auto;">
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Fitur Utama</th>
+          <th style="background-color: #f0fdf4; border-bottom: 2px solid #22c55e;">XL SATU</th>
+          <th>IndiHome</th>
+          <th>MyRepublic</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Batas Kuota (FUP)</strong></td>
+          <td style="color: #15803d; font-weight: 700;">100% Tanpa FUP</td>
+          <td>Ada Batas FUP</td>
+          <td style="color: #15803d; font-weight: 700;">Tanpa FUP</td>
+        </tr>
+        <tr>
+          <td><strong>Estimasi Harga Awal</strong></td>
+          <td style="font-weight: 700;">Rp 185.000 / bln</td>
+          <td>Rp 200.000+ / bln</td>
+          <td>Rp 200.000+ / bln</td>
+        </tr>
+        <tr>
+          <td><strong>Bonus Ekstra</strong></td>
+          <td style="background-color: #f0fdf4; font-weight: 700;">Kuota HP Seluler (Berbagi sekeluarga)</td>
+          <td>TV Kabel / UseeTV</td>
+          <td>Channel TV (Tergantung Paket)</td>
+        </tr>
+        <tr>
+          <td><strong>Jaringan</strong></td>
+          <td>Fiber Optic Murni</td>
+          <td>Fiber Optic Murni</td>
+          <td>Fiber Optic Murni</td>
+        </tr>
+        <tr>
+          <td><strong>Target Pengguna Ideal</strong></td>
+          <td>Keluarga cerdas (Hemat Internet Rumah + Pulsa HP)</td>
+          <td>Keluarga pecinta tayangan TV Kabel</td>
+          <td>Gamer hardcore & Heavy Downloader</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size: 13px; color: var(--text-muted); text-align: center; margin-top: 8px;">*Harga estimasi belum termasuk PPN 11% dan dapat berubah sesuai promo yang berlaku di masing-masing area.</p>
 
   <h2>1. Kebijakan Kuota & FUP (Fair Usage Policy)</h2>
   <p>FUP adalah batasan penggunaan wajar. Jika Anda melewati batas FUP, kecepatan internet Anda akan diturunkan drastis (lemot). Bagaimana kebijakan ketiga provider ini?</p>
@@ -227,7 +273,7 @@ ARTIKEL["xl-satu-vs-indihome-myrepublic-solo"] = {
     <li>Pilih <strong>XL SATU</strong> jika Anda adalah keluarga cerdas yang ingin berhemat, membenci FUP (ingin unlimited sungguhan), dan ingin mendapatkan <strong>bonus kuota seluler untuk smartphone</strong> sekeluarga sekaligus!</li>
   </ul>
 
-  <div class="cta-box">
+  <div class="cta-box" style="margin-top: 30px;">
     <h3>Cek Apakah Rumah Anda Masuk Area XL SATU?</h3>
     <p>Jangan tunggu sampai FUP Anda habis. Beralih ke jaringan fiber tanpa batas dari XL SATU. Tim sales kami siap melakukan pengecekan alamat rumah Anda (Surakarta, Sukoharjo, Karanganyar, Klaten, Boyolali) secara gratis!</p>
     <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20apakah%20rumah%20saya%20sudah%20tercover%20XL%20SATU" target="_blank" rel="noopener noreferrer" class="btn-cta"><i class="fab fa-whatsapp"></i> Chat Sales & Cek Lokasi</a>
