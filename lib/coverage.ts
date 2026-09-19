@@ -176,37 +176,37 @@ export const COV_TEXT: Record<CoverageStatus, [string, string, string]> = {
 
 /** Teks detail verdict — persis tampilCoverage() xssr (HTML). */
 export function coverageDetail(cv: CoverageResult): string {
-  if (cv.status === "fiber") {
-    let s = `Titik fiber terdekat hanya sekitar ${cv.jarakM} m dari lokasimu. `;
-    if (cv.zona) s += `Wireless (Zona ${cv.zona}) juga tersedia di area ini. `;
-    return s;
-  } else if (cv.status === "mungkin") {
-    return `Titik fiber terdekat sekitar ${cv.jarakM} m. Sales verifikasi + siapkan opsi wireless. `;
-  } else if (cv.status === "manual") {
-    return "Di luar jangkauan data fiber kami. Sales cek manual / tawarkan wireless. ";
-  } else if (cv.status === "wireless") {
-    let s = cv.zona
-      ? `Masuk Zona ${cv.zona} — wireless tercover${
-          cv.jarakM != null ? ` (±${cv.jarakM} m)` : ""
-        }, aktif cepat. `
-      : "Area ini jalur wireless (tanpa kabel) — aktif cepat. ";
-    if (cv.fiberM) s += `Fiber terdekat ±${cv.fiberM} m — sales bisa cek opsi fiber dahulu. `;
-    return s;
+    if (cv.status === "fiber") {
+      let s = `Titik fiber terdekat hanya sekitar ${cv.jarakM} m dari lokasimu. `;
+      if (cv.zona) s += `Jaringan Wireless (Area Sukoharjo) juga tersedia di area ini. `;
+      return s;
+    } else if (cv.status === "mungkin") {
+      return `Titik fiber terdekat sekitar ${cv.jarakM} m. Sales verifikasi + siapkan opsi wireless. `;
+    } else if (cv.status === "manual") {
+      return "Di luar jangkauan data fiber kami. Sales cek manual / tawarkan wireless. ";
+    } else if (cv.status === "wireless") {
+      let s = cv.zona
+        ? `Masuk Area Sukoharjo — jaringan wireless tercover${
+            cv.jarakM != null ? ` (±${cv.jarakM} m)` : ""
+          }, aktif cepat. `
+        : "Area ini jalur wireless (tanpa kabel) — aktif cepat. ";
+      if (cv.fiberM) s += `Fiber terdekat ±${cv.fiberM} m — sales bisa cek opsi fiber dahulu. `;
+      return s;
+    }
+    return "Menghitung jarak ke titik fiber terdekat...";
   }
-  return "Menghitung jarak ke titik fiber terdekat...";
-}
 
 /** Baris WA hasil coverage (untuk pesan lanjutKeWA). */
 export function coverageLine(cv: CoverageResult | null): string {
-  if (!cv || !cv.status || cv.status === "loading") return "";
-  return (
-    "Hasil cek coverage: " +
-    cv.status.toUpperCase() +
-    (cv.zona ? " Zona " + cv.zona : "") +
-    (cv.jarakM != null ? " (sekitar " + cv.jarakM + " m)" : "") +
-    "\n"
-  );
-}
+    if (!cv || !cv.status || cv.status === "loading") return "";
+    return (
+      "Hasil cek coverage: " +
+      cv.status.toUpperCase() +
+      (cv.zona ? " (Area Sukoharjo)" : "") +
+      (cv.jarakM != null ? " (sekitar " + cv.jarakM + " m)" : "") +
+      "\n"
+    );
+  }
 
 /** Kolom jarakFiberM payload sheet (logika v6.3 xssr). */
 export function jarakFiberField(cv: CoverageResult | null): number | string {
