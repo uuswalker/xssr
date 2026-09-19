@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { MessageCircle } from "lucide-react";
 import { PHONE_DISPLAY, waLink } from "@/lib/site";
 
 export default function WaFloat({
@@ -25,7 +26,7 @@ export default function WaFloat({
       }}
       whileHover={{ scale: 1.05 }}
     >
-      <i className="fab fa-whatsapp"></i>
+      <MessageCircle size={24} style={{ marginRight: 8 }} />
       <div className="float-wa-text">
         <small>{small}</small>
         <span>{PHONE_DISPLAY}</span>

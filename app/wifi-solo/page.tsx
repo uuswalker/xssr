@@ -1,3 +1,4 @@
+import { MessageCircle, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import WaFloat from "@/components/WaFloat";
@@ -155,7 +156,7 @@ export default function Page() {
             rel="noopener noreferrer"
             className="btn-wa-header"
           >
-            <i className="fab fa-whatsapp"></i> Hubungi Sales
+            <MessageCircle size={18} style={{ display: "inline-block", verticalAlign: "middle" }} /> Hubungi Sales
           </a>
         </div>
       </header>
@@ -179,7 +180,7 @@ export default function Page() {
             rel="noopener noreferrer"
             className="btn-hero"
           >
-            <i className="fab fa-whatsapp"></i> Chat Sales Solo
+            <MessageCircle size={18} style={{ display: "inline-block", verticalAlign: "middle" }} /> Chat Sales Solo
           </a>
         </section>
 
@@ -204,7 +205,7 @@ export default function Page() {
             <h3>Lihat Paket WiFi Surakarta</h3>
             <p>7 paket fiber + 3 paket wireless, harga mulai Rp 185.000/bulan.</p>
             <a href="/wifi-surakarta/" className="btn-link">
-              Lihat Semua Paket <i className="fas fa-arrow-right"></i>
+              Lihat Semua Paket <ArrowRight size={16} />
             </a>
           </div>
 
@@ -241,7 +242,7 @@ export default function Page() {
             rel="noopener noreferrer"
             className="btn-cta"
           >
-            <i className="fab fa-whatsapp"></i> 0877-7899-9141
+            <MessageCircle size={18} style={{ display: "inline-block", verticalAlign: "middle" }} /> 0877-7899-9141
           </a>
         </section>
 

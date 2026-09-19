@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { MapPin } from "lucide-react";
 import Image from "next/image";
 import { WA_DAFTAR, WA_INFO, waLink } from "@/lib/site";
 
@@ -235,7 +236,7 @@ export function HomeHeroLokal() {
             cursor: "pointer",
           }}
         >
-          <i className="fas fa-map-marker-alt" style={{ marginRight: 8 }}></i>
+          <MapPin size={18} style={{ marginRight: 8, display: "inline-block", verticalAlign: "middle" }} />
           Cek Ketersediaan di Area Saya
         </button>
         <div className="hero-lokal-stats">

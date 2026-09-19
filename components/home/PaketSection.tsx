@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { MapPin, Gift, CheckCircle2, Settings, PlayCircle } from "lucide-react";
 import NumberCounter from "@/components/animations/NumberCounter";
 
 import { useEffect, useState } from "react";
@@ -341,7 +342,7 @@ export function WirelessPaket({
         <div className="wireless-inner">
           <div style={{ textAlign: "center" }}>
             <span className="wireless-region-badge">
-              <i className="fas fa-location-dot"></i> {badge}
+              <MapPin size={16} /> {badge}
             </span>
             <h2 className="section-title">WiFi Rumah Tanpa Kabel</h2>
             {intro === "home" ? (
@@ -434,7 +435,7 @@ export function WirelessPaket({
                   color: "var(--green-dark)",
                 }}
               >
-                <i className="fas fa-gift" style={{ marginRight: 6 }}></i>{" "}
+                <Gift size={16} style={{ marginRight: 6 }} />{" "}
                 Semua paket include{" "}
                 <strong>Free 3 Bulan Vidio Lite + Catchplay</strong>
               </div>
@@ -566,13 +567,13 @@ export function WirelessPaket({
 
           <div className="wireless-perks">
             <div className="perk-item">
-              <i className="fas fa-circle-check"></i> Belum Termasuk PPN
+              <CheckCircle2 size={16} /> Belum Termasuk PPN
             </div>
             <div className="perk-item">
-              <i className="fas fa-gear"></i> Bebas Biaya Instalasi
+              <Settings size={16} /> Bebas Biaya Instalasi
             </div>
             <div className="perk-item">
-              <i className="fas fa-circle-play"></i> Free Vidio Lite &amp;
+              <PlayCircle size={16} /> Free Vidio Lite &amp;
               Catchplay (3 Bulan)
             </div>
           </div>

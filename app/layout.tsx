@@ -61,33 +61,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="image/webp"
           fetchPriority="high"
         />
-        <link
-          rel="preload"
-          href="/css/all.min.css"
-          as="style"
-        />
-        <link
-          rel="stylesheet"
-          href="/css/all.min.css"
-          media="print"
-          id="fa-css"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.addEventListener("load", function() {
-                var fa = document.getElementById('fa-css');
-                if (fa) fa.media = 'all';
-              });
-            `
-          }}
-        />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="/css/all.min.css"
-          />
-        </noscript>
+        <link rel="preconnect" href="https://ipwho.is" />
+        
+        
       </head>
       <body data-origin="xlsatusolo.com" data-wm="224CF412">
         {/* Honeypot anti-scraper — parity xssr, JANGAN dihapus */}

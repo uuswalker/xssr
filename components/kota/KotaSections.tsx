@@ -1,3 +1,4 @@
+import { Building2 } from "lucide-react";
 import { HeroSlider, QuickActions, FiturPills } from "@/components/home/Hero";
 import {
   areaTipe,
@@ -140,7 +141,7 @@ export function KotaArea({
                     : { textDecoration: "none" }
                 }
               >
-                <i className="fas fa-city"></i>
+                <Building2 size={24} color="var(--green)" />
                 <div className="area-name">{AREA_LABELS[slug]}</div>
                 <div className="area-desc">
                   {c ? `${areaTipe(c)} tersedia` : "Fiber & Wireless tersedia"}
