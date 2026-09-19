@@ -1,18 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export default function Header({
-  anchorBase = "",
   showFiber = true,
   showWireless = true,
   ctaHref,
 }: {
-  anchorBase?: string;
   showFiber?: boolean;
   showWireless?: boolean;
   ctaHref?: string;
 }) {
+  const pathname = usePathname();
+  // Automatically determine if we are on the homepage.
+  // If not, prefix anchor links with "/" so they navigate back to the home page's sections.
+  const isHome = pathname === "/";
+  const anchorBase = isHome ? "" : "/";
+
   return (
     <motion.header 
       role="banner"
@@ -22,7 +27,8 @@ export default function Header({
     >
       <div className="header-inner">
         <div className="logo">
-          <a href={anchorBase === "" ? "#" : "/"} title="XL SATU">
+          {/* Logo ALWAYS goes to home */}
+          <a href="/" title="XL SATU">
             <motion.img
               whileHover={{ scale: 1.05 }}
               src="/images/logo-xl-satu.png"
