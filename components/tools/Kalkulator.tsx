@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { gtag } from "@/lib/lead";
 
 const NEED: Record<string, number> = { k4: 22, hd: 6, vc: 4, game: 8, browse: 3, smart: 0.5 };
