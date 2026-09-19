@@ -1,13 +1,8 @@
 {
-  "trailingSlash": true,
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "Strict-Transport-Security",
-          "value": "max-age=63072000; includeSubDomains; preload"
-        },
         {
           "key": "X-Frame-Options",
           "value": "DENY"
@@ -22,31 +17,9 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://ipwho.is https://script.google.com https://locate.measurementlab.net https://*.measurement-lab.org wss://*.measurement-lab.org; frame-src https://www.googletagmanager.com"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com; font-src 'self' data: https://cdnjs.cloudflare.com; img-src 'self' data: https://*.tile.openstreetmap.org https://www.google-analytics.com https://stats.g.doubleclick.net https://pagead2.googlesyndication.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://script.google.com https://ipwho.is https://pagead2.googlesyndication.com; frame-src 'self' https://www.google.com"
         }
       ]
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/wifi-sragen",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/wifi-sragen/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/wifi-wonogiri",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/wifi-wonogiri/",
-      "destination": "/",
-      "permanent": true
     }
   ]
 }
