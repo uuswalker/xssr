@@ -344,9 +344,11 @@
       font-weight: 600; 
     }
     .fitur-item img { 
-      width: 28px; 
-      height: 28px;
-    }
+        width: 28px; 
+        height: 28px;
+        object-fit: contain;
+        object-position: left center;
+      }
 
     .price-box { 
       margin-top: auto; 
