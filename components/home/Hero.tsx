@@ -285,8 +285,8 @@ export function HomeHeroLokal() {
             "Harga Transparan, Tanpa Biaya Tersembunyi",
             "Ditemani Sampai Internet Nyala",
           ].map((t) => (
-            <span key={t}>
-              <CheckCircle2 size={16} color="var(--green)" style={{ marginRight: 6 }} />
+            <span key={t} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+              <CheckCircle2 size={16} color="var(--green)" style={{ flexShrink: 0 }} />
               {t}
             </span>
           ))}

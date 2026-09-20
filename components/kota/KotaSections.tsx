@@ -88,8 +88,8 @@ export function KotaHero({ city }: { city: City }) {
               "Harga Transparan, Tanpa Biaya Tersembunyi",
               "Ditemani Sampai Internet Nyala",
             ].map((t) => (
-              <span key={t}>
-                <CheckCircle2 size={18} color="var(--green)" />
+              <span key={t} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                <CheckCircle2 size={18} color="var(--green)" style={{ flexShrink: 0 }} />
                 {t}
               </span>
             ))}
