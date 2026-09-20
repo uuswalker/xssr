@@ -303,11 +303,12 @@
     }
 
     .paket-body { 
-      padding: 16px 24px 24px; 
-      flex: 1; 
-      display: flex; 
-      flex-direction: column; 
-    }
+        padding: 16px 24px 24px; 
+        flex: 1; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: flex-end; 
+      }
     .ideal-label { 
       font-size: 11px; 
       font-weight: 700; 
@@ -351,8 +352,8 @@
       }
 
     .price-box { 
-      margin-top: auto; 
-    }
+        margin-top: 0; 
+      }
     .price-before { 
       font-size: 13px; 
       color: var(--text-muted); 
