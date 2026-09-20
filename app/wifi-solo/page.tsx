@@ -1,17 +1,10 @@
 import { MessageCircle, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
 import WaFloat from "@/components/WaFloat";
 import Watermark from "@/components/Watermark";
 import Faq from "@/components/home/Faq";
 import { PAGE_CSS } from "@/lib/page-css";
 import { JsonLd, pageMetadata } from "@/lib/seo";
-
-const jakarta = Plus_Jakarta_Sans({
-  weight: ["400", "500", "600", "700", "800"],
-  subsets: ["latin"],
-  display: "optional",
-});
 
 const SOLO_FAQS = [
   {
@@ -129,7 +122,7 @@ const SERVICE_JSONLD = {
 
 export default function Page() {
   return (
-    <div className={jakarta.className}>
+    <div >
       <Watermark token="3D40D863" />
       <style dangerouslySetInnerHTML={{ __html: PAGE_CSS["wifi-solo"] || "" }} />
       <header role="banner">

@@ -171,10 +171,10 @@ export default function Speedtest() {
           if (lastLoaded === 0) updateSpeed(CHUNK);
         };
 
-        xhr.onload = resolve;
-        xhr.onerror = resolve;
-        xhr.ontimeout = resolve;
-        xhr.onabort = resolve;
+        xhr.onload = () => resolve();
+        xhr.onerror = () => resolve();
+        xhr.ontimeout = () => resolve();
+        xhr.onabort = () => resolve();
         xhr.send(payload);
       });
 

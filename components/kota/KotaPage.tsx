@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -24,12 +23,6 @@ import {
   jsonLdLocalBusinessKota,
   pageMetadata,
 } from "@/lib/seo";
-
-const jakarta = Plus_Jakarta_Sans({
-  weight: ["400", "500", "600", "700", "800"],
-  subsets: ["latin"],
-  display: "optional",
-});
 
 /** Metadata per kota — dipakai wrapper rute statis. */
 export async function kotaMetadata(slug: string): Promise<Metadata> {
@@ -66,7 +59,7 @@ export function KotaPage({ slug }: { slug: string }) {
   }
 
   return (
-    <div className={jakarta.className}>
+    <div >
       <Watermark token={wmToken(city.slug)} />
       <Header showFiber={!!city.has_fiber} showWireless={!!city.has_wireless} />
       <main>
