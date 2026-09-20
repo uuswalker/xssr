@@ -425,17 +425,21 @@ export function WirelessPaket({
               <div
                 style={{
                   maxWidth: 420,
-                  margin: "0 auto 24px",
-                  background: "var(--green-light)",
-                  borderRadius: 12,
-                  padding: "12px 16px",
-                  textAlign: "center",
-                  fontSize: 13,
-                  fontWeight: 600,
-                  color: "var(--green-dark)",
+                    margin: "0 auto 24px",
+                    background: "var(--green-light)",
+                    borderRadius: 12,
+                    padding: "12px 16px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "8px",
+                    textAlign: "center",
+                    fontSize: 13,
+                    fontWeight: 600,
+                    color: "var(--green-dark)",
                 }}
               >
-                <Gift size={16} style={{ flexShrink: 0 }} />{" "}
+                <Gift size={16} style={{ flexShrink: 0 }} />
                 Semua paket include{" "}
                 <strong>Free 3 Bulan Vidio Lite + Catchplay</strong>
               </div>
@@ -504,17 +508,21 @@ export function WirelessPaket({
               <div
                 style={{
                   maxWidth: 420,
-                  margin: "0 auto 24px",
-                  background: "#fff3e0",
-                  borderRadius: 12,
-                  padding: "12px 16px",
-                  textAlign: "center",
-                  fontSize: 13,
-                  fontWeight: 600,
-                  color: "#ac3c00",
+                    margin: "0 auto 24px",
+                    background: "#fff3e0",
+                    borderRadius: 12,
+                    padding: "12px 16px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "8px",
+                    textAlign: "center",
+                    fontSize: 13,
+                    fontWeight: 600,
+                    color: "#ac3c00",
                 }}
               >
-                <CalendarCheck size={16} style={{ color: "var(--green)", flexShrink: 0 }} />{" "}
+                <CalendarCheck size={16} style={{ flexShrink: 0 }} />
                 Bayar bulanan, tanpa advance
               </div>
               <div
