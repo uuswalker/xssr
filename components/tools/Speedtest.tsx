@@ -15,7 +15,7 @@ export default function Speedtest() {
         style={{ 
           position: "relative",
           width: "100%", 
-          minHeight: "500px",
+          minHeight: "450px",
           background: "#f3f4f6", 
           borderRadius: 16, 
           overflow: "hidden",
@@ -36,17 +36,16 @@ export default function Speedtest() {
           </div>
         )}
         
-        {/* DCSpeedTest Widget (Powered by Cloudflare, 100% Mobile Iframe Support) */}
+        {/* MeterCustom.net Widget (Highly reliable, no iframe block on mobile, Ookla-style UI) */}
         <iframe 
-          src="https://dcspeedtest.com/embed"
+          src="https://www.metercustom.net/plugin/"
           width="100%" 
-          height="550px" 
+          height="500px" 
           frameBorder="0"
           onLoad={() => setLoading(false)}
           style={{ position: "relative", zIndex: 1, border: "none" }}
           title="Internet Speed Test"
-          allow="fullscreen; clipboard-write"
-          loading="lazy"
+          allow="fullscreen; clipboard-write; geolocation"
         />
       </div>
 
