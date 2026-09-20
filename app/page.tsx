@@ -16,7 +16,7 @@ import {
 } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Pasang WiFi Solo Raya Tanpa FUP | XL SATU Internet Rumah",
+  title: "Pasang WiFi Solo Raya Tanpa FUP | XL SATU Solo Raya",
   description:
     "Pasang WiFi Solo Raya: internet rumah fiber optic unlimited tanpa FUP, 20-1000 Mbps mulai Rp 185.000/bulan. Cek ketersediaan & instalasi via WhatsApp sales.",
   path: "/",
