@@ -1234,18 +1234,20 @@
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
-  border: none;
   cursor: pointer;
+  border: 1.5px solid transparent;
 }
 
 .smb-btn-primary {
-  background: var(--light-bg);
-  color: var(--primary);
+  background: var(--white);
+  color: var(--green);
+  border: 1.5px solid var(--green);
 }
 
 .smb-btn-wa {
-  background: #147a45;
-  color: #fff;
+  background: var(--green);
+  color: var(--white);
+  border: 1.5px solid var(--green);
 }
 
 @media (max-width: 768px) {
