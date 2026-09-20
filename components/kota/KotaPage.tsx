@@ -10,6 +10,8 @@ import { About, Hubungi, Kenapa, Myxl } from "@/components/home/InfoSections";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Marquee from "@/components/animations/Marquee";
 import { KecamatanBlock, KotaArea, KotaHero } from "@/components/kota/KotaSections";
+import CityPills from "@/components/kota/CityPills";
+import PageTransition from "@/components/animations/PageTransition";
 import {
   CITIES,
   cityFaqs,
@@ -62,7 +64,7 @@ export function KotaPage({ slug }: { slug: string }) {
     <div >
       <Watermark token={wmToken(city.slug)} />
       <Header showFiber={!!city.has_fiber} showWireless={!!city.has_wireless} />
-      <main>
+      <PageTransition>
         <ScrollReveal delay={0.1}>
           <KotaHero city={city} />
         </ScrollReveal>
@@ -106,8 +108,11 @@ export function KotaPage({ slug }: { slug: string }) {
         <ScrollReveal delay={0.1}>
           <Hubungi />
         </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <CityPills />
+        </ScrollReveal>
         <WaFloat text={city.wa_float_text as string} />
-      </main>
+      </PageTransition>
       <Footer />
       <JsonLd data={jsonLdLocalBusinessKota(`/${city.slug}/`, areaServed)} />
       <JsonLd data={jsonLdFaq(faqs)} />

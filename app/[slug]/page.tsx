@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import PageTransition from "@/components/animations/PageTransition";
 import Article from "@/components/Article";
 import { ARTIKEL } from "@/lib/artikel";
 import { decodeEntities } from "@/lib/kota";

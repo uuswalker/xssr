@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Hero from "@/components/home/Hero";
+import PageTransition from "@/components/animations/PageTransition";
 import dynamic from "next/dynamic";
 const PaketSection = dynamic(() => import("@/components/home/PaketSection"));
 const InfoSections = dynamic(() => import("@/components/home/InfoSections"));
@@ -37,7 +38,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <PageTransition>
         <Hero />
         <Marquee />
         <ScrollReveal delay={0.1}>
@@ -50,7 +51,7 @@ export default function Home() {
           <Faq faqs={FAQ_HOME} />
         </ScrollReveal>
         <WaFloat />
-      </main>
+      </PageTransition>
       <Footer />
       <JsonLd data={jsonLdWebsite()} />
       <JsonLd data={jsonLdLocalBusiness()} />

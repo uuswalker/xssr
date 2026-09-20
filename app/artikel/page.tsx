@@ -2,6 +2,7 @@ import { ARTIKEL } from "@/lib/artikel";
 import Link from "next/link";
 import { ArrowRight, BookOpen } from "lucide-react";
 import type { Metadata } from "next";
+import PageTransition from "@/components/animations/PageTransition";
 
 export const metadata: Metadata = {
   title: "Artikel & Panduan WiFi Rumah | XL SATU Solo Raya",
@@ -17,7 +18,7 @@ export default function ArtikelIndex() {
 
   return (
     <div style={{ backgroundColor: "#f8fafc", minHeight: "100vh", padding: "40px 20px" }}>
-      <main style={{ maxWidth: 1000, margin: "0 auto" }}>
+      <PageTransition style={{ maxWidth: 1000, margin: "0 auto" }}>
         
         <div style={{ textAlign: "center", marginBottom: 40 }}>
           <h1 style={{ fontSize: "2.5rem", color: "#0f172a", marginBottom: 16 }}>
@@ -91,7 +92,7 @@ export default function ArtikelIndex() {
             border-color: #cbd5e1 !important;
           }
         `}} />
-      </main>
+      </PageTransition>
     </div>
   );
 }
