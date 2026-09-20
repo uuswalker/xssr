@@ -311,7 +311,7 @@ export function TahunanPaket() {
           Semua paket tahunan sudah termasuk <strong>gratis instalasi</strong>.
           Tanya sales untuk simulasi total + PPN sesuai alamat.
         </p>
-        <p style={{ marginTop: 12, textAlign: "center", fontSize: 13 }}>
+        <p style={{ marginTop: "auto", textAlign: "center", fontSize: 13 }}>
           <a
             href="/paket-wifi-tahunan-bayar-10-dapat-12/"
             style={{ color: "var(--green)", fontWeight: 700 }}
@@ -495,7 +495,7 @@ export function WirelessPaket({
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-pilih"
-                      style={{ width: "100%", marginTop: 8 }}
+                      style={{ width: "100%", marginTop: "auto" }}
                     >
                       Tanya Paket Ini
                     </a>
@@ -560,7 +560,7 @@ export function WirelessPaket({
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-pilih"
-                      style={{ width: "100%", marginTop: 12 }}
+                      style={{ width: "100%", marginTop: "auto" }}
                     >
                       Tanya Paket Ini
                     </a>

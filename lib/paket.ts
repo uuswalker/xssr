@@ -65,7 +65,7 @@ export const FIBER_TIERS: FiberTier[] = [
     waText: "Saya minat paket XL Satu Spark 250 Mbps Rp229.000",
   },
   {
-    name: "XL Satu Spark - 300 Mbps",
+    name: "XL Satu Spark — 300 Mbps",
     subtitle: "Internet Only",
     headerClass: "family",
     speedMax: 300,
@@ -101,7 +101,7 @@ export const FIBER_TIERS: FiberTier[] = [
     waText: "Saya minat paket XL Satu Spark 400 Mbps Rp299.000",
   },
   {
-    name: "XL Satu Spark - 500 Mbps",
+    name: "XL Satu Spark — 500 Mbps",
     subtitle: "Internet Only",
     headerClass: "smart",
     speedMax: 500,
