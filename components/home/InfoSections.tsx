@@ -161,8 +161,7 @@ export function AreaHome() {
             <a
               href="/area-layanan/"
               style={{
-                display: "inline-block",
-                background: "var(--green-light)",
+                display: "inline-flex", alignItems: "center", gap: 8, background: "var(--green-light)",
                 color: "var(--green-dark)",
                 fontWeight: 700,
                 fontSize: 13.5,

@@ -39,16 +39,14 @@ export function KotaHero({ city }: { city: City }) {
             id="btn-buka-cek-lokasi"
             className="btn-pilih"
             style={{
-              display: "inline-block",
-              width: "auto",
-              padding: "14px 32px",
+              display: "inline-flex", alignItems: "center", gap: 8, width: "auto", padding: "14px 32px",
               borderRadius: 999,
               fontSize: 15,
               border: "none",
               cursor: "pointer",
             }}
           >
-            <MapPin size={18} />
+            <MapPin size={18} style={{ flexShrink: 0 }} />
             Cek Ketersediaan di Area Saya
           </button>
           <div className="hero-lokal-stats">
@@ -173,8 +171,7 @@ export function KotaArea({
           <a
             href="/area-layanan/"
             style={{
-              display: "inline-block",
-              background: "#fff",
+              display: "inline-flex", alignItems: "center", gap: 8, background: "#fff",
               color: "var(--green-dark)",
               fontWeight: 700,
               fontSize: 13.5,
@@ -184,7 +181,7 @@ export function KotaArea({
               textDecoration: "none",
             }}
           >
-            <MapIcon size={24} color="var(--green)" />
+            <MapIcon size={24} color="var(--green)" style={{ flexShrink: 0 }} />
             Lihat Cakupan Lengkap: 5 Kota, 79 Kecamatan, 102 Kelurahan
           </a>
         </p>

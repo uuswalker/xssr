@@ -235,16 +235,14 @@ export function HomeHeroLokal() {
           id="btn-buka-cek-lokasi"
           className="btn-pilih"
           style={{
-            display: "inline-block",
-            width: "auto",
-            padding: "14px 32px",
+            display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, width: "auto", padding: "14px 32px",
             borderRadius: 999,
             fontSize: 15,
             border: "none",
             cursor: "pointer",
           }}
         >
-          <MapPin size={18} style={{ marginRight: 8, display: "inline-block", verticalAlign: "middle" }} />
+          <MapPin size={18} style={{ flexShrink: 0 }} />
           Cek Ketersediaan di Area Saya
         </button>
         <div className="hero-lokal-stats">
