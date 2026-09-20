@@ -240,33 +240,65 @@ export function TahunanPaket() {
                 </div>
               </div>
               <div style={{ padding: "16px 24px 0" }}>
-                <div
-                  style={{ fontSize: 13, color: "#333", lineHeight: 1.6 }}
-                >
-                  <div>
-                    Internet Speed <strong>{t.speed}</strong>
-                  </div>
-                  <div>
-                    Bonus Speed Booster to <strong>{t.booster}</strong>
-                  </div>
+                <div className="speed-label">
+                  <span>0 Mbps</span>
+                  <span>{t.speedMax} Mbps</span>
                 </div>
+                <div className="speed-bar-bg">
+                  <div
+                    className="speed-bar-fill"
+                    style={{ width: `${t.barWidth}%`, background: "linear-gradient(90deg, #1e1b4b 0%, #7c3aed 100%)" }}
+                  ></div>
+                  <div
+                    className="speed-bar-dot"
+                    style={{
+                      left: `calc(${t.barWidth}% - 8px)`,
+                      borderColor: "#7c3aed",
+                    }}
+                  ></div>
+                </div>
+                <div className="speed-note">Ideal untuk perangkat keluarga</div>
                 <div
                   style={{
-                    margin: "14px 0",
-                    padding: "10px 12px",
+                    fontSize: 11,
+                    color: "var(--text-muted)",
+                    marginTop: 6,
+                  }}
+                >
+                  {t.boosterNote}
+                </div>
+                
+                <div
+                  style={{
+                    margin: "14px 0 0",
+                    padding: "8px 12px",
                     background: "#f5f3ff",
                     borderRadius: 8,
-                    fontSize: 12.5,
+                    fontSize: 11.5,
                     color: "#4c1d95",
                     fontWeight: 600,
                     textAlign: "center",
                   }}
                 >
-                  Bonus Kuota HP Se-Keluarga <strong>{t.kuota}</strong> untuk{" "}
-                  {t.members}
+                  🎁 Bonus Kuota HP <strong>{t.kuota}</strong> ({t.members})
                 </div>
               </div>
               <div className="paket-body">
+                <div className="ideal-tags">
+                  {t.tags.map((tag) => (
+                    <span className="tag" key={tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="fitur-list">
+                  {t.feats.map((f) => (
+                    <div className="fitur-item" key={f.text}>
+                      <img src={f.img} alt="" loading="lazy" />
+                      {f.text}
+                    </div>
+                  ))}
+                </div>
                 <div className="price-box">
                   <div className="price-before">{t.before}</div>
                   <div className="price-main">
@@ -274,12 +306,13 @@ export function TahunanPaket() {
                     <span>/tahun</span>
                   </div>
                   <div className="price-ppn">
-                    Belum termasuk PPN 11% • Bayar 10 dapat 12 bulan
+                    Belum termasuk PPN 11% — Bayar 10 dapat 12 bulan
                   </div>
                   <div
                     style={{
+                      textAlign: "center",
                       fontSize: 12,
-                      color: "#6d28d9",
+                      color: "var(--green)",
                       fontWeight: 700,
                       marginTop: 4,
                     }}
