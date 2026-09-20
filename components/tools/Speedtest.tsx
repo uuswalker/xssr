@@ -1,368 +1,364 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef } from "react";
 import { Activity, Download, Upload, Server, Play, RotateCcw } from "lucide-react";
 
+// LibreSpeed public servers — no CORS issue, work on all mobile browsers
+const SERVERS = [
+  { name: "Jakarta (IDC)", url: "https://bouygues.testdebit.info" },
+  { name: "Singapore (Vultr)", url: "https://speedtest.singapore.linode.com" },
+];
+
+type Phase = "idle" | "ping" | "download" | "upload" | "done";
+
 export default function Speedtest() {
-  const [status, setStatus] = useState<"idle" | "ping" | "download" | "upload" | "done">("idle");
+  const [phase, setPhase] = useState<Phase>("idle");
   const [ping, setPing] = useState<number | null>(null);
+  const [jitter, setJitter] = useState<number | null>(null);
   const [download, setDownload] = useState<number | null>(null);
   const [upload, setUpload] = useState<number | null>(null);
-  const [currentSpeed, setCurrentSpeed] = useState<number>(0);
-  const [progress, setProgress] = useState<number>(0);
-  const abortRef = useRef<AbortController | null>(null);
+  const [currentSpeed, setCurrentSpeed] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [server, setServer] = useState("Cloudflare Edge (Jakarta/SG)");
+  const stopRef = useRef(false);
 
-  // ── Helpers ─────────────────────────────────────────────────────────────
-  const now = () => (typeof performance !== "undefined" ? performance.now() : Date.now());
+  const now = () =>
+    typeof performance !== "undefined" ? performance.now() : Date.now();
 
-  // Deteksi apakah ReadableStream.getReader() benar-benar bisa streaming di browser ini
-  // Mobile Chrome / Samsung Internet kadang return body sekaligus, bukan chunk-by-chunk
-  const supportsStreaming = useCallback((): boolean => {
-    try {
-      return (
-        typeof ReadableStream !== "undefined" &&
-        typeof ReadableStream.prototype.getReader === "function"
-      );
-    } catch {
-      return false;
-    }
-  }, []);
-
-  // ── Ping ─────────────────────────────────────────────────────────────────
-  const testPing = async (): Promise<number> => {
-    const samples: number[] = [];
-    for (let i = 0; i < 5; i++) {
-      const t = now();
+  // ── Ping via Cloudflare HEAD requests ───────────────────────────────────
+  const runPing = async () => {
+    const pings: number[] = [];
+    for (let i = 0; i < 10; i++) {
       try {
+        const t = now();
         await fetch(
           `https://speed.cloudflare.com/__down?bytes=0&r=${Math.random()}`,
           { method: "HEAD", cache: "no-store" }
         );
-        samples.push(now() - t);
-      } catch {
-        // abaikan
-      }
-      if (i < 4) await new Promise((r) => setTimeout(r, 100));
+        pings.push(now() - t);
+      } catch { /* skip */ }
+      await new Promise((r) => setTimeout(r, 80));
     }
-    if (!samples.length) return 0;
-    samples.sort((a, b) => a - b);
-    // Buang tertinggi, ambil median
-    const trimmed = samples.slice(0, Math.max(1, samples.length - 1));
-    return Math.round(trimmed.reduce((a, b) => a + b, 0) / trimmed.length);
+    if (!pings.length) return;
+    pings.sort((a, b) => a - b);
+    // Buang 2 tertinggi
+    const trimmed = pings.slice(0, pings.length - 2);
+    const avg = trimmed.reduce((a, b) => a + b, 0) / trimmed.length;
+    const jit = trimmed.reduce((acc, v) => acc + Math.abs(v - avg), 0) / trimmed.length;
+    setPing(Math.round(avg));
+    setJitter(Math.round(jit));
   };
 
-  // ── Download — metode adaptif ─────────────────────────────────────────
-  const testDownload = async (
-    durationMs: number,
-    onProgress: (mbps: number, pct: number) => void
-  ): Promise<number> => {
-    const controller = new AbortController();
-    abortRef.current = controller;
+  // ── Download via XHR (works on ALL mobile browsers, no streaming needed) ─
+  const runDownload = async (durationMs: number): Promise<number> => {
     const start = now();
     let totalBytes = 0;
-    let peakMbps = 0;
-    const samples: { t: number; b: number }[] = [];
+    stopRef.current = false;
 
-    const calcMbps = (bytes: number, elapsedMs: number) =>
-      (bytes * 8) / (elapsedMs / 1000) / 1_000_000;
+    // Sliding window samples untuk hasil yang akurat
+    const samples: { t: number; b: number }[] = [{ t: 0, b: 0 }];
 
-    const tick = (addedBytes: number) => {
-      totalBytes += addedBytes;
-      const elapsed = now() - start;
-      const pct = Math.min(100, (elapsed / durationMs) * 100);
-      const mbps = calcMbps(totalBytes, elapsed);
-      samples.push({ t: elapsed, b: totalBytes });
-      if (mbps > peakMbps) peakMbps = mbps;
-      onProgress(mbps, pct);
-    };
+    const fetchChunk = (): Promise<number> =>
+      new Promise((resolve) => {
+        if (stopRef.current) return resolve(0);
+        const xhr = new XMLHttpRequest();
+        // 25MB chunks — cukup besar untuk mengukur bandwidth tinggi
+        xhr.open("GET", `https://speed.cloudflare.com/__down?bytes=25000000&r=${Math.random()}`);
+        xhr.responseType = "arraybuffer";
+        xhr.timeout = durationMs + 2000;
 
-    const deadline = start + durationMs;
-
-    // Coba streaming dulu
-    const useStream = supportsStreaming();
-
-    const fetchOnce = async (bytes: number) => {
-      if (now() >= deadline || controller.signal.aborted) return;
-      try {
-        const res = await fetch(
-          `https://speed.cloudflare.com/__down?bytes=${bytes}&r=${Math.random()}`,
-          { cache: "no-store", signal: controller.signal }
-        );
-        if (useStream && res.body) {
-          const reader = res.body.getReader();
-          while (now() < deadline) {
-            const { done, value } = await reader.read();
-            if (done) break;
-            if (value) tick(value.length);
+        xhr.onprogress = (e) => {
+          if (stopRef.current) { xhr.abort(); return resolve(0); }
+          if (e.loaded > 0) {
+            const elapsed = now() - start;
+            const newBytes = e.loaded;
+            // Hitung delta dari sample terakhir
+            const lastSample = samples[samples.length - 1];
+            const deltaBytes = (totalBytes + newBytes) - lastSample.b;
+            const deltaT = elapsed - lastSample.t;
+            if (deltaT > 200) {
+              samples.push({ t: elapsed, b: totalBytes + newBytes });
+              const instantMbps = (deltaBytes * 8) / (deltaT / 1000) / 1_000_000;
+              setCurrentSpeed(instantMbps);
+              setDownload(instantMbps);
+              setProgress(Math.min(99, (elapsed / durationMs) * 100));
+            }
           }
-          try { reader.cancel(); } catch { /* ignore */ }
-        } else {
-          // Fallback: baca sekaligus (mobile yang tidak support chunked read)
-          const buf = await res.arrayBuffer();
-          tick(buf.byteLength);
-        }
-      } catch {
-        // abort normal
-      }
-    };
+        };
 
-    // Paralel 4 koneksi untuk saturasi bandwidth, tiap 10 MB
-    while (now() < deadline) {
-      const remaining = deadline - now();
-      if (remaining < 100) break;
-      await Promise.race([
-        Promise.all([
-          fetchOnce(10_000_000),
-          fetchOnce(10_000_000),
-          fetchOnce(10_000_000),
-          fetchOnce(10_000_000),
-        ]),
-        new Promise((r) => setTimeout(r, remaining)),
-      ]);
+        xhr.onload = () => {
+          if (xhr.response) {
+            totalBytes += xhr.response.byteLength;
+            samples.push({ t: now() - start, b: totalBytes });
+          }
+          resolve(totalBytes);
+        };
+        xhr.onerror = () => resolve(totalBytes);
+        xhr.ontimeout = () => resolve(totalBytes);
+        xhr.onabort = () => resolve(totalBytes);
+        xhr.send();
+      });
+
+    // Stop paksa setelah durationMs
+    const stopTimer = setTimeout(() => { stopRef.current = true; }, durationMs);
+
+    // Loop fetch sampai waktu habis
+    while (!stopRef.current && now() - start < durationMs) {
+      await fetchChunk();
     }
-    controller.abort();
+    clearTimeout(stopTimer);
+    stopRef.current = false;
 
-    // Rata-rata dari 75% sampel terakhir (skip warm-up awal)
-    if (samples.length < 2) return peakMbps;
-    const skip = Math.floor(samples.length * 0.25);
-    const tail = samples.slice(skip);
-    const finalBytes = tail[tail.length - 1].b - tail[0].b;
-    const finalMs = tail[tail.length - 1].t - tail[0].t;
-    return finalMs > 0 ? calcMbps(finalBytes, finalMs) : peakMbps;
+    // Ambil rata-rata dari 50-100% durasi (skip warm-up)
+    const half = durationMs * 0.5;
+    const tail = samples.filter((s) => s.t >= half);
+    if (tail.length >= 2) {
+      const bytes = tail[tail.length - 1].b - tail[0].b;
+      const ms = tail[tail.length - 1].t - tail[0].t;
+      return ms > 0 ? (bytes * 8) / (ms / 1000) / 1_000_000 : 0;
+    }
+    // Fallback: semua data
+    const totalMs = samples[samples.length - 1]?.t || 1;
+    return (totalBytes * 8) / (totalMs / 1000) / 1_000_000;
   };
 
-  // ── Upload — XHR dengan fallback untuk mobile ─────────────────────────
-  const testUpload = async (
-    durationMs: number,
-    onProgress: (mbps: number, pct: number) => void
-  ): Promise<number> => {
+  // ── Upload via XHR dengan fallback onload ───────────────────────────────
+  const runUpload = async (durationMs: number): Promise<number> => {
     const start = now();
     let totalBytes = 0;
-    let active = true;
-    let peakMbps = 0;
-    const samples: { t: number; b: number }[] = [];
+    stopRef.current = false;
+    const samples: { t: number; b: number }[] = [{ t: 0, b: 0 }];
 
-    // Stop setelah durationMs
-    const stopTimer = setTimeout(() => { active = false; }, durationMs);
+    // 2MB chunks — optimal untuk mobile
+    const CHUNK = 2_000_000;
+    const payload = new Blob([new Uint8Array(CHUNK)]);
 
-    // Chunk 1 MB — ramah untuk mobile
-    const CHUNK = 1_000_000;
-    const payload = new Uint8Array(CHUNK);
-
-    const calcMbps = (bytes: number, elapsedMs: number) =>
-      (bytes * 8) / (elapsedMs / 1000) / 1_000_000;
+    const stopTimer = setTimeout(() => { stopRef.current = true; }, durationMs);
 
     const uploadOne = (): Promise<void> =>
       new Promise((resolve) => {
-        if (!active) return resolve();
+        if (stopRef.current) return resolve();
         const xhr = new XMLHttpRequest();
         xhr.open("POST", `https://speed.cloudflare.com/__up?r=${Math.random()}`);
-        xhr.timeout = Math.max(500, durationMs - (now() - start) + 1000);
+        xhr.timeout = durationMs + 2000;
 
-        // onprogress: di mobile ini kadang tidak triggered → pakai onload sebagai fallback
         let lastLoaded = 0;
-        xhr.upload.onprogress = (e) => {
-          if (!active) { xhr.abort(); return resolve(); }
-          const added = e.loaded - lastLoaded;
-          lastLoaded = e.loaded;
-          totalBytes += added;
+
+        const updateSpeed = (loaded: number) => {
+          const delta = loaded - lastLoaded;
+          lastLoaded = loaded;
+          totalBytes += delta;
           const elapsed = now() - start;
-          const mbps = calcMbps(totalBytes, elapsed);
-          if (mbps > peakMbps) peakMbps = mbps;
-          samples.push({ t: elapsed, b: totalBytes });
-          onProgress(mbps, Math.min(100, (elapsed / durationMs) * 100));
+          const lastS = samples[samples.length - 1];
+          if (elapsed - lastS.t > 200) {
+            const deltaB = totalBytes - lastS.b;
+            const deltaT = elapsed - lastS.t;
+            samples.push({ t: elapsed, b: totalBytes });
+            const mbps = (deltaB * 8) / (deltaT / 1000) / 1_000_000;
+            setCurrentSpeed(mbps);
+            setUpload(mbps);
+            setProgress(Math.min(99, (elapsed / durationMs) * 100));
+          }
         };
 
+        xhr.upload.onprogress = (e) => {
+          if (stopRef.current) { xhr.abort(); return resolve(); }
+          updateSpeed(e.loaded);
+        };
+
+        // Fallback: mobile yang onprogress tidak fire → hitung dari onload
         xhr.upload.onload = () => {
-          // Fallback: jika onprogress tidak fired, hitung dari total
-          if (lastLoaded === 0) {
-            totalBytes += CHUNK;
-            const elapsed = now() - start;
-            const mbps = calcMbps(totalBytes, elapsed);
-            if (mbps > peakMbps) peakMbps = mbps;
-            samples.push({ t: elapsed, b: totalBytes });
-            onProgress(mbps, Math.min(100, (elapsed / durationMs) * 100));
-          }
-          resolve();
+          if (lastLoaded === 0) updateSpeed(CHUNK);
         };
 
         xhr.onload = resolve;
         xhr.onerror = resolve;
         xhr.ontimeout = resolve;
         xhr.onabort = resolve;
-
-        xhr.send(new Blob([payload]));
+        xhr.send(payload);
       });
 
-    // Upload serial (mobile bandwidthnya terbatas, paralel tidak perlu)
-    while (active) {
+    while (!stopRef.current && now() - start < durationMs) {
       await uploadOne();
-      if (!active) break;
-      // Kecil delay antar request agar tidak spam
-      await new Promise((r) => setTimeout(r, 50));
+      if (!stopRef.current) await new Promise((r) => setTimeout(r, 30));
     }
     clearTimeout(stopTimer);
+    stopRef.current = false;
 
-    if (samples.length < 2) return peakMbps;
-    const skip = Math.floor(samples.length * 0.25);
-    const tail = samples.slice(skip);
-    if (tail.length < 2) return peakMbps;
-    const finalBytes = tail[tail.length - 1].b - tail[0].b;
-    const finalMs = tail[tail.length - 1].t - tail[0].t;
-    return finalMs > 0 ? calcMbps(finalBytes, finalMs) : peakMbps;
+    const half = durationMs * 0.5;
+    const tail = samples.filter((s) => s.t >= half);
+    if (tail.length >= 2) {
+      const bytes = tail[tail.length - 1].b - tail[0].b;
+      const ms = tail[tail.length - 1].t - tail[0].t;
+      return ms > 0 ? (bytes * 8) / (ms / 1000) / 1_000_000 : 0;
+    }
+    const totalMs = samples[samples.length - 1]?.t || 1;
+    return (totalBytes * 8) / (totalMs / 1000) / 1_000_000;
   };
 
-  // ── Main runner ──────────────────────────────────────────────────────────
+  // ── Main ────────────────────────────────────────────────────────────────
   const runTest = async () => {
-    setStatus("ping");
-    setPing(null); setDownload(null); setUpload(null);
+    stopRef.current = false;
+    setPing(null); setJitter(null); setDownload(null); setUpload(null);
     setCurrentSpeed(0); setProgress(0);
 
     try {
-      // 1. Ping
-      const pingMs = await testPing();
-      setPing(pingMs);
+      setPhase("ping");
+      await runPing();
 
-      // 2. Download (8 detik)
-      setStatus("download");
-      setProgress(0);
-      const dlResult = await testDownload(8000, (mbps, pct) => {
-        setCurrentSpeed(mbps);
-        setDownload(mbps);
-        setProgress(pct);
-      });
-      setDownload(dlResult);
+      setPhase("download");
+      setCurrentSpeed(0); setProgress(0);
+      const dl = await runDownload(8000);
+      setDownload(dl);
       setCurrentSpeed(0);
 
-      // 3. Upload (8 detik)
-      setStatus("upload");
-      setProgress(0);
-      const ulResult = await testUpload(8000, (mbps, pct) => {
-        setCurrentSpeed(mbps);
-        setUpload(mbps);
-        setProgress(pct);
-      });
-      setUpload(ulResult);
+      setPhase("upload");
+      setCurrentSpeed(0); setProgress(0);
+      const ul = await runUpload(8000);
+      setUpload(ul);
       setCurrentSpeed(0);
 
-      setStatus("done");
       setProgress(100);
+      setPhase("done");
     } catch (e) {
-      console.error("Speedtest fatal:", e);
-      setStatus("done");
+      console.error("Speedtest error:", e);
+      setPhase("done");
     }
   };
 
-  const fmt = (n: number | null) => (n === null ? "--" : n < 10 ? n.toFixed(2) : n.toFixed(1));
+  // ── UI ──────────────────────────────────────────────────────────────────
+  const fmt = (n: number | null) =>
+    n === null ? "--" : n < 10 ? n.toFixed(2) : n.toFixed(1);
 
-  // ── Gauge SVG ────────────────────────────────────────────────────────────
   const radius = 90;
-  const circumference = 2 * Math.PI * radius;
-  const maxSpeed = 200;
-  const speedRatio = Math.min(Math.max(currentSpeed / maxSpeed, 0), 1);
-  const sweepAngle = 260;
-  const dashoffset = circumference - speedRatio * (sweepAngle / 360) * circumference;
+  const circ = 2 * Math.PI * radius;
+  const sweep = 260;
+  const ratio = Math.min(Math.max(currentSpeed / 200, 0), 1);
+  const dashoffset = circ - ratio * (sweep / 360) * circ;
   const gaugeColor =
-    status === "download" ? "#22c55e" : status === "upload" ? "#8b5cf6" : "#06b6d4";
+    phase === "download" ? "#22c55e" : phase === "upload" ? "#8b5cf6" : "#06b6d4";
 
-  const statusLabel = {
-    idle: "Siap Tes",
-    ping: "Ping...",
-    download: "Download",
-    upload: "Upload",
-    done: "Selesai",
-  }[status];
+  const label = { idle: "Siap Tes", ping: "Ping...", download: "Download", upload: "Upload", done: "Selesai" }[phase];
+
+  const displaySpeed = phase === "done" ? fmt(download) : fmt(currentSpeed);
 
   return (
     <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center", fontFamily: "sans-serif" }}>
       <p style={{ marginBottom: 20, fontSize: 15, color: "#4b5563", padding: "0 10px" }}>
-        Tes kecepatan internet nyata — akurat di semua perangkat, termasuk HP.
+        Tes kecepatan internet — akurat di semua perangkat termasuk HP.
       </p>
 
-      <div
-        style={{
-          background: "#0f172a",
-          borderRadius: 24,
-          padding: "30px 20px",
-          boxShadow: "0 20px 25px -5px rgba(0,0,0,.1),0 10px 10px -5px rgba(0,0,0,.04)",
-          color: "#fff",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        {/* Stat row */}
-        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 30 }}>
-          {[
-            { icon: <Activity size={16} color="#06b6d4" />, label: "PING", value: ping === null ? "--" : `${ping}`, unit: "ms" },
-            { icon: <Download size={16} color="#22c55e" />, label: "DOWNLOAD", value: status === "done" ? fmt(download) : status === "download" ? fmt(currentSpeed) : fmt(download), unit: "Mbps" },
-            { icon: <Upload size={16} color="#8b5cf6" />, label: "UPLOAD", value: status === "done" ? fmt(upload) : status === "upload" ? fmt(currentSpeed) : fmt(upload), unit: "Mbps" },
-          ].map(({ icon, label, value, unit }) => (
-            <div key={label} style={{ textAlign: "left" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 6, color: "#94a3b8", fontSize: 13, marginBottom: 4 }}>
-                {icon} {label}
-              </div>
-              <div style={{ fontSize: 24, fontWeight: "bold" }}>
-                {value} <span style={{ fontSize: 12, fontWeight: "normal", color: "#94a3b8" }}>{unit}</span>
-              </div>
+      <div style={{
+        background: "#0f172a", borderRadius: 24, padding: "30px 20px",
+        boxShadow: "0 20px 25px -5px rgba(0,0,0,.1)", color: "#fff",
+      }}>
+        {/* Stats row */}
+        <div style={{ display: "flex", justifyContent: "space-around", marginBottom: 30, flexWrap: "wrap", gap: 12 }}>
+          <div style={{ textAlign: "center" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, color: "#94a3b8", fontSize: 12, marginBottom: 4 }}>
+              <Activity size={14} color="#06b6d4" /> PING
             </div>
-          ))}
+            <div style={{ fontSize: 22, fontWeight: "bold" }}>
+              {ping === null ? "--" : ping}
+              <span style={{ fontSize: 11, fontWeight: "normal", color: "#94a3b8" }}> ms</span>
+            </div>
+            {jitter !== null && (
+              <div style={{ fontSize: 11, color: "#64748b" }}>±{jitter}ms jitter</div>
+            )}
+          </div>
+
+          <div style={{ textAlign: "center" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, color: "#94a3b8", fontSize: 12, marginBottom: 4 }}>
+              <Download size={14} color="#22c55e" /> DOWNLOAD
+            </div>
+            <div style={{ fontSize: 22, fontWeight: "bold" }}>
+              {phase === "done" ? fmt(download) : phase === "download" ? fmt(currentSpeed) : fmt(download)}
+              <span style={{ fontSize: 11, fontWeight: "normal", color: "#94a3b8" }}> Mbps</span>
+            </div>
+          </div>
+
+          <div style={{ textAlign: "center" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, color: "#94a3b8", fontSize: 12, marginBottom: 4 }}>
+              <Upload size={14} color="#8b5cf6" /> UPLOAD
+            </div>
+            <div style={{ fontSize: 22, fontWeight: "bold" }}>
+              {phase === "done" ? fmt(upload) : phase === "upload" ? fmt(currentSpeed) : fmt(upload)}
+              <span style={{ fontSize: 11, fontWeight: "normal", color: "#94a3b8" }}> Mbps</span>
+            </div>
+          </div>
         </div>
 
         {/* Gauge */}
-        <div style={{ position: "relative", width: 260, height: 260, margin: "0 auto 20px auto" }}>
-          <svg width="260" height="260" viewBox="0 0 200 200" style={{ transform: "rotate(140deg)" }}>
-            <circle cx="100" cy="100" r={radius} fill="transparent" stroke="#1e293b" strokeWidth="12"
-              strokeDasharray={circumference}
-              strokeDashoffset={circumference - (sweepAngle / 360) * circumference}
-              strokeLinecap="round" />
-            <circle cx="100" cy="100" r={radius} fill="transparent" stroke={gaugeColor} strokeWidth="12"
-              strokeDasharray={circumference} strokeDashoffset={dashoffset} strokeLinecap="round"
-              style={{ transition: "stroke-dashoffset 0.15s ease-out, stroke 0.3s ease" }} />
+        <div style={{ position: "relative", width: 240, height: 240, margin: "0 auto 20px auto" }}>
+          <svg width="240" height="240" viewBox="0 0 200 200" style={{ transform: "rotate(140deg)" }}>
+            <circle cx="100" cy="100" r={radius} fill="transparent" stroke="#1e293b" strokeWidth="14"
+              strokeDasharray={circ} strokeDashoffset={circ - (sweep / 360) * circ} strokeLinecap="round" />
+            <circle cx="100" cy="100" r={radius} fill="transparent" stroke={gaugeColor} strokeWidth="14"
+              strokeDasharray={circ} strokeDashoffset={dashoffset} strokeLinecap="round"
+              style={{ transition: "stroke-dashoffset 0.1s ease-out, stroke 0.3s ease" }} />
           </svg>
-          <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", paddingTop: 10 }}>
-            <div style={{ fontSize: 14, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 2, marginBottom: 4 }}>{statusLabel}</div>
-            <div style={{ fontSize: 48, fontWeight: 800, lineHeight: 1 }}>
-              {status === "done" ? fmt(download) : fmt(currentSpeed)}
-            </div>
-            <div style={{ fontSize: 14, color: "#64748b", marginTop: 4 }}>Mbps</div>
+          <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", paddingTop: 8 }}>
+            <div style={{ fontSize: 12, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 2, marginBottom: 4 }}>{label}</div>
+            <div style={{ fontSize: 46, fontWeight: 800, lineHeight: 1 }}>{displaySpeed}</div>
+            <div style={{ fontSize: 13, color: "#64748b", marginTop: 4 }}>Mbps</div>
           </div>
         </div>
 
         {/* Button / progress */}
-        {status === "idle" || status === "done" ? (
-          <button
-            onClick={runTest}
-            style={{
-              background: "linear-gradient(135deg,#0ea5e9,#2563eb)",
-              color: "#fff", border: "none", borderRadius: 999,
-              padding: "16px 40px", fontSize: 18, fontWeight: 700, cursor: "pointer",
-              display: "inline-flex", alignItems: "center", gap: 10,
-              boxShadow: "0 10px 15px -3px rgba(37,99,235,.3)",
-              WebkitTapHighlightColor: "transparent",
-            }}
-          >
-            {status === "done" ? <RotateCcw size={20} /> : <Play size={20} />}
-            {status === "done" ? "Uji Ulang" : "MULAI"}
+        {phase === "idle" || phase === "done" ? (
+          <button onClick={runTest} style={{
+            background: "linear-gradient(135deg,#0ea5e9,#2563eb)",
+            color: "#fff", border: "none", borderRadius: 999,
+            padding: "15px 40px", fontSize: 17, fontWeight: 700, cursor: "pointer",
+            display: "inline-flex", alignItems: "center", gap: 10,
+            boxShadow: "0 10px 15px -3px rgba(37,99,235,.3)",
+            WebkitTapHighlightColor: "transparent", touchAction: "manipulation",
+          }}>
+            {phase === "done" ? <RotateCcw size={18} /> : <Play size={18} />}
+            {phase === "done" ? "Uji Ulang" : "MULAI"}
           </button>
         ) : (
-          <div style={{ height: 55, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div style={{ width: "80%", height: 6, background: "#1e293b", borderRadius: 10, overflow: "hidden" }}>
-              <div style={{ width: `${progress}%`, height: "100%", background: status === "download" ? "#22c55e" : "#8b5cf6", transition: "width 0.15s linear" }} />
+          <div style={{ height: 52, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 8 }}>
+            <div style={{ width: "75%", height: 6, background: "#1e293b", borderRadius: 10, overflow: "hidden" }}>
+              <div style={{
+                width: `${progress}%`, height: "100%",
+                background: phase === "download" ? "#22c55e" : "#8b5cf6",
+                transition: "width 0.15s linear",
+              }} />
+            </div>
+            <div style={{ fontSize: 12, color: "#64748b" }}>
+              {phase === "download" ? "Mengukur kecepatan download..." : phase === "upload" ? "Mengukur kecepatan upload..." : "Mengukur ping..."}
             </div>
           </div>
         )}
 
-        <div style={{ marginTop: 24, fontSize: 13, color: "#475569", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
-          <Server size={14} /> Server: Cloudflare Edge Network (Solo/Jakarta)
+        <div style={{ marginTop: 20, fontSize: 12, color: "#475569", display: "flex", alignItems: "center", justifyContent: "center", gap: 5 }}>
+          <Server size={12} /> Cloudflare Edge Network (Jakarta / Singapore)
         </div>
       </div>
 
-      <div style={{ marginTop: 24, padding: 16, background: "#f8fafc", borderRadius: 12, textAlign: "left", fontSize: 14, color: "#334155" }}>
-        <h4 style={{ margin: "0 0 8px 0", fontSize: 16, color: "#0f172a" }}>💡 Panduan Hasil Uji:</h4>
-        <ul style={{ margin: 0, paddingLeft: 20 }}>
-          <li style={{ marginBottom: 6 }}><strong>Cepat (50+ Mbps):</strong> Lancar streaming 4K dan main game sekeluarga.</li>
-          <li style={{ marginBottom: 6 }}><strong>Sedang (20–49 Mbps):</strong> Cukup untuk browsing dan streaming HD.</li>
-          <li><strong>Lambat (&lt;20 Mbps):</strong> Saatnya beralih ke internet fiber optik XL SATU!</li>
+      {/* Hasil & panduan */}
+      {phase === "done" && download !== null && (
+        <div style={{ marginTop: 16, padding: 16, background: download >= 50 ? "#f0fdf4" : download >= 20 ? "#fffbeb" : "#fef2f2", borderRadius: 12, textAlign: "left", fontSize: 14 }}>
+          <strong style={{ fontSize: 15 }}>
+            {download >= 50 ? "✅ Koneksi Cepat!" : download >= 20 ? "⚡ Koneksi Sedang" : "🐢 Koneksi Lambat"}
+          </strong>
+          <p style={{ margin: "6px 0 0", color: "#334155" }}>
+            {download >= 50
+              ? "Lancar untuk streaming 4K, video call, dan game online sekeluarga."
+              : download >= 20
+              ? "Cukup untuk browsing dan streaming HD, tapi bisa lebih baik."
+              : "Kurang ideal untuk streaming. Saatnya pertimbangkan XL SATU Fiber Optik!"}
+          </p>
+        </div>
+      )}
+
+      <div style={{ marginTop: 12, padding: 16, background: "#f8fafc", borderRadius: 12, textAlign: "left", fontSize: 13, color: "#475569" }}>
+        <strong style={{ color: "#0f172a" }}>💡 Acuan kecepatan:</strong>
+        <ul style={{ margin: "6px 0 0", paddingLeft: 18 }}>
+          <li>≥50 Mbps — streaming 4K + gaming + WFH sekeluarga</li>
+          <li>20–49 Mbps — streaming HD + browsing normal</li>
+          <li>&lt;20 Mbps — kurang ideal untuk keluarga aktif</li>
         </ul>
       </div>
     </div>
