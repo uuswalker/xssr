@@ -715,7 +715,7 @@ export default function CekLokasi() {
             <AnimatePresence mode="wait">
               {step === "lokasi" ? (
               <motion.div key="lokasi" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 30 }} transition={{ type: "spring", stiffness: 300, damping: 30 }} id="cl-step-lokasi">
-                <h3 className="cl-title">
+                <h3 className="cl-title" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
                   <MapPin size={18} /> Cek Ketersediaan di Lokasimu
                 </h3>
                 <p className="cl-sub">
@@ -828,7 +828,7 @@ export default function CekLokasi() {
             ) : (
               <motion.div key="form" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ type: "spring", stiffness: 300, damping: 30 }} id="cl-step-form">
                 <h3 className="cl-title">
-                  <CheckCircle2 size={18} color="var(--green)" />{" "}
+                  <CheckCircle2 size={18} color="var(--green)" style={{ flexShrink: 0 }} />
                   Lokasi Ditemukan!
                 </h3>
                 <p className="cl-sub" id="cl-lokasi-info">

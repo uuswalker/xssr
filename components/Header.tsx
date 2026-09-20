@@ -44,7 +44,7 @@ export default function Header({
           <a className="btn-chat hover-glow btn-wa-header" href={ctaHref}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ display: "inline-block" }}
+            style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
           >
             <MessageCircle size={18} /> Chat WA
           </a>

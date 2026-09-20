@@ -171,7 +171,7 @@ export function AreaHome() {
                 textDecoration: "none",
               }}
             >
-              <Map size={16} style={{ marginRight: 6 }} />
+              <Map size={16} style={{ flexShrink: 0 }} />
               Lihat Cakupan Lengkap: 5 Kota, 79 Kecamatan, 102 Kelurahan
             </a>
           </p>

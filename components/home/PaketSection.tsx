@@ -435,7 +435,7 @@ export function WirelessPaket({
                   color: "var(--green-dark)",
                 }}
               >
-                <Gift size={16} style={{ marginRight: 6 }} />{" "}
+                <Gift size={16} style={{ flexShrink: 0 }} />{" "}
                 Semua paket include{" "}
                 <strong>Free 3 Bulan Vidio Lite + Catchplay</strong>
               </div>
@@ -514,7 +514,7 @@ export function WirelessPaket({
                   color: "#ac3c00",
                 }}
               >
-                <CalendarCheck size={16} style={{ marginRight: 8, color: "var(--green)" }} />{" "}
+                <CalendarCheck size={16} style={{ color: "var(--green)", flexShrink: 0 }} />{" "}
                 Bayar bulanan, tanpa advance
               </div>
               <div
