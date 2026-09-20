@@ -27,18 +27,23 @@ function FiberCard({ t }: { t: FiberTier }) {
           <span>{t.speedMax} Mbps</span>
         </div>
         <div className="speed-bar-bg">
-          <div
-            className="speed-bar-fill"
-            style={{ width: `${t.barWidth}%`, background: t.barGradient }}
-          ></div>
-          <div
-            className="speed-bar-dot"
-            style={{
-              left: `calc(${t.barWidth}% - 8px)`,
-              borderColor: t.barDotColor,
-            }}
-          ></div>
-        </div>
+            <motion.div
+              className="speed-bar-fill"
+              initial={{ width: "0%" }}
+              whileInView={{ width: `${t.barWidth}%` }}
+              viewport={{ once: true, amount: 0.8 }}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+              style={{ background: t.barGradient }}
+            ></motion.div>
+            <motion.div
+              className="speed-bar-dot"
+              initial={{ left: "0%" }}
+              whileInView={{ left: `calc(${t.barWidth}% - 8px)` }}
+              viewport={{ once: true, amount: 0.8 }}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+              style={{ borderColor: t.barDotColor }}
+            ></motion.div>
+          </div>
         <div className="speed-note">{t.speedNote}</div>
         {t.boosterNote && (
           <div
@@ -245,18 +250,23 @@ export function TahunanPaket() {
                   <span>{t.speedMax} Mbps</span>
                 </div>
                 <div className="speed-bar-bg">
-                  <div
-                    className="speed-bar-fill"
-                    style={{ width: `${t.barWidth}%`, background: "linear-gradient(90deg, #1e1b4b 0%, #7c3aed 100%)" }}
-                  ></div>
-                  <div
-                    className="speed-bar-dot"
-                    style={{
-                      left: `calc(${t.barWidth}% - 8px)`,
-                      borderColor: "#7c3aed",
-                    }}
-                  ></div>
-                </div>
+                    <motion.div
+                      className="speed-bar-fill"
+                      initial={{ width: "0%" }}
+                      whileInView={{ width: `${t.barWidth}%` }}
+                      viewport={{ once: true, amount: 0.8 }}
+                      transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+                      style={{ background: "linear-gradient(90deg, #1e1b4b 0%, #7c3aed 100%)" }}
+                    ></motion.div>
+                    <motion.div
+                      className="speed-bar-dot"
+                      initial={{ left: "0%" }}
+                      whileInView={{ left: `calc(${t.barWidth}% - 8px)` }}
+                      viewport={{ once: true, amount: 0.8 }}
+                      transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+                      style={{ borderColor: "#7c3aed" }}
+                    ></motion.div>
+                  </div>
                 <div className="speed-note">Ideal untuk perangkat keluarga</div>
                 <div
                   style={{
