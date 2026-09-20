@@ -149,7 +149,7 @@ export default function Page() {
             rel="noopener noreferrer"
             className="btn-wa-header"
           >
-            <MessageCircle size={18} style={{ display: "inline-block", verticalAlign: "middle" }} /> Konsultasi Gratis
+            <MessageCircle size={18} style={{ display: "inline-block", verticalAlign: "middle" }} /> Tanya Dulu
           </a>
         </div>
       </header>
@@ -173,7 +173,7 @@ export default function Page() {
             rel="noopener noreferrer"
             className="btn-hero"
           >
-            <MessageCircle size={18} style={{ display: "inline-block", verticalAlign: "middle" }} /> Tanya Admin Solo
+            <MessageCircle size={18} style={{ display: "inline-block", verticalAlign: "middle" }} /> Tanya Dulu
           </a>
         </section>
 

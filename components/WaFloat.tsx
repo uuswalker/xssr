@@ -6,7 +6,7 @@ import { PHONE_DISPLAY, waLink } from "@/lib/site";
 
 export default function WaFloat({
   text = "Info XL SATU",
-  small = "Konsultasi Gratis",
+  small = "Tanya Dulu",
 }: {
   text?: string;
   small?: string;

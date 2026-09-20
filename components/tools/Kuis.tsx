@@ -369,7 +369,7 @@ export default function Kuis() {
                       marginTop: 8,
                     }}
                   >
-                    Konsultasi Gratis via WA
+                    Tanya Dulu via WA
                   </motion.a>
                 </>
               )}

@@ -38,7 +38,7 @@ export default function StickyMobileBar() {
         rel="noopener noreferrer"
         className="smb-btn smb-btn-wa"
       >
-        <MessageCircle size={18} style={{ flexShrink: 0 }} /> Chat WA
+        <MessageCircle size={18} style={{ flexShrink: 0 }} /> Tanya Dulu
       </a>
     </div>
   );

@@ -43,7 +43,7 @@ export default function Header({
             rel="noopener noreferrer"
             style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
           >
-            <MessageCircle size={18} style={{ flexShrink: 0 }} /> Chat WA
+            <MessageCircle size={18} style={{ flexShrink: 0 }} /> Tanya Dulu
           </a>
         ) : (
           <button type="button" 

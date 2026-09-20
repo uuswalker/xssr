@@ -174,7 +174,7 @@ export function QuickActions() {
             width={22}
             height={22}
             loading="lazy" />
-          Konsultasi Gratis
+          Tanya Dulu
         </a>
       </div>
     </div>
