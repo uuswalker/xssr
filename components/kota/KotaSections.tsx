@@ -141,31 +141,28 @@ export function KotaArea({
               </a>
             );
           })}
-          <div
-            className="area-card"
-            style={{
-              background: "var(--green)",
-              borderColor: "var(--green)",
-            }}
-          >
-            <HelpCircle size={20} color="var(--green)" />
-            <div className="area-name" style={{ color: "#fff" }}>
-              Area Lain?
-            </div>
-            <div
-              className="area-desc"
-              style={{ color: "rgba(255,255,255,.85)" }}
+            <a
+              className="area-card"
+              style={{
+                background: "var(--green)",
+                borderColor: "var(--green)",
+                textDecoration: "none"
+              }}
+              href="https://wa.me/6287778999141?text=Halo,%20saya%20mau%20cek%20apakah%20area%20saya%20tersedia%20XL%20SATU"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <a
-                href="https://wa.me/6287778999141?text=Halo,%20saya%20mau%20cek%20apakah%20area%20saya%20tersedia%20XL%20SATU"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "#fff", textDecoration: "underline" }}
+              <HelpCircle size={24} color="#fff" />
+              <div className="area-name" style={{ color: "#fff" }}>
+                Area Lain?
+              </div>
+              <div
+                className="area-desc"
+                style={{ color: "rgba(255,255,255,.85)", fontWeight: 700 }}
               >
-                Tanya Sales Kami
-              </a>
-            </div>
-          </div>
+                Tanya Dulu
+              </div>
+            </a>
         </div>
         <p style={{ marginTop: 22, textAlign: "center" }}>
           <a

@@ -1020,10 +1020,10 @@
       background: var(--green-light);
       box-shadow: 0 4px 12px rgba(5,169,134,.1);
     }
-    .area-card i {
+    .area-card i, .area-card svg {
       color: var(--green);
       font-size: 22px;
-      margin-bottom: 8px;
+      margin: 0 auto 12px;
       display: block;
     }
     .area-card .area-name {

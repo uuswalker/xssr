@@ -89,33 +89,33 @@ export function AreaHome() {
                 style={{ textDecoration: "none" }}
                 key={a.href}
               >
-                <Building2 size={20} color="var(--green)" />
+                <Building2 size={24} color="var(--green)" />
                 <div className="area-name">{a.name}</div>
                 <div className="area-desc">{a.desc}</div>
               </a>
             ))}
-            <div
+            <a
               className="area-card"
-              style={{ background: "var(--green)", borderColor: "var(--green)" }}
+              style={{
+                background: "var(--green)",
+                borderColor: "var(--green)",
+                textDecoration: "none"
+              }}
+              href="https://wa.me/6287778999141?text=Halo,%20saya%20mau%20cek%20apakah%20area%20saya%20tersedia%20XL%20SATU"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <HelpCircle size={20} color="#fff" />
+              <HelpCircle size={24} color="#fff" />
               <div className="area-name" style={{ color: "#fff" }}>
                 Area Lain?
               </div>
               <div
                 className="area-desc"
-                style={{ color: "rgba(255,255,255,.85)" }}
+                style={{ color: "rgba(255,255,255,.85)", fontWeight: 700 }}
               >
-                <a
-                  href="https://wa.me/6287778999141?text=Halo,%20saya%20mau%20cek%20apakah%20area%20saya%20tersedia%20XL%20SATU"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "#fff", textDecoration: "underline" }}
-                >
-                  Tanya Sales Kami
-                </a>
+                Tanya Dulu
               </div>
-            </div>
+            </a>
           </div>
           <p style={{ marginTop: 16, textAlign: "center", fontSize: 13 }}>
             <a
