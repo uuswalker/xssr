@@ -15,7 +15,7 @@ export default function Speedtest() {
         style={{ 
           position: "relative",
           width: "100%", 
-          minHeight: "600px",
+          minHeight: "500px",
           background: "#f3f4f6", 
           borderRadius: 16, 
           overflow: "hidden",
@@ -36,16 +36,17 @@ export default function Speedtest() {
           </div>
         )}
         
-        {/* OpenSpeedTest Widget (Mirip Ookla, Support Mobile 100%, HTML5) */}
+        {/* DCSpeedTest Widget (Powered by Cloudflare, 100% Mobile Iframe Support) */}
         <iframe 
-          src="https://openspeedtest.com/speedtest"
+          src="https://dcspeedtest.com/embed"
           width="100%" 
-          height="650px" 
+          height="550px" 
           frameBorder="0"
           onLoad={() => setLoading(false)}
           style={{ position: "relative", zIndex: 1, border: "none" }}
           title="Internet Speed Test"
-          allow="fullscreen"
+          allow="fullscreen; clipboard-write"
+          loading="lazy"
         />
       </div>
 
