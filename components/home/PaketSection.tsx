@@ -80,7 +80,7 @@ function FiberCard({ t }: { t: FiberTier }) {
             rel="noopener noreferrer"
             className="btn-pilih"
           >
-            Saya Pilih Ini
+            Tanya Paket Ini
           </a>
         </div>
       </div>
@@ -292,7 +292,7 @@ export function TahunanPaket() {
                     rel="noopener noreferrer"
                     className="btn-pilih"
                   >
-                    Saya Pilih Ini
+                    Tanya Paket Ini
                   </a>
                 </div>
               </div>
@@ -497,7 +497,7 @@ export function WirelessPaket({
                       className="btn-pilih"
                       style={{ width: "100%", marginTop: 8 }}
                     >
-                      Saya Pilih Ini
+                      Tanya Paket Ini
                     </a>
                   </div>
                 ))}
@@ -562,7 +562,7 @@ export function WirelessPaket({
                       className="btn-pilih"
                       style={{ width: "100%", marginTop: 12 }}
                     >
-                      Saya Pilih Ini
+                      Tanya Paket Ini
                     </a>
                   </div>
                 ))}
