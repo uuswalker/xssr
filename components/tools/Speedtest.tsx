@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useRef } from "react";
 import { Activity, Download, Upload, Server, Play, RotateCcw } from "lucide-react";
 
 export default function Speedtest() {
@@ -17,107 +17,156 @@ export default function Speedtest() {
     setPing(null); setDownload(null); setUpload(null);
     setCurrentSpeed(0); setProgress(0);
 
+    const TEST_DURATION = 8000; // Durasi fix 8 detik (seperti Ookla) untuk kestabilan grafik
+
     try {
+      // ==========================================
       // 1. PING TEST
+      // ==========================================
       let pingSum = 0;
+      let pingCount = 0;
       for (let i = 0; i < 3; i++) {
         const start = performance.now();
-        await fetch(`/?ping=${Math.random()}`, { method: "HEAD", cache: "no-store" });
-        pingSum += (performance.now() - start);
+        try {
+          await fetch(`https://speed.cloudflare.com/__down?bytes=0&r=${Math.random()}`, { method: "HEAD", cache: "no-store" });
+          pingSum += (performance.now() - start);
+          pingCount++;
+        } catch (e) {
+          // Abaikan error jaringan sementara
+        }
       }
-      setPing(Math.round(pingSum / 3));
+      setPing(pingCount > 0 ? Math.round(pingSum / pingCount) : 0);
 
+      // ==========================================
       // 2. DOWNLOAD TEST
+      // ==========================================
       setStatus("download");
       setProgress(0);
       let dlBytes = 0;
+      let dlActive = true;
       const dlStart = performance.now();
-      let lastDlReport = dlStart;
-      
-      // Menggunakan Cloudflare CDN untuk beban ringan dan no-cors issues
-      const res = await fetch(`https://speed.cloudflare.com/__down?bytes=15000000&r=${Math.random()}`, { cache: "no-store" });
-      if (res.body) {
-        const reader = res.body.getReader();
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          if (value) dlBytes += value.length;
 
-          const now = performance.now();
-          if (now - lastDlReport > 100) { // update UI setiap 100ms
-            const duration = (now - dlStart) / 1000;
-            const speed = (dlBytes * 8 / duration) / 1000000;
-            setCurrentSpeed(speed);
-            setDownload(speed);
-            setProgress(Math.min(100, (duration / 5) * 100)); // asumsi 5 detik max test
-            lastDlReport = now;
-          }
-        }
-      }
-      const dlDuration = (performance.now() - dlStart) / 1000;
-      setDownload((dlBytes * 8 / dlDuration) / 1000000);
-      setCurrentSpeed(0);
+      // Timer penghenti paksa setelah 8 detik
+      const dlTimer = setTimeout(() => { dlActive = false; }, TEST_DURATION);
 
-      // 3. UPLOAD TEST
-      setStatus("upload");
-      setProgress(0);
-      await new Promise<void>((resolve) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", `https://speed.cloudflare.com/__up?r=${Math.random()}`);
-        const payload = new Blob([new Uint8Array(5000000)]); // 5MB payload
-        const ulStart = performance.now();
-        let lastUlReport = ulStart;
+      while (dlActive) {
+        try {
+          const controller = new AbortController();
+          const abortTimer = setTimeout(() => controller.abort(), TEST_DURATION - (performance.now() - dlStart) + 500);
 
-        xhr.upload.onprogress = (e) => {
-          if (e.lengthComputable) {
-            const now = performance.now();
-            if (now - lastUlReport > 100) {
-              const duration = (now - ulStart) / 1000;
-              const speed = (e.loaded * 8 / duration) / 1000000;
+          // Tarik data 10MB, jika selesai sebelum 8 detik, akan berulang (loop)
+          const res = await fetch(`https://speed.cloudflare.com/__down?bytes=10000000&r=${Math.random()}`, { 
+            cache: "no-store", 
+            signal: controller.signal 
+          });
+          
+          if (res.body) {
+            const reader = res.body.getReader();
+            while (dlActive) {
+              const { done, value } = await reader.read();
+              if (done) break;
+              if (value) dlBytes += value.length;
+
+              const now = performance.now();
+              const elapsed = Math.max(10, now - dlStart); // Cegah devide by zero
+              const speed = (dlBytes * 8 / (elapsed / 1000)) / 1000000;
+              
               setCurrentSpeed(speed);
-              setUpload(speed);
-              setProgress(Math.min(100, (e.loaded / e.total) * 100));
-              lastUlReport = now;
+              setDownload(speed);
+              setProgress(Math.min(100, (elapsed / TEST_DURATION) * 100));
             }
           }
-        };
+          clearTimeout(abortTimer);
+        } catch (e) {
+          // Jika terjadi error (seperti abort timeout), tunggu 200ms agar tidak spam
+          await new Promise(r => setTimeout(r, 200));
+        }
+      }
+      clearTimeout(dlTimer);
+      setCurrentSpeed(0);
 
-        xhr.onload = () => {
-          const duration = (performance.now() - ulStart) / 1000;
-          setUpload((payload.size * 8 / duration) / 1000000);
-          setCurrentSpeed(0);
-          resolve();
-        };
-        xhr.onerror = () => resolve();
-        xhr.send(payload);
-      });
+      // ==========================================
+      // 3. UPLOAD TEST
+      // ==========================================
+      setStatus("upload");
+      setProgress(0);
+      let ulBytes = 0;
+      let ulActive = true;
+      const ulStart = performance.now();
 
+      // Timer penghenti paksa upload setelah 8 detik
+      const ulTimer = setTimeout(() => { ulActive = false; }, TEST_DURATION);
+      
+      // Payload 1MB berulang agar ramah jaringan mobile (tidak putus)
+      const chunkData = new Blob([new Uint8Array(1000000)]); 
+
+      while (ulActive) {
+        await new Promise<void>((resolve) => {
+          const xhr = new XMLHttpRequest();
+          xhr.open("POST", `https://speed.cloudflare.com/__up?r=${Math.random()}`);
+          
+          const timeRemaining = TEST_DURATION - (performance.now() - ulStart);
+          const xhrTimeout = setTimeout(() => { 
+            xhr.abort(); 
+            resolve(); 
+          }, Math.max(100, timeRemaining + 500));
+
+          let lastLoaded = 0;
+          xhr.upload.onprogress = (e) => {
+            if (!ulActive) { 
+              xhr.abort(); 
+              resolve(); 
+              return; 
+            }
+            if (e.lengthComputable) {
+              const added = e.loaded - lastLoaded;
+              ulBytes += added;
+              lastLoaded = e.loaded;
+
+              const now = performance.now();
+              const elapsed = Math.max(10, now - ulStart);
+              const speed = (ulBytes * 8 / (elapsed / 1000)) / 1000000;
+              
+              setCurrentSpeed(speed);
+              setUpload(speed);
+              setProgress(Math.min(100, (elapsed / TEST_DURATION) * 100));
+            }
+          };
+
+          xhr.onload = () => { clearTimeout(xhrTimeout); resolve(); };
+          xhr.onerror = () => { clearTimeout(xhrTimeout); resolve(); };
+          xhr.send(chunkData);
+        });
+      }
+      clearTimeout(ulTimer);
+
+      // ==========================================
+      // DONE
+      // ==========================================
+      setCurrentSpeed(0);
       setStatus("done");
       setProgress(100);
 
     } catch (e) {
-      console.error("Test failed", e);
+      console.error("Test failed fatal error", e);
       setStatus("done");
     }
   };
 
-  // Helper untuk format angka
   const fmt = (n: number | null) => (n === null ? "--" : n.toFixed(1));
 
   // Animasi Gauge SVG
   const radius = 90;
   const circumference = 2 * Math.PI * radius;
-  // Speed max di gauge: 100 Mbps (kalau lebih, tetap full)
-  const maxSpeed = 100;
+  const maxSpeed = 150; // Skala max visual speedometer
   const speedRatio = Math.min(Math.max(currentSpeed / maxSpeed, 0), 1);
-  // Gauge path dari -240 deg ke 60 deg (300 degree sweep)
   const sweepAngle = 260; 
   const dashoffset = circumference - (speedRatio * (sweepAngle / 360) * circumference);
 
   return (
     <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center", fontFamily: "sans-serif" }}>
       <p style={{ marginBottom: 20, fontSize: 15, color: "#4b5563", padding: "0 10px" }}>
-        Versi Lokal 100% Native. Tanpa Iframe, Bebas Blokir, Ringan di HP.
+        Versi Lokal 100% Native. Durasi akurat 16 detik untuk presisi tinggi di semua perangkat.
       </p>
 
       <div style={{ 
@@ -129,7 +178,6 @@ export default function Speedtest() {
         position: "relative",
         overflow: "hidden"
       }}>
-        {/* Top Stats Bar */}
         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 30 }}>
           <div style={{ textAlign: "left" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 6, color: "#94a3b8", fontSize: 13, marginBottom: 4 }}>
@@ -142,20 +190,18 @@ export default function Speedtest() {
             <div style={{ display: "flex", alignItems: "center", gap: 6, color: "#94a3b8", fontSize: 13, marginBottom: 4 }}>
               <Download size={16} color="#22c55e" /> DOWNLOAD
             </div>
-            <div style={{ fontSize: 24, fontWeight: "bold" }}>{fmt(download)} <span style={{ fontSize: 12, fontWeight: "normal", color: "#94a3b8" }}>Mbps</span></div>
+            <div style={{ fontSize: 24, fontWeight: "bold" }}>{status === "done" ? fmt(download) : (status === "download" ? fmt(currentSpeed) : fmt(download))} <span style={{ fontSize: 12, fontWeight: "normal", color: "#94a3b8" }}>Mbps</span></div>
           </div>
 
           <div style={{ textAlign: "left" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 6, color: "#94a3b8", fontSize: 13, marginBottom: 4 }}>
               <Upload size={16} color="#8b5cf6" /> UPLOAD
             </div>
-            <div style={{ fontSize: 24, fontWeight: "bold" }}>{fmt(upload)} <span style={{ fontSize: 12, fontWeight: "normal", color: "#94a3b8" }}>Mbps</span></div>
+            <div style={{ fontSize: 24, fontWeight: "bold" }}>{status === "done" ? fmt(upload) : (status === "upload" ? fmt(currentSpeed) : fmt(upload))} <span style={{ fontSize: 12, fontWeight: "normal", color: "#94a3b8" }}>Mbps</span></div>
           </div>
         </div>
 
-        {/* Circular Speedometer */}
         <div style={{ position: "relative", width: 260, height: 260, margin: "0 auto 20px auto" }}>
-          {/* Background Track */}
           <svg width="260" height="260" viewBox="0 0 200 200" style={{ transform: "rotate(140deg)" }}>
             <circle
               cx="100" cy="100" r={radius}
@@ -166,7 +212,6 @@ export default function Speedtest() {
               strokeDashoffset={circumference - ((sweepAngle / 360) * circumference)}
               strokeLinecap="round"
             />
-            {/* Active Track */}
             <circle
               cx="100" cy="100" r={radius}
               fill="transparent"
@@ -179,7 +224,6 @@ export default function Speedtest() {
             />
           </svg>
           
-          {/* Central Speed Display */}
           <div style={{ 
             position: "absolute", top: 0, left: 0, right: 0, bottom: 0, 
             display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
@@ -197,7 +241,6 @@ export default function Speedtest() {
           </div>
         </div>
 
-        {/* Action Button */}
         {status === "idle" || status === "done" ? (
           <button 
             onClick={runTest}
