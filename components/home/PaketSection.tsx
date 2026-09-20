@@ -23,9 +23,16 @@ function FiberCard({ t }: { t: FiberTier }) {
       </div>
       <div style={{ padding: "16px 24px 0" }}>
         <div className="speed-label">
-          <span>0 Mbps</span>
-          <span>{t.speedMax} Mbps</span>
-        </div>
+            <span>0 Mbps</span>
+            <span>
+              {t.speedNormal && (
+                <span style={{ textDecoration: 'line-through', color: '#9ca3af', marginRight: '6px' }}>
+                  {t.speedNormal}
+                </span>
+              )}
+              {t.speedMax} Mbps
+            </span>
+          </div>
         <div className="speed-bar-bg">
             <motion.div
               className="speed-bar-fill"
@@ -246,9 +253,16 @@ export function TahunanPaket() {
               </div>
               <div style={{ padding: "16px 24px 0" }}>
                 <div className="speed-label">
-                  <span>0 Mbps</span>
-                  <span>{t.speedMax} Mbps</span>
-                </div>
+            <span>0 Mbps</span>
+            <span>
+              {t.speedNormal && (
+                <span style={{ textDecoration: 'line-through', color: '#9ca3af', marginRight: '6px' }}>
+                  {t.speedNormal}
+                </span>
+              )}
+              {t.speedMax} Mbps
+            </span>
+          </div>
                 <div className="speed-bar-bg">
                     <motion.div
                       className="speed-bar-fill"

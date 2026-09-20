@@ -13,6 +13,7 @@ export interface FiberTier {
   barDotColor: string;
   speedNote: string;
   boosterNote?: string;
+  speedNormal?: number;
   tags: string[];
   feats: { img: string; text: string }[];
   price: string;
@@ -51,6 +52,7 @@ export const FIBER_TIERS: FiberTier[] = [
     headerClass: "smart",
     badge: "Best Seller",
     speedMax: 250,
+    speedNormal: 100,
     barWidth: 74,
     barGradient: "linear-gradient(90deg,#1a8ac0,#2ba8e0)",
     barDotColor: "#1a8ac0",
@@ -69,6 +71,7 @@ export const FIBER_TIERS: FiberTier[] = [
     subtitle: "Internet Only",
     headerClass: "family",
     speedMax: 300,
+    speedNormal: 200,
     barWidth: 78,
     barGradient: "linear-gradient(90deg,#6b2fa0,#9b4fd4)",
     barDotColor: "#9b4fd4",
@@ -87,6 +90,7 @@ export const FIBER_TIERS: FiberTier[] = [
     subtitle: "Internet Only",
     headerClass: "value",
     speedMax: 400,
+    speedNormal: 300,
     barWidth: 82,
     barGradient: "linear-gradient(90deg,#0d9e7a,#037e64)",
     barDotColor: "#037e64",
@@ -144,6 +148,7 @@ export interface TahunanTier {
   speedMax: string;
   barWidth: number;
   boosterNote: string;
+  speedNormal?: string;
   kuota: string;
   members: string;
   before: string;
@@ -161,7 +166,8 @@ export const TAHUNAN_TIERS: TahunanTier[] = [
     headerGradient: "linear-gradient(135deg, #1e1b4b 0%, #7c3aed 100%)",
     speed: "50 Mbps",
     booster: "75 Mbps",
-    speedMax: "50",
+    speedMax: "75",
+    speedNormal: "50",
     barWidth: 35,
     boosterNote: "*Normal 50 Mbps + Speed Booster hingga 75 Mbps",
     kuota: "10 GB",
@@ -182,7 +188,8 @@ export const TAHUNAN_TIERS: TahunanTier[] = [
     headerGradient: "linear-gradient(135deg, #1e1b4b 0%, #6d28d9 100%)",
     speed: "100 Mbps",
     booster: "150 Mbps",
-    speedMax: "100",
+    speedMax: "150",
+    speedNormal: "100",
     barWidth: 50,
     boosterNote: "*Normal 100 Mbps + Speed Booster hingga 150 Mbps",
     kuota: "25 GB",
@@ -203,7 +210,8 @@ export const TAHUNAN_TIERS: TahunanTier[] = [
     headerGradient: "linear-gradient(135deg, #312e81 0%, #7c3aed 100%)",
     speed: "150 Mbps",
     booster: "200 Mbps",
-    speedMax: "150",
+    speedMax: "200",
+    speedNormal: "150",
     barWidth: 65,
     boosterNote: "*Normal 150 Mbps + Speed Booster hingga 200 Mbps",
     kuota: "50 GB",
