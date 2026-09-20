@@ -1,15 +1,29 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Article from "@/components/Article";
 import { ARTIKEL } from "@/lib/artikel";
 import { decodeEntities } from "@/lib/kota";
 import { JsonLd, pageMetadata } from "@/lib/seo";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const a = ARTIKEL["5-hal-wajib-dicek-sebelum-pasang-wifi-rumah"];
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateStaticParams() {
+  return Object.keys(ARTIKEL).map((slug) => ({
+    slug: slug,
+  }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const a = ARTIKEL[slug];
+  if (!a) return {};
+
   const base = pageMetadata({
     title: decodeEntities(a.title),
     description: decodeEntities(a.description),
-    path: `/5-hal-wajib-dicek-sebelum-pasang-wifi-rumah/`,
+    path: `/${slug}/`,
     image: a.ogImage || "/images/promo-wifi-rumah-koneksi-pasti.webp",
   });
   return {
@@ -23,12 +37,16 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function Page() {
-  const a = ARTIKEL["5-hal-wajib-dicek-sebelum-pasang-wifi-rumah"];
+export default async function Page({ params }: Props) {
+  const { slug } = await params;
+  const a = ARTIKEL[slug];
+  
+  if (!a) notFound();
+
   return (
     <>
       <Article data={a} />
-      {a.schemas.map((s, i) => (
+      {a.schemas && a.schemas.map((s, i) => (
         <JsonLd key={i} data={s} />
       ))}
     </>

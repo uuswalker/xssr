@@ -1,7 +1,7 @@
 "use client";
 
-
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { MessageCircle, MapPin } from "lucide-react";
 
 export default function Header({
@@ -14,8 +14,6 @@ export default function Header({
   ctaHref?: string;
 }) {
   const pathname = usePathname();
-  // Automatically determine if we are on the homepage.
-  // If not, prefix anchor links with "/" so they navigate back to the home page's sections.
   const isHome = pathname === "/";
   const anchorBase = isHome ? "" : "/";
 
@@ -23,22 +21,21 @@ export default function Header({
     <header role="banner" className="site-header">
       <div className="header-inner">
         <div className="logo">
-          {/* Logo ALWAYS goes to home */}
-          <a href="/" title="XL SATU">
+          <Link href="/" title="XL SATU">
             <img className="hover-scale" src="/images/logo-xl-satu.png"
               alt="XL SATU"
               width={106}
               height={85}
               loading="lazy"
             />
-          </a>
+          </Link>
         </div>
         <nav role="navigation">
-          {showFiber && <a className="hover-lift" href={`${anchorBase}#paket`}>Paket Fiber</a>}
-          {showWireless && <a className="hover-lift" href={`${anchorBase}#wireless`}>Wireless</a>}
-          <a className="hover-lift" href={`${anchorBase}#area`}>Area Layanan</a>
-          <a className="hover-lift" href={`${anchorBase}#bantuan`}>Bantuan</a>
-          <a className="hover-lift" href={`${anchorBase}#hubungi`}>Hubungi Kami</a>
+          {showFiber && <Link className="hover-lift" href={`${anchorBase}#paket`}>Paket Fiber</Link>}
+          {showWireless && <Link className="hover-lift" href={`${anchorBase}#wireless`}>Wireless</Link>}
+          <Link className="hover-lift" href={`${anchorBase}#area`}>Area Layanan</Link>
+          <Link className="hover-lift" href={`${anchorBase}#bantuan`}>Bantuan</Link>
+          <Link className="hover-lift" href={`${anchorBase}#hubungi`}>Hubungi Kami</Link>
         </nav>
         {ctaHref ? (
           <a className="btn-chat hover-glow btn-wa-header" href={ctaHref}
@@ -46,7 +43,7 @@ export default function Header({
             rel="noopener noreferrer"
             style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
           >
-            <MessageCircle size={18} /> Chat WA
+            <MessageCircle size={18} style={{ flexShrink: 0 }} /> Chat WA
           </a>
         ) : (
           <button type="button" 

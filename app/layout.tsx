@@ -4,6 +4,7 @@ import "./globals.css";
 import WebMCPRegistry from "@/components/WebMCPRegistry";
 import Trackers from "@/components/Trackers";
 import CekLokasi from "@/components/CekLokasi";
+import StickyMobileBar from "@/components/StickyMobileBar";
 import ConsentBanner from "@/components/ConsentBanner";
 import { ADS_ID, GA_ID, IS_STAGING, SITE_NAME } from "@/lib/site";
 
@@ -79,6 +80,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <WebMCPRegistry />
         <CekLokasi />
         <ConsentBanner />
+        <StickyMobileBar />
         {!IS_STAGING && (
           <>
             <Script id="gtag-bootstrap" strategy="beforeInteractive">
