@@ -82,7 +82,7 @@ export function KotaHero({ city }: { city: City }) {
             }}
           >
             {[
-              "Sales Resmi XL SATU",
+              "agen resmi XL SATU",
               "Harga Transparan, Tanpa Biaya Tersembunyi",
               "Ditemani Sampai Internet Nyala",
             ].map((t) => (

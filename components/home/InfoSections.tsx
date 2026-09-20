@@ -200,7 +200,7 @@ export function Kenapa() {
       {/* KENAPA PILIH KAMI */}
       <section className="area-section" style={{ background: "#f7faf9" }}>
         <div className="area-inner">
-          <h2 className="section-title">Kenapa Pilih Sales Resmi Kami?</h2>
+          <h2 className="section-title">Kenapa Pilih agen resmi Kami?</h2>
           <p className="section-sub">
             Bukan sekadar jualan ?" kami yang pegang tanggung jawab dari daftar
             sampai internet nyala
@@ -485,7 +485,7 @@ export function Hubungi() {
           <div className="hubungi-img">
             <img
               src="/images/xl-cdn/support-team.webp"
-              alt="Tim sales XL SATU Solo Raya siap membantu"
+              alt="Tim support XL SATU Solo Raya siap membantu"
               width={678}
               height={1080}
               loading="lazy"

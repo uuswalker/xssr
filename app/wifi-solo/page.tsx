@@ -149,7 +149,7 @@ export default function Page() {
             rel="noopener noreferrer"
             className="btn-wa-header"
           >
-            <MessageCircle size={18} style={{ display: "inline-block", verticalAlign: "middle" }} /> Hubungi Sales
+            <MessageCircle size={18} style={{ display: "inline-block", verticalAlign: "middle" }} /> Konsultasi Gratis
           </a>
         </div>
       </header>
@@ -173,7 +173,7 @@ export default function Page() {
             rel="noopener noreferrer"
             className="btn-hero"
           >
-            <MessageCircle size={18} style={{ display: "inline-block", verticalAlign: "middle" }} /> Chat Sales Solo
+            <MessageCircle size={18} style={{ display: "inline-block", verticalAlign: "middle" }} /> Tanya Admin Solo
           </a>
         </section>
 
@@ -226,7 +226,7 @@ export default function Page() {
         <section className="cta-section">
           <h2>Siap Pasang WiFi di Solo?</h2>
           <p>
-            Chat langsung dengan sales lokal kami yang paham wilayah Solo Raya.
+            Chat langsung dengan tim support lokal kami yang paham wilayah Solo Raya.
             Gratis konsultasi, tanpa komitmen.
           </p>
           <a

@@ -15,7 +15,7 @@ import {
 
 function FiberCard({ t }: { t: FiberTier }) {
   return (
-    <motion.div className={`paket-card ${t.badge ? "best-seller" : ""}`} whileHover={{ scale: 1.03, boxShadow: "0px 15px 35px rgba(5,169,134,0.2)" }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
+    <motion.div className={`paket-card ${t.badge ? "best-seller" : ""}`} whileHover={{ scale: 1.03, boxShadow: "0px 20px 40px -5px rgba(5,169,134,0.12)" }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
       {t.badge && <div className="badge-laris">{t.badge}</div>}
       <div className={`paket-card-header ${t.headerClass}`}>
         <div className="paket-title">{t.name}</div>
@@ -229,7 +229,7 @@ export function TahunanPaket() {
 
         <div className="paket-grid">
           {TAHUNAN_TIERS.map((t) => (
-            <motion.div className="paket-card" key={t.name} whileHover={{ scale: 1.03, y: -5, boxShadow: "0px 15px 30px rgba(5,169,134,0.15)" }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
+            <motion.div className="paket-card" key={t.name} whileHover={{ scale: 1.03, y: -5, boxShadow: "0px 20px 40px -5px rgba(5,169,134,0.10)" }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
               <div
                 className="paket-card-header"
                 style={{ background: t.headerGradient }}

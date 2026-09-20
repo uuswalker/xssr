@@ -6,7 +6,7 @@ import { PHONE_DISPLAY, waLink } from "@/lib/site";
 
 export default function WaFloat({
   text = "Info XL SATU",
-  small = "Hubungi Sales",
+  small = "Konsultasi Gratis",
 }: {
   text?: string;
   small?: string;
@@ -17,14 +17,13 @@ export default function WaFloat({
       target="_blank"
       rel="noopener noreferrer"
       className="float-wa"
-      animate={{ scale: [1, 1.08, 1] }}
+      initial={{ y: 50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{
-        repeat: Infinity,
-        duration: 1.5,
-        repeatDelay: 3,
-        ease: "easeInOut",
+        duration: 0.6,
+        ease: "easeOut",
       }}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(20,122,69,0.3)" }}
     >
       <MessageCircle size={24} style={{ marginRight: 8 }} />
       <div className="float-wa-text">

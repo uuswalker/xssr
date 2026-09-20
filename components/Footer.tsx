@@ -28,7 +28,7 @@ export default function Footer() {
             >
               wa.me/xlsatusolo
             </a>{" "}
-            • {PHONE_DISPLAY} • Dikelola sales resmi Solo&nbsp;Raya
+            • {PHONE_DISPLAY} • Dikelola agen resmi Solo&nbsp;Raya
           </div>
         </div>
         <div className="footer-links">

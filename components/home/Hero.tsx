@@ -174,7 +174,7 @@ export function QuickActions() {
             width={22}
             height={22}
             loading="lazy" />
-          Hubungi Sales
+          Konsultasi Gratis
         </a>
       </div>
     </div>
@@ -279,7 +279,7 @@ export function HomeHeroLokal() {
           }}
         >
           {[
-            "Sales Resmi XL SATU",
+            "agen resmi XL SATU",
             "Harga Transparan, Tanpa Biaya Tersembunyi",
             "Ditemani Sampai Internet Nyala",
           ].map((t) => (
