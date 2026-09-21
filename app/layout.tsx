@@ -1,15 +1,24 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import WebMCPRegistry from "@/components/WebMCPRegistry";
+import ClientOnlyComponents from "@/components/ClientOnlyComponents";
 import Trackers from "@/components/Trackers";
-import CekLokasi from "@/components/CekLokasi";
-import StickyMobileBar from "@/components/StickyMobileBar";
-import ConsentBanner from "@/components/ConsentBanner";
 import { ADS_ID, GA_ID, IS_STAGING, SITE_NAME } from "@/lib/site";
 
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], display: "swap", variable: "--font-jakarta" });
+const jakarta = localFont({
+  src: [
+    { path: "../public/fonts/pjs-400.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/pjs-500.woff2", weight: "500", style: "normal" },
+    { path: "../public/fonts/pjs-600.woff2", weight: "600", style: "normal" },
+    { path: "../public/fonts/pjs-700.woff2", weight: "700", style: "normal" },
+    { path: "../public/fonts/pjs-800.woff2", weight: "800", style: "normal" },
+  ],
+  display: "swap",
+  variable: "--font-jakarta",
+  preload: true,
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://xlsatusolo.com"),
@@ -75,9 +84,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <link rel="webmcp" id="webmcp" href="/webmcp.json" />
         <Trackers />
         <WebMCPRegistry />
-        <CekLokasi />
-        <ConsentBanner />
-        <StickyMobileBar />
+        <ClientOnlyComponents />
         {!IS_STAGING && (
           <>
             <Script id="gtag-bootstrap" strategy="beforeInteractive">

@@ -1,32 +1,53 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 
-export default function ScrollReveal({ 
-  children, 
+export default function ScrollReveal({
+  children,
   delay = 0,
-  direction = "up"
-}: { 
-  children: ReactNode; 
+  direction = "up",
+}: {
+  children: ReactNode;
   delay?: number;
   direction?: "up" | "down" | "left" | "right";
 }) {
-  const directions = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
-    left: { x: 40, y: 0 },
-    right: { x: -40, y: 0 },
-  };
+  const ref = useRef<HTMLDivElement>(null);
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, ...directions[direction] }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
-    >
-      {children}
-    </motion.div>
-  );
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Respect prefers-reduced-motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+      return;
+    }
+
+    const offsets: Record<string, string> = {
+      up:    "translateY(36px)",
+      down:  "translateY(-36px)",
+      left:  "translateX(36px)",
+      right: "translateX(-36px)",
+    };
+
+    el.style.opacity = "0";
+    el.style.transform = offsets[direction];
+    el.style.transition = `opacity 0.55s ease ${delay}s, transform 0.55s ease ${delay}s`;
+
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.style.opacity = "1";
+          el.style.transform = "none";
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.08, rootMargin: "-40px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [delay, direction]);
+
+  return <div ref={ref}>{children}</div>;
 }
