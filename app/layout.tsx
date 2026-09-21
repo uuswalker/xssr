@@ -52,13 +52,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="id" className={jakarta.variable}>
       <head>
         <link rel="preconnect" href="https://ipwho.is" crossOrigin="anonymous" />
-        <link 
-          rel="preload" 
-          as="image" 
-          imageSrcSet="/images/promo-wifi-rumah-koneksi-pasti-mobile.webp 500w, /images/promo-wifi-rumah-koneksi-pasti.webp 1080w"
-          imageSizes="(max-width: 768px) 500px, 1080px"
-          fetchPriority="high" 
-        />
       </head>
       <body data-origin="xlsatusolo.com" data-wm="224CF412">
         {/* Honeypot anti-scraper — parity xssr, JANGAN dihapus */}

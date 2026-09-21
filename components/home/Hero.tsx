@@ -1,5 +1,6 @@
 "use client";
 
+import { preload } from "react-dom";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { MapPin, CheckCircle2 } from "lucide-react";
@@ -49,6 +50,13 @@ function scrollToId(id: string) {
 
 /** Slider hero — dipakai home (teks WA default) & kota (teks WA per kota). */
 export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
+  preload("/images/promo-wifi-rumah-koneksi-pasti-mobile.webp", {
+    as: "image",
+    imageSrcSet: "/images/promo-wifi-rumah-koneksi-pasti-mobile.webp 500w, /images/promo-wifi-rumah-koneksi-pasti.webp 1080w",
+    imageSizes: "(max-width: 768px) 500px, 1080px",
+    fetchPriority: "high"
+  });
+
   const [cur, setCur] = useState(0);
   const total = SLIDES.length;
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
