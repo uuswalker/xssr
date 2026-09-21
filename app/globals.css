@@ -1295,6 +1295,9 @@
 
 /* --- PROMO BANNER ANIMATIONS --- */
 .promo-banner {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 50px;
+  overflow: hidden;
   background: var(--green-dark);
   color: #fff;
   text-align: center;
@@ -1331,4 +1334,11 @@
 @keyframes shineSweep {
   0% { background-position: 200% center; }
   100% { background-position: -200% center; }
+}
+
+.is-scrolled .promo-banner {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
 }

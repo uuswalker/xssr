@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { MessageCircle, MapPin } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Header({
   showFiber = true,
@@ -17,8 +18,18 @@ export default function Header({
   const isHome = pathname === "/";
   const anchorBase = isHome ? "" : "/";
 
+  const [isTop, setIsTop] = useState(true);
+
+  useEffect(() => {
+    const onScroll = () => setIsTop(window.scrollY <= 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // Trigger sekali saat mount untuk set state awal
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header role="banner" className="site-header">
+    <header role="banner" className={`site-header ${isTop ? "" : "is-scrolled"}`}>
       <div className="promo-banner">
           🔥 <span className="shimmer-text">Promo Terbatas: Gratis Instalasi Khusus Paket 250 Mbps & XL SATU Wireless s/d Akhir Bulan!</span>
         </div>
