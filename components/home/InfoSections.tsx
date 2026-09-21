@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+
 import { Ticket, HandCoins, MapPinned, Building2, HelpCircle, Map, MessageCircle, Gauge, Calculator, FileQuestion, Lightbulb, ArrowRight } from "lucide-react";
 // Seksi informatif homepage — port 1:1 dari xssr (server components, link relatif).
 
@@ -385,11 +386,10 @@ export function Tools() {
             }}
           >
             {TOOLS.map((t) => (
-            <motion.a
+            <a
               key={t.href}
               href={t.href}
-              whileHover={{ scale: 1.03, y: -4, boxShadow: "0 10px 20px rgba(0,0,0,.08)" }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              className="tool-card"
               style={{
                 background: "#fff",
                 borderRadius: 14,
@@ -417,7 +417,7 @@ export function Tools() {
               <div style={{ marginTop: 16, fontSize: 12, fontWeight: 700, color: "var(--green)", display: "flex", alignItems: "center", gap: 4 }}>
                 Coba Sekarang <ArrowRight size={14} />
               </div>
-            </motion.a>
+            </a>
           ))}
           </div>
         </div>
