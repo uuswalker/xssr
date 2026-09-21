@@ -29,7 +29,7 @@ import Marquee from "@/components/animations/Marquee";
 import { preload } from "react-dom";
 
 export default function Home() {
-  preload("/images/promo-wifi-rumah-koneksi-pasti.webp", {
+  preload("/images/promo-wifi-rumah-koneksi-pasti-mobile.webp", {
     as: "image",
     imageSrcSet: "/images/promo-wifi-rumah-koneksi-pasti-mobile.webp 500w, /images/promo-wifi-rumah-koneksi-pasti.webp 1080w",
     imageSizes: "(max-width: 768px) 500px, 1080px",
