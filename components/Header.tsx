@@ -19,9 +19,9 @@ export default function Header({
 
   return (
     <header role="banner" className="site-header">
-      <div style={{ background: "var(--green-dark)", color: "#fff", textAlign: "center", fontSize: 12, padding: "8px 16px", fontWeight: 700, letterSpacing: "0.2px" }}>
-        🔥 Promo Terbatas: Gratis Pemasangan Fiber Optic s/d Akhir Bulan Ini!
-      </div>
+      <div className="promo-banner">
+          🔥 <span className="shimmer-text">Promo Terbatas: Gratis Pemasangan Fiber Optic s/d Akhir Bulan Ini!</span>
+        </div>
       <div className="header-inner">
         <div className="logo">
           <Link href="/" title="XL SATU">
