@@ -3,7 +3,7 @@
 import { MapPin, Gift, CheckCircle2, Settings, PlayCircle, ChevronUp, ChevronDown, CalendarCheck } from "lucide-react";
 import NumberCounter from "@/components/animations/NumberCounter";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   FIBER_TIERS,
   TAHUNAN_TIERS,
@@ -12,6 +12,45 @@ import {
   tierWa,
   type FiberTier,
 } from "@/lib/paket";
+
+function SpeedBar({ barWidth, barGradient, barDotColor }: { barWidth: number, barGradient: string, barDotColor: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setInView(true);
+        obs.disconnect();
+      }
+    }, { threshold: 0.1 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <div className="speed-bar-bg" ref={ref}>
+      <div
+        className="speed-bar-fill"
+        style={{
+          background: barGradient,
+          width: inView ? `${barWidth}%` : "0%",
+          transition: "width 1.2s ease-out 0.2s"
+        }}
+      ></div>
+      <div
+        className="speed-bar-dot"
+        style={{
+          borderColor: barDotColor,
+          left: inView ? `calc(${barWidth}% - 8px)` : "0%",
+          transition: "left 1.2s ease-out 0.2s"
+        }}
+      ></div>
+    </div>
+  );
+}
 
 function FiberCard({ t }: { t: FiberTier }) {
   return (
@@ -33,16 +72,7 @@ function FiberCard({ t }: { t: FiberTier }) {
               {t.speedMax} Mbps
             </span>
           </div>
-          <div className="speed-bar-bg">
-            <div
-                className="speed-bar-fill"
-                style={{ background: t.barGradient, width: `${t.barWidth}%` }}
-            ></div>
-            <div
-                className="speed-bar-dot"
-                style={{ borderColor: t.barDotColor, left: `calc(${t.barWidth}% - 8px)` }}
-            ></div>
-          </div>
+          <SpeedBar barWidth={t.barWidth} barGradient={t.barGradient} barDotColor={t.barDotColor} />
         <div className="speed-note">{t.speedNote}</div>
         {t.boosterNote && (
           <div
@@ -255,16 +285,7 @@ export function TahunanPaket() {
               {t.speedMax} Mbps
             </span>
           </div>
-                  <div className="speed-bar-bg">
-                    <div
-                        className="speed-bar-fill"
-                        style={{ background: "linear-gradient(90deg, #1e1b4b 0%, #7c3aed 100%)", width: `${t.barWidth}%` }}
-                    ></div>
-                    <div
-                        className="speed-bar-dot"
-                        style={{ borderColor: "#7c3aed", left: `calc(${t.barWidth}% - 8px)` }}
-                    ></div>
-                  </div>
+                  <SpeedBar barWidth={t.barWidth} barGradient="linear-gradient(90deg, #1e1b4b 0%, #7c3aed 100%)" barDotColor="#7c3aed" />
                 <div className="speed-note">Ideal untuk perangkat keluarga</div>
                 <div
                   style={{
