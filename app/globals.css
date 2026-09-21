@@ -809,7 +809,7 @@
       text-decoration: none;
     }
     .btn-daftar {
-      display: inline-block;
+      display: inline;
       background: var(--green);
       color: var(--white) !important;
       padding: 10px 20px;
@@ -1296,7 +1296,7 @@
 /* --- PROMO BANNER ANIMATIONS --- */
 .promo-banner {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  max-height: 50px;
+  max-height: 100px;\n  line-height: 1.4;
   overflow: hidden;
   background: var(--green-dark);
   color: #fff;
@@ -1314,7 +1314,7 @@
 }
 
 .shimmer-text {
-  display: inline-block;
+  display: inline;
   background: linear-gradient(
     110deg,
     #ffffff 0%,
