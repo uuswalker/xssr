@@ -1296,7 +1296,8 @@
 /* --- PROMO BANNER ANIMATIONS --- */
 .promo-banner {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  max-height: 100px;\n  line-height: 1.4;
+  max-height: 100px;
+  line-height: 1.4;
   overflow: hidden;
   background: var(--green-dark);
   color: #fff;
