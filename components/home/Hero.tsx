@@ -50,7 +50,7 @@ function scrollToId(id: string) {
 
 /** Slider hero — dipakai home (teks WA default) & kota (teks WA per kota). */
 export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
-  preload("/images/promo-wifi-rumah-koneksi-pasti-mobile.webp", {
+  preload("/images/promo-wifi-rumah-koneksi-pasti.webp", {
     as: "image",
     imageSrcSet: "/images/promo-wifi-rumah-koneksi-pasti-mobile.webp 500w, /images/promo-wifi-rumah-koneksi-pasti.webp 1080w",
     imageSizes: "(max-width: 768px) 500px, 1080px",
