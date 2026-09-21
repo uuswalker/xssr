@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import WebMCPRegistry from "@/components/WebMCPRegistry";
 import Trackers from "@/components/Trackers";
@@ -7,6 +8,8 @@ import CekLokasi from "@/components/CekLokasi";
 import StickyMobileBar from "@/components/StickyMobileBar";
 import ConsentBanner from "@/components/ConsentBanner";
 import { ADS_ID, GA_ID, IS_STAGING, SITE_NAME } from "@/lib/site";
+
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], display: "swap", variable: "--font-jakarta" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://xlsatusolo.com"),
@@ -46,7 +49,7 @@ gtag('config', '${ADS_ID}');
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="id">
+    <html lang="id" className={jakarta.variable}>
       
       <body data-origin="xlsatusolo.com" data-wm="224CF412">
         {/* Honeypot anti-scraper — parity xssr, JANGAN dihapus */}
