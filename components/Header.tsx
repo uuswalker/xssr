@@ -20,7 +20,7 @@ export default function Header({
   return (
     <header role="banner" className="site-header">
       <div className="promo-banner">
-          🔥 <span className="shimmer-text">Promo Terbatas: Gratis Pemasangan Fiber Optic s/d Akhir Bulan Ini!</span>
+          🔥 <span className="shimmer-text">Promo Terbatas: Gratis Instalasi Khusus Paket 250 Mbps & XL SATU Wireless s/d Akhir Bulan!</span>
         </div>
       <div className="header-inner">
         <div className="logo">
