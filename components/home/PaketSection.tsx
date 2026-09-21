@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+
 import { MapPin, Gift, CheckCircle2, Settings, PlayCircle, ChevronUp, ChevronDown, CalendarCheck } from "lucide-react";
 import NumberCounter from "@/components/animations/NumberCounter";
 
@@ -15,7 +15,7 @@ import {
 
 function FiberCard({ t }: { t: FiberTier }) {
   return (
-    <motion.div className={`paket-card ${t.badge ? "best-seller" : ""}`}>
+    <div className={`paket-card ${t.badge ? "best-seller" : ""}`}>
       {t.badge && <div className="badge-laris">{t.badge}</div>}
       <div className={`paket-card-header ${t.headerClass}`}>
         <div className="paket-title">{t.name}</div>
@@ -33,23 +33,15 @@ function FiberCard({ t }: { t: FiberTier }) {
               {t.speedMax} Mbps
             </span>
           </div>
-        <div className="speed-bar-bg">
-            <motion.div
-              className="speed-bar-fill"
-              initial={{ width: "0%" }}
-              whileInView={{ width: `${t.barWidth}%` }}
-              viewport={{ once: true, amount: 0.8 }}
-              transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-              style={{ background: t.barGradient }}
-            ></motion.div>
-            <motion.div
-              className="speed-bar-dot"
-              initial={{ left: "0%" }}
-              whileInView={{ left: `calc(${t.barWidth}% - 8px)` }}
-              viewport={{ once: true, amount: 0.8 }}
-              transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-              style={{ borderColor: t.barDotColor }}
-            ></motion.div>
+          <div className="speed-bar-bg">
+            <div
+                className="speed-bar-fill"
+                style={{ background: t.barGradient, width: `${t.barWidth}%` }}
+            ></div>
+            <div
+                className="speed-bar-dot"
+                style={{ borderColor: t.barDotColor, left: `calc(${t.barWidth}% - 8px)` }}
+            ></div>
           </div>
         <div className="speed-note">{t.speedNote}</div>
         {t.boosterNote && (
@@ -96,7 +88,7 @@ function FiberCard({ t }: { t: FiberTier }) {
           </a>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -241,7 +233,7 @@ export function TahunanPaket() {
 
         <div className="paket-grid">
           {TAHUNAN_TIERS.map((t) => (
-            <motion.div className="paket-card" key={t.name}>
+            <div className="paket-card" key={t.name}>
               <div
                 className="paket-card-header"
                 style={{ background: t.headerGradient }}
@@ -263,23 +255,15 @@ export function TahunanPaket() {
               {t.speedMax} Mbps
             </span>
           </div>
-                <div className="speed-bar-bg">
-                    <motion.div
-                      className="speed-bar-fill"
-                      initial={{ width: "0%" }}
-                      whileInView={{ width: `${t.barWidth}%` }}
-                      viewport={{ once: true, amount: 0.8 }}
-                      transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-                      style={{ background: "linear-gradient(90deg, #1e1b4b 0%, #7c3aed 100%)" }}
-                    ></motion.div>
-                    <motion.div
-                      className="speed-bar-dot"
-                      initial={{ left: "0%" }}
-                      whileInView={{ left: `calc(${t.barWidth}% - 8px)` }}
-                      viewport={{ once: true, amount: 0.8 }}
-                      transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-                      style={{ borderColor: "#7c3aed" }}
-                    ></motion.div>
+                  <div className="speed-bar-bg">
+                    <div
+                        className="speed-bar-fill"
+                        style={{ background: "linear-gradient(90deg, #1e1b4b 0%, #7c3aed 100%)", width: `${t.barWidth}%` }}
+                    ></div>
+                    <div
+                        className="speed-bar-dot"
+                        style={{ borderColor: "#7c3aed", left: `calc(${t.barWidth}% - 8px)` }}
+                    ></div>
                   </div>
                 <div className="speed-note">Ideal untuk perangkat keluarga</div>
                 <div
@@ -358,7 +342,7 @@ export function TahunanPaket() {
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
