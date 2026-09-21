@@ -75,7 +75,7 @@ function FiberCard({ t }: { t: FiberTier }) {
         <div className="fitur-list">
           {t.feats.map((f) => (
             <div className="fitur-item" key={f.text}>
-              <img src={f.img} alt="" loading="lazy" />
+              <img src={f.img} alt="" width={28} height={28} loading="lazy" />
               {f.text}
             </div>
           ))}
@@ -318,7 +318,7 @@ export function TahunanPaket() {
                 <div className="fitur-list">
                   {t.feats.map((f) => (
                     <div className="fitur-item" key={f.text}>
-                      <img src={f.img} alt="" loading="lazy" />
+                      <img src={f.img} alt="" width={28} height={28} loading="lazy" />
                       {f.text}
                     </div>
                   ))}
