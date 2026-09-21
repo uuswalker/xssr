@@ -1,0 +1,17 @@
+# XL SATU Solo Raya - Anti-Slop & UI Guidelines
+
+## 1. Copywriting & Tone (Anti-Slop Prose)
+- **TIDAK BOLEH** menggunakan kata-kata AI generik (AI Slop): *delve, testament, beacon, dynamic landscape, di era digital ini, revolusioner, menyelami, menavigasi, tak tertandingi*.
+- **Tone:** Tulis seperti agen representatif lokal Solo yang profesional, ramah, dan langsung pada intinya (*straight to the point*). 
+- **Fokus:** Utamakan *Call to Action* (CTA) yang berorientasi pada konversi (contoh: "Tanya Dulu", "Cek Lokasi", bukan sekadar "Beli Sekarang").
+
+## 2. Design & UI/UX (Anti-Slop Design)
+- **Tema:** Gunakan skema warna dunia nyata. Identitas utama adalah Hijau XL SATU (`#037e64`) dan Putih/Abu-abu Terang (`#f5f5f5`). 
+- **TIDAK BOLEH** membuat desain bernuansa fiksi ilmiah (Sci-Fi), *dark mode* dengan neon ungu/biru, atau teks dengan gradasi norak.
+- **Elemen UI:** Gunakan desain ala Apple / Gojek. Manfaatkan *whitespace* (padding luas), *border-radius* yang membulat halus (14px - 20px), dan bayangan (*drop shadow*) yang sangat lembut (contoh: `box-shadow: 0 10px 30px rgba(0,0,0,0.08)`).
+- **Ikon:** Selalu gunakan `lucide-react` dengan stroke-width konsisten.
+
+## 3. Engineering & Code Quality
+- **TIDAK BOLEH** malas. Jangan pernah memotong kode dengan komentar seperti `// sisa kode di sini`. Tulis kode secara utuh.
+- **Performa:** Hindari library JavaScript berat jika bisa diselesaikan dengan *Pure CSS* (misal: *hover animations*). Jaga agar *Main Thread* tetap ringan.
+- **Framework:** Next.js App Router (React 19). Fokus pada Server Components (SSG) kecuali komponen yang benar-benar butuh interaktivitas (*client components*).
