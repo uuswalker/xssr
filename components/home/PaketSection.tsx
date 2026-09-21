@@ -293,19 +293,24 @@ export function TahunanPaket() {
                 </div>
                 
                 <div
-                  style={{
-                    margin: "14px 0 0",
-                    padding: "8px 12px",
-                    background: "#f5f3ff",
-                    borderRadius: 8,
-                    fontSize: 11.5,
-                    color: "#4c1d95",
-                    fontWeight: 600,
-                    textAlign: "center",
-                  }}
-                >
-                  🎁 Bonus Kuota HP <strong>{t.kuota}</strong> ({t.members})
-                </div>
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "6px",
+                      margin: "14px 0 0",
+                      padding: "8px 12px",
+                      background: "#f5f3ff",
+                      borderRadius: 8,
+                      fontSize: 11.5,
+                      color: "#4c1d95",
+                      fontWeight: 600,
+                      textAlign: "center",
+                    }}
+                  >
+                    <Gift size={16} color="#8b5cf6" />
+                    <span>Bonus Kuota HP <strong>{t.kuota}</strong> ({t.members})</span>
+                  </div>
               </div>
               <div className="paket-body">
                 <div className="ideal-tags">
