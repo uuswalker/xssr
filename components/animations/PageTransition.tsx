@@ -1,18 +1,9 @@
-"use client";
-
-import { HTMLMotionProps, motion } from "framer-motion";
 import { ReactNode } from "react";
 
-export default function PageTransition({ children, ...props }: HTMLMotionProps<"main"> & { children: ReactNode }) {
+export default function PageTransition({ children, ...props }: any) {
   return (
-    <motion.main
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 15 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      {...props}
-    >
+    <main className="page-transition-enter" {...props}>
       {children}
-    </motion.main>
+    </main>
   );
 }
