@@ -20,8 +20,9 @@ const items = [
   { text: "Tagihan Flat (Pasti)", icon: ShieldCheck },
 ];
 
-// Duplikat 2x saja — cukup untuk loop seamless, kurangi DOM node
-const track = [...items, ...items];
+// Duplikat 4x untuk memastikan layar lebar (seperti 4K) tidak melihat ruang kosong
+// di ujung sebelum animasi reset.
+const track = [...items, ...items, ...items, ...items];
 
 export default function Marquee() {
   return (
@@ -38,7 +39,7 @@ export default function Marquee() {
       <style>{`
         @keyframes marquee-scroll {
           from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
+          to   { transform: translateX(-25%); }
         }
         .marquee-track {
           display: flex;
