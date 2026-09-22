@@ -158,7 +158,7 @@ export function KotaArea({
               </div>
               <div
                 className="area-desc"
-                style={{ color: "rgba(255,255,255,.85)", fontWeight: 700 }}
+                style={{ color: "#fff", fontWeight: 700 }}
               >
                 Tanya Dulu
               </div>
