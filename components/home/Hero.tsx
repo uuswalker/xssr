@@ -76,7 +76,7 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
   return (
     <div className="slider" id="slider">
       <style dangerouslySetInnerHTML={{ __html: `
-    .hero-img-lcp { width: 100%; height: 480px; object-fit: cover; display: block; }
+    .hero-img-lcp { width: 100%; height: 480px; object-fit: contain; position: relative; z-index: 3; display: block; }
     @media (max-width: 768px) { .hero-img-lcp { height: 240px; } }
     @media (max-width: 480px) { .hero-img-lcp { height: 160px; } }
   ` }} />
@@ -88,9 +88,10 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
           <div
             key={s.img}
             className="slide"
+            style={{ backgroundImage: `url(${s.img})` }}
             onClick={() =>
               s.action === "wa"
-                ? window.open(waText, "_blank")
+                ? window.open(WA_OPEN_DEFAULT, "_blank")
                 : scrollToId("hubungi")
             }
           >
