@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import localFont from "next/font/local";
 import "./globals.css";
-import WebMCPRegistry from "@/components/WebMCPRegistry";
 import ClientOnlyComponents from "@/components/ClientOnlyComponents";
 import Trackers from "@/components/Trackers";
 import { ADS_ID, GA_ID, IS_STAGING, SITE_NAME } from "@/lib/site";
@@ -83,7 +82,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <link rel="webmcp" id="webmcp" href="/webmcp.json" />
         <Trackers />
-        <WebMCPRegistry />
         <ClientOnlyComponents />
         {!IS_STAGING && (
           <>
