@@ -68,102 +68,127 @@ export default function SmartPromoPopup() {
         zIndex: 9999,
         display: "flex",
         alignItems: "flex-end",
-        justifyContent: "center",
-        padding: "20px"
+        justifyContent: "center", // Center on mobile
+        padding: "16px"
       }}
     >
       <div 
         className="promo-popup-card"
         style={{
-          background: "rgba(255, 255, 255, 0.95)",
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
-          border: "1px solid rgba(3, 126, 100, 0.15)",
-          boxShadow: "0 20px 40px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.5) inset",
-          borderRadius: "24px",
-          padding: "24px",
+          background: "var(--white, #ffffff)",
+          border: "1px solid #e5e7eb",
+          boxShadow: "0 20px 40px -15px rgba(0,0,0,0.15)",
+          borderRadius: "16px",
+          padding: "16px",
           width: "100%",
-          maxWidth: "400px",
+          maxWidth: "380px",
           pointerEvents: "auto",
           position: "relative",
-          animation: "slideUpPromo 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+          animation: "slideUpMinimal 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+          overflow: "hidden",
+          display: "flex",
+          gap: "16px",
+          alignItems: "flex-start"
         }}
       >
-        <button 
-          onClick={handleClose}
-          style={{
-            position: "absolute",
-            top: "16px",
-            right: "16px",
-            background: "#f3f4f6",
-            border: "none",
-            borderRadius: "50%",
-            width: "32px",
-            height: "32px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-            color: "#6b7280",
-            transition: "background 0.2s"
-          }}
-          aria-label="Tutup promo"
-          onMouseEnter={(e) => e.currentTarget.style.background = "#e5e7eb"}
-          onMouseLeave={(e) => e.currentTarget.style.background = "#f3f4f6"}
-        >
-          <X size={18} />
-        </button>
-
-        <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "16px" }}>
-          <div style={{ background: "var(--green-light)", padding: "12px", borderRadius: "14px", color: "var(--green)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <Gift size={24} strokeWidth={2.5} />
+        <div style={{ background: "var(--green-light, #e6f7f3)", color: "var(--green, #037e64)", borderRadius: "999px", padding: "10px", flexShrink: 0, marginTop: "2px" }}>
+          <Gift size={20} />
+        </div>
+        
+        <div style={{ flex: 1 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "4px" }}>
+            <h3 style={{ margin: 0, fontSize: "15px", fontWeight: "700", color: "#111827" }}>Promo XL SATU</h3>
+            <button 
+              onClick={handleClose}
+              style={{
+                background: "transparent",
+                border: "none",
+                cursor: "pointer",
+                color: "#9ca3af",
+                padding: "2px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "color 0.2s"
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = "#4b5563"}
+              onMouseLeave={(e) => e.currentTarget.style.color = "#9ca3af"}
+              aria-label="Tutup promo"
+            >
+              <X size={16} />
+            </button>
           </div>
-          <div>
-            <h3 style={{ margin: "0 0 4px 0", fontSize: "18px", fontWeight: "800", color: "var(--text)", lineHeight: 1.2 }}>Promo Terbatas!</h3>
-            <div style={{ fontSize: "13px", color: "var(--green)", fontWeight: "700" }}>Khusus Area Solo Raya</div>
+          
+          <p style={{ margin: "0 0 12px 0", fontSize: "13px", color: "#6b7280", lineHeight: 1.5 }}>
+            Bayar satu, dapat internet super ngebut & kuota HP lebih luas. Promo bebas biaya pasang terbatas.
+          </p>
+          
+          <div style={{ display: "flex", gap: "8px" }}>
+            <button 
+              className="btn-cek-lokasi-trigger"
+              onClick={handleClose}
+              style={{
+                flex: 1,
+                background: "var(--green, #037e64)",
+                color: "#fff",
+                border: "none",
+                borderRadius: "8px",
+                padding: "10px 12px",
+                fontSize: "13px",
+                fontWeight: "600",
+                cursor: "pointer",
+                transition: "background 0.2s"
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.background = "var(--green-dark, #026b55)"}
+              onMouseLeave={(e) => e.currentTarget.style.background = "var(--green, #037e64)"}
+            >
+              Klaim Promo
+            </button>
+            <button 
+              onClick={handleClose}
+              style={{
+                flex: 1,
+                background: "#f3f4f6",
+                color: "#4b5563",
+                border: "none",
+                borderRadius: "8px",
+                padding: "10px 12px",
+                fontSize: "13px",
+                fontWeight: "600",
+                cursor: "pointer",
+                transition: "background 0.2s"
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.background = "#e5e7eb"}
+              onMouseLeave={(e) => e.currentTarget.style.background = "#f3f4f6"}
+            >
+              Nanti Saja
+            </button>
           </div>
         </div>
-
-        <p style={{ margin: "0 0 20px 0", fontSize: "14px", color: "#4b5563", lineHeight: 1.5 }}>
-          Hanya tersisa <strong>3 slot bebas biaya instalasi</strong> untuk minggu ini. Cek ketersediaan di lokasi Anda sekarang sebelum penuh.
-        </p>
-
-        <button 
-          className="btn-cek-lokasi-trigger"
-          onClick={handleClose}
-          style={{
-            width: "100%",
-            background: "linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%)",
-            color: "#fff",
-            border: "none",
-            borderRadius: "14px",
-            padding: "16px",
-            fontSize: "15px",
-            fontWeight: "800",
-            cursor: "pointer",
-            boxShadow: "0 8px 20px rgba(3, 126, 100, 0.25)",
-            transition: "transform 0.2s, box-shadow 0.2s",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "8px"
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = "translateY(-2px)";
-            e.currentTarget.style.boxShadow = "0 12px 24px rgba(3, 126, 100, 0.35)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = "translateY(0)";
-            e.currentTarget.style.boxShadow = "0 8px 20px rgba(3, 126, 100, 0.25)";
-          }}
-        >
-          Klaim & Cek Lokasi
-        </button>
+        
+        {/* Progress bar indicator */}
+        <div style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          height: "4px",
+          background: "var(--green, #037e64)",
+          width: "30%",
+          borderBottomLeftRadius: "16px"
+        }}></div>
       </div>
+      
       <style dangerouslySetInnerHTML={{__html: `
-        @keyframes slideUpPromo {
-          from { transform: translateY(120px) scale(0.95); opacity: 0; }
-          to { transform: translateY(0) scale(1); opacity: 1; }
+        @keyframes slideUpMinimal {
+          from { transform: translateY(40px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @media (min-width: 768px) {
+          .promo-popup-overlay {
+            justify-content: flex-end !important;
+            padding: 24px !important;
+          }
         }
       `}} />
     </div>
