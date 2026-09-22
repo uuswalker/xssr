@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import {
   Network,
   Infinity as InfinityIcon,
@@ -20,11 +21,41 @@ const items = [
   { text: "Tagihan Flat (Pasti)", icon: ShieldCheck },
 ];
 
-// Duplikat 4x untuk memastikan layar lebar (seperti 4K) tidak melihat ruang kosong
-// di ujung sebelum animasi reset.
-const track = [...items, ...items, ...items, ...items];
-
 export default function Marquee() {
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    // Ambil lebar 1 set item (setengah dari track karena kita duplikat 2x)
+    const halfWidth = track.scrollWidth / 2;
+
+    // Buat keyframes secara dinamis berdasarkan lebar pixel sebenarnya
+    const keyframes = [
+      { transform: "translateX(0)" },
+      { transform: `translateX(-${halfWidth}px)` },
+    ];
+
+    const anim = track.animate(keyframes, {
+      duration: 35000, // 35 detik per putaran
+      iterations: Infinity,
+      easing: "linear",
+    });
+
+    // Respect prefers-reduced-motion
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) anim.pause();
+    const handler = (e: MediaQueryListEvent) =>
+      e.matches ? anim.pause() : anim.play();
+    mq.addEventListener("change", handler);
+
+    return () => {
+      anim.cancel();
+      mq.removeEventListener("change", handler);
+    };
+  }, []);
+
   return (
     <div
       style={{
@@ -36,42 +67,38 @@ export default function Marquee() {
         color: "var(--green-dark)",
       }}
     >
-      <style>{`
-        @keyframes marquee-scroll {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-25%); }
-        }
-        .marquee-track {
-          display: flex;
-          width: max-content;
-          animation: marquee-scroll 35s linear infinite;
-          will-change: transform;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .marquee-track { animation: none; }
-        }
-      `}</style>
-      <div className="marquee-track">
-        {track.map((item, i) => {
-          const Icon = item.icon;
-          return (
-            <span
-              key={i}
-              style={{
-                fontWeight: 700,
-                fontSize: "15px",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                paddingRight: "3rem",
-                whiteSpace: "nowrap",
-              }}
-            >
-              <Icon size={18} strokeWidth={2.5} />
-              {item.text}
-            </span>
-          );
-        })}
+      <div
+        ref={trackRef}
+        style={{
+          display: "flex",
+          width: "max-content",
+          willChange: "transform",
+        }}
+      >
+        {/* Render 2 salinan identik — saat salinan pertama habis geser ke kiri,
+            salinan kedua sudah siap menggantikan tanpa celah */}
+        {[0, 1].map((copy) =>
+          items.map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <span
+                key={`${copy}-${i}`}
+                style={{
+                  fontWeight: 700,
+                  fontSize: "15px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  paddingRight: "3rem",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                <Icon size={18} strokeWidth={2.5} />
+                {item.text}
+              </span>
+            );
+          })
+        )}
       </div>
     </div>
   );
