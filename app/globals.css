@@ -1322,9 +1322,9 @@
 }
 
 @keyframes pulseShine {
-  0% { opacity: 0.75; }
+  0% { opacity: 0.92; }
   50% { opacity: 1; }
-  100% { opacity: 0.75; }
+  100% { opacity: 0.92; }
 }
 
 .is-scrolled .promo-banner {
