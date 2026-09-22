@@ -9,37 +9,40 @@ import { WA_DAFTAR, WA_INFO, waLink } from "@/lib/site";
 
 const SLIDES = [
   {
-    img: "/images/promo-wifi-rumah-koneksi-pasti.webp",
-    alt: "Promo XL SATU",
-    w: 1080,
-    h: 1080,
+    imgDesktop: "/images/banner-first-media.jpg",
+    imgMobile: "/images/promo-wifi-rumah-koneksi-pasti.webp",
+    alt: "Promo First Media Jadi XL SATU",
     eager: true,
     action: "wa" as const,
   },
   {
-    img: "/images/promo-paket-internet.webp",
-    alt: "Paket Internet",
-    w: 1080,
-    h: 1080,
+    imgDesktop: "/images/banner-makin-hemat.jpg",
+    imgMobile: "/images/promo-paket-internet.webp",
+    alt: "Promo Makin Hemat",
     eager: false,
     action: "wa" as const,
   },
   {
-    img: "/images/banner-bayar-tagihan.jpg",
+    imgDesktop: "/images/banner-bayar-tagihan.jpg",
+    imgMobile: "/images/banner-bayar-tagihan.jpg",
     alt: "Bayar Tagihan",
-    w: 1920,
-    h: 546,
     eager: false,
     action: "hubungi" as const,
   },
   {
-    img: "/images/promo-first-media-xl-satu-square.webp",
-    alt: "Promo First Media Jadi XL SATU",
-    w: 937,
-    h: 936,
+    imgDesktop: "/images/banner-apartemen.jpg",
+    imgMobile: "/images/promo-first-media-xl-satu-square.webp",
+    alt: "Promo Apartemen",
     eager: false,
     action: "hubungi" as const,
   },
+  {
+    imgDesktop: "/images/banner-opensignal.jpg",
+    imgMobile: "/images/promo-first-media-xl-satu-square.webp",
+    alt: "Opensignal Award",
+    eager: false,
+    action: "hubungi" as const,
+  }
 ];
 
 const WA_OPEN_DEFAULT = waLink("Halo kak, saya mau info XL SATU");
@@ -76,7 +79,7 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
   return (
     <div className="slider" id="slider">
       <style dangerouslySetInnerHTML={{ __html: `
-    .hero-img-lcp { width: 100%; height: 480px; object-fit: cover; object-position: center 15%; display: block; }
+    .hero-img-lcp { width: 100%; height: 480px; object-fit: cover; object-position: center; display: block; }
     @media (max-width: 768px) { .hero-img-lcp { height: 240px; } }
     @media (max-width: 480px) { .hero-img-lcp { height: 160px; } }
   ` }} />
@@ -84,9 +87,9 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
         id="slides"
         style={{ transform: `translateX(-${cur * 100}%)` }}
       >
-        {SLIDES.map((s) => (
+        {SLIDES.map((s, i) => (
           <div
-            key={s.img}
+            key={i}
             className="slide"
             onClick={() =>
               s.action === "wa"
@@ -94,25 +97,17 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
                 : scrollToId("hubungi")
             }
           >
-            {s.eager ? (
+            <picture>
+              <source media="(min-width: 768px)" srcSet={s.imgDesktop} />
               <img
-                srcSet={`${s.img.replace('.webp', '-mobile.webp')} 500w, ${s.img} 1080w`}
-                sizes="(max-width: 768px) 500px, 1080px"
-                src={s.img}
+                src={s.imgMobile}
                 alt={s.alt}
-                fetchPriority="high"
-                loading="eager"
-                decoding="async"
                 className="hero-img-lcp"
+                fetchPriority={s.eager ? "high" : "auto"}
+                loading={s.eager ? "eager" : "lazy"}
+                decoding="async"
               />
-            ) : (
-              <Image
-                src={s.img}
-                alt={s.alt}
-                width={s.w}
-                height={s.h}
-                loading="lazy" />
-            )}
+            </picture>
           </div>
         ))}
       </div>
@@ -133,7 +128,7 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
       <div className="slider-dots" id="dots">
         {SLIDES.map((s, i) => (
           <button
-            key={s.img}
+            key={i}
             className={"dot" + (i === cur ? " active" : "")}
             aria-label={"Ke slide " + (i + 1)}
             onClick={() => goToSlide(i)} />
