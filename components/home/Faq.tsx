@@ -2,12 +2,11 @@
 import { MessageCircle , Plus , Minus } from "lucide-react";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import type { FaqItem } from "@/lib/seo";
 
 export default function Faq({
   faqs,
-  activeClass = "open",
+  activeClass = "bg-white shadow-sm rounded-xl border-green-500",
   title = "Bantuan",
   sub = "Pertanyaan yang sering ditanyakan",
 }: {
@@ -22,10 +21,11 @@ export default function Faq({
     <section className="bantuan-section" id="bantuan">
       <div className="bantuan-inner">
         <h2 className="section-title">{title}</h2>
-        <p className="section-sub">{sub}</p>
+        {sub && <p className="section-sub">{sub}</p>}
 
         {faqs.map((f, i) => {
           const isOpen = open === i;
+          const activeClass = "bg-white shadow-sm rounded-xl border-green-500";
           return (
             <div
               className={`faq-item ${isOpen ? activeClass : ""}`}
@@ -35,30 +35,18 @@ export default function Faq({
             >
               <div className="faq-q">
                 <span>{f.q}</span>
-                <motion.i
-                  className="fas fa-plus icon"
-                  animate={{ rotate: isOpen ? 45 : 0 }}
-                  transition={{ duration: 0.2 }}
-                />
+                <i className={"fas fa-plus icon " + (isOpen ? "rotate-45" : "")} style={{ transition: "transform 0.2s", transform: isOpen ? "rotate(45deg)" : "rotate(0)" }} />
               </div>
 
-              <AnimatePresence initial={false}>
-                {isOpen && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    style={{ overflow: "hidden" }}
-                  >
-                    <div
-                      className="faq-a"
-                      style={{ display: "block" }} // Ensure css doesn't hide it using display:none 
-                      dangerouslySetInnerHTML={{ __html: f.a }}
-                    />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <div className={`faq-a-wrapper ${isOpen ? "open" : ""}`} style={{ display: "grid", gridTemplateRows: isOpen ? "1fr" : "0fr", transition: "grid-template-rows 0.3s ease" }}>
+                <div style={{ overflow: "hidden" }}>
+                  <div
+                    className="faq-a"
+                    style={{ display: "block" }} // Ensure css doesn't hide it using display:none 
+                    dangerouslySetInnerHTML={{ __html: f.a }}
+                  />
+                </div>
+              </div>
             </div>
           );
         })}

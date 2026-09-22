@@ -1,7 +1,7 @@
 "use client";
-import { motion } from "framer-motion";
 
 import { Ticket, HandCoins, MapPinned, Building2, HelpCircle, Map, MessageCircle, Gauge, Calculator, FileQuestion, Lightbulb, ArrowRight } from "lucide-react";
+import { WA_DAFTAR } from "@/lib/site";
 // Seksi informatif homepage — port 1:1 dari xssr (server components, link relatif).
 
 const AREA_CARDS = [
@@ -183,19 +183,6 @@ export function AreaHome() {
 }
 
 export function Kenapa() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 }
-    }
-  };
-  
-  const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 300, damping: 24 } }
-  };
-
   return (
     <>
       {/* KENAPA PILIH KAMI */}
@@ -206,38 +193,41 @@ export function Kenapa() {
             Bukan sekadar jualan ?" kami yang pegang tanggung jawab dari daftar
             sampai internet nyala
           </p>
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-50px" }}
+          <div
             className="bento-grid"
-              style={{ textAlign: "left" }}
+            style={{ textAlign: "left" }}
           >
             {KENAPA.map((k) => {
-const Icon = k.icon;
-return (
-              <motion.div
-                key={k.title}
-                variants={item}
-                whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,0,0,0.05)" }}
-                style={{
-                  background: "#fff",
-                  border: "1px solid #e3ece9",
-                  borderRadius: 14,
-                  padding: 24,
-                  transition: "box-shadow 0.3s"
-                }}
-              >
-                <Icon size={28} color="var(--green)" />
-                <h3 style={{ fontSize: 16, marginBottom: 8 }}>{k.title}</h3>
-                <p style={{ fontSize: 14, color: "#5a6b66", margin: 0 }}>
-                  {k.text}
-                </p>
-              </motion.div>
-                );
-              })}
-          </motion.div>
+              const Icon = k.icon;
+              return (
+                <div
+                  key={k.title}
+                  className="bento-item"
+                  style={{
+                    background: "#fff",
+                    border: "1px solid #e3ece9",
+                    borderRadius: 14,
+                    padding: 24,
+                    transition: "box-shadow 0.3s, transform 0.3s"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-5px)";
+                    e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  <Icon size={28} color="var(--green)" />
+                  <h3 style={{ fontSize: 16, marginBottom: 8 }}>{k.title}</h3>
+                  <p style={{ fontSize: 14, color: "#5a6b66", margin: 0 }}>
+                    {k.text}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
           <p
             style={{
               marginTop: 24,
@@ -451,12 +441,12 @@ export function Hubungi() {
                 </div>
                 <div className="contact-item">
                   <a
-                    href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20Daftar%20XL%20SATU"
+                    href={WA_DAFTAR}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="contact-num btn-daftar"
                   >
-                    Daftar Sekarang!
+                    Daftar Sekarang
                   </a>
                 </div>
               </div>

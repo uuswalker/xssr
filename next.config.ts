@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   transpilePackages: ["lucide-react", "framer-motion"],
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
-    optimizeCss: true,
+    
   },
   compiler: {
     // Hapus dead code dari framer-motion dan library animasi lain

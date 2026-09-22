@@ -65,7 +65,7 @@ function FiberCard({ t }: { t: FiberTier }) {
             <span>0 Mbps</span>
             <span>
               {t.speedNormal && (
-                <span style={{ textDecoration: 'line-through', color: '#9ca3af', marginRight: '6px' }}>
+                <span style={{ textDecoration: 'line-through', color: '#6b7280', marginRight: '6px' }}>
                   {t.speedNormal}
                 </span>
               )}
@@ -278,7 +278,7 @@ export function TahunanPaket() {
             <span>0 Mbps</span>
             <span>
               {t.speedNormal && (
-                <span style={{ textDecoration: 'line-through', color: '#9ca3af', marginRight: '6px' }}>
+                <span style={{ textDecoration: 'line-through', color: '#6b7280', marginRight: '6px' }}>
                   {t.speedNormal}
                 </span>
               )}

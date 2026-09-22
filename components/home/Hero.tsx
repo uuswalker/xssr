@@ -95,17 +95,16 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
             }
           >
             {s.eager ? (
-              <picture>
-                <source media="(max-width: 768px)" srcSet={s.img.replace('.webp', '-mobile.webp')} />
-                <img
-                  src={s.img}
-                  alt={s.alt}
-                  fetchPriority="high"
-                  loading="eager"
-                  decoding="async"
-                  className="hero-img-lcp"
-                />
-              </picture>
+              <img
+                srcSet={`${s.img.replace('.webp', '-mobile.webp')} 500w, ${s.img} 1080w`}
+                sizes="(max-width: 768px) 500px, 1080px"
+                src={s.img}
+                alt={s.alt}
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
+                className="hero-img-lcp"
+              />
             ) : (
               <Image
                 src={s.img}
