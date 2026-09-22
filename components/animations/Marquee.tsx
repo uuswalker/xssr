@@ -38,21 +38,13 @@ export default function Marquee() {
     ];
 
     const anim = track.animate(keyframes, {
-      duration: 35000, // 35 detik per putaran
+      duration: 35000,
       iterations: Infinity,
       easing: "linear",
     });
 
-    // Respect prefers-reduced-motion
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) anim.pause();
-    const handler = (e: MediaQueryListEvent) =>
-      e.matches ? anim.pause() : anim.play();
-    mq.addEventListener("change", handler);
-
     return () => {
       anim.cancel();
-      mq.removeEventListener("change", handler);
     };
   }, []);
 
