@@ -113,6 +113,7 @@ function FiberCard({ t }: { t: FiberTier }) {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-pilih"
+            aria-label={`Tanya Paket ${t.name}`}
           >
             Tanya Paket Ini
           </a>
@@ -353,14 +354,15 @@ export function TahunanPaket() {
                   >
                     {t.perMonth} • {t.save}
                   </div>
-                  <a
-                    href={tierWa(t)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-pilih"
-                  >
-                    Tanya Paket Ini
-                  </a>
+                    <a
+                      href={tierWa(t)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-pilih"
+                      aria-label={`Tanya Paket ${t.name}`}
+                    >
+                      Tanya Paket Ini
+                    </a>
                 </div>
               </div>
             </div>
@@ -563,6 +565,7 @@ export function WirelessPaket({
                       rel="noopener noreferrer"
                       className="btn-pilih"
                       style={{ width: "100%", marginTop: "auto" }}
+                      aria-label={`Tanya Paket ${w.speed} Mbps`}
                     >
                       Tanya Paket Ini
                     </a>
@@ -628,6 +631,7 @@ export function WirelessPaket({
                       rel="noopener noreferrer"
                       className="btn-pilih"
                       style={{ width: "100%", marginTop: "auto" }}
+                      aria-label={`Tanya Paket ${w.speed} Mbps`}
                     >
                       Tanya Paket Ini
                     </a>
