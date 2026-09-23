@@ -380,3 +380,189 @@ ARTIKEL['proses-pendaftaran-pemasangan-xl-satu-fiber'] = {
     </a>
   </div>`
 };
+
+ARTIKEL['wfh-angkringan-solo-xl-satu'] = {
+  slug: 'wfh-angkringan-solo-xl-satu',
+  title: 'WFH dari Angkringan Solo 7 Hari: Rahasia Kuota Tetap Aman | XL SATU',
+  description: 'Eksperimen WFH dari angkringan Solo. Bagaimana fitur konvergensi XL SATU (WiFi rumah + Kuota HP) bikin kerja remote makin lancar tanpa mikir kuota habis.',
+  keywords: ['wfh di solo', 'wifi murah solo', 'kuota xl satu', 'internet rumah dan hp', 'rekomendasi internet wfh'],
+  ogTitle: 'Nekat WFH dari Angkringan Solo 7 Hari, Kuota Tetap Aman!',
+  ogDescription: 'Rahasia kerja remote stabil dari wedangan Solo berkat fitur gabungan WiFi Rumah dan Kuota HP dari XL SATU.',
+  ogImage: '/images/promo-wifi-rumah-koneksi-pasti.webp',
+  schemas: [],
+  faqs: [],
+  hero: { crumb: '<a href="https://xlsatusolo.com/">Beranda</a> / Gaya Hidup Digital', h1: 'WFH dari Angkringan Solo 7 Hari Berturut-turut', sub: 'Ternyata ini rahasia internet tetap stabil tanpa takut kuota HP jebol.', meta: 'Gaya Hidup &middot; XL SATU Solo Raya' },
+  headerCta: 'https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20XL%20SATU',
+  bodyHtml: `
+    <p>Budaya nongkrong di angkringan atau wedangan Solo kini tak sekadar untuk berburu nasi kucing. Bagi para <em>freelancer</em>, mahasiswa tingkat akhir, hingga pekerja <em>remote</em>, angkringan dengan colokan listrik telah bertransformasi menjadi <em>coworking space</em> kearifan lokal.</p>
+
+    <div class="info-box">
+      <strong>Masalah Utama:</strong> Mengandalkan WiFi publik kadang tidak aman dan lambat, sementara melakukan <em>tethering</em> terus-menerus bisa membuat kuota utama HP jebol dalam hitungan hari.
+    </div>
+
+    <h2>Eksperimen WFH 7 Hari di Wedangan</h2>
+    <p>Kami menyimulasikan pengalaman kerja jarak jauh dari berbagai sudut kota Solo. Membawa laptop, memesan segelas es kampul, dan bersiap melakukan <em>meeting online</em>. Tantangannya adalah: bagaimana memastikan koneksi tetap stabil tanpa harus membeli paket data tambahan yang mahal?</p>
+
+    <p>Rahasia dari kelancaran eksperimen ini ternyata ada pada sistem <strong>Konvergensi</strong>. Berbeda dengan internet rumah konvensional yang hanya bisa dinikmati saat kamu berada di ruang tamu, inovasi modern memungkinkan alokasi internet dibagikan ke nomor <em>smartphone</em>.</p>
+
+    <h2>Solusi Hybrid: XL SATU Fiber</h2>
+    <p>Bagi pelanggan <strong>XL SATU Fiber</strong>, masalah kuota habis saat nongkrong di luar bukan lagi ancaman. Setiap paket internet rumah XL SATU (mulai dari paket Spark) sudah <em>include</em> <strong>Kuota HP Bersama</strong> yang sangat besar (mulai 15GB hingga 300GB per bulan).</p>
+    
+    <div class="step-box">
+      <div class="step-num">1</div>
+      <div>
+        <h4>WiFi Kencang di Rumah</h4>
+        <p>Saat WFH di rumah, kamu menikmati koneksi <em>fiber optic</em> super cepat tanpa batas (unlimited) untuk <em>download</em> file besar atau sinkronisasi data ke <em>cloud</em>.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">2</div>
+      <div>
+        <h4>Kuota Ekstra di Luar Rumah</h4>
+        <p>Saat suntuk dan memutuskan pindah kerja ke angkringan atau <em>coffee shop</em> di area Slamet Riyadi, kamu tinggal menyalakan koneksi seluler dari nomor XL/Prioritas kamu yang sudah terhubung dengan kuota keluarga XL SATU. Kuota besar siap digunakan untuk <em>tethering</em> ke laptop.</p>
+      </div>
+    </div>
+
+    <p>Dengan sistem <em>hybrid</em> ini, tagihan internetmu jadi jauh lebih hemat. Kamu tidak perlu lagi membayar dua kali (bayar WiFi rumah + beli kuota HP yang mahal). Satu tagihan XL SATU sudah mengcover kebutuhan internet serumah, baik saat di dalam maupun di luar rumah.</p>
+
+    <div class="cta-box">
+      <h3>Mau Kerja Bebas dari Mana Saja?</h3>
+      <p>Dapatkan internet fiber di rumah sekaligus kuota HP besar untuk menemani nongkrong di angkringan. Cek area jaringanmu sekarang!</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20paket%20XL%20SATU%20yang%20dapat%20kuota%20HP" target="_blank" rel="noopener noreferrer" class="btn-cta">
+        <i class="fab fa-whatsapp"></i> Tanya Promo WFH
+      </a>
+    </div>
+  `
+};
+
+ARTIKEL['rahasia-fup-internet-rumah'] = {
+  slug: 'rahasia-fup-internet-rumah',
+  title: 'Bongkar Rahasia FUP Internet Rumah: Kenapa Speed Turun di Akhir Bulan?',
+  description: 'Sering kesal WiFi rumah tiba-tiba lemot di akhir bulan? Pelajari rahasia gelap FUP (Fair Usage Policy) pada internet rumah dan temukan solusi provider tanpa FUP.',
+  keywords: ['kenapa wifi lemot di akhir bulan', 'cara mengatasi fup', 'provider internet tanpa fup', 'wifi bebas fup solo', 'kecepatan internet turun'],
+  ogTitle: 'Rahasia Gelap FUP Internet Rumah: Solusi Bebas Lemot di Akhir Bulan',
+  ogDescription: 'Kenapa tagihan WiFi tetap mahal tapi speed mendadak disunat di akhir bulan? Ini penjelasan tentang FUP dan solusinya.',
+  ogImage: '/images/promo-wifi-rumah-koneksi-pasti.webp',
+  schemas: [],
+  faqs: [],
+  hero: { crumb: '<a href="https://xlsatusolo.com/">Beranda</a> / Edukasi Internet', h1: 'Bongkar Rahasia FUP Internet Rumah', sub: 'Kenapa koneksi sering terasa lambat menjelang akhir bulan? Ini fakta yang jarang disadari.', meta: 'Edukasi &middot; XL SATU Solo Raya' },
+  headerCta: 'https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20internet%20tanpa%20FUP',
+  bodyHtml: `
+    <p>Pernahkah kamu merasa koneksi WiFi rumah tiba-tiba menjadi super lambat, sering <em>loading</em> saat memutar YouTube, atau <em>ping</em> merah saat main <em>game online</em> tepat ketika kalender menunjukkan akhir bulan?</p>
+    
+    <p>Jika kamu pernah mengalami hal ini, kamu tidak sendirian. Fenomena ini sering menjadi keluhan utama pengguna internet rumah di Indonesia. Dan penyebab utamanya seringkali adalah satu istilah tersembunyi: <strong>FUP (Fair Usage Policy)</strong>.</p>
+
+    <div class="info-box">
+      <strong>Apa itu FUP?</strong> Singkatnya, FUP adalah batas pemakaian wajar. Jika kamu sudah memakai data melewati batas GB (Gigabyte) tertentu yang ditetapkan oleh operator, kecepatan internetmu akan "disunat" alias diturunkan secara drastis hingga tagihan bulan berikutnya terbit.
+    </div>
+
+    <h2>Rahasia "Gelap" Batasan Kuota Terselubung</h2>
+    <p>Banyak calon pelanggan tergiur dengan iklan "Internet Unlimited" murah. Namun, sayangnya, beberapa provider konvensional menyematkan syarat FUP dalam tulisan yang sangat kecil di kontrak berlangganan.</p>
+
+    <p>Akibatnya, ketika anak-anak di rumah sering <em>streaming</em> film resolusi 4K atau ada yang harus mengunduh <em>file</em> pekerjaan masif, batas FUP tersebut akan cepat tercapai (biasanya di kisaran 300GB - 500GB). Tagihan bulanan yang kamu bayar tetap utuh seratus persen, namun kecepatan yang kamu terima merosot hingga di bawah 2 Mbps. Hal ini tentu terasa tidak adil bagi konsumen.</p>
+
+    <h2>Solusi Cerdas: Internet 100% Bebas FUP</h2>
+    <p>Untuk menghindari jebakan "internet melambat di akhir bulan", satu-satunya jalan adalah beralih menggunakan layanan dari provider yang secara transparan menyatakan komitmen <strong>Tanpa FUP</strong> atau <strong>100% Unlimited</strong> secara riil.</p>
+
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h4><i class="fas fa-times-circle" style="color: #dc2626;"></i> Provider Ber-FUP</h4>
+        <ul>
+          <li>Klaim unlimited, tapi ada batas kuota GB tersembunyi.</li>
+          <li>Kecepatan turun drastis saat batas FUP tercapai.</li>
+          <li>Sering ngelag di pertengahan/akhir bulan.</li>
+        </ul>
+      </div>
+      <div class="compare-card">
+        <h4><i class="fas fa-check-circle" style="color: #16a34a;"></i> XL SATU Fiber</h4>
+        <ul>
+          <li>Benar-benar <em>unlimited</em> murni sepanjang bulan.</li>
+          <li>Bebas unduh <em>game</em> atau <em>streaming</em> 4K berhari-hari.</li>
+          <li>Kecepatan 100% stabil di tanggal 1 maupun 30.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p><strong>XL SATU Fiber</strong> hadir sebagai solusi modern yang berpihak pada pelanggan. Kami berkomitmen penuh memberikan internet tanpa batasan FUP. Kecepatan 250 Mbps akan tetap menjadi 250 Mbps kapan pun kamu menggunakannya.</p>
+
+    <div class="cta-box">
+      <h3>Capek Kena FUP Tiap Bulan?</h3>
+      <p>Tinggalkan koneksi lemot akhir bulan. Beralih ke XL SATU Fiber dan rasakan internet unlimited murni yang sebenarnya.</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20langganan%20XL%20SATU%20yang%20tanpa%20FUP" target="_blank" rel="noopener noreferrer" class="btn-cta">
+        <i class="fab fa-whatsapp"></i> Ganti ke Internet Bebas FUP
+      </a>
+    </div>
+  `
+};
+
+ARTIKEL['eksperimen-game-streaming-zoom-bersamaan'] = {
+  slug: 'eksperimen-game-streaming-zoom-bersamaan',
+  title: 'Eksperimen Gila: Main Game, Netflix 4K, & Zoom Barengan Pakai XL SATU!',
+  description: 'Apa jadinya kalau router XL SATU Fiber dipakai untuk Genshin Impact, streaming Netflix 4K, dan Zoom meeting secara bersamaan? Baca hasil eksperimen stres test kami.',
+  keywords: ['wifi untuk game online', 'rekomendasi wifi banyak hp', 'review xl satu fiber', 'internet anti lag', 'wifi kuat buat streaming'],
+  ogTitle: 'Eksperimen Gila: Siksa Bandwidth XL SATU, Apakah Routernya Meledak?',
+  ogDescription: 'Hasil uji coba ekstrem: Main Genshin, Streaming Netflix 4K, dan Video Conference Zoom dalam satu waktu.',
+  ogImage: '/images/promo-wifi-rumah-koneksi-pasti.webp',
+  schemas: [],
+  faqs: [],
+  hero: { crumb: '<a href="https://xlsatusolo.com/">Beranda</a> / Review & Performa', h1: 'Eksperimen Ekstrem Siksa Bandwidth', sub: 'Satu koneksi dipakai untuk 3 aktivitas berat secara bersamaan. Apakah koneksinya putus?', meta: 'Review &middot; XL SATU Solo Raya' },
+  headerCta: 'https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20internet%20buat%20game%20online',
+  bodyHtml: `
+    <p>Memilih internet untuk keluarga dengan berbagai macam hobi seringkali memusingkan. Si anak butuh <em>ping</em> stabil untuk main <em>game online</em>, ibu hobi maraton drakor resolusi tinggi di <em>Smart TV</em>, sedangkan ayah butuh koneksi tanpa <em>delay</em> untuk <em>meeting Zoom</em> dengan klien luar negeri.</p>
+    
+    <p>Pertanyaannya: apakah ada satu paket WiFi yang kuat mengangkat ketiga beban berat tersebut secara bersamaan tanpa membuat salah satunya mengalah?</p>
+
+    <div class="info-box">
+      <strong>Uji Coba "Siksaan":</strong> Kami melakukan eksperimen ekstrem dengan menggunakan paket <strong>XL SATU Fiber Spark 250 Mbps</strong> untuk menjalankan 3 aktivitas rakus <em>bandwidth</em> secara paralel.
+    </div>
+
+    <h2>Skenario Ekstrem</h2>
+    <p>Di sebuah rumah uji coba di area Solo, kami menyiapkan 3 perangkat yang terhubung ke satu router WiFi bawaan XL SATU:</p>
+    <ul>
+      <li><strong>Perangkat 1 (PC Gaming):</strong> Menjalankan <em>Genshin Impact</em> (atau setara Valorant/Mobile Legends) sambil mengunduh <em>update game</em> berukuran besar di latar belakang. Target: Memastikan <em>ping</em> tetap berwarna hijau.</li>
+      <li><strong>Perangkat 2 (Smart TV):</strong> Memutar Netflix dengan kualitas resolusi tertinggi (Ultra HD / 4K). Target: Menghindari munculnya <em>loading wheel</em> / layar <em>buffering</em>.</li>
+      <li><strong>Perangkat 3 (Laptop WFH):</strong> Menjalankan sesi <em>video conference</em> via Zoom dengan belasan peserta plus berbagi layar (<em>screen sharing</em>). Target: Gambar dan suara transmisi tidak patah-patah.</li>
+    </ul>
+
+    <h2>Hasil yang Mengejutkan</h2>
+    <p>Apakah routernya kepanasan dan meledak? Tentu saja tidak! Hasil performa paket Spark ini sangat memuaskan di luar ekspektasi:</p>
+    
+    <div class="step-box">
+      <div class="step-num"><i class="fas fa-gamepad" style="font-size: 14px;"></i></div>
+      <div>
+        <h4>Stabilitas Gaming Terjaga</h4>
+        <p>Berkat rute jaringan langsung berbasis fiber optic murni, <em>ping</em> pada PC Gaming tetap konsisten di angka belasan milidetik (ms). Pergerakan karakter sangat <em>smooth</em> tanpa gejala <em>rubber-banding</em> (lag mundur), bahkan ketika jaringan sedang dipakai <em>download</em> besar-besaran.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num"><i class="fas fa-tv" style="font-size: 14px;"></i></div>
+      <div>
+        <h4>Streaming 4K Tanpa Buffering</h4>
+        <p>Smart TV langsung memuat video dalam resolusi 4K hanya dalam waktu kurang dari 3 detik. Alokasi <em>bandwidth</em> dari paket 250 Mbps terbukti jauh lebih dari sekadar cukup untuk menyuplai data video <em>bitrate</em> super tinggi secara konstan.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num"><i class="fas fa-video" style="font-size: 14px;"></i></div>
+      <div>
+        <h4>Meeting Zoom Sejernih Kristal</h4>
+        <p>Laptop WFH mendeteksi koneksi yang sangat stabil. Transmisi suara terjadi secara *real-time*, meniadakan momen-momen kikuk "halo-halo suara saya kedengaran?" saat berbicara dengan klien luar negeri.</p>
+      </div>
+    </div>
+
+    <h2>Rahasia Dibalik Performa Solid</h2>
+    <p>Rahasia dari kemampuan ini terletak pada teknologi <strong>100% Fiber Optic</strong> dari ujung ke ujung. Dibandingkan infrastruktur campuran yang rentan, kabel optik modern menjamin kecepatan transmisi yang stabil dengan kapasitas <em>throughput</em> masif.</p>
+
+    <p>Selain itu, *bandwidth* dasar 250 Mbps secara hitungan teknis memang sanggup menangani setidaknya 10-15 perangkat secara serentak, menjadikannya pilihan <em>sweet spot</em> (paling ideal dan hemat) bagi rumah tangga modern di Indonesia.</p>
+
+    <div class="cta-box">
+      <h3>Butuh Internet Anti Lemot untuk Keluarga?</h3>
+      <p>Sudahi perdebatan rebutan sinyal WiFi di rumah. Pasang XL SATU Spark 250 Mbps (Gratis Instalasi) sekarang juga!</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20tertarik%20dengan%20kecepatan%20paket%20Spark%20250Mbps" target="_blank" rel="noopener noreferrer" class="btn-cta">
+        <i class="fab fa-whatsapp"></i> Cek Ketersediaan Paket
+      </a>
+    </div>
+  `
+};
