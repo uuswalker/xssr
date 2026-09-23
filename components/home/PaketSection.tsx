@@ -108,15 +108,14 @@ function FiberCard({ t }: { t: FiberTier }) {
             <span>/bulan</span>
           </div>
           <div className="price-ppn">Belum termasuk PPN</div>
-          <a
-            href={tierWa(t)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-pilih"
-            aria-label={`Tanya Paket ${t.name}`}
+          <button
+            type="button"
+            className="btn-pilih btn-cek-lokasi-trigger"
+            aria-label={`Pilih Paket ${t.name}`}
+            data-paket={t.waText}
           >
-            Tanya Paket Ini
-          </a>
+            Saya Pilih Ini
+          </button>
         </div>
       </div>
     </div>
@@ -354,15 +353,14 @@ export function TahunanPaket() {
                   >
                     {t.perMonth} • {t.save}
                   </div>
-                    <a
-                      href={tierWa(t)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-pilih"
-                      aria-label={`Tanya Paket ${t.name}`}
+                    <button
+                      type="button"
+                      className="btn-pilih btn-cek-lokasi-trigger"
+                      aria-label={`Pilih Paket ${t.name}`}
+                      data-paket={t.waText}
                     >
-                      Tanya Paket Ini
-                    </a>
+                      Saya Pilih Ini
+                    </button>
                 </div>
               </div>
             </div>
@@ -559,16 +557,15 @@ export function WirelessPaket({
                     <div className="harga-label">{w.label}</div>
                     <div className="harga-value">{w.price}</div>
                     <div className="harga-note">{w.note}</div>
-                    <a
-                      href={tierWa(w)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-pilih"
+                    <button
+                      type="button"
+                      className="btn-pilih btn-cek-lokasi-trigger"
                       style={{ width: "100%", marginTop: "auto" }}
-                      aria-label={`Tanya Paket ${w.speed} Mbps`}
+                      aria-label={`Pilih Paket ${w.speed} Mbps`}
+                      data-paket={w.waText}
                     >
-                      Tanya Paket Ini
-                    </a>
+                      Saya Pilih Ini
+                    </button>
                   </div>
                 ))}
               </div>
@@ -625,16 +622,15 @@ export function WirelessPaket({
                     <div className="harga-label">{w.label}</div>
                     <div className="harga-value">{w.price}</div>
                     <div className="harga-note">{w.note}</div>
-                    <a
-                      href={tierWa(w)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-pilih"
+                    <button
+                      type="button"
+                      className="btn-pilih btn-cek-lokasi-trigger"
                       style={{ width: "100%", marginTop: "auto" }}
-                      aria-label={`Tanya Paket ${w.speed} Mbps`}
+                      aria-label={`Pilih Paket ${w.speed} Mbps`}
+                      data-paket={w.waText}
                     >
-                      Tanya Paket Ini
-                    </a>
+                      Saya Pilih Ini
+                    </button>
                   </div>
                 ))}
               </div>

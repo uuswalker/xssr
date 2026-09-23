@@ -62,6 +62,7 @@ export default function CekLokasi() {
   const [geoFallback, setGeoFallback] = useState(false);
   const [coverage, setCoverage] = useState<CoverageResult | null>(null);
   const [strip, setStrip] = useState<string | null>(null);
+  const [paketPilihan, setPaketPilihan] = useState<string | null>(null);
 
   const dataRef = useRef<{ data: CoverageData | null; loaded: boolean; promise: Promise<void> | null }>({
     data: null,
@@ -314,11 +315,14 @@ export default function CekLokasi() {
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
       const t = e.target as HTMLElement | null;
-      const el = t?.closest?.("#btn-buka-cek-lokasi, .btn-cek-lokasi-trigger");
+      const el = t?.closest?.("#btn-buka-cek-lokasi, .btn-cek-lokasi-trigger") as HTMLElement | null;
       if (!el) return;
       modalOpened.current = true;
       setStrip(null);
-      if (el.classList.contains("btn-cek-lokasi-trigger")) bukaModal("header");
+      // Tangkap info paket dari data-paket attribute (jika ada)
+      const paketData = el.getAttribute("data-paket");
+      setPaketPilihan(paketData || null);
+      if (el.classList.contains("btn-cek-lokasi-trigger")) bukaModal(paketData ? "paket" : "header");
       else bukaModal();
     };
     document.addEventListener("click", onClick, true);
@@ -515,8 +519,10 @@ export default function CekLokasi() {
       /* abaikan */
     }
     const covLine = coverageLine(coverage);
+    const paketLine = paketPilihan ? `Paket: ${paketPilihan}\n` : "";
     const pesan =
-      `Halo kak, saya ${nm}, mau cek ketersediaan XL SATU.\n` +
+      `Halo kak, saya ${nm}, mau ${paketPilihan ? "daftar" : "cek ketersediaan"} XL SATU.\n` +
+      paketLine +
       (p.alamat ? `Alamat: ${p.alamat}\n` : "") +
       (mapsLink ? `Peta lokasi: ${mapsLink}\n` : "") +
       (p.kota ? `Area terdekat: ${p.kota}\n` : "") +
@@ -524,7 +530,8 @@ export default function CekLokasi() {
     window.open(`https://wa.me/${NOMOR_WA_SALES}?text=${encodeURIComponent(pesan)}`, "_blank");
     setOpen(false);
     setSending(false);
-  }, [nama, wa, coverage]);
+    setPaketPilihan(null);
+  }, [nama, wa, coverage, paketPilihan]);
 
   // ---- strip + IP layer ----
   useEffect(() => {
@@ -798,10 +805,12 @@ export default function CekLokasi() {
               {step === "lokasi" ? (
               <motion.div key="lokasi" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 30 }} transition={{ type: "spring", stiffness: 300, damping: 30 }} id="cl-step-lokasi">
                 <h3 className="cl-title" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
-                  <MapPin size={18} /> Cek Ketersediaan di Lokasimu
+                  <MapPin size={18} /> {paketPilihan ? "Satu Langkah Lagi!" : "Cek Ketersediaan"}
                 </h3>
                 <p className="cl-sub">
-                  Bagikan lokasimu — sistem cek otomatis coverage fiber di lokasimu.
+                  {paketPilihan
+                    ? `Kamu memilih ${paketPilihan.replace(/Saya minat paket /i, '').replace(/Saya minat /i, '')}. Cek ketersediaan di lokasimu dulu ya!`
+                    : "Bagikan lokasimu — sistem cek otomatis coverage fiber di lokasimu."}
                 </p>
                 <button
                   type="button"
@@ -981,7 +990,7 @@ export default function CekLokasi() {
                     style={{ marginTop: 12 }}
                   >
                     <MessageCircle size={18} />{" "}
-                    {sending ? "Memproses..." : "Kirim & Lanjut ke WhatsApp"}
+                    {sending ? "Memproses..." : paketPilihan ? "Daftar via WhatsApp" : "Kirim & Lanjut ke WhatsApp"}
                   </button>
                   <button
                     type="button"
