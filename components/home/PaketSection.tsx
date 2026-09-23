@@ -165,6 +165,11 @@ export function FiberPaket({ promoBadge = "Promo XL Satu Soloraya" }: { promoBad
           berlaku
         </p>
 
+        <div style={{ maxWidth: "700px", margin: "0 auto 24px auto", background: "#f0fdf4", border: "1.5px dashed #4ade80", borderRadius: "10px", padding: "12px 20px", display: "flex", alignItems: "center", gap: "12px", justifyContent: "center" }}>
+          <span style={{ fontSize: "20px" }}>🚨</span>
+          <p style={{ margin: 0, fontSize: "14px", fontWeight: 600, color: "#166534" }}>Beralih ke XL SATU: 100% Tanpa FUP &amp; GRATIS Biaya Pasang (Hemat Rp 99.000!)</p>
+        </div>
+
         <div className="paket-grid">
           {visibleFiber.map((t) => (
             <FiberCard key={t.name} t={t} />

@@ -48,4 +48,5 @@ export const V1_ROUTES: string[] = [
   "/wfh-angkringan-solo-xl-satu/",
   "/rahasia-fup-internet-rumah/",
   "/eksperimen-game-streaming-zoom-bersamaan/",
+  "/promo-perumahan-solo/",
 ];

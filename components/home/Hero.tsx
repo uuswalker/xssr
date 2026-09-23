@@ -248,6 +248,11 @@ export function HomeHeroLokal() {
           <MapPin size={18} style={{ flexShrink: 0 }} />
           Cek Ketersediaan di Area Saya
         </button>
+        
+        <div style={{ marginTop: "16px", display: "inline-flex", alignItems: "center", gap: "8px", background: "#fef3c7", padding: "6px 14px", borderRadius: "999px", border: "1px solid #fde68a" }}>
+          <span style={{ fontSize: "16px" }}>🏆</span>
+          <span style={{ fontSize: "13px", fontWeight: 700, color: "#92400e" }}>Pemenang Opensignal 2026: Jaringan Paling Andal</span>
+        </div>
         <div className="hero-lokal-stats">
           {[
             ["5", "Kota Soloraya"],
