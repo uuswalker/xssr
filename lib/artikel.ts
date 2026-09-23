@@ -290,3 +290,70 @@ ARTIKEL["xl-satu-vs-indihome-myrepublic-solo"] = {
   </div>
   `
 };
+
+ARTIKEL['proses-pendaftaran-pemasangan-xl-satu-fiber'] = {
+  slug: 'proses-pendaftaran-pemasangan-xl-satu-fiber',
+  title: 'Proses Daftar & Pasang XL SATU Fiber: Verifikasi KTP s/d Teknisi',
+  description: 'Pahami 5 langkah mudah proses pendaftaran dan pemasangan wifi rumah XL SATU Fiber. Mulai dari cek lokasi, verifikasi KTP, pembayaran prabayar, sampai teknisi pasang.',
+  keywords: ['cara daftar xl satu', 'proses pasang wifi xl satu', 'syarat pasang xl satu', 'pembayaran awal xl satu', 'verifikasi wajah xl satu'],
+  ogTitle: 'Proses Daftar & Pasang XL SATU Fiber: Verifikasi s/d Teknisi',
+  ogDescription: 'Pahami 5 langkah proses pendaftaran wifi rumah XL SATU Fiber. Mulai dari cek lokasi, verifikasi KTP, pembayaran prabayar, sampai teknisi pasang.',
+  ogImage: '/images/promo-wifi-rumah-koneksi-pasti.webp',
+  schemas: [],
+  faqs: [],
+  hero: {
+    crumb: '<a href="https://xlsatusolo.com/">Beranda</a> / Proses Pendaftaran XL SATU',
+    h1: 'Proses Daftar & Pasang XL SATU Fiber',
+    sub: 'Panduan lengkap dari awal registrasi, verifikasi wajah, sistem prabayar, hingga teknisi datang.',
+    meta: 'Diperbarui hari ini &middot; XL SATU Solo Raya'
+  },
+  headerCta: 'https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20daftar%20WiFi%20XL%20SATU',
+  bodyHtml: `
+
+  <p>Pernahkah kamu ragu saat ingin memasang WiFi rumah karena prosesnya yang terkesan ribet atau takut dengan tagihan yang tidak transparan? Di era digital ini, keamanan data dan kejelasan pembayaran adalah prioritas utama.</p>
+
+  <p><strong>XL SATU Fiber</strong> hadir dengan sistem pendaftaran modern yang 100% aman, transparan, dan sangat mudah. Berbeda dengan provider internet kabel pada umumnya, XL SATU menggunakan <strong>sistem prabayar (prepaid)</strong> dan verifikasi biometrik untuk melindungi pelanggannya dari penipuan.</p>
+
+  <p>Bagi kamu yang berencana memasang internet rumah super cepat dari XL SATU, berikut adalah 5 tahapan resmi dari awal registrasi hingga internet aktif di rumahmu.</p>
+
+  <h2>1. Registrasi & Cek Coverage Lokasi</h2>
+  <p>Langkah pertama yang wajib dilakukan adalah memastikan rumah atau kos kamu sudah tercover jaringan kabel <em>fiber optic</em> XL SATU. Kamu tidak perlu repot datang ke kantor cabang.</p>
+  <p>Cukup hubungi agen resmi XL SATU melalui WhatsApp. Kirimkan <strong>Share Location (titik koordinat akurat)</strong> dan alamat lengkapmu. Sistem kami akan mengecek jarak tiang terdekat. Jika tersedia, kamu bisa langsung memilih paket internet (misalnya paket Spark 250 Mbps) dan kami akan membuatkan form pendaftaran awal.</p>
+
+  <h2>2. Verifikasi Data (Vermuk) Sesuai KTP</h2>
+  <p>Ini adalah tahap paling krusial yang membedakan XL SATU dengan provider lain. Demi keamanan tingkat tinggi dan mencegah penyalahgunaan data (pendaftaran fiktif), XL SATU mewajibkan <strong>Verifikasi Wajah (Vermuk)</strong> yang terintegrasi dengan data Dukcapil.</p>
+  <p>Prosesnya sangat aman:</p>
+  <ul>
+    <li>Kamu akan menerima link resmi dari XL Axiata melalui SMS.</li>
+    <li>Buka link tersebut, lalu foto e-KTP aslimu.</li>
+    <li>Lakukan foto <em>selfie</em> (verifikasi wajah).</li>
+    <li>Sistem cerdas XL akan mencocokkan wajahmu dengan foto di KTP secara otomatis dalam hitungan detik.</li>
+  </ul>
+  <p>Dengan sistem ini, data KTP kamu dijamin aman dan tidak bisa disalahgunakan oleh oknum sales nakal.</p>
+
+  <h2>3. Pembayaran Tagihan Pertama (Sistem Prabayar)</h2>
+  <p>Sering dengar kasus pelanggan ditagih biaya "siluman" oleh teknisi lapangan? Di XL SATU, hal itu <strong>tidak akan terjadi</strong>.</p>
+  <p>XL SATU Fiber menggunakan sistem <strong>Prabayar (Prepaid)</strong>, yang artinya kamu membayar paket internet di awal, sama seperti membeli kuota HP.</p>
+  <ul>
+    <li><strong>Kapan bayarnya?</strong> Setelah verifikasi data KTP berhasil, kamu akan mendapatkan nomor <strong>Virtual Account (VA)</strong> resmi atas nama XL Axiata. Pembayaran dilakukan <em>sebelum</em> teknisi datang.</li>
+    <li><strong>Tidak ada pembayaran tunai.</strong> Jangan pernah memberikan uang tunai kepada sales atau teknisi. Semua transaksi 100% via transfer bank, e-wallet, atau minimarket ke rekening resmi perusahaan.</li>
+    <li><strong>Harga Pasti.</strong> Tagihan yang dibayar sudah <em>flat</em> sesuai paket + PPN, tanpa tambahan biaya sewa alat atau biaya survei dadakan.</li>
+  </ul>
+
+  <h2>4. Penjadwalan Kedatangan Teknisi</h2>
+  <p>Begitu pembayaran pertama kamu terkonfirmasi oleh sistem (biasanya otomatis dalam hitungan menit), status pendaftaranmu akan langsung masuk ke tahap penjadwalan.</p>
+  <p>Tim teknisi XL SATU atau sistem <em>scheduling</em> akan menghubungimu untuk menentukan jadwal pemasangan. Kamu bisa memilih hari dan jam yang paling nyaman, asalkan ada orang dewasa yang siap mendampingi di rumah saat proses instalasi.</p>
+
+  <h2>5. Proses Pemasangan & Internet Aktif!</h2>
+  <p>Pada hari yang telah disepakati, teknisi ahli XL SATU akan datang ke rumahmu membawa perangkat <em>router</em> (modem) dan kabel <em>fiber optic</em>.</p>
+  <p>Proses pemasangan umumnya memakan waktu sekitar 1 hingga 3 jam, tergantung tingkat kesulitan penarikan kabel dari tiang FAT (Fiber Access Terminal) ke dalam rumahmu. Teknisi akan mengatur <em>password</em> WiFi sesuai keinginanmu. Setelah semuanya terpasang, internet akan langsung <strong>aktif saat itu juga</strong>!</p>
+
+  <div class="cta-box">
+    <h3>Siap Pasang XL SATU?</h3>
+    <p>Proses pasang WiFi XL SATU sangat terstruktur: <strong>Registrasi > Verifikasi KTP (Vermuk) > Pembayaran VA > Penjadwalan > Pasang & Aktif</strong>. Sistem prabayar ini justru melindungi pelanggan dari tagihan membengkak dan penipuan.</p>
+    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20ketersediaan%20WiFi%20XL%20SATU" target="_blank" rel="noopener noreferrer" class="btn-cta">
+      <i class="fab fa-whatsapp"></i> Cek Ketersediaan Sekarang
+    </a>
+  </div>
+  `
+};

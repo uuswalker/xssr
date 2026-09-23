@@ -44,4 +44,5 @@ export const V1_ROUTES: string[] = [
   "/wifi-tanpa-fup-unlimited/",
   "/tes-kecepatan/",
   "/xl-satu-vs-indihome-myrepublic-solo/",
+  "/proses-pendaftaran-pemasangan-xl-satu-fiber/",
 ];
