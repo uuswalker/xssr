@@ -8,7 +8,8 @@ import type { Artikel } from "@/lib/artikel";
 import { PAGE_CSS } from "@/lib/page-css";
 
 export default function Article({ data }: { data: Artikel }) {
-  const css = PAGE_CSS[data.slug] || "";
+  const isGeoPage = data.slug.startsWith("pasang-wifi-xl-satu-");
+  const css = PAGE_CSS[data.slug] || (isGeoPage ? PAGE_CSS['cara-daftar-pasang-wifi-xl-satu-solo'] : "");
   return (
     <>
       <Header ctaHref={data.headerCta || undefined} />

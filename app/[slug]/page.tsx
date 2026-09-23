@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import PageTransition from "@/components/animations/PageTransition";
 import Article from "@/components/Article";
 import { ARTIKEL } from "@/lib/artikel";
+import { GEO_AREAS, getGeoArticle } from "@/lib/geo-pages";
 import { decodeEntities } from "@/lib/kota";
 import { JsonLd, pageMetadata } from "@/lib/seo";
 
@@ -11,14 +12,14 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  return Object.keys(ARTIKEL).map((slug) => ({
-    slug: slug,
-  }));
+  const articleRoutes = Object.keys(ARTIKEL).map((slug) => ({ slug }));
+  const geoRoutes = GEO_AREAS.map((area) => ({ slug: `pasang-wifi-xl-satu-${area}` }));
+  return [...articleRoutes, ...geoRoutes];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const a = ARTIKEL[slug];
+  const a = ARTIKEL[slug] || getGeoArticle(slug);
   if (!a) return {};
 
   const base = pageMetadata({
@@ -40,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { slug } = await params;
-  const a = ARTIKEL[slug];
+  const a = ARTIKEL[slug] || getGeoArticle(slug);
   
   if (!a) notFound();
 

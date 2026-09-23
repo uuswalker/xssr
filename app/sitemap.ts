@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_DOMAIN, V1_ROUTES } from "@/lib/site";
 import { ARTIKEL } from "@/lib/artikel";
+import { GEO_AREAS } from "@/lib/geo-pages";
 
 export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -24,5 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }));
 
-  return [...staticRoutes, ...articleRoutes];
+  const geoRoutes: MetadataRoute.Sitemap = GEO_AREAS.map((area: string) => ({
+    url: `${SITE_DOMAIN}/pasang-wifi-xl-satu-${area}/`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.75,
+  }));
+
+  return [...staticRoutes, ...articleRoutes, ...geoRoutes];
 }
