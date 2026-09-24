@@ -9,8 +9,8 @@ import { pageMetadata } from "@/lib/seo";
 import { MapPin, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Cek Ketersediaan Jaringan XL SATU | Deteksi Fiber Optic",
-  description: "Cek langsung apakah lokasi rumah Anda sudah tercover jaringan fiber optic XL SATU. Ketahui ketersediaan jaringan dalam 1 menit secara otomatis.",
+  title: "Cek Ketersediaan Jaringan XL SATU | Fiber & Wireless",
+  description: "Cek langsung apakah lokasi rumah Anda sudah tercover jaringan XL SATU — fiber optic atau wireless. Sistem otomatis deteksi opsi terbaik untuk lokasimu dalam 1 menit.",
   path: "/cek-jaringan/",
 });
 
@@ -23,11 +23,12 @@ export default function CekJaringanPage() {
           <div className="hero-lokal-inner">
             <ScrollReveal>
               <h1>
-                Cek Ketersediaan <span>Jaringan XL SATU Fiber</span>
+                Cek Ketersediaan <span>Jaringan XL SATU</span>
               </h1>
               <p>
-                Ketahui dengan akurat apakah lokasi rumah Anda sudah terjangkau oleh kabel fiber optic kami.
-                Sistem kami akan mendeteksi jarak tiang terdekat dalam hitungan detik.
+                Ketahui dengan akurat apakah lokasi rumah Anda sudah terjangkau jaringan XL SATU —
+                fiber optic maupun wireless. Sistem kami otomatis mendeteksi opsi terbaik
+                untuk lokasimu dalam hitungan detik.
               </p>
               
               <div style={{ margin: "20px 0" }}>
@@ -56,7 +57,7 @@ export default function CekJaringanPage() {
 
               <div className="hero-lokal-stats">
                 {[
-                  ["Deteksi", "Tiang Terdekat"],
+                  ["Deteksi", "Fiber & Wireless"],
                   ["1 Menit", "Proses Pengecekan"],
                   ["Gratis", "Tanpa Biaya"],
                 ].map(([num, label]) => (
