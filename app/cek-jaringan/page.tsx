@@ -6,6 +6,7 @@ import WaFloat from "@/components/WaFloat";
 import PageTransition from "@/components/animations/PageTransition";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import { pageMetadata } from "@/lib/seo";
+import { MapPin, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = pageMetadata({
   title: "Cek Ketersediaan Jaringan XL SATU | Deteksi Fiber Optic",
@@ -17,83 +18,104 @@ export default function CekJaringanPage() {
   return (
     <>
       <Header />
-      <main className="bg-slate-50 min-h-screen pb-20">
-        <PageTransition>
-          <div className="pt-24 pb-10 bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 text-white relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "32px 32px" }}></div>
-            
-            <div className="container mx-auto px-4 relative z-10 text-center max-w-2xl">
-              <ScrollReveal>
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 backdrop-blur border border-white/20 mb-6">
-                  <i className="fas fa-map-marker-alt text-3xl text-green-400"></i>
-                </div>
-                <h1 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight tracking-tight">
-                  Cek Ketersediaan Jaringan XL SATU
-                </h1>
-                <p className="text-blue-100 text-lg md:text-xl mb-8">
-                  Ketahui dengan akurat apakah lokasi rumah Anda sudah terjangkau oleh kabel Fiber Optic kami.
-                </p>
-              </ScrollReveal>
-            </div>
-          </div>
-
-          <div className="container mx-auto px-4 -mt-8 relative z-20 max-w-xl">
-            <ScrollReveal delay={0.2}>
-              <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-slate-100 text-center">
-                <div className="bg-blue-50 text-blue-800 p-4 rounded-xl mb-6 text-left">
-                  <h3 className="font-bold flex items-center gap-2 mb-2">
-                    <i className="fas fa-info-circle"></i> Cara Mengecek Lokasi
-                  </h3>
-                  <ul className="text-sm md:text-base space-y-2 text-slate-700 ml-1">
-                    <li className="flex gap-2">
-                      <i className="fas fa-check text-green-500 mt-1"></i>
-                      <span>Tekan tombol cek lokasi di bawah ini.</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <i className="fas fa-check text-green-500 mt-1"></i>
-                      <span>Izinkan akses GPS/Lokasi pada browser HP/Laptop Anda.</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <i className="fas fa-check text-green-500 mt-1"></i>
-                      <span>Sistem akan langsung menampilkan jarak titik rumah Anda dengan tiang fiber terdekat.</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <button 
+      <PageTransition>
+        <section className="hero-lokal">
+          <div className="hero-lokal-inner">
+            <ScrollReveal>
+              <h1>
+                Cek Ketersediaan <span>Jaringan XL SATU Fiber</span>
+              </h1>
+              <p>
+                Ketahui dengan akurat apakah lokasi rumah Anda sudah terjangkau oleh kabel fiber optic kami.
+                Sistem kami akan mendeteksi jarak tiang terdekat dalam hitungan detik.
+              </p>
+              
+              <div style={{ margin: "20px 0" }}>
+                <button
+                  type="button"
                   id="btn-buka-cek-lokasi"
-                  className="w-full bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold text-lg py-4 px-6 rounded-xl shadow-lg shadow-green-500/30 transition-all flex items-center justify-center gap-3 group"
+                  className="btn-pilih btn-cek-lokasi-trigger"
+                  style={{
+                    display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, width: "auto", padding: "16px 36px",
+                    borderRadius: 999,
+                    fontSize: 16,
+                    fontWeight: "bold",
+                    border: "none",
+                    cursor: "pointer",
+                    boxShadow: "0 8px 16px rgba(0,0,0,0.1)",
+                    margin: "0 auto",
+                  }}
                 >
-                  <i className="fas fa-crosshairs group-hover:rotate-90 transition-transform duration-300"></i>
+                  <MapPin size={20} style={{ flexShrink: 0 }} />
                   Mulai Cek Titik Lokasi Sekarang
                 </button>
-
-                <p className="text-xs text-slate-400 mt-4">
-                  * Data lokasi hanya digunakan untuk mengecek ketersediaan jaringan fiber optic dan tidak akan disalahgunakan.
-                </p>
+                <div style={{ marginTop: "12px", fontSize: "12px", color: "#666" }}>
+                  * Izinkan akses GPS/Lokasi pada browser Anda untuk hasil akurat
+                </div>
               </div>
-            </ScrollReveal>
 
-            <ScrollReveal delay={0.4}>
-              <div className="mt-8 text-center bg-slate-100 rounded-xl p-5 border border-slate-200">
-                <p className="text-slate-600 text-sm mb-3">
-                  Lebih nyaman kirim Share Location manual via WhatsApp?
-                </p>
-                <a 
-                  href="https://wa.me/6287778999141?text=Halo%20kak,%20tolong%20bantu%20cek%20ketersediaan%20jaringan%20XL%20SATU%20di%20lokasi%20rumah%20saya.%20(Berikut%20saya%20kirimkan%20Share%20Location-nya)"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700"
-                >
-                  <i className="fab fa-whatsapp text-lg"></i>
-                  Chat Admin via WhatsApp
-                </a>
+              <div className="hero-lokal-stats">
+                {[
+                  ["Deteksi", "Tiang Terdekat"],
+                  ["1 Menit", "Proses Pengecekan"],
+                  ["Gratis", "Tanpa Biaya"],
+                ].map(([num, label]) => (
+                  <div className="hero-lokal-stat" key={label}>
+                    <span className="num">{num}</span>
+                    <span className="label">{label}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div
+                style={{
+                  marginTop: 20,
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                  gap: "8px 22px",
+                  fontSize: 13.5,
+                  color: "#3d524c",
+                  fontWeight: 600,
+                }}
+              >
+                {[
+                  "Lokasi akurat via Google Maps",
+                  "Data 100% aman",
+                  "Langsung terhubung ke Sales",
+                ].map((t) => (
+                  <span key={t} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                    <CheckCircle2 size={16} color="var(--green)" style={{ flexShrink: 0 }} />
+                    {t}
+                  </span>
+                ))}
               </div>
             </ScrollReveal>
           </div>
-        </PageTransition>
-      </main>
+        </section>
+
+        <section style={{ padding: "40px 20px", textAlign: "center", background: "#f8f9fa", borderTop: "1px solid #eaeaea" }}>
+          <ScrollReveal delay={0.2}>
+            <p style={{ fontSize: "14px", color: "#555", marginBottom: "16px" }}>
+              Lebih nyaman kirim Share Location manual via WhatsApp?
+            </p>
+            <a 
+              href="https://wa.me/6287778999141?text=Halo%20kak,%20tolong%20bantu%20cek%20ketersediaan%20jaringan%20XL%20SATU%20di%20lokasi%20rumah%20saya.%20(Berikut%20saya%20kirimkan%20Share%20Location-nya)"
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex", alignItems: "center", gap: "8px", 
+                color: "#16a34a", fontWeight: "bold", textDecoration: "none",
+                fontSize: "16px"
+              }}
+            >
+              <i className="fab fa-whatsapp" style={{ fontSize: "20px" }}></i>
+              Chat Admin via WhatsApp
+            </a>
+          </ScrollReveal>
+        </section>
+
+      </PageTransition>
       <Footer />
       <WaFloat />
     </>
