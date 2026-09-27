@@ -584,40 +584,94 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-satu-solo"] = {
   },
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pindah%20dari%20provider%20lama%20ke%20XL%20SATU",
   bodyHtml: `
-<h2>Mengapa Banyak Warga Solo Pindah Provider WiFi?</h2>
-<p>Internet sudah menjadi kebutuhan primer, namun banyak pelanggan ISP lama (seperti IndiHome, Biznet, atau MyRepublic) di Solo Raya yang merasa frustrasi karena beberapa hal:</p>
-<ul>
-  <li><strong>Kena Jebakan FUP:</strong> Awal bulan kencang, tapi di akhir bulan kecepatan diturunkan drastis (throttling) karena kuota FUP habis.</li>
-  <li><strong>Tagihan Siluman:</strong> Harga promo di bulan pertama, namun tiba-tiba melonjak di bulan ke-4 tanpa pemberitahuan.</li>
-  <li><strong>Lampu Merah (LOS) Berkepanjangan:</strong> Jika kabel putus, penanganan teknisi seringkali lambat.</li>
-</ul>
-<p>Jika Anda mengalami hal di atas, ini saat yang tepat untuk bermigrasi ke <strong>XL SATU Fiber</strong> yang menawarkan 100% Unlimited Asli tanpa FUP dan harga tetap!</p>
+  <p>Internet sudah menjadi kebutuhan primer, namun banyak pelanggan ISP lama (seperti IndiHome, Biznet, atau MyRepublic) di Solo Raya yang merasa frustrasi. Jika Anda salah satunya, ini panduan lengkap untuk Anda.</p>
 
-<h2>Strategi Pindah Provider Tanpa Putus Koneksi (Zero Downtime)</h2>
-<p>Ketakutan terbesar saat ganti WiFi adalah <em>"Nanti internet mati beberapa hari pas kerja dari rumah gimana?"</em>. Berikut adalah strategi aman agar Anda tetap online:</p>
-<ol>
-  <li><strong>Jangan Putus Provider Lama Dulu:</strong> Biarkan WiFi lama Anda tetap aktif.</li>
-  <li><strong>Hubungi Agen XL SATU Solo:</strong> Klik tombol WhatsApp di bawah untuk mendaftar XL SATU. Kami akan cek jaringan di lokasi Anda dan segera menjadwalkan pemasangan (biasanya 3-7 hari kerja).</li>
-  <li><strong>Tunggu Sampai XL SATU Menyala:</strong> Teknisi kami akan menarik kabel dan mengaktifkan router XL SATU di rumah Anda.</li>
-  <li><strong>Lakukan Pemutusan (Disconnect):</strong> Setelah XL SATU 100% menyala dan lancar digunakan, barulah Anda mengurus pemutusan provider lama. Dengan cara ini, rumah Anda <strong>tidak akan pernah tanpa internet sedetik pun!</strong></li>
-</ol>
+  <h2>Mengapa Banyak Warga Solo Pindah Provider WiFi?</h2>
+  <div class="cause-grid">
+    <div class="cause-item">
+      <div class="num">1</div>
+      <div>
+        <h4>Kena Jebakan FUP</h4>
+        <p>Awal bulan kencang, tapi di akhir bulan kecepatan diturunkan drastis (throttling) karena kuota FUP habis.</p>
+      </div>
+    </div>
+    <div class="cause-item">
+      <div class="num">2</div>
+      <div>
+        <h4>Tagihan Siluman</h4>
+        <p>Harga promo di bulan pertama, namun tiba-tiba melonjak di bulan ke-4 tanpa pemberitahuan.</p>
+      </div>
+    </div>
+    <div class="cause-item">
+      <div class="num">3</div>
+      <div>
+        <h4>Lampu Merah (LOS) Berkepanjangan</h4>
+        <p>Jika kabel putus, penanganan teknisi seringkali lambat dan susah dihubungi.</p>
+      </div>
+    </div>
+  </div>
 
-<h2>Cara Mengurus Pemutusan IndiHome & Biznet</h2>
-<p>Untuk berhenti berlangganan provider lama, ikuti langkah berikut agar tidak terus ditagih:</p>
-<ul>
-  <li><strong>IndiHome:</strong> Datanglah ke Plasa Telkom terdekat di Solo (misal: Plasa Telkom Gladak) dengan membawa KTP asli dan Router/Modem/STB IndiHome. Pastikan Anda membayar tagihan terakhir (prorata) agar nama Anda tidak di-<em>blacklist</em>.</li>
-  <li><strong>Biznet:</strong> Biznet menggunakan sistem prabayar. Anda cukup menghubungi <em>customer service</em> atau datang ke kantor cabang Biznet Solo untuk melaporkan penghentian layanan. Pastikan mengembalikan perangkat modem jika Anda menyewanya.</li>
-  <li><strong>MyRepublic:</strong> Hubungi Call Center atau kirim email pengajuan berhenti berlangganan maksimal 14 hari sebelum siklus tagihan berikutnya. Jika sudah lewat kontrak minimal (biasanya 12 bulan), Anda tidak akan kena penalti.</li>
-</ul>
+  <div class="info-box">
+    <strong>Kabar Baik:</strong> Jika Anda mengalami hal di atas, ini saat yang tepat untuk bermigrasi ke <strong>XL SATU Fiber</strong> yang menawarkan 100% Unlimited Asli tanpa FUP dan harga tetap!
+  </div>
 
-<h2>Keuntungan Pindah ke XL SATU Fiber</h2>
-<p>Dengan beralih ke XL SATU, Anda akan menikmati:</p>
-<ul>
-  <li><strong>Bebas FUP:</strong> Nonton Netflix 4K, main game, dan download file besar sepuasnya tanpa takut speed turun.</li>
-  <li><strong>Harga Flat:</strong> Apa yang Anda lihat, itu yang Anda bayar. Tidak ada tagihan siluman.</li>
-  <li><strong>CS Lokal & Responsif:</strong> Dibantu langsung oleh agen resmi lokal Solo Raya, tanpa harus lewat bot yang membingungkan.</li>
-</ul>
-<p>Yuk, jadwalkan pemasangan XL SATU Anda hari ini sebelum kuota promo instalasi gratis bulan ini habis!</p>
+  <h2>Strategi Pindah Provider Tanpa Putus Koneksi (Zero Downtime)</h2>
+  <p>Ketakutan terbesar saat ganti WiFi adalah <em>"Nanti internet mati beberapa hari pas kerja dari rumah gimana?"</em>. Berikut adalah strategi aman agar Anda tetap online:</p>
+  
+  <div style="background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border: 1px solid #bbf7d0; border-radius: 14px; padding: 28px 24px; margin: 32px 0;">
+    <div style="display:grid; gap:14px;">
+      <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 18px; display:flex; gap:14px; align-items:flex-start;">
+        <div style="flex-shrink:0; width:36px; height:36px; background:#dcfce7; border-radius:8px; display:flex; align-items:center; justify-content:center;"><i class="fas fa-wifi" style="color:#16a34a; font-size:15px;"></i></div>
+        <div><strong style="font-size:14.5px;">1. Jangan Putus Provider Lama Dulu</strong><br><span style="font-size:13.5px; color:#555;">Biarkan WiFi lama Anda tetap aktif dan menyala di rumah.</span></div>
+      </div>
+      <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 18px; display:flex; gap:14px; align-items:flex-start;">
+        <div style="flex-shrink:0; width:36px; height:36px; background:#fef3c7; border-radius:8px; display:flex; align-items:center; justify-content:center;"><i class="fas fa-headset" style="color:#d97706; font-size:15px;"></i></div>
+        <div><strong style="font-size:14.5px;">2. Hubungi Agen XL SATU Solo</strong><br><span style="font-size:13.5px; color:#555;">Daftar lewat WA, biarkan tim kami cek jaringan dan menjadwalkan teknisi (3-7 hari kerja).</span></div>
+      </div>
+      <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 18px; display:flex; gap:14px; align-items:flex-start;">
+        <div style="flex-shrink:0; width:36px; height:36px; background:#dbeafe; border-radius:8px; display:flex; align-items:center; justify-content:center;"><i class="fas fa-check-circle" style="color:#2563eb; font-size:15px;"></i></div>
+        <div><strong style="font-size:14.5px;">3. Tunggu Sampai XL SATU Menyala</strong><br><span style="font-size:13.5px; color:#555;">Biarkan teknisi mengaktifkan router XL SATU Anda terlebih dahulu.</span></div>
+      </div>
+      <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 18px; display:flex; gap:14px; align-items:flex-start;">
+        <div style="flex-shrink:0; width:36px; height:36px; background:#fee2e2; border-radius:8px; display:flex; align-items:center; justify-content:center;"><i class="fas fa-power-off" style="color:#dc2626; font-size:15px;"></i></div>
+        <div><strong style="font-size:14.5px;">4. Lakukan Pemutusan (Disconnect) Provider Lama</strong><br><span style="font-size:13.5px; color:#555;">Barulah Anda mengurus pemutusan provider lama. Rumah Anda tidak akan pernah tanpa internet sedetik pun!</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Cara Mengurus Pemutusan IndiHome, Biznet & MyRepublic</h2>
+  <p>Untuk berhenti berlangganan, ikuti langkah berikut agar tidak terus ditagih:</p>
+  <ul>
+    <li><strong>IndiHome:</strong> Datang ke Plasa Telkom (misal: Gladak) dengan membawa KTP asli dan Router/Modem/STB. Lunasi tagihan terakhir (prorata) agar tidak di-blacklist.</li>
+    <li><strong>Biznet:</strong> Karena prabayar, cukup hubungi <em>customer service</em> atau datang ke cabang Biznet Solo untuk lapor penghentian dan kembalikan modem.</li>
+    <li><strong>MyRepublic:</strong> Hubungi Call Center/Email maksimal 14 hari sebelum siklus tagihan berikutnya agar tidak kena penalti (bila sudah lewat masa kontrak).</li>
+  </ul>
+
+  <h2>Keuntungan Pindah ke XL SATU Fiber</h2>
+  <ul>
+    <li><strong>Bebas FUP:</strong> Nonton Netflix 4K, main game, dan download file besar sepuasnya tanpa takut speed turun.</li>
+    <li><strong>Harga Flat:</strong> Apa yang Anda lihat, itu yang Anda bayar. Tidak ada tagihan siluman.</li>
+    <li><strong>CS Lokal & Responsif:</strong> Dibantu langsung oleh agen resmi lokal Solo Raya, tanpa harus lewat bot yang membingungkan.</li>
+  </ul>
+
+  <div class="cta-box">
+    <h3>Siap Pindah Tanpa Ribet?</h3>
+    <p>Tim support XL SATU siap bantu cek ketersediaan fiber optic di area kamu dan memproses pemasangan dengan cepat.</p>
+    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pindah%20dari%20provider%20lama%20ke%20XL%20SATU" target="_blank" rel="noopener noreferrer" class="btn-cta">
+      <i class="fab fa-whatsapp"></i> Chat Admin Sekarang
+    </a>
+  </div>
+
+  <h2>Cek Area Layanan di Kotamu</h2>
+  <p>XL SATU melayani pemasangan internet rumah dan kos di 5 wilayah Solo Raya: Sudah siap daftar? Baca <a href="/cara-daftar-pasang-wifi-xl-satu-solo/">panduan lengkap cara daftar & syarat pemasangan</a>.</p>
+  <div class="related-cities">
+    <a href="/wifi-solo/">Pasang WiFi Solo</a>
+    <a href="/wifi-sukoharjo/">Pasang WiFi Sukoharjo</a>
+    <a href="/wifi-karanganyar/">Pasang WiFi Karanganyar</a>
+    <a href="/wifi-klaten/">Pasang WiFi Klaten</a>
+    <a href="/wifi-boyolali/">Pasang WiFi Boyolali</a>
+    <a href="/wifi-surakarta/">Pasang WiFi Surakarta</a>
+  </div>
   `
 };
 
