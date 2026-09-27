@@ -102,11 +102,12 @@ export interface CoverageResult {
   jarakM: number | null;
   zona: string | null;
   fiberM: number | null;
+  homepassId: string | null;
 }
 
 export interface CoverageData {
-  pts: [number, number][];
-  wpts: [number, number, number][];
+  pts: [number, number, string?][];
+  wpts: [number, number, number, string?][];
   wzones: string[];
 }
 
@@ -115,21 +116,23 @@ export function cekWireless(
   data: CoverageData | null,
   lat: number,
   lng: number
-): { jarakM: number; zona: string | null } | null {
+): { jarakM: number; zona: string | null; homepassId: string | null } | null {
   if (!data || !data.wpts.length) return null;
   let best = Infinity;
   let bz: string | null = null;
+  let bestHpId: string | null = null;
   for (let i = 0; i < data.wpts.length; i++) {
     const p = data.wpts[i];
     const d = haversineM(lat, lng, p[1], p[0]);
     if (d < best) {
       best = d;
       bz = data.wzones[p[2]] || null;
+      bestHpId = p[3] || null;
     }
     if (best <= 20) break;
   }
   best = Math.round(best);
-  if (best <= 300) return { jarakM: best, zona: bz };
+  if (best <= 300) return { jarakM: best, zona: bz, homepassId: bestHpId };
   return null;
 }
 
@@ -142,28 +145,33 @@ export function cekCoverage(
   kota: string | null
 ): CoverageResult {
   if (kota === "Klaten" || kota === "Boyolali")
-    return { status: "wireless", jarakM: null, zona: null, fiberM: null };
+    return { status: "wireless", jarakM: null, zona: null, fiberM: null, homepassId: null };
   if (!data || !data.pts.length || !loaded)
-    return { status: "loading", jarakM: null, zona: null, fiberM: null };
+    return { status: "loading", jarakM: null, zona: null, fiberM: null, homepassId: null };
   let best = Infinity;
+  let bestHpId: string | null = null;
   for (let i = 0; i < data.pts.length; i++) {
     const d = haversineM(lat, lng, data.pts[i][1], data.pts[i][0]);
-    if (d < best) best = d;
+    if (d < best) {
+      best = d;
+      bestHpId = data.pts[i][2] || null;
+    }
     if (best <= 20) break;
   }
   const m = Math.round(best);
   const w = cekWireless(data, lat, lng);
   if (m <= 100)
-    return { status: "fiber", jarakM: m, zona: w ? w.zona : null, fiberM: null };
+    return { status: "fiber", jarakM: m, zona: w ? w.zona : null, fiberM: null, homepassId: bestHpId };
   if (w)
     return {
       status: "wireless",
       jarakM: w.jarakM,
       zona: w.zona,
       fiberM: m <= 250 ? m : null,
+      homepassId: w.homepassId || bestHpId
     };
-  if (m <= 250) return { status: "mungkin", jarakM: m, zona: null, fiberM: null };
-  return { status: "manual", jarakM: m, zona: null, fiberM: null };
+  if (m <= 250) return { status: "mungkin", jarakM: m, zona: null, fiberM: null, homepassId: bestHpId };
+  return { status: "manual", jarakM: m, zona: null, fiberM: null, homepassId: bestHpId };
 }
 
 export const COV_TEXT: Record<CoverageStatus, [string, string, string]> = {

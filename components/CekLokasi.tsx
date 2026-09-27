@@ -163,6 +163,7 @@ export default function CekLokasi() {
         coverage: coverage?.status || "",
         jarakFiberM: jarakFiberField(coverage),
         zona: coverage?.zona || null,
+        homepassId: coverage?.homepassId || null,
       })
     );
   }, [coverage, wa]);
@@ -506,6 +507,7 @@ export default function CekLokasi() {
         coverage: coverage?.status || "",
         jarakFiberM: jarakFiberField(coverage),
         zona: coverage?.zona || null,
+        homepassId: coverage?.homepassId || null,
       })
     );
     gtag("event", "submit_cek_lokasi", {

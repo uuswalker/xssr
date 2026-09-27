@@ -34,10 +34,10 @@ const COLOR = {
 const HEADERS = [
   "Timestamp", "Nama", "WhatsApp",
   "Latitude", "Longitude", "Alamat",
-  "Kota", "Link Maps", "Halaman", "Status Follow Up"
+  "Kota", "Homepass ID", "Link Maps", "Halaman", "Status Follow Up"
 ];
 
-const COL_WIDTHS = [145, 180, 130, 90, 90, 300, 115, 225, 165, 150]; // pixel
+const COL_WIDTHS = [145, 180, 130, 90, 90, 300, 115, 120, 225, 165, 150]; // pixel
 
 // ── ENTRY POINT: jalankan sekali untuk apply semua formatting ─
 function applyFormatting() {
@@ -68,7 +68,7 @@ function _setupTitleRow(ws) {
     ws.insertRowsBefore(1, 3);
   }
 
-  // Merge A1:J1
+  // Merge A1:K1
   const titleRange = ws.getRange(1, 1, 1, lastCol);
   titleRange.merge();
   titleRange
@@ -123,7 +123,7 @@ function _applyDataFormatting(ws) {
     _applyBorder(rowRange);
     ws.setRowHeight(r, 22);
 
-    // Col 1: Timestamp — format tanggal
+    // Col 1: Timestamp
     ws.getRange(r, 1)
       .setNumberFormat("dd-mm-yyyy hh:mm")
       .setHorizontalAlignment("left")
@@ -134,7 +134,7 @@ function _applyDataFormatting(ws) {
       .setHorizontalAlignment("left")
       .setVerticalAlignment("middle");
 
-    // Col 3: WhatsApp — plain text, jangan jadi angka
+    // Col 3: WhatsApp
     ws.getRange(r, 3)
       .setNumberFormat("@")
       .setHorizontalAlignment("left")
@@ -163,20 +163,26 @@ function _applyDataFormatting(ws) {
       .setHorizontalAlignment("left")
       .setVerticalAlignment("middle");
 
-    // Col 8: Link Maps — formula otomatis dari lat/lon
-    const linkCell = ws.getRange(r, 8);
+    // Col 8: Homepass ID
+    ws.getRange(r, 8)
+      .setNumberFormat("@")
+      .setHorizontalAlignment("center")
+      .setVerticalAlignment("middle");
+
+    // Col 9: Link Maps — formula otomatis dari lat/lon
+    const linkCell = ws.getRange(r, 9);
     linkCell
       .setFormula(`=IF(ISBLANK(D${r}),"","https://maps.google.com/?q="&ROUND(D${r},6)&","&ROUND(E${r},6))`)
       .setHorizontalAlignment("center")
       .setVerticalAlignment("middle");
 
-    // Col 9: Halaman
-    ws.getRange(r, 9)
+    // Col 10: Halaman
+    ws.getRange(r, 10)
       .setHorizontalAlignment("left")
       .setVerticalAlignment("middle");
 
-    // Col 10: Status Follow Up
-    ws.getRange(r, 10)
+    // Col 11: Status Follow Up
+    ws.getRange(r, 11)
       .setHorizontalAlignment("left")
       .setVerticalAlignment("middle");
   }
@@ -189,11 +195,11 @@ function _setColumnWidths(ws) {
 
 // ── FREEZE + FILTER ───────────────────────────────────────────
 function _freezeAndFilter(ws) {
-  // Freeze 3 baris atas (title + spacer + header)
+  // Freeze 3 baris atas
   ws.setFrozenRows(HEADER_ROW);
   ws.setFrozenColumns(0);
 
-  // Hapus filter lama dulu biar tidak error createFilter ganda
+  // Hapus filter lama
   const existing = ws.getFilter();
   if (existing) existing.remove();
 
@@ -209,14 +215,13 @@ function _freezeAndFilter(ws) {
 // ── BORDER HELPER ─────────────────────────────────────────────
 function _applyBorder(range) {
   range.setBorder(
-    true, true, true, true, true, true,   // top,left,bottom,right,vertical,horizontal
+    true, true, true, true, true, true,
     COLOR.BORDER,
     SpreadsheetApp.BorderStyle.SOLID
   );
 }
 
 // ── FORMAT BARIS BARU OTOMATIS (onEdit trigger) ───────────────
-// Pasang trigger: Extensions > Apps Script > Triggers > onEdit (event: On edit)
 function onEdit(e) {
   const ws = e.range.getSheet();
   if (ws.getName() !== SHEET_NAME) return;
@@ -224,7 +229,6 @@ function onEdit(e) {
   const row = e.range.getRow();
   if (row < DATA_START) return;
 
-  // Cukup reformat baris yang diedit
   _formatSingleRow(ws, row);
 }
 
@@ -243,14 +247,14 @@ function _formatSingleRow(ws, r) {
   ws.getRange(r, 4).setNumberFormat("0.000000").setHorizontalAlignment("center").setVerticalAlignment("middle");
   ws.getRange(r, 5).setNumberFormat("0.000000").setHorizontalAlignment("center").setVerticalAlignment("middle");
   ws.getRange(r, 6).setWrap(true).setHorizontalAlignment("left").setVerticalAlignment("middle");
-  ws.getRange(r, 8)
+  ws.getRange(r, 8).setNumberFormat("@").setHorizontalAlignment("center").setVerticalAlignment("middle");
+  ws.getRange(r, 9)
     .setFormula(`=IF(ISBLANK(D${r}),"","https://maps.google.com/?q="&ROUND(D${r},6)&","&ROUND(E${r},6))`)
     .setHorizontalAlignment("center").setVerticalAlignment("middle");
 }
 
 // ── NOTIF WA: kirim ringkasan lead ke owner via Fonnte ─────────
-// Gagal kirim = lead tetap tersimpan (try/catch di dalam).
-function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng) {
+function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId) {
   try {
     const d = new Date();
     const pad = (n) => (n < 10 ? "0" : "") + n;
@@ -258,8 +262,9 @@ function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng) {
       " " + pad(d.getHours()) + ":" + pad(d.getMinutes());
     const maps = (lat !== "" && lat != null && lng !== "" && lng != null)
       ? "https://maps.google.com/?q=" + lat + "," + lng : "-";
+    const hp = homepassId ? "\nHomepass ID: " + homepassId : "";
     const pesan = "Lead baru xlsatusolo.com\nWaktu: " + waktu + "\nNama: " + nama + "\nWA: " + wa +
-      "\nAlamat: " + alamat + "\nKota: " + kota + "\nMaps: " + maps + "\nHalaman: " + halaman;
+      "\nAlamat: " + alamat + "\nKota: " + kota + hp + "\nMaps: " + maps + "\nHalaman: " + halaman;
     const res = UrlFetchApp.fetch("https://api.fonnte.com/send", {
       method: "post",
       headers: { Authorization: FONNTE_TOKEN },
@@ -273,9 +278,6 @@ function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng) {
 }
 
 // ── COST GUARD (v6.3): batasi notif, lead TETAP selalu disimpan ──
-// Per nomor: maks NOTIF_MAX_PER_NOMOR_HARI per 24 jam.
-// Global: maks NOTIF_MAX_GLOBAL_JAM per jam rolling.
-// Gagal baca cache = fail-open (tetap kirim, lead tidak hilang).
 function _bolehNotif(wa) {
   try {
     const cache = CacheService.getScriptCache();
@@ -305,7 +307,6 @@ function _logTrap(data) {
 }
 
 // ── WEBHOOK: Terima lead dari website (v5.1 gabungan) ─────────
-// URL Deploy as Web App → sudah dipasang di cek-lokasi.js
 function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents);
@@ -327,7 +328,6 @@ function doPost(e) {
     const latOk = !isNaN(Number(data.latitude)) && String(data.latitude ?? "").trim() !== "";
     const lngOk = !isNaN(Number(data.longitude)) && String(data.longitude ?? "").trim() !== "";
     const alamatOk = String(data.alamat || "").trim().length >= 5;
-    // WAJIB: WA + nama, lokasi cukup pin peta ATAU alamat teks (ngetest 123 lolos kalau WA ada)
     if (!(wa.length >= 9 && namaOk && ((latOk && lngOk) || alamatOk))) {
       return ContentService
         .createTextOutput(JSON.stringify({ status: "dropped-missing" }))
@@ -337,6 +337,7 @@ function doPost(e) {
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     const ws = ss.getSheetByName(SHEET_NAME);
     const kota = data.kotaTerdeteksi || data.kota || "";
+    const hpId = data.homepassId || "";
 
     // DEDUP BY NOMOR HP: update baris terbaru milik nomor ini
     const lastRow = ws.getLastRow();
@@ -349,15 +350,16 @@ function doPost(e) {
             const b = String(baru ?? "").trim();
             return (b && b !== "undefined" && b !== "null") ? b : String(lama ?? "");
           };
-          const cur = ws.getRange(row, 1, 1, 10).getValues()[0];
+          const cur = ws.getRange(row, 1, 1, 11).getValues()[0];
           ws.getRange(row, 2).setValue(pilih(data.nama, cur[1]));
           ws.getRange(row, 4).setValue(pilih(data.latitude, cur[3]));
           ws.getRange(row, 5).setValue(pilih(data.longitude, cur[4]));
           ws.getRange(row, 6).setValue(pilih(data.alamat, cur[5]));
           ws.getRange(row, 7).setValue(pilih(kota, cur[6]));
-          ws.getRange(row, 9).setValue(pilih(data.halaman, cur[8]));
+          ws.getRange(row, 8).setValue(pilih(hpId, cur[7]));
+          ws.getRange(row, 10).setValue(pilih(data.halaman, cur[9]));
           _formatSingleRow(ws, row);
-          if (_bolehNotif(wa)) kirimNotifWA(pilih(data.nama, cur[1]), wa, pilih(data.alamat, cur[5]), pilih(kota, cur[6]), pilih(data.halaman, cur[8]), pilih(data.latitude, cur[3]), pilih(data.longitude, cur[4]));
+          if (_bolehNotif(wa)) kirimNotifWA(pilih(data.nama, cur[1]), wa, pilih(data.alamat, cur[5]), pilih(kota, cur[6]), pilih(data.halaman, cur[9]), pilih(data.latitude, cur[3]), pilih(data.longitude, cur[4]), pilih(hpId, cur[7]));
           return ContentService
             .createTextOutput(JSON.stringify({ status: "updated", row }))
             .setMimeType(ContentService.MimeType.JSON);
@@ -366,7 +368,7 @@ function doPost(e) {
     }
 
     const newRow = ws.getLastRow() + 1;
-    ws.getRange(newRow, 1, 1, 10).setValues([[
+    ws.getRange(newRow, 1, 1, 11).setValues([[
       new Date(data.timestamp || Date.now()),
       String(data.nama || "").trim(),
       wa,
@@ -374,13 +376,14 @@ function doPost(e) {
       (data.longitude ?? ""),
       String(data.alamat || "").trim(),
       kota,
+      hpId,
       "",   // Link Maps — diisi formula oleh _formatSingleRow
       data.halaman || "",
       data.status || "",
     ]]);
 
     _formatSingleRow(ws, newRow);
-    if (_bolehNotif(wa)) kirimNotifWA(String(data.nama || "").trim(), wa, String(data.alamat || "").trim(), kota, data.halaman || "", data.latitude, data.longitude);
+    if (_bolehNotif(wa)) kirimNotifWA(String(data.nama || "").trim(), wa, String(data.alamat || "").trim(), kota, data.halaman || "", data.latitude, data.longitude, hpId);
 
     return ContentService
       .createTextOutput(JSON.stringify({ status: "ok", row: newRow }))

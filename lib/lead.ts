@@ -47,6 +47,7 @@ export interface LeadPayload {
   coverage: string;
   jarakFiberM: number | string;
   zona: string | null;
+  homepassId: string | null;
   mapsLink: string;
   halaman: string;
   referrer: string;
@@ -64,7 +65,9 @@ function basePayload(
     coverage: string;
     jarakFiberM: number | string;
     zona: string | null;
+    homepassId: string | null;
   }
+
 ): LeadPayload {
   return {
     timestamp: new Date().toISOString(),
@@ -79,6 +82,7 @@ function basePayload(
     coverage: f.coverage,
     jarakFiberM: f.jarakFiberM,
     zona: f.zona,
+    homepassId: f.homepassId,
     mapsLink:
       f.lat != null && f.lng != null
         ? `https://www.google.com/maps?q=${f.lat},${f.lng}`
