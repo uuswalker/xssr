@@ -23,7 +23,7 @@ import {
   basePayload,
   cariAlamatNominatim,
   gtag,
-  loadLeaflet,
+  
   lsSet,
   normalisasiWA,
   postLead,
@@ -51,7 +51,7 @@ export default function CekLokasi() {
   const [statusMsg, setStatusMsg] = useState("");
   const [statusClass, setStatusClass] = useState("cl-status");
   const [lokasiInfo, setLokasiInfo] = useState("");
-  const [showMap, setShowMap] = useState(false);
+  
   const [suggestions, setSuggestions] = useState<NominatimItem[]>([]);
   const [showSugg, setShowSugg] = useState(false);
   const [query, setQuery] = useState("");
@@ -81,11 +81,9 @@ export default function CekLokasi() {
     kota: null,
     alamat: null,
   });
-  const mapRef = useRef<HTMLDivElement | null>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const mapObj = useRef<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const markerObj = useRef<any>(null);
+  
+  
+  
   const softSent = useRef(false);
   const timers = useRef<number[]>([]);
   const intervals = useRef<number[]>([]);
@@ -182,61 +180,6 @@ export default function CekLokasi() {
   }, [later]);
 
   // ---- peta ----
-  const tampilkanPeta = useCallback(
-    (lat: number, lng: number) => {
-      setShowMap(true);
-      loadLeaflet()
-        .then(() => {
-          const L = window.L;
-          if (!L || !mapRef.current) return;
-          if (mapObj.current && mapObj.current.getContainer() !== mapRef.current) {
-              mapObj.current.remove();
-              mapObj.current = null;
-            }
-            if (!mapObj.current) {
-            mapObj.current = L.map(mapRef.current).setView([lat, lng], 17);
-              L.tileLayer("https://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}", {
-                attribution: "Google Maps",
-                maxZoom: 21,
-              }).addTo(mapObj.current);
-              
-              const icon = L.icon({
-                iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-                iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-                shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-                iconSize: [25, 41],
-                iconAnchor: [12, 41],
-                popupAnchor: [1, -34],
-                shadowSize: [41, 41]
-              });
-              
-              markerObj.current = L.marker([lat, lng], { draggable: true, icon }).addTo(mapObj.current);
-              
-              markerObj.current.on("dragend", (e: any) => {
-                const pos = e.target.getLatLng();
-                const p = posRef.current;
-                p.lat = pos.lat;
-                p.lng = pos.lng;
-                const hasil = deteksiKota(pos.lat, pos.lng);
-                p.kota = hasil.nama;
-                const c = dataRef.current;
-                const cv = cekCoverage(c.data, c.loaded, pos.lat, pos.lng, p.kota);
-                setCoverage(cv);
-                setLokasiInfo("Sempurna! Koordinat telah Anda sesuaikan secara manual (Akurasi Tinggi).");
-              });
-            } else {
-            mapObj.current.setView([lat, lng], 17);
-            markerObj.current.setLatLng([lat, lng]);
-          }
-          setTimeout(() => mapObj.current?.invalidateSize(), 100);
-            setTimeout(() => mapObj.current?.invalidateSize(), 500);
-            setTimeout(() => mapObj.current?.invalidateSize(), 1000);
-        })
-        .catch(() => {});
-    },
-    []
-  );
-
   // ---- alur lokasi ----
   const prosesLokasi = useCallback(
     (lat: number, lng: number, alamatText: string | null) => {
@@ -246,7 +189,7 @@ export default function CekLokasi() {
       p.lat = lat;
       p.lng = lng;
       p.alamat = alamatText;
-      tampilkanPeta(lat, lng);
+      
       const hasil = deteksiKota(lat, lng);
       p.kota = hasil.nama;
       const c = dataRef.current;
@@ -302,7 +245,7 @@ export default function CekLokasi() {
       kirimSoftLead();
       fokusForm();
     },
-    [fireCoverageEvent, fokusForm, kirimSoftLead, later, tampilkanPeta]
+    [fireCoverageEvent, fokusForm, kirimSoftLead, later]
   );
 
   const prosesLokasiTanpaKoordinat = useCallback(
@@ -312,7 +255,7 @@ export default function CekLokasi() {
       p.lng = null;
       p.alamat = alamatText;
       p.kota = null;
-      setShowMap(false);
+      
       gtag("event", "lokasi_dikonfirmasi", {
         kota_terdeteksi: "unknown",
         page_path: window.location.pathname,
@@ -339,12 +282,12 @@ export default function CekLokasi() {
       modalOpened.current = true;
       setStrip(null);
       loadCoverage();
-      loadLeaflet().catch(() => {});
+      
       gtag("event", "open_cek_lokasi", {
         page_path: window.location.pathname,
         ...(trigger ? { trigger } : {}),
       });
-      later(() => mapObj.current?.invalidateSize(), 200);
+      
     },
     [later, loadCoverage]
   );
@@ -749,10 +692,7 @@ export default function CekLokasi() {
   .cl-suggestion-item:hover, .cl-suggestion-item.active { background: #f0f9f7; }
   .cl-suggestion-item i { color: #037e64; margin-top: 2px; flex-shrink: 0; }
   .cl-suggestion-empty { padding: 12px 14px; font-size: 13px; color: #999; text-align: center; }
-  #cl-map {
-    width: 100%; height: 220px; border-radius: 12px; margin-top: 16px; overflow: hidden;
-    border: 1.5px solid #e0e0e0;
-  }
+  
   .cl-status {
     font-size: 13px; color: #666; margin-top: 12px; text-align: center; min-height: 18px;
   }
@@ -924,12 +864,7 @@ export default function CekLokasi() {
                     <ArrowRight size={18} /> Tetap Lanjutkan dengan Alamat Ini
                   </button>
                 )}
-                <p style={{ fontSize: "13px", fontWeight: "bold", color: "#1A56A0", marginBottom: "8px", textAlign: "center" }}>TIPS: Jika lokasi kurang pas, geser pin biru TEPAT ke atas atap rumah Anda!</p>
-                  <div
-                    id="cl-map"
-                  ref={mapRef}
-                  style={{ display: showMap ? "block" : "none" }}
-                ></div>
+                
                 <p id="cl-status-lokasi" className={statusClass}>
                   {statusMsg}
                 </p>
@@ -1120,6 +1055,9 @@ export default function CekLokasi() {
     );
   }
 }
+
+
+
 
 
 
