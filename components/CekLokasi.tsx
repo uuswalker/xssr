@@ -57,13 +57,13 @@ export default function CekLokasi() {
   const [query, setQuery] = useState("");
   const [nama, setNama] = useState("");
   const [wa, setWa] = useState("");
-  
   const [formError, setFormError] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
   const [geoFallback, setGeoFallback] = useState(false);
   const [coverage, setCoverage] = useState<CoverageResult | null>(null);
   const [strip, setStrip] = useState<string | null>(null);
   const [paketPilihan, setPaketPilihan] = useState<string | null>(null);
+
   useEffect(() => {
     if (coverage && coverage.status === "wireless" && paketPilihan && !paketPilihan.toLowerCase().includes("lite") && !paketPilihan.toLowerCase().includes("wireless")) {
       setPaketPilihan("");
@@ -155,10 +155,6 @@ export default function CekLokasi() {
   const kirimSoftLead = useCallback(() => {
     if (softSent.current) return;
     const waTmp = normalisasiWA(wa).replace(/^0/, "62");
-    if (!paketPilihan) {
-      setFormError("Mohon pilih paket yang ingin dipasang.");
-      return;
-    }
     const p = posRef.current;
     const alamatOk = !!p.alamat && p.alamat.trim().length >= 5;
     const latOk = p.lat != null && p.lng != null;
@@ -214,11 +210,7 @@ export default function CekLokasi() {
               
               markerObj.current.on("dragend", (e: any) => {
                 const pos = e.target.getLatLng();
-                if (!paketPilihan) {
-      setFormError("Mohon pilih paket yang ingin dipasang.");
-      return;
-    }
-    const p = posRef.current;
+                const p = posRef.current;
                 p.lat = pos.lat;
                 p.lng = pos.lng;
                 const hasil = deteksiKota(pos.lat, pos.lng);
@@ -244,11 +236,7 @@ export default function CekLokasi() {
     (lat: number, lng: number, alamatText: string | null) => {
       setTanpaPeta(null);
       setGeoFallback(false);
-      if (!paketPilihan) {
-      setFormError("Mohon pilih paket yang ingin dipasang.");
-      return;
-    }
-    const p = posRef.current;
+      const p = posRef.current;
       p.lat = lat;
       p.lng = lng;
       p.alamat = alamatText;
@@ -313,11 +301,7 @@ export default function CekLokasi() {
 
   const prosesLokasiTanpaKoordinat = useCallback(
     (alamatText: string) => {
-      if (!paketPilihan) {
-      setFormError("Mohon pilih paket yang ingin dipasang.");
-      return;
-    }
-    const p = posRef.current;
+      const p = posRef.current;
       p.lat = null;
       p.lng = null;
       p.alamat = alamatText;
@@ -1033,6 +1017,25 @@ export default function CekLokasi() {
                     // @ts-ignore
                     toolparamdescription="WhatsApp phone number of the user starting with 08"
                   />
+                  <label htmlFor="cl-paket" className="cl-label">
+                    Pilihan Paket
+                  </label>
+                  <select
+                    id="cl-paket"
+                    className="cl-input"
+                    value={paketPilihan || ""}
+                    onChange={(e) => setPaketPilihan(e.target.value)}
+                  >
+                    <option value="">-- Pilih Paket --</option>
+                    {(!coverage || coverage.status !== "wireless") && (
+                      <>
+                        <option value="Fiber Value 30Mbps">Fiber Value 30Mbps</option>
+                        <option value="Fiber Smart 50Mbps">Fiber Smart 50Mbps</option>
+                        <option value="Fiber Family 100Mbps">Fiber Family 100Mbps</option>
+                      </>
+                    )}
+                    <option value="Satu Lite (Wireless)">Satu Lite (Wireless)</option>
+                  </select>
                   {formError && (
                     <p className="cl-status error" style={{ marginTop: 10 }}>
                       {formError}
@@ -1106,14 +1109,6 @@ export default function CekLokasi() {
     );
   }
 }
-
-
-
-
-
-
-
-
 
 
 
