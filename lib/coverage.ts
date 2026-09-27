@@ -165,18 +165,17 @@ export function cekCoverage(
   }
   const m = Math.round(best);
   const w = cekWireless(data, lat, lng);
-  if (m <= 100)
+  if (m <= 250)
     return { status: "fiber", jarakM: m, zona: w ? w.zona : null, fiberM: null, homepassId: bestHpId, alamat: bestAddr };
   if (w)
     return {
       status: "wireless",
       jarakM: w.jarakM,
       zona: w.zona,
-      fiberM: m <= 250 ? m : null,
+      fiberM: null,
       homepassId: w.homepassId || bestHpId,
       alamat: w.alamat || bestAddr
     };
-  if (m <= 250) return { status: "mungkin", jarakM: m, zona: null, fiberM: null, homepassId: bestHpId, alamat: bestAddr };
   return { status: "manual", jarakM: m, zona: null, fiberM: null, homepassId: bestHpId, alamat: bestAddr };
 }
 
@@ -228,3 +227,4 @@ export function jarakFiberField(cv: CoverageResult | null): number | string {
   if (cv.status === "wireless") return cv.fiberM != null ? cv.fiberM : "";
   return cv.jarakM != null ? cv.jarakM : "";
 }
+
