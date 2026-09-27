@@ -113,8 +113,8 @@ export default function CekLokasi() {
     c.promise = (async () => {
       try {
         const [a, b] = await Promise.all([
-          fetch("/data/coverage.json").then((r) => r.json()),
-          fetch("/data/coverage-wireless.json").then((r) => r.json()),
+          fetch("/data/coverage.json?v=2").then((r) => r.json()),
+          fetch("/data/coverage-wireless.json?v=2").then((r) => r.json()),
         ]);
         c.data = {
           pts: a.pts || [],
@@ -1053,4 +1053,5 @@ export default function CekLokasi() {
     );
   }
 }
+
 
