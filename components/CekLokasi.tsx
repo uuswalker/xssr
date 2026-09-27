@@ -65,7 +65,7 @@ export default function CekLokasi() {
   const [paketPilihan, setPaketPilihan] = useState<string | null>(null);
 
   useEffect(() => {
-    if (coverage && coverage.status === "wireless" && paketPilihan && !paketPilihan.toLowerCase().includes("lite") && !paketPilihan.toLowerCase().includes("wireless")) {
+    if (coverage && coverage.status === "wireless" && paketPilihan && !paketPilihan.toLowerCase().includes("monthly") && !paketPilihan.toLowerCase().includes("advance") && !paketPilihan.toLowerCase().includes("wireless")) {
       setPaketPilihan("");
     }
   }, [coverage, paketPilihan]);
@@ -1029,12 +1029,17 @@ export default function CekLokasi() {
                     <option value="">-- Pilih Paket --</option>
                     {(!coverage || coverage.status !== "wireless") && (
                       <>
-                        <option value="Fiber Value 30Mbps">Fiber Value 30Mbps</option>
-                        <option value="Fiber Smart 50Mbps">Fiber Smart 50Mbps</option>
-                        <option value="Fiber Family 100Mbps">Fiber Family 100Mbps</option>
+                        <option value="Saya minat paket XL Satu Starter 20 Mbps Rp185.000">XL Satu Starter 20 Mbps (Rp185.000)</option>
+                        <option value="Saya minat paket XL Satu Spark 250 Mbps Rp229.000">XL Satu Spark 250 Mbps (Rp229.000)</option>
+                        <option value="Saya minat paket XL Satu Spark 300 Mbps Rp239.000">XL Satu Spark 300 Mbps (Rp239.000)</option>
+                        <option value="Saya minat paket XL Satu Spark 400 Mbps Rp299.000">XL Satu Spark 400 Mbps (Rp299.000)</option>
+                        <option value="Saya minat paket XL Satu Spark 500 Mbps Rp399.000">XL Satu Spark 500 Mbps (Rp399.000)</option>
+                        <option value="Saya minat paket XL Satu Spark 1000 Mbps Rp899.000">XL Satu Spark 1000 Mbps (Rp899.000)</option>
                       </>
                     )}
-                    <option value="Satu Lite (Wireless)">Satu Lite (Wireless)</option>
+                    <option value="Saya minat XL Satu Wireless Monthly 100 Mbps Rp219.500">Wireless Monthly 100 Mbps (Rp219.500)</option>
+                    <option value="Saya minat XL Satu Wireless 50 Mbps Advance Rp650.000">Wireless Advance 50 Mbps (Rp650.000)</option>
+                    <option value="Saya minat XL Satu Wireless 100 Mbps Advance Rp790.000">Wireless Advance 100 Mbps (Rp790.000)</option>
                   </select>
                   {formError && (
                     <p className="cl-status error" style={{ marginTop: 10 }}>
@@ -1109,6 +1114,8 @@ export default function CekLokasi() {
     );
   }
 }
+
+
 
 
 
