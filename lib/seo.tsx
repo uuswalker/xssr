@@ -53,7 +53,7 @@ export function jsonLdWebsite() {
 export function jsonLdLocalBusiness() {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "ServiceAreaBusiness",
     "@id": `${SITE_DOMAIN}/#business`,
     name: SITE_NAME,
     alternateName: ["XL SATU Solo", "First Media Solo", "XL Home Solo"],

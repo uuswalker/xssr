@@ -166,7 +166,7 @@ ARTIKEL["xl-satu-vs-indihome-myrepublic-solo"] = {
   ogTitle: "XL SATU vs IndiHome & MyRepublic di Solo: Mana yang Terbaik?",
   ogDescription: "Bingung pilih XL SATU, IndiHome, atau MyRepublic di Solo Raya? Cek perbandingan harga, FUP, dan keunggulan masing-masing provider internet rumah di tahun 2026.",
   ogImage: "https://xlsatusolo.com/og.jpg",
-  schemas: [],
+  schemas: [{"@context":"https://schema.org/","@type":"Product","name":"Internet Rumah XL SATU Fiber","review":{"@type":"Review","name":"Perbandingan XL SATU vs Provider Lain","author":{"@type":"Person","name":"Tim XL SATU Solo"},"positiveNotes":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"XL SATU: 100% Unlimited Tanpa FUP Tersembunyi"},{"@type":"ListItem","position":2,"name":"XL SATU: Gratis Bonus Kuota Bersama untuk HP Keluarga"}]},"negativeNotes":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Provider Lain: Beberapa menerapkan FUP / batas kuota yang menurunkan kecepatan"}]}}}, ],
   faqs: [
     {
       q: "Mana yang lebih murah, XL SATU, IndiHome, atau MyRepublic?",
