@@ -38,7 +38,7 @@ declare global {
 }
 
 const MAX_TUNGGU_DETIK = 8;
-const TARGET_AKURASI_METER = 500;
+const TARGET_AKURASI_METER = 30;
 
 interface IpCache {
   kota: string;
@@ -184,14 +184,38 @@ export default function CekLokasi() {
           const L = window.L;
           if (!L || !mapRef.current) return;
           if (!mapObj.current) {
-            mapObj.current = L.map(mapRef.current).setView([lat, lng], 13);
-            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-              attribution: "&copy; OpenStreetMap contributors",
-              maxZoom: 18,
-            }).addTo(mapObj.current);
-            markerObj.current = L.marker([lat, lng]).addTo(mapObj.current);
-          } else {
-            mapObj.current.setView([lat, lng], 13);
+            mapObj.current = L.map(mapRef.current).setView([lat, lng], 17);
+              L.tileLayer("http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}", {
+                attribution: "Google Maps",
+                maxZoom: 21,
+              }).addTo(mapObj.current);
+              
+              const icon = L.icon({
+                iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+                iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+                shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+              });
+              
+              markerObj.current = L.marker([lat, lng], { draggable: true, icon }).addTo(mapObj.current);
+              
+              markerObj.current.on("dragend", (e: any) => {
+                const pos = e.target.getLatLng();
+                const p = posRef.current;
+                p.lat = pos.lat;
+                p.lng = pos.lng;
+                const hasil = deteksiKota(pos.lat, pos.lng);
+                p.kota = hasil.nama;
+                const c = dataRef.current;
+                const cv = cekCoverage(c.data, c.loaded, pos.lat, pos.lng, p.kota);
+                setCoverage(cv);
+                setLokasiInfo("Sempurna! Koordinat telah Anda sesuaikan secara manual (Akurasi Tinggi).");
+              });
+            } else {
+            mapObj.current.setView([lat, lng], 17);
             markerObj.current.setLatLng([lat, lng]);
           }
           setTimeout(() => mapObj.current?.invalidateSize(), 100);
@@ -884,8 +908,9 @@ export default function CekLokasi() {
                     <ArrowRight size={18} /> Tetap Lanjutkan dengan Alamat Ini
                   </button>
                 )}
-                <div
-                  id="cl-map"
+                <p style={{ fontSize: "13px", fontWeight: "bold", color: "#1A56A0", marginBottom: "8px", textAlign: "center" }}>TIPS: Jika lokasi kurang pas, geser pin biru TEPAT ke atas atap rumah Anda!</p>
+                  <div
+                    id="cl-map"
                   ref={mapRef}
                   style={{ display: showMap ? "block" : "none" }}
                 ></div>
@@ -1055,6 +1080,10 @@ export default function CekLokasi() {
     );
   }
 }
+
+
+
+
 
 
 
