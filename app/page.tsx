@@ -19,7 +19,7 @@ import {
 export const metadata = pageMetadata({
   title: "Pasang WiFi Solo Raya Tanpa FUP | XL SATU Solo Raya",
   description:
-    "Pasang WiFi Solo Raya: internet rumah fiber optic unlimited tanpa FUP, 20-1000 Mbps mulai Rp 185.000/bulan. Cek ketersediaan & instalasi via WhatsApp sales.",
+    "🔥 Promo Pasang WiFi Solo Raya Bulan Ini: Internet Fiber 100% Unlimited TANPA FUP mulai 185rb/bln. Pasang hari ini, besok langsung online! Cek area sekarang.",
   path: "/",
 });
 
