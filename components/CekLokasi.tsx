@@ -57,12 +57,18 @@ export default function CekLokasi() {
   const [query, setQuery] = useState("");
   const [nama, setNama] = useState("");
   const [wa, setWa] = useState("");
+  
   const [formError, setFormError] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
   const [geoFallback, setGeoFallback] = useState(false);
   const [coverage, setCoverage] = useState<CoverageResult | null>(null);
   const [strip, setStrip] = useState<string | null>(null);
   const [paketPilihan, setPaketPilihan] = useState<string | null>(null);
+  useEffect(() => {
+    if (coverage && coverage.status === "wireless" && paketPilihan && !paketPilihan.toLowerCase().includes("lite") && !paketPilihan.toLowerCase().includes("wireless")) {
+      setPaketPilihan("");
+    }
+  }, [coverage, paketPilihan]);
 
   const dataRef = useRef<{ data: CoverageData | null; loaded: boolean; promise: Promise<void> | null }>({
     data: null,
@@ -149,6 +155,10 @@ export default function CekLokasi() {
   const kirimSoftLead = useCallback(() => {
     if (softSent.current) return;
     const waTmp = normalisasiWA(wa).replace(/^0/, "62");
+    if (!paketPilihan) {
+      setFormError("Mohon pilih paket yang ingin dipasang.");
+      return;
+    }
     const p = posRef.current;
     const alamatOk = !!p.alamat && p.alamat.trim().length >= 5;
     const latOk = p.lat != null && p.lng != null;
@@ -185,7 +195,7 @@ export default function CekLokasi() {
           if (!L || !mapRef.current) return;
           if (!mapObj.current) {
             mapObj.current = L.map(mapRef.current).setView([lat, lng], 17);
-              L.tileLayer("http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}", {
+              L.tileLayer("https://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}", {
                 attribution: "Google Maps",
                 maxZoom: 21,
               }).addTo(mapObj.current);
@@ -204,7 +214,11 @@ export default function CekLokasi() {
               
               markerObj.current.on("dragend", (e: any) => {
                 const pos = e.target.getLatLng();
-                const p = posRef.current;
+                if (!paketPilihan) {
+      setFormError("Mohon pilih paket yang ingin dipasang.");
+      return;
+    }
+    const p = posRef.current;
                 p.lat = pos.lat;
                 p.lng = pos.lng;
                 const hasil = deteksiKota(pos.lat, pos.lng);
@@ -230,7 +244,11 @@ export default function CekLokasi() {
     (lat: number, lng: number, alamatText: string | null) => {
       setTanpaPeta(null);
       setGeoFallback(false);
-      const p = posRef.current;
+      if (!paketPilihan) {
+      setFormError("Mohon pilih paket yang ingin dipasang.");
+      return;
+    }
+    const p = posRef.current;
       p.lat = lat;
       p.lng = lng;
       p.alamat = alamatText;
@@ -295,7 +313,11 @@ export default function CekLokasi() {
 
   const prosesLokasiTanpaKoordinat = useCallback(
     (alamatText: string) => {
-      const p = posRef.current;
+      if (!paketPilihan) {
+      setFormError("Mohon pilih paket yang ingin dipasang.");
+      return;
+    }
+    const p = posRef.current;
       p.lat = null;
       p.lng = null;
       p.alamat = alamatText;
@@ -506,6 +528,10 @@ export default function CekLokasi() {
     }
     if (w.length < 11 || w.length > 14) {
       setFormError("Nomor WhatsApp sepertinya belum benar. Contoh: 081234567890 (8-13 digit).");
+      return;
+    }
+    if (!paketPilihan) {
+      setFormError("Mohon pilih paket yang ingin dipasang.");
       return;
     }
     const p = posRef.current;
@@ -1080,6 +1106,14 @@ export default function CekLokasi() {
     );
   }
 }
+
+
+
+
+
+
+
+
 
 
 

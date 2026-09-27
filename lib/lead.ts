@@ -40,6 +40,7 @@ export interface LeadPayload {
   token: string;
   nama: string;
   whatsapp: string;
+  paket: string | null;
   latitude: number | null;
   longitude: number | null;
   alamat: string;
@@ -59,6 +60,7 @@ function basePayload(
   f: {
     nama?: string;
     whatsapp?: string;
+    paket?: string | null;
     lat: number | null;
     lng: number | null;
     alamat: string;
@@ -77,6 +79,7 @@ function basePayload(
     token: LEAD_TOKEN,
     nama: f.nama || "",
     whatsapp: f.whatsapp || "",
+    paket: f.paket || null,
     latitude: f.lat,
     longitude: f.lng,
     alamat: f.alamat,
@@ -173,5 +176,6 @@ export function loadLeaflet(): Promise<void> {
   });
   return leafletPromise;
 }
+
 
 
