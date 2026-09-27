@@ -5,7 +5,7 @@ import Article from "@/components/Article";
 import { ARTIKEL } from "@/lib/artikel";
 import { GEO_AREAS, getGeoArticle } from "@/lib/geo-pages";
 import { decodeEntities } from "@/lib/kota";
-import { JsonLd, pageMetadata } from "@/lib/seo";
+import { JsonLd, pageMetadata, jsonLdFaq } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -51,6 +51,8 @@ export default async function Page({ params }: Props) {
       {a.schemas && a.schemas.map((s, i) => (
         <JsonLd key={i} data={s} />
       ))}
+      {a.faqs && a.faqs.length > 0 && <JsonLd data={jsonLdFaq(a.faqs)} />}
     </>
   );
 }
+
