@@ -189,7 +189,11 @@ export default function CekLokasi() {
         .then(() => {
           const L = window.L;
           if (!L || !mapRef.current) return;
-          if (!mapObj.current) {
+          if (mapObj.current && mapObj.current.getContainer() !== mapRef.current) {
+              mapObj.current.remove();
+              mapObj.current = null;
+            }
+            if (!mapObj.current) {
             mapObj.current = L.map(mapRef.current).setView([lat, lng], 17);
               L.tileLayer("https://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}", {
                 attribution: "Google Maps",
@@ -225,6 +229,8 @@ export default function CekLokasi() {
             markerObj.current.setLatLng([lat, lng]);
           }
           setTimeout(() => mapObj.current?.invalidateSize(), 100);
+            setTimeout(() => mapObj.current?.invalidateSize(), 500);
+            setTimeout(() => mapObj.current?.invalidateSize(), 1000);
         })
         .catch(() => {});
     },
@@ -1114,6 +1120,8 @@ export default function CekLokasi() {
     );
   }
 }
+
+
 
 
 
