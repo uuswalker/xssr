@@ -7,7 +7,7 @@ import PageTransition from "@/components/animations/PageTransition";
 
 export const metadata: Metadata = {
   title: "Program Ajak Teman XL SATU - Dapat Saldo!",
-  description: "Dapatkan saldo GoPay/OVO Rp 50.000 untuk setiap teman atau tetangga yang berhasil Anda ajak pasang XL SATU Fiber.",
+  description: "Dapatkan saldo GoPay/OVO Rp 50.000 hingga Rp 100.000 untuk setiap teman atau tetangga yang berhasil Anda ajak pasang XL SATU Fiber.",
   robots: {
     index: false,
     follow: false,
@@ -25,7 +25,7 @@ export default function ReferralPage() {
               <Gift size={16} /> Program Spesial Pelanggan XL SATU
             </div>
             <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: 900, marginBottom: 16, lineHeight: 1.2 }}>
-              Ajak Tetangga Pasang XL SATU, <span style={{ color: "#fde68a" }}>Dapatkan Saldo Rp 50.000!</span>
+              Ajak Tetangga Pasang XL SATU, <span style={{ color: "#fde68a" }}>Dapatkan Saldo Rp 50.000 hingga Rp 100.000!</span>
             </h1>
             <p style={{ fontSize: "clamp(16px, 2vw, 18px)", opacity: 0.9, lineHeight: 1.6, maxWidth: 600, margin: "0 auto" }}>
               Internet rumah sudah lancar? Yuk sebar kebaikannya ke teman, tetangga, atau anak kos lain. Untuk setiap orang yang berhasil terpasang, Anda akan mendapat komisi cair langsung ke *e-wallet* Anda.
@@ -60,7 +60,7 @@ export default function ReferralPage() {
                   <Wallet size={28} color="#037e64" style={{ flexShrink: 0 }} />
                   <div>
                     <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>Terpasang = Cair!</h3>
-                    <p style={{ fontSize: 14, color: "#555" }}>Setelah WiFi berhasil terpasang dan aktif di rumah teman Anda, komisi Rp 50.000 akan langsung ditransfer ke OVO/GoPay/Dana Anda di hari yang sama.</p>
+                    <p style={{ fontSize: 14, color: "#555" }}>Setelah WiFi berhasil terpasang dan aktif di rumah teman Anda, komisi Rp 50.000 hingga Rp 100.000 akan langsung ditransfer ke OVO/GoPay/Dana Anda di hari yang sama.</p>
                   </div>
                 </div>
               </div>
@@ -99,3 +99,4 @@ export default function ReferralPage() {
     </>
   );
 }
+
