@@ -27,7 +27,7 @@ export function getGeoArticle(slug: string) {
 
   return {
     slug: slug,
-    title: "Pasang WiFi XL SATU di " + areaName + " | 100% Tanpa FUP",
+    title: "Pasang WiFi Murah di " + areaName + " | XL SATU Fiber Tanpa FUP",
     description: "Layanan pasang WiFi rumah XL SATU Fiber terdekat di " + areaName + ". Internet 100% tanpa FUP, bebas lemot, plus kuota HP sekeluarga. Pemasangan gratis!",
     keywords: ["pasang wifi " + areaName, "wifi murah " + areaName, "xl satu " + areaName, "provider internet " + areaName, "wifi tanpa fup"],
     ogTitle: "Pasang WiFi XL SATU Fiber di " + areaName,
