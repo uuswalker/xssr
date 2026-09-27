@@ -34,7 +34,7 @@ const COLOR = {
 const HEADERS = [
   "Timestamp", "Nama", "WhatsApp",
   "Latitude", "Longitude", "Alamat",
-  "Kota", "Homepass ID", "Link Maps", "Halaman", "Status Follow Up"
+  "Kota", "HOMEPASS_ID", "Link Maps", "Halaman", "Status Follow Up"
 ];
 
 const COL_WIDTHS = [145, 180, 130, 90, 90, 300, 115, 120, 225, 165, 150]; // pixel
@@ -262,7 +262,7 @@ function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId) {
       " " + pad(d.getHours()) + ":" + pad(d.getMinutes());
     const maps = (lat !== "" && lat != null && lng !== "" && lng != null)
       ? "https://maps.google.com/?q=" + lat + "," + lng : "-";
-    const hp = homepassId ? "\nHomepass ID: " + homepassId : "";
+    const hp = homepassId ? "\nHOMEPASS_ID: " + homepassId : "";
     const pesan = "Lead baru xlsatusolo.com\nWaktu: " + waktu + "\nNama: " + nama + "\nWA: " + wa +
       "\nAlamat: " + alamat + "\nKota: " + kota + hp + "\nMaps: " + maps + "\nHalaman: " + halaman;
     const res = UrlFetchApp.fetch("https://api.fonnte.com/send", {
