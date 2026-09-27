@@ -103,11 +103,12 @@ export interface CoverageResult {
   zona: string | null;
   fiberM: number | null;
   homepassId: string | null;
+  alamat: string | null;
 }
 
 export interface CoverageData {
-  pts: [number, number, string?][];
-  wpts: [number, number, number, string?][];
+  pts: [number, number, string?, string?][];
+  wpts: [number, number, number, string?, string?][];
   wzones: string[];
 }
 
@@ -116,11 +117,12 @@ export function cekWireless(
   data: CoverageData | null,
   lat: number,
   lng: number
-): { jarakM: number; zona: string | null; homepassId: string | null } | null {
+): { jarakM: number; zona: string | null; homepassId: string | null; alamat: string | null } | null {
   if (!data || !data.wpts.length) return null;
   let best = Infinity;
   let bz: string | null = null;
   let bestHpId: string | null = null;
+  let bestAddr: string | null = null;
   for (let i = 0; i < data.wpts.length; i++) {
     const p = data.wpts[i];
     const d = haversineM(lat, lng, p[1], p[0]);
@@ -128,11 +130,12 @@ export function cekWireless(
       best = d;
       bz = data.wzones[p[2]] || null;
       bestHpId = p[3] || null;
+      bestAddr = p[4] || null;
     }
     if (best <= 20) break;
   }
   best = Math.round(best);
-  if (best <= 300) return { jarakM: best, zona: bz, homepassId: bestHpId };
+  if (best <= 300) return { jarakM: best, zona: bz, homepassId: bestHpId, alamat: bestAddr };
   return null;
 }
 
@@ -145,33 +148,36 @@ export function cekCoverage(
   kota: string | null
 ): CoverageResult {
   if (kota === "Klaten" || kota === "Boyolali")
-    return { status: "wireless", jarakM: null, zona: null, fiberM: null, homepassId: null };
+    return { status: "wireless", jarakM: null, zona: null, fiberM: null, homepassId: null, alamat: null };
   if (!data || !data.pts.length || !loaded)
-    return { status: "loading", jarakM: null, zona: null, fiberM: null, homepassId: null };
+    return { status: "loading", jarakM: null, zona: null, fiberM: null, homepassId: null, alamat: null };
   let best = Infinity;
   let bestHpId: string | null = null;
+  let bestAddr: string | null = null;
   for (let i = 0; i < data.pts.length; i++) {
     const d = haversineM(lat, lng, data.pts[i][1], data.pts[i][0]);
     if (d < best) {
       best = d;
       bestHpId = data.pts[i][2] || null;
+      bestAddr = data.pts[i][3] || null;
     }
     if (best <= 20) break;
   }
   const m = Math.round(best);
   const w = cekWireless(data, lat, lng);
   if (m <= 100)
-    return { status: "fiber", jarakM: m, zona: w ? w.zona : null, fiberM: null, homepassId: bestHpId };
+    return { status: "fiber", jarakM: m, zona: w ? w.zona : null, fiberM: null, homepassId: bestHpId, alamat: bestAddr };
   if (w)
     return {
       status: "wireless",
       jarakM: w.jarakM,
       zona: w.zona,
       fiberM: m <= 250 ? m : null,
-      homepassId: w.homepassId || bestHpId
+      homepassId: w.homepassId || bestHpId,
+      alamat: w.alamat || bestAddr
     };
-  if (m <= 250) return { status: "mungkin", jarakM: m, zona: null, fiberM: null, homepassId: bestHpId };
-  return { status: "manual", jarakM: m, zona: null, fiberM: null, homepassId: bestHpId };
+  if (m <= 250) return { status: "mungkin", jarakM: m, zona: null, fiberM: null, homepassId: bestHpId, alamat: bestAddr };
+  return { status: "manual", jarakM: m, zona: null, fiberM: null, homepassId: bestHpId, alamat: bestAddr };
 }
 
 export const COV_TEXT: Record<CoverageStatus, [string, string, string]> = {
@@ -185,11 +191,11 @@ export const COV_TEXT: Record<CoverageStatus, [string, string, string]> = {
 /** Teks detail verdict — persis tampilCoverage() xssr (HTML). */
 export function coverageDetail(cv: CoverageResult): string {
     if (cv.status === "fiber") {
-      let s = `Titik fiber terdekat hanya sekitar ${cv.jarakM} m dari lokasimu. `;
+      let s = `Titik fiber terdekat ${cv.alamat ? `(${cv.alamat}) ` : ""}hanya sekitar ${cv.jarakM} m dari lokasimu. `;
       if (cv.zona) s += `Jaringan Wireless (Area Sukoharjo) juga tersedia di area ini. `;
       return s;
     } else if (cv.status === "mungkin") {
-      return `Titik fiber terdekat sekitar ${cv.jarakM} m. Sales verifikasi + siapkan opsi wireless. `;
+      return `Titik fiber terdekat ${cv.alamat ? `(${cv.alamat}) ` : ""}sekitar ${cv.jarakM} m. Sales verifikasi + siapkan opsi wireless. `;
     } else if (cv.status === "manual") {
       return "Di luar jangkauan data fiber kami. Sales cek manual / tawarkan wireless. ";
     } else if (cv.status === "wireless") {
@@ -198,7 +204,7 @@ export function coverageDetail(cv: CoverageResult): string {
             cv.jarakM != null ? ` (±${cv.jarakM} m)` : ""
           }, aktif cepat. `
         : "Area ini jalur wireless (tanpa kabel) — aktif cepat. ";
-      if (cv.fiberM) s += `Fiber terdekat ±${cv.fiberM} m — sales bisa cek opsi fiber dahulu. `;
+      if (cv.fiberM) s += `Fiber terdekat ${cv.alamat ? `(${cv.alamat}) ` : ""}±${cv.fiberM} m — sales bisa cek opsi fiber dahulu. `;
       return s;
     }
     return "Menghitung jarak ke titik fiber terdekat...";

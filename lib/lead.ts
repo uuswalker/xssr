@@ -48,6 +48,7 @@ export interface LeadPayload {
   jarakFiberM: number | string;
   zona: string | null;
   homepassId: string | null;
+  homepassAddress: string | null;
   mapsLink: string;
   halaman: string;
   referrer: string;
@@ -66,6 +67,7 @@ function basePayload(
     jarakFiberM: number | string;
     zona: string | null;
     homepassId: string | null;
+    homepassAddress: string | null;
   }
 
 ): LeadPayload {
@@ -83,6 +85,7 @@ function basePayload(
     jarakFiberM: f.jarakFiberM,
     zona: f.zona,
     homepassId: f.homepassId,
+    homepassAddress: f.homepassAddress,
     mapsLink:
       f.lat != null && f.lng != null
         ? `https://www.google.com/maps?q=${f.lat},${f.lng}`
@@ -170,3 +173,4 @@ export function loadLeaflet(): Promise<void> {
   });
   return leafletPromise;
 }
+

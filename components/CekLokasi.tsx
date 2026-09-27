@@ -113,12 +113,12 @@ export default function CekLokasi() {
     c.promise = (async () => {
       try {
         const [a, b] = await Promise.all([
-          fetch("/data/coverage.json?v=3").then((r) => r.json()),
-          fetch("/data/coverage-wireless.json?v=3").then((r) => r.json()),
+          fetch("/data/coverage.json?v=4").then((r) => r.json()),
+          fetch("/data/coverage-wireless.json?v=4").then((r) => r.json()),
         ]);
         c.data = {
           pts: a.pts || [],
-          wpts: (b.pts || []).map((p: any[]) => [p[0], p[1], p[2], p[3]]),
+          wpts: (b.pts || []).map((p: any[]) => [p[0], p[1], p[2], p[3], p[4]]),
           wzones: b.zones || [],
         };
       } catch {
@@ -164,6 +164,7 @@ export default function CekLokasi() {
         jarakFiberM: jarakFiberField(coverage),
         zona: coverage?.zona || null,
         homepassId: coverage?.homepassId || null,
+          homepassAddress: coverage?.alamat || null,
       })
     );
   }, [coverage, wa]);
@@ -508,6 +509,7 @@ export default function CekLokasi() {
         jarakFiberM: jarakFiberField(coverage),
         zona: coverage?.zona || null,
         homepassId: coverage?.homepassId || null,
+          homepassAddress: coverage?.alamat || null,
       })
     );
     gtag("event", "submit_cek_lokasi", {
@@ -1053,6 +1055,8 @@ export default function CekLokasi() {
     );
   }
 }
+
+
 
 
 
