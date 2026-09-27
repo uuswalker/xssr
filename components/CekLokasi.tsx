@@ -118,7 +118,7 @@ export default function CekLokasi() {
         ]);
         c.data = {
           pts: a.pts || [],
-          wpts: (b.pts || []).map((p: number[]) => [p[0], p[1], p[2]]),
+          wpts: (b.pts || []).map((p: any[]) => [p[0], p[1], p[2], p[3]]),
           wzones: b.zones || [],
         };
       } catch {
@@ -1053,3 +1053,4 @@ export default function CekLokasi() {
     );
   }
 }
+
