@@ -32,7 +32,9 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
-  manifest: "/site.webmanifest",\n  applicationName: "XL SATU Solo Raya",\n  appleWebApp: { title: "XL SATU Solo Raya" },
+  manifest: "/site.webmanifest",
+  applicationName: "XL SATU Solo Raya",
+  appleWebApp: { title: "XL SATU Solo Raya" },
 };
 
 export const viewport: Viewport = {
