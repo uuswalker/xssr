@@ -5,7 +5,7 @@ import { SOLORAYA_VIEWBOX } from "./coverage";
 
 export const WEBHOOK_URL =
   process.env.NEXT_PUBLIC_LEAD_WEBHOOK ||
-  "https://script.google.com/macros/s/AKfycbyWnOwq_bjtrpwp1K554T6U0fBlEGdU7AcV2hro9zblqe2JhEUfze1prv-LKhV-iXRs/exec";
+  "https://script.google.com/macros/s/AKfycbxWOu8AfT8Eyd7GYoaogmRzEDmGmQ-ivuDcxIE_Ih4uJh2RNEgnCFuon1YppR2dzZ28/exec";
 export const LEAD_TOKEN = process.env.NEXT_PUBLIC_LEAD_TOKEN || "xlsr_2026_s0lor4y4";
 export const NOMOR_WA_SALES = "6287778999141";
 
