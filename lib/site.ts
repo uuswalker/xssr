@@ -1,8 +1,8 @@
-// Konstanta situs — disalin dari xssr@ec66035 (sumber beku, JANGAN edit xssr asli).
+﻿// Konstanta situs â€” disalin dari xssr@ec66035 (sumber beku, JANGAN edit xssr asli).
 // Staging default ON (noindex) sampai cutover eksplisit.
 
-export const SITE_DOMAIN = "https://xlsatusolo.com";
-export const SITE_NAME = "XL SATU Solo Raya";
+export const SITE_DOMAIN = "https://xlhomesolo.com";
+export const SITE_NAME = "XL Home (XL SATU) Solo Raya";
 export const PHONE_DISPLAY = "0877-7899-9141";
 export const PHONE_INTL = "6287778999141";
 export const PHONE_TEL = "+6287778999141";
@@ -50,3 +50,4 @@ export const V1_ROUTES: string[] = [
   "/eksperimen-game-streaming-zoom-bersamaan/",
   "/promo-perumahan-solo/",
 ];
+
