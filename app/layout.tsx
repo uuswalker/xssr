@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -20,7 +20,8 @@ const jakarta = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://xlsatusolo.com"),
+  metadataBase: new URL("https://xlhomesolo.com"),
+  verification: { google: "BpDlI8rnAmviY2YawnXFbbBoJfOdpaG1jT9vNctq71I" },
   robots: { index: true, follow: true },
   icons: {
     icon: [
@@ -41,7 +42,7 @@ export const viewport: Viewport = {
   themeColor: "#037e64",
 };
 
-// Google tag — port 1:1 pola consent-mode xssr: dataLayer + default denied
+// Google tag â€” port 1:1 pola consent-mode xssr: dataLayer + default denied
 // sinkron di head, library gtag dimuat setelah window load.
 const GTAG_BOOTSTRAP = `
 window.dataLayer = window.dataLayer || [];
@@ -64,7 +65,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <link rel="preconnect" href="https://ipwho.is" crossOrigin="anonymous" />
       </head>
       <body data-origin="xlsatusolo.com" data-wm="224CF412">
-        {/* Honeypot anti-scraper — parity xssr, JANGAN dihapus */}
+        {/* Honeypot anti-scraper â€” parity xssr, JANGAN dihapus */}
         <a
           href="https://xlsatusolo.com/trap/"
           className="hp-trap"
@@ -101,3 +102,4 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     </html>
   );
 }
+
