@@ -143,6 +143,7 @@ export const FIBER_TIERS: FiberTier[] = [
 ];
 
 export interface TahunanTier {
+  badge?: string;
   name: string;
   headerGradient: string;
   speed: string;
@@ -188,6 +189,7 @@ export const TAHUNAN_TIERS: TahunanTier[] = [
     ],
   },
   {
+    badge: "Best Seller",
     name: "Basic Family",
     headerGradient: "linear-gradient(135deg, #1e1b4b 0%, #6d28d9 100%)",
     speed: "100 Mbps",

@@ -279,7 +279,8 @@ export function TahunanPaket() {
 
         <div className="paket-grid">
           {TAHUNAN_TIERS.map((t) => (
-            <div className="paket-card" key={t.name}>
+            <div className={`paket-card ${t.badge ? "best-seller" : ""}`} key={t.name}>
+                {t.badge && <div className="badge-laris">{t.badge}</div>}
               <div
                 className="paket-card-header"
                 style={{ background: t.headerGradient }}
@@ -619,11 +620,29 @@ export function WirelessPaket({
                 }}
               >
                 {WIRELESS_MONTHLY.map((w) => (
-                  <div
-                    className="wireless-card"
-                    style={{ position: "relative" }}
-                    key={w.speed}
-                  >
+                    <div
+                      className="wireless-card"
+                      style={{ position: "relative" }}
+                      key={w.speed}
+                    >
+                      {w.badge && (
+                        <span
+                          style={{
+                            position: "absolute",
+                            top: -12,
+                            right: -12,
+                            background: "var(--navy)",
+                            color: "#fff",
+                            fontSize: 11,
+                            fontWeight: 700,
+                            padding: "4px 12px",
+                            borderRadius: 999,
+                            boxShadow: "0 4px 10px rgba(24,68,138,0.3)",
+                          }}
+                        >
+                          {w.badge}
+                        </span>
+                      )}
                     <i
                       className={`fas ${w.icon}`}
                       style={{
