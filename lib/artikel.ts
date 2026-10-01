@@ -766,3 +766,98 @@ ARTIKEL["xl-satu-resmi-jadi-xl-home"] = {
   </div>
 `,
 };
+
+
+ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
+  slug: "nomor-sales-xl-home-solo-raya",
+  title: "Nomor Sales & Agen Resmi XL Home Solo Raya (2026)",
+  description: "Cari nomor sales XL Home (XL SATU) wilayah Solo Raya? Hubungi agen resmi di 0877-7899-9141 untuk cek coverage, daftar pasang baru, & info promo terbaru.",
+  keywords: ["nomor sales xl home", "kontak xl home solo", "wa xl home solo raya", "call center xl home solo", "agen xl home solo", "pasang xl home", "nomor wa xl satu"],
+  ogTitle: "Nomor Sales & Agen Resmi XL Home Solo Raya",
+  ogDescription: "Cari nomor sales XL Home wilayah Solo Raya? Hubungi agen resmi kami untuk cek coverage, daftar pasang baru, & info promo terbaru via WhatsApp.",
+  ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+  schemas: [],
+  hero: {
+    crumb: '<a href="/">Beranda</a> / Nomor Sales XL Home Solo Raya',
+    h1: "Nomor Sales & Agen Resmi XL Home Solo Raya (2026)",
+    sub: "Hubungi kontak resmi kami untuk cek jaringan fiber optic, konsultasi paket, dan jadwal pemasangan WiFi XL Home di Solo Raya.",
+    meta: "Diperbarui 1 Oktober 2026 • XL Home Solo Raya",
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20dapat%20nomor%20ini%20dari%20website%20resmi,%20mau%20tanya%20paket%20XL%20Home",
+  faqs: [
+    {
+      q: "Berapa nomor WA sales resmi XL Home Solo Raya?",
+      a: "Nomor agen resmi XL Home wilayah Solo Raya (Solo, Sukoharjo, Karanganyar, Boyolali, Klaten) adalah 0877-7899-9141. Anda bisa menghubungi nomor ini via WhatsApp untuk pendaftaran pemasangan baru.",
+    },
+    {
+      q: "Apakah pendaftaran lewat agen resmi ini gratis?",
+      a: "Ya, pendaftaran lewat agen resmi kami 100% gratis. Anda baru akan membayar tagihan resmi setelah internet berhasil dipasang dan menyala di rumah Anda.",
+    },
+    {
+      q: "Apakah layanan call center buka 24 jam?",
+      a: "Untuk pendaftaran dan cek jaringan melalui sales (0877-7899-9141), kami melayani dari pagi hingga malam hari via WhatsApp. Untuk gangguan teknis pasca-pemasangan, Anda bisa menghubungi Call Center Nasional (820).",
+    }
+  ],
+  bodyHtml: `
+  <p>Sedang mencari <strong>nomor sales XL Home (dulu XL SATU) di wilayah Solo Raya</strong> untuk pasang WiFi baru? Anda berada di tempat yang tepat. Mendaftar lewat agen/sales lokal seringkali jauh lebih cepat dan praktis dibandingkan mendaftar lewat jalur call center nasional, karena agen lokal bisa langsung mengecek ketersediaan jaringan di tiang terdekat rumah Anda.</p>
+  
+  <h2>Kontak Agen Resmi XL Home Solo Raya</h2>
+  <div class="stat-box" style="text-align:center; padding: 24px; border: 2px dashed var(--navy); border-radius: 12px; margin-bottom: 24px; background: #f8faff;">
+    <p style="margin:0; font-size: 14px; color: var(--text-muted);">Nomor WhatsApp Sales / Agen Resmi:</p>
+    <div style="font-size: 32px; font-weight: 800; color: var(--navy); margin: 8px 0;">0877-7899-9141</div>
+    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home" target="_blank" rel="noopener noreferrer" class="btn-pilih" style="display:inline-block; padding: 8px 24px; background: #25D366; color:#fff; border-radius: 99px; text-decoration: none; font-weight: bold;"><i class="fab fa-whatsapp"></i> Chat via WhatsApp</a>
+  </div>
+
+  <h2>Layanan yang Bisa Dibantu oleh Sales Lokal</h2>
+  <p>Dengan menghubungi nomor sales XL Home di atas, Anda bisa langsung mendapatkan bantuan untuk:</p>
+  <ul>
+    <li><strong>Cek Coverage (Ketersediaan Jaringan):</strong> Cukup kirimkan alamat lengkap rumah Anda, sales kami akan langsung mengecek apakah area Anda sudah tercover jaringan fiber optic XL Home atau paket Wireless (FWA).</li>
+    <li><strong>Konsultasi Pilihan Paket:</strong> Bingung memilih kecepatan yang pas? Sales kami akan merekomendasikan paket (mulai 50 Mbps hingga 1 Gbps) sesuai dengan jumlah perangkat dan pemakaian di rumah Anda.</li>
+    <li><strong>Informasi Promo Terbaru:</strong> Dapatkan info promo diskon bulanan, harga khusus <em>advance payment</em> (bayar 10 bulan gratis 2 bulan), hingga gratis biaya instalasi.</li>
+    <li><strong>Penjadwalan Teknisi:</strong> Pendaftaran akan langsung diproses ke sistem pusat agar teknisi bisa segera dijadwalkan datang ke rumah Anda.</li>
+  </ul>
+
+  <h2>Kenapa Lebih Baik Daftar via Sales Lokal?</h2>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <h4><i class="fas fa-headset"></i> Call Center / Web Pusat</h4>
+      <ul>
+        <li>Proses verifikasi data sering memakan waktu lebih lama.</li>
+        <li>Terkadang sistem tidak bisa membaca gang atau alamat detail di Solo.</li>
+        <li>Harus melewati antrean telepon atau email.</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <h4><i class="fas fa-user-tie"></i> Sales Lokal (Solo Raya)</h4>
+      <ul>
+        <li>Respon sangat cepat via WhatsApp.</li>
+        <li>Bisa survei manual jika alamat di map kurang jelas.</li>
+        <li>Pendaftaran dipantau terus sampai teknisi berhasil pasang.</li>
+        <li>Bisa tanya-tanya santai dengan bahasa lokal.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <strong>Penting:</strong> Nomor 0877-7899-9141 melayani wilayah <strong>Kota Solo (Surakarta), Sukoharjo, Karanganyar, Klaten, dan Boyolali</strong>. Pendaftaran lewat agen kami 100% GRATIS tanpa dipungut biaya pendaftaran di awal.
+  </div>
+
+  <h2>Pertanyaan yang Sering Ditanyakan (FAQ)</h2>
+  <h3>Berapa nomor WA sales resmi XL Home Solo Raya?</h3>
+  <p>Nomor agen resmi XL Home wilayah Solo Raya (Solo, Sukoharjo, Karanganyar, Boyolali, Klaten) adalah <strong>0877-7899-9141</strong>. Anda bisa menghubungi nomor ini via WhatsApp untuk pendaftaran pemasangan baru.</p>
+  
+  <h3>Apakah pendaftaran lewat agen resmi ini gratis?</h3>
+  <p>Ya, pendaftaran lewat agen resmi kami 100% gratis. Anda baru akan membayar tagihan resmi (biasanya melalui Indomaret, Alfamart, m-Banking, dll) <em>setelah</em> internet berhasil dipasang dan menyala di rumah Anda.</p>
+  
+  <h3>Apakah melayani keluhan/gangguan jaringan yang sudah terpasang?</h3>
+  <p>Untuk pendaftaran dan cek jaringan melalui sales (0877-7899-9141). Namun untuk gangguan teknis jika Anda sudah menjadi pelanggan lama, Anda disarankan langsung menghubungi Call Center Nasional XL di nomor 820 (dari nomor XL) atau chat ke akun resmi MyXL, agar tiket perbaikan segera dibuatkan oleh tim teknis pusat.</p>
+  
+  <div class="cta-box">
+    <h3>Ingin Segera Pasang WiFi di Rumah?</h3>
+    <p>Jangan tunggu lama, hubungi sales kami sekarang untuk mengecek ketersediaan jaringan dan langsung jadwalkan pemasangan.</p>
+    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home,%20tolong%20cek%20lokasi%20saya" target="_blank" rel="noopener noreferrer" class="btn-cta">
+      <i class="fab fa-whatsapp"></i> Chat Sales Solo Raya Sekarang
+    </a>
+  </div>
+  `,
+};

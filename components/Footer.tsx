@@ -32,6 +32,9 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-links">
+          <a href="/nomor-sales-xl-home-solo-raya/" style={{ color: "inherit" }}>
+            Nomor Sales &amp; Agen
+          </a>
           <a href="/kebijakan-privasi/" style={{ color: "inherit" }}>
             Privasi &amp; Cookie
           </a>

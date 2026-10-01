@@ -46,3 +46,9 @@ PAGE_CSS['cara-berhenti-langganan-indihome-biznet-pindah-xl-satu-solo'] = PAGE_C
 
 PAGE_CSS['xl-satu-resmi-jadi-xl-home'] = PAGE_CSS['cara-daftar-pasang-wifi-xl-satu-solo'];
 
+
+PAGE_CSS['nomor-sales-xl-home-solo-raya'] = PAGE_CSS['cara-daftar-pasang-wifi-xl-satu-solo'];
+
+
+PAGE_CSS['nomor-sales-xl-home-solo-raya'] = PAGE_CSS['cara-daftar-pasang-wifi-xl-satu-solo'];
+
