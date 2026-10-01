@@ -19,7 +19,7 @@ import {
 export const metadata = pageMetadata({
   title: "Pasang WiFi Solo Raya Tanpa FUP | XL HOME",
   description:
-    "ðŸ”¥ Promo Pasang WiFi Solo Raya Bulan Ini: Internet Fiber 100% Unlimited TANPA FUP mulai 185rb/bln. Pasang hari ini, besok langsung online! Cek area sekarang.",
+    "🔥 Promo Pasang WiFi Solo Raya Bulan Ini: Internet Fiber 100% Unlimited TANPA FUP mulai 185rb/bln. Pasang hari ini, besok langsung online! Cek area sekarang.",
   path: "/",
 });
 
