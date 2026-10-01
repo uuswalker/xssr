@@ -102,17 +102,28 @@ function FiberCard({ t }: { t: FiberTier }) {
             </div>
           ))}
         </div>
-        <div className="price-box">
+        <div className="price-box" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          {t.priceNormal && (
+            <div style={{ textDecoration: 'line-through', color: '#6b7280', fontSize: 13, marginBottom: -4 }}>
+              {t.priceNormal}
+            </div>
+          )}
           <div className="price-main">
             {t.price.includes("Rp") ? <NumberCounter value={parseInt(t.price.replace(/\D/g, ""), 10)} prefix="Rp " /> : t.price}
             <span>/bulan</span>
           </div>
-          <div className="price-ppn">Belum termasuk PPN</div>
+          {t.badgePromo && (
+            <div style={{ background: '#fef2f2', color: '#dc2626', padding: '2px 8px', borderRadius: 99, fontSize: 11, fontWeight: 700, marginTop: 4 }}>
+              🔥 {t.badgePromo}
+            </div>
+          )}
+          <div className="price-ppn" style={{ marginTop: t.badgePromo ? 4 : undefined }}>Belum termasuk PPN</div>
           <button
             type="button"
             className="btn-pilih btn-cek-lokasi-trigger"
             aria-label={`Pilih Paket ${t.name}`}
             data-paket={t.waText}
+            style={t.badgePromo ? { background: 'var(--navy)', borderColor: 'var(--navy)', width: '100%' } : undefined}
           >
             Saya Pilih Ini
           </button>

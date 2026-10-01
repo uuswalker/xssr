@@ -38,7 +38,7 @@ export function jsonLdWebsite() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: SITE_NAME,
-    alternateName: "XL SATU Solo",
+    alternateName: "XL Home Solo",
     url: `${SITE_DOMAIN}/`,
     inLanguage: "id",
     publisher: { "@id": `${SITE_DOMAIN}/#business` },
@@ -58,7 +58,7 @@ export function jsonLdLocalBusiness() {
     name: SITE_NAME,
     alternateName: ["XL SATU Solo", "First Media Solo", "XL Home Solo"],
     description:
-      "Reseller resmi XL SATU (fiber optic & wireless internet) untuk wilayah Solo Raya: Kota Solo, Sukoharjo, Karanganyar, Klaten, dan Boyolali. Internet rumah unlimited tanpa FUP mulai Rp 185.000/bulan.",
+      "Reseller resmi XL Home (fiber optic & wireless internet) untuk wilayah Solo Raya: Kota Solo, Sukoharjo, Karanganyar, Klaten, dan Boyolali. Internet rumah unlimited tanpa FUP mulai Rp 185.000/bulan.",
     url: `${SITE_DOMAIN}/`,
     telephone: "+6287778999141",
     image: `${SITE_DOMAIN}/images/promo-wifi-rumah-koneksi-pasti.webp`,
@@ -92,25 +92,25 @@ export function jsonLdLocalBusiness() {
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Paket Internet XL SATU",
+      name: "Paket Internet XL Home",
       itemListElement: [
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "XL SATU Fiber 20 Mbps" },
+          itemOffered: { "@type": "Service", name: "XL Home Fiber 20 Mbps" },
           price: "185000",
           priceCurrency: "IDR",
           priceSpecification: { "@type": "UnitPriceSpecification", billingDuration: "P1M" },
         },
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "XL SATU Fiber 100 Mbps" },
+          itemOffered: { "@type": "Service", name: "XL Home Fiber 100 Mbps" },
           price: "245000",
           priceCurrency: "IDR",
           priceSpecification: { "@type": "UnitPriceSpecification", billingDuration: "P1M" },
         },
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "XL SATU Fiber 250 Mbps" },
+          itemOffered: { "@type": "Service", name: "XL Home Fiber 250 Mbps" },
           price: "229000",
           priceCurrency: "IDR",
           priceSpecification: { "@type": "UnitPriceSpecification", billingDuration: "P1M" },
@@ -180,4 +180,5 @@ export function JsonLd({ data }: { data: unknown }) {
     />
   );
 }
+
 

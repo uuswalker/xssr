@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+﻿import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Hero from "@/components/home/Hero";
 import PageTransition from "@/components/animations/PageTransition";
@@ -17,9 +17,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Pasang WiFi Solo Raya Tanpa FUP | XL SATU Solo Raya",
+  title: "Pasang WiFi Solo Raya Tanpa FUP | XL HOME",
   description:
-    "🔥 Promo Pasang WiFi Solo Raya Bulan Ini: Internet Fiber 100% Unlimited TANPA FUP mulai 185rb/bln. Pasang hari ini, besok langsung online! Cek area sekarang.",
+    "ðŸ”¥ Promo Pasang WiFi Solo Raya Bulan Ini: Internet Fiber 100% Unlimited TANPA FUP mulai 185rb/bln. Pasang hari ini, besok langsung online! Cek area sekarang.",
   path: "/",
 });
 
@@ -51,3 +51,4 @@ export default function Home() {
     </>
   );
 }
+

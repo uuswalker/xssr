@@ -1,8 +1,8 @@
-"use client";
+﻿"use client";
 
 import { Ticket, HandCoins, MapPinned, Building2, HelpCircle, Map, MessageCircle, Gauge, Calculator, FileQuestion, Lightbulb, ArrowRight } from "lucide-react";
 import { WA_DAFTAR } from "@/lib/site";
-// Seksi informatif homepage — port 1:1 dari xssr (server components, link relatif).
+// Seksi informatif homepage â€” port 1:1 dari xssr (server components, link relatif).
 
 const AREA_CARDS = [
   { href: "/wifi-surakarta/", name: "Surakarta (Solo)", desc: "Fiber & Wifi Tanpa Kabel" },
@@ -16,7 +16,7 @@ const KENAPA = [
   {
     icon: MessageCircle,
     title: "Sigap Membalas Pesan",
-    text: 'Chat langsung ke satu nomor sales yang sama dari awal konsultasi sampai internet aktif — bukan admin generik yang cuma "read" tanpa balasan.',
+    text: 'Chat langsung ke satu nomor sales yang sama dari awal konsultasi sampai internet aktif â€” bukan admin generik yang cuma "read" tanpa balasan.',
   },
   {
     icon: Ticket,
@@ -26,12 +26,12 @@ const KENAPA = [
   {
     icon: HandCoins,
     title: "Harga Transparan Sejak Awal",
-    text: "Semua biaya paket dan instalasi dijelaskan di depan sebelum Anda daftar — tidak ada biaya tersembunyi yang muncul belakangan.",
+    text: "Semua biaya paket dan instalasi dijelaskan di depan sebelum Anda daftar â€” tidak ada biaya tersembunyi yang muncul belakangan.",
   },
   {
     icon: MapPinned,
     title: "Paham Medan Solo Raya",
-    text: "Sales lokal yang benar-benar tahu area Solo, Sukoharjo, Karanganyar, Klaten, dan Boyolali — bukan customer service pusat yang tidak familiar dengan lokasi Anda.",
+    text: "Sales lokal yang benar-benar tahu area Solo, Sukoharjo, Karanganyar, Klaten, dan Boyolali â€” bukan customer service pusat yang tidak familiar dengan lokasi Anda.",
   },
 ];
 
@@ -40,7 +40,7 @@ const TOOLS = [
     href: "/tes-kecepatan/",
     Icon: Gauge,
     title: "Tes Kecepatan Internet",
-    desc: "Ukur download & upload ke server terdekat ±20 detik.",
+    desc: "Ukur download & upload ke server terdekat Â±20 detik.",
   },
   {
     href: "/berapa-mbps-untuk-berapa-orang/",
@@ -77,7 +77,7 @@ export function AreaHome() {
       {/* AREA LAYANAN */}
       <section className="area-section" id="area">
         <div className="area-inner">
-          <h2 className="section-title">Area Layanan XL SATU di Solo Raya</h2>
+          <h2 className="section-title">Area Layanan XL Home di Solo Raya</h2>
           <p className="section-sub">
             Kami melayani pemasangan internet rumah fiber optic dan wireless di
             5 kabupaten/kota Soloraya
@@ -125,7 +125,7 @@ export function AreaHome() {
             >
               Cek Paket Tanpa FUP
             </a>{" "}
-            •{" "}
+            â€¢{" "}
             <a
               href="/paket-wifi-tahunan-bayar-10-dapat-12/"
               style={{ color: "var(--green)", fontWeight: 600 }}
@@ -262,7 +262,7 @@ export function About() {
           <div className="about-text">
             <h2>XL SATU Kini Hadir sebagai XL Home</h2>
             <p>
-              XL SATU resmi berganti nama menjadi <strong>XL Home</strong> — wajah baru, semangat baru, koneksi makin kencang.
+              XL SATU resmi berganti nama menjadi <strong>XL Home</strong> â€” wajah baru, semangat baru, koneksi makin kencang.
               Nikmati internet rumah fiber &amp; wireless unlimited tanpa FUP di Solo Raya dengan jaringan XLSMART yang lebih luas dan andal.
             </p>
             <a
@@ -273,7 +273,7 @@ export function About() {
                 fontSize: 14, textDecoration: "none"
               }}
             >
-              Baca selengkapnya →
+              Baca selengkapnya â†’
             </a>
           </div>
           <div className="about-video" style={{ position: "relative", borderRadius: 16, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.12)" }}>
@@ -366,10 +366,10 @@ export function Tools() {
           <h2
             style={{ fontSize: 26, fontWeight: 800, marginBottom: 8 }}
           >
-            Tools Gratis XL SATU Solo Raya
+            Tools Gratis XL Home Solo Raya
           </h2>
           <p style={{ fontSize: 14, color: "#4b5563", marginBottom: 32 }}>
-            Cek, hitung, dan tentukan sendiri — tanpa daftar, tanpa bayar.
+            Cek, hitung, dan tentukan sendiri â€” tanpa daftar, tanpa bayar.
           </p>
           <div
             style={{
@@ -492,7 +492,7 @@ export function Hubungi() {
           <div className="hubungi-img">
             <img
               src="/images/xl-cdn/support-team.webp"
-              alt="Tim support XL SATU Solo Raya siap membantu"
+              alt="Tim support XL Home Solo Raya siap membantu"
               width={678}
               height={1080}
               loading="lazy"
@@ -516,3 +516,4 @@ export default function InfoSections() {
     </>
   );
 }
+

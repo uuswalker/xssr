@@ -1,6 +1,6 @@
-import { waLink } from "./site";
+﻿import { waLink } from "./site";
 
-// Data paket — disalin 1:1 dari xssr@ec66035 index.html.
+// Data paket â€” disalin 1:1 dari xssr@ec66035 index.html.
 
 export interface FiberTier {
   name: string;
@@ -17,6 +17,8 @@ export interface FiberTier {
   tags: string[];
   feats: { img: string; text: string }[];
   price: string;
+  priceNormal?: string;
+  badgePromo?: string;
   waText: string;
 }
 
@@ -30,7 +32,7 @@ const F_FREE2 = IMG + "post-4409f8f4.webp";
 
 export const FIBER_TIERS: FiberTier[] = [
   {
-    name: "XL Satu Starter — 20 Mbps",
+    name: "XL Home Starter â€” 20 Mbps",
     subtitle: "Internet Only",
     headerClass: "value",
     speedMax: 20,
@@ -44,10 +46,10 @@ export const FIBER_TIERS: FiberTier[] = [
       { img: F_INST, text: "Biaya Instalasi Rp 100.000" },
     ],
     price: "Rp 185.000",
-    waText: "Saya minat paket XL Satu Starter 20 Mbps Rp185.000",
+    waText: "Saya minat paket XL Home Starter 20 Mbps Rp185.000",
   },
   {
-    name: "XL Satu Spark — 250 Mbps",
+    name: "XL Home Spark â€” 250 Mbps",
     subtitle: "Internet Only",
     headerClass: "smart",
     badge: "Best Seller",
@@ -64,10 +66,10 @@ export const FIBER_TIERS: FiberTier[] = [
       { img: F_FREE, text: "Gratis Biaya Instalasi" },
     ],
     price: "Rp 229.000",
-    waText: "Saya minat paket XL Satu Spark 250 Mbps Rp229.000",
+    waText: "Saya minat paket XL Home Spark 250 Mbps Rp229.000",
   },
   {
-    name: "XL Satu Spark — 300 Mbps",
+    name: "XL Home Spark â€” 300 Mbps",
     subtitle: "Internet Only",
     headerClass: "family",
     speedMax: 300,
@@ -83,10 +85,10 @@ export const FIBER_TIERS: FiberTier[] = [
       { img: F_FREE2, text: "Gratis Biaya Instalasi" },
     ],
     price: "Rp 239.000",
-    waText: "Saya minat paket XL Satu Spark 300 Mbps Rp239.000",
+    waText: "Saya minat paket XL Home Spark 300 Mbps Rp239.000",
   },
   {
-    name: "XL Satu Spark — 400 Mbps",
+    name: "XL Home Spark â€” 400 Mbps",
     subtitle: "Internet Only",
     headerClass: "value",
     speedMax: 400,
@@ -102,10 +104,10 @@ export const FIBER_TIERS: FiberTier[] = [
       { img: F_INST, text: "Gratis Biaya Instalasi" },
     ],
     price: "Rp 299.000",
-    waText: "Saya minat paket XL Satu Spark 400 Mbps Rp299.000",
+    waText: "Saya minat paket XL Home Spark 400 Mbps Rp299.000",
   },
   {
-    name: "XL Satu Spark — 500 Mbps",
+    name: "XL Home Spark â€” 500 Mbps",
     subtitle: "Internet Only",
     headerClass: "smart",
     speedMax: 500,
@@ -119,10 +121,10 @@ export const FIBER_TIERS: FiberTier[] = [
       { img: F_FREE, text: "Gratis Biaya Instalasi" },
     ],
     price: "Rp 399.000",
-    waText: "Saya minat paket XL Satu Spark 500 Mbps Rp399.000",
+    waText: "Saya minat paket XL Home Spark 500 Mbps Rp399.000",
   },
   {
-    name: "XL Satu Spark — 1000 Mbps",
+    name: "XL Home Spark â€” 1000 Mbps",
     subtitle: "Internet Only",
     headerClass: "family",
     speedMax: 1000,
@@ -136,7 +138,7 @@ export const FIBER_TIERS: FiberTier[] = [
       { img: F_FREE2, text: "Gratis Biaya Instalasi" },
     ],
     price: "Rp 899.000",
-    waText: "Saya minat paket XL Satu Spark 1000 Mbps Rp899.000",
+    waText: "Saya minat paket XL Home Spark 1000 Mbps Rp899.000",
   },
 ];
 
@@ -153,6 +155,8 @@ export interface TahunanTier {
   members: string;
   before: string;
   price: string;
+  priceNormal?: string;
+  badgePromo?: string;
   perMonth: string;
   save: string;
   waText: string;
@@ -174,7 +178,7 @@ export const TAHUNAN_TIERS: TahunanTier[] = [
     members: "2 Member",
     before: "Rp 2.988.000",
     price: "Rp 2.490.000",
-    perMonth: "≈ Rp207.500/bulan",
+    perMonth: "â‰ˆ Rp207.500/bulan",
     save: "Hemat Rp498rb/tahun",
     waText: "Saya minat paket Tahunan Basic Smart 50 Mbps Rp2.490.000",
     tags: ["Browsing", "Media Sosial", "Streaming HD"],
@@ -196,7 +200,7 @@ export const TAHUNAN_TIERS: TahunanTier[] = [
     members: "2 Member",
     before: "Rp 3.828.000",
     price: "Rp 3.190.000",
-    perMonth: "≈ Rp265.800/bulan",
+    perMonth: "â‰ˆ Rp265.800/bulan",
     save: "Hemat Rp638rb/tahun",
     waText: "Saya minat paket Tahunan Basic Family 100 Mbps Rp3.190.000",
     tags: ["Streaming HD", "Gaming Online", "WFH"],
@@ -218,7 +222,7 @@ export const TAHUNAN_TIERS: TahunanTier[] = [
     members: "3 Member",
     before: "Rp 4.428.000",
     price: "Rp 3.690.000",
-    perMonth: "≈ Rp307.500/bulan",
+    perMonth: "â‰ˆ Rp307.500/bulan",
     save: "Hemat Rp738rb/tahun",
     waText: "Saya minat paket Tahunan Basic Superuser 150 Mbps Rp3.690.000",
     tags: ["Power User", "Cloud Gaming", "Multi-streaming"],
@@ -235,6 +239,8 @@ export interface WirelessTier {
   icon: string;
   label: string;
   price: string;
+  priceNormal?: string;
+  badgePromo?: string;
   note: string;
   waText: string;
 }
@@ -244,19 +250,19 @@ export const WIRELESS_ADVANCE: WirelessTier[] = [
     speed: 50,
     badge: "Hemat 25%",
     icon: "fas fa-gauge",
-    label: "Advance Payment — Bayar 3 Dapat 4",
+    label: "Advance Payment â€” Bayar 3 Dapat 4",
     price: "Rp 650.000",
-    note: "untuk 4 bulan • ≈ Rp162.500/bulan",
-    waText: "Saya minat XL Satu Wireless 50 Mbps Advance Rp650.000",
+    note: "untuk 4 bulan â€¢ â‰ˆ Rp162.500/bulan",
+    waText: "Saya minat XL Home Wireless 50 Mbps Advance Rp650.000",
   },
   {
     speed: 100,
     badge: "Hemat 10%",
     icon: "fas fa-gauge-high",
-    label: "Advance Payment — Bayar 3 Dapat 4",
+    label: "Advance Payment â€” Bayar 3 Dapat 4",
     price: "Rp 790.000",
-    note: "untuk 4 bulan • ≈ Rp197.500/bulan",
-    waText: "Saya minat XL Satu Wireless 100 Mbps Advance Rp790.000",
+    note: "untuk 4 bulan â€¢ â‰ˆ Rp197.500/bulan",
+    waText: "Saya minat XL Home Wireless 100 Mbps Advance Rp790.000",
   },
 ];
 
@@ -267,10 +273,11 @@ export const WIRELESS_MONTHLY: WirelessTier[] = [
     label: "Monthly Plan",
     price: "Rp 219.500",
     note: "/bulan",
-    waText: "Saya minat XL Satu Wireless Monthly 100 Mbps Rp219.500",
+    waText: "Saya minat XL Home Wireless Monthly 100 Mbps Rp219.500",
   },
 ];
 
 export function tierWa(t: { waText: string }): string {
   return waLink(t.waText);
 }
+

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { preload } from "react-dom";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -51,7 +51,7 @@ function scrollToId(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 }
 
-/** Slider hero — dipakai home (teks WA default) & kota (teks WA per kota). */
+/** Slider hero â€” dipakai home (teks WA default) & kota (teks WA per kota). */
 export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
   preload("/images/promo-wifi-rumah-koneksi-pasti.webp", {
     as: "image",
@@ -189,10 +189,10 @@ export function FiturPills() {
     <div className="fitur-pills">
       <div className="fitur-pills-inner">
         {[
-          ["icon-fiber.svg", "Fiber Optic"],
-          ["icon-internet.svg", "WiFi Unlimited"],
-          ["icon-transaksi.svg", "SATU Tagihan"],
-          ["icon-xl-satu.svg", "SATU Aplikasi"],
+          ["icon-fiber.svg", "Speed Makin Kencang"],
+          ["icon-internet.svg", "Diakui Opensignal"],
+          ["icon-jaringan.svg", "Area Solo Raya"],
+          ["icon-kalender.svg", "Instalasi Cepat"],
         ].map(([icon, label]) => (
           <div className="pill-item" key={label}>
             <Image
@@ -214,17 +214,17 @@ export function HomeHeroLokal() {
     <section className="hero-lokal">
       <div className="hero-lokal-inner">
         <h1>
-          Pasang <span>WiFi Rumah di Solo Raya</span>
+          Pasang <span>XL Home di Solo Raya</span>
           <br />
           Cepat, Stabil, dan Terjangkau
         </h1>
         <p>
-          XL SATU hadir untuk keluarga di{" "}
+          XL Home hadir untuk keluarga di{" "}
           <strong>
             Solo (Surakarta), Sukoharjo, Karanganyar, Klaten, dan Boyolali
           </strong>
           . Internet fiber optic unlimited dan terjangkau mulai Rp
-          185.000/bulan —{" "}
+          185.000/bulan â€”{" "}
           <a
             href="/wifi-tanpa-fup-unlimited/"
             style={{ color: "inherit", textDecoration: "underline" }}
@@ -250,7 +250,7 @@ export function HomeHeroLokal() {
         </button>
         
         <div style={{ marginTop: "16px", display: "inline-flex", alignItems: "center", gap: "8px", background: "#fef3c7", padding: "6px 14px", borderRadius: "999px", border: "1px solid #fde68a" }}>
-          <span style={{ fontSize: "16px" }}>🏆</span>
+          <span style={{ fontSize: "16px" }}>ðŸ†</span>
           <span style={{ fontSize: "13px", fontWeight: 700, color: "#92400e" }}>Pemenang Opensignal 2026: Jaringan Paling Andal</span>
         </div>
         <div className="hero-lokal-stats">
@@ -312,3 +312,4 @@ export default function Hero() {
     </>
   );
 }
+
