@@ -1,4 +1,4 @@
-﻿import type { FaqItem } from "./seo";
+import type { FaqItem } from "./seo";
 
 export interface HeroBand { crumb: string; h1: string; sub: string; meta: string; }
 export interface Artikel { slug: string; title: string; description: string; keywords: string[];
@@ -727,7 +727,6 @@ ARTIKEL["xl-satu-resmi-jadi-xl-home"] = {
       <ul>
         <li>Nama layanan: XL SATU → <strong>XL Home</strong></li>
         <li>Logo dan identitas visual</li>
-        <li>Website resmi: <strong>home.xl.co.id</strong></li>
         <li>Nama di aplikasi MyXL</li>
       </ul>
     </div>
