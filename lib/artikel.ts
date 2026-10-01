@@ -674,12 +674,96 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-satu-solo"] = {
   </div>
   `
 };
+ARTIKEL["xl-satu-resmi-jadi-xl-home"] = {
+  slug: "xl-satu-resmi-jadi-xl-home",
+  title: "XL SATU Resmi Berganti Nama Menjadi XL Home – Apa yang Berubah?",
+  description: "XL SATU kini resmi menjadi XL Home. Simak apa saja yang berubah, apakah paket internet lama tetap berlaku, dan kenapa ini kabar baik untuk pelanggan di Solo Raya.",
+  keywords: ["xl satu jadi xl home","xl satu berganti nama","xl home solo raya","xl home adalah","rebranding xl satu xl home"],
+  ogTitle: "XL SATU Resmi Berganti Nama Menjadi XL Home",
+  ogDescription: "XL SATU kini resmi menjadi XL Home. Paket lama tetap berlaku, jaringan makin baik. Info lengkap untuk pelanggan Solo Raya.",
+  ogImage: "/images/promo-wifi-rumah-koneksi-pasti.webp",
+  schemas: [],
+  faqs: [
+    { q: "XL SATU dan XL Home itu sama atau berbeda?", a: "Sama persis. XL Home adalah nama baru dari XL SATU. Produk, jaringan, dan layanannya identik — hanya nama dan tampilannya yang diperbarui." },
+    { q: "Apakah paket lama saya masih berlaku setelah XL SATU jadi XL Home?", a: "Ya, 100% masih berlaku. Pergantian nama tidak mempengaruhi paket, kecepatan, atau tagihan Anda sama sekali." },
+    { q: "Bagaimana cara daftar XL Home di Solo Raya?", a: "Caranya sama seperti dulu: hubungi admin kami via WhatsApp, kirimkan alamat lengkap Anda, dan kami akan cek ketersediaan jaringan di lokasi Anda." }
+  ],
+  hero: { crumb: "<a href=\"https://xlhomesolo.com/\">Beranda</a> / XL SATU Jadi XL Home", h1: "XL SATU Resmi Berganti Nama Menjadi XL Home", sub: "Wajah baru, semangat baru — internet rumah unlimited tanpa FUP di Solo Raya tetap hadir untuk Anda.", meta: "Diperbarui 1 Oktober 2026 · XL Home Solo Raya" },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20kak%2C%20saya%20mau%20tanya%20soal%20XL%20Home%20di%20Solo%20Raya",
+  bodyHtml: `
+  <div style="background: linear-gradient(135deg, #037e64 0%, #05a986 100%); color: white; border-radius: 16px; padding: 24px 28px; margin-bottom: 32px; display: flex; align-items: flex-start; gap: 16px;">
+    <span style="font-size: 32px;">📣</span>
+    <div>
+      <strong style="font-size: 18px; display: block; margin-bottom: 6px;">Pengumuman Resmi</strong>
+      <span>XL SATU secara resmi telah berganti nama menjadi <strong>XL Home</strong>. Perubahan ini berlaku mulai 2026 dan merupakan bagian dari transformasi besar XL Axiata untuk menghadirkan layanan internet rumah yang lebih baik di seluruh Indonesia.</span>
+    </div>
+  </div>
 
+  <div style="margin: 28px 0; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
+    <video src="/videos/xl-satu-ganti-nama-xl-home.mp4" controls playsInline poster="/images/promo-first-media-xl-satu-banner.webp" style="width: 100%; height: auto; display: block;" aria-label="Video resmi XL SATU berganti nama menjadi XL Home">
+      Browser Anda tidak mendukung pemutaran video.
+    </video>
+    <p style="background: #f8f9fa; margin: 0; padding: 10px 16px; font-size: 13px; color: #555; text-align: center;">Video resmi: XL SATU kini hadir sebagai XL Home</p>
+  </div>
 
+  <h2>Apa Itu XL Home?</h2>
+  <p>XL Home adalah nama baru dari layanan internet rumah <strong>XL SATU</strong> yang sudah banyak Anda kenal. Perubahan nama ini adalah bagian dari strategi <em>rebranding</em> XL Axiata untuk menyatukan seluruh lini layanan internet rumah mereka di bawah satu nama yang lebih modern dan mudah diingat.</p>
+  <p>Jadi kalau selama ini Anda mengenal "WiFi XL SATU", "Pasang XL SATU", atau "Internet XL SATU" — sekarang semuanya sudah berubah nama menjadi <strong>XL Home</strong>.</p>
 
+  <h2>Apa yang Berubah?</h2>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <h4>✅ Yang TETAP SAMA</h4>
+      <ul>
+        <li>Jaringan fiber optik &amp; wireless (FWA)</li>
+        <li>Teknologi XLSMART yang andal</li>
+        <li>Internet unlimited tanpa FUP</li>
+        <li>Nomor layanan pelanggan</li>
+        <li>Paket dan harga yang berlaku</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <h4>🔄 Yang BERUBAH</h4>
+      <ul>
+        <li>Nama layanan: XL SATU → <strong>XL Home</strong></li>
+        <li>Logo dan identitas visual</li>
+        <li>Website resmi: <strong>home.xl.co.id</strong></li>
+        <li>Nama di aplikasi MyXL</li>
+      </ul>
+    </div>
+  </div>
 
+  <h2>Apakah Paket Lama Saya Masih Berlaku?</h2>
+  <p><strong>Ya, 100% masih berlaku.</strong> Pergantian nama dari XL SATU ke XL Home tidak mempengaruhi paket, kecepatan, atau tagihan Anda sama sekali. Layanan tetap berjalan normal seperti biasa.</p>
 
+  <div class="info-box">
+    <strong>Untuk pelanggan lama XL SATU di Solo Raya:</strong> Tidak ada yang perlu dikhawatirkan. Kontrak, paket, dan nomor perangkat Anda tetap valid. Hanya nama brand-nya yang berganti menjadi XL Home.
+  </div>
 
+  <h2>XL Home di Solo Raya</h2>
+  <p>Kami, sebagai agen resmi XL Home di Solo Raya, tetap melayani Anda dengan nomor dan layanan yang sama. Anda tetap bisa menghubungi kami untuk:</p>
+  <ul>
+    <li>Pasang internet baru (Fiber &amp; Wireless/FWA)</li>
+    <li>Cek ketersediaan jaringan di alamat Anda</li>
+    <li>Pertanyaan seputar tagihan &amp; layanan</li>
+    <li>Upgrade paket ke kecepatan lebih tinggi</li>
+  </ul>
 
+  <div class="cta-box">
+    <h3>Daftar XL Home di Solo Raya Sekarang</h3>
+    <p>Prosesnya mudah dan cepat. Chat admin kami via WhatsApp untuk cek ketersediaan jaringan di alamat Anda.</p>
+    <a href="https://wa.me/6287778999141?text=Halo%20kak%2C%20saya%20mau%20daftar%20XL%20Home%20di%20Solo%20Raya" target="_blank" rel="noopener noreferrer" class="btn-cta">
+      <i class="fab fa-whatsapp"></i> Chat 0877-7899-9141
+    </a>
+  </div>
 
-
+  <div class="related-cities">
+    <a href="/wifi-solo/">Pasang WiFi Solo</a>
+    <a href="/wifi-sukoharjo/">Pasang WiFi Sukoharjo</a>
+    <a href="/wifi-karanganyar/">Pasang WiFi Karanganyar</a>
+    <a href="/wifi-klaten/">Pasang WiFi Klaten</a>
+    <a href="/wifi-boyolali/">Pasang WiFi Boyolali</a>
+    <a href="/wifi-surakarta/">Pasang WiFi Surakarta</a>
+  </div>
+`,
+};

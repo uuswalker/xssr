@@ -260,32 +260,36 @@ export function About() {
       <section className="about-section">
         <div className="about-inner">
           <div className="about-text">
-            <h2>First Media Jadi XL SATU</h2>
+            <h2>XL SATU Kini Hadir sebagai XL Home</h2>
             <p>
-              Nikmati internet rumah tambah cepat dengan jaringan tepercaya
-              XLSMART yang membuat setiap momen di rumah lebih nyaman bersama
-              koneksi dan hiburan tanpa batas.
+              XL SATU resmi berganti nama menjadi <strong>XL Home</strong> — wajah baru, semangat baru, koneksi makin kencang.
+              Nikmati internet rumah fiber &amp; wireless unlimited tanpa FUP di Solo Raya dengan jaringan XLSMART yang lebih luas dan andal.
             </p>
+            <a
+              href="/xl-satu-resmi-jadi-xl-home/"
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 8,
+                marginTop: 16, color: "var(--green)", fontWeight: 700,
+                fontSize: 14, textDecoration: "none"
+              }}
+            >
+              Baca selengkapnya →
+            </a>
           </div>
-          <div className="about-video">
-            <img
-              src="/images/promo-first-media-xl-satu-banner.webp"
-              alt="Promo First Media Jadi XL SATU"
-              width={946}
-              height={532}
-              loading="lazy"
-            />
-            <div className="play-btn" style={{ cursor: "default" }}>
-              <svg
-                viewBox="0 0 24 24"
-                width="26"
-                height="26"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
+          <div className="about-video" style={{ position: "relative", borderRadius: 16, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.12)" }}>
+            <video
+              src="/videos/xl-satu-ganti-nama-xl-home.mp4"
+              controls
+              autoPlay={false}
+              loop={false}
+              muted={false}
+              playsInline
+              poster="/images/promo-first-media-xl-satu-banner.webp"
+              style={{ width: "100%", height: "auto", display: "block", borderRadius: 16 }}
+              aria-label="Video: XL SATU resmi berganti nama menjadi XL Home - Internet rumah terbaik di Solo Raya"
+            >
+              Browser Anda tidak mendukung pemutaran video.
+            </video>
           </div>
         </div>
       </section>

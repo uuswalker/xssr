@@ -1,9 +1,10 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WaFloat from "@/components/WaFloat";
 import { Share2, Copy, CheckCircle2, Gift, Users, Wallet } from "lucide-react";
 import PageTransition from "@/components/animations/PageTransition";
+import ReferralShareClient from "@/components/referral/ReferralShareClient";
 
 export const metadata: Metadata = {
   title: "Program Ajak Teman XL SATU - Dapat Saldo!",
@@ -66,30 +67,7 @@ export default function ReferralPage() {
               </div>
             </div>
 
-            <div style={{ background: "#f8fafc", padding: 32, borderRadius: 16, border: "1px solid #e2e8f0", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-              <h3 style={{ fontSize: 20, fontWeight: 800, marginBottom: 12, textAlign: "center" }}>Sebarkan Lewat WhatsApp</h3>
-              <p style={{ fontSize: 14, color: "#64748b", textAlign: "center", marginBottom: 24 }}>
-                Klik tombol di bawah untuk langsung menyebarkan pesan ajakan pasang XL SATU ke kontak/grup WhatsApp Anda.
-              </p>
-              
-              <a 
-                href="https://wa.me/?text=Halo!%20Lagi%20cari%20WiFi%20rumah%20atau%20kos%20di%20Solo%20Raya%3F%20Aku%20rekomendasikan%20pakai%20*XL%20SATU*.%20Internetnya%20asli%20unlimited%20tanpa%20FUP%2C%20anti%20lemot%20di%20akhir%20bulan.%0A%0ACoba%20cek%20harganya%20dan%20daftar%20lewat%20Admin%20resminya%20di%20sini%3A%20https%3A%2F%2Fwa.me%2F6287778999141%20%0A%0A%28Jangan%20lupa%20bilang%20dapat%20rekomendasi%20dari%20aku%20ya!%29"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
-                  background: "#25D366", color: "white", padding: "16px", borderRadius: 12, fontWeight: 700, textDecoration: "none",
-                  boxShadow: "0 4px 14px rgba(37,211,102,0.3)", transition: "all 0.2s"
-                }}
-              >
-                <Share2 size={20} />
-                Bagikan Pesan ke WA
-              </a>
-
-              <p style={{ fontSize: 13, color: "#94a3b8", textAlign: "center", marginTop: 24, fontStyle: "italic" }}>
-                *Pastikan teman yang Anda rekomendasikan menyebutkan nama/nomor HP Anda ke Admin agar komisi bisa diklaim.
-              </p>
-            </div>
+            <ReferralShareClient />
 
           </div>
         </div>
