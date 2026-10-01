@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: decodeEntities(AREA.title),
     description: decodeEntities(AREA.description),
     path: "/area-layanan/",
-    image: AREA.ogImage || "/images/promo-wifi-rumah-koneksi-pasti.webp",
+    image: AREA.ogImage || "/images/banner-xlsatu-jadi-xlhome.jpg",
   });
   return {
     ...base,

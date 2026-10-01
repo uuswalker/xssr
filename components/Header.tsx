@@ -31,7 +31,7 @@ export default function Header({
   return (
     <header role="banner" className={`site-header ${isTop ? "" : "is-scrolled"}`}>
       <div className="promo-banner">
-          ðŸ”¥ <span className="shimmer-text">Promo Terbatas: Gratis Instalasi Khusus Paket 250 Mbps & XL SATU Wireless s/d Akhir Bulan!</span>
+          🔥 <span className="shimmer-text">Promo Terbatas: Gratis Instalasi Khusus Paket 250 Mbps & XL SATU Wireless s/d Akhir Bulan!</span>
         </div>
       <div className="header-inner">
         <div className="logo">
@@ -70,4 +70,3 @@ export default function Header({
     </header>
   );
 }
-

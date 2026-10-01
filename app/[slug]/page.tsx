@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: decodeEntities(a.title),
     description: decodeEntities(a.description),
     path: `/${slug}/`,
-    image: a.ogImage || "/images/promo-wifi-rumah-koneksi-pasti.webp",
+    image: a.ogImage || "/images/banner-xlsatu-jadi-xlhome.jpg",
   });
   return {
     ...base,

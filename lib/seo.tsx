@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { IS_STAGING, SITE_DOMAIN, SITE_NAME } from "./site";
 
 export interface FaqItem {
@@ -13,10 +13,10 @@ interface PageSeo {
   image?: string;
 }
 
-/** Metadata per halaman â€” paritas dengan <head> xssr. */
+/** Metadata per halaman — paritas dengan <head> xssr. */
 export function pageMetadata({ title, description, path, image }: PageSeo): Metadata {
   const url = `${SITE_DOMAIN}${path}`;
-  const ogImage = image || "/images/promo-wifi-rumah-koneksi-pasti.webp";
+  const ogImage = image || "/images/banner-xlsatu-jadi-xlhome.jpg";
   return {
     title,
     description,
@@ -61,8 +61,8 @@ export function jsonLdLocalBusiness() {
       "Reseller resmi XL Home (fiber optic & wireless internet) untuk wilayah Solo Raya: Kota Solo, Sukoharjo, Karanganyar, Klaten, dan Boyolali. Internet rumah unlimited tanpa FUP mulai Rp 185.000/bulan.",
     url: `${SITE_DOMAIN}/`,
     telephone: "+6287778999141",
-    image: `${SITE_DOMAIN}/images/promo-wifi-rumah-koneksi-pasti.webp`,
-    priceRange: "Rp185.000 â€“ Rp399.000/bulan",
+    image: `${SITE_DOMAIN}/images/banner-xlsatu-jadi-xlhome.jpg`,
+    priceRange: "Rp185.000 – Rp399.000/bulan",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Surakarta",
@@ -125,7 +125,7 @@ export function jsonLdLocalBusiness() {
   };
 }
 
-/** Varian kota â€” paritas template-kota.html (sameAs hanya domain sendiri). */
+/** Varian kota — paritas template-kota.html (sameAs hanya domain sendiri). */
 export function jsonLdLocalBusinessKota(path: string, areaServed: unknown) {
   return {
     "@context": "https://schema.org",
@@ -134,8 +134,8 @@ export function jsonLdLocalBusinessKota(path: string, areaServed: unknown) {
     name: SITE_NAME,
     url: `${SITE_DOMAIN}${path}`,
     telephone: "+6287778999141",
-    image: `${SITE_DOMAIN}/images/promo-wifi-rumah-koneksi-pasti.webp`,
-    priceRange: "Rp185.000 â€“ Rp399.000/bulan",
+    image: `${SITE_DOMAIN}/images/banner-xlsatu-jadi-xlhome.jpg`,
+    priceRange: "Rp185.000 – Rp399.000/bulan",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Surakarta",

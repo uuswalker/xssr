@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { preload } from "react-dom";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -31,14 +31,14 @@ const SLIDES = [
   },
   {
     imgDesktop: "/images/banner-apartemen.jpg",
-    imgMobile: "/images/promo-first-media-xl-satu-square.webp",
+    imgMobile: "/images/banner-xlsatu-jadi-xlhome.jpg",
     alt: "Promo Apartemen",
     eager: false,
     action: "hubungi" as const,
   },
   {
     imgDesktop: "/images/banner-opensignal.jpeg",
-    imgMobile: "/images/promo-first-media-xl-satu-square.webp",
+    imgMobile: "/images/banner-xlsatu-jadi-xlhome.jpg",
     alt: "Opensignal Award",
     eager: false,
     action: "hubungi" as const,
@@ -51,12 +51,12 @@ function scrollToId(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 }
 
-/** Slider hero â€” dipakai home (teks WA default) & kota (teks WA per kota). */
+/** Slider hero — dipakai home (teks WA default) & kota (teks WA per kota). */
 export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
   preload("/images/banner-xlsatu-jadi-xlhome.jpg", {
     as: "image",
-    imageSrcSet: "/images/banner-xlsatu-jadi-xlhome.jpg",
-    imageSizes: "100vw",
+    imageSrcSet: "/images/promo-wifi-rumah-koneksi-pasti-mobile.webp 500w, /images/banner-xlsatu-jadi-xlhome.jpg 1080w",
+    imageSizes: "(max-width: 768px) 500px, 1080px",
     fetchPriority: "high"
   });
 
@@ -224,7 +224,7 @@ export function HomeHeroLokal() {
             Solo (Surakarta), Sukoharjo, Karanganyar, Klaten, dan Boyolali
           </strong>
           . Internet fiber optic unlimited dan terjangkau mulai Rp
-          185.000/bulan â€”{" "}
+          185.000/bulan —{" "}
           <a
             href="/wifi-tanpa-fup-unlimited/"
             style={{ color: "inherit", textDecoration: "underline" }}
@@ -312,7 +312,4 @@ export default function Hero() {
     </>
   );
 }
-
-
-
 

@@ -54,7 +54,7 @@ export default function ArtikelIndex() {
               <div style={{ 
                 height: 160, 
                 backgroundColor: "var(--green-light)",
-                backgroundImage: `url(${a.ogImage || "/images/promo-wifi-rumah-koneksi-pasti.webp"})`,
+                backgroundImage: `url(${a.ogImage || "/images/banner-xlsatu-jadi-xlhome.jpg"})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 borderBottom: "1px solid #e2e8f0"

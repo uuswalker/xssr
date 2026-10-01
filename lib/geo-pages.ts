@@ -32,7 +32,7 @@ export function getGeoArticle(slug: string) {
     keywords: ["pasang wifi " + areaName, "wifi murah " + areaName, "xl satu " + areaName, "provider internet " + areaName, "wifi tanpa fup"],
     ogTitle: "Pasang WiFi XL SATU Fiber di " + areaName,
     ogDescription: "Nikmati internet stabil tanpa batas FUP di " + areaName + ". Gratis biaya instalasi dan dapatkan kuota HP bersama.",
-    ogImage: "/images/promo-wifi-rumah-koneksi-pasti.webp",
+    ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
     schemas: [],
     faqs: [],
     hero: { 

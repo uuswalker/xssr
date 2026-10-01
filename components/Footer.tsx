@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { PHONE_DISPLAY, WA_INFO } from "@/lib/site";
 
-// Port 1:1 footer xssr â€” SVG sosial disalin verbatim.
+// Port 1:1 footer xssr — SVG sosial disalin verbatim.
 export default function Footer() {
   return (
     <footer>
@@ -16,7 +16,7 @@ export default function Footer() {
             loading="lazy"
           />
           <div className="footer-copy">
-            Copyright Â© 2026 XL Home Solo Raya. All rights reserved.
+            Copyright © 2026 XL Home Solo Raya. All rights reserved.
           </div>
           <div style={{ fontSize: 11, color: "rgba(255,255,255,.7)", marginTop: 2 }}>
             Dilarang menyalin/menggandakan konten situs ini tanpa izin tertulis.
@@ -28,7 +28,7 @@ export default function Footer() {
             >
               wa.me/xlsatusolo
             </a>{" "}
-            â€¢ {PHONE_DISPLAY} â€¢ Dikelola agen resmi Solo&nbsp;Raya
+            • {PHONE_DISPLAY} • Dikelola agen resmi Solo&nbsp;Raya
           </div>
         </div>
         <div className="footer-links">
@@ -74,4 +74,3 @@ export default function Footer() {
     </footer>
   );
 }
-

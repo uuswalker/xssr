@@ -34,7 +34,7 @@ export async function kotaMetadata(slug: string): Promise<Metadata> {
     title: decodeEntities(city.title as string),
     description: decodeEntities(city.meta_description as string),
     path: `/${city.slug}/`,
-    image: "/images/promo-wifi-rumah-koneksi-pasti.webp",
+    image: "/images/banner-xlsatu-jadi-xlhome.jpg",
   });
   return {
     ...base,

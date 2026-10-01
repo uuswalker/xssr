@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: decodeEntities(A.title),
     description: decodeEntities(A.description),
     path: `/${A.slug}/`,
-    image: A.ogImage || "/images/promo-wifi-rumah-koneksi-pasti.webp",
+    image: A.ogImage || "/images/banner-xlsatu-jadi-xlhome.jpg",
   });
   return {
     ...base,
