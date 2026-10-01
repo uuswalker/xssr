@@ -1,4 +1,4 @@
-﻿import { waLink } from "./site";
+import { waLink } from "./site";
 
 // Data paket â€” disalin 1:1 dari xssr@ec66035 index.html.
 

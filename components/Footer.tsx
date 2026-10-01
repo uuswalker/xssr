@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { PHONE_DISPLAY, WA_INFO } from "@/lib/site";
 
 // Port 1:1 footer xssr â€” SVG sosial disalin verbatim.

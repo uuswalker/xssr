@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { preload } from "react-dom";
 import { useCallback, useEffect, useRef, useState } from "react";

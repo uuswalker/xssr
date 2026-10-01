@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { Ticket, HandCoins, MapPinned, Building2, HelpCircle, Map, MessageCircle, Gauge, Calculator, FileQuestion, Lightbulb, ArrowRight } from "lucide-react";
 import { WA_DAFTAR } from "@/lib/site";

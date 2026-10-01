@@ -1,4 +1,4 @@
-﻿import { MessageCircle, ArrowRight } from "lucide-react";
+import { MessageCircle, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import WaFloat from "@/components/WaFloat";
 import Watermark from "@/components/Watermark";

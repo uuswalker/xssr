@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { IS_STAGING, SITE_DOMAIN, SITE_NAME } from "./site";
 
 export interface FaqItem {

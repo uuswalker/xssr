@@ -1,4 +1,4 @@
-﻿// Konstanta situs â€” disalin dari xssr@ec66035 (sumber beku, JANGAN edit xssr asli).
+// Konstanta situs â€” disalin dari xssr@ec66035 (sumber beku, JANGAN edit xssr asli).
 // Staging default ON (noindex) sampai cutover eksplisit.
 
 export const SITE_DOMAIN = "https://xlhomesolo.com";
