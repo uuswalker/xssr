@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -31,13 +31,13 @@ export default function Header({
   return (
     <header role="banner" className={`site-header ${isTop ? "" : "is-scrolled"}`}>
       <div className="promo-banner">
-          🔥 <span className="shimmer-text">Promo Terbatas: Gratis Instalasi Khusus Paket 250 Mbps & XL SATU Wireless s/d Akhir Bulan!</span>
+          ðŸ”¥ <span className="shimmer-text">Promo Terbatas: Gratis Instalasi Khusus Paket 250 Mbps & XL SATU Wireless s/d Akhir Bulan!</span>
         </div>
       <div className="header-inner">
         <div className="logo">
-          <Link href="/" title="XL SATU">
-            <img className="hover-scale" src="/images/logo-xl-satu.png"
-              alt="XL SATU"
+          <Link href="/" title="XL HOME">
+            <img className="hover-scale" src="/images/xl-home-logo.png"
+              alt="XL HOME"
               width={106}
               height={85}
               loading="lazy"
@@ -70,3 +70,4 @@ export default function Header({
     </header>
   );
 }
+

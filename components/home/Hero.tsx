@@ -9,23 +9,23 @@ import { WA_DAFTAR, WA_INFO, waLink } from "@/lib/site";
 
 const SLIDES = [
   {
-    imgDesktop: "/images/banner-first-media.jpg",
-    imgMobile: "/images/promo-wifi-rumah-koneksi-pasti.webp",
-    alt: "Promo First Media Jadi XL SATU",
+    imgDesktop: "/images/banner-xlsatu-jadi-xlhome.jpg",
+    imgMobile: "/images/banner-xlsatu-jadi-xlhome.jpg",
+    alt: "XL SATU Resmi Jadi XL HOME",
     eager: true,
     action: "wa" as const,
   },
   {
-    imgDesktop: "/images/banner-makin-hemat.jpg",
-    imgMobile: "/images/promo-paket-internet.webp",
+    imgDesktop: "/images/banner-price.jpg",
+    imgMobile: "/images/banner-price.jpg",
     alt: "Promo Makin Hemat",
     eager: false,
     action: "wa" as const,
   },
   {
-    imgDesktop: "/images/banner-bayar-tagihan.jpg",
-    imgMobile: "/images/banner-bayar-tagihan.jpg",
-    alt: "Bayar Tagihan",
+    imgDesktop: "/images/banner-opensignal.jpeg",
+    imgMobile: "/images/banner-opensignal.jpeg",
+    alt: "Pemenang Opensignal",
     eager: false,
     action: "hubungi" as const,
   },
@@ -37,7 +37,7 @@ const SLIDES = [
     action: "hubungi" as const,
   },
   {
-    imgDesktop: "/images/banner-opensignal.jpg",
+    imgDesktop: "/images/banner-opensignal.jpeg",
     imgMobile: "/images/promo-first-media-xl-satu-square.webp",
     alt: "Opensignal Award",
     eager: false,
@@ -53,10 +53,10 @@ function scrollToId(id: string) {
 
 /** Slider hero â€” dipakai home (teks WA default) & kota (teks WA per kota). */
 export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
-  preload("/images/promo-wifi-rumah-koneksi-pasti.webp", {
+  preload("/images/banner-xlsatu-jadi-xlhome.jpg", {
     as: "image",
-    imageSrcSet: "/images/promo-wifi-rumah-koneksi-pasti-mobile.webp 500w, /images/promo-wifi-rumah-koneksi-pasti.webp 1080w",
-    imageSizes: "(max-width: 768px) 500px, 1080px",
+    imageSrcSet: "/images/banner-xlsatu-jadi-xlhome.jpg",
+    imageSizes: "100vw",
     fetchPriority: "high"
   });
 
@@ -312,4 +312,7 @@ export default function Hero() {
     </>
   );
 }
+
+
+
 

@@ -1,4 +1,4 @@
-import { MessageCircle, ArrowRight } from "lucide-react";
+﻿import { MessageCircle, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import WaFloat from "@/components/WaFloat";
 import Watermark from "@/components/Watermark";
@@ -17,7 +17,7 @@ const SOLO_FAQS = [
   },
   {
     q: "Berapa lama pemasangan WiFi di Solo?",
-    a: "Proses instalasi biasanya 3–7 hari kerja setelah pendaftaran. Untuk wilayah Kota Solo biasanya lebih cepat karena jaringan sudah terpasang luas di semua kecamatan.",
+    a: "Proses instalasi biasanya 3â€“7 hari kerja setelah pendaftaran. Untuk wilayah Kota Solo biasanya lebih cepat karena jaringan sudah terpasang luas di semua kecamatan.",
   },
   {
     q: "Apakah XL SATU ada di semua kecamatan Solo?",
@@ -33,11 +33,11 @@ const SOLO_FAQS = [
   },
   {
     q: "Berapa Mbps yang cukup untuk rumah di Solo?",
-    a: 'Untuk keluarga 3–4 orang dengan WFH dan streaming, 100 Mbps sudah cukup nyaman. Untuk 5 orang ke atas atau rumah dengan smart home, pilih 250–400 Mbps. Lihat <a href="/berapa-mbps-untuk-berapa-orang/">panduan berapa Mbps untuk berapa orang</a> untuk kalkulasi lebih presisi.',
+    a: 'Untuk keluarga 3â€“4 orang dengan WFH dan streaming, 100 Mbps sudah cukup nyaman. Untuk 5 orang ke atas atau rumah dengan smart home, pilih 250â€“400 Mbps. Lihat <a href="/berapa-mbps-untuk-berapa-orang/">panduan berapa Mbps untuk berapa orang</a> untuk kalkulasi lebih presisi.',
   },
   {
     q: "Apakah XL SATU di Solo ada FUP?",
-    a: 'Paket Fiber XL SATU di Solo tidak ada FUP sama sekali — unlimited tanpa batas kuota. Paket Wireless (FWA) ada batas wajar 1 TB/bulan yang sangat jarang tersentuh pengguna rumahan. Baca <a href="/wifi-tanpa-fup-unlimited/">penjelasan lengkap soal FUP XL SATU</a>.',
+    a: 'Paket Fiber XL SATU di Solo tidak ada FUP sama sekali â€” unlimited tanpa batas kuota. Paket Wireless (FWA) ada batas wajar 1 TB/bulan yang sangat jarang tersentuh pengguna rumahan. Baca <a href="/wifi-tanpa-fup-unlimited/">penjelasan lengkap soal FUP XL SATU</a>.',
   },
   {
     q: "Apakah ada WiFi tanpa kabel di Solo?",
@@ -53,7 +53,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const base = pageMetadata({
     title: "Pasang WiFi di Solo (Surakarta) Mulai Rp 185rb/bln | XL SATU",
     description:
-      "Pasang WiFi di Solo (Surakarta) mulai Rp 185.000/bulan — XL SATU fiber optic unlimited, cover 5 kecamatan: Laweyan, Jebres, Banjarsari, Serengan, Pasar Kliwon. Cek ketersediaan.",
+      "Pasang WiFi di Solo (Surakarta) mulai Rp 185.000/bulan â€” XL SATU fiber optic unlimited, cover 5 kecamatan: Laweyan, Jebres, Banjarsari, Serengan, Pasar Kliwon. Cek ketersediaan.",
     path: "/wifi-solo/",
     image: "/images/promo-wifi-rumah-koneksi-pasti.webp",
   });
@@ -67,7 +67,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ...base.openGraph,
       title: "Pasang WiFi di Solo (Surakarta) Mulai Rp 185rb/bln | XL SATU",
       description:
-        "Pasang WiFi di Solo (Surakarta) mulai Rp 185.000/bulan — XL SATU fiber optic unlimited tanpa FUP, cover 5 kecamatan Kota Solo. Cek ketersediaan.",
+        "Pasang WiFi di Solo (Surakarta) mulai Rp 185.000/bulan â€” XL SATU fiber optic unlimited tanpa FUP, cover 5 kecamatan Kota Solo. Cek ketersediaan.",
     },
   };
 }
@@ -77,7 +77,7 @@ const SERVICE_JSONLD = {
   "@type": "Service",
   name: "XL SATU Internet Rumah Solo",
   description:
-    "Pasang WiFi di Solo (Surakarta) — paket XL SATU fiber optic unlimited 20–1000 Mbps, mulai Rp 185.000/bulan.",
+    "Pasang WiFi di Solo (Surakarta) â€” paket XL SATU fiber optic unlimited 20â€“1000 Mbps, mulai Rp 185.000/bulan.",
   provider: {
     "@type": "LocalBusiness",
     "@id": "https://xlsatusolo.com/#business",
@@ -85,7 +85,7 @@ const SERVICE_JSONLD = {
     url: "https://xlsatusolo.com",
     telephone: "+6287778999141",
     image: "https://xlsatusolo.com/images/promo-wifi-rumah-koneksi-pasti.webp",
-    priceRange: "Rp185.000 – Rp399.000/bulan",
+    priceRange: "Rp185.000 â€“ Rp399.000/bulan",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Surakarta",
@@ -130,8 +130,8 @@ export default function Page() {
           <div className="logo">
             <a href="/" title="XL SATU">
               <img
-                src="/images/logo-xl-satu.png"
-                alt="XL SATU"
+                src="/images/xl-home-logo.png"
+                alt="XL HOME"
                 width={106}
                 height={85}
                 loading="lazy"
@@ -185,7 +185,7 @@ export default function Page() {
               padahal nama resminya adalah <strong>Kota Surakarta</strong>.
               Kedua nama ini merujuk ke kota yang sama. Jadi kalau Anda mencari
               &quot;pasang wifi solo&quot; atau &quot;pasang wifi
-              surakarta&quot;, hasilnya sama — Anda akan terhubung dengan sales
+              surakarta&quot;, hasilnya sama â€” Anda akan terhubung dengan sales
               kami yang melayani seluruh wilayah kota.
             </p>
             <p>
@@ -263,13 +263,13 @@ export default function Page() {
           <div className="footer-inner">
             <div className="footer-left">
               <img
-                src="/images/logo-xl-satu.png"
-                alt="XL SATU"
+                src="/images/xl-home-logo.png"
+                alt="XL HOME"
                 className="footer-logo"
                 loading="lazy"
               />
               <div className="footer-copy">
-                Copyright © 2026 XL SATU Solo Raya. All rights reserved.
+                Copyright Â© 2026 XL SATU Solo Raya. All rights reserved.
               </div>
               <div style={{ fontSize: 11, opacity: 0.55, marginTop: 2 }}>
                 Dilarang menyalin/menggandakan konten situs ini tanpa izin
@@ -282,7 +282,7 @@ export default function Page() {
                 >
                   wa.me/xlsatusolo
                 </a>{" "}
-                • 0877-7899-9141
+                â€¢ 0877-7899-9141
               </div>
             </div>
             <div className="footer-links">
@@ -298,3 +298,4 @@ export default function Page() {
     </div>
   );
 }
+

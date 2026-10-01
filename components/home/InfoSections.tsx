@@ -306,7 +306,7 @@ export function Myxl() {
         <div className="myxl-inner">
           <div className="myxl-img">
             <img
-              src="/images/xl-cdn/myxl-app.png"
+              src="/images/img-my-xl.png"
               alt="myXL App"
               width={743}
               height={656}
@@ -429,7 +429,7 @@ export function Hubungi() {
         <div className="hubungi-inner">
           <div className="hubungi-text">
             <h2>Hubungi Kami</h2>
-            <p>Kami siap bantu kamu untuk semua informasi tentang XL SATU</p>
+            <p>Kami siap bantu kamu untuk semua informasi tentang XL Home</p>
             <div className="contact-grid">
               <div className="contact-box">
                 <h3>Sales Center</h3>
@@ -462,7 +462,7 @@ export function Hubungi() {
                   </span>
                 </div>
                 <div className="contact-item">
-                  <span className="contact-label">WhatsApp XL SATU Care</span>
+                  <span className="contact-label">WhatsApp XL Home Care</span>
                   <a
                     href="https://wa.me/628170010820"
                     target="_blank"
@@ -516,4 +516,5 @@ export default function InfoSections() {
     </>
   );
 }
+
 
