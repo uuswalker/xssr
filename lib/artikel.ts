@@ -1927,3 +1927,136 @@ ARTIKEL["pasang-wifi-murah-jebres-solo"] = {
 
 };
 
+
+
+
+// --- NEW HYPER-LOCAL ARTICLES ---
+
+ARTIKEL["pasang-wifi-tirtamaya-residence-solo-baru"] = {
+  slug: "pasang-wifi-tirtamaya-residence-solo-baru",
+  title: "Pasang WiFi di TirtaMaya Residence Solo Baru | XL Home Internet Cepat",
+  description: "Promo pasang WiFi XL Home khusus untuk penghuni TirtaMaya Residence Grogol Solo Baru. Internet fiber optic super cepat tanpa FUP untuk smart home dan WFH.",
+  keywords: ["wifi tirtamaya residence", "pasang wifi solo baru", "internet rumah grogol", "xl home solo baru", "wifi tanpa fup tirtamaya"],
+  ogTitle: "Pasang WiFi di TirtaMaya Residence Solo Baru",
+  ogDescription: "Promo pasang WiFi XL Home khusus untuk penghuni TirtaMaya Residence Grogol Solo Baru. Internet fiber optic super cepat tanpa FUP untuk smart home dan WFH.",
+  ogImage: "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.webp",
+  schemas: [],
+  faqs: [
+    { q: "Apakah XL Home sudah masuk di TirtaMaya Residence?", a: "Ya, XL Home Fiber Optic sudah melayani area Grogol, termasuk kawasan elit Solo Baru dan TirtaMaya Residence. Hubungi sales kami untuk cek titik tiang ODP terdekat." },
+    { q: "Paket apa yang cocok untuk rumah dengan banyak smart device?", a: "Untuk rumah dengan CCTV, smart TV, dan sistem keamanan terpusat, kami sangat menyarankan paket XL Home 250Mbps atau 500Mbps agar bandwidth stabil tanpa putus." }
+  ],
+  hero: {
+    crumb: "<a href='https://xlhomesolo.com/'>Beranda</a> / WiFi Perumahan / TirtaMaya Solo Baru",
+    h1: "Internet Fiber Premium untuk TirtaMaya Residence",
+    sub: "Penuhi kebutuhan bandwidth Smart Home dan streaming 4K tanpa hambatan FUP.",
+    meta: "Kawasan Solo Baru, Grogol \u00B7 Fiber Optic \u00B7 Instalasi Prioritas"
+  },
+  headerCta: "Cek Titik Tiang di TirtaMaya",
+  bodyHtml: `
+  <h2 class="section-title">Koneksi Tanpa Batas untuk Gaya Hidup Modern di TirtaMaya</h2>
+  <p>TirtaMaya Residence di kawasan Solo Baru (Grogol, Sukoharjo) dikenal sebagai salah satu perumahan elit dengan standar keamanan dan fasilitas premium. Untuk hunian modern yang dilengkapi dengan <em>Smart Home System</em>, CCTV, dan kebutuhan WFH eksekutif, koneksi internet biasa tidaklah cukup.</p>
+  <p><strong>XL Home Fiber</strong> hadir sebagai solusi internet rumah sejati 100% Fiber Optic <strong>tanpa FUP (Fair Usage Policy)</strong>. Artinya, tidak ada penurunan kecepatan tiba-tiba di pertengahan bulan, berapa pun besarnya data yang Anda dan keluarga gunakan untuk streaming 4K, video conference, atau bermain game online.</p>
+  
+  <h3 class="subsection-title">Mengapa Memilih XL Home untuk Area Solo Baru?</h3>
+  <ul>
+    <li><strong>Jaminan Bandwidth Besar:</strong> Tersedia paket Family (100Mbps) hingga Ultimate (500Mbps) yang menjamin seluruh gadget anggota keluarga tetap ngebut.</li>
+    <li><strong>Hiburan Tanpa Lemot:</strong> Streaming Netflix, Disney+, dan YouTube di Smart TV ruang keluarga atau kamar tanpa resiko <em>buffering</em>.</li>
+    <li><strong>Satu Harga Transparan:</strong> Biaya langganan tetap (flat) setiap bulan tanpa biaya siluman.</li>
+    <li><strong>Layanan Prioritas:</strong> Agen sales resmi kami akan memantau proses instalasi dari awal hingga teknisi selesai memasang router di rumah Anda.</li>
+  </ul>
+  
+  <div class="cta-box">
+    <h3>Daftar Sekarang untuk Jadwal Pemasangan Besok!</h3>
+    <p>Hubungi sales resmi XL Home Solo Raya via WhatsApp. Kami bantu cek ketersediaan jaringan di blok rumah TirtaMaya Anda secara gratis.</p>
+    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home%20di%20TirtaMaya%20Residence%20Solo%20Baru." target="_blank" rel="noopener noreferrer" class="btn-cta">
+      Hubungi Sales XL Home
+    </a>
+  </div>
+  `
+};
+
+ARTIKEL["layanan-internet-permata-botanical-colomadu"] = {
+  slug: "layanan-internet-permata-botanical-colomadu",
+  title: "Layanan Internet Rumah Permata Botanical Colomadu | XL Home",
+  description: "Pasang WiFi XL Home di Perumahan Permata Botanical Colomadu Kartasura. Internet fiber optic anti-lemot dengan fasilitas gratis router dan instalasi.",
+  keywords: ["wifi permata botanical colomadu", "internet rumah colomadu", "pasang wifi singopuran", "xl home colomadu", "isp perumahan colomadu"],
+  ogTitle: "Layanan Internet Rumah di Permata Botanical Colomadu",
+  ogDescription: "Pasang WiFi XL Home di Perumahan Permata Botanical Colomadu Kartasura. Internet fiber optic anti-lemot dengan fasilitas gratis router dan instalasi.",
+  ogImage: "https://xlhomesolo.com/images/banner-apartemen.webp",
+  schemas: [],
+  faqs: [
+    { q: "Apakah XL Home melayani area Colomadu dan Kartasura?", a: "Tentu. Colomadu dan Kartasura adalah area prioritas jaringan fiber XL Home di wilayah Solo Raya. Pemasangan di perumahan-perumahan besar seperti Permata Botanical sangat didukung." },
+    { q: "Berapa biaya instalasi awal untuk pemasangan baru?", a: "Kabar baiknya, saat ini XL Home memberikan promo BEBAS biaya pasang. Anda juga akan dipinjamkan perangkat router WiFi secara gratis selama berlangganan." }
+  ],
+  hero: {
+    crumb: "<a href='https://xlhomesolo.com/'>Beranda</a> / WiFi Perumahan / Permata Botanical Colomadu",
+    h1: "WiFi Super Cepat untuk Permata Botanical Colomadu",
+    sub: "Solusi internet rumah berkelas untuk gaya hidup modern Anda.",
+    meta: "Colomadu, Karanganyar/Sukoharjo \u00B7 Jaringan Stabil"
+  },
+  headerCta: "Tanya Jadwal Instalasi",
+  bodyHtml: `
+  <h2 class="section-title">Fasilitas Resort Perlu Jaringan Internet yang Setara</h2>
+  <p>Perumahan <strong>Permata Botanical</strong> di Colomadu terkenal dengan desain lingkungannya yang eksklusif, rimbun, dan berkelas seperti sebuah resort. Untuk menunjang gaya hidup modern penghuninya?yang seringkali mencakup bekerja dari rumah (WFH) dan hiburan keluarga secara digital?koneksi internet yang anti-lemot mutlak dibutuhkan.</p>
+  
+  <p><strong>XL Home</strong> memberikan jaminan koneksi Fiber Optic yang stabil dan cepat untuk area Singopuran, Colomadu, dan Kartasura. Dengan teknologi 100% Fiber Optic, jaringan kami tahan terhadap cuaca buruk maupun gangguan frekuensi radio.</p>
+
+  <h3 class="subsection-title">Keunggulan XL Home untuk Perumahan</h3>
+  <ul>
+    <li><strong>Download & Upload Simetris (atau Mendekati):</strong> Membuat kegiatan <em>video conference</em>, rapat online, dan pengiriman file besar menjadi lancar jaya.</li>
+    <li><strong>Sinyal Kuat Membelah Dinding Rumah:</strong> Perangkat router ONT terbaru kami memancarkan sinyal WiFi yang mumpuni ke berbagai sudut ruangan (terutama jika ditambah Mesh Router).</li>
+    <li><strong>Kuota Unlimited Asli:</strong> Tidak perlu cemas saat asik menonton serial favorit atau mengunduh game, karena XL Home menerapkan konsep <em>True Unlimited</em> tanpa batas FUP.</li>
+  </ul>
+  
+  <div class="cta-box">
+    <h3>Proses Pasang Sangat Mudah</h3>
+    <p>Tidak perlu ke Plasa atau antre lama. Cukup chat melalui tombol di bawah, tim kami akan mengatur jadwal kedatangan teknisi langsung ke rumah Anda di Permata Botanical.</p>
+    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home%20di%20Permata%20Botanical%20Colomadu." target="_blank" rel="noopener noreferrer" class="btn-cta">
+      Daftar XL Home Sekarang
+    </a>
+  </div>
+  `
+};
+
+ARTIKEL["promo-wifi-pondok-permai-colomadu"] = {
+  slug: "promo-wifi-pondok-permai-colomadu",
+  title: "Promo Pasang WiFi Murah di Pondok Permai Colomadu | Bebas Kuota",
+  description: "Cari internet murah untuk keluarga di perumahan Pondok Permai Colomadu? Daftar XL Home sekarang! Bebas biaya pasang, 100% Fiber Optic, dan bebas kuota FUP.",
+  keywords: ["wifi pondok permai colomadu", "internet sumber baru land", "promo wifi colomadu", "pasang wifi ngantirejo", "xl home malangjiwan"],
+  ogTitle: "Promo Pasang WiFi Murah di Pondok Permai Colomadu",
+  ogDescription: "Cari internet murah untuk keluarga di perumahan Pondok Permai Colomadu? Daftar XL Home sekarang! Bebas biaya pasang, 100% Fiber Optic, dan bebas kuota FUP.",
+  ogImage: "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.webp",
+  schemas: [],
+  faqs: [
+    { q: "Berapa biaya langganan bulanan termurah XL Home?", a: "Paket termurah XL Home Fiber (Paket Smart) dibanderol mulai dari 200 ribuan per bulan dengan kecepatan up to 50 Mbps. Sangat cocok untuk kebutuhan keluarga kecil." },
+    { q: "Apa yang harus dipersiapkan saat instalasi?", a: "Cukup sediakan colokan listrik kosong di area yang ingin dipasangi router. Teknisi kami akan menarik kabel fiber dari tiang jalan raya langsung ke ruang keluarga Anda." }
+  ],
+  hero: {
+    crumb: "<a href='https://xlhomesolo.com/'>Beranda</a> / WiFi Perumahan / Pondok Permai Colomadu",
+    h1: "Promo Internet Keluarga untuk Pondok Permai Colomadu",
+    sub: "Koneksi ngebut bebas kuota. Temani waktu kumpul keluarga dan belajar anak tanpa hambatan.",
+    meta: "Ngantirejo / Malangjiwan \u00B7 Harga Flat Tiap Bulan"
+  },
+  headerCta: "Daftar Promo Bebas Biaya",
+  bodyHtml: `
+  <h2 class="section-title">Internet Rumah Murah, Cocok Untuk Keluarga</h2>
+  <p>Perumahan <strong>Pondok Permai Colomadu</strong> (mulai dari tahap 1, 2, hingga 3) merupakan kawasan pemukiman yang sangat dinamis dengan mayoritas dihuni oleh keluarga muda produktif. Anak-anak yang butuh koneksi untuk belajar online, hingga orang tua yang ingin menikmati hiburan setelah seharian bekerja?semuanya membutuhkan jaringan WiFi yang tangguh namun bersahabat di kantong.</p>
+  
+  <p><strong>XL Home</strong> memberikan jawaban atas kebutuhan tersebut. Dengan jaringan Fiber Optic berkelas enterprise yang masuk ke area Colomadu, Anda bisa menikmati koneksi internet tanpa batas kuota (Unlimted Sejati) dengan harga bulanan yang sangat stabil.</p>
+
+  <h3 class="subsection-title">Untungnya Pasang XL Home Sekarang</h3>
+  <ul>
+    <li><strong>Tidak Ada Pembatasan Kecepatan (Tanpa FUP):</strong> Main game, nonton film HD, atau download file besar setiap hari tidak akan membuat kecepatan internet Anda diturunkan di pertengahan bulan.</li>
+    <li><strong>Pilihan Paket Bervariasi:</strong> Tersedia paket 50Mbps untuk keluarga kecil, hingga paket 250Mbps untuk keluarga besar atau Anda yang gemar bermain game <em>esports</em>.</li>
+    <li><strong>Gratis Pemasangan:</strong> Dapatkan promo gratis instalasi kabel hingga panjang tertentu (sesuai S&K) serta peminjaman router WiFi standar dari kami.</li>
+  </ul>
+  
+  <div class="cta-box">
+    <h3>Amankan Promo Untuk Rumah Anda!</h3>
+    <p>Jangan tunggu sampai kouta port di tiang penuh. Daftarkan alamat lengkap blok Anda ke admin sales kami hari ini.</p>
+    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home%20di%20Pondok%20Permai%20Colomadu." target="_blank" rel="noopener noreferrer" class="btn-cta">
+      Langganan XL Home Sekarang
+    </a>
+  </div>
+  `
+};
