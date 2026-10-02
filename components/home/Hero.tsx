@@ -106,6 +106,8 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
               <img
                 src={s.imgMobile}
                 alt={s.alt}
+                width={1200}
+                height={400}
                 className="hero-img-lcp"
                 fetchPriority={s.eager ? "high" : "auto"}
                 loading={s.eager ? "eager" : "lazy"}
