@@ -454,19 +454,15 @@ export function WirelessPaket({
           </div>
 
           <div className="wireless-pills">
-            {[
-              ["fa-wifi", "Sinyal Stabil Di Setiap Ruangan"],
-              ["fa-gauge-high", "Internet Cepat Tanpa Batas Kuota"],
-              ["fa-plug-circle-check", "Praktis, Tanpa Kabel Tanpa Repot"],
-            ].map(([icon, label]) => (
-              <div className="pill-item" key={label}>
-                <i
-                  className={`fas ${icon}`}
-                  style={{ color: "var(--green)", fontSize: 20 }}
-                ></i>
-                {label}
-              </div>
-            ))}
+            <div className="pill-item">
+              <Wifi size={20} color="var(--green)" /> Sinyal Stabil Di Setiap Ruangan
+            </div>
+            <div className="pill-item">
+              <Gauge size={20} color="var(--green)" /> Internet Cepat Tanpa Batas Kuota
+            </div>
+            <div className="pill-item">
+              <PlugZap size={20} color="var(--green)" /> Praktis, Tanpa Kabel Tanpa Repot
+            </div>
           </div>
 
           <div
