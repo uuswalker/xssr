@@ -9,7 +9,7 @@ export const PHONE_TEL = "+6287778999141";
 
 export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-5YWJ5LP9LG";
 export const ADS_ID = process.env.NEXT_PUBLIC_ADS_ID || "AW-938834270";
-export const IS_STAGING = (process.env.NEXT_PUBLIC_STAGING ?? "true") !== "false";
+export const IS_STAGING = (process.env.NEXT_PUBLIC_STAGING ?? "false") !== "false";
 
 export function waLink(text: string): string {
   return `https://wa.me/${PHONE_INTL}?text=${encodeURIComponent(text)}`;
