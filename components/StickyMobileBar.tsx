@@ -33,7 +33,7 @@ export default function StickyMobileBar() {
       </button>
       
       <a 
-        href={waLink("Halo kak, saya mau tanya XL SATU.")} 
+        href={waLink("Halo kak, saya mau tanya XL Home.")} 
         target="_blank" 
         rel="noopener noreferrer"
         className="smb-btn smb-btn-wa"

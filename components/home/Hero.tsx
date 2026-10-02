@@ -45,7 +45,7 @@ const SLIDES = [
   }
 ];
 
-const WA_OPEN_DEFAULT = waLink("Halo kak, saya mau info XL SATU");
+const WA_OPEN_DEFAULT = waLink("Halo kak, saya mau info XL Home");
 
 function scrollToId(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });

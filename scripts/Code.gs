@@ -1,5 +1,5 @@
 // ============================================================
-//  Code.gs — Database Lead xlsatusolo.com
+//  Code.gs — Database Lead xlhomesolo.com
 //  Google Apps Script — format & styling mirroring final xlsx
 //  Webhook v5.1: token + validasi WA/nama/lokasi + dedup HP
 //  v6.1: notifikasi WA tiap lead via Fonnte (anti-gagal)
@@ -72,7 +72,7 @@ function _setupTitleRow(ws) {
   const titleRange = ws.getRange(1, 1, 1, lastCol);
   titleRange.merge();
   titleRange
-    .setValue("Database Lead — xlsatusolo.com")
+    .setValue("Database Lead — xlhomesolo.com")
     .setBackground(COLOR.TITLE_BG)
     .setFontColor(COLOR.TITLE_FG)
     .setFontFamily("Arial")
@@ -263,7 +263,7 @@ function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId) {
     const maps = (lat !== "" && lat != null && lng !== "" && lng != null)
       ? "https://maps.google.com/?q=" + lat + "," + lng : "-";
     const hp = homepassId ? "\nHOMEPASS_ID: " + homepassId : "";
-    const pesan = "Lead baru xlsatusolo.com\nWaktu: " + waktu + "\nNama: " + nama + "\nWA: " + wa +
+    const pesan = "Lead baru xlhomesolo.com\nWaktu: " + waktu + "\nNama: " + nama + "\nWA: " + wa +
       "\nAlamat: " + alamat + "\nKota: " + kota + hp + "\nMaps: " + maps + "\nHalaman: " + halaman;
     const res = UrlFetchApp.fetch("https://api.fonnte.com/send", {
       method: "post",

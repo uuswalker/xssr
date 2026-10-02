@@ -36,7 +36,7 @@ export function getGeoArticle(slug: string) {
     schemas: [],
     faqs: [],
     hero: { 
-      crumb: "<a href=\"https://xlsatusolo.com/\">Beranda</a> / Area Layanan / " + areaName, 
+      crumb: "<a href=\"https://xlhomesolo.com/\">Beranda</a> / Area Layanan / " + areaName, 
       h1: "Pasang WiFi XL SATU di " + areaName, 
       sub: "Koneksi fiber optic super stabil untuk keluarga di " + areaName + ". 100% Tanpa FUP!", 
       meta: "Area Layanan &middot; XL SATU Solo Raya" 

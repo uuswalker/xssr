@@ -44,7 +44,7 @@ export function getCity(slug: string): City | undefined {
 
 /** Token watermark per halaman — algoritma identik generate.js. */
 export function wmToken(slug: string): string {
-  return createHash("sha256").update("xlsatusolo:" + slug).digest("hex").slice(0, 8);
+  return createHash("sha256").update("xlhomesolo:" + slug).digest("hex").slice(0, 8);
 }
 
 /** Daftar kecamatan natural: "A, B, C, dan D". */

@@ -18,10 +18,10 @@ export const AREA: Halaman = {
 export const PRIVASI: Halaman = {
   slug: "kebijakan-privasi",
   title: "Kebijakan Privasi &amp; Cookie | XL SATU Solo Raya",
-  description: "Kebijakan privasi & cookie xlsatusolo.com — data apa yang kami kumpulkan, bagaimana digunakan, dan hak Anda sesuai UU PDP No. 27/2022.",
+  description: "Kebijakan privasi & cookie xlhomesolo.com — data apa yang kami kumpulkan, bagaimana digunakan, dan hak Anda sesuai UU PDP No. 27/2022.",
   keywords: "".split(/,\s*/),
   ogTitle: "Kebijakan Privasi &amp; Cookie | XL SATU Solo Raya",
-  ogDescription: "Bagaimana xlsatusolo.com mengumpulkan, menggunakan, dan melindungi data Anda — sesuai UU PDP No. 27/2022.",
+  ogDescription: "Bagaimana xlhomesolo.com mengumpulkan, menggunakan, dan melindungi data Anda — sesuai UU PDP No. 27/2022.",
   ogImage: "",
   schemas: [],
   faqs: [],
