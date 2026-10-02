@@ -1259,7 +1259,8 @@
 }
 
 @media (max-width: 768px) {
-  .sticky-mobile-bar {
+    .site-header { position: relative; }
+    .sticky-mobile-bar {
     display: flex;
   }
   .float-wa {
