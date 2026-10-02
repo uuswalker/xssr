@@ -1,964 +1,1928 @@
 import type { FaqItem } from "./seo";
 
+
+
 export interface HeroBand { crumb: string; h1: string; sub: string; meta: string; }
+
 export interface Artikel { slug: string; title: string; description: string; keywords: string[];
+
   ogTitle: string; ogDescription: string; ogImage: string; schemas: unknown[]; faqs: FaqItem[];
+
   hero: HeroBand | null; headerCta: string; bodyHtml: string; }
+
+
 
 export const ARTIKEL: Record<string, Artikel> = {};
 
+
+
 ARTIKEL["panduan-wifi-kos-solo"] = {
+
   slug: "panduan-wifi-kos-solo",
+
   title: "WiFi Kos Solo: Kecepatan Ideal, Biaya Patungan & Area UNS UMS | XL SATU",
+
   description: "WiFi kos Solo butuh berapa Mbps? Panduan kecepatan untuk 3-4 & 5-8 penghuni, cara patungan adil per kamar, & info area kampus UNS, UMS, UNISRI, ISI yang sudah fiber.",
+
   keywords: "wifi kos solo, wifi kos dekat uns ums, kecepatan wifi kos 3-4 orang, biaya patungan wifi kos, internet kontrakan solo raya".split(/,\s*/),
+
   ogTitle: "WiFi Kos Solo: Kecepatan Ideal, Biaya Patungan & Area UNS UMS",
+
   ogDescription: "WiFi kos Solo butuh berapa Mbps? Panduan untuk 3-4 & 5-8 penghuni, cara patungan per kamar, & area kampus UNS, UMS, UNISRI, ISI.",
+
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+
   schemas: [{"@context":"https://schema.org","@type":"Article","headline":"WiFi Kos Solo: Kecepatan Ideal, Biaya Patungan & Area UNS UMS","description":"WiFi kos Solo butuh berapa Mbps? Panduan kecepatan untuk 3-4 & 5-8 penghuni, cara patungan per kamar, & area kampus UNS, UMS, UNISRI, ISI.","author":{"@type":"Organization","name":"XL SATU Solo Raya"},"publisher":{"@type":"Organization","name":"XL SATU Solo Raya"},"datePublished":"2026-08-09","dateModified":"2026-09-17","mainEntityOfPage":"https://xlsatusolo.com/panduan-wifi-kos-solo/"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Berapa kecepatan WiFi yang ideal untuk kos isi 3-4 orang?","acceptedAnswer":{"@type":"Answer","text":"Untuk kos dengan 3-4 penghuni yang masing-masing browsing, streaming, dan sesekali video call, kecepatan 100-250 Mbps biasanya sudah cukup nyaman. Kalau ada yang gaming online atau kerja WFH dengan meeting Zoom bersamaan, sebaiknya naik ke 250-400 Mbps."}},{"@type":"Question","name":"Bagaimana cara patungan WiFi kos yang adil?","acceptedAnswer":{"@type":"Answer","text":"Cara paling umum adalah membagi rata biaya bulanan sesuai jumlah penghuni kamar yang ikut memakai. Untuk kos dengan penghuni keluar masuk (kos harian atau musiman), lebih adil dihitung per kamar aktif bulan itu, bukan per kepala tetap."}},{"@type":"Question","name":"Apakah pemilik kos atau penghuni yang sebaiknya daftar WiFi?","acceptedAnswer":{"@type":"Answer","text":"Keduanya bisa. Kalau pemilik kos yang daftar, biaya WiFi biasanya sudah termasuk di harga sewa bulanan sehingga lebih praktis untuk penghuni baru. Kalau penghuni yang daftar sendiri, lebih fleksibel soal kecepatan dan bisa dibawa pindah kalau suatu saat pindah kos, asal instalasi memungkinkan di kos baru."}},{"@type":"Question","name":"Kos di area kampus Solo Raya sudah terjangkau fiber optic?","acceptedAnswer":{"@type":"Answer","text":"Sebagian besar area kos di sekitar kampus-kampus utama Solo Raya seperti UNS, UMS, UNISRI, ISI Solo, dan Poltekkes sudah terjangkau jaringan fiber optic. Untuk kos di gang sempit atau area yang belum tercover kabel, tersedia alternatif solusi wireless dengan proses pemasangan yang lebih cepat."}}]}],
+
   faqs: [{"q":"Berapa kecepatan WiFi yang ideal untuk kos isi 3-4 orang?","a":"Untuk kos dengan 3-4 penghuni yang masing-masing browsing, streaming, dan sesekali video call, kecepatan 100-250 Mbps biasanya sudah cukup nyaman. Kalau ada yang gaming online atau kerja WFH dengan meeting Zoom bersamaan, sebaiknya naik ke 250-400 Mbps."},{"q":"Bagaimana cara patungan WiFi kos yang adil?","a":"Cara paling umum adalah membagi rata biaya bulanan sesuai jumlah penghuni kamar yang ikut memakai. Untuk kos dengan penghuni keluar masuk (kos harian atau musiman), lebih adil dihitung per kamar aktif bulan itu, bukan per kepala tetap."},{"q":"Apakah pemilik kos atau penghuni yang sebaiknya daftar WiFi?","a":"Keduanya bisa. Kalau pemilik kos yang daftar, biaya WiFi biasanya sudah termasuk di harga sewa bulanan sehingga lebih praktis untuk penghuni baru. Kalau penghuni yang daftar sendiri, lebih fleksibel soal kecepatan dan bisa dibawa pindah kalau suatu saat pindah kos, asal instalasi memungkinkan di kos baru."},{"q":"Kos di area kampus Solo Raya sudah terjangkau fiber optic?","a":"Sebagian besar area kos di sekitar kampus-kampus utama Solo Raya seperti UNS, UMS, UNISRI, ISI Solo, dan Poltekkes sudah terjangkau jaringan fiber optic. Untuk kos di gang sempit atau area yang belum tercover kabel, tersedia alternatif solusi wireless dengan proses pemasangan yang lebih cepat."}],
+
   hero: {"crumb":"<a href=\"https://xlsatusolo.com/\">Beranda</a> / Panduan Pilih WiFi Kos Solo Raya","h1":"Panduan Pilih WiFi untuk Kos & Kontrakan di Solo Raya","sub":"Tips kecepatan yang pas, cara patungan yang adil, dan info area kampus yang sudah terjangkau fiber optic.","meta":"Diperbarui 17 September 2026 • XL SATU Solo Raya"},
+
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20info%20WiFi%20kos",
-  bodyHtml: "\n\n  <p>Buat anak kos dan penghuni kontrakan di Solo Raya, WiFi bukan cuma soal hiburan — tapi kebutuhan pokok buat kuliah online, kerja remote, dan video call keluarga. Masalahnya, banyak yang asal pilih paket termurah tanpa mikir jumlah penghuni, akhirnya internet lemot pas jam ramai. Panduan ini bantu kamu mikir lebih matang sebelum pasang WiFi kos.</p>\n\n  <h2>Kenapa Kecepatan WiFi Kos Beda dengan WiFi Rumah Biasa</h2>\n  <p>Kos dan kontrakan biasanya diisi lebih dari satu orang yang memakai internet secara bersamaan, di jam yang sama pula — biasanya malam hari setelah pulang kuliah atau kerja. Ini beda dengan rumah tangga biasa yang penggunanya lebih sedikit dan jadwalnya lebih tersebar. Semakin banyak penghuni aktif memakai internet bersamaan, semakin besar kecepatan yang dibutuhkan supaya tidak saling rebutan bandwidth.</p>\n\n  <div class=\"info-box\">\n    <strong>Tips cepat:</strong> Hitung kasar kebutuhan dengan rumus: jumlah penghuni aktif ÃƒÆ’Ã¢â‚¬â€ 20-30 Mbps untuk pemakaian standar (browsing, streaming, kuliah online), atau ÃƒÆ’Ã¢â‚¬â€ 50 Mbps kalau ada yang gaming online atau sering video call kerja.\n  </div>\n\n  <h2>Rekomendasi Kecepatan Berdasarkan Jumlah Penghuni</h2>\n  <table class=\"speed-table\">\n    <tr><th>Jumlah Penghuni</th><th>Kecepatan Disarankan</th><th>Cocok Untuk</th></tr>\n    <tr><td>1-2 orang</td><td>20-100 Mbps</td><td>Browsing, kuliah online, streaming standar</td></tr>\n    <tr><td>3-4 orang</td><td>100-250 Mbps</td><td>Streaming HD bersamaan, video call, kerja WFH</td></tr>\n    <tr><td>5-8 orang (kos putra/putri)</td><td>250-400 Mbps</td><td>Multi-streaming, gaming online, banyak perangkat</td></tr>\n    <tr><td>Kos besar / kontrakan bisnis</td><td>500 Mbps ke atas</td><td>Penggunaan berat, banyak kamar aktif</td></tr>\n  </table>\n\n  <h2>Cara Patungan WiFi Kos yang Adil</h2>\n  <p>Salah satu alasan WiFi kos sering jadi sumber drama adalah pembagian biaya yang nggak jelas. Beberapa cara yang biasa dipakai penghuni kos di Solo Raya:</p>\n  <ul>\n    <li><strong>Bagi rata per kamar aktif</strong> — cara paling simpel, total biaya dibagi jumlah kamar yang ikut pakai, bukan per kepala. Adil untuk kamar isi 1 maupun isi 2.</li>\n    <li><strong>Termasuk di harga sewa</strong> — pemilik kos yang daftar dan bayar, biayanya sudah dimasukkan ke harga sewa bulanan. Paling praktis buat penghuni baru karena tinggal pakai.</li>\n    <li><strong>Kolektor bulanan</strong> — satu orang jadi koordinator, kumpulin uang tiap bulan sebelum tanggal jatuh tempo, supaya nggak telat bayar dan kena putus.</li>\n  </ul>\n\n  <h2>Area Kampus di Solo Raya yang Sudah Terjangkau Fiber</h2>\n  <p>Sebagian besar area kos di sekitar kampus-kampus utama Solo Raya sudah terjangkau jaringan fiber optic. Berikut beberapa area yang umum dicari anak kos:</p>\n  <div class=\"kampus-grid\">\n    <div class=\"kampus-item\">Sekitar UNS <span>Kentingan, Jebres, Solo</span></div>\n    <div class=\"kampus-item\">Sekitar UMS <span>Pabelan, Kartasura, Sukoharjo</span></div>\n    <div class=\"kampus-item\">Sekitar UNISRI <span>Kadipiro, Solo</span></div>\n    <div class=\"kampus-item\">Sekitar ISI Solo <span>Mojosongo, Solo</span></div>\n    <div class=\"kampus-item\">Sekitar Poltekkes Solo <span>Mojosongo, Solo</span></div>\n    <div class=\"kampus-item\">Area Karanganyar Kota <span>dekat kampus & perkantoran</span></div>\n  </div>\n  <p>Untuk kos di gang sempit atau area yang belum tercover kabel fiber, tersedia alternatif solusi wireless dengan proses pemasangan yang lebih cepat dan tanpa perlu penarikan kabel panjang.</p>\n\n  <h2>Checklist Sebelum Daftar WiFi Kos</h2>\n  <ol>\n    <li>Konfirmasi dulu ke pemilik kos apakah instalasi kabel fiber diizinkan (beberapa kos punya aturan sendiri soal ini)</li>\n    <li>Hitung jumlah penghuni aktif dan kebutuhan pemakaian (kuliah online saja, atau ada yang gaming/kerja berat) — baca <a href=\"/kecepatan-wifi-ideal-keluarga/\">panduan kecepatan WiFi ideal</a> untuk hitungan lebih detail</li>\n    <li>Cek dulu apakah area kos sudah terjangkau fiber, atau perlu solusi wireless</li>\n    <li>Sepakati cara pembagian biaya sebelum daftar, supaya nggak ada drama di bulan pertama</li>\n    <li>Tanyakan biaya instalasi dan promo yang sedang berlaku ke sales</li>\n  </ol>\n\n  <div class=\"cta-box\">\n    <h3>Mau Cek Ketersediaan WiFi di Kos Kamu?</h3>\n    <p>Tim support XL SATU siap bantu cek jaringan dan rekomendasi paket sesuai jumlah penghuni kos kamu.</p>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20ketersediaan%20WiFi%20untuk%20kos%20saya\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\">\n      <i class=\"fab fa-whatsapp\"></i> Tanya Dulu\n    </a>\n  </div>\n\n  <h2>Pertanyaan yang Sering Ditanyakan</h2>\n\n  <h3>Berapa kecepatan WiFi yang ideal untuk kos isi 3-4 orang?</h3>\n  <p>Untuk kos dengan 3-4 penghuni yang masing-masing browsing, streaming, dan sesekali video call, kecepatan 100-250 Mbps biasanya sudah cukup nyaman. Kalau ada yang gaming online atau kerja WFH dengan meeting Zoom bersamaan, sebaiknya naik ke 250-400 Mbps.</p>\n\n  <h3>Bagaimana cara patungan WiFi kos yang adil?</h3>\n  <p>Cara paling umum adalah membagi rata biaya bulanan sesuai jumlah penghuni kamar yang ikut memakai. Untuk kos dengan penghuni keluar masuk (kos harian atau musiman), lebih adil dihitung per kamar aktif bulan itu, bukan per kepala tetap.</p>\n\n  <h3>Apakah pemilik kos atau penghuni yang sebaiknya daftar WiFi?</h3>\n  <p>Keduanya bisa. Kalau pemilik kos yang daftar, biaya WiFi biasanya sudah termasuk di harga sewa bulanan sehingga lebih praktis untuk penghuni baru. Kalau penghuni yang daftar sendiri, lebih fleksibel soal kecepatan dan bisa dibawa pindah kalau suatu saat pindah kos, asal instalasi memungkinkan di kos baru.</p>\n\n  <h3>Kos di area kampus Solo Raya sudah terjangkau fiber optic?</h3>\n  <p>Sebagian besar area kos di sekitar kampus-kampus utama Solo Raya seperti UNS, UMS, UNISRI, ISI Solo, dan Poltekkes sudah terjangkau jaringan fiber optic. Untuk kos di gang sempit atau area yang belum tercover kabel, tersedia alternatif solusi wireless dengan proses pemasangan yang lebih cepat.</p>\n\n  <h2>Cek Area Layanan di Kotamu</h2>\n  <p>XL SATU melayani pemasangan internet rumah dan kos di 5 wilayah Solo Raya: Sudah siap daftar? Baca <a href=\"/cara-daftar-pasang-wifi-xl-satu-solo/\">panduan lengkap cara daftar & syarat pemasangan</a>.</p>\n  <div class=\"related-cities\">\n    <a href=\"/wifi-solo/\">Pasang WiFi Solo</a>\n    <a href=\"/wifi-sukoharjo/\">Pasang WiFi Sukoharjo</a>\n    <a href=\"/wifi-karanganyar/\">Pasang WiFi Karanganyar</a>\n    <a href=\"/wifi-klaten/\">Pasang WiFi Klaten</a>\n    <a href=\"/wifi-boyolali/\">Pasang WiFi Boyolali</a>\n    <a href=\"/wifi-surakarta/\">Pasang WiFi Surakarta</a>\n  </div>\n  <p style=\"margin-top:16px;\">Sebelum daftar ke provider manapun, baca dulu <a href=\"/5-hal-wajib-dicek-sebelum-pasang-wifi-rumah/\">5 hal wajib dicek sebelum pasang WiFi rumah</a>.</p>\n\n  <p>Ngekos beramai-ramai? <a href=\"/berapa-mbps-untuk-berapa-orang/\">Hitung kebutuhan Mbps sekosmu pakai kalkulator interaktif</a> — isi perangkat tiap penghuni, dapat rekomendasi paket + link hasil buat patungan.</p>\n",
+
+  bodyHtml: "\n\n  <p>Buat anak kos dan penghuni kontrakan di Solo Raya, WiFi bukan cuma soal hiburan — tapi kebutuhan pokok buat kuliah online, kerja remote, dan video call keluarga. Masalahnya, banyak yang asal pilih paket termurah tanpa mikir jumlah penghuni, akhirnya internet lemot pas jam ramai. Panduan ini bantu kamu mikir lebih matang sebelum pasang WiFi kos.</p>\n\n  <h2>Kenapa Kecepatan WiFi Kos Beda dengan WiFi Rumah Biasa</h2>\n  <p>Kos dan kontrakan biasanya diisi lebih dari satu orang yang memakai internet secara bersamaan, di jam yang sama pula — biasanya malam hari setelah pulang kuliah atau kerja. Ini beda dengan rumah tangga biasa yang penggunanya lebih sedikit dan jadwalnya lebih tersebar. Semakin banyak penghuni aktif memakai internet bersamaan, semakin besar kecepatan yang dibutuhkan supaya tidak saling rebutan bandwidth.</p>\n\n  <div class=\"info-box\">\n    <strong>Tips cepat:</strong> Hitung kasar kebutuhan dengan rumus: jumlah penghuni aktif ƒÆ’” 20-30 Mbps untuk pemakaian standar (browsing, streaming, kuliah online), atau ƒÆ’” 50 Mbps kalau ada yang gaming online atau sering video call kerja.\n  </div>\n\n  <h2>Rekomendasi Kecepatan Berdasarkan Jumlah Penghuni</h2>\n  <table class=\"speed-table\">\n    <tr><th>Jumlah Penghuni</th><th>Kecepatan Disarankan</th><th>Cocok Untuk</th></tr>\n    <tr><td>1-2 orang</td><td>20-100 Mbps</td><td>Browsing, kuliah online, streaming standar</td></tr>\n    <tr><td>3-4 orang</td><td>100-250 Mbps</td><td>Streaming HD bersamaan, video call, kerja WFH</td></tr>\n    <tr><td>5-8 orang (kos putra/putri)</td><td>250-400 Mbps</td><td>Multi-streaming, gaming online, banyak perangkat</td></tr>\n    <tr><td>Kos besar / kontrakan bisnis</td><td>500 Mbps ke atas</td><td>Penggunaan berat, banyak kamar aktif</td></tr>\n  </table>\n\n  <h2>Cara Patungan WiFi Kos yang Adil</h2>\n  <p>Salah satu alasan WiFi kos sering jadi sumber drama adalah pembagian biaya yang nggak jelas. Beberapa cara yang biasa dipakai penghuni kos di Solo Raya:</p>\n  <ul>\n    <li><strong>Bagi rata per kamar aktif</strong> — cara paling simpel, total biaya dibagi jumlah kamar yang ikut pakai, bukan per kepala. Adil untuk kamar isi 1 maupun isi 2.</li>\n    <li><strong>Termasuk di harga sewa</strong> — pemilik kos yang daftar dan bayar, biayanya sudah dimasukkan ke harga sewa bulanan. Paling praktis buat penghuni baru karena tinggal pakai.</li>\n    <li><strong>Kolektor bulanan</strong> — satu orang jadi koordinator, kumpulin uang tiap bulan sebelum tanggal jatuh tempo, supaya nggak telat bayar dan kena putus.</li>\n  </ul>\n\n  <h2>Area Kampus di Solo Raya yang Sudah Terjangkau Fiber</h2>\n  <p>Sebagian besar area kos di sekitar kampus-kampus utama Solo Raya sudah terjangkau jaringan fiber optic. Berikut beberapa area yang umum dicari anak kos:</p>\n  <div class=\"kampus-grid\">\n    <div class=\"kampus-item\">Sekitar UNS <span>Kentingan, Jebres, Solo</span></div>\n    <div class=\"kampus-item\">Sekitar UMS <span>Pabelan, Kartasura, Sukoharjo</span></div>\n    <div class=\"kampus-item\">Sekitar UNISRI <span>Kadipiro, Solo</span></div>\n    <div class=\"kampus-item\">Sekitar ISI Solo <span>Mojosongo, Solo</span></div>\n    <div class=\"kampus-item\">Sekitar Poltekkes Solo <span>Mojosongo, Solo</span></div>\n    <div class=\"kampus-item\">Area Karanganyar Kota <span>dekat kampus & perkantoran</span></div>\n  </div>\n  <p>Untuk kos di gang sempit atau area yang belum tercover kabel fiber, tersedia alternatif solusi wireless dengan proses pemasangan yang lebih cepat dan tanpa perlu penarikan kabel panjang.</p>\n\n  <h2>Checklist Sebelum Daftar WiFi Kos</h2>\n  <ol>\n    <li>Konfirmasi dulu ke pemilik kos apakah instalasi kabel fiber diizinkan (beberapa kos punya aturan sendiri soal ini)</li>\n    <li>Hitung jumlah penghuni aktif dan kebutuhan pemakaian (kuliah online saja, atau ada yang gaming/kerja berat) — baca <a href=\"/kecepatan-wifi-ideal-keluarga/\">panduan kecepatan WiFi ideal</a> untuk hitungan lebih detail</li>\n    <li>Cek dulu apakah area kos sudah terjangkau fiber, atau perlu solusi wireless</li>\n    <li>Sepakati cara pembagian biaya sebelum daftar, supaya nggak ada drama di bulan pertama</li>\n    <li>Tanyakan biaya instalasi dan promo yang sedang berlaku ke sales</li>\n  </ol>\n\n  <div class=\"cta-box\">\n    <h3>Mau Cek Ketersediaan WiFi di Kos Kamu?</h3>\n    <p>Tim support XL SATU siap bantu cek jaringan dan rekomendasi paket sesuai jumlah penghuni kos kamu.</p>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20ketersediaan%20WiFi%20untuk%20kos%20saya\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\">\n      <i class=\"fab fa-whatsapp\"></i> Tanya Dulu\n    </a>\n  </div>\n\n  <h2>Pertanyaan yang Sering Ditanyakan</h2>\n\n  <h3>Berapa kecepatan WiFi yang ideal untuk kos isi 3-4 orang?</h3>\n  <p>Untuk kos dengan 3-4 penghuni yang masing-masing browsing, streaming, dan sesekali video call, kecepatan 100-250 Mbps biasanya sudah cukup nyaman. Kalau ada yang gaming online atau kerja WFH dengan meeting Zoom bersamaan, sebaiknya naik ke 250-400 Mbps.</p>\n\n  <h3>Bagaimana cara patungan WiFi kos yang adil?</h3>\n  <p>Cara paling umum adalah membagi rata biaya bulanan sesuai jumlah penghuni kamar yang ikut memakai. Untuk kos dengan penghuni keluar masuk (kos harian atau musiman), lebih adil dihitung per kamar aktif bulan itu, bukan per kepala tetap.</p>\n\n  <h3>Apakah pemilik kos atau penghuni yang sebaiknya daftar WiFi?</h3>\n  <p>Keduanya bisa. Kalau pemilik kos yang daftar, biaya WiFi biasanya sudah termasuk di harga sewa bulanan sehingga lebih praktis untuk penghuni baru. Kalau penghuni yang daftar sendiri, lebih fleksibel soal kecepatan dan bisa dibawa pindah kalau suatu saat pindah kos, asal instalasi memungkinkan di kos baru.</p>\n\n  <h3>Kos di area kampus Solo Raya sudah terjangkau fiber optic?</h3>\n  <p>Sebagian besar area kos di sekitar kampus-kampus utama Solo Raya seperti UNS, UMS, UNISRI, ISI Solo, dan Poltekkes sudah terjangkau jaringan fiber optic. Untuk kos di gang sempit atau area yang belum tercover kabel, tersedia alternatif solusi wireless dengan proses pemasangan yang lebih cepat.</p>\n\n  <h2>Cek Area Layanan di Kotamu</h2>\n  <p>XL SATU melayani pemasangan internet rumah dan kos di 5 wilayah Solo Raya: Sudah siap daftar? Baca <a href=\"/cara-daftar-pasang-wifi-xl-satu-solo/\">panduan lengkap cara daftar & syarat pemasangan</a>.</p>\n  <div class=\"related-cities\">\n    <a href=\"/wifi-solo/\">Pasang WiFi Solo</a>\n    <a href=\"/wifi-sukoharjo/\">Pasang WiFi Sukoharjo</a>\n    <a href=\"/wifi-karanganyar/\">Pasang WiFi Karanganyar</a>\n    <a href=\"/wifi-klaten/\">Pasang WiFi Klaten</a>\n    <a href=\"/wifi-boyolali/\">Pasang WiFi Boyolali</a>\n    <a href=\"/wifi-surakarta/\">Pasang WiFi Surakarta</a>\n  </div>\n  <p style=\"margin-top:16px;\">Sebelum daftar ke provider manapun, baca dulu <a href=\"/5-hal-wajib-dicek-sebelum-pasang-wifi-rumah/\">5 hal wajib dicek sebelum pasang WiFi rumah</a>.</p>\n\n  <p>Ngekos beramai-ramai? <a href=\"/berapa-mbps-untuk-berapa-orang/\">Hitung kebutuhan Mbps sekosmu pakai kalkulator interaktif</a> — isi perangkat tiap penghuni, dapat rekomendasi paket + link hasil buat patungan.</p>\n",
+
 };
+
+
 
 ARTIKEL["biaya-pasang-wifi-solo-raya"] = {
+
   slug: "biaya-pasang-wifi-solo-raya",
+
   title: "Biaya Pasang WiFi Solo 2026: Mulai Rp185rb — Rincian Paket & Instalasi | XL SATU",
+
   description: "Biaya pasang WiFi Solo berapa? Rincian 2026: paket fiber 20—1000 Mbps mulai Rp185rb/bulan, instalasi Rp100rb/gratis, + simulasi total bulan pertama & PPN.",
+
   keywords: "biaya pasang wifi solo 2026, harga wifi solo raya mulai 185rb, biaya instalasi wifi solo, rincian biaya xl satu solo".split(/,\s*/),
+
   ogTitle: "Biaya Pasang WiFi Solo 2026: Mulai Rp185rb — Rincian Paket & Instalasi",
+
   ogDescription: "Biaya pasang WiFi Solo berapa? Paket 20—1000 Mbps mulai Rp185rb, instalasi Rp100rb/gratis, simulasi bulan pertama.",
+
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+
   schemas: [{"@context":"https://schema.org","@type":"Article","headline":"Biaya Pasang WiFi Solo 2026: Mulai Rp185rb — Rincian Paket & Instalasi","description":"Biaya pasang WiFi Solo berapa? Paket 20—1000 Mbps mulai Rp185rb, instalasi Rp100rb/gratis, simulasi bulan pertama.","author":{"@type":"Organization","name":"XL SATU Solo Raya"},"publisher":{"@type":"Organization","name":"XL SATU Solo Raya"},"datePublished":"2026-08-10","dateModified":"2026-09-17","mainEntityOfPage":"https://xlsatusolo.com/biaya-pasang-wifi-solo-raya/"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Berapa biaya pasang WiFi paling murah di Solo Raya?","acceptedAnswer":{"@type":"Answer","text":"Paket termurah adalah XL Satu Starter 20 Mbps seharga Rp 185.000/bulan dengan biaya instalasi Rp 100.000 (belum termasuk PPN). Untuk paket 250 Mbps ke atas, biaya instalasi gratis."}},{"@type":"Question","name":"Apakah semua paket kena biaya instalasi?","acceptedAnswer":{"@type":"Answer","text":"Tidak. Hanya paket Starter 20 Mbps yang dikenakan biaya instalasi Rp 100.000. Semua paket Spark (250 Mbps ke atas) sudah gratis biaya instalasi."}},{"@type":"Question","name":"Apakah harga yang ditampilkan sudah termasuk PPN?","acceptedAnswer":{"@type":"Answer","text":"Untuk paket Fiber, harga yang ditampilkan belum termasuk PPN 11%. Untuk paket Wireless, harga umumnya sudah termasuk PPN. Selalu konfirmasi ke sales untuk detail tagihan sebelum mendaftar."}},{"@type":"Question","name":"Apa saja yang mempengaruhi total biaya bulan pertama?","acceptedAnswer":{"@type":"Answer","text":"Total biaya bulan pertama biasanya terdiri dari biaya paket bulanan, biaya instalasi (jika ada), dan PPN 11%. Untuk paket dengan instalasi gratis, biaya bulan pertama hanya biaya paket ditambah PPN."}},{"@type":"Question","name":"Kenapa XL SATU 185k lebih worth it dari WiFi 150 ribu?","acceptedAnswer":{"@type":"Answer","text":"WiFi 150 ribu (mis. EZnet) biasanya paket basic dengan batasan speed/FUP. XL SATU 185k (Starter 20 Mbps) sudah tanpa FUP, gratis booster di paket tahunan, dan jaringan fiber XLSMART yang stabil untuk Solo Raya. Selisih Rp35rb dapat unlimited murni tanpa khawatir kuota."}},{"@type":"Question","name":"Berapa nomor agen resmi untuk tanya biaya pasang WiFi Solo Raya?","acceptedAnswer":{"@type":"Answer","text":"Hubungi agen resmi XL SATU Solo Raya di 0877-7899-9141 (wa.me/xlsatusolo) via WhatsApp untuk rincian biaya, simulasi PPN, dan cek ketersediaan di alamatmu."}}]}],
+
   faqs: [{"q":"Berapa biaya pasang WiFi paling murah di Solo Raya?","a":"Paket termurah adalah XL Satu Starter 20 Mbps seharga Rp 185.000/bulan dengan biaya instalasi Rp 100.000 (belum termasuk PPN). Untuk paket 250 Mbps ke atas, biaya instalasi gratis."},{"q":"Apakah semua paket kena biaya instalasi?","a":"Tidak. Hanya paket Starter 20 Mbps yang dikenakan biaya instalasi Rp 100.000. Semua paket Spark (250 Mbps ke atas) sudah gratis biaya instalasi."},{"q":"Apakah harga yang ditampilkan sudah termasuk PPN?","a":"Untuk paket Fiber, harga yang ditampilkan belum termasuk PPN 11%. Untuk paket Wireless, harga umumnya sudah termasuk PPN. Selalu konfirmasi ke sales untuk detail tagihan sebelum mendaftar."},{"q":"Apa saja yang mempengaruhi total biaya bulan pertama?","a":"Total biaya bulan pertama biasanya terdiri dari biaya paket bulanan, biaya instalasi (jika ada), dan PPN 11%. Untuk paket dengan instalasi gratis, biaya bulan pertama hanya biaya paket ditambah PPN."},{"q":"Kenapa XL SATU 185k lebih worth it dari WiFi 150 ribu?","a":"WiFi 150 ribu (mis. EZnet) biasanya paket basic dengan batasan speed/FUP. XL SATU 185k (Starter 20 Mbps) sudah tanpa FUP, gratis booster di paket tahunan, dan jaringan fiber XLSMART yang stabil untuk Solo Raya. Selisih Rp35rb dapat unlimited murni tanpa khawatir kuota."},{"q":"Berapa nomor agen resmi untuk tanya biaya pasang WiFi Solo Raya?","a":"Hubungi agen resmi XL SATU Solo Raya di 0877-7899-9141 (wa.me/xlsatusolo) via WhatsApp untuk rincian biaya, simulasi PPN, dan cek ketersediaan di alamatmu."}],
+
   hero: {"crumb":"<a href=\"https://xlsatusolo.com/\">Beranda</a> / Biaya Pasang WiFi Solo Raya","h1":"Biaya Pasang WiFi Rumah di Solo Raya 2026","sub":"Rincian lengkap harga paket, biaya instalasi, dan simulasi total tagihan bulan pertama.","meta":"Diperbarui 17 September 2026 • XL SATU Solo Raya"},
+
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20biaya%20pasang%20WiFi",
+
   bodyHtml: "\n\n  <p>Salah satu pertanyaan paling penting sebelum daftar internet rumah: berapa sih total biayanya? Nggak cuma harga paket bulanan, tapi juga biaya instalasi dan pajak yang kadang bikin bingung. Artikel ini merinci semuanya biar kamu bisa hitung sendiri sebelum daftar.</p>\n\n  <h2>Daftar Harga Paket Fiber XL SATU</h2>\n  <p>Berikut harga resmi paket Fiber Optic XL SATU yang berlaku di seluruh Solo Raya (Solo, Sukoharjo, Karanganyar, Klaten, Boyolali). Harga di bawah ini <strong>belum termasuk PPN 11%</strong>.</p>\n\n  <table class=\"price-table\">\n    <tr><th>Paket</th><th>Kecepatan</th><th>Harga/bulan</th><th>Biaya Instalasi</th></tr>\n    <tr>\n      <td>Starter</td><td>20 Mbps</td><td class=\"price\">Rp 185.000</td>\n      <td>Rp 100.000</td>\n    </tr>\n    \n    <tr class=\"highlight\">\n      <td>Spark <span class=\"badge-free\">Best Seller</span></td><td>250 Mbps</td><td class=\"price\">Rp 229.000</td>\n      <td>Gratis</td>\n    </tr>\n    <tr>\n      <td>Spark</td><td>300 Mbps</td><td class=\"price\">Rp 239.000</td>\n      <td>Gratis</td>\n    </tr>\n    <tr>\n      <td>Spark</td><td>400 Mbps</td><td class=\"price\">Rp 299.000</td>\n      <td>Gratis</td>\n    </tr>\n    <tr>\n      <td>Spark</td><td>500 Mbps</td><td class=\"price\">Rp 399.000</td>\n      <td>Gratis</td>\n    </tr>\n    <tr>\n      <td>Spark</td><td>1000 Mbps</td><td class=\"price\">Rp 899.000</td>\n      <td>Gratis</td>\n    </tr>\n  </table>\n\n  <div class=\"info-box\">\n    <strong>Perhatikan:</strong> hanya paket Starter 20 Mbps yang dikenakan biaya instalasi Rp 100.000. Semua paket Spark (250 Mbps ke atas) sudah gratis biaya instalasi — ini yang membuat paket 250 Mbps sering jadi pilihan favorit meski bukan yang termurah dari sisi paket bulanan.\n  </div>\n\n  <div style=\"background:#f5f3ff; border:1px solid #ddd6fe; border-radius:8px; padding:14px 16px; margin:16px 0; text-align:center; font-size:13.5px;\">\n    <strong style=\"color:#4c1d95;\">Mau hemat 2 bulan?</strong> Lihat <a href=\"/paket-wifi-tahunan-bayar-10-dapat-12/\" style=\"color:var(--green); font-weight:700;\">Paket Tahunan Bayar 10 Dapat 12 — mulai Rp2.490jt/tahun</a> (hemat Rp498rb—738rb + booster & kuota HP)\n  </div>\n\n  <h2>Simulasi Total Biaya Bulan Pertama</h2>\n  <p>Supaya nggak kaget saat tagihan pertama datang, berikut simulasi total biaya untuk dua skenario paling umum:</p>\n\n  <div class=\"sim-box\">\n    <h4>Skenario 1: Paket Starter 20 Mbps</h4>\n    <div class=\"sim-row\"><span>Biaya paket bulanan</span><span>Rp 185.000</span></div>\n    <div class=\"sim-row\"><span>Biaya instalasi (sekali bayar)</span><span>Rp 100.000</span></div>\n    <div class=\"sim-row\"><span>PPN 11%</span><span>Rp 31.350</span></div>\n    <div class=\"sim-row total\"><span>Total bulan pertama</span><span>Rp 316.350</span></div>\n  </div>\n\n  <div class=\"sim-box\">\n    <h4>Skenario 2: Paket Spark 250 Mbps (Best Seller)</h4>\n    <div class=\"sim-row\"><span>Biaya paket bulanan</span><span>Rp 229.000</span></div>\n    <div class=\"sim-row\"><span>Biaya instalasi</span><span>Gratis</span></div>\n    <div class=\"sim-row\"><span>PPN 11%</span><span>Rp 25.190</span></div>\n    <div class=\"sim-row total\"><span>Total bulan pertama</span><span>Rp 254.190</span></div>\n  </div>\n\n  <p style=\"font-size: 13px; color: var(--text-muted); margin-top: -8px;\">*Simulasi ini estimasi berdasarkan harga resmi yang berlaku. Biaya bulan kedua dan seterusnya hanya biaya paket + PPN, tanpa biaya instalasi lagi.</p>\n\n  <h2>Paket Tahunan — Bayar 10 Dapat 12</h2>\n  <p>Hemat 2 bulan + bonus Speed Booster dan Kuota HP se-keluarga. Harga di bawah <strong>belum termasuk PPN 11%</strong> dan sudah termasuk gratis instalasi.</p>\n  <table class=\"price-table\">\n    <tr><th>Paket</th><th>Speed → Booster</th><th>Bonus Kuota HP</th><th>Harga Tahunan</th></tr>\n    <tr>\n      <td><strong>Basic Smart</strong></td><td>50 Mbps → <strong>75 Mbps</strong></td><td>10 GB untuk 2 Member</td>\n      <td><span style=\"text-decoration:line-through; color:#999; font-size:12px;\">Rp 2.988.000</span><br><span class=\"price\">Rp 2.490.000</span> <span style=\"background:#ede9fe; color:#4c1d95; font-size:10px; font-weight:700; padding:2px 6px; border-radius:6px;\">Bayar 10 Dapat 12</span></td>\n    </tr>\n    <tr>\n      <td><strong>Basic Family</strong></td><td>100 Mbps → <strong>150 Mbps</strong></td><td>25 GB untuk 2 Member</td>\n      <td><span style=\"text-decoration:line-through; color:#999; font-size:12px;\">Rp 3.828.000</span><br><span class=\"price\">Rp 3.190.000</span> <span style=\"background:#ede9fe; color:#4c1d95; font-size:10px; font-weight:700; padding:2px 6px; border-radius:6px;\">Bayar 10 Dapat 12</span></td>\n    </tr>\n    <tr>\n      <td><strong>Basic Superuser</strong></td><td>150 Mbps → <strong>200 Mbps</strong></td><td>50 GB untuk 3 Member</td>\n      <td><span style=\"text-decoration:line-through; color:#999; font-size:12px;\">Rp 4.428.000</span><br><span class=\"price\">Rp 3.690.000</span> <span style=\"background:#ede9fe; color:#4c1d95; font-size:10px; font-weight:700; padding:2px 6px; border-radius:6px;\">Bayar 10 Dapat 12</span></td>\n    </tr>\n  </table>\n  <p style=\"font-size: 13px; color: var(--text-muted);\">*Harga tahunan = bayar 10 bulan, pakai 12 bulan. Belum termasuk PPN 11%. Tanya sales untuk simulasi total + PPN.</p>\n  <p style=\"font-size:14px; text-align:center; margin:16px 0;\"><a href=\"/paket-wifi-tahunan-bayar-10-dapat-12/\" style=\"color:var(--green); font-weight:700;\">Baca detail lengkap + FAQ paket tahunan →</a></p>\n\n  <h2>Bagaimana dengan Paket Wireless?</h2>\n  <p>Untuk area yang belum terjangkau kabel fiber optic, XL SATU juga menyediakan paket Wireless dengan sistem pembayaran yang sedikit berbeda — umumnya dibayar per beberapa bulan sekaligus (advance payment) dengan potongan harga, atau tersedia juga opsi bayar bulanan tanpa advance. Harga dan promo paket Wireless cukup sering berubah mengikuti periode promosi yang berjalan, jadi untuk info harga terbaru dan tersedia di area kamu, langsung tanya sales lewat WhatsApp — lebih akurat dibanding angka yang bisa saja sudah berubah saat kamu baca artikel ini.</p>\n\n  <h2>Tips Menghitung Budget Sebelum Daftar</h2>\n  <ul>\n    <li><strong>Siapkan dana lebih untuk bulan pertama</strong> — karena ada biaya instalasi (jika kena) plus PPN yang membuat tagihan pertama lebih besar dari bulan-bulan berikutnya.</li>\n    <li><strong>Pilih paket sesuai kebutuhan, bukan cuma yang termurah</strong> — paket 250 Mbps sering lebih worth it dibanding Starter karena sudah gratis instalasi dan kecepatan jauh lebih tinggi.</li>\n    <li><strong>Tanyakan promo yang sedang berjalan</strong> — XL SATU cukup sering punya promo periodik, terutama untuk paket Wireless, jadi selalu cek promo terbaru sebelum daftar.</li>\n    <li><strong>Kalau untuk kos/kontrakan, hitung dulu pembagian biaya</strong> — baca juga <a href=\"/panduan-wifi-kos-solo/\">panduan pilih WiFi kos & kontrakan</a> untuk tips patungan yang adil.</li>\n  </ul>\n\n  <div style=\"background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border: 1px solid #bbf7d0; border-radius: 14px; padding: 28px 24px; margin: 32px 0;\">\n    <h2 style=\"margin-top:0; font-size:20px;\">Biaya Tambahan & Kebijakan Berlangganan</h2>\n    <p style=\"color:#555; margin-bottom:20px;\">Selain biaya paket bulanan dan instalasi, berikut yang perlu diketahui sebelum daftar:</p>\n\n    <div style=\"display:grid; gap:14px;\">\n      <div style=\"background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 18px; display:flex; gap:14px; align-items:flex-start;\">\n        <div style=\"flex-shrink:0; width:36px; height:36px; background:#dcfce7; border-radius:8px; display:flex; align-items:center; justify-content:center;\"><i class=\"fas fa-tools\" style=\"color:#16a34a; font-size:15px;\"></i></div>\n        <div><strong style=\"font-size:14.5px;\">Biaya Kunjungan Teknisi</strong><br><span style=\"font-size:13.5px; color:#555;\">Dikenakan untuk perbaikan di luar gangguan layanan — misalnya pindah lokasi modem, ganti kabel karena kelalaian, atau permintaan tambahan perangkat.</span></div>\n      </div>\n\n      <div style=\"background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 18px; display:flex; gap:14px; align-items:flex-start;\">\n        <div style=\"flex-shrink:0; width:36px; height:36px; background:#fef3c7; border-radius:8px; display:flex; align-items:center; justify-content:center;\"><i class=\"fas fa-exclamation-triangle\" style=\"color:#d97706; font-size:15px;\"></i></div>\n        <div><strong style=\"font-size:14.5px;\">Penggantian Perangkat</strong><br><span style=\"font-size:13.5px; color:#555;\">ONT/Modem atau router hilang atau rusak karena kelalaian → wajib ganti sesuai harga perangkat saat kerugian terjadi.</span></div>\n      </div>\n\n      <div style=\"background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 18px; display:flex; gap:14px; align-items:flex-start;\">\n        <div style=\"flex-shrink:0; width:36px; height:36px; background:#fee2e2; border-radius:8px; display:flex; align-items:center; justify-content:center;\"><i class=\"fas fa-times-circle\" style=\"color:#dc2626; font-size:15px;\"></i></div>\n        <div><strong style=\"font-size:14.5px;\">Penalti Berhenti Dini</strong><br><span style=\"font-size:13.5px; color:#555;\">Berhenti sebelum 12 bulan → dikenakan biaya penalti <strong>Rp 1.000.000</strong> + lunasi semua tagihan yang belum dibayar.</span></div>\n      </div>\n\n      <div style=\"background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 18px; display:flex; gap:14px; align-items:flex-start;\">\n        <div style=\"flex-shrink:0; width:36px; height:36px; background:#dbeafe; border-radius:8px; display:flex; align-items:center; justify-content:center;\"><i class=\"fas fa-box\" style=\"color:#2563eb; font-size:15px;\"></i></div>\n        <div><strong style=\"font-size:14.5px;\">Pengembalian Perangkat</strong><br><span style=\"font-size:13.5px; color:#555;\">Wajib kembalikan ONT/Modem dalam kondisi lengkap saat berhenti berlangganan atau akhir masa kontrak.</span></div>\n      </div>\n    </div>\n\n    <p style=\"font-size:12.5px; color:#888; margin:16px 0 0 0;\">*Berlaku umum sesuai ketentuan resmi XL SATU. <a href=\"https://wa.me/6287778999141?text=Halo,%20saya%20mau%20tanya%20rincian%20biaya%20tambahan\" target=\"_blank\" rel=\"noopener\" style=\"color:#16a34a; font-weight:600;\">Tanya sales</a> untuk rincian spesifik area Anda.</p>\n  </div>\n\n  <h2>Pertanyaan yang Sering Ditanyakan biaya instalasi dan promo ke admin untuk detail tagihan sebelum mendaftar.</p>\n\n  <h3>Apa saja yang mempengaruhi total biaya bulan pertama?</h3>\n  <p>Total biaya bulan pertama biasanya terdiri dari biaya paket bulanan, biaya instalasi (jika ada), dan PPN 11%. Untuk paket dengan instalasi gratis, biaya bulan pertama hanya biaya paket ditambah PPN.</p>\n\n  <h3>Kenapa XL SATU 185k lebih worth it dari WiFi 150 ribu?</h3>\n  <p>Paket WiFi 150 ribu (mis. EZnet) biasanya paket basic dengan speed terbatas atau ada FUP. XL SATU 185k (Starter 20 Mbps) sudah <strong>tanpa FUP</strong>, dapat <strong>bonus booster di paket tahunan</strong>, dan pakai jaringan fiber XLSMART yang stabil di Solo Raya. Selisih Rp35rb dapat unlimited murni tanpa khawatir kuota — cocok untuk cek <a href=\"/paket-wifi-tahunan-bayar-10-dapat-12/\">paket tahunan hemat 10 dapat 12</a>.</p>\n\n  <h3>Berapa nomor agen resmi untuk tanya biaya pasang WiFi Solo Raya?</h3>\n  <p>Hubungi agen resmi XL SATU Solo Raya di <strong>0877-7899-9141</strong> (<a href=\"https://wa.me/xlsatusolo\">wa.me/xlsatusolo</a>) via WhatsApp untuk rincian biaya, simulasi PPN, dan cek ketersediaan di alamatmu.</p>\n\n  <div class=\"cta-box\">\n    <h3>Mau Tahu Harga Pasti untuk Area Kamu?</h3>\n    <p>Tim sales siap kirim rincian biaya lengkap sesuai paket dan alamat kamu.</p>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20rincian%20biaya%20pasang%20WiFi%20di%20alamat%20saya\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\">\n      <i class=\"fab fa-whatsapp\"></i> Tanya Rincian Biaya\n    </a>\n  </div>\n\n  <h2>Cek Area Layanan di Kotamu</h2>\n  <p>XL SATU melayani pemasangan internet rumah di 5 wilayah Solo Raya dengan harga yang sama di semua area:</p>\n  <div class=\"related-cities\">\n    <a href=\"/wifi-solo/\">Pasang WiFi Solo</a>\n    <a href=\"/wifi-sukoharjo/\">Pasang WiFi Sukoharjo</a>\n    <a href=\"/wifi-karanganyar/\">Pasang WiFi Karanganyar</a>\n    <a href=\"/wifi-klaten/\">Pasang WiFi Klaten</a>\n    <a href=\"/wifi-boyolali/\">Pasang WiFi Boyolali</a>\n    <a href=\"/wifi-surakarta/\">Pasang WiFi Surakarta</a>\n  </div>\n  <p style=\"margin-top:16px;\">Sudah siap daftar? Baca <a href=\"/cara-daftar-pasang-wifi-xl-satu-solo/\">panduan lengkap cara daftar & syarat pemasangan</a>. Bingung pilih fiber atau wireless? Baca juga <a href=\"/panduan-fiber-vs-wireless/\">panduan lengkap fiber vs wireless</a>. Internet di rumah kadang lemot? Cek <a href=\"/penyebab-wifi-lemot-cara-mengatasi/\">penyebab dan cara mengatasi WiFi lemot</a>. Lagi bandingkan dengan opsi lain? Baca <a href=\"/internet-rakyat-vs-xl-satu/\">perbandingan Internet Rakyat vs XL SATU</a>. Belum yakin harus pilih provider mana? Cek <a href=\"/5-hal-wajib-dicek-sebelum-pasang-wifi-rumah/\">5 hal wajib dicek sebelum pasang WiFi rumah</a>.</p>\n\n  <p>Sudah tahu budget-nya? <a href=\"/250-mbps-untuk-berapa-orang/\">Cek apakah 250 Mbps cukup untuk rumahmu</a> sebelum pilih paket — jangan bayar lebih untuk kecepatan yang tidak kepakai.</p>\n",
+
 };
+
+
 
 ARTIKEL["cara-daftar-pasang-wifi-xl-satu-solo"] = {
+
   slug: "cara-daftar-pasang-wifi-xl-satu-solo",
+
   title: "Cara Daftar & Pasang XL SATU Solo 2026: 3 Langkah via WA | XL SATU",
+
   description: "Cara daftar & pasang XL SATU Solo 2026: 3 langkah via WhatsApp 0877-7899-9141, syarat alamat + foto rumah, biaya Rp185rb/bulan, instalasi 3-7 hari tanpa ke kantor.",
+
   keywords: "cara daftar pasang wifi xl satu solo, cara pasang wifi solo, syarat pasang wifi xl satu, daftar wifi xl satu solo raya, sales xl satu solo".split(/,\s*/),
+
   ogTitle: "Cara Daftar & Pasang XL SATU Solo 2026: 3 Langkah via WA",
+
   ogDescription: "Cara daftar & pasang XL SATU Solo 2026: 3 langkah via WhatsApp, syarat alamat + foto rumah, biaya Rp185rb/bulan, 3-7 hari pasang.",
+
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+
   schemas: [{"@context":"https://schema.org","@type":"Article","headline":"Cara Daftar & Pasang XL SATU Solo 2026: 3 Langkah via WA","description":"3 langkah daftar & pasang XL SATU Solo via WhatsApp: syarat alamat + foto rumah, biaya Rp185rb/bulan, instalasi 3-7 hari tanpa ke kantor.","author":{"@type":"Organization","name":"XL SATU Solo Raya"},"publisher":{"@type":"Organization","name":"XL SATU Solo Raya"},"datePublished":"2026-08-15","dateModified":"2026-08-25","mainEntityOfPage":"https://xlsatusolo.com/cara-daftar-pasang-wifi-xl-satu-solo/"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Berapa biaya pasang WiFi XL SATU di Solo Raya?","acceptedAnswer":{"@type":"Answer","text":"Paket termurah mulai Rp185.000/bulan (Starter 20 Mbps) dengan biaya instalasi Rp100.000. Untuk paket 250 Mbps ke atas, biaya instalasi gratis. Harga sama di seluruh area Solo, Sukoharjo, Karanganyar, Klaten, dan Boyolali."}},{"@type":"Question","name":"Apa syarat daftar WiFi XL SATU?","acceptedAnswer":{"@type":"Answer","text":"Cukup siapkan alamat lengkap lokasi pemasangan dan foto tampak depan rumah untuk pengecekan jangkauan jaringan. Kirim ke agen resmi via WhatsApp, tidak perlu dokumen KTP di awal — proses verifikasi dilakukan saat survei."}},{"@type":"Question","name":"Apa bedanya Fiber dan FWA/Wireless 5G XL SATU?","acceptedAnswer":{"@type":"Answer","text":"Fiber menggunakan kabel optik yang ditarik langsung ke rumah, cocok untuk area yang sudah terjangkau jaringan kabel. FWA (Fixed Wireless Access) memakai modem wireless berbasis sinyal 5G tanpa tarik kabel, cocok untuk area yang belum tercover fiber. Sales kami akan cek dulu jenis jaringan yang tersedia di alamat Anda."}},{"@type":"Question","name":"Berapa lama proses pendaftaran sampai internet aktif?","acceptedAnswer":{"@type":"Answer","text":"Setelah alamat dan foto rumah dikirim, sales akan konfirmasi ketersediaan jaringan dalam 1x24 jam. Jika tersedia, jadwal survei dan instalasi biasanya 3-7 hari kerja setelah pendaftaran disetujui."}},{"@type":"Question","name":"Apakah bisa daftar langsung tanpa lewat website resmi XL SATU?","acceptedAnswer":{"@type":"Answer","text":"Bisa. Anda tidak harus mendaftar lewat website satu.xl.co.id — mendaftar langsung lewat agen resmi WhatsApp di wilayah Solo Raya justru lebih cepat karena bisa langsung konsultasi paket, cek ketersediaan jaringan di alamat spesifik, dan tanya promo yang sedang berjalan tanpa antre customer service pusat."}},{"@type":"Question","name":"Siapa agen resmi XL SATU untuk Solo Raya?","acceptedAnswer":{"@type":"Answer","text":"agen resmi XL SATU Solo Raya bisa dihubungi langsung via WhatsApp di 0877-7899-9141. Kami melayani pemasangan fiber optic dan wireless di 5 wilayah Solo Raya: Kota Solo, Sukoharjo, Karanganyar, Klaten, dan Boyolali, dengan proses konsultasi paket, cek ketersediaan jaringan, hingga jadwal instalasi langsung ditangani tim kami tanpa perlu antre ke kantor."}},{"@type":"Question","name":"Berapa nomor WhatsApp agen resmi XL SATU Solo Raya?","acceptedAnswer":{"@type":"Answer","text":"Nomor WhatsApp agen resmi XL SATU Solo Raya adalah 0877-7899-9141. Chat langsung untuk konsultasi paket, cek jangkauan jaringan di alamat Anda, dan proses pendaftaran — tersedia untuk area Solo, Sukoharjo, Karanganyar, Klaten, dan Boyolali."}}]}],
+
   faqs: [{"q":"Berapa biaya pasang WiFi XL SATU di Solo Raya?","a":"Paket termurah mulai Rp185.000/bulan (Starter 20 Mbps) dengan biaya instalasi Rp100.000. Untuk paket 250 Mbps ke atas, biaya instalasi gratis. Harga sama di seluruh area Solo, Sukoharjo, Karanganyar, Klaten, dan Boyolali."},{"q":"Apa syarat daftar WiFi XL SATU?","a":"Cukup siapkan alamat lengkap lokasi pemasangan dan foto tampak depan rumah untuk pengecekan jangkauan jaringan. Kirim ke agen resmi via WhatsApp, tidak perlu dokumen KTP di awal — proses verifikasi dilakukan saat survei."},{"q":"Apa bedanya Fiber dan FWA/Wireless 5G XL SATU?","a":"Fiber menggunakan kabel optik yang ditarik langsung ke rumah, cocok untuk area yang sudah terjangkau jaringan kabel. FWA (Fixed Wireless Access) memakai modem wireless berbasis sinyal 5G tanpa tarik kabel, cocok untuk area yang belum tercover fiber. Sales kami akan cek dulu jenis jaringan yang tersedia di alamat Anda."},{"q":"Berapa lama proses pendaftaran sampai internet aktif?","a":"Setelah alamat dan foto rumah dikirim, sales akan konfirmasi ketersediaan jaringan dalam 1x24 jam. Jika tersedia, jadwal survei dan instalasi biasanya 3-7 hari kerja setelah pendaftaran disetujui."},{"q":"Apakah bisa daftar langsung tanpa lewat website resmi XL SATU?","a":"Bisa. Anda tidak harus mendaftar lewat website satu.xl.co.id — mendaftar langsung lewat agen resmi WhatsApp di wilayah Solo Raya justru lebih cepat karena bisa langsung konsultasi paket, cek ketersediaan jaringan di alamat spesifik, dan tanya promo yang sedang berjalan tanpa antre customer service pusat."},{"q":"Siapa agen resmi XL SATU untuk Solo Raya?","a":"agen resmi XL SATU Solo Raya bisa dihubungi langsung via WhatsApp di 0877-7899-9141. Kami melayani pemasangan fiber optic dan wireless di 5 wilayah Solo Raya: Kota Solo, Sukoharjo, Karanganyar, Klaten, dan Boyolali, dengan proses konsultasi paket, cek ketersediaan jaringan, hingga jadwal instalasi langsung ditangani tim kami tanpa perlu antre ke kantor."},{"q":"Berapa nomor WhatsApp agen resmi XL SATU Solo Raya?","a":"Nomor WhatsApp agen resmi XL SATU Solo Raya adalah 0877-7899-9141. Chat langsung untuk konsultasi paket, cek jangkauan jaringan di alamat Anda, dan proses pendaftaran — tersedia untuk area Solo, Sukoharjo, Karanganyar, Klaten, dan Boyolali."}],
+
   hero: {"crumb":"<a href=\"https://xlsatusolo.com/\">Beranda</a> / Cara Daftar & Pasang WiFi XL SATU","h1":"Cara Daftar & Pasang WiFi XL SATU di Solo Raya","sub":"Panduan lengkap syarat, dokumen, dan langkah daftar lewat agen resmi lokal — proses cepat tanpa perlu ke kantor.","meta":"Diperbarui 15 Agustus 2026 • XL SATU Solo Raya"},
+
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20daftar%20WiFi%20XL%20SATU",
+
   bodyHtml: "\n\n  <p>Mau pasang WiFi XL SATU di Solo, Sukoharjo, Karanganyar, Klaten, atau Boyolali tapi bingung mulai dari mana? Kabar baiknya, prosesnya jauh lebih simpel daripada yang dibayangkan — nggak perlu datang ke kantor atau XL Center, cukup lewat WhatsApp ke agen resmi area Solo Raya. Artikel ini merangkum semua yang perlu kamu tahu: harga, syarat, pilihan jaringan, sampai berapa lama prosesnya.</p>\n\n  <div class=\"info-box\">\n    <strong>Ringkas:</strong> Harga mulai Rp185.000/bulan, pilih Fiber (kabel) atau FWA/Wireless 5G (tanpa kabel), daftar cukup kirim alamat + foto rumah ke WhatsApp <strong>0877-7899-9141</strong>, proses survei & instalasi 3-7 hari kerja.\n  </div>\n\n  <h2>Cara Daftar: 3 Langkah Sederhana</h2>\n\n  <div class=\"step-box\">\n    <div class=\"step-num\">1</div>\n    <div>\n      <h4>Kirim Alamat & Foto Rumah</h4>\n      <p>Siapkan alamat lengkap lokasi pemasangan (nama jalan, RT/RW, kelurahan) dan foto tampak depan rumah. Ini dipakai buat cek apakah area kamu sudah tercover jaringan fiber atau perlu opsi wireless.</p>\n    </div>\n  </div>\n  <div class=\"step-box\">\n    <div class=\"step-num\">2</div>\n    <div>\n      <h4>Konsultasi via WhatsApp ke agen resmi</h4>\n      <p>Kirim data di atas langsung ke WhatsApp agen resmi Solo Raya di <strong>0877-7899-9141</strong>. Kamu akan dapat konfirmasi ketersediaan jaringan biasanya dalam 1x24 jam, sekaligus rekomendasi paket yang sesuai kebutuhan dan budget.</p>\n    </div>\n  </div>\n  <div class=\"step-box\">\n    <div class=\"step-num\">3</div>\n    <div>\n      <h4>Jadwal Survei & Instalasi</h4>\n      <p>Setelah paket dipilih dan area dikonfirmasi tersedia, tim teknisi akan atur jadwal survei lokasi dan instalasi. Biasanya selesai dalam 3-7 hari kerja setelah pendaftaran disetujui.</p>\n    </div>\n  </div>\n\n  <h2>Pilih Fiber atau FWA/Wireless 5G?</h2>\n  <p>Dua jenis jaringan ini punya kelebihan masing-masing tergantung kondisi area kamu:</p>\n\n  <div class=\"compare-grid\">\n    <div class=\"compare-card\">\n      <h4><i class=\"fas fa-ethernet\"></i> Fiber Optic</h4>\n      <ul>\n        <li>Kabel optik ditarik langsung ke rumah</li>\n        <li>Koneksi paling stabil, ideal untuk kebutuhan berat (gaming, streaming 4K, WFH)</li>\n        <li>Tersedia di area yang sudah terjangkau jaringan kabel XLSMART</li>\n      </ul>\n    </div>\n    <div class=\"compare-card\">\n      <h4><i class=\"fas fa-satellite-dish\"></i> FWA / Wireless 5G</h4>\n      <ul>\n        <li>Modem wireless berbasis sinyal 5G, tanpa tarik kabel</li>\n        <li>Instalasi lebih cepat, cocok untuk area yang belum tercover fiber</li>\n        <li>Kecepatan tetap kencang untuk kebutuhan rumah tangga harian</li>\n      </ul>\n    </div>\n  </div>\n  <p>Nggak perlu bingung nentuin sendiri — kirim alamat kamu ke sales, nanti langsung dicek jaringan mana yang tersedia di lokasimu. Baca juga <a href=\"/panduan-fiber-vs-wireless/\">panduan lengkap fiber vs wireless</a> untuk pertimbangan lebih detail.</p>\n\n  <h2>Keunggulan Berlangganan XL SATU</h2>\n  <ul>\n    <li><strong>Internet unlimited tanpa FUP ketat</strong> — bebas streaming, download, dan kerja tanpa was-was kena batasan kuota. Detail lengkap ada di <a href=\"/wifi-tanpa-fup-unlimited/\">panduan FUP XL SATU</a>.</li>\n    <li><strong>Bonus kuota seluler XL</strong> — pelanggan biasanya dapat bonus kuota tambahan yang bisa dipakai di nomor XL seluler.</li>\n    <li><strong>Biaya instalasi ringan atau gratis</strong> — mulai Rp100.000 untuk paket Starter, dan gratis instalasi untuk paket 250 Mbps ke atas. Rincian lengkap ada di <a href=\"/biaya-pasang-wifi-solo-raya/\">artikel biaya pasang WiFi</a>.</li>\n    <li><strong>Harga transparan mulai Rp185.000/bulan</strong> — tanpa biaya tersembunyi, konsultasi paket langsung dengan sales sebelum daftar.</li>\n  </ul>\n\n  <div class=\"cta-box\">\n    <h3>Siap Daftar? Chat Langsung ke Sales Kami</h3>\n    <p>Kirim nama jalan atau kelurahan tempat tinggal kamu di Solo Raya, biar sales kami cek ketersediaan jaringan dan kirim rincian paket sesuai lokasimu.</p>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20daftar%20WiFi%20XL%20SATU.%20Ini%20alamat%20saya:%20\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\">\n      <i class=\"fab fa-whatsapp\"></i> Chat 0877-7899-9141\n    </a>\n  </div>\n\n  <h2>Pertanyaan yang Sering Ditanyakan biaya instalasi dan promo ke admin resmi via WhatsApp, tidak perlu dokumen KTP di awal — proses verifikasi dilakukan saat survei.</p>\n\n  <h3>Apa bedanya Fiber dan FWA/Wireless 5G XL SATU?</h3>\n  <p>Fiber menggunakan kabel optik yang ditarik langsung ke rumah, cocok untuk area yang sudah terjangkau jaringan kabel. FWA (Fixed Wireless Access) memakai modem wireless berbasis sinyal 5G tanpa tarik kabel, cocok untuk area yang belum tercover fiber. Sales kami akan cek dulu jenis jaringan yang tersedia di alamat Anda.</p>\n\n  <h3>Berapa lama proses pendaftaran sampai internet aktif?</h3>\n  <p>Setelah alamat dan foto rumah dikirim, sales akan konfirmasi ketersediaan jaringan dalam 1x24 jam. Jika tersedia, jadwal survei dan instalasi biasanya 3-7 hari kerja setelah pendaftaran disetujui.</p>\n\n  <h3>Apakah bisa daftar langsung tanpa lewat website resmi XL SATU?</h3>\n  <p>Bisa. Anda tidak harus mendaftar lewat website satu.xl.co.id — mendaftar langsung lewat agen resmi WhatsApp di wilayah Solo Raya justru lebih cepat karena bisa langsung konsultasi paket, cek ketersediaan jaringan di alamat spesifik, dan tanya promo yang sedang berjalan tanpa antre customer service pusat.</p>\n\n  <h3>Siapa agen resmi XL SATU untuk Solo Raya?</h3>\n  <p>agen resmi XL SATU Solo Raya bisa dihubungi langsung via WhatsApp di 0877-7899-9141. Kami melayani pemasangan fiber optic dan wireless di 5 wilayah Solo Raya: Kota Solo, Sukoharjo, Karanganyar, Klaten, dan Boyolali, dengan proses konsultasi paket, cek ketersediaan jaringan, hingga jadwal instalasi langsung ditangani tim kami tanpa perlu antre ke kantor.</p>\n\n  <h3>Berapa nomor WhatsApp agen resmi XL SATU Solo Raya?</h3>\n  <p>Nomor WhatsApp agen resmi XL SATU Solo Raya adalah 0877-7899-9141. Chat langsung untuk konsultasi paket, cek jangkauan jaringan di alamat Anda, dan proses pendaftaran — tersedia untuk area Solo, Sukoharjo, Karanganyar, Klaten, dan Boyolali.</p>\n\n  <h2>Cek Area Layanan di Kotamu</h2>\n  <p>XL SATU melayani pemasangan internet rumah di 5 wilayah Solo Raya dengan harga yang sama di semua area:</p>\n  <div class=\"related-cities\">\n    <a href=\"/wifi-solo/\">Pasang WiFi Solo</a>\n    <a href=\"/wifi-sukoharjo/\">Pasang WiFi Sukoharjo</a>\n    <a href=\"/wifi-karanganyar/\">Pasang WiFi Karanganyar</a>\n    <a href=\"/wifi-klaten/\">Pasang WiFi Klaten</a>\n    <a href=\"/wifi-boyolali/\">Pasang WiFi Boyolali</a>\n    <a href=\"/wifi-surakarta/\">Pasang WiFi Surakarta</a>\n  </div>\n  <p style=\"margin-top:16px;\">Mau tahu rincian biaya lengkap? Baca <a href=\"/biaya-pasang-wifi-solo-raya/\">rincian biaya pasang WiFi Solo Raya</a>. Bandingkan dulu dengan opsi lain di <a href=\"/internet-rakyat-vs-xl-satu/\">perbandingan Internet Rakyat vs XL SATU</a>, atau baca dulu <a href=\"/5-hal-wajib-dicek-sebelum-pasang-wifi-rumah/\">5 hal wajib dicek sebelum pasang WiFi rumah</a> biar nggak salah pilih.</p>\n\n",
+
 };
+
+
 
 ARTIKEL["5-hal-wajib-dicek-sebelum-pasang-wifi-rumah"] = {
+
   slug: "5-hal-wajib-dicek-sebelum-pasang-wifi-rumah",
+
   title: "5 Hal Wajib Dicek Sebelum Pasang WiFi Biar Nggak Nyesel 2026 | XL SATU",
+
   description: "5 hal wajib cek sebelum pasang WiFi rumah biar nggak nyesel 2026: cara tes kecepatan respons support, penanganan gangguan, harga transparan, izin tiang, & sales paham lokasi.",
+
   keywords: "tips pasang wifi rumah biar nggak kecewa, 5 hal wajib cek sebelum pasang wifi, cara pilih isp bagus, tips pilih wifi solo raya".split(/,\s*/),
+
   ogTitle: "5 Hal Wajib Dicek Sebelum Pasang WiFi Rumah Biar Nggak Nyesel",
+
   ogDescription: "5 hal wajib cek sebelum pasang WiFi 2026 biar nggak nyesel: tes kecepatan respons support, penanganan gangguan, harga transparan, izin tiang, & sales paham lokasi.",
+
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+
   schemas: [{"@context":"https://schema.org","@type":"Article","headline":"5 Hal Wajib Dicek Sebelum Pasang WiFi Biar Nggak Nyesel 2026","description":"5 hal wajib cek sebelum pasang WiFi biar nggak nyesel: tes kecepatan respons support, penanganan gangguan, harga transparan, izin tiang, & sales paham lokasi.","author":{"@type":"Organization","name":"XL SATU Solo Raya"},"publisher":{"@type":"Organization","name":"XL SATU Solo Raya"},"datePublished":"2026-08-18","dateModified":"2026-08-18","mainEntityOfPage":"https://xlsatusolo.com/5-hal-wajib-dicek-sebelum-pasang-wifi-rumah/"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Apa yang harus dicek sebelum daftar WiFi rumah?","acceptedAnswer":{"@type":"Answer","text":"Lima hal utama: kecepatan kecepatan respons support sebelum daftar, kejelasan proses penanganan gangguan, transparansi harga di depan, izin pemasangan tiang/kabel, dan apakah sales paham kondisi lokasi Anda secara langsung."}},{"@type":"Question","name":"Kenapa kecepatan respons support penting sebelum daftar internet?","acceptedAnswer":{"@type":"Answer","text":"Kecepatan kecepatan respons support sebelum daftar biasanya mencerminkan bagaimana Anda akan dilayani setelah jadi pelanggan. Kalau sudah lambat sejak tahap tanya-tanya, kemungkinan besar akan sama lambatnya saat ada keluhan nanti."}},{"@type":"Question","name":"Bagaimana cara tahu proses penanganan gangguan internet yang baik?","acceptedAnswer":{"@type":"Answer","text":"Tanyakan langsung sebelum daftar: kalau internet mati, siapa yang bisa dihubungi dan bagaimana prosesnya. Provider yang baik punya proses jelas seperti tiket aduan resmi, bukan sekadar 'nanti dicek ya' tanpa kepastian."}}]}],
+
   faqs: [{"q":"Apa yang harus dicek sebelum daftar WiFi rumah?","a":"Lima hal utama: kecepatan kecepatan respons support sebelum daftar, kejelasan proses penanganan gangguan, transparansi harga di depan, izin pemasangan tiang/kabel, dan apakah sales paham kondisi lokasi Anda secara langsung."},{"q":"Kenapa kecepatan respons support penting sebelum daftar internet?","a":"Kecepatan kecepatan respons support sebelum daftar biasanya mencerminkan bagaimana Anda akan dilayani setelah jadi pelanggan. Kalau sudah lambat sejak tahap tanya-tanya, kemungkinan besar akan sama lambatnya saat ada keluhan nanti."},{"q":"Bagaimana cara tahu proses penanganan gangguan internet yang baik?","a":"Tanyakan langsung sebelum daftar: kalau internet mati, siapa yang bisa dihubungi dan bagaimana prosesnya. Provider yang baik punya proses jelas seperti tiket aduan resmi, bukan sekadar 'nanti dicek ya' tanpa kepastian."}],
+
   hero: {"crumb":"<a href=\"https://xlsatusolo.com/\">Beranda</a> / 5 Hal Wajib Dicek Sebelum Pasang WiFi Rumah","h1":"5 Hal yang Wajib Dicek Sebelum Pasang WiFi Rumah","sub":"Biar nggak kecewa di tengah jalan — cek 5 hal ini dulu sebelum daftar internet rumah, apapun providernya.","meta":"Diperbarui 18 Agustus 2026 • XL SATU Solo Raya"},
+
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20soal%20WiFi%20XL%20SATU",
+
   bodyHtml: "\n\n  <p>Pasang internet rumah itu komitmen jangka panjang — begitu tiang dan kabel terpasang, biasanya nggak gampang buat pindah provider lagi. Sayangnya, banyak orang baru sadar ada masalah setelah sudah bayar dan pakai beberapa minggu. Sebelum kamu daftar ke provider manapun, ada 5 hal yang wajib dicek dulu biar nggak nyesel belakangan.</p>\n\n  <div class=\"info-box\">\n    <strong>Ringkas:</strong> Cek kecepatan respons support, kejelasan penanganan gangguan, transparansi harga, izin pemasangan tiang/kabel, dan apakah sales benar-benar paham lokasi kamu — sebelum tanda tangan atau bayar apapun.\n  </div>\n\n  <h2>Checklist Sebelum Daftar</h2>\n\n  <div class=\"checklist-item\">\n    <div class=\"checklist-num\">1</div>\n    <div>\n      <h3>Coba Dulu Kecepatan Respons Sales</h3>\n      <p>Sebelum daftar, kirim beberapa pertanyaan dulu ke sales lewat WhatsApp — soal harga, area cakupan, atau proses instalasi. Perhatikan seberapa cepat dan jelas jawabannya.</p>\n      <div class=\"tip\"><strong>Kenapa ini penting:</strong> cara sales melayani kamu di tahap tanya-tanya itu biasanya cerminan gimana kamu bakal dilayani setelah jadi pelanggan. Kalau di tahap \"masih calon pembeli\" aja udah lambat direspons, biasanya makin lambat lagi kalau nanti ada keluhan.</div>\n    </div>\n  </div>\n\n  <div class=\"checklist-item\">\n    <div class=\"checklist-num\">2</div>\n    <div>\n      <h3>Tanyakan Proses Kalau Ada Gangguan</h3>\n      <p>Tanyakan eksplisit: \"Kalau internet saya mati, saya harus hubungi siapa dan gimana prosesnya?\" Provider yang serius biasanya punya jawaban jelas — bukan cuma \"nanti dicek ya\".</p>\n      <div class=\"tip\"><strong>Kenapa ini penting:</strong> gangguan internet itu bukan soal \"kalau\", tapi \"kapan\" — cepat atau lambat pasti pernah kejadian. Yang membedakan provider bagus dan biasa saja adalah seberapa jelas dan cepat proses penanganannya saat itu terjadi.</div>\n    </div>\n  </div>\n\n  <div class=\"checklist-item\">\n    <div class=\"checklist-num\">3</div>\n    <div>\n      <h3>Pastikan Harga Final di Depan</h3>\n      <p>Minta rincian lengkap sebelum daftar: biaya bulanan, biaya instalasi, apakah ada biaya admin atau deposit tambahan. Semua harus jelas di awal, bukan muncul belakangan setelah teknisi datang.</p>\n      <div class=\"tip\"><strong>Kenapa ini penting:</strong> biaya siluman yang muncul mendadak itu salah satu keluhan paling umum soal provider internet. Provider yang percaya diri dengan harganya biasanya nggak keberatan kasih rincian lengkap dari awal.</div>\n    </div>\n  </div>\n\n  <div class=\"checklist-item\">\n    <div class=\"checklist-num\">4</div>\n    <div>\n      <h3>Cek Kejelasan Izin Pemasangan</h3>\n      <p>Kalau butuh pasang tiang atau kabel baru yang lewat area tetangga, tanyakan apakah izin ke pemilik lahan sekitar itu bagian dari proses instalasi mereka atau tanggung jawab kamu sendiri.</p>\n      <div class=\"tip\"><strong>Kenapa ini penting:</strong> pemasangan tanpa izin bisa jadi sumber konflik dengan tetangga di kemudian hari — sesuatu yang sebenarnya bisa dihindari kalau providernya proaktif menangani ini sejak awal.</div>\n    </div>\n  </div>\n\n  <div class=\"checklist-item\">\n    <div class=\"checklist-num\">5</div>\n    <div>\n      <h3>Pastikan Sales Paham Lokasi Kamu</h3>\n      <p>Perhatikan apakah sales yang melayani kamu benar-benar familiar dengan area tempat tinggalmu, atau cuma baca skrip generik dari customer service pusat yang nggak tahu kondisi lapangan.</p>\n      <div class=\"tip\"><strong>Kenapa ini penting:</strong> sales lokal yang paham medan biasanya lebih akurat soal ketersediaan jaringan, estimasi waktu instalasi yang realistis, dan lebih gampang dihubungi kalau ada apa-apa di kemudian hari.</div>\n    </div>\n  </div>\n\n  <h2>Kesimpulan</h2>\n  <p>Lima hal di atas kelihatan sederhana, tapi justru yang paling sering diabaikan calon pelanggan karena terlalu fokus ke soal kecepatan (Mbps) dan harga bulanan saja. Padahal, pengalaman jangka panjang berlangganan internet rumah itu sangat dipengaruhi oleh kualitas layanan — bukan cuma angka kecepatan di brosur.</p>\n  <p>Sebelum daftar ke provider manapun, coba tanyakan langsung kelima hal ini. Jawaban yang kamu dapat biasanya sudah cukup buat menilai apakah provider itu layak dipercaya untuk jangka panjang.</p>\n\n  <div class=\"cta-box\">\n    <h3>Mau Coba Tanya Dulu ke Kami?</h3>\n    <p>Silakan tes sendiri kelima poin di atas — chat agen resmi XL SATU Solo Raya dan lihat langsung bagaimana kami merespons sebelum kamu memutuskan.</p>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya-tanya%20dulu%20soal%20WiFi%20XL%20SATU\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\">\n      <i class=\"fab fa-whatsapp\"></i> Chat 0877-7899-9141\n    </a>\n  </div>\n\n  <h2>Pertanyaan yang Sering Ditanyakan</h2>\n\n  <h3>Apa yang harus dicek sebelum daftar WiFi rumah?</h3>\n  <p>Lima hal utama: kecepatan kecepatan respons support sebelum daftar, kejelasan proses penanganan gangguan, transparansi harga di depan, izin pemasangan tiang/kabel, dan apakah sales paham kondisi lokasi Anda secara langsung.</p>\n\n  <h3>Kenapa kecepatan respons support penting sebelum daftar internet?</h3>\n  <p>Kecepatan kecepatan respons support sebelum daftar biasanya mencerminkan bagaimana Anda akan dilayani setelah jadi pelanggan. Kalau sudah lambat sejak tahap tanya-tanya, kemungkinan besar akan sama lambatnya saat ada keluhan nanti.</p>\n\n  <h3>Bagaimana cara tahu proses penanganan gangguan internet yang baik?</h3>\n  <p>Tanyakan langsung sebelum daftar: kalau internet mati, siapa yang bisa dihubungi dan bagaimana prosesnya. Provider yang baik punya proses jelas seperti tiket aduan resmi, bukan sekadar \"nanti dicek ya\" tanpa kepastian.</p>\n\n  <h2>Cek Area Layanan di Kotamu</h2>\n  <p>XL SATU melayani pemasangan internet rumah di 5 wilayah Solo Raya dengan harga yang sama di semua area:</p>\n  <div class=\"related-cities\">\n    <a href=\"/wifi-solo/\">Pasang WiFi Solo</a>\n    <a href=\"/wifi-sukoharjo/\">Pasang WiFi Sukoharjo</a>\n    <a href=\"/wifi-karanganyar/\">Pasang WiFi Karanganyar</a>\n    <a href=\"/wifi-klaten/\">Pasang WiFi Klaten</a>\n    <a href=\"/wifi-boyolali/\">Pasang WiFi Boyolali</a>\n    <a href=\"/wifi-surakarta/\">Pasang WiFi Surakarta</a>\n  </div>\n  <p style=\"margin-top:16px;\">Sudah siap daftar? Baca <a href=\"/cara-daftar-pasang-wifi-xl-satu-solo/\">panduan lengkap cara daftar & syarat pemasangan</a>, atau cek <a href=\"/biaya-pasang-wifi-solo-raya/\">rincian biaya pasang WiFi Solo Raya</a>.</p>\n\n",
+
 };
+
+
 
 ARTIKEL["solusi-internet-daerah-belum-ada-fiber-optik"] = {
+
   slug: "solusi-internet-daerah-belum-ada-fiber-optik",
+
   title: "Wifi Tanpa Kabel Solo Raya: Solusi Daerah Belum Ada Fiber | XL SATU",
+
   description: "Daerah kamu di Solo Raya belum ada kabel fiber optik? Nggak perlu nunggu tarik kabel — ini solusi internet rumah tanpa kabel yang bisa langsung dipasang.",
+
   keywords: "wifi daerah pelosok solo raya, internet belum ada fiber, wifi tanpa kabel, solusi internet tanpa fiber optik, FWA solo raya, blankspot internet solo raya, cara pasang wifi belum ada kabel".split(/,\s*/),
+
   ogTitle: "Wifi Tanpa Kabel Solo Raya: Solusi Daerah Belum Ada Fiber",
+
   ogDescription: "Nggak perlu nunggu fiber optik masuk ke daerahmu. Kenalan dengan solusi internet rumah tanpa kabel yang bisa langsung dipasang di Solo Raya.",
+
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+
   schemas: [{"@context":"https://schema.org","@type":"Article","headline":"Daerah Kamu Belum Ada Kabel Fiber Internet? Ini Solusinya Tanpa Perlu Tunggu Tarik Kabel","description":"Nggak perlu nunggu fiber optik masuk ke daerahmu. Kenalan dengan solusi internet rumah tanpa kabel yang bisa langsung dipasang di Solo Raya.","author":{"@type":"Organization","name":"XL SATU Solo Raya"},"publisher":{"@type":"Organization","name":"XL SATU Solo Raya"},"datePublished":"2026-08-18","dateModified":"2026-08-18","mainEntityOfPage":"https://xlsatusolo.com/solusi-internet-daerah-belum-ada-fiber-optik/"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Kenapa daerah saya belum ada kabel fiber optik?","acceptedAnswer":{"@type":"Answer","text":"Pemasangan fiber optik butuh infrastruktur tiang dan kabel yang ditarik fisik ke tiap rumah, jadi provider biasanya memprioritaskan area padat penduduk atau yang sudah ramai permintaan dulu. Perumahan baru, area pinggiran, atau desa yang lebih terpencil biasanya menyusul belakangan, kadang butuh waktu bertahun-tahun."}},{"@type":"Question","name":"Apa solusi internet rumah kalau belum ada fiber optik?","acceptedAnswer":{"@type":"Answer","text":"Solusi paling praktis adalah FWA (Fixed Wireless Access) atau internet wireless — teknologi yang mengirim sinyal internet lewat udara ke modem di rumah, tanpa perlu kabel ditarik dari tiang ke rumah Anda. Instalasi jauh lebih cepat dibanding menunggu ekspansi fiber optik."}},{"@type":"Question","name":"Apakah FWA secepat fiber optik?","acceptedAnswer":{"@type":"Answer","text":"FWA cukup cepat untuk kebutuhan rumah tangga harian seperti streaming, kerja dari rumah, dan belajar daring. Fiber optik umumnya lebih stabil untuk kebutuhan sangat berat seperti gaming kompetitif atau kantor dengan banyak perangkat, tapi untuk mayoritas rumah tangga, FWA sudah lebih dari cukup sambil menunggu fiber optik tersedia."}},{"@type":"Question","name":"Berapa lama proses pemasangan FWA di area yang belum ada fiber?","acceptedAnswer":{"@type":"Answer","text":"Karena tidak perlu menunggu instalasi kabel baru, proses pemasangan FWA biasanya jauh lebih cepat dibanding fiber optik — cukup survei sinyal di lokasi, lalu instalasi modem dapat dilakukan dalam hitungan hari."}}]}],
+
   faqs: [{"q":"Kenapa daerah saya belum ada kabel fiber optik?","a":"Pemasangan fiber optik butuh infrastruktur tiang dan kabel yang ditarik fisik ke tiap rumah, jadi provider biasanya memprioritaskan area padat penduduk atau yang sudah ramai permintaan dulu. Perumahan baru, area pinggiran, atau desa yang lebih terpencil biasanya menyusul belakangan, kadang butuh waktu bertahun-tahun."},{"q":"Apa solusi internet rumah kalau belum ada fiber optik?","a":"Solusi paling praktis adalah FWA (Fixed Wireless Access) atau internet wireless — teknologi yang mengirim sinyal internet lewat udara ke modem di rumah, tanpa perlu kabel ditarik dari tiang ke rumah Anda. Instalasi jauh lebih cepat dibanding menunggu ekspansi fiber optik."},{"q":"Apakah FWA secepat fiber optik?","a":"FWA cukup cepat untuk kebutuhan rumah tangga harian seperti streaming, kerja dari rumah, dan belajar daring. Fiber optik umumnya lebih stabil untuk kebutuhan sangat berat seperti gaming kompetitif atau kantor dengan banyak perangkat, tapi untuk mayoritas rumah tangga, FWA sudah lebih dari cukup sambil menunggu fiber optik tersedia."},{"q":"Berapa lama proses pemasangan FWA di area yang belum ada fiber?","a":"Karena tidak perlu menunggu instalasi kabel baru, proses pemasangan FWA biasanya jauh lebih cepat dibanding fiber optik — cukup survei sinyal di lokasi, lalu instalasi modem dapat dilakukan dalam hitungan hari."}],
+
   hero: {"crumb":"<a href=\"https://xlsatusolo.com/\">Beranda</a> / Daerah Belum Ada Fiber Internet","h1":"Daerah Kamu Belum Ada Kabel Fiber Internet? Ini Solusi Wifi Tanpa Kabel","sub":"Nggak perlu nunggu tarik kabel bertahun-tahun. Ini solusi wifi tanpa kabel yang bisa langsung dipasang di Solo Raya, sekalipun fiber optik belum masuk — Bayar 3 Dapat 4 (hemat per bulan).","meta":"Diperbarui 18 Agustus 2026 • XL SATU Solo Raya"},
+
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20daerah%20saya%20belum%20ada%20fiber%2C%20saya%20mau%20tanya%20soal%20FWA",
+
   bodyHtml: "\n\n  <p>Pindah ke perumahan baru atau tinggal di area yang agak jauh dari pusat kota, terus pas mau pasang WiFi ternyata jawaban providernya \"maaf kak, daerah situ belum ter-cover fiber optik\"? Kamu nggak sendirian. Ini masalah yang sangat umum di Solo Raya, dan kabar baiknya — ada solusi yang bisa langsung jalan tanpa perlu nunggu proyek tarik kabel yang kadang makan waktu bertahun-tahun.</p>\n\n  <div class=\"stat-box\">\n    <strong>Fakta:</strong> Menurut data Pemerintah Provinsi Jawa Tengah, ada ratusan desa di Jawa Tengah yang masih belum terjangkau jaringan internet kabel, dan pemerintah terus menambah titik baru setiap tahun secara bertahap. Artinya, kalau daerah kamu belum ke-cover fiber optik, itu situasi yang lazim terjadi — bukan cuma di daerah kamu saja.\n  </div>\n\n  <h2>Kenapa Fiber Optik Belum Masuk ke Semua Daerah?</h2>\n  <figure style=\"margin: 24px 0; text-align: center;\"><img src='/images/router-wireless-fwa-xl-satu-solo.png' alt='Bentuk Router Modem WiFi XL SATU FWA / Wireless 4G 5G Solo' style='max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);' /><figcaption style=\"font-size: 13px; color: #666; margin-top: 8px;\">Bentuk perangkat Router WiFi FWA (nirkabel) XL SATU yang hanya butuh colokan listrik, tanpa perlu tarik kabel fiber optik dari tiang jalan.</figcaption></figure>\n  <p>Ini bukan soal daerah kamu \"kurang penting\" — ini murni soal logika bisnis infrastruktur. Pemasangan fiber optik butuh tiang, kabel fisik yang ditarik dari satu titik distribusi ke tiap rumah, dan izin pemasangan di sepanjang jalur itu. Karena biayanya besar, provider biasanya memprioritaskan:</p>\n  <ul>\n    <li><strong>Area padat penduduk</strong> yang sudah pasti banyak permintaan</li>\n    <li><strong>Jalur utama</strong> yang mudah diakses untuk instalasi kabel</li>\n    <li><strong>Perumahan yang sudah lama berdiri</strong>, bukan yang baru dibangun</li>\n  </ul>\n  <p>Akibatnya, perumahan baru, kompleks di pinggiran kota, atau desa yang agak jauh dari jalur utama sering harus menunggu — kadang setahun, kadang lebih — sebelum akhirnya kebagian giliran fiber optik.</p>\n\n  <h2>Solusinya: Internet Tanpa Perlu Tarik Kabel</h2>\n  <p>Di sinilah teknologi <strong>FWA (Fixed Wireless Access)</strong> atau internet wireless jadi jawaban. Bedanya dengan fiber optik, FWA mengirim sinyal internet lewat udara ke modem khusus di rumah kamu — jadi nggak perlu ada kabel yang ditarik dari tiang ke rumah satu per satu.</p>\n\n  <div class=\"compare-grid\">\n    <div class=\"compare-card\">\n      <h4><i class=\"fas fa-ethernet\"></i> Fiber Optic</h4>\n      <ul>\n        <li>Butuh kabel fisik ditarik ke rumah</li>\n        <li>Perlu antre giliran ekspansi provider</li>\n        <li>Sangat stabil untuk kebutuhan berat</li>\n        <li>Waktu tunggu bisa lama di area baru</li>\n      </ul>\n    </div>\n    <div class=\"compare-card\">\n      <h4><i class=\"fas fa-satellite-dish\"></i> FWA / Wireless</h4>\n      <ul>\n        <li>Tidak perlu tarik kabel baru</li>\n        <li>Instalasi jauh lebih cepat</li>\n        <li>Cukup kencang untuk kebutuhan rumah tangga</li>\n        <li>Bisa langsung dipasang begitu sinyal tersedia</li>\n      </ul>\n    </div>\n  </div>\n\n  <p>Untuk kebutuhan rumah tangga sehari-hari — streaming, kerja dari rumah, belajar daring, main media sosial — FWA sudah lebih dari cukup. Kamu nggak perlu menunggu proyek fiber optik selesai dulu buat bisa internetan lancar di rumah.</p>\n\n  <div class=\"info-box\">\n    <strong>Bonus:</strong> Karena tidak ada kabel yang perlu ditarik lewat rumah tetangga, FWA juga menghindarkan kamu dari drama izin pemasangan kabel yang kadang bikin nggak enak sama tetangga sekitar.\n  </div>\n\n  <div style=\"background:#f5f3ff; border:1px solid #ddd6fe; border-radius:10px; padding:16px 18px; margin:20px 0;\">\n    <strong style=\"color:#4c1d95; font-size:14px;\">Hemat Bayar 3 Dapat 4 (FWA Advance):</strong><br>\n    <span style=\"font-size:13.5px; color:#333;\">50 Mbps Rp650.000 untuk 4 bulan (≈ <strong>Rp162.500/bulan</strong>) & 100 Mbps Rp790.000 untuk 4 bulan (≈ <strong>Rp197.500/bulan</strong> — Hemat Rp88rb vs Monthly Rp219.500). Bayar 3, pakai 4.</span>\n  </div>\n\n  <h2>Cara Cek Apakah FWA Tersedia di Daerah Kamu</h2>\n  <p>Prosesnya simpel — kirim alamat lengkap kamu ke agen resmi XL SATU Solo Raya via WhatsApp, nanti langsung dicek apakah sinyal FWA sudah tersedia di titik lokasi kamu. Kalau tersedia, instalasi bisa jauh lebih cepat dibanding menunggu fiber optik.</p>\n\n  <div class=\"cta-box\">\n    <h3>Cek Ketersediaan FWA di Alamat Kamu</h3>\n    <p>Nggak perlu nunggu fiber optik masuk dulu. Kirim alamat kamu sekarang, biar sales kami cek langsung apakah FWA XL SATU sudah bisa dipasang di lokasimu.</p>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20daerah%20saya%20belum%20ada%20fiber%2C%20saya%20mau%20tanya%20soal%20FWA.%20Ini%20alamat%20saya:%20\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\">\n      <i class=\"fab fa-whatsapp\"></i> Chat 0877-7899-9141\n    </a>\n  </div>\n\n  <h2>Pertanyaan yang Sering Ditanyakan</h2>\n\n  <h3>Kenapa daerah saya belum ada kabel fiber optik?</h3>\n  <p>Pemasangan fiber optik butuh infrastruktur tiang dan kabel yang ditarik fisik ke tiap rumah, jadi provider biasanya memprioritaskan area padat penduduk atau yang sudah ramai permintaan dulu. Perumahan baru, area pinggiran, atau desa yang lebih terpencil biasanya menyusul belakangan, kadang butuh waktu bertahun-tahun.</p>\n\n  <h3>Apa solusi internet rumah kalau belum ada fiber optik?</h3>\n  <p>Solusi paling praktis adalah FWA (Fixed Wireless Access) atau internet wireless — teknologi yang mengirim sinyal internet lewat udara ke modem di rumah, tanpa perlu kabel ditarik dari tiang ke rumah Anda. Instalasi jauh lebih cepat dibanding menunggu ekspansi fiber optik.</p>\n\n  <h3>Apakah FWA secepat fiber optik?</h3>\n  <p>FWA cukup cepat untuk kebutuhan rumah tangga harian seperti streaming, kerja dari rumah, dan belajar daring. Fiber optik umumnya lebih stabil untuk kebutuhan sangat berat seperti gaming kompetitif atau kantor dengan banyak perangkat, tapi untuk mayoritas rumah tangga, FWA sudah lebih dari cukup sambil menunggu fiber optik tersedia.</p>\n\n  <h3>Berapa lama proses pemasangan FWA di area yang belum ada fiber?</h3>\n  <p>Karena tidak perlu menunggu instalasi kabel baru, proses pemasangan FWA biasanya jauh lebih cepat dibanding fiber optik — cukup survei sinyal di lokasi, lalu instalasi modem dapat dilakukan dalam hitungan hari.</p>\n\n  <h2>Cek Area Layanan di Kotamu</h2>\n  <p>XL SATU melayani pemasangan fiber optic maupun FWA di 5 wilayah Solo Raya:</p>\n  <div class=\"related-cities\">\n    <a href=\"/wifi-solo/\">Pasang WiFi Solo</a>\n    <a href=\"/wifi-sukoharjo/\">Pasang WiFi Sukoharjo</a>\n    <a href=\"/wifi-karanganyar/\">Pasang WiFi Karanganyar</a>\n    <a href=\"/wifi-klaten/\">Pasang WiFi Klaten</a>\n    <a href=\"/wifi-boyolali/\">Pasang WiFi Boyolali</a>\n    <a href=\"/wifi-surakarta/\">Pasang WiFi Surakarta</a>\n  </div>\n  <p style=\"margin-top:16px;\">Baca juga <a href=\"/panduan-fiber-vs-wireless/\">panduan lengkap fiber vs wireless</a> untuk pertimbangan lebih detail, atau <a href=\"/cara-daftar-pasang-wifi-xl-satu-solo/\">cara daftar & syarat pemasangan</a> kalau sudah siap.</p>\n\n",
+
 };
+
+
 
 ARTIKEL["penyebab-wifi-lemot-cara-mengatasi"] = {
+
   slug: "penyebab-wifi-lemot-cara-mengatasi",
+
   title: "WiFi Lemot di Solo? 5 Penyebab & Cara Mengatasinya 2026 | XL SATU",
+
   description: "WiFi lemot di Solo? Ini 5 penyebab paling umum di Solo Raya & cara mengatasinya — posisi router, perangkat, interferensi, hingga kapan ganti fiber 2026.",
+
   keywords: "wifi lemot solo 2026, cara mengatasi wifi lemot solo raya, penyebab wifi lemot 5 penyebab, wifi lemot fiber vs wireless".split(/,\s*/),
+
   ogTitle: "WiFi Lemot di Solo? 5 Penyebab & Cara Mengatasinya 2026",
+
   ogDescription: "WiFi lemot di Solo? 5 penyebab & cara mengatasinya — posisi router, perangkat, interferensi, hingga kapan ganti fiber.",
+
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+
   schemas: [{"@context":"https://schema.org","@type":"Article","headline":"WiFi Lemot di Solo? 5 Penyebab & Cara Mengatasinya 2026","description":"WiFi lemot di Solo? 5 penyebab paling umum di Solo Raya & cara mengatasinya — posisi router, perangkat, hingga kapan ganti fiber.","author":{"@type":"Organization","name":"XL SATU Solo Raya"},"publisher":{"@type":"Organization","name":"XL SATU Solo Raya"},"datePublished":"2026-08-10","dateModified":"2026-09-17","mainEntityOfPage":"https://xlsatusolo.com/penyebab-wifi-lemot-cara-mengatasi/"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Kenapa WiFi lemot padahal sudah pakai paket cepat?","acceptedAnswer":{"@type":"Answer","text":"Kecepatan paket adalah kecepatan maksimal, bukan jaminan. Faktor seperti posisi router, jumlah perangkat aktif, interferensi sinyal, dan usia router bisa membuat kecepatan yang benar-benar dirasakan jauh di bawah angka paket."}},{"@type":"Question","name":"Apakah restart router benar-benar membantu?","acceptedAnswer":{"@type":"Answer","text":"Ya. Restart router membersihkan cache sementara dan menyegarkan koneksi ke jaringan ISP, yang sering kali menyelesaikan masalah lemot ringan tanpa perlu langkah lain."}},{"@type":"Question","name":"Kapan sebaiknya mempertimbangkan ganti provider internet?","acceptedAnswer":{"@type":"Answer","text":"Kalau sudah mencoba semua langkah dasar (restart router, cek posisi, kurangi perangkat) tapi kecepatan tetap jauh di bawah paket secara konsisten, kemungkinan masalahnya ada di jaringan ISP itu sendiri — saatnya pertimbangkan provider dengan infrastruktur yang lebih sesuai area kamu."}},{"@type":"Question","name":"Apakah fiber optic pasti tidak akan lemot?","acceptedAnswer":{"@type":"Answer","text":"Fiber optic jauh lebih stabil dibanding wireless karena tidak terpengaruh cuaca atau interferensi sinyal jarak jauh. Namun tetap bisa terasa lemot jika penyebabnya ada di sisi rumah, seperti router tua atau terlalu banyak perangkat terhubung bersamaan."}}]}],
+
   faqs: [{"q":"Kenapa WiFi lemot padahal sudah pakai paket cepat?","a":"Kecepatan paket adalah kecepatan maksimal, bukan jaminan. Faktor seperti posisi router, jumlah perangkat aktif, interferensi sinyal, dan usia router bisa membuat kecepatan yang benar-benar dirasakan jauh di bawah angka paket."},{"q":"Apakah restart router benar-benar membantu?","a":"Ya. Restart router membersihkan cache sementara dan menyegarkan koneksi ke jaringan ISP, yang sering kali menyelesaikan masalah lemot ringan tanpa perlu langkah lain."},{"q":"Kapan sebaiknya mempertimbangkan ganti provider internet?","a":"Kalau sudah mencoba semua langkah dasar (restart router, cek posisi, kurangi perangkat) tapi kecepatan tetap jauh di bawah paket secara konsisten, kemungkinan masalahnya ada di jaringan ISP itu sendiri — saatnya pertimbangkan provider dengan infrastruktur yang lebih sesuai area kamu."},{"q":"Apakah fiber optic pasti tidak akan lemot?","a":"Fiber optic jauh lebih stabil dibanding wireless karena tidak terpengaruh cuaca atau interferensi sinyal jarak jauh. Namun tetap bisa terasa lemot jika penyebabnya ada di sisi rumah, seperti router tua atau terlalu banyak perangkat terhubung bersamaan."}],
+
   hero: {"crumb":"<a href=\"https://xlsatusolo.com/\">Beranda</a> / WiFi Lemot","h1":"WiFi Lemot? Ini Penyebab dan Cara Mengatasinya","sub":"Sebelum buru-buru ganti provider, cek dulu penyebab paling umum ini.","meta":"Diperbarui 17 September 2026 • XL SATU Solo Raya"},
+
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20WiFi%20saya%20lemot,%20mau%20konsultasi",
+
   bodyHtml: "\n\n  <p>WiFi tiba-tiba lemot padahal biasanya lancar? Sebelum menyalahkan provider internet, ada baiknya cek dulu beberapa penyebab umum yang sebenarnya sering terjadi di sisi rumah sendiri. Kadang solusinya sederhana dan nggak perlu ganti paket sama sekali.</p>\n\n  <h2>Penyebab Paling Umum WiFi Lemot</h2>\n\n  <div class=\"cause-grid\">\n    <div class=\"cause-item\">\n      <div class=\"num\">1</div>\n      <div>\n        <h4>Posisi router kurang tepat</h4>\n        <p>Sinyal WiFi melemah setiap kali menembus tembok, lantai, atau benda besar. Router yang diletakkan di sudut ruangan, dalam lemari, atau di lantai berbeda dari perangkat yang dipakai bisa membuat sinyal jauh lebih lemah dari seharusnya.</p>\n      </div>\n    </div>\n    <div class=\"cause-item\">\n      <div class=\"num\">2</div>\n      <div>\n        <h4>Terlalu banyak perangkat aktif bersamaan</h4>\n        <p>Setiap perangkat yang terhubung berbagi bandwidth yang sama. Semakin banyak perangkat aktif — apalagi yang melakukan aktivitas berat seperti streaming atau download — semakin sedikit jatah kecepatan untuk masing-masing.</p>\n      </div>\n    </div>\n    <div class=\"cause-item\">\n      <div class=\"num\">3</div>\n      <div>\n        <h4>Interferensi dari perangkat elektronik lain</h4>\n        <p>Microwave, telepon nirkabel, dan speaker Bluetooth sering bekerja di frekuensi yang sama dengan WiFi (2.4 GHz), sehingga bisa saling mengganggu sinyal jika posisinya berdekatan dengan router.</p>\n      </div>\n    </div>\n    <div class=\"cause-item\">\n      <div class=\"num\">4</div>\n      <div>\n        <h4>Router sudah tua atau jarang di-restart</h4>\n        <p>Router yang sudah dipakai bertahun-tahun mungkin tidak mendukung standar WiFi terbaru. Selain itu, router yang jarang di-restart bisa menumpuk cache dan koneksi \"hantu\" yang memperlambat kinerja secara bertahap.</p>\n      </div>\n    </div>\n    <div class=\"cause-item\">\n      <div class=\"num\">5</div>\n      <div>\n        <h4>Masalah di sisi jaringan ISP</h4>\n        <p>Kadang penyebabnya bukan di rumah sama sekali, melainkan gangguan jaringan dari penyedia layanan internet — terutama saat jam sibuk malam hari ketika banyak pengguna di area yang sama mengakses internet bersamaan.</p>\n      </div>\n    </div>\n  </div>\n\n  <h2>Cara Mengatasi WiFi Lemot</h2>\n\n  <h3>1. Restart router secara berkala</h3>\n  <p>Matikan router selama sekitar 30 detik, lalu nyalakan kembali. Langkah sederhana ini sering kali cukup untuk menyegarkan koneksi dan membersihkan cache sementara yang menumpuk.</p>\n\n  <h3>2. Pindahkan router ke posisi lebih sentral</h3>\n  <p>Letakkan router di tempat terbuka, idealnya di posisi tengah rumah dan agak tinggi, jauh dari tembok tebal atau benda logam besar. Ini membantu sinyal menyebar lebih merata ke seluruh ruangan.</p>\n\n  <h3>3. Batasi perangkat yang tidak digunakan</h3>\n  <p>Putuskan koneksi perangkat yang sedang tidak dipakai, terutama yang melakukan download atau streaming di background. Ini membebaskan bandwidth untuk aktivitas yang benar-benar sedang kamu lakukan.</p>\n\n  <h3>4. Ganti channel WiFi atau gunakan frekuensi 5GHz</h3>\n  <p>Kalau router mendukung, gunakan frekuensi 5GHz yang cenderung lebih minim gangguan dibanding 2.4GHz, terutama di area padat penghuni seperti kos atau apartemen.</p>\n\n  <h3>5. Evaluasi ulang paket dan jenis koneksi</h3>\n  <p>Kalau semua langkah di atas sudah dicoba tapi kecepatan tetap jauh di bawah paket yang dibayar, saatnya evaluasi lebih dalam. Koneksi fiber optic umumnya jauh lebih stabil dibanding wireless karena tidak terpengaruh cuaca atau jarak dari pemancar. Baca juga <a href=\"/panduan-fiber-vs-wireless/\">panduan lengkap fiber vs wireless</a> untuk memahami mana yang lebih cocok untuk kondisi rumah kamu. Daerah kamu belum ada fiber sama sekali? Baca <a href=\"/solusi-internet-daerah-belum-ada-fiber-optik/\">solusi internet tanpa perlu tunggu tarik kabel</a>.</p>\n\n  <div class=\"info-box\">\n    <strong>Kapan waktunya pertimbangkan ganti provider?</strong> Kalau sudah mencoba semua langkah di atas dan kecepatan tetap tidak sesuai paket secara konsisten (bukan cuma sesekali), kemungkinan masalahnya ada di infrastruktur jaringan ISP itu sendiri — bukan lagi soal pengaturan di rumah.\n  </div>\n\n  <h2>Pertanyaan yang Sering Ditanyakan</h2>\n\n  <h3>Kenapa WiFi lemot padahal sudah pakai paket cepat?</h3>\n  <p>Kecepatan paket adalah kecepatan maksimal, bukan jaminan. Faktor seperti posisi router, jumlah perangkat aktif, interferensi sinyal, dan usia router bisa membuat kecepatan yang benar-benar dirasakan jauh di bawah angka paket.</p>\n\n  <h3>Apakah restart router benar-benar membantu?</h3>\n  <p>Ya. Restart router membersihkan cache sementara dan menyegarkan koneksi ke jaringan ISP, yang sering kali menyelesaikan masalah lemot ringan tanpa perlu langkah lain.</p>\n\n  <h3>Kapan sebaiknya mempertimbangkan ganti provider internet?</h3>\n  <p>Kalau sudah mencoba semua langkah dasar (restart router, cek posisi, kurangi perangkat) tapi kecepatan tetap jauh di bawah paket secara konsisten, kemungkinan masalahnya ada di jaringan ISP itu sendiri — saatnya pertimbangkan provider dengan infrastruktur yang lebih sesuai area kamu.</p>\n\n  <h3>Apakah fiber optic pasti tidak akan lemot?</h3>\n  <p>Fiber optic jauh lebih stabil dibanding wireless karena tidak terpengaruh cuaca atau interferensi sinyal jarak jauh. Namun tetap bisa terasa lemot jika penyebabnya ada di sisi rumah, seperti router tua atau terlalu banyak perangkat terhubung bersamaan.</p>\n\n  <div class=\"cta-box\">\n    <h3>Sudah Coba Semua Tapi Masih Lemot?</h3>\n    <p>Mungkin saatnya evaluasi jaringan. Tim support XL SATU siap bantu cek ketersediaan fiber optic di area kamu.</p>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20WiFi%20saya%20lemot%20terus%20meski%20sudah%20dicoba%20berbagai%20cara\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\">\n      <i class=\"fab fa-whatsapp\"></i> Konsultasi via WhatsApp\n    </a>\n  </div>\n\n  <h2>Cek Area Layanan di Kotamu</h2>\n  <p>XL SATU melayani pemasangan internet fiber optic dan wireless di 5 wilayah Solo Raya: Sudah siap daftar? Baca <a href=\"/cara-daftar-pasang-wifi-xl-satu-solo/\">panduan lengkap cara daftar & syarat pemasangan</a>.</p>\n  <div class=\"related-cities\">\n    <a href=\"/wifi-solo/\">Pasang WiFi Solo</a>\n    <a href=\"/wifi-sukoharjo/\">Pasang WiFi Sukoharjo</a>\n    <a href=\"/wifi-karanganyar/\">Pasang WiFi Karanganyar</a>\n    <a href=\"/wifi-klaten/\">Pasang WiFi Klaten</a>\n    <a href=\"/wifi-boyolali/\">Pasang WiFi Boyolali</a>\n    <a href=\"/wifi-surakarta/\">Pasang WiFi Surakarta</a>\n  </div>\n\n    <p>Jangan tebak-tebak: <a href=\"/tes-kecepatan/\">tes kecepatan internetmu sekarang</a> (20 detik, gratis) — kalau hasilnya jauh di bawah paket, masalahnya di koneksi; kalau normal, masalahnya di WiFi rumahmu.</p>\n  <p class=\"source-note\">Artikel ini disusun berdasarkan rangkuman informasi umum dari berbagai sumber tepercaya, termasuk <a href=\"https://www.telkomsel.com/jelajah/jelajah-lifestyle/cara-mengatasi-wifi-lemot-sampai-balik-ngebut-lagi\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Telkomsel</a> dan <a href=\"https://satu.xl.co.id/berita-dan-artikel/wifi-lemot-di-malam-hari\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">XL SATU</a>, ditulis ulang dan disesuaikan konteksnya untuk pembaca di Solo Raya.</p>\n\n",
+
 };
+
+
 
 ARTIKEL["kecepatan-wifi-ideal-keluarga"] = {
+
   slug: "kecepatan-wifi-ideal-keluarga",
+
   title: "Kecepatan WiFi Ideal Keluarga: 1-2, 3-4, 5+ Orang Berapa Mbps? | XL SATU",
+
   description: "Berapa Mbps yang pas untuk keluarga? 1—2 orang: 20—100 Mbps. 3—4 orang WFH+streaming: 100—250 Mbps. 5+ orang atau smart home: 250—400 Mbps. Tabel lengkap + rekomendasi paket XL SATU.",
+
   keywords: "kecepatan wifi ideal keluarga, berapa mbps untuk keluarga, wifi untuk keluarga 4 orang, kecepatan internet rumah tangga".split(/,\s*/),
+
   ogTitle: "Kecepatan WiFi Ideal Keluarga: 1-2, 3-4, 5+ Orang Berapa Mbps?",
+
   ogDescription: "1—2 orang: 20—100 Mbps. 3—4 orang WFH+streaming: 100—250 Mbps. 5+ orang atau smart home: 250—400 Mbps. Tabel + rekomendasi paket XL SATU Solo Raya.",
+
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+
   schemas: [{"@context":"https://schema.org","@type":"Article","headline":"Kecepatan WiFi Ideal Keluarga: Berapa Mbps yang Pas?","description":"Kecepatan WiFi ideal keluarga: tabel lengkap 1-2, 3-4, 5+ orang & aktivitas. Cari tahu 20-400 Mbps cukup untuk berapa orang di rumah.","author":{"@type":"Organization","name":"XL SATU Solo Raya"},"publisher":{"@type":"Organization","name":"XL SATU Solo Raya"},"datePublished":"2026-08-10","dateModified":"2026-09-16","mainEntityOfPage":"https://xlsatusolo.com/kecepatan-wifi-ideal-keluarga/"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Berapa Mbps yang cukup untuk keluarga kecil 1-2 orang?","acceptedAnswer":{"@type":"Answer","text":"Untuk 1-2 orang dengan aktivitas standar seperti browsing, media sosial, dan sesekali streaming, kecepatan 20-100 Mbps sudah cukup nyaman."}},{"@type":"Question","name":"Apakah rumah dengan smart home butuh kecepatan lebih tinggi?","acceptedAnswer":{"@type":"Answer","text":"Ya. Rumah dengan perangkat smart home seperti CCTV IP, lampu pintar, dan speaker pintar menambah beban jaringan meski masing-masing perangkat tidak memakai bandwidth besar. Disarankan minimal 250 Mbps ke atas supaya semua perangkat tetap responsif bersamaan dengan aktivitas keluarga lainnya."}},{"@type":"Question","name":"Kenapa keluarga dengan anak gamer butuh paket lebih besar?","acceptedAnswer":{"@type":"Answer","text":"Gaming online sebenarnya tidak butuh bandwidth sangat besar, tapi sangat sensitif terhadap stabilitas koneksi (latensi/ping). Kalau ada anggota keluarga lain yang streaming atau download bersamaan, koneksi gaming bisa terganggu kalau paketnya terlalu kecil. Paket 250-400 Mbps memberi ruang lebih supaya semua aktivitas berjalan bersamaan tanpa saling mengganggu."}},{"@type":"Question","name":"Apakah lebih baik ambil paket lebih besar dari kebutuhan sekarang?","acceptedAnswer":{"@type":"Answer","text":"Cukup wajar mengambil paket sedikit di atas kebutuhan saat ini, terutama kalau ada rencana menambah perangkat atau anggota keluarga bertambah. Tapi tidak perlu berlebihan — sesuaikan dengan pola pemakaian nyata supaya tidak membayar lebih untuk kapasitas yang jarang terpakai."}},{"@type":"Question","name":"Keluarga 4 orang dengan banyak perangkat butuh paket yang mana?","acceptedAnswer":{"@type":"Answer","text":"Hitung perangkat aktif bersamaan, bukan cuma jumlah orang. Keluarga 4 orang dengan 2 TV streaming, beberapa HP, laptop WFH dan CCTV biasanya nyaman di 100—250 Mbps. Kalau perangkat smart home sudah puluhan, ambil kelas di atasnya. Untuk patokan angka per kecepatan, lihat panduan berapa Mbps untuk berapa orang."}}]}],
+
   faqs: [{"q":"Berapa Mbps yang cukup untuk keluarga kecil 1-2 orang?","a":"Untuk 1-2 orang dengan aktivitas standar seperti browsing, media sosial, dan sesekali streaming, kecepatan 20-100 Mbps sudah cukup nyaman."},{"q":"Apakah rumah dengan smart home butuh kecepatan lebih tinggi?","a":"Ya. Rumah dengan perangkat smart home seperti CCTV IP, lampu pintar, dan speaker pintar menambah beban jaringan meski masing-masing perangkat tidak memakai bandwidth besar. Disarankan minimal 250 Mbps ke atas supaya semua perangkat tetap responsif bersamaan dengan aktivitas keluarga lainnya."},{"q":"Kenapa keluarga dengan anak gamer butuh paket lebih besar?","a":"Gaming online sebenarnya tidak butuh bandwidth sangat besar, tapi sangat sensitif terhadap stabilitas koneksi (latensi/ping). Kalau ada anggota keluarga lain yang streaming atau download bersamaan, koneksi gaming bisa terganggu kalau paketnya terlalu kecil. Paket 250-400 Mbps memberi ruang lebih supaya semua aktivitas berjalan bersamaan tanpa saling mengganggu."},{"q":"Apakah lebih baik ambil paket lebih besar dari kebutuhan sekarang?","a":"Cukup wajar mengambil paket sedikit di atas kebutuhan saat ini, terutama kalau ada rencana menambah perangkat atau anggota keluarga bertambah. Tapi tidak perlu berlebihan — sesuaikan dengan pola pemakaian nyata supaya tidak membayar lebih untuk kapasitas yang jarang terpakai."},{"q":"Keluarga 4 orang dengan banyak perangkat butuh paket yang mana?","a":"Hitung perangkat aktif bersamaan, bukan cuma jumlah orang. Keluarga 4 orang dengan 2 TV streaming, beberapa HP, laptop WFH dan CCTV biasanya nyaman di 100—250 Mbps. Kalau perangkat smart home sudah puluhan, ambil kelas di atasnya. Untuk patokan angka per kecepatan, lihat panduan berapa Mbps untuk berapa orang."}],
+
   hero: {"crumb":"<a href=\"https://xlsatusolo.com/\">Beranda</a> / Kecepatan WiFi Ideal Keluarga","h1":"Berapa Kecepatan WiFi yang Ideal untuk Keluarga di Rumah?","sub":"Panduan memilih kecepatan sesuai jumlah anggota keluarga dan aktivitas harian.","meta":"Diperbarui 16 September 2026 • XL SATU Solo Raya"},
+
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20kecepatan%20wifi%20yang%20pas%20untuk%20keluarga%20saya",
+
   bodyHtml: "\n\n  <p>Banyak orang bingung saat harus memilih paket internet — takut kekecilan sehingga lemot, atau takut kebesaran sehingga boros. Padahal ada cara sederhana menghitungnya: sesuaikan dengan jumlah anggota keluarga dan jenis aktivitas yang paling sering dilakukan bersamaan.</p>\n\n  <div class=\"info-box\" style=\"background:#f0fdf4; border-left-color:#16a34a;\">\n    <strong>Jawaban cepat:</strong> Keluarga 1—2 orang nyaman di 20—100 Mbps. Keluarga 3—4 orang dengan WFH/streaming bersamaan butuh 100—250 Mbps. Keluarga besar (5+) atau rumah smart home, ambil 250—400 Mbps. Hitung pakai <a href=\"/berapa-mbps-untuk-berapa-orang/\" style=\"color:#16a34a; font-weight:700;\">kalkulator Mbps</a> untuk angka yang lebih presisi.\n  </div>\n\n  <h2>Tabel Rekomendasi Berdasarkan Jumlah Anggota Keluarga</h2>\n  <table class=\"speed-table\">\n    <tr><th>Jumlah Anggota</th><th>Kecepatan Disarankan</th><th>Cocok Untuk</th></tr>\n    <tr>\n      <td>1-2 orang</td><td>20-100 Mbps</td>\n      <td>Browsing, media sosial, streaming standar</td>\n    </tr>\n    <tr class=\"highlight\">\n      <td>3-4 orang</td><td>100-250 Mbps</td>\n      <td>Streaming HD bersamaan, video call, kerja WFH</td>\n    </tr>\n    <tr>\n      <td>5+ orang / keluarga besar</td><td>250-400 Mbps</td>\n      <td>Multi-streaming, gaming, banyak perangkat aktif</td>\n    </tr>\n    <tr>\n      <td>Rumah dengan smart home</td><td>400 Mbps ke atas</td>\n      <td>CCTV IP, lampu pintar, banyak perangkat IoT + aktivitas keluarga</td>\n    </tr>\n  </table>\n\n  <div class=\"info-box\">\n    <strong>Catatan penting:</strong> tabel ini asumsi semua anggota keluarga aktif memakai internet secara bersamaan. Kalau pemakaian keluarga kamu lebih tersebar sepanjang hari (misal cuma ramai malam hari), paket di kelas lebih rendah kemungkinan masih cukup nyaman.\n  </div>\n\n  <h2>Kebutuhan Bandwidth per Aktivitas</h2>\n  <p>Selain jumlah orang, jenis aktivitas juga menentukan kebutuhan sebenarnya:</p>\n  <ul>\n    <li><strong>Browsing & media sosial</strong> — kebutuhan paling ringan, cukup dengan kecepatan rendah bahkan saat dipakai beberapa orang sekaligus.</li>\n    <li><strong>Streaming video HD</strong> — butuh koneksi stabil lebih dari sekadar cepat; kalau ada beberapa orang streaming bersamaan, total kebutuhan bertambah signifikan.</li>\n    <li><strong>Video call & kerja WFH</strong> — sensitif terhadap stabilitas koneksi, bukan cuma kecepatan besar. Koneksi yang naik-turun lebih mengganggu dibanding koneksi stabil dengan angka lebih kecil.</li>\n    <li><strong>Gaming online</strong> — tidak butuh bandwidth sangat besar, tapi sangat sensitif terhadap latensi (ping). Kalau ada aktivitas berat lain berjalan bersamaan, gaming biasanya yang paling cepat terasa terganggu.</li>\n    <li><strong>Smart home (CCTV, lampu pintar, dll)</strong> — masing-masing perangkat ringan, tapi jumlahnya bisa banyak dan terus aktif sepanjang hari, menambah beban total ke jaringan.</li>\n  </ul>\n\n  <h2>Tips Memilih Paket yang Tepat</h2>\n  <ol>\n    <li><strong>Hitung jumlah anggota yang benar-benar aktif bersamaan</strong>, bukan cuma total penghuni rumah. Kalau anggota keluarga sering online di waktu berbeda-beda, kebutuhan riil biasanya lebih kecil dari yang dikira.</li>\n    <li><strong>Pertimbangkan aktivitas terberat</strong>, bukan aktivitas rata-rata. Kalau ada satu anggota keluarga yang rutin gaming atau streaming 4K, hitung berdasarkan kebutuhan itu, bukan cuma browsing biasa.</li>\n    <li><strong>Sisakan ruang untuk pertumbuhan</strong> — kalau berencana menambah perangkat smart home atau anggota keluarga bertambah dalam waktu dekat, ambil paket sedikit di atas kebutuhan saat ini.</li>\n    <li><strong>Jangan cuma lihat angka Mbps</strong> — jenis koneksi (fiber vs wireless) juga menentukan stabilitas yang dirasakan sehari-hari. Baca <a href=\"/panduan-fiber-vs-wireless/\">panduan fiber vs wireless</a> untuk detail lebih lanjut. Perlu acuan cepat soal \"berapa Mbps untuk berapa orang\"? Baca <a href=\"/berapa-mbps-untuk-berapa-orang/\">panduan Mbps per jumlah orang</a>. Penasaran soal FUP? Cek <a href=\"/wifi-tanpa-fup-unlimited/\">apakah XL SATU ada FUP</a>.</li>\n  </ol>\n\n  <div class=\"cta-box\" style=\"background:linear-gradient(135deg, #0d7a5f 0%, #037e64 100%);\">\n    <h3>Tersedia di Solo Raya — Cek Paket di Kotamu</h3>\n    <p>XL SATU fiber & wifi tanpa kabel sudah terpasang di Solo, Sukoharjo, Karanganyar, Klaten, Boyolali. Pilih kotamu dan cek paket yang pas.</p>\n    <div style=\"display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:16px;\">\n      <a href=\"/wifi-solo/\" style=\"background:rgba(255,255,255,.15); color:#fff; padding:8px 14px; border-radius:999px; font-size:13px; font-weight:700; text-decoration:none;\">Solo</a>\n      <a href=\"/wifi-sukoharjo/\" style=\"background:rgba(255,255,255,.15); color:#fff; padding:8px 14px; border-radius:999px; font-size:13px; font-weight:700; text-decoration:none;\">Sukoharjo</a>\n      <a href=\"/wifi-karanganyar/\" style=\"background:rgba(255,255,255,.15); color:#fff; padding:8px 14px; border-radius:999px; font-size:13px; font-weight:700; text-decoration:none;\">Karanganyar</a>\n      <a href=\"/wifi-klaten/\" style=\"background:rgba(255,255,255,.15); color:#fff; padding:8px 14px; border-radius:999px; font-size:13px; font-weight:700; text-decoration:none;\">Klaten</a>\n      <a href=\"/wifi-boyolali/\" style=\"background:rgba(255,255,255,.15); color:#fff; padding:8px 14px; border-radius:999px; font-size:13px; font-weight:700; text-decoration:none;\">Boyolali</a>\n    </div>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20paket%20di%20kota%20saya\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\" style=\"background:#fff; color:var(--green-dark);\"><i class=\"fab fa-whatsapp\"></i> Konsultasi via WhatsApp</a>\n  </div>\n\n  <h2>Pertanyaan yang Sering Ditanyakan</h2>\n\n  <h3>Berapa Mbps yang cukup untuk keluarga kecil 1-2 orang?</h3>\n  <p>Untuk 1-2 orang dengan aktivitas standar seperti browsing, media sosial, dan sesekali streaming, kecepatan 20-100 Mbps sudah cukup nyaman.</p>\n\n  <h3>Apakah rumah dengan smart home butuh kecepatan lebih tinggi?</h3>\n  <p>Ya. Rumah dengan perangkat smart home seperti CCTV IP, lampu pintar, dan speaker pintar menambah beban jaringan meski masing-masing perangkat tidak memakai bandwidth besar. Disarankan minimal 250 Mbps ke atas supaya semua perangkat tetap responsif bersamaan dengan aktivitas keluarga lainnya.</p>\n\n  <h3>Kenapa keluarga dengan anak gamer butuh paket lebih besar?</h3>\n  <p>Gaming online sebenarnya tidak butuh bandwidth sangat besar, tapi sangat sensitif terhadap stabilitas koneksi (latensi/ping). Kalau ada anggota keluarga lain yang streaming atau download bersamaan, koneksi gaming bisa terganggu kalau paketnya terlalu kecil. Paket 250-400 Mbps memberi ruang lebih supaya semua aktivitas berjalan bersamaan tanpa saling mengganggu.</p>\n\n  <h3>Apakah lebih baik ambil paket lebih besar dari kebutuhan sekarang?</h3>\n  <p>Cukup wajar mengambil paket sedikit di atas kebutuhan saat ini, terutama kalau ada rencana menambah perangkat atau anggota keluarga bertambah. Tapi tidak perlu berlebihan — sesuaikan dengan pola pemakaian nyata supaya tidak membayar lebih untuk kapasitas yang jarang terpakai.</p>\n\n  <h3>Keluarga 4 orang dengan banyak perangkat butuh paket yang mana?</h3>\n  <p>Hitung <strong>perangkat aktif bersamaan</strong>, bukan cuma jumlah orang. Keluarga 4 orang dengan 2 TV streaming, beberapa HP, laptop WFH dan CCTV biasanya nyaman di <strong>100—250 Mbps</strong>. Kalau perangkat smart home sudah puluhan, ambil kelas di atasnya. Untuk patokan angka per kecepatan (20, 100, 250, 400 Mbps), lihat <a href=\"/berapa-mbps-untuk-berapa-orang/\">panduan berapa Mbps untuk berapa orang</a>.</p>\n\n  <div class=\"cta-box\">\n    <h3>Masih Bingung Pilih Paket yang Pas?</h3>\n    <p>Ceritakan kebutuhan keluarga kamu, tim sales bantu rekomendasikan paket yang paling sesuai.</p>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20konsultasi%20paket%20yang%20pas%20untuk%20keluarga%20saya\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\">\n      <i class=\"fab fa-whatsapp\"></i> Konsultasi Paket via WhatsApp\n    </a>\n  </div>\n\n  <h2>Cek Area Layanan di Kotamu</h2>\n  <p>XL SATU melayani pemasangan internet rumah di 5 wilayah Solo Raya: Sudah siap daftar? Baca <a href=\"/cara-daftar-pasang-wifi-xl-satu-solo/\">panduan lengkap cara daftar & syarat pemasangan</a>.</p>\n  <div class=\"related-cities\">\n    <a href=\"/wifi-solo/\">Pasang WiFi Solo</a>\n    <a href=\"/wifi-sukoharjo/\">Pasang WiFi Sukoharjo</a>\n    <a href=\"/wifi-karanganyar/\">Pasang WiFi Karanganyar</a>\n    <a href=\"/wifi-klaten/\">Pasang WiFi Klaten</a>\n    <a href=\"/wifi-boyolali/\">Pasang WiFi Boyolali</a>\n    <a href=\"/wifi-surakarta/\">Pasang WiFi Surakarta</a>\n  </div>\n  <p style=\"margin-top:16px;\">Lihat juga <a href=\"/biaya-pasang-wifi-solo-raya/\">rincian biaya lengkap semua paket</a> sebelum memutuskan. Sebelum daftar ke provider manapun, baca dulu <a href=\"/5-hal-wajib-dicek-sebelum-pasang-wifi-rumah/\">5 hal wajib dicek sebelum pasang WiFi rumah</a>.</p>\n\n  <p class=\"source-note\">Artikel ini disusun berdasarkan rangkuman informasi umum dari berbagai sumber tepercaya, termasuk <a href=\"https://www.telkomsel.com/jelajah/jelajah-lifestyle/wi-fi-30-mbps-bisa-untuk-berapa-orang-ih\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Telkomsel</a> dan <a href=\"https://www.pass.net.id/kecepatan-internet-rumah/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Pass.net.id</a>, ditulis ulang dan disesuaikan konteksnya untuk pembaca di Solo Raya.</p>\n\n",
+
 };
+
+
 
 ARTIKEL["internet-rakyat-vs-xl-satu"] = {
+
   slug: "internet-rakyat-vs-xl-satu",
+
   title: "Internet Rakyat 5G FWA vs XL SATU Solo 2026: Cakupan 1.4 GHz & Harga | XL SATU",
+
   description: "Internet Rakyat vs XL SATU Solo 2026: cakupan 5G FWA 1.4 GHz Banjarsari Laweyan, harga Rp100rb vs Rp185rb, & kecepatan. Cek alternatif XL SATU untuk Sukoharjo Karanganyar Klaten Boyolali.",
+
   keywords: "internet rakyat vs xl satu, internet rakyat solo, internet rakyat vs xl satu solo, perbandingan internet rakyat, wifi murah solo raya".split(/,\s*/),
+
   ogTitle: "Internet Rakyat 5G FWA vs XL SATU Solo 2026: Cakupan 1.4 GHz & Harga",
+
   ogDescription: "Internet Rakyat vs XL SATU Solo 2026: bandingkan cakupan, harga Rp100rb vs Rp185rb, & kecepatan. Cek alternatif untuk 4 wilayah Solo Raya.",
+
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+
   schemas: [{"@context":"https://schema.org","@type":"Article","headline":"Internet Rakyat vs XL SATU Solo 2026: Cakupan, Harga & Kelebihan","description":"Bandingkan Internet Rakyat vs XL SATU Solo 2026: cakupan Banjarsari Laweyan, harga Rp100rb vs Rp185rb, & kecepatan. Alternatif untuk 4 wilayah Solo Raya.","author":{"@type":"Organization","name":"XL SATU Solo Raya"},"publisher":{"@type":"Organization","name":"XL SATU Solo Raya"},"datePublished":"2026-08-13","dateModified":"2026-08-24","mainEntityOfPage":"https://xlsatusolo.com/internet-rakyat-vs-xl-satu/"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Apa itu Internet Rakyat?","acceptedAnswer":{"@type":"Answer","text":"Internet Rakyat (IRA) adalah layanan internet rumah berbasis teknologi 5G Fixed Wireless Access (FWA) yang dijalankan oleh anak usaha PT Solusi Sinergi Digital Tbk, menawarkan paket Rp100.000/bulan dengan kecepatan hingga 100 Mbps tanpa batas kuota. Layanan ini merupakan bagian dari kewajiban pemenang lelang frekuensi 1,4 GHz untuk menyediakan akses internet terjangkau bagi masyarakat menengah ke bawah."}},{"@type":"Question","name":"Apakah Internet Rakyat sudah tersedia di seluruh Solo Raya?","acceptedAnswer":{"@type":"Answer","text":"Belum. Internet Rakyat baru menjangkau sebagian area di Kota Solo, seperti Banjarsari dan Laweyan, dan masih menggunakan sistem pra-registrasi untuk menentukan prioritas pembangunan jaringan di area lain. Empat kabupaten lain di Solo Raya (Sukoharjo, Karanganyar, Klaten, Boyolali) belum tercakup."}},{"@type":"Question","name":"Kenapa harga Internet Rakyat bisa lebih murah dari fiber optic?","acceptedAnswer":{"@type":"Answer","text":"Internet Rakyat menggunakan teknologi nirkabel (FWA) yang tidak memerlukan penarikan kabel fisik ke tiap rumah, sehingga biaya infrastruktur dan instalasi jauh lebih rendah dibanding fiber optic. Namun ini berarti kapasitas jaringan dibagi bersama pengguna lain di menara yang sama, berbeda dengan fiber optic yang punya jalur khusus per rumah."}},{"@type":"Question","name":"Internet Rakyat cocok untuk siapa, dan XL SATU cocok untuk siapa?","acceptedAnswer":{"@type":"Answer","text":"Internet Rakyat diposisikan untuk kebutuhan dasar seperti browsing, belajar daring, dan WFH ringan dengan harga paling terjangkau. XL SATU fiber optic lebih cocok untuk rumah tangga dengan banyak perangkat, kebutuhan gaming online, streaming 4K, atau yang membutuhkan koneksi stabil tanpa terpengaruh kepadatan pengguna di sekitar, dengan cakupan area yang lebih luas di 5 kabupaten/kota Solo Raya."}},{"@type":"Question","name":"Kapan Internet Rakyat 5G FWA 1.4 GHz Solo tersedia?","acceptedAnswer":{"@type":"Answer","text":"Per September 2026, Internet Rakyat 5G FWA 1.4 GHz (PT Solusi Sinergi Digital Tbk) baru komersialisasi di sebagian Banjarsari & Laweyan Solo dan masih pra-registrasi untuk Sukoharjo, Karanganyar, Klaten, Boyolali. Sambil menunggu, XL SATU fiber & wifi tanpa kabel sudah terpasang luas di 5 kota Solo Raya dan bisa langsung dipasang tanpa antre frekuensi 1.4 GHz."}}]}],
+
   faqs: [{"q":"Apa itu Internet Rakyat?","a":"Internet Rakyat (IRA) adalah layanan internet rumah berbasis teknologi 5G Fixed Wireless Access (FWA) yang dijalankan oleh anak usaha PT Solusi Sinergi Digital Tbk, menawarkan paket Rp100.000/bulan dengan kecepatan hingga 100 Mbps tanpa batas kuota. Layanan ini merupakan bagian dari kewajiban pemenang lelang frekuensi 1,4 GHz untuk menyediakan akses internet terjangkau bagi masyarakat menengah ke bawah."},{"q":"Apakah Internet Rakyat sudah tersedia di seluruh Solo Raya?","a":"Belum. Internet Rakyat baru menjangkau sebagian area di Kota Solo, seperti Banjarsari dan Laweyan, dan masih menggunakan sistem pra-registrasi untuk menentukan prioritas pembangunan jaringan di area lain. Empat kabupaten lain di Solo Raya (Sukoharjo, Karanganyar, Klaten, Boyolali) belum tercakup."},{"q":"Kenapa harga Internet Rakyat bisa lebih murah dari fiber optic?","a":"Internet Rakyat menggunakan teknologi nirkabel (FWA) yang tidak memerlukan penarikan kabel fisik ke tiap rumah, sehingga biaya infrastruktur dan instalasi jauh lebih rendah dibanding fiber optic. Namun ini berarti kapasitas jaringan dibagi bersama pengguna lain di menara yang sama, berbeda dengan fiber optic yang punya jalur khusus per rumah."},{"q":"Internet Rakyat cocok untuk siapa, dan XL SATU cocok untuk siapa?","a":"Internet Rakyat diposisikan untuk kebutuhan dasar seperti browsing, belajar daring, dan WFH ringan dengan harga paling terjangkau. XL SATU fiber optic lebih cocok untuk rumah tangga dengan banyak perangkat, kebutuhan gaming online, streaming 4K, atau yang membutuhkan koneksi stabil tanpa terpengaruh kepadatan pengguna di sekitar, dengan cakupan area yang lebih luas di 5 kabupaten/kota Solo Raya."},{"q":"Kapan Internet Rakyat 5G FWA 1.4 GHz Solo tersedia?","a":"Per September 2026, Internet Rakyat 5G FWA 1.4 GHz (PT Solusi Sinergi Digital Tbk) baru komersialisasi di sebagian Banjarsari & Laweyan Solo dan masih pra-registrasi untuk Sukoharjo, Karanganyar, Klaten, Boyolali. Sambil menunggu, XL SATU fiber & wifi tanpa kabel sudah terpasang luas di 5 kota Solo Raya dan bisa langsung dipasang tanpa antre frekuensi 1.4 GHz."}],
+
   hero: {"crumb":"<a href=\"https://xlsatusolo.com/\">Beranda</a> / Internet Rakyat di Solo","h1":"Internet Rakyat di Solo: Cek Area Jangkauan & Alternatif Lainnya","sub":"Internet Rakyat baru menjangkau sebagian area di Solo. Cek cakupannya, dan kenali alternatif kalau area kamu belum tercover.","meta":"Diperbarui 24 Agustus 2026 • XL SATU Solo Raya"},
+
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20soal%20Internet%20Rakyat%20vs%20XL%20SATU",
-  bodyHtml: "\n\n  <p>Belakangan ini banyak yang bertanya soal Internet Rakyat (IRA) — layanan internet rumah seharga Rp100.000/bulan yang mulai hadir di sebagian wilayah Solo. Wajar kalau penasaran, harga itu memang menarik. Tapi sebelum memutuskan, penting untuk paham perbedaan mendasarnya dengan layanan fiber optic seperti XL SATU, supaya pilihannya benar-benar sesuai kebutuhan, bukan cuma tergiur angka di depan.</p>\n\n  <h2>Apa itu Internet Rakyat?</h2>\n  <p>Internet Rakyat adalah layanan internet rumah berbasis teknologi 5G Fixed Wireless Access (FWA), dijalankan oleh anak usaha PT Solusi Sinergi Digital Tbk setelah memenangkan lelang frekuensi 1,4 GHz dari pemerintah. Sebagai bagian dari kewajiban lelang tersebut, layanan ini menyasar 34,5 juta rumah tangga menengah ke bawah dengan harga terjangkau — bukan diposisikan sebagai layanan premium untuk kebutuhan berat.</p>\n\n  <h2>Tabel Perbandingan</h2>\n  <table class=\"compare-table\">\n    <tr><th></th><th>Internet Rakyat</th><th>XL SATU Fiber</th></tr>\n    <tr><td><strong>Harga mulai</strong></td><td>Rp 100.000/bulan (100 Mbps)</td><td>Rp 185.000/bulan (20 Mbps) atau Rp 229.000/bulan (250 Mbps)</td></tr>\n    <tr><td><strong>Teknologi</strong></td><td>5G FWA (nirkabel, sinyal dari menara)</td><td>Fiber optic (kabel khusus per rumah)</td></tr>\n    <tr><td><strong>Sifat bandwidth</strong></td><td>Berbagi kapasitas menara dengan pengguna lain di area sama</td><td>Jalur khusus per rumah, tidak berbagi fisik dengan tetangga</td></tr>\n    <tr><td><strong>Cakupan Solo Raya</strong></td><td>Terbatas — baru sebagian Kota Solo (Banjarsari, Laweyan)</td><td>5 kabupaten/kota: Solo, Sukoharjo, Karanganyar, Klaten, Boyolali</td></tr>\n    <tr><td><strong>Proses daftar</strong></td><td>Pra-registrasi, menunggu pemetaan area</td><td>Daftar langsung, survei &amp; instalasi terjadwal</td></tr>\n    <tr><td><strong>Pilihan kecepatan</strong></td><td>Satu paket saja: 100 Mbps</td><td>6 pilihan: 20 hingga 1000 Mbps</td></tr>\n    <tr><td><strong>Segmen target</strong></td><td>Kebutuhan dasar (browsing, belajar daring, WFH ringan)</td><td>Kebutuhan luas, dari dasar hingga berat (gaming, multi-device, smart home)</td></tr>\n  </table>\n\n  <div class=\"info-box\">\n    <strong>Perbandingan yang adil:</strong> membandingkan paket Starter XL SATU (20 Mbps) langsung dengan Internet Rakyat (100 Mbps) sebenarnya kurang setara dari sisi kecepatan. Perbandingan yang lebih pas adalah dengan paket Spark 250 Mbps (Rp 229.000/bulan) — 2,5ÃƒÆ’Ã¢â‚¬â€ lebih cepat dari Internet Rakyat dengan selisih harga hanya sekitar Rp 129.000.\n  </div>\n\n  <h2>Kenapa Internet Rakyat Bisa Semurah Itu?</h2>\n  <p>Teknologi FWA tidak memerlukan penarikan kabel fisik ke tiap rumah seperti fiber optic, sehingga biaya infrastruktur dan instalasi jauh lebih rendah. Ini yang memungkinkan harga serendah Rp100.000/bulan. Konsekuensinya, kapasitas jaringan dibagi bersama semua pengguna yang terhubung ke menara yang sama di area tersebut — berbeda dengan fiber optic yang punya jalur data khusus per rumah, tidak terpengaruh oleh berapa banyak tetangga yang juga sedang memakai internet.</p>\n\n  <h2>Kapan Sebaiknya Pilih yang Mana?</h2>\n  <div class=\"scenario-grid\">\n    <div class=\"scenario-card ira\">\n      <h4><i class=\"fas fa-wallet\"></i> Internet Rakyat cocok kalau...</h4>\n      <ul>\n        <li>Area kamu sudah termasuk cakupan (Banjarsari/Laweyan Solo)</li>\n        <li>Kebutuhan utama browsing, media sosial, belajar daring</li>\n        <li>Budget jadi prioritas utama</li>\n        <li>Nggak keberatan menunggu proses pra-registrasi</li>\n        <li>Jumlah perangkat aktif bersamaan tidak terlalu banyak</li>\n      </ul>\n    </div>\n    <div class=\"scenario-card xl\">\n      <h4><i class=\"fas fa-bolt\"></i> XL SATU Fiber cocok kalau...</h4>\n      <ul>\n        <li>Area kamu di salah satu dari 5 kabupaten/kota Solo Raya</li>\n        <li>Butuh koneksi stabil untuk gaming, streaming 4K, atau kerja berat</li>\n        <li>Rumah dengan banyak perangkat aktif bersamaan</li>\n        <li>Ingin proses pendaftaran cepat tanpa menunggu pemetaan area</li>\n        <li>Butuh pilihan kecepatan lebih tinggi dari 100 Mbps</li>\n      </ul>\n    </div>\n  </div>\n\n  <h2>Pertanyaan yang Sering Ditanyakan</h2>\n\n  <h3>Apa itu Internet Rakyat?</h3>\n  <p>Internet Rakyat (IRA) adalah layanan internet rumah berbasis teknologi 5G Fixed Wireless Access (FWA) yang dijalankan oleh anak usaha PT Solusi Sinergi Digital Tbk, menawarkan paket Rp100.000/bulan dengan kecepatan hingga 100 Mbps tanpa batas kuota. Layanan ini merupakan bagian dari kewajiban pemenang lelang frekuensi 1,4 GHz untuk menyediakan akses internet terjangkau bagi masyarakat menengah ke bawah.</p>\n\n  <h3>Apakah Internet Rakyat sudah tersedia di seluruh Solo Raya?</h3>\n  <p>Belum. Internet Rakyat baru menjangkau sebagian area di Kota Solo, seperti Banjarsari dan Laweyan, dan masih menggunakan sistem pra-registrasi untuk menentukan prioritas pembangunan jaringan di area lain. Empat kabupaten lain di Solo Raya (Sukoharjo, Karanganyar, Klaten, Boyolali) belum tercakup.</p>\n\n  <h3>Kenapa harga Internet Rakyat bisa lebih murah dari fiber optic?</h3>\n  <p>Internet Rakyat menggunakan teknologi nirkabel (FWA) yang tidak memerlukan penarikan kabel fisik ke tiap rumah, sehingga biaya infrastruktur dan instalasi jauh lebih rendah dibanding fiber optic. Namun ini berarti kapasitas jaringan dibagi bersama pengguna lain di menara yang sama, berbeda dengan fiber optic yang punya jalur khusus per rumah.</p>\n\n  <h3>Internet Rakyat cocok untuk siapa, dan XL SATU cocok untuk siapa?</h3>\n  <p>Internet Rakyat diposisikan untuk kebutuhan dasar seperti browsing, belajar daring, dan WFH ringan dengan harga paling terjangkau. XL SATU fiber optic lebih cocok untuk rumah tangga dengan banyak perangkat, kebutuhan gaming online, streaming 4K, atau yang membutuhkan koneksi stabil tanpa terpengaruh kepadatan pengguna di sekitar, dengan cakupan area yang lebih luas di 5 kabupaten/kota Solo Raya.</p>\n\n  <h3>Kapan Internet Rakyat 5G FWA 1.4 GHz Solo tersedia?</h3>\n  <p>Per September 2026, Internet Rakyat 5G FWA 1.4 GHz (PT Solusi Sinergi Digital Tbk) baru komersialisasi di sebagian Banjarsari & Laweyan Solo dan masih pra-registrasi untuk Sukoharjo, Karanganyar, Klaten, Boyolali. Sambil menunggu, XL SATU fiber & wifi tanpa kabel sudah terpasang luas di 5 kota Solo Raya dan bisa langsung dipasang tanpa antre frekuensi 1.4 GHz.</p>\n\n  <div class=\"cta-box\">\n    <h3>Mau Koneksi Stabil di Area Kamu?</h3>\n    <p>Cek ketersediaan fiber optic XL SATU di alamat kamu, tanpa perlu menunggu pemetaan area.</p>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20ketersediaan%20XL%20SATU%20di%20alamat%20saya\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\">\n      <i class=\"fab fa-whatsapp\"></i> Cek Ketersediaan Sekarang\n    </a>\n  </div>\n\n  <h2>Cek Area Layanan di Kotamu</h2>\n  <p>XL SATU melayani pemasangan fiber optic dan wireless di 5 wilayah Solo Raya, jauh lebih luas dari cakupan Internet Rakyat saat ini: Sudah siap daftar? Baca <a href=\"/cara-daftar-pasang-wifi-xl-satu-solo/\">panduan lengkap cara daftar & syarat pemasangan</a>.</p>\n  <div class=\"related-cities\">\n    <a href=\"/wifi-solo/\">Pasang WiFi Solo</a>\n    <a href=\"/wifi-sukoharjo/\">Pasang WiFi Sukoharjo</a>\n    <a href=\"/wifi-karanganyar/\">Pasang WiFi Karanganyar</a>\n    <a href=\"/wifi-klaten/\">Pasang WiFi Klaten</a>\n    <a href=\"/wifi-boyolali/\">Pasang WiFi Boyolali</a>\n    <a href=\"/wifi-surakarta/\">Pasang WiFi Surakarta</a>\n  </div>\n  <p style=\"margin-top:16px;\">Bingung soal jenis koneksi lain? Baca juga <a href=\"/panduan-fiber-vs-wireless/\">panduan fiber vs wireless</a> dan <a href=\"/biaya-pasang-wifi-solo-raya/\">rincian lengkap biaya semua paket</a>. Daerah kamu belum ada fiber sama sekali? Baca <a href=\"/solusi-internet-daerah-belum-ada-fiber-optik/\">solusi internet tanpa perlu tunggu tarik kabel</a>, atau cek <a href=\"/5-hal-wajib-dicek-sebelum-pasang-wifi-rumah/\">5 hal wajib dicek sebelum pasang WiFi rumah</a> apapun providernya.</p>\n\n  <p class=\"source-note\">Artikel ini disusun berdasarkan rangkuman informasi umum dari berbagai sumber tepercaya, termasuk <a href=\"https://teknologi.bisnis.com/read/20260129/101/1948332/harga-internet-rumah-2026-internet-rakyat-vs-myrepublic-vs-indihome-vs-xlsatu\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Bisnis.com</a> dan <a href=\"https://lokawarta.com/hadir-di-kota-solo-internet-rakyat-bawa-akses-cepat-hanya-dengan-rp-100-ribu-bulan/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Lokawarta.com</a>, ditulis ulang dan disesuaikan konteksnya untuk pembaca di Solo Raya. Informasi kompetitor dapat berubah sewaktu-waktu — selalu cek sumber resmi masing-masing layanan untuk info terkini.</p>\n\n",
+
+  bodyHtml: "\n\n  <p>Belakangan ini banyak yang bertanya soal Internet Rakyat (IRA) — layanan internet rumah seharga Rp100.000/bulan yang mulai hadir di sebagian wilayah Solo. Wajar kalau penasaran, harga itu memang menarik. Tapi sebelum memutuskan, penting untuk paham perbedaan mendasarnya dengan layanan fiber optic seperti XL SATU, supaya pilihannya benar-benar sesuai kebutuhan, bukan cuma tergiur angka di depan.</p>\n\n  <h2>Apa itu Internet Rakyat?</h2>\n  <p>Internet Rakyat adalah layanan internet rumah berbasis teknologi 5G Fixed Wireless Access (FWA), dijalankan oleh anak usaha PT Solusi Sinergi Digital Tbk setelah memenangkan lelang frekuensi 1,4 GHz dari pemerintah. Sebagai bagian dari kewajiban lelang tersebut, layanan ini menyasar 34,5 juta rumah tangga menengah ke bawah dengan harga terjangkau — bukan diposisikan sebagai layanan premium untuk kebutuhan berat.</p>\n\n  <h2>Tabel Perbandingan</h2>\n  <table class=\"compare-table\">\n    <tr><th></th><th>Internet Rakyat</th><th>XL SATU Fiber</th></tr>\n    <tr><td><strong>Harga mulai</strong></td><td>Rp 100.000/bulan (100 Mbps)</td><td>Rp 185.000/bulan (20 Mbps) atau Rp 229.000/bulan (250 Mbps)</td></tr>\n    <tr><td><strong>Teknologi</strong></td><td>5G FWA (nirkabel, sinyal dari menara)</td><td>Fiber optic (kabel khusus per rumah)</td></tr>\n    <tr><td><strong>Sifat bandwidth</strong></td><td>Berbagi kapasitas menara dengan pengguna lain di area sama</td><td>Jalur khusus per rumah, tidak berbagi fisik dengan tetangga</td></tr>\n    <tr><td><strong>Cakupan Solo Raya</strong></td><td>Terbatas — baru sebagian Kota Solo (Banjarsari, Laweyan)</td><td>5 kabupaten/kota: Solo, Sukoharjo, Karanganyar, Klaten, Boyolali</td></tr>\n    <tr><td><strong>Proses daftar</strong></td><td>Pra-registrasi, menunggu pemetaan area</td><td>Daftar langsung, survei &amp; instalasi terjadwal</td></tr>\n    <tr><td><strong>Pilihan kecepatan</strong></td><td>Satu paket saja: 100 Mbps</td><td>6 pilihan: 20 hingga 1000 Mbps</td></tr>\n    <tr><td><strong>Segmen target</strong></td><td>Kebutuhan dasar (browsing, belajar daring, WFH ringan)</td><td>Kebutuhan luas, dari dasar hingga berat (gaming, multi-device, smart home)</td></tr>\n  </table>\n\n  <div class=\"info-box\">\n    <strong>Perbandingan yang adil:</strong> membandingkan paket Starter XL SATU (20 Mbps) langsung dengan Internet Rakyat (100 Mbps) sebenarnya kurang setara dari sisi kecepatan. Perbandingan yang lebih pas adalah dengan paket Spark 250 Mbps (Rp 229.000/bulan) — 2,5ƒÆ’” lebih cepat dari Internet Rakyat dengan selisih harga hanya sekitar Rp 129.000.\n  </div>\n\n  <h2>Kenapa Internet Rakyat Bisa Semurah Itu?</h2>\n  <p>Teknologi FWA tidak memerlukan penarikan kabel fisik ke tiap rumah seperti fiber optic, sehingga biaya infrastruktur dan instalasi jauh lebih rendah. Ini yang memungkinkan harga serendah Rp100.000/bulan. Konsekuensinya, kapasitas jaringan dibagi bersama semua pengguna yang terhubung ke menara yang sama di area tersebut — berbeda dengan fiber optic yang punya jalur data khusus per rumah, tidak terpengaruh oleh berapa banyak tetangga yang juga sedang memakai internet.</p>\n\n  <h2>Kapan Sebaiknya Pilih yang Mana?</h2>\n  <div class=\"scenario-grid\">\n    <div class=\"scenario-card ira\">\n      <h4><i class=\"fas fa-wallet\"></i> Internet Rakyat cocok kalau...</h4>\n      <ul>\n        <li>Area kamu sudah termasuk cakupan (Banjarsari/Laweyan Solo)</li>\n        <li>Kebutuhan utama browsing, media sosial, belajar daring</li>\n        <li>Budget jadi prioritas utama</li>\n        <li>Nggak keberatan menunggu proses pra-registrasi</li>\n        <li>Jumlah perangkat aktif bersamaan tidak terlalu banyak</li>\n      </ul>\n    </div>\n    <div class=\"scenario-card xl\">\n      <h4><i class=\"fas fa-bolt\"></i> XL SATU Fiber cocok kalau...</h4>\n      <ul>\n        <li>Area kamu di salah satu dari 5 kabupaten/kota Solo Raya</li>\n        <li>Butuh koneksi stabil untuk gaming, streaming 4K, atau kerja berat</li>\n        <li>Rumah dengan banyak perangkat aktif bersamaan</li>\n        <li>Ingin proses pendaftaran cepat tanpa menunggu pemetaan area</li>\n        <li>Butuh pilihan kecepatan lebih tinggi dari 100 Mbps</li>\n      </ul>\n    </div>\n  </div>\n\n  <h2>Pertanyaan yang Sering Ditanyakan</h2>\n\n  <h3>Apa itu Internet Rakyat?</h3>\n  <p>Internet Rakyat (IRA) adalah layanan internet rumah berbasis teknologi 5G Fixed Wireless Access (FWA) yang dijalankan oleh anak usaha PT Solusi Sinergi Digital Tbk, menawarkan paket Rp100.000/bulan dengan kecepatan hingga 100 Mbps tanpa batas kuota. Layanan ini merupakan bagian dari kewajiban pemenang lelang frekuensi 1,4 GHz untuk menyediakan akses internet terjangkau bagi masyarakat menengah ke bawah.</p>\n\n  <h3>Apakah Internet Rakyat sudah tersedia di seluruh Solo Raya?</h3>\n  <p>Belum. Internet Rakyat baru menjangkau sebagian area di Kota Solo, seperti Banjarsari dan Laweyan, dan masih menggunakan sistem pra-registrasi untuk menentukan prioritas pembangunan jaringan di area lain. Empat kabupaten lain di Solo Raya (Sukoharjo, Karanganyar, Klaten, Boyolali) belum tercakup.</p>\n\n  <h3>Kenapa harga Internet Rakyat bisa lebih murah dari fiber optic?</h3>\n  <p>Internet Rakyat menggunakan teknologi nirkabel (FWA) yang tidak memerlukan penarikan kabel fisik ke tiap rumah, sehingga biaya infrastruktur dan instalasi jauh lebih rendah dibanding fiber optic. Namun ini berarti kapasitas jaringan dibagi bersama pengguna lain di menara yang sama, berbeda dengan fiber optic yang punya jalur khusus per rumah.</p>\n\n  <h3>Internet Rakyat cocok untuk siapa, dan XL SATU cocok untuk siapa?</h3>\n  <p>Internet Rakyat diposisikan untuk kebutuhan dasar seperti browsing, belajar daring, dan WFH ringan dengan harga paling terjangkau. XL SATU fiber optic lebih cocok untuk rumah tangga dengan banyak perangkat, kebutuhan gaming online, streaming 4K, atau yang membutuhkan koneksi stabil tanpa terpengaruh kepadatan pengguna di sekitar, dengan cakupan area yang lebih luas di 5 kabupaten/kota Solo Raya.</p>\n\n  <h3>Kapan Internet Rakyat 5G FWA 1.4 GHz Solo tersedia?</h3>\n  <p>Per September 2026, Internet Rakyat 5G FWA 1.4 GHz (PT Solusi Sinergi Digital Tbk) baru komersialisasi di sebagian Banjarsari & Laweyan Solo dan masih pra-registrasi untuk Sukoharjo, Karanganyar, Klaten, Boyolali. Sambil menunggu, XL SATU fiber & wifi tanpa kabel sudah terpasang luas di 5 kota Solo Raya dan bisa langsung dipasang tanpa antre frekuensi 1.4 GHz.</p>\n\n  <div class=\"cta-box\">\n    <h3>Mau Koneksi Stabil di Area Kamu?</h3>\n    <p>Cek ketersediaan fiber optic XL SATU di alamat kamu, tanpa perlu menunggu pemetaan area.</p>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20ketersediaan%20XL%20SATU%20di%20alamat%20saya\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\">\n      <i class=\"fab fa-whatsapp\"></i> Cek Ketersediaan Sekarang\n    </a>\n  </div>\n\n  <h2>Cek Area Layanan di Kotamu</h2>\n  <p>XL SATU melayani pemasangan fiber optic dan wireless di 5 wilayah Solo Raya, jauh lebih luas dari cakupan Internet Rakyat saat ini: Sudah siap daftar? Baca <a href=\"/cara-daftar-pasang-wifi-xl-satu-solo/\">panduan lengkap cara daftar & syarat pemasangan</a>.</p>\n  <div class=\"related-cities\">\n    <a href=\"/wifi-solo/\">Pasang WiFi Solo</a>\n    <a href=\"/wifi-sukoharjo/\">Pasang WiFi Sukoharjo</a>\n    <a href=\"/wifi-karanganyar/\">Pasang WiFi Karanganyar</a>\n    <a href=\"/wifi-klaten/\">Pasang WiFi Klaten</a>\n    <a href=\"/wifi-boyolali/\">Pasang WiFi Boyolali</a>\n    <a href=\"/wifi-surakarta/\">Pasang WiFi Surakarta</a>\n  </div>\n  <p style=\"margin-top:16px;\">Bingung soal jenis koneksi lain? Baca juga <a href=\"/panduan-fiber-vs-wireless/\">panduan fiber vs wireless</a> dan <a href=\"/biaya-pasang-wifi-solo-raya/\">rincian lengkap biaya semua paket</a>. Daerah kamu belum ada fiber sama sekali? Baca <a href=\"/solusi-internet-daerah-belum-ada-fiber-optik/\">solusi internet tanpa perlu tunggu tarik kabel</a>, atau cek <a href=\"/5-hal-wajib-dicek-sebelum-pasang-wifi-rumah/\">5 hal wajib dicek sebelum pasang WiFi rumah</a> apapun providernya.</p>\n\n  <p class=\"source-note\">Artikel ini disusun berdasarkan rangkuman informasi umum dari berbagai sumber tepercaya, termasuk <a href=\"https://teknologi.bisnis.com/read/20260129/101/1948332/harga-internet-rumah-2026-internet-rakyat-vs-myrepublic-vs-indihome-vs-xlsatu\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Bisnis.com</a> dan <a href=\"https://lokawarta.com/hadir-di-kota-solo-internet-rakyat-bawa-akses-cepat-hanya-dengan-rp-100-ribu-bulan/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Lokawarta.com</a>, ditulis ulang dan disesuaikan konteksnya untuk pembaca di Solo Raya. Informasi kompetitor dapat berubah sewaktu-waktu — selalu cek sumber resmi masing-masing layanan untuk info terkini.</p>\n\n",
+
 };
+
+
 
 ARTIKEL["250-mbps-untuk-berapa-orang"] = {
+
   slug: "250-mbps-untuk-berapa-orang",
+
   title: "250 Mbps untuk Berapa Orang? 4—6 Pengguna, Tabel Aktivitas | XL SATU",
+
   description: "250 Mbps untuk berapa orang? Jawaban: 4—6 pengguna aktif bersamaan (streaming 4K, video call, gaming) atau hingga 10 perangkat. Tabel aktivitas + paket XL SATU 250 Mbps.",
+
   keywords: "250 mbps untuk berapa orang, wifi 250 mbps untuk berapa orang, 250 mbps cukup untuk berapa device, paket xl satu 250 mbps, wifi 250 mbps kuat berapa tv".split(/,\s*/),
+
   ogTitle: "250 Mbps untuk Berapa Orang? Panduan Lengkap + Tabel Aktivitas",
+
   ogDescription: "250 Mbps nyaman untuk 4—6 pengguna aktif bersamaan atau hingga 10 perangkat. Hitungan streaming 4K, video call, gaming + paket XL SATU 250 Mbps.",
+
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+
   schemas: [{"@context":"https://schema.org","@type":"Article","headline":"250 Mbps untuk Berapa Orang? Panduan Lengkap + Tabel Aktivitas","description":"250 Mbps nyaman untuk 4—6 pengguna aktif bersamaan (streaming 4K, video call, gaming) atau hingga 10 perangkat total, lengkap dengan hitungan per aktivitas dan paket XL SATU 250 Mbps.","author":{"@type":"Organization","name":"XL SATU Solo Raya"},"publisher":{"@type":"Organization","name":"XL SATU Solo Raya"},"datePublished":"2026-09-17","dateModified":"2026-09-17","mainEntityOfPage":"https://xlsatusolo.com/250-mbps-untuk-berapa-orang/"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"250 Mbps untuk berapa orang?","acceptedAnswer":{"@type":"Answer","text":"250 Mbps nyaman untuk 4—6 pengguna aktif yang internetan di waktu bersamaan (streaming, video call, gaming). Dalam hitungan perangkat, 250 Mbps melayani hingga 10 perangkat total menurut klaim resmi XL SATU, karena sebagian perangkat hanya standby dan hampir tidak memakai bandwidth."}},{"@type":"Question","name":"Apakah 250 Mbps cukup untuk streaming 4K di beberapa TV?","acceptedAnswer":{"@type":"Answer","text":"Ya. Satu streaming 4K butuh 15—25 Mbps, jadi 250 Mbps menampung 4—5 TV 4K yang menyala bersamaan dan masih sisa untuk HP dan laptop. Untuk 1—2 TV 4K plus pemakaian normal, 250 Mbps sangat longgar."}},{"@type":"Question","name":"Apakah 250 Mbps cukup untuk gaming sambil streaming?","acceptedAnswer":{"@type":"Answer","text":"Cukup. Gaming online hanya butuh 5—25 Mbps — yang penting latensi rendah khas fiber optik. Sisa 200+ Mbps masih menampung streaming 4K dan video call di perangkat lain tanpa rebutan."}},{"@type":"Question","name":"Kapan 250 Mbps kurang dan perlu naik ke 350—400 Mbps?","acceptedAnswer":{"@type":"Answer","text":"Naik kelas kalau penghuni 7+ orang dengan 4+ pengguna berat bersamaan setiap malam, ada kreator yang upload file besar rutin, atau rumah/kos dengan belasan perangkat aktif. Kalau tidak, 250 Mbps sudah sweet spot."}},{"@type":"Question","name":"Berapa harga paket XL SATU 250 Mbps?","acceptedAnswer":{"@type":"Answer","text":"Paket XL SATU 250 Mbps (kecepatan normal 100 Mbps + Speed Booster hingga 250 Mbps) dibanderol Rp229.000/bulan harga promo (Rp254.190 setelah PPN), sudah termasuk gratis biaya instalasi dan untuk hingga 10 perangkat. Harga promo dapat berubah, konfirmasi ke sales Solo Raya."}}]}],
+
   faqs: [{"q":"250 Mbps untuk berapa orang?","a":"250 Mbps nyaman untuk 4—6 pengguna aktif yang internetan di waktu bersamaan (streaming, video call, gaming). Dalam hitungan perangkat, 250 Mbps melayani hingga 10 perangkat total menurut klaim resmi XL SATU, karena sebagian perangkat hanya standby dan hampir tidak memakai bandwidth."},{"q":"Apakah 250 Mbps cukup untuk streaming 4K di beberapa TV?","a":"Ya. Satu streaming 4K butuh 15—25 Mbps, jadi 250 Mbps menampung 4—5 TV 4K yang menyala bersamaan dan masih sisa untuk HP dan laptop. Untuk 1—2 TV 4K plus pemakaian normal, 250 Mbps sangat longgar."},{"q":"Apakah 250 Mbps cukup untuk gaming sambil streaming?","a":"Cukup. Gaming online hanya butuh 5—25 Mbps — yang penting latensi rendah khas fiber optik. Sisa 200+ Mbps masih menampung streaming 4K dan video call di perangkat lain tanpa rebutan."},{"q":"Kapan 250 Mbps kurang dan perlu naik ke 350—400 Mbps?","a":"Naik kelas kalau penghuni 7+ orang dengan 4+ pengguna berat bersamaan setiap malam, ada kreator yang upload file besar rutin, atau rumah/kos dengan belasan perangkat aktif. Kalau tidak, 250 Mbps sudah sweet spot."},{"q":"Berapa harga paket XL SATU 250 Mbps?","a":"Paket XL SATU 250 Mbps (kecepatan normal 100 Mbps + Speed Booster hingga 250 Mbps) dibanderol Rp229.000/bulan harga promo (Rp254.190 setelah PPN), sudah termasuk gratis biaya instalasi dan untuk hingga 10 perangkat. Harga promo dapat berubah, konfirmasi ke sales Solo Raya."}],
+
   hero: {"crumb":"<a href=\"https://xlsatusolo.com/\">Beranda</a> / 250 Mbps untuk Berapa Orang","h1":"250 Mbps untuk Berapa Orang? Panduan Lengkap + Tabel Aktivitas","sub":"Hitungan jujur: berapa pengguna aktif, berapa TV 4K, dan kapan 250 Mbps kurang — plus paket XL SATU 250 Mbps.","meta":"Diperbarui 17 September 2026 • XL SATU Solo Raya"},
+
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20apakah%20250%20Mbps%20cukup%20untuk%20rumah%20saya",
+
   bodyHtml: "\n\n  <div class=\"info-box\">\n    <strong>Jawaban singkat:</strong> 250 Mbps nyaman untuk <strong>4—6 pengguna aktif</strong> yang internetan di waktu bersamaan — misalnya 2 TV streaming 4K + 1 video call + 1 gaming + HP. Dalam hitungan perangkat, klaim resmi XL SATU: <strong>hingga 10 perangkat</strong>, karena sebagian perangkat hanya standby dan hampir tidak memakai bandwidth.\n  </div>\n\n  <p>Angka \"250 Mbps\" terdengar besar, tapi yang menentukan cukup-tidaknya bukan angka itu saja — melainkan <strong>berapa aktivitas berat yang jalan bersamaan</strong>. Satu TV 4K menyala jauh lebih rakus daripada 10 HP yang cuma standby. Artikel ini membedah hitungannya supaya kamu tidak bayar lebih (atau kurang).</p>\n\n  <h2>Kebutuhan Bandwidth per Aktivitas</h2>\n  <p>Patokan umum industri (Netflix, YouTube, dan panduan teknis 2026):</p>\n  <table class=\"speed-table\">\n    <tr><th>Aktivitas (per perangkat)</th><th>Butuh ±</th></tr>\n    <tr><td>Streaming 4K (Netflix/YouTube/Disney+)</td><td>15—25 Mbps</td></tr>\n    <tr><td>Streaming HD 1080p</td><td>5—8 Mbps</td></tr>\n    <tr><td>Video call / meeting online (HD)</td><td>3—4 Mbps</td></tr>\n    <tr><td>Gaming online</td><td>5—25 Mbps (yang penting ping rendah)</td></tr>\n    <tr><td>Browsing & media sosial</td><td>1—5 Mbps</td></tr>\n    <tr><td>Smart home / sensor / standby</td><td>di bawah 1 Mbps</td></tr>\n  </table>\n\n  <h2>Simulasi: 250 Mbps Dipakai Bareng-Bareng</h2>\n  <p>Contoh rumah 5 orang di jam sibuk malam hari:</p>\n  <ul>\n    <li>2 TV streaming 4K: ±50 Mbps</li>\n    <li>1 video call kerja: ±4 Mbps</li>\n    <li>1 gaming online: ±10 Mbps</li>\n    <li>5 HP scrolling sosmed: ±15 Mbps</li>\n    <li>Smart TV standby + CCTV + smart home: ±5 Mbps</li>\n  </ul>\n  <p>Total ±<strong>84 Mbps</strong> — baru sepertiga dari 250 Mbps. Sisanya jadi buffer saat ada download besar, update game puluhan GB, atau tamu yang ikut nebeng WiFi. Inilah alasan 250 Mbps disebut <em>sweet spot</em> keluarga menengah: lega tanpa mubazir.</p>\n\n  <div class=\"info-box\">\n    <strong>Kunci yang sering dilupakan:</strong> hitung <strong>perangkat aktif</strong>, bukan total perangkat. Rumah dengan 25 perangkat yang hanya 4 aktif bersamaan butuh jauh lebih kecil daripada rumah 8 perangkat yang semuanya streaming. Klaim \"hingga 10 perangkat\" dari provider mengasumsikan campuran aktif dan standby yang wajar.\n  </div>\n\n  <h2>Paket XL SATU 250 Mbps: Isi & Harga Resmi</h2>\n  <p>Di XL SATU, 250 Mbps adalah kecepatan <strong>Speed Booster</strong> dari paket normal 100 Mbps. Isinya menurut halaman resmi XL SATU:</p>\n  <ul>\n    <li><strong>Kecepatan:</strong> normal 100 Mbps, booster hingga 250 Mbps</li>\n    <li><strong>Perangkat:</strong> hingga 10 perangkat</li>\n    <li><strong>Aktivitas ideal:</strong> browsing, sosmed, streaming 4K, video conference HD, game online, upload konten HD</li>\n    <li><strong>Instalasi:</strong> gratis biaya instalasi</li>\n    <li><strong>Harga promo:</strong> Rp229.000/bulan (Rp254.190 setelah PPN 11%)</li>\n    <li><strong>Bonus khas XL SATU:</strong> kuota HP sekeluarga + satu tagihan + satu aplikasi MyXL</li>\n  </ul>\n  <p>Harga promo dapat berubah sewaktu-waktu — konfirmasi harga Solo Raya terbaru via WhatsApp sales di bawah. Bandingkan juga dengan <a href=\"/biaya-pasang-wifi-solo-raya/\">rincian biaya semua paket</a>.</p>\n\n  <div class=\"cta-box\" style=\"background:linear-gradient(135deg, #0d7a5f 0%, #037e64 100%);\">\n    <h3>250 Mbps: Rp229.000/bln — Pas untuk Rumahmu?</h3>\n    <p>Ceritakan jumlah penghuni + kebiasaan internet (berapa TV, WFH, gaming), sales bantu pastikan 250 Mbps cukup atau perlu naik kelas.</p>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20paket%20250%20Mbps%20untuk%20rumah%20saya\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\" style=\"background:#fff; color:var(--green-dark);\"><i class=\"fab fa-whatsapp\"></i> Tanya Paket 250 Mbps</a>\n  </div>\n\n  <h2>Kapan 250 Mbps Kurang?</h2>\n  <p>Naik ke 350—400 Mbps kalau kondisimu seperti ini:</p>\n  <ul>\n    <li>Penghuni 7+ orang dengan 4+ pengguna berat tiap malam</li>\n    <li>Ada kreator/karyawan yang upload file besar rutin (upload butuh headroom)</li>\n    <li>Rumah kos/kontrakan dengan belasan perangkat aktif bersamaan</li>\n    <li>3+ TV 4K menyala bareng setiap hari + WFH + gaming</li>\n  </ul>\n  <p>Sebaliknya, kalau cuma 1—3 orang tanpa 4K, 250 Mbps itu kelebihan — hemat dengan paket 50—100 Mbps. Masih bingung? Pakai <a href=\"/berapa-mbps-untuk-berapa-orang/\">kalkulator kebutuhan Mbps</a> (masukkan orang + aktivitas, keluar rekomendasi paket).</p>\n\n  <h2>Pertanyaan yang Sering Ditanyakan promo yang sedang berlaku ke admin.</p>\n\n  <div class=\"cta-box\">\n    <h3>Cek Apakah 250 Mbps Tersedia di Alamatmu</h3>\n    <p>XL SATU melayani Solo, Sukoharjo, Karanganyar, Klaten, Boyolali. Kirim alamat, sales cek coverage + jadwal survei.</p>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20coverage%20250%20Mbps%20di%20alamat%20saya\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\">\n      <i class=\"fab fa-whatsapp\"></i> Cek Coverage via WhatsApp\n    </a>\n  </div>\n\n  <h2>Baca Juga</h2>\n  <p>Hitung presisi kebutuhanmu dengan <a href=\"/berapa-mbps-untuk-berapa-orang/\">kalkulator Mbps per jumlah orang</a>, pahami patokan keluarga di <a href=\"/kecepatan-wifi-ideal-keluarga/\">panduan kecepatan WiFi ideal keluarga</a>, dan pastikan paketmu <a href=\"/wifi-tanpa-fup-unlimited/\">tanpa FUP yang bikin lemot</a>.</p>\n\n  <h2>Cek Area Layanan di Kotamu</h2>\n  <div class=\"related-cities\">\n    <a href=\"/wifi-solo/\">Pasang WiFi Solo</a>\n    <a href=\"/wifi-sukoharjo/\">Pasang WiFi Sukoharjo</a>\n    <a href=\"/wifi-karanganyar/\">Pasang WiFi Karanganyar</a>\n    <a href=\"/wifi-klaten/\">Pasang WiFi Klaten</a>\n    <a href=\"/wifi-boyolali/\">Pasang WiFi Boyolali</a>\n    <a href=\"/wifi-surakarta/\">Pasang WiFi Surakarta</a>\n  </div>\n\n  <p class=\"source-note\">Disusun dari data resmi <a href=\"https://satu.xl.co.id/paket\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">XL SATU</a> (paket & harga promo), rekomendasi teknis <a href=\"https://www.myrepublic.co.id/blog/berapa-kecepatan-internet-yang-ideal-untuk-streaming-4-k\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">streaming 4K</a>, dan panduan kebutuhan perangkat 2026 — ditulis ulang untuk konteks Solo Raya.</p>\n\n",
+
 };
 
+
+
 ARTIKEL["paket-wifi-tahunan-bayar-10-dapat-12"] = {
+
   slug: "paket-wifi-tahunan-bayar-10-dapat-12",
+
   title: "Paket WiFi Tahunan Bayar 10 Dapat 12: Hemat 2 Bulan | XL SATU Solo 2026",
+
   description: "Paket WiFi tahunan XL SATU Solo 2026 Bayar 10 Dapat 12: Basic Smart 50M Rp2.490jt, Family 100M Rp3.190jt, Superuser 150M Rp3.690jt (belum PPN). Booster + kuota HP se-keluarga.",
+
   keywords: "paket wifi tahunan solo 2026, bayar 10 dapat 12 xl satu, paket wifi tahunan bayar 10 dapat 12, wifi tahunan murah solo raya, bonus kuota hp xl satu".split(/,\s*/),
+
   ogTitle: "Paket WiFi Tahunan Bayar 10 Dapat 12: Hemat 2 Bulan + Bonus Kuota HP",
+
   ogDescription: "Paket tahunan XL SATU Solo Bayar 10 Dapat 12: Smart 50M Rp2.490jt, Family 100M Rp3.190jt, Superuser 150M Rp3.690jt (belum PPN) + booster & kuota HP.",
+
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+
   schemas: [{"@context":"https://schema.org","@type":"Article","headline":"Paket WiFi Tahunan Bayar 10 Dapat 12: Hemat 2 Bulan + Bonus Kuota HP","description":"Paket WiFi tahunan XL SATU Solo Bayar 10 Dapat 12: Basic Smart 50M, Family 100M, Superuser 150M — booster, kuota HP se-keluarga, harga belum PPN.","author":{"@type":"Organization","name":"XL SATU Solo Raya"},"publisher":{"@type":"Organization","name":"XL SATU Solo Raya"},"datePublished":"2026-09-04","dateModified":"2026-09-04","mainEntityOfPage":"https://xlsatusolo.com/paket-wifi-tahunan-bayar-10-dapat-12/"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Apa itu paket Bayar 10 Dapat 12?","acceptedAnswer":{"@type":"Answer","text":"Bayar 10 bulan, pakai 12 bulan. Anda hemat 2 bulan tagihan dibanding bayar bulanan 12x. Sudah termasuk gratis instalasi dan bonus Speed Booster serta Kuota HP se-keluarga sesuai paket."}},{"@type":"Question","name":"Berapa hematnya dibanding bayar bulanan?","acceptedAnswer":{"@type":"Answer","text":"Contoh Basic Smart: bulanan Rp249.000 x12 = Rp2.988.000, tahunan cuma Rp2.490.000 — hemat Rp498.000 (belum termasuk PPN). Semakin besar paket, hematnya makin besar, plus dapat booster & kuota HP."}},{"@type":"Question","name":"Apakah harga sudah termasuk PPN 11%?","acceptedAnswer":{"@type":"Answer","text":"Belum. Harga Rp2.490.000 / Rp3.190.000 / Rp3.690.000 belum termasuk PPN 11%. Total tagihan tahunan = harga paket + PPN. Tanya sales untuk simulasi total sesuai alamat."}},{"@type":"Question","name":"Paket tahunan cocok untuk siapa?","acceptedAnswer":{"@type":"Answer","text":"Basic Smart 50M (booster 75M, kuota 10GB x2) cocok 1-2 orang kos/rumah kecil. Family 100M (booster 150M, 25GB x2) untuk 3-4 orang keluarga. Superuser 150M (booster 200M, 50GB x3) untuk 5+ orang / rumah dengan banyak perangkat & smart home."}},{"@type":"Question","name":"Apakah bisa cicil atau harus bayar langsung setahun?","acceptedAnswer":{"@type":"Answer","text":"Paket tahunan dibayar di muka untuk 10 bulan (dapat 12 bulan). Tidak ada opsi cicil bulanan untuk skema hemat ini — tapi ada paket bulanan Starter & Spark 20-1000 Mbps mulai Rp185.000/bulan kalau prefer bayar bulanan."}},{"@type":"Question","name":"Berapa nomor agen resmi untuk daftar paket tahunan Solo Raya?","acceptedAnswer":{"@type":"Answer","text":"Hubungi agen resmi XL SATU Solo Raya di 0877-7899-9141 (wa.me/xlsatusolo) via WhatsApp untuk simulasi total + PPN dan jadwal pemasangan paket tahunan di alamatmu."}}]}],
+
   faqs: [{"q":"Apa itu paket Bayar 10 Dapat 12?","a":"Bayar 10 bulan, pakai 12 bulan. Anda hemat 2 bulan tagihan dibanding bayar bulanan 12x. Sudah termasuk gratis instalasi dan bonus Speed Booster serta Kuota HP se-keluarga sesuai paket."},{"q":"Berapa hematnya dibanding bayar bulanan?","a":"Contoh Basic Smart: bulanan Rp249.000 x12 = Rp2.988.000, tahunan cuma Rp2.490.000 — hemat Rp498.000 (belum termasuk PPN). Semakin besar paket, hematnya makin besar, plus dapat booster & kuota HP."},{"q":"Apakah harga sudah termasuk PPN 11%?","a":"Belum. Harga Rp2.490.000 / Rp3.190.000 / Rp3.690.000 belum termasuk PPN 11%. Total tagihan tahunan = harga paket + PPN. Tanya sales untuk simulasi total sesuai alamat."},{"q":"Paket tahunan cocok untuk siapa?","a":"Basic Smart 50M (booster 75M, kuota 10GB x2) cocok 1-2 orang kos/rumah kecil. Family 100M (booster 150M, 25GB x2) untuk 3-4 orang keluarga. Superuser 150M (booster 200M, 50GB x3) untuk 5+ orang / rumah dengan banyak perangkat & smart home."},{"q":"Apakah bisa cicil atau harus bayar langsung setahun?","a":"Paket tahunan dibayar di muka untuk 10 bulan (dapat 12 bulan). Tidak ada opsi cicil bulanan untuk skema hemat ini — tapi ada paket bulanan Starter & Spark 20-1000 Mbps mulai Rp185.000/bulan kalau prefer bayar bulanan."},{"q":"Berapa nomor agen resmi untuk daftar paket tahunan Solo Raya?","a":"Hubungi agen resmi XL SATU Solo Raya di 0877-7899-9141 (wa.me/xlsatusolo) via WhatsApp untuk simulasi total + PPN dan jadwal pemasangan paket tahunan di alamatmu."}],
+
   hero: {"crumb":"<a href=\"https://xlsatusolo.com/\">Beranda</a> / Paket Tahunan Bayar 10 Dapat 12","h1":"Paket WiFi Tahunan Bayar 10 Dapat 12 di Solo Raya","sub":"Bayar 10 bulan, pakai 12 bulan. Bonus Speed Booster + Kuota HP se-keluarga. Harga belum termasuk PPN 11%.","meta":"Diperbarui 4 September 2026 • XL SATU Solo Raya"},
+
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20paket%20tahunan%20Bayar%2010%20Dapat%2012",
+
   bodyHtml: "\n\n  <p>Mau internet rumah yang sekali bayar langsung aman setahun? Paket tahunan XL SATU <strong>Bayar 10 Dapat 12</strong> bikin tagihan lebih hemat 2 bulan dibanding bayar bulanan, plus dapat <strong>Bonus Speed Booster</strong> dan <strong>Bonus Kuota HP se-keluarga</strong> yang tidak ada di paket bulanan biasa.</p>\n\n  <div class=\"info-box\"><strong>Hematnya nyata:</strong> Basic Smart bulanan Rp249rb x12 = Rp2.988.000 → tahunan cuma <strong>Rp2.490.000</strong> (hemat Rp498rb, belum PPN). Belum termasuk booster 75 Mbps & kuota 10GB x2 member.</div>\n\n  <h2>Daftar Paket Tahunan (Belum PPN 11%)</h2>\n  <div style=\"background:#f5f3ff; border:1px solid #ddd6fe; border-radius:10px; padding:14px 16px; margin:16px 0; font-size:13.5px; text-align:center; color:#333;\">\n    <strong>Kalkulator Hemat:</strong> Smart 2.988jt → 2.490jt (≈Rp207.500/bln), Family 3.828jt → 3.190jt (≈Rp265.800/bln), Superuser 4.428jt → 3.690jt (≈Rp307.500/bln) — <span style=\"color:#4c1d95; font-weight:700;\">Hemat Rp498rb—Rp738rb/tahun</span>\n  </div>\n  <table class=\"price-table\">\n    <tr><th>Paket</th><th>Speed → Booster</th><th>Bonus Kuota HP</th><th>Harga Tahunan</th></tr>\n    <tr><td><strong>Basic Smart</strong></td><td>50 Mbps → <strong>75 Mbps</strong></td><td>10 GB untuk 2 Member</td><td><span style=\"text-decoration:line-through;color:#999;font-size:12px;\">Rp 2.988.000</span><br><span class=\"price\">Rp 2.490.000</span></td></tr>\n    <tr><td><strong>Basic Family</strong></td><td>100 Mbps → <strong>150 Mbps</strong></td><td>25 GB untuk 2 Member</td><td><span style=\"text-decoration:line-through;color:#999;font-size:12px;\">Rp 3.828.000</span><br><span class=\"price\">Rp 3.190.000</span></td></tr>\n    <tr><td><strong>Basic Superuser</strong></td><td>150 Mbps → <strong>200 Mbps</strong></td><td>50 GB untuk 3 Member</td><td><span style=\"text-decoration:line-through;color:#999;font-size:12px;\">Rp 4.428.000</span><br><span class=\"price\">Rp 3.690.000</span></td></tr>\n  </table>\n  <p style=\"font-size:13px;color:var(--text-muted);\">*Harga belum termasuk PPN 11%. Total = harga paket + PPN. Gratis instalasi untuk semua paket tahunan.</p>\n  <div class=\"info-box\">Efektif per bulan: Smart ≈ <strong>Rp207.500</strong>/bulan, Family ≈ <strong>Rp265.800</strong>/bulan, Superuser ≈ <strong>Rp307.500</strong>/bulan — hemat 2 bulan vs bayar bulanan 12x.</div>\n\n  <h2>Bulanan vs Tahunan: Mana Lebih Untung?</h2>\n  <ul>\n    <li><strong>Bulanan</strong> (Starter 20M Rp185rb, Spark 250M Rp229rb) — fleksibel, bayar per bulan, cocok kalau belum yakin menetap setahun.</li>\n    <li><strong>Tahunan</strong> (Smart/Family/Superuser) — hemat 16.6% (2 bulan gratis), dapat booster & kuota HP, sekali bayar 10 bulan. Cocok untuk keluarga yang sudah mantap tinggal di Solo Raya.</li>\n  </ul>\n  <p>Hitungan kasar: Family 100M bulanan Rp319rb x12 = Rp3.828.000 → tahunan Rp3.190.000, <strong>hemat Rp638.000/tahun</strong> + dapat booster 150M & kuota 25GB x2.</p>\n\n  <h2>Paket Mana Cocok Untuk Rumah Kamu?</h2>\n  <ul>\n    <li><strong>Basic Smart 50M (75M booster)</strong> — 1-2 orang, kos/rumah kecil, browsing & streaming 1-2 layar. Kuota 10GB x2 cukup untuk HP anak/ortu.</li>\n    <li><strong>Basic Family 100M (150M booster)</strong> — 3-4 orang, streaming HD bareng + WFH. Kuota 25GB x2 pas untuk 2 HP utama.</li>\n    <li><strong>Basic Superuser 150M (200M booster)</strong> — 5+ orang, banyak perangkat + smart home, gaming. Kuota 50GB x3 untuk se-keluarga.</li>\n  </ul>\n\n  <div class=\"cta-box\">\n    <h3>Mau Hitung Total + PPN untuk Alamatmu?</h3>\n    <p>Tim sales bantu simulasikan total tahunan + PPN 11% sesuai paket dan alamat di Solo Raya.</p>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20paket%20tahunan%20Bayar%2010%20Dapat%2012\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\"><i class=\"fab fa-whatsapp\"></i> Chat Sales Tahunan</a>\n  </div>\n\n  <h2>Pertanyaan yang Sering Ditanyakan</h2>\n  <h3>Apa itu paket Bayar 10 Dapat 12?</h3>\n  <p>Bayar 10 bulan, pakai 12 bulan. Hemat 2 bulan tagihan dibanding bayar bulanan 12x. Sudah termasuk gratis instalasi, bonus Speed Booster & Kuota HP se-keluarga.</p>\n  <h3>Berapa hematnya dibanding bulanan?</h3>\n  <p>Smart hemat Rp498rb, Family hemat Rp638rb, Superuser hemat Rp738rb per tahun (belum PPN). Plus booster & kuota HP yang tidak ada di paket bulanan.</p>\n  <h3>Apakah harga sudah termasuk PPN?</h3>\n  <p>Belum. Rp2.490.000 / Rp3.190.000 / Rp3.690.000 belum termasuk PPN 11%. Total = harga + PPN.</p>\n  <h3>Paket tahunan cocok untuk siapa?</h3>\n  <p>Smart untuk 1-2 orang, Family untuk 3-4 orang, Superuser untuk 5+ orang / banyak perangkat. Lihat juga <a href=\"/berapa-mbps-untuk-berapa-orang/\">panduan berapa Mbps untuk berapa orang</a>.</p>\n  <h3>Apakah bisa cicil bulanan untuk skema tahunan?</h3>\n  <p>Tidak. Skema hemat Bayar 10 Dapat 12 dibayar di muka 10 bulan. Kalau prefer cicil bulanan, ada paket Starter & Spark 20-1000 Mbps mulai Rp185.000/bulan — lihat <a href=\"/#paket\">paket bulanan</a> atau <a href=\"/biaya-pasang-wifi-solo-raya/\">rincian biaya bulanan</a>.</p>\n  <h3>Berapa nomor agen resmi untuk daftar paket tahunan Solo Raya?</h3>\n  <p>Hubungi agen resmi XL SATU Solo Raya di <strong>0877-7899-9141</strong> (<a href=\"https://wa.me/xlsatusolo\">wa.me/xlsatusolo</a>) via WhatsApp untuk simulasi total + PPN dan jadwal pemasangan paket tahunan di alamatmu.</p>\n\n  <h2>Cek Area Layanan di Kotamu</h2>\n  <p>Paket tahunan berlaku di 5 wilayah Solo Raya (syarat jaringan terjangkau):</p>\n  <div class=\"related-cities\"><a href=\"/wifi-solo/\">Pasang WiFi Solo</a><a href=\"/wifi-sukoharjo/\">Pasang WiFi Sukoharjo</a><a href=\"/wifi-karanganyar/\">Pasang WiFi Karanganyar</a><a href=\"/wifi-klaten/\">Pasang WiFi Klaten</a><a href=\"/wifi-boyolali/\">Pasang WiFi Boyolali</a><a href=\"/wifi-surakarta/\">Pasang WiFi Surakarta</a></div>\n  <p style=\"margin-top:16px;\">Banding bulan vs tahun? Baca <a href=\"/biaya-pasang-wifi-solo-raya/\">rincian biaya bulanan</a>. Butuh bulanan? Lihat <a href=\"/#paket-tahunan\">paket tahunan di homepage</a>.</p>\n\n",
+
 };
+
+
+
 
 
 ARTIKEL["xl-satu-vs-indihome-myrepublic-solo"] = {
+
   slug: "xl-satu-vs-indihome-myrepublic-solo",
+
   title: "XL SATU vs IndiHome & MyRepublic Solo 2026: Mana Terbaik?",
+
   description: "Bingung pilih XL SATU, IndiHome, atau MyRepublic di Solo? Jangan sampai salah pasang! Bandingkan harga, batas FUP, & temukan provider WiFi paling stabil 2026.",
+
   keywords: ["xl satu vs indihome solo", "xl satu vs myrepublic", "perbandingan provider wifi solo", "wifi terbaik solo raya", "xl satu vs biznet"],
+
   ogTitle: "XL SATU vs IndiHome & MyRepublic Solo 2026: Mana Terbaik?",
+
   ogDescription: "Bingung pilih XL SATU, IndiHome, atau MyRepublic di Solo? Jangan sampai salah pasang! Bandingkan harga, batas FUP, & temukan provider WiFi paling stabil 2026.",
+
   ogImage: "https://xlsatusolo.com/og.jpg",
+
   schemas: [{"@context":"https://schema.org/","@type":"Product","name":"Internet Rumah XL SATU Fiber","review":{"@type":"Review","name":"Perbandingan XL SATU vs Provider Lain","author":{"@type":"Person","name":"Tim XL SATU Solo"},"positiveNotes":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"XL SATU: 100% Unlimited Tanpa FUP Tersembunyi"},{"@type":"ListItem","position":2,"name":"XL SATU: Gratis Bonus Kuota Bersama untuk HP Keluarga"}]},"negativeNotes":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Provider Lain: Beberapa menerapkan FUP / batas kuota yang menurunkan kecepatan"}]}}}, ],
+
   faqs: [
+
     {
+
       q: "Mana yang lebih murah, XL SATU, IndiHome, atau MyRepublic?",
+
       a: "Untuk paket entry-level, XL SATU menawarkan harga mulai dari Rp185.000/bulan yang sudah termasuk bonus kuota seluler keluarga, membuatnya sangat kompetitif secara nilai keseluruhan."
+
     },
+
     {
+
       q: "Apakah XL SATU menggunakan Fiber Optic?",
+
       a: "Ya! XL SATU menggunakan jaringan 100% Fiber Optic yang stabil dan kebal terhadap cuaca buruk, berbeda dengan ISP lokal (RT/RW net) yang masih menggunakan sistem tembak radio."
+
     },
+
     {
+
       q: "Provider mana yang tidak ada FUP?",
+
       a: "XL SATU Fiber 100% tanpa batas FUP, artinya kecepatan Anda tidak akan dicekik atau diturunkan di akhir bulan meskipun pemakaian data sangat besar."
+
     }
+
   ],
+
   hero: {
+
     crumb: "<a href=\"/\">Beranda</a> / XL SATU vs IndiHome & MyRepublic",
+
     h1: "XL SATU vs IndiHome & MyRepublic di Solo: Mana yang Terbaik?",
+
     sub: "Bandingkan harga, stabilitas, FUP, dan keunggulan masing-masing provider sebelum Anda memutuskan pasang WiFi di rumah.",
+
     meta: "Diperbarui September 2026 • Tim XL SATU Solo Raya"
+
   },
+
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20perbandingan%20XL%20SATU",
+
   bodyHtml: `
+
   <p>Memilih provider internet (ISP) di Solo Raya saat ini cukup membingungkan. Tiga nama besar yang sering dibandingkan adalah <strong>XL SATU</strong>, <strong>IndiHome</strong>, dan <strong>MyRepublic</strong>. Masing-masing memiliki kelebihan tersendiri, namun mana yang paling cocok untuk keluarga Anda di tahun 2026?</p>
+
+
 
   <p>Berikut adalah perbandingan jujur dan objektif dari ketiga raksasa internet fiber optik ini agar Anda tidak salah pilih.</p>
 
+
+
   <h2>Tabel Perbandingan: XL SATU vs IndiHome vs MyRepublic</h2>
+
   <div style="overflow-x: auto;">
+
     <table class="price-table">
+
       <thead>
+
         <tr>
+
           <th>Fitur Utama</th>
+
           <th style="background-color: #f0fdf4; border-bottom: 2px solid #22c55e;">XL SATU</th>
+
           <th>IndiHome</th>
+
           <th>MyRepublic</th>
+
         </tr>
+
       </thead>
+
       <tbody>
+
         <tr>
+
           <td><strong>Batas Kuota (FUP)</strong></td>
+
           <td style="color: #15803d; font-weight: 700;">100% Tanpa FUP</td>
+
           <td>Ada Batas FUP</td>
+
           <td style="color: #15803d; font-weight: 700;">Tanpa FUP</td>
+
         </tr>
+
         <tr>
+
           <td><strong>Estimasi Harga Awal</strong></td>
+
           <td style="font-weight: 700;">Rp 185.000 / bln</td>
+
           <td>Rp 200.000+ / bln</td>
+
           <td>Rp 200.000+ / bln</td>
+
         </tr>
+
         <tr>
+
           <td><strong>Bonus Ekstra</strong></td>
+
           <td style="background-color: #f0fdf4; font-weight: 700;">Kuota HP Seluler (Berbagi sekeluarga)</td>
+
           <td>TV Kabel / UseeTV</td>
+
           <td>Channel TV (Tergantung Paket)</td>
+
         </tr>
+
         <tr>
+
           <td><strong>Jaringan</strong></td>
+
           <td>Fiber Optic Murni</td>
+
           <td>Fiber Optic Murni</td>
+
           <td>Fiber Optic Murni</td>
+
         </tr>
+
         <tr>
+
           <td><strong>Target Pengguna Ideal</strong></td>
+
           <td>Keluarga cerdas (Hemat Internet Rumah + Pulsa HP)</td>
+
           <td>Keluarga pecinta tayangan TV Kabel</td>
+
           <td>Gamer hardcore & Heavy Downloader</td>
+
         </tr>
+
       </tbody>
+
     </table>
+
   </div>
+
   <p style="font-size: 13px; color: var(--text-muted); text-align: center; margin-top: 8px;">*Harga estimasi belum termasuk PPN 11% dan dapat berubah sesuai promo yang berlaku di masing-masing area.</p>
 
+
+
   <h2>1. Kebijakan Kuota & FUP (Fair Usage Policy)</h2>
+
   <p>FUP adalah batasan penggunaan wajar. Jika Anda melewati batas FUP, kecepatan internet Anda akan diturunkan drastis (lemot). Bagaimana kebijakan ketiga provider ini?</p>
+
   <ul>
+
     <li><strong>XL SATU Fiber:</strong> 100% <strong>TANPA FUP</strong>. Anda bebas streaming 4K, download game puluhan gigabyte, atau digunakan oleh banyak perangkat tanpa takut kecepatan dicekik di akhir bulan.</li>
+
     <li><strong>MyRepublic:</strong> Juga dikenal dengan layanan tanpa FUP untuk paket fiber optik rumahan.</li>
+
     <li><strong>IndiHome:</strong> Menerapkan kebijakan FUP. Jika Anda melewati batas tertentu (misalnya 500GB atau 1TB tergantung paket), kecepatan internet Anda akan diturunkan.</li>
+
   </ul>
+
   <div class="info-box"><strong>Pemenang Kategori FUP:</strong> XL SATU & MyRepublic.</div>
 
+
+
   <h2>2. Harga & Value for Money (Keuntungan Ganda)</h2>
+
   <p>Banyak provider yang berlomba menawarkan harga "murah". Namun, apa saja yang sebenarnya Anda dapatkan dari harga tersebut?</p>
+
   <ul>
+
     <li><strong>IndiHome:</strong> Paket paling dasar (Internet + TV) biasanya dibanderol mulai Rp200 ribuan ke atas, dengan biaya instalasi standar. Pilihan channel TV-nya sangat lengkap.</li>
+
     <li><strong>MyRepublic:</strong> Memiliki harga promo mulai dari Rp200 ribuan, fokus pada kecepatan internet dan hiburan digital.</li>
+
     <li><strong>XL SATU:</strong> Mulai dari <strong>Rp185.000/bulan</strong>. Yang membuat XL SATU unik adalah konsep <em>Convergence</em>. Dengan harga tersebut, Anda tidak hanya mendapatkan WiFi rumah, tapi juga <strong>BONUS KUOTA HP (Seluler)</strong> yang bisa dibagikan ke seluruh anggota keluarga (nomor XL/AXIS). </li>
+
   </ul>
+
   <div class="info-box"><strong>Pemenang Kategori Harga:</strong> XL SATU. Anda menghemat dua pengeluaran sekaligus: tagihan WiFi rumah dan tagihan paket data HP bulanan.</div>
 
+
+
   <h2>3. Stabilitas & Teknologi Jaringan</h2>
+
   <p>Banyak warga Solo Raya (terutama di pinggiran Klaten, Boyolali, Karanganyar) yang terkecoh menggunakan provider lokal (RT/RW net) berbasis sinyal radio yang rawan putus saat hujan badai.</p>
+
   <ul>
+
     <li><strong>XL SATU, IndiHome, & MyRepublic:</strong> Ketiganya sama-sama menggunakan jaringan <strong>100% Fiber Optik Murni (FTTH)</strong> berstandar nasional yang tertanam mantap, kebal terhadap cuaca buruk.</li>
+
     <li>Jika lokasi Anda ter-cover oleh ketiga provider ini, Anda mendapatkan garansi SLA jaringan kelas atas. Pastikan mengecek ketersediaan tiang fiber terdekat.</li>
+
   </ul>
+
+
 
   <h2>Kesimpulan Akhir: Mana yang Harus Dipilih?</h2>
+
   <p>Pemilihan provider kembali ke kebutuhan utama keluarga Anda:</p>
+
   <ul>
+
     <li>Pilih <strong>IndiHome</strong> jika Anda sangat membutuhkan layanan TV kabel konvensional dengan channel lokal dan internasional yang super lengkap.</li>
+
     <li>Pilih <strong>MyRepublic</strong> jika Anda adalah <em>hardcore gamer</em> yang membutuhkan koneksi simetris khusus.</li>
+
     <li>Pilih <strong>XL SATU</strong> jika Anda adalah keluarga cerdas yang ingin berhemat, membenci FUP (ingin unlimited sungguhan), dan ingin mendapatkan <strong>bonus kuota seluler untuk smartphone</strong> sekeluarga sekaligus!</li>
+
   </ul>
 
+
+
   <div class="cta-box" style="margin-top: 30px;">
+
     <h3>Cek Apakah Rumah Anda Masuk Area XL SATU?</h3>
+
     <p>Jangan tunggu sampai FUP Anda habis. Beralih ke jaringan fiber tanpa batas dari XL SATU. Tim sales kami siap melakukan pengecekan alamat rumah Anda (Surakarta, Sukoharjo, Karanganyar, Klaten, Boyolali) secara gratis!</p>
+
     <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20apakah%20rumah%20saya%20sudah%20tercover%20XL%20SATU" target="_blank" rel="noopener noreferrer" class="btn-cta"><i class="fab fa-whatsapp"></i> Chat Sales & Cek Lokasi</a>
+
   </div>
+
+
 
   <h2>Cek Layanan di Kotamu</h2>
+
   <div class="related-cities">
+
     <a href="/wifi-solo/">Pasang WiFi Solo</a>
+
     <a href="/wifi-sukoharjo/">Pasang WiFi Sukoharjo</a>
+
     <a href="/wifi-karanganyar/">Pasang WiFi Karanganyar</a>
+
     <a href="/wifi-klaten/">Pasang WiFi Klaten</a>
+
     <a href="/wifi-boyolali/">Pasang WiFi Boyolali</a>
+
     <a href="/wifi-surakarta/">Pasang WiFi Surakarta</a>
+
   </div>
+
   `
+
 };
 
+
+
 ARTIKEL['proses-pendaftaran-pemasangan-xl-satu-fiber'] = {
+
   slug: 'proses-pendaftaran-pemasangan-xl-satu-fiber',
+
   title: 'Proses Daftar & Pasang XL SATU Fiber: Verifikasi KTP s/d Teknisi',
+
   description: 'Pahami 5 langkah mudah proses pendaftaran dan pemasangan wifi rumah XL SATU Fiber. Mulai dari cek lokasi, verifikasi KTP, pembayaran prabayar, sampai teknisi pasang.',
+
   keywords: ['cara daftar xl satu', 'proses pasang wifi xl satu', 'syarat pasang xl satu', 'pembayaran awal xl satu', 'verifikasi wajah xl satu'],
+
   ogTitle: 'Proses Daftar & Pasang XL SATU Fiber: Verifikasi s/d Teknisi',
+
   ogDescription: 'Pahami 5 langkah proses pendaftaran wifi rumah XL SATU Fiber. Mulai dari cek lokasi, verifikasi KTP, pembayaran prabayar, sampai teknisi pasang.',
+
   ogImage: '/images/banner-xlsatu-jadi-xlhome.jpg',
+
   schemas: [],
+
   faqs: [],
+
   hero: {
+
     crumb: '<a href="https://xlsatusolo.com/">Beranda</a> / Proses Pendaftaran XL SATU',
+
     h1: 'Proses Daftar & Pasang XL SATU Fiber',
+
     sub: 'Panduan lengkap dari awal registrasi, verifikasi wajah, sistem prabayar, hingga teknisi datang.',
+
     meta: 'Diperbarui hari ini &middot; XL SATU Solo Raya'
+
   },
+
   headerCta: 'https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20daftar%20WiFi%20XL%20SATU',
+
   bodyHtml: `
+
+
 
   <p>Pernahkah kamu ragu saat ingin memasang WiFi rumah karena prosesnya yang terkesan ribet atau takut dengan tagihan yang tidak transparan? Di era digital ini, keamanan data dan kejelasan pembayaran adalah prioritas utama.</p>
 
+
+
   <div class="info-box">
+
     <strong>Ringkas:</strong> XL SATU Fiber menggunakan sistem <strong>prabayar (prepaid)</strong> dan <strong>verifikasi biometrik (wajah)</strong>. 100% aman, transparan, dan menghindari penipuan tagihan siluman.
+
   </div>
+
+
 
   <p>Bagi kamu yang berencana memasang internet rumah super cepat dari XL SATU, berikut adalah 5 tahapan resmi dari awal registrasi hingga internet aktif di rumahmu.</p>
 
+
+
   <h2>5 Langkah Mudah Pemasangan XL SATU</h2>
 
+
+
   <div class="step-box">
+
     <div class="step-num">1</div>
+
     <div>
+
       <h4>Registrasi & Cek Coverage Lokasi</h4>
+
       <p>Pastikan rumah atau kos kamu sudah tercover jaringan kabel <em>fiber optic</em> XL SATU. Tidak perlu repot datang ke kantor cabang. Hubungi agen resmi kami via WhatsApp, kirimkan <strong>Share Location (koordinat akurat)</strong> dan alamat lengkap. Jika jaringan tersedia, kamu bisa langsung memilih paket dan kami buatkan form pendaftaran awal.</p>
+
     </div>
+
   </div>
 
+
+
   <div class="step-box">
+
     <div class="step-num">2</div>
+
     <div>
+
       <h4>Verifikasi Data (Vermuk) Sesuai KTP</h4>
+
       <p>Tahap krusial untuk mencegah penyalahgunaan data (pendaftaran fiktif). Kamu akan menerima SMS berisi link resmi dari XL Axiata. Buka link tersebut, foto e-KTP aslimu, dan lakukan foto <em>selfie</em> (verifikasi wajah). Sistem cerdas XL akan mencocokkan wajahmu dengan KTP secara otomatis dalam hitungan detik. Data kamu dijamin 100% aman.</p>
+
     </div>
+
   </div>
 
+
+
   <div class="step-box">
+
     <div class="step-num">3</div>
+
     <div>
+
       <h4>Pembayaran Tagihan Pertama (Prabayar)</h4>
+
       <p>Sering dengar kasus pelanggan ditagih biaya "siluman" oleh teknisi? Di XL SATU, hal itu tidak akan terjadi. Kami menggunakan sistem <strong>Prabayar (Prepaid)</strong>. Setelah verifikasi KTP berhasil, kamu akan mendapat nomor <strong>Virtual Account (VA)</strong> resmi. Pembayaran dilakukan <em>sebelum</em> teknisi datang via transfer bank atau minimarket. Jangan pernah membayar tunai ke teknisi atau sales!</p>
+
     </div>
+
   </div>
 
+
+
   <div class="step-box">
+
     <div class="step-num">4</div>
+
     <div>
+
       <h4>Penjadwalan Kedatangan Teknisi</h4>
+
       <p>Begitu pembayaran VA terkonfirmasi (real-time dalam hitungan menit), status pendaftaranmu otomatis masuk ke tahap penjadwalan. Tim teknisi XL SATU akan menghubungi untuk menentukan jadwal. Kamu bisa memilih hari dan jam pemasangan yang paling sesuai dengan waktu luangmu.</p>
+
     </div>
+
   </div>
 
+
+
   <div class="step-box">
+
     <div class="step-num">5</div>
+
     <div>
+
       <h4>Proses Pemasangan & Internet Aktif!</h4>
+
       <p>Teknisi ahli datang membawa <em>router</em> dan menarik kabel <em>fiber optic</em> ke rumahmu. Prosesnya memakan waktu sekitar 1-3 jam tergantung jarak ke tiang (FAT). Setelah tersetting, internet akan <strong>langsung aktif saat itu juga</strong>! Bebas streaming, gaming, dan WFH tanpa buffering.</p>
+
     </div>
+
   </div>
+
+
 
   <h2>Cek Area Layanan di Kotamu</h2>
+
   <p>XL SATU melayani pemasangan internet rumah di 5 wilayah Solo Raya dengan harga yang sama di semua area:</p>
+
   <div class="related-cities">
+
     <a href="/wifi-solo/">Pasang WiFi Solo</a>
+
     <a href="/wifi-sukoharjo/">Pasang WiFi Sukoharjo</a>
+
     <a href="/wifi-karanganyar/">Pasang WiFi Karanganyar</a>
+
     <a href="/wifi-klaten/">Pasang WiFi Klaten</a>
+
     <a href="/wifi-boyolali/">Pasang WiFi Boyolali</a>
+
     <a href="/wifi-surakarta/">Pasang WiFi Surakarta</a>
+
   </div>
+
   <p style="margin-top:16px;">Baca juga rincian harganya di <a href="/biaya-pasang-wifi-solo-raya/">Biaya Pasang WiFi Solo Raya</a> atau <a href="/5-hal-wajib-dicek-sebelum-pasang-wifi-rumah/">5 Hal Wajib Dicek Sebelum Pasang WiFi</a> agar kamu lebih yakin.</p>
 
+
+
   <div class="cta-box">
+
     <h3>Siap Pasang XL SATU Tanpa Ribet?</h3>
+
     <p>Prosesnya sangat transparan dan melindungi pelanggan dari tagihan tak terduga. Yuk, cek ketersediaan jaringan di lokasimu sekarang secara otomatis!</p>
+
     <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20ketersediaan%20WiFi%20XL%20SATU" target="_blank" rel="noopener noreferrer" class="btn-cta">
+
       <i class="fab fa-whatsapp"></i> Cek Ketersediaan Sekarang
+
     </a>
+
   </div>`
+
 };
 
+
+
 ARTIKEL['wfh-angkringan-solo-xl-satu'] = {
+
   slug: 'wfh-angkringan-solo-xl-satu',
+
   title: 'WFH dari Angkringan Solo 7 Hari: Rahasia Kuota Tetap Aman | XL SATU',
+
   description: 'Eksperimen WFH dari angkringan Solo. Bagaimana fitur konvergensi XL SATU (WiFi rumah + Kuota HP) bikin kerja remote makin lancar tanpa mikir kuota habis.',
+
   keywords: ['wfh di solo', 'wifi murah solo', 'kuota xl satu', 'internet rumah dan hp', 'rekomendasi internet wfh'],
+
   ogTitle: 'Nekat WFH dari Angkringan Solo 7 Hari, Kuota Tetap Aman!',
+
   ogDescription: 'Rahasia kerja remote stabil dari wedangan Solo berkat fitur gabungan WiFi Rumah dan Kuota HP dari XL SATU.',
+
   ogImage: '/images/banner-xlsatu-jadi-xlhome.jpg',
+
   schemas: [],
+
   faqs: [],
+
   hero: { crumb: '<a href="https://xlsatusolo.com/">Beranda</a> / Gaya Hidup Digital', h1: 'WFH dari Angkringan Solo 7 Hari Berturut-turut', sub: 'Ternyata ini rahasia internet tetap stabil tanpa takut kuota HP jebol.', meta: 'Gaya Hidup &middot; XL SATU Solo Raya' },
+
   headerCta: 'https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20XL%20SATU',
+
   bodyHtml: `
+
     <p>Budaya nongkrong di angkringan atau wedangan Solo kini tak sekadar untuk berburu nasi kucing. Bagi para <em>freelancer</em>, mahasiswa tingkat akhir, hingga pekerja <em>remote</em>, angkringan dengan colokan listrik telah bertransformasi menjadi <em>coworking space</em> kearifan lokal.</p>
 
+
+
     <div class="info-box">
+
       <strong>Masalah Utama:</strong> Mengandalkan WiFi publik kadang tidak aman dan lambat, sementara melakukan <em>tethering</em> terus-menerus bisa membuat kuota utama HP jebol dalam hitungan hari.
+
     </div>
 
+
+
     <h2>Eksperimen WFH 7 Hari di Wedangan</h2>
+
     <p>Kami menyimulasikan pengalaman kerja jarak jauh dari berbagai sudut kota Solo. Membawa laptop, memesan segelas es kampul, dan bersiap melakukan <em>meeting online</em>. Tantangannya adalah: bagaimana memastikan koneksi tetap stabil tanpa harus membeli paket data tambahan yang mahal?</p>
+
+
 
     <p>Rahasia dari kelancaran eksperimen ini ternyata ada pada sistem <strong>Konvergensi</strong>. Berbeda dengan internet rumah konvensional yang hanya bisa dinikmati saat kamu berada di ruang tamu, inovasi modern memungkinkan alokasi internet dibagikan ke nomor <em>smartphone</em>.</p>
 
+
+
     <h2>Solusi Hybrid: XL SATU Fiber</h2>
+
     <p>Bagi pelanggan <strong>XL SATU Fiber</strong>, masalah kuota habis saat nongkrong di luar bukan lagi ancaman. Setiap paket internet rumah XL SATU (mulai dari paket Spark) sudah <em>include</em> <strong>Kuota HP Bersama</strong> yang sangat besar (mulai 15GB hingga 300GB per bulan).</p>
+
     
-    <div class="step-box">
-      <div class="step-num">1</div>
-      <div>
-        <h4>WiFi Kencang di Rumah</h4>
-        <p>Saat WFH di rumah, kamu menikmati koneksi <em>fiber optic</em> super cepat tanpa batas (unlimited) untuk <em>download</em> file besar atau sinkronisasi data ke <em>cloud</em>.</p>
-      </div>
-    </div>
 
     <div class="step-box">
-      <div class="step-num">2</div>
+
+      <div class="step-num">1</div>
+
       <div>
-        <h4>Kuota Ekstra di Luar Rumah</h4>
-        <p>Saat suntuk dan memutuskan pindah kerja ke angkringan atau <em>coffee shop</em> di area Slamet Riyadi, kamu tinggal menyalakan koneksi seluler dari nomor XL/Prioritas kamu yang sudah terhubung dengan kuota keluarga XL SATU. Kuota besar siap digunakan untuk <em>tethering</em> ke laptop.</p>
+
+        <h4>WiFi Kencang di Rumah</h4>
+
+        <p>Saat WFH di rumah, kamu menikmati koneksi <em>fiber optic</em> super cepat tanpa batas (unlimited) untuk <em>download</em> file besar atau sinkronisasi data ke <em>cloud</em>.</p>
+
       </div>
+
     </div>
+
+
+
+    <div class="step-box">
+
+      <div class="step-num">2</div>
+
+      <div>
+
+        <h4>Kuota Ekstra di Luar Rumah</h4>
+
+        <p>Saat suntuk dan memutuskan pindah kerja ke angkringan atau <em>coffee shop</em> di area Slamet Riyadi, kamu tinggal menyalakan koneksi seluler dari nomor XL/Prioritas kamu yang sudah terhubung dengan kuota keluarga XL SATU. Kuota besar siap digunakan untuk <em>tethering</em> ke laptop.</p>
+
+      </div>
+
+    </div>
+
+
 
     <p>Dengan sistem <em>hybrid</em> ini, tagihan internetmu jadi jauh lebih hemat. Kamu tidak perlu lagi membayar dua kali (bayar WiFi rumah + beli kuota HP yang mahal). Satu tagihan XL SATU sudah mengcover kebutuhan internet serumah, baik saat di dalam maupun di luar rumah.</p>
 
+
+
     <div class="cta-box">
+
       <h3>Mau Kerja Bebas dari Mana Saja?</h3>
+
       <p>Dapatkan internet fiber di rumah sekaligus kuota HP besar untuk menemani nongkrong di angkringan. Cek area jaringanmu sekarang!</p>
+
       <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20paket%20XL%20SATU%20yang%20dapat%20kuota%20HP" target="_blank" rel="noopener noreferrer" class="btn-cta">
+
         <i class="fab fa-whatsapp"></i> Tanya Promo WFH
+
       </a>
+
     </div>
+
   `
+
 };
 
+
+
 ARTIKEL['rahasia-fup-internet-rumah'] = {
+
   slug: 'rahasia-fup-internet-rumah',
+
   title: 'Bongkar Rahasia FUP Internet Rumah: Kenapa Speed Turun di Akhir Bulan?',
+
   description: 'Sering kesal WiFi rumah tiba-tiba lemot di akhir bulan? Pelajari rahasia gelap FUP (Fair Usage Policy) pada internet rumah dan temukan solusi provider tanpa FUP.',
+
   keywords: ['kenapa wifi lemot di akhir bulan', 'cara mengatasi fup', 'provider internet tanpa fup', 'wifi bebas fup solo', 'kecepatan internet turun'],
+
   ogTitle: 'Rahasia Gelap FUP Internet Rumah: Solusi Bebas Lemot di Akhir Bulan',
+
   ogDescription: 'Kenapa tagihan WiFi tetap mahal tapi speed mendadak disunat di akhir bulan? Ini penjelasan tentang FUP dan solusinya.',
+
   ogImage: '/images/banner-xlsatu-jadi-xlhome.jpg',
+
   schemas: [],
+
   faqs: [],
+
   hero: { crumb: '<a href="https://xlsatusolo.com/">Beranda</a> / Edukasi Internet', h1: 'Bongkar Rahasia FUP Internet Rumah', sub: 'Kenapa koneksi sering terasa lambat menjelang akhir bulan? Ini fakta yang jarang disadari.', meta: 'Edukasi &middot; XL SATU Solo Raya' },
+
   headerCta: 'https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20internet%20tanpa%20FUP',
+
   bodyHtml: `
+
     <p>Pernahkah kamu merasa koneksi WiFi rumah tiba-tiba menjadi super lambat, sering <em>loading</em> saat memutar YouTube, atau <em>ping</em> merah saat main <em>game online</em> tepat ketika kalender menunjukkan akhir bulan?</p>
+
     
+
     <p>Jika kamu pernah mengalami hal ini, kamu tidak sendirian. Fenomena ini sering menjadi keluhan utama pengguna internet rumah di Indonesia. Dan penyebab utamanya seringkali adalah satu istilah tersembunyi: <strong>FUP (Fair Usage Policy)</strong>.</p>
 
+
+
     <div class="info-box">
+
       <strong>Apa itu FUP?</strong> Singkatnya, FUP adalah batas pemakaian wajar. Jika kamu sudah memakai data melewati batas GB (Gigabyte) tertentu yang ditetapkan oleh operator, kecepatan internetmu akan "disunat" alias diturunkan secara drastis hingga tagihan bulan berikutnya terbit.
+
     </div>
 
+
+
     <h2>Rahasia "Gelap" Batasan Kuota Terselubung</h2>
+
     <p>Banyak calon pelanggan tergiur dengan iklan "Internet Unlimited" murah. Namun, sayangnya, beberapa provider konvensional menyematkan syarat FUP dalam tulisan yang sangat kecil di kontrak berlangganan.</p>
+
+
 
     <p>Akibatnya, ketika anak-anak di rumah sering <em>streaming</em> film resolusi 4K atau ada yang harus mengunduh <em>file</em> pekerjaan masif, batas FUP tersebut akan cepat tercapai (biasanya di kisaran 300GB - 500GB). Tagihan bulanan yang kamu bayar tetap utuh seratus persen, namun kecepatan yang kamu terima merosot hingga di bawah 2 Mbps. Hal ini tentu terasa tidak adil bagi konsumen.</p>
 
+
+
     <h2>Solusi Cerdas: Internet 100% Bebas FUP</h2>
+
     <p>Untuk menghindari jebakan "internet melambat di akhir bulan", satu-satunya jalan adalah beralih menggunakan layanan dari provider yang secara transparan menyatakan komitmen <strong>Tanpa FUP</strong> atau <strong>100% Unlimited</strong> secara riil.</p>
 
+
+
     <div class="compare-grid">
+
       <div class="compare-card">
+
         <h4><i class="fas fa-times-circle" style="color: #dc2626;"></i> Provider Ber-FUP</h4>
+
         <ul>
+
           <li>Klaim unlimited, tapi ada batas kuota GB tersembunyi.</li>
+
           <li>Kecepatan turun drastis saat batas FUP tercapai.</li>
+
           <li>Sering ngelag di pertengahan/akhir bulan.</li>
+
         </ul>
+
       </div>
+
       <div class="compare-card">
+
         <h4><i class="fas fa-check-circle" style="color: #16a34a;"></i> XL SATU Fiber</h4>
+
         <ul>
+
           <li>Benar-benar <em>unlimited</em> murni sepanjang bulan.</li>
+
           <li>Bebas unduh <em>game</em> atau <em>streaming</em> 4K berhari-hari.</li>
+
           <li>Kecepatan 100% stabil di tanggal 1 maupun 30.</li>
+
         </ul>
+
       </div>
+
     </div>
+
+
 
     <p><strong>XL SATU Fiber</strong> hadir sebagai solusi modern yang berpihak pada pelanggan. Kami berkomitmen penuh memberikan internet tanpa batasan FUP. Kecepatan 250 Mbps akan tetap menjadi 250 Mbps kapan pun kamu menggunakannya.</p>
 
+
+
     <div class="cta-box">
+
       <h3>Capek Kena FUP Tiap Bulan?</h3>
+
       <p>Tinggalkan koneksi lemot akhir bulan. Beralih ke XL SATU Fiber dan rasakan internet unlimited murni yang sebenarnya.</p>
+
       <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20langganan%20XL%20SATU%20yang%20tanpa%20FUP" target="_blank" rel="noopener noreferrer" class="btn-cta">
+
         <i class="fab fa-whatsapp"></i> Ganti ke Internet Bebas FUP
+
       </a>
+
     </div>
+
   `
+
 };
 
+
+
 ARTIKEL['eksperimen-game-streaming-zoom-bersamaan'] = {
+
   slug: 'eksperimen-game-streaming-zoom-bersamaan',
+
   title: 'Eksperimen Gila: Main Game, Netflix 4K, & Zoom Barengan Pakai XL SATU!',
+
   description: 'Apa jadinya kalau router XL SATU Fiber dipakai untuk Genshin Impact, streaming Netflix 4K, dan Zoom meeting secara bersamaan? Baca hasil eksperimen stres test kami.',
+
   keywords: ['wifi untuk game online', 'rekomendasi wifi banyak hp', 'review xl satu fiber', 'internet anti lag', 'wifi kuat buat streaming'],
+
   ogTitle: 'Eksperimen Gila: Siksa Bandwidth XL SATU, Apakah Routernya Meledak?',
+
   ogDescription: 'Hasil uji coba ekstrem: Main Genshin, Streaming Netflix 4K, dan Video Conference Zoom dalam satu waktu.',
+
   ogImage: '/images/banner-xlsatu-jadi-xlhome.jpg',
+
   schemas: [],
+
   faqs: [],
+
   hero: { crumb: '<a href="https://xlsatusolo.com/">Beranda</a> / Review & Performa', h1: 'Eksperimen Ekstrem Siksa Bandwidth', sub: 'Satu koneksi dipakai untuk 3 aktivitas berat secara bersamaan. Apakah koneksinya putus?', meta: 'Review &middot; XL SATU Solo Raya' },
+
   headerCta: 'https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20internet%20buat%20game%20online',
+
   bodyHtml: `
+
     <p>Memilih internet untuk keluarga dengan berbagai macam hobi seringkali memusingkan. Si anak butuh <em>ping</em> stabil untuk main <em>game online</em>, ibu hobi maraton drakor resolusi tinggi di <em>Smart TV</em>, sedangkan ayah butuh koneksi tanpa <em>delay</em> untuk <em>meeting Zoom</em> dengan klien luar negeri.</p>
+
     
+
     <p>Pertanyaannya: apakah ada satu paket WiFi yang kuat mengangkat ketiga beban berat tersebut secara bersamaan tanpa membuat salah satunya mengalah?</p>
 
+
+
     <div class="info-box">
+
       <strong>Uji Coba "Siksaan":</strong> Kami melakukan eksperimen ekstrem dengan menggunakan paket <strong>XL SATU Fiber Spark 250 Mbps</strong> untuk menjalankan 3 aktivitas rakus <em>bandwidth</em> secara paralel.
+
     </div>
+
+
 
     <h2>Skenario Ekstrem</h2>
+
     <p>Di sebuah rumah uji coba di area Solo, kami menyiapkan 3 perangkat yang terhubung ke satu router WiFi bawaan XL SATU:</p>
+
     <ul>
+
       <li><strong>Perangkat 1 (PC Gaming):</strong> Menjalankan <em>Genshin Impact</em> (atau setara Valorant/Mobile Legends) sambil mengunduh <em>update game</em> berukuran besar di latar belakang. Target: Memastikan <em>ping</em> tetap berwarna hijau.</li>
+
       <li><strong>Perangkat 2 (Smart TV):</strong> Memutar Netflix dengan kualitas resolusi tertinggi (Ultra HD / 4K). Target: Menghindari munculnya <em>loading wheel</em> / layar <em>buffering</em>.</li>
+
       <li><strong>Perangkat 3 (Laptop WFH):</strong> Menjalankan sesi <em>video conference</em> via Zoom dengan belasan peserta plus berbagi layar (<em>screen sharing</em>). Target: Gambar dan suara transmisi tidak patah-patah.</li>
+
     </ul>
 
+
+
     <h2>Hasil yang Mengejutkan</h2>
+
     <p>Apakah routernya kepanasan dan meledak? Tentu saja tidak! Hasil performa paket Spark ini sangat memuaskan di luar ekspektasi:</p>
+
     
+
     <div class="step-box">
+
       <div class="step-num"><i class="fas fa-gamepad" style="font-size: 14px;"></i></div>
+
       <div>
+
         <h4>Stabilitas Gaming Terjaga</h4>
+
         <p>Berkat rute jaringan langsung berbasis fiber optic murni, <em>ping</em> pada PC Gaming tetap konsisten di angka belasan milidetik (ms). Pergerakan karakter sangat <em>smooth</em> tanpa gejala <em>rubber-banding</em> (lag mundur), bahkan ketika jaringan sedang dipakai <em>download</em> besar-besaran.</p>
+
       </div>
+
     </div>
 
+
+
     <div class="step-box">
+
       <div class="step-num"><i class="fas fa-tv" style="font-size: 14px;"></i></div>
+
       <div>
+
         <h4>Streaming 4K Tanpa Buffering</h4>
+
         <p>Smart TV langsung memuat video dalam resolusi 4K hanya dalam waktu kurang dari 3 detik. Alokasi <em>bandwidth</em> dari paket 250 Mbps terbukti jauh lebih dari sekadar cukup untuk menyuplai data video <em>bitrate</em> super tinggi secara konstan.</p>
+
       </div>
+
     </div>
 
+
+
     <div class="step-box">
+
       <div class="step-num"><i class="fas fa-video" style="font-size: 14px;"></i></div>
+
       <div>
+
         <h4>Meeting Zoom Sejernih Kristal</h4>
+
         <p>Laptop WFH mendeteksi koneksi yang sangat stabil. Transmisi suara terjadi secara *real-time*, meniadakan momen-momen kikuk "halo-halo suara saya kedengaran?" saat berbicara dengan klien luar negeri.</p>
+
       </div>
+
     </div>
+
+
 
     <h2>Rahasia Dibalik Performa Solid</h2>
+
     <p>Rahasia dari kemampuan ini terletak pada teknologi <strong>100% Fiber Optic</strong> dari ujung ke ujung. Dibandingkan infrastruktur campuran yang rentan, kabel optik modern menjamin kecepatan transmisi yang stabil dengan kapasitas <em>throughput</em> masif.</p>
+
+
 
     <p>Selain itu, *bandwidth* dasar 250 Mbps secara hitungan teknis memang sanggup menangani setidaknya 10-15 perangkat secara serentak, menjadikannya pilihan <em>sweet spot</em> (paling ideal dan hemat) bagi rumah tangga modern di Indonesia.</p>
 
+
+
     <div class="cta-box">
+
       <h3>Butuh Internet Anti Lemot untuk Keluarga?</h3>
+
       <p>Sudahi perdebatan rebutan sinyal WiFi di rumah. Pasang XL SATU Spark 250 Mbps (Gratis Instalasi) sekarang juga!</p>
+
       <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20tertarik%20dengan%20kecepatan%20paket%20Spark%20250Mbps" target="_blank" rel="noopener noreferrer" class="btn-cta">
+
         <i class="fab fa-whatsapp"></i> Cek Ketersediaan Paket
+
       </a>
+
     </div>
+
   `
+
 };
+
 ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-satu-solo"] = {
+
   slug: "cara-berhenti-langganan-indihome-biznet-pindah-xl-satu-solo",
+
   title: "Cara Berhenti Langganan IndiHome/Biznet & Pindah ke XL SATU Solo",
+
   description: "Kecewa dengan FUP dan internet lemot di akhir bulan? Ini panduan lengkap cara berhenti berlangganan IndiHome, Biznet, atau MyRepublic, dan cara pindah ke XL SATU Fiber di Solo tanpa putus koneksi.",
+
   keywords: ["cara berhenti indihome", "cara putus biznet", "pindah ke xl satu solo", "wifi tanpa fup", "promo xl satu solo", "cara ganti provider wifi"],
+
   ogTitle: "Cara Berhenti Langganan IndiHome/Biznet & Pindah ke XL SATU Solo",
+
   ogDescription: "Kecewa dengan FUP dan internet lemot di akhir bulan? Ini panduan lengkap cara ganti provider wifi ke XL SATU Fiber Solo tanpa mati koneksi.",
+
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+
   schemas: [],
+
   faqs: [],
+
   hero: {
+
     crumb: "<a href='https://xlsatusolo.com/'>Beranda</a> / Cara Pindah Provider WiFi",
+
     h1: "Cara Berhenti Langganan IndiHome/Biznet & Pindah ke XL SATU",
+
     sub: "Solusi jitu untuk Anda yang lelah dengan FUP, internet lemot di akhir bulan, dan tagihan siluman. Pindah ke XL SATU tanpa putus koneksi!",
+
     meta: "Diperbarui Bulan Ini • XL SATU Solo Raya"
+
   },
+
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pindah%20dari%20provider%20lama%20ke%20XL%20SATU",
+
   bodyHtml: `
+
   <p>Internet sudah menjadi kebutuhan primer, namun banyak pelanggan ISP lama (seperti IndiHome, Biznet, atau MyRepublic) di Solo Raya yang merasa frustrasi. Jika Anda salah satunya, ini panduan lengkap untuk Anda.</p>
 
+
+
   <h2>Mengapa Banyak Warga Solo Pindah Provider WiFi?</h2>
+
   <div class="cause-grid">
+
     <div class="cause-item">
+
       <div class="num">1</div>
+
       <div>
+
         <h4>Kena Jebakan FUP</h4>
+
         <p>Awal bulan kencang, tapi di akhir bulan kecepatan diturunkan drastis (throttling) karena kuota FUP habis.</p>
+
       </div>
+
     </div>
+
     <div class="cause-item">
+
       <div class="num">2</div>
+
       <div>
+
         <h4>Tagihan Siluman</h4>
+
         <p>Harga promo di bulan pertama, namun tiba-tiba melonjak di bulan ke-4 tanpa pemberitahuan.</p>
+
       </div>
+
     </div>
+
     <div class="cause-item">
+
       <div class="num">3</div>
+
       <div>
+
         <h4>Lampu Merah (LOS) Berkepanjangan</h4>
+
         <p>Jika kabel putus, penanganan teknisi seringkali lambat dan susah dihubungi.</p>
+
       </div>
+
     </div>
+
   </div>
 
+
+
   <div class="info-box">
+
     <strong>Kabar Baik:</strong> Jika Anda mengalami hal di atas, ini saat yang tepat untuk bermigrasi ke <strong>XL SATU Fiber</strong> yang menawarkan 100% Unlimited Asli tanpa FUP dan harga tetap!
+
   </div>
+
+
 
   <h2>Strategi Pindah Provider Tanpa Putus Koneksi (Zero Downtime)</h2>
+
   <p>Ketakutan terbesar saat ganti WiFi adalah <em>"Nanti internet mati beberapa hari pas kerja dari rumah gimana?"</em>. Berikut adalah strategi aman agar Anda tetap online:</p>
+
   
+
   <div style="background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border: 1px solid #bbf7d0; border-radius: 14px; padding: 28px 24px; margin: 32px 0;">
+
     <div style="display:grid; gap:14px;">
+
       <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 18px; display:flex; gap:14px; align-items:flex-start;">
+
         <div style="flex-shrink:0; width:36px; height:36px; background:#dcfce7; border-radius:8px; display:flex; align-items:center; justify-content:center;"><i class="fas fa-wifi" style="color:#16a34a; font-size:15px;"></i></div>
+
         <div><strong style="font-size:14.5px;">1. Jangan Putus Provider Lama Dulu</strong><br><span style="font-size:13.5px; color:#555;">Biarkan WiFi lama Anda tetap aktif dan menyala di rumah.</span></div>
+
       </div>
+
       <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 18px; display:flex; gap:14px; align-items:flex-start;">
+
         <div style="flex-shrink:0; width:36px; height:36px; background:#fef3c7; border-radius:8px; display:flex; align-items:center; justify-content:center;"><i class="fas fa-headset" style="color:#d97706; font-size:15px;"></i></div>
+
         <div><strong style="font-size:14.5px;">2. Hubungi Agen XL SATU Solo</strong><br><span style="font-size:13.5px; color:#555;">Daftar lewat WA, biarkan tim kami cek jaringan dan menjadwalkan teknisi (3-7 hari kerja).</span></div>
+
       </div>
+
       <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 18px; display:flex; gap:14px; align-items:flex-start;">
+
         <div style="flex-shrink:0; width:36px; height:36px; background:#dbeafe; border-radius:8px; display:flex; align-items:center; justify-content:center;"><i class="fas fa-check-circle" style="color:#2563eb; font-size:15px;"></i></div>
+
         <div><strong style="font-size:14.5px;">3. Tunggu Sampai XL SATU Menyala</strong><br><span style="font-size:13.5px; color:#555;">Biarkan teknisi mengaktifkan router XL SATU Anda terlebih dahulu.</span></div>
+
       </div>
+
       <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 18px; display:flex; gap:14px; align-items:flex-start;">
+
         <div style="flex-shrink:0; width:36px; height:36px; background:#fee2e2; border-radius:8px; display:flex; align-items:center; justify-content:center;"><i class="fas fa-power-off" style="color:#dc2626; font-size:15px;"></i></div>
+
         <div><strong style="font-size:14.5px;">4. Lakukan Pemutusan (Disconnect) Provider Lama</strong><br><span style="font-size:13.5px; color:#555;">Barulah Anda mengurus pemutusan provider lama. Rumah Anda tidak akan pernah tanpa internet sedetik pun!</span></div>
+
       </div>
+
     </div>
+
   </div>
+
+
 
   <h2>Cara Mengurus Pemutusan IndiHome, Biznet & MyRepublic</h2>
+
   <p>Untuk berhenti berlangganan, ikuti langkah berikut agar tidak terus ditagih:</p>
+
   <ul>
+
     <li><strong>IndiHome:</strong> Datang ke Plasa Telkom (misal: Gladak) dengan membawa KTP asli dan Router/Modem/STB. Lunasi tagihan terakhir (prorata) agar tidak di-blacklist.</li>
+
     <li><strong>Biznet:</strong> Karena prabayar, cukup hubungi <em>customer service</em> atau datang ke cabang Biznet Solo untuk lapor penghentian dan kembalikan modem.</li>
+
     <li><strong>MyRepublic:</strong> Hubungi Call Center/Email maksimal 14 hari sebelum siklus tagihan berikutnya agar tidak kena penalti (bila sudah lewat masa kontrak).</li>
+
   </ul>
+
+
 
   <h2>Keuntungan Pindah ke XL SATU Fiber</h2>
+
   <ul>
+
     <li><strong>Bebas FUP:</strong> Nonton Netflix 4K, main game, dan download file besar sepuasnya tanpa takut speed turun.</li>
+
     <li><strong>Harga Flat:</strong> Apa yang Anda lihat, itu yang Anda bayar. Tidak ada tagihan siluman.</li>
+
     <li><strong>CS Lokal & Responsif:</strong> Dibantu langsung oleh agen resmi lokal Solo Raya, tanpa harus lewat bot yang membingungkan.</li>
+
   </ul>
 
+
+
   <div class="cta-box">
+
     <h3>Siap Pindah Tanpa Ribet?</h3>
+
     <p>Tim support XL SATU siap bantu cek ketersediaan fiber optic di area kamu dan memproses pemasangan dengan cepat.</p>
+
     <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pindah%20dari%20provider%20lama%20ke%20XL%20SATU" target="_blank" rel="noopener noreferrer" class="btn-cta">
+
       <i class="fab fa-whatsapp"></i> Chat Admin Sekarang
+
     </a>
+
   </div>
+
+
 
   <h2>Cek Area Layanan di Kotamu</h2>
+
   <p>XL SATU melayani pemasangan internet rumah dan kos di 5 wilayah Solo Raya: Sudah siap daftar? Baca <a href="/cara-daftar-pasang-wifi-xl-satu-solo/">panduan lengkap cara daftar & syarat pemasangan</a>.</p>
+
   <div class="related-cities">
+
     <a href="/wifi-solo/">Pasang WiFi Solo</a>
+
     <a href="/wifi-sukoharjo/">Pasang WiFi Sukoharjo</a>
+
     <a href="/wifi-karanganyar/">Pasang WiFi Karanganyar</a>
+
     <a href="/wifi-klaten/">Pasang WiFi Klaten</a>
+
     <a href="/wifi-boyolali/">Pasang WiFi Boyolali</a>
+
     <a href="/wifi-surakarta/">Pasang WiFi Surakarta</a>
+
   </div>
+
   `
+
 };
+
 ARTIKEL["xl-satu-resmi-jadi-xl-home"] = {
+
   slug: "xl-satu-resmi-jadi-xl-home",
+
   title: "XL SATU Resmi Berganti Nama Menjadi XL Home – Apa yang Berubah?",
+
   description: "XL SATU kini resmi menjadi XL Home. Simak apa saja yang berubah, apakah paket internet lama tetap berlaku, dan kenapa ini kabar baik untuk pelanggan di Solo Raya.",
+
   keywords: ["xl satu jadi xl home","xl satu berganti nama","xl home solo raya","xl home adalah","rebranding xl satu xl home"],
+
   ogTitle: "XL SATU Resmi Berganti Nama Menjadi XL Home",
+
   ogDescription: "XL SATU kini resmi menjadi XL Home. Paket lama tetap berlaku, jaringan makin baik. Info lengkap untuk pelanggan Solo Raya.",
+
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+
   schemas: [],
+
   faqs: [
+
     { q: "XL SATU dan XL Home itu sama atau berbeda?", a: "Sama persis. XL Home adalah nama baru dari XL SATU. Produk, jaringan, dan layanannya identik — hanya nama dan tampilannya yang diperbarui." },
+
     { q: "Apakah paket lama saya masih berlaku setelah XL SATU jadi XL Home?", a: "Ya, 100% masih berlaku. Pergantian nama tidak mempengaruhi paket, kecepatan, atau tagihan Anda sama sekali." },
+
     { q: "Bagaimana cara daftar XL Home di Solo Raya?", a: "Caranya sama seperti dulu: hubungi admin kami via WhatsApp, kirimkan alamat lengkap Anda, dan kami akan cek ketersediaan jaringan di lokasi Anda." }
+
   ],
+
   hero: { crumb: "<a href=\"https://xlhomesolo.com/\">Beranda</a> / XL SATU Jadi XL Home", h1: "XL SATU Resmi Berganti Nama Menjadi XL Home", sub: "Wajah baru, semangat baru — internet rumah unlimited tanpa FUP di Solo Raya tetap hadir untuk Anda.", meta: "Diperbarui 1 Oktober 2026 · XL Home Solo Raya" },
+
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak%2C%20saya%20mau%20tanya%20soal%20XL%20Home%20di%20Solo%20Raya",
+
   bodyHtml: `
+
   <div style="background: linear-gradient(135deg, #037e64 0%, #05a986 100%); color: white; border-radius: 16px; padding: 24px 28px; margin-bottom: 32px; display: flex; align-items: flex-start; gap: 16px;">
+
     <span style="font-size: 32px;">📣</span>
+
     <div>
+
       <strong style="font-size: 18px; display: block; margin-bottom: 6px;">Pengumuman Resmi</strong>
+
       <span>XL SATU secara resmi telah berganti nama menjadi <strong>XL Home</strong>. Perubahan ini berlaku mulai 2026 dan merupakan bagian dari transformasi besar XL Axiata untuk menghadirkan layanan internet rumah yang lebih baik di seluruh Indonesia.</span>
+
     </div>
+
   </div>
+
+
 
   <div style="margin: 28px 0; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
+
     <video src="/videos/xl-satu-ganti-nama-xl-home.mp4" controls playsInline poster="/images/banner-xlsatu-jadi-xlhome.jpg" style="width: 100%; height: auto; display: block;" aria-label="Video resmi XL SATU berganti nama menjadi XL Home">
+
       Browser Anda tidak mendukung pemutaran video.
+
     </video>
+
     <p style="background: #f8f9fa; margin: 0; padding: 10px 16px; font-size: 13px; color: #555; text-align: center;">Video resmi: XL SATU kini hadir sebagai XL Home</p>
+
   </div>
+
+
 
   <h2>Apa Itu XL Home?</h2>
+
   <p>XL Home adalah nama baru dari layanan internet rumah <strong>XL SATU</strong> yang sudah banyak Anda kenal. Perubahan nama ini adalah bagian dari strategi <em>rebranding</em> XL Axiata untuk menyatukan seluruh lini layanan internet rumah mereka di bawah satu nama yang lebih modern dan mudah diingat.</p>
+
   <p>Jadi kalau selama ini Anda mengenal "WiFi XL SATU", "Pasang XL SATU", atau "Internet XL SATU" — sekarang semuanya sudah berubah nama menjadi <strong>XL Home</strong>.</p>
 
+
+
   <h2>Apa yang Berubah?</h2>
+
   <div class="compare-grid">
+
     <div class="compare-card">
+
       <h4>✅ Yang TETAP SAMA</h4>
+
       <ul>
+
         <li>Jaringan fiber optik &amp; wireless (FWA)</li>
+
         <li>Teknologi XLSMART yang andal</li>
+
         <li>Internet unlimited tanpa FUP</li>
+
         <li>Nomor layanan pelanggan</li>
+
         <li>Paket dan harga yang berlaku</li>
+
       </ul>
+
     </div>
+
     <div class="compare-card">
+
       <h4>🔄 Yang BERUBAH</h4>
+
       <ul>
+
         <li>Nama layanan: XL SATU → <strong>XL Home</strong></li>
+
         <li>Logo dan identitas visual</li>
+
         <li>Nama di aplikasi MyXL</li>
+
       </ul>
+
     </div>
+
   </div>
+
+
 
   <h2>Apakah Paket Lama Saya Masih Berlaku?</h2>
+
   <p><strong>Ya, 100% masih berlaku.</strong> Pergantian nama dari XL SATU ke XL Home tidak mempengaruhi paket, kecepatan, atau tagihan Anda sama sekali. Layanan tetap berjalan normal seperti biasa.</p>
 
+
+
   <div class="info-box">
+
     <strong>Untuk pelanggan lama XL SATU di Solo Raya:</strong> Tidak ada yang perlu dikhawatirkan. Kontrak, paket, dan nomor perangkat Anda tetap valid. Hanya nama brand-nya yang berganti menjadi XL Home.
+
   </div>
+
+
 
   <h2>XL Home di Solo Raya</h2>
+
   <p>Kami, sebagai agen resmi XL Home di Solo Raya, tetap melayani Anda dengan nomor dan layanan yang sama. Anda tetap bisa menghubungi kami untuk:</p>
+
   <ul>
+
     <li>Pasang internet baru (Fiber &amp; Wireless/FWA)</li>
+
     <li>Cek ketersediaan jaringan di alamat Anda</li>
+
     <li>Pertanyaan seputar tagihan &amp; layanan</li>
+
     <li>Upgrade paket ke kecepatan lebih tinggi</li>
+
   </ul>
 
+
+
   <div class="cta-box">
+
     <h3>Daftar XL Home di Solo Raya Sekarang</h3>
+
     <p>Prosesnya mudah dan cepat. Chat admin kami via WhatsApp untuk cek ketersediaan jaringan di alamat Anda.</p>
+
     <a href="https://wa.me/6287778999141?text=Halo%20kak%2C%20saya%20mau%20daftar%20XL%20Home%20di%20Solo%20Raya" target="_blank" rel="noopener noreferrer" class="btn-cta">
+
       <i class="fab fa-whatsapp"></i> Chat 0877-7899-9141
+
     </a>
+
   </div>
 
+
+
   <div class="related-cities">
+
     <a href="/wifi-solo/">Pasang WiFi Solo</a>
+
     <a href="/wifi-sukoharjo/">Pasang WiFi Sukoharjo</a>
+
     <a href="/wifi-karanganyar/">Pasang WiFi Karanganyar</a>
+
     <a href="/wifi-klaten/">Pasang WiFi Klaten</a>
+
     <a href="/wifi-boyolali/">Pasang WiFi Boyolali</a>
+
     <a href="/wifi-surakarta/">Pasang WiFi Surakarta</a>
+
   </div>
+
 `,
+
 };
+
+
+
 
 
 ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
+
   slug: "nomor-sales-xl-home-solo-raya",
+
   title: "Nomor Sales & Agen Resmi XL Home Solo Raya (2026)",
+
   description: "Cari nomor sales XL Home (XL SATU) wilayah Solo Raya? Hubungi agen resmi di 0877-7899-9141 untuk cek coverage, daftar pasang baru, & info promo terbaru.",
+
   keywords: ["nomor sales xl home", "kontak xl home solo", "wa xl home solo raya", "call center xl home solo", "agen xl home solo", "pasang xl home", "nomor wa xl satu"],
+
   ogTitle: "Nomor Sales & Agen Resmi XL Home Solo Raya",
+
   ogDescription: "Cari nomor sales XL Home wilayah Solo Raya? Hubungi agen resmi kami untuk cek coverage, daftar pasang baru, & info promo terbaru via WhatsApp.",
+
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+
   schemas: [],
+
   hero: {
+
     crumb: '<a href="/">Beranda</a> / Nomor Sales XL Home Solo Raya',
+
     h1: "Nomor Sales & Agen Resmi XL Home Solo Raya (2026)",
+
     sub: "Hubungi kontak resmi kami untuk cek jaringan fiber optic, konsultasi paket, dan jadwal pemasangan WiFi XL Home di Solo Raya.",
+
     meta: "Diperbarui 1 Oktober 2026 • XL Home Solo Raya",
+
   },
+
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20dapat%20nomor%20ini%20dari%20website%20resmi,%20mau%20tanya%20paket%20XL%20Home",
+
   faqs: [
+
     {
+
       q: "Berapa nomor WA sales resmi XL Home Solo Raya?",
+
       a: "Nomor agen resmi XL Home wilayah Solo Raya (Solo, Sukoharjo, Karanganyar, Boyolali, Klaten) adalah 0877-7899-9141. Anda bisa menghubungi nomor ini via WhatsApp untuk pendaftaran pemasangan baru.",
+
     },
+
     {
+
       q: "Apakah pendaftaran lewat agen resmi ini gratis?",
+
       a: "Ya, pendaftaran lewat agen resmi kami 100% gratis. Anda baru akan membayar tagihan resmi setelah internet berhasil dipasang dan menyala di rumah Anda.",
+
     },
+
     {
+
       q: "Apakah layanan call center buka 24 jam?",
+
       a: "Untuk pendaftaran dan cek jaringan melalui sales (0877-7899-9141), kami melayani dari pagi hingga malam hari via WhatsApp. Untuk gangguan teknis pasca-pemasangan, Anda bisa menghubungi Call Center Nasional (820).",
+
     }
+
   ],
+
   bodyHtml: `
+
   <p>Sedang mencari <strong>nomor sales XL Home (dulu XL SATU) di wilayah Solo Raya</strong> untuk pasang WiFi baru? Anda berada di tempat yang tepat. Mendaftar lewat agen/sales lokal seringkali jauh lebih cepat dan praktis dibandingkan mendaftar lewat jalur call center nasional, karena agen lokal bisa langsung mengecek ketersediaan jaringan di tiang terdekat rumah Anda.</p>
+
   
+
   <h2>Kontak Agen Resmi XL Home Solo Raya</h2>
+
   <div class="stat-box" style="text-align:center; padding: 24px; border: 2px dashed var(--navy); border-radius: 12px; margin-bottom: 24px; background: #f8faff;">
+
     <p style="margin:0; font-size: 14px; color: var(--text-muted);">Nomor WhatsApp Sales / Agen Resmi:</p>
+
     <div style="font-size: 32px; font-weight: 800; color: var(--navy); margin: 8px 0;">0877-7899-9141</div>
+
     <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home" target="_blank" rel="noopener noreferrer" class="btn-pilih" style="display:inline-block; padding: 8px 24px; background: #25D366; color:#fff; border-radius: 99px; text-decoration: none; font-weight: bold;"><i class="fab fa-whatsapp"></i> Chat via WhatsApp</a>
+
   </div>
+
+
 
   <h2>Layanan yang Bisa Dibantu oleh Sales Lokal</h2>
+
   <p>Dengan menghubungi nomor sales XL Home di atas, Anda bisa langsung mendapatkan bantuan untuk:</p>
+
   <ul>
+
     <li><strong>Cek Coverage (Ketersediaan Jaringan):</strong> Cukup kirimkan alamat lengkap rumah Anda, sales kami akan langsung mengecek apakah area Anda sudah tercover jaringan fiber optic XL Home atau paket Wireless (FWA).</li>
+
     <li><strong>Konsultasi Pilihan Paket:</strong> Bingung memilih kecepatan yang pas? Sales kami akan merekomendasikan paket (mulai 50 Mbps hingga 1 Gbps) sesuai dengan jumlah perangkat dan pemakaian di rumah Anda.</li>
+
     <li><strong>Informasi Promo Terbaru:</strong> Dapatkan info promo diskon bulanan, harga khusus <em>advance payment</em> (bayar 10 bulan gratis 2 bulan), hingga gratis biaya instalasi.</li>
+
     <li><strong>Penjadwalan Teknisi:</strong> Pendaftaran akan langsung diproses ke sistem pusat agar teknisi bisa segera dijadwalkan datang ke rumah Anda.</li>
+
   </ul>
 
+
+
   <h2>Kenapa Lebih Baik Daftar via Sales Lokal?</h2>
+
   <div class="compare-grid">
+
     <div class="compare-card">
+
       <h4><i class="fas fa-headset"></i> Call Center / Web Pusat</h4>
+
       <ul>
+
         <li>Proses verifikasi data sering memakan waktu lebih lama.</li>
+
         <li>Terkadang sistem tidak bisa membaca gang atau alamat detail di Solo.</li>
+
         <li>Harus melewati antrean telepon atau email.</li>
+
       </ul>
+
     </div>
+
     <div class="compare-card">
+
       <h4><i class="fas fa-user-tie"></i> Sales Lokal (Solo Raya)</h4>
+
       <ul>
+
         <li>Respon sangat cepat via WhatsApp.</li>
+
         <li>Bisa survei manual jika alamat di map kurang jelas.</li>
+
         <li>Pendaftaran dipantau terus sampai teknisi berhasil pasang.</li>
+
         <li>Bisa tanya-tanya santai dengan bahasa lokal.</li>
+
       </ul>
+
     </div>
+
   </div>
+
+
 
   <div class="info-box">
+
     <strong>Penting:</strong> Nomor 0877-7899-9141 melayani wilayah <strong>Kota Solo (Surakarta), Sukoharjo, Karanganyar, Klaten, dan Boyolali</strong>. Pendaftaran lewat agen kami 100% GRATIS tanpa dipungut biaya pendaftaran di awal.
+
   </div>
 
+
+
   <h2>Pertanyaan yang Sering Ditanyakan (FAQ)</h2>
+
   <h3>Berapa nomor WA sales resmi XL Home Solo Raya?</h3>
+
   <p>Nomor agen resmi XL Home wilayah Solo Raya (Solo, Sukoharjo, Karanganyar, Boyolali, Klaten) adalah <strong>0877-7899-9141</strong>. Anda bisa menghubungi nomor ini via WhatsApp untuk pendaftaran pemasangan baru.</p>
+
   
+
   <h3>Apakah pendaftaran lewat agen resmi ini gratis?</h3>
+
   <p>Ya, pendaftaran lewat agen resmi kami 100% gratis. Anda baru akan membayar tagihan resmi (biasanya melalui Indomaret, Alfamart, m-Banking, dll) <em>setelah</em> internet berhasil dipasang dan menyala di rumah Anda.</p>
+
   
+
   <h3>Apakah melayani keluhan/gangguan jaringan yang sudah terpasang?</h3>
+
   <p>Untuk pendaftaran dan cek jaringan melalui sales (0877-7899-9141). Namun untuk gangguan teknis jika Anda sudah menjadi pelanggan lama, Anda disarankan langsung menghubungi Call Center Nasional XL di nomor 820 (dari nomor XL) atau chat ke akun resmi MyXL, agar tiket perbaikan segera dibuatkan oleh tim teknis pusat.</p>
+
   
+
   <div class="cta-box">
+
     <h3>Ingin Segera Pasang WiFi di Rumah?</h3>
+
     <p>Jangan tunggu lama, hubungi sales kami sekarang untuk mengecek ketersediaan jaringan dan langsung jadwalkan pemasangan.</p>
+
     <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home,%20tolong%20cek%20lokasi%20saya" target="_blank" rel="noopener noreferrer" class="btn-cta">
+
       <i class="fab fa-whatsapp"></i> Chat Sales Solo Raya Sekarang
+
     </a>
+
   </div>
+
   `,
+
 };
+
+
+
 
 
 ARTIKEL["pasang-wifi-murah-colomadu"] = {
+
   slug: "pasang-wifi-murah-colomadu",
+
   title: "Pasang WiFi Murah Colomadu & Kartasura | XL Home Fiber",
+
   description: "Cari WiFi murah tanpa FUP di Colomadu dan Kartasura? XL Home solusinya. Cek coverage area, daftar paket internet fiber mulai 50 Mbps, dan gratis biaya pasang.",
+
   keywords: ["pasang wifi colomadu", "wifi murah kartasura", "xl home colomadu", "provider internet colomadu", "wifi tanpa fup colomadu"],
+
   ogTitle: "Pasang WiFi Murah Colomadu & Kartasura | XL Home",
+
   ogDescription: "Promo pemasangan WiFi XL Home di Colomadu dan Kartasura. Internet fiber optic super cepat, tanpa batasan FUP. Cek area Anda sekarang!",
+
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+
   schemas: [],
+
   hero: {
+
     crumb: '<a href="/">Beranda</a> / WiFi Colomadu',
+
     h1: "Pasang WiFi Murah Colomadu & Kartasura (2026)",
+
     sub: "Kini XL Home (dulu XL SATU) telah hadir menjangkau kawasan perumahan dan kos di Colomadu dan Kartasura. Internet stabil, tanpa FUP, gratis biaya instalasi.",
+
     meta: "Diperbarui Bulan Ini • XL Home Solo Raya",
+
   },
+
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20coverage%20XL%20Home%20di%20daerah%20Colomadu",
+
   faqs: [
+
     {
+
       q: "Apakah area Colomadu sudah tercover XL Home?",
+
       a: "Sebagian besar kawasan perumahan padat, klaster baru, dan area dekat bandara Adi Soemarmo di Colomadu sudah tercover jaringan fiber optic XL Home. Untuk area spesifik, silakan kirim share location via WA agar kami cek langsung di sistem."
+
     },
+
     {
+
       q: "Berapa biaya pasang WiFi di Colomadu?",
+
       a: "Saat ini tersedia promo GRATIS biaya instalasi untuk pemasangan baru di seluruh wilayah Colomadu dan Kartasura."
+
     }
+
   ],
+
   bodyHtml: `
+
   <p>Pertumbuhan perumahan dan kos-kosan di area <strong>Colomadu</strong> dan <strong>Kartasura</strong> sangat pesat. Mulai dari pekerja kantoran, mahasiswa, hingga keluarga baru banyak yang menetap di wilayah strategis ini. Sayangnya, tidak semua provider internet mampu memberikan koneksi yang stabil, murah, dan benar-benar <em>unlimited</em> (tanpa FUP).</p>
+
   
+
   <h2>Solusi Internet Rumah Colomadu: XL Home</h2>
+
   <p>Hadir sebagai solusi, <strong>XL Home (sebelumnya XL SATU)</strong> kini memperluas jaringannya di perbatasan Surakarta - Karanganyar - Sukoharjo ini. Berikut alasan kenapa warga Colomadu mulai beralih ke XL Home:</p>
+
   <ul>
+
     <li><strong>Kecepatan Simetris & Stabil:</strong> Menggunakan jaringan Fiber Optic murni, 100% tahan cuaca.</li>
+
     <li><strong>Benar-benar Tanpa FUP:</strong> Pakai berapapun besarnya (streaming 4K, download game bergiga-giga), kecepatan tidak akan diturunkan di tengah bulan.</li>
+
     <li><strong>Satu Tagihan untuk Keluarga:</strong> Beberapa paket sudah termasuk kuota HP (kuota bersama) yang bisa dibagi ke anggota keluarga.</li>
+
   </ul>
 
+
+
   <h2>Perumahan di Colomadu yang Sering Memasang XL Home</h2>
+
   <p>Berdasarkan data teknisi kami, jaringan kabel fiber XL Home sudah aktif di berbagai perumahan dan klaster di Colomadu, Fajar Indah, Tohudan, Baturan, hingga Kartasura. Jika rumah Anda berada di perumahan baru, peluang untuk bisa terpasang sangatlah besar.</p>
 
+
+
   <div class="cta-box">
+
     <h3>Cek Ketersediaan Jaringan di Rumah Anda</h3>
+
     <p>Tidak perlu repot menelepon call center. Cukup kirimkan lokasi Anda via WhatsApp, tim agen lokal kami di Solo Raya akan segera mengecek tiang terdekat.</p>
+
     <a href="https://wa.me/6287778999141?text=Halo%20kak,%20tolong%20cek%20coverage%20XL%20Home%20di%20Colomadu:%20[alamat]" target="_blank" rel="noopener noreferrer" class="btn-cta">
+
       <i class="fab fa-whatsapp"></i> Cek Lokasi Sekarang (Gratis)
+
     </a>
+
   </div>
+
   `
+
 };
+
+
 
 ARTIKEL["pasang-wifi-murah-jebres-solo"] = {
+
   slug: "pasang-wifi-murah-jebres-solo",
+
   title: "Pasang WiFi Jebres Solo (Dekat UNS) | XL Home",
+
   description: "Layanan pasang WiFi murah tanpa FUP di Jebres, Solo. Sangat cocok untuk mahasiswa UNS, kos-kosan, dan keluarga. Pemasangan cepat & gratis instalasi.",
+
   keywords: ["pasang wifi jebres", "wifi murah jebres solo", "wifi kos uns", "xl home jebres", "internet murah solo utara"],
+
   ogTitle: "Pasang WiFi Jebres Solo | Bebas FUP, Kuota Melimpah",
+
   ogDescription: "Solusi internet rumah & kos di Jebres Solo. Jaringan fiber optic XL Home stabil untuk mahasiswa & keluarga. Cek coverage sekarang!",
+
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+
   schemas: [],
+
   hero: {
+
     crumb: '<a href="/">Beranda</a> / WiFi Jebres Solo',
+
     h1: "Pasang WiFi Murah Jebres Solo (2026)",
+
     sub: "Internet fiber andalan mahasiswa, kos-kosan, dan keluarga di area Jebres, Mojosongo, dan sekitarnya. Tanpa batasan kuota FUP.",
+
     meta: "Diperbarui Bulan Ini • XL Home Solo Raya",
+
   },
+
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home%20di%20Jebres",
+
   faqs: [
+
     {
+
       q: "Apakah bisa dipasang di kamar kos Jebres?",
+
       a: "Sangat bisa! Namun pastikan Anda sudah mendapat izin dari bapak/ibu pemilik kos untuk penarikan kabel fiber dari luar ke dalam kamar."
+
     },
+
     {
+
       q: "Berapa lama proses pemasangan di area Jebres?",
+
       a: "Jika jaringan di titik Anda dipastikan tersedia (ODP terdekat ada slot kosong), teknisi biasanya akan datang H+1 atau maksimal H+3 dari waktu pendaftaran."
+
     }
+
   ],
+
   bodyHtml: `
+
   <p>Kecamatan <strong>Jebres</strong> merupakan salah satu sentra pendidikan dan permukiman padat di Kota Solo. Kehadiran kampus-kampus besar seperti UNS dan ISI membuat kebutuhan internet berkecepatan tinggi menjadi sangat krusial di wilayah ini.</p>
 
+
+
   <h2>Internet Andalan Mahasiswa & Keluarga di Jebres</h2>
+
   <p>Merespons tingginya permintaan internet murah tanpa batasan kuota (FUP), <strong>XL Home Solo Raya</strong> telah melakukan ekspansi jaringan kabel <em>Fiber Optic</em> secara masif di wilayah Jebres, Kentingan, Mojosongo, Jagalan, hingga Pucangsawit.</p>
 
+
+
   <div class="info-box">
+
     <strong>Kenapa Pilih XL Home untuk Anak Kos / Mahasiswa?</strong>
+
     Banyak paket WiFi di luaran sana yang menjanjikan harga murah namun kecepatannya diturunkan drastis (kena FUP) saat akhir bulan. Dengan XL Home, kecepatan 50 Mbps akan tetap 50 Mbps sepanjang waktu! Sangat cocok untuk begadang ngerjain skripsi, render tugas berat, atau sekadar <em>mabar</em> tanpa <em>lag</em>.
+
   </div>
+
+
 
   <h2>Daftar Harga Paket (Bisa Patungan Kos!)</h2>
+
   <p>Untuk kos dengan 2-4 penghuni, paket 50 Mbps sangat direkomendasikan. Jika dibagi per kepala, tagihan bulanannya jadi sangat ringan setara dengan uang jajan sehari. Apalagi saat ini ada promo pendaftaran <strong>Gratis Biaya Instalasi</strong> dan alat (router) dipinjamkan secara gratis selama berlangganan.</p>
 
+
+
   <div class="cta-box">
+
     <h3>Tanya Promo & Cek Jaringan Area Jebres</h3>
+
     <p>Hubungi sales lokal kami agar diproses lebih cepat dibanding lewat call center pusat.</p>
+
     <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home%20di%20Jebres,%20mohon%20dicek%20ketersediaannya." target="_blank" rel="noopener noreferrer" class="btn-cta">
+
       <i class="fab fa-whatsapp"></i> Chat WhatsApp Sales Solo
+
     </a>
+
   </div>
+
   `
+
 };
+
