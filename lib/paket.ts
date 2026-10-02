@@ -251,7 +251,7 @@ export const WIRELESS_ADVANCE: WirelessTier[] = [
   {
     speed: 50,
     badge: "Hemat 25%",
-    icon: "fas fa-gauge",
+    icon: "Gauge",
     label: "Advance Payment — Bayar 3 Dapat 4",
     price: "Rp 650.000",
     note: "untuk 4 bulan • ≈ Rp162.500/bulan",
@@ -260,7 +260,7 @@ export const WIRELESS_ADVANCE: WirelessTier[] = [
   {
     speed: 100,
     badge: "Best Seller",
-    icon: "fas fa-gauge-high",
+    icon: "GaugeHigh",
     label: "Advance Payment — Bayar 3 Dapat 4",
     price: "Rp 790.000",
     note: "untuk 4 bulan • ≈ Rp197.500/bulan",
@@ -272,7 +272,7 @@ export const WIRELESS_MONTHLY: WirelessTier[] = [
   {
     speed: 100,
     badge: "Best Seller",
-    icon: "fas fa-gauge-high",
+    icon: "GaugeHigh",
     label: "Monthly Plan",
     price: "Rp 219.500",
     note: "/bulan",

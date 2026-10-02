@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, Gift, CheckCircle2, Settings, PlayCircle, ChevronUp, ChevronDown, CalendarCheck } from "lucide-react";
+import { MapPin, Wifi, Gauge, PlugZap, Gift, CheckCircle2, Settings, PlayCircle, ChevronUp, ChevronDown, CalendarCheck } from "lucide-react";
 import NumberCounter from "@/components/animations/NumberCounter";
 
 import { useEffect, useRef, useState } from "react";
@@ -229,11 +229,7 @@ export function FiberPaket({ promoBadge = "Promo XL Satu Soloraya" }: { promoBad
               }}
             >
               {showAll ? "Sembunyikan Paket " : "Lihat Semua Paket "}
-              <i
-                className={`fas fa-chevron-${showAll ? "up" : "down"}`}
-                id="toggle-icon"
-                style={{ marginLeft: 6 }}
-              ></i>
+              {showAll ? <ChevronUp size={16} style={{ marginLeft: 6 }} /> : <ChevronDown size={16} style={{ marginLeft: 6 }} /> }
             </button>
           </div>
         )}
@@ -560,14 +556,7 @@ export function WirelessPaket({
                         {w.badge}
                       </span>
                     )}
-                    <i
-                      className={`fas ${w.icon}`}
-                      style={{
-                        color: "var(--green)",
-                        fontSize: 36,
-                        marginBottom: 8,
-                      }}
-                    ></i>
+                    <div style={{ color: "var(--green)", marginBottom: 8 }}><Gauge size={36} /></div>
                     <div className="speed-num">
                       {w.speed} <span>Mbps</span>
                     </div>
@@ -643,14 +632,7 @@ export function WirelessPaket({
                           {w.badge}
                         </span>
                       )}
-                    <i
-                      className={`fas ${w.icon}`}
-                      style={{
-                        color: "var(--green)",
-                        fontSize: 36,
-                        marginBottom: 8,
-                      }}
-                    ></i>
+                    <div style={{ color: "var(--green)", marginBottom: 8 }}><Gauge size={36} /></div>
                     <div className="speed-num">
                       {w.speed} <span>Mbps</span>
                     </div>
