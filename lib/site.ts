@@ -7,7 +7,7 @@ export const PHONE_DISPLAY = "0877-7899-9141";
 export const PHONE_INTL = "6287778999141";
 export const PHONE_TEL = "+6287778999141";
 
-export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-9R0LKSXL8Y";
+export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-5YWJ5LP9LG";
 export const ADS_ID = process.env.NEXT_PUBLIC_ADS_ID || "AW-938834270";
 export const IS_STAGING = (process.env.NEXT_PUBLIC_STAGING ?? "true") !== "false";
 
