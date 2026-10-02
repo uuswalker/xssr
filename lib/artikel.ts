@@ -861,3 +861,104 @@ ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
   </div>
   `,
 };
+
+
+ARTIKEL["pasang-wifi-murah-colomadu"] = {
+  slug: "pasang-wifi-murah-colomadu",
+  title: "Pasang WiFi Murah Colomadu & Kartasura | XL Home Fiber",
+  description: "Cari WiFi murah tanpa FUP di Colomadu dan Kartasura? XL Home solusinya. Cek coverage area, daftar paket internet fiber mulai 50 Mbps, dan gratis biaya pasang.",
+  keywords: ["pasang wifi colomadu", "wifi murah kartasura", "xl home colomadu", "provider internet colomadu", "wifi tanpa fup colomadu"],
+  ogTitle: "Pasang WiFi Murah Colomadu & Kartasura | XL Home",
+  ogDescription: "Promo pemasangan WiFi XL Home di Colomadu dan Kartasura. Internet fiber optic super cepat, tanpa batasan FUP. Cek area Anda sekarang!",
+  ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+  schemas: [],
+  hero: {
+    crumb: '<a href="/">Beranda</a> / WiFi Colomadu',
+    h1: "Pasang WiFi Murah Colomadu & Kartasura (2026)",
+    sub: "Kini XL Home (dulu XL SATU) telah hadir menjangkau kawasan perumahan dan kos di Colomadu dan Kartasura. Internet stabil, tanpa FUP, gratis biaya instalasi.",
+    meta: "Diperbarui Bulan Ini • XL Home Solo Raya",
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20coverage%20XL%20Home%20di%20daerah%20Colomadu",
+  faqs: [
+    {
+      q: "Apakah area Colomadu sudah tercover XL Home?",
+      a: "Sebagian besar kawasan perumahan padat, klaster baru, dan area dekat bandara Adi Soemarmo di Colomadu sudah tercover jaringan fiber optic XL Home. Untuk area spesifik, silakan kirim share location via WA agar kami cek langsung di sistem."
+    },
+    {
+      q: "Berapa biaya pasang WiFi di Colomadu?",
+      a: "Saat ini tersedia promo GRATIS biaya instalasi untuk pemasangan baru di seluruh wilayah Colomadu dan Kartasura."
+    }
+  ],
+  bodyHtml: `
+  <p>Pertumbuhan perumahan dan kos-kosan di area <strong>Colomadu</strong> dan <strong>Kartasura</strong> sangat pesat. Mulai dari pekerja kantoran, mahasiswa, hingga keluarga baru banyak yang menetap di wilayah strategis ini. Sayangnya, tidak semua provider internet mampu memberikan koneksi yang stabil, murah, dan benar-benar <em>unlimited</em> (tanpa FUP).</p>
+  
+  <h2>Solusi Internet Rumah Colomadu: XL Home</h2>
+  <p>Hadir sebagai solusi, <strong>XL Home (sebelumnya XL SATU)</strong> kini memperluas jaringannya di perbatasan Surakarta - Karanganyar - Sukoharjo ini. Berikut alasan kenapa warga Colomadu mulai beralih ke XL Home:</p>
+  <ul>
+    <li><strong>Kecepatan Simetris & Stabil:</strong> Menggunakan jaringan Fiber Optic murni, 100% tahan cuaca.</li>
+    <li><strong>Benar-benar Tanpa FUP:</strong> Pakai berapapun besarnya (streaming 4K, download game bergiga-giga), kecepatan tidak akan diturunkan di tengah bulan.</li>
+    <li><strong>Satu Tagihan untuk Keluarga:</strong> Beberapa paket sudah termasuk kuota HP (kuota bersama) yang bisa dibagi ke anggota keluarga.</li>
+  </ul>
+
+  <h2>Perumahan di Colomadu yang Sering Memasang XL Home</h2>
+  <p>Berdasarkan data teknisi kami, jaringan kabel fiber XL Home sudah aktif di berbagai perumahan dan klaster di Colomadu, Fajar Indah, Tohudan, Baturan, hingga Kartasura. Jika rumah Anda berada di perumahan baru, peluang untuk bisa terpasang sangatlah besar.</p>
+
+  <div class="cta-box">
+    <h3>Cek Ketersediaan Jaringan di Rumah Anda</h3>
+    <p>Tidak perlu repot menelepon call center. Cukup kirimkan lokasi Anda via WhatsApp, tim agen lokal kami di Solo Raya akan segera mengecek tiang terdekat.</p>
+    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20tolong%20cek%20coverage%20XL%20Home%20di%20Colomadu:%20[alamat]" target="_blank" rel="noopener noreferrer" class="btn-cta">
+      <i class="fab fa-whatsapp"></i> Cek Lokasi Sekarang (Gratis)
+    </a>
+  </div>
+  `
+};
+
+ARTIKEL["pasang-wifi-murah-jebres-solo"] = {
+  slug: "pasang-wifi-murah-jebres-solo",
+  title: "Pasang WiFi Jebres Solo (Dekat UNS) | XL Home",
+  description: "Layanan pasang WiFi murah tanpa FUP di Jebres, Solo. Sangat cocok untuk mahasiswa UNS, kos-kosan, dan keluarga. Pemasangan cepat & gratis instalasi.",
+  keywords: ["pasang wifi jebres", "wifi murah jebres solo", "wifi kos uns", "xl home jebres", "internet murah solo utara"],
+  ogTitle: "Pasang WiFi Jebres Solo | Bebas FUP, Kuota Melimpah",
+  ogDescription: "Solusi internet rumah & kos di Jebres Solo. Jaringan fiber optic XL Home stabil untuk mahasiswa & keluarga. Cek coverage sekarang!",
+  ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+  schemas: [],
+  hero: {
+    crumb: '<a href="/">Beranda</a> / WiFi Jebres Solo',
+    h1: "Pasang WiFi Murah Jebres Solo (2026)",
+    sub: "Internet fiber andalan mahasiswa, kos-kosan, dan keluarga di area Jebres, Mojosongo, dan sekitarnya. Tanpa batasan kuota FUP.",
+    meta: "Diperbarui Bulan Ini • XL Home Solo Raya",
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home%20di%20Jebres",
+  faqs: [
+    {
+      q: "Apakah bisa dipasang di kamar kos Jebres?",
+      a: "Sangat bisa! Namun pastikan Anda sudah mendapat izin dari bapak/ibu pemilik kos untuk penarikan kabel fiber dari luar ke dalam kamar."
+    },
+    {
+      q: "Berapa lama proses pemasangan di area Jebres?",
+      a: "Jika jaringan di titik Anda dipastikan tersedia (ODP terdekat ada slot kosong), teknisi biasanya akan datang H+1 atau maksimal H+3 dari waktu pendaftaran."
+    }
+  ],
+  bodyHtml: `
+  <p>Kecamatan <strong>Jebres</strong> merupakan salah satu sentra pendidikan dan permukiman padat di Kota Solo. Kehadiran kampus-kampus besar seperti UNS dan ISI membuat kebutuhan internet berkecepatan tinggi menjadi sangat krusial di wilayah ini.</p>
+
+  <h2>Internet Andalan Mahasiswa & Keluarga di Jebres</h2>
+  <p>Merespons tingginya permintaan internet murah tanpa batasan kuota (FUP), <strong>XL Home Solo Raya</strong> telah melakukan ekspansi jaringan kabel <em>Fiber Optic</em> secara masif di wilayah Jebres, Kentingan, Mojosongo, Jagalan, hingga Pucangsawit.</p>
+
+  <div class="info-box">
+    <strong>Kenapa Pilih XL Home untuk Anak Kos / Mahasiswa?</strong>
+    Banyak paket WiFi di luaran sana yang menjanjikan harga murah namun kecepatannya diturunkan drastis (kena FUP) saat akhir bulan. Dengan XL Home, kecepatan 50 Mbps akan tetap 50 Mbps sepanjang waktu! Sangat cocok untuk begadang ngerjain skripsi, render tugas berat, atau sekadar <em>mabar</em> tanpa <em>lag</em>.
+  </div>
+
+  <h2>Daftar Harga Paket (Bisa Patungan Kos!)</h2>
+  <p>Untuk kos dengan 2-4 penghuni, paket 50 Mbps sangat direkomendasikan. Jika dibagi per kepala, tagihan bulanannya jadi sangat ringan setara dengan uang jajan sehari. Apalagi saat ini ada promo pendaftaran <strong>Gratis Biaya Instalasi</strong> dan alat (router) dipinjamkan secara gratis selama berlangganan.</p>
+
+  <div class="cta-box">
+    <h3>Tanya Promo & Cek Jaringan Area Jebres</h3>
+    <p>Hubungi sales lokal kami agar diproses lebih cepat dibanding lewat call center pusat.</p>
+    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home%20di%20Jebres,%20mohon%20dicek%20ketersediaannya." target="_blank" rel="noopener noreferrer" class="btn-cta">
+      <i class="fab fa-whatsapp"></i> Chat WhatsApp Sales Solo
+    </a>
+  </div>
+  `
+};

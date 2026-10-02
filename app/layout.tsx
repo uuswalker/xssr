@@ -3,6 +3,8 @@ import Script from "next/script";
 import localFont from "next/font/local";
 import "./globals.css";
 import ClientOnlyComponents from "@/components/ClientOnlyComponents";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Trackers from "@/components/Trackers";
 import { ADS_ID, GA_ID, IS_STAGING, SITE_NAME } from "@/lib/site";
 
@@ -98,6 +100,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             />
           </>
         )}
+              <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

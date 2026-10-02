@@ -52,3 +52,7 @@ PAGE_CSS['nomor-sales-xl-home-solo-raya'] = PAGE_CSS['cara-daftar-pasang-wifi-xl
 
 PAGE_CSS['nomor-sales-xl-home-solo-raya'] = PAGE_CSS['cara-daftar-pasang-wifi-xl-satu-solo'];
 
+
+PAGE_CSS['pasang-wifi-murah-colomadu'] = PAGE_CSS['cara-daftar-pasang-wifi-xl-satu-solo'];
+PAGE_CSS['pasang-wifi-murah-jebres-solo'] = PAGE_CSS['cara-daftar-pasang-wifi-xl-satu-solo'];
+
