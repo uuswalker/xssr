@@ -73,7 +73,7 @@
       cursor: pointer;
     }
     .btn-wa-header:hover { 
-      background: var(--green-dark);
+      background: #02624c;
     }
 
     /* â”€â”€ HERO SLIDER â”€â”€ */
@@ -735,11 +735,11 @@
       align-items: center; 
       gap: 8px;
       margin-top: 24px; 
-      color: var(--green); 
+      color: #02624c; 
       font-size: 14px; 
       font-weight: 700;
       text-decoration: none; 
-      border: 1.5px solid var(--green);
+      border: 1.5px solid #02624c;
       padding: 10px 20px; 
       border-radius: 999px; 
       transition: background .2s;
@@ -1293,7 +1293,7 @@
   max-height: 100px;
   line-height: 1.4;
   overflow: hidden;
-  background: var(--green-dark);
+  background: #02624c;
   color: #fff;
   text-align: center;
   font-size: 12px;
