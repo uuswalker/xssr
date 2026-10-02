@@ -554,7 +554,7 @@ ARTIKEL["xl-satu-vs-indihome-myrepublic-solo"] = {
 
     <p>Jangan tunggu sampai FUP Anda habis. Beralih ke jaringan fiber tanpa batas dari XL SATU. Tim sales kami siap melakukan pengecekan alamat rumah Anda (Surakarta, Sukoharjo, Karanganyar, Klaten, Boyolali) secara gratis!</p>
 
-    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20apakah%20rumah%20saya%20sudah%20tercover%20XL%20SATU" target="_blank" rel="noopener noreferrer" class="btn-cta"><i class="fab fa-whatsapp"></i> Chat Sales & Cek Lokasi</a>
+    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20apakah%20rumah%20saya%20sudah%20tercover%20XL%20SATU" target="_blank" rel="noopener noreferrer" class="btn-cta"><span style="display:inline-flex;align-items:center;vertical-align:middle;width:1em;height:1em"><svg viewBox="0 0 448 512" fill="currentColor" width="1em" height="1em"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.8-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5.1-3.9-10.6-6.9z"/></svg></span> Chat Sales & Cek Lokasi</a>
 
   </div>
 
@@ -754,7 +754,7 @@ ARTIKEL['proses-pendaftaran-pemasangan-xl-satu-fiber'] = {
 
     <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20ketersediaan%20WiFi%20XL%20SATU" target="_blank" rel="noopener noreferrer" class="btn-cta">
 
-      <i class="fab fa-whatsapp"></i> Cek Ketersediaan Sekarang
+      <span style="display:inline-flex;align-items:center;vertical-align:middle;width:1em;height:1em"><svg viewBox="0 0 448 512" fill="currentColor" width="1em" height="1em"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.8-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5.1-3.9-10.6-6.9z"/></svg></span> Cek Ketersediaan Sekarang
 
     </a>
 
@@ -862,7 +862,7 @@ ARTIKEL['wfh-angkringan-solo-xl-satu'] = {
 
       <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20paket%20XL%20SATU%20yang%20dapat%20kuota%20HP" target="_blank" rel="noopener noreferrer" class="btn-cta">
 
-        <i class="fab fa-whatsapp"></i> Tanya Promo WFH
+        <span style="display:inline-flex;align-items:center;vertical-align:middle;width:1em;height:1em"><svg viewBox="0 0 448 512" fill="currentColor" width="1em" height="1em"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.8-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5.1-3.9-10.6-6.9z"/></svg></span> Tanya Promo WFH
 
       </a>
 
@@ -982,7 +982,7 @@ ARTIKEL['rahasia-fup-internet-rumah'] = {
 
       <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20langganan%20XL%20SATU%20yang%20tanpa%20FUP" target="_blank" rel="noopener noreferrer" class="btn-cta">
 
-        <i class="fab fa-whatsapp"></i> Ganti ke Internet Bebas FUP
+        <span style="display:inline-flex;align-items:center;vertical-align:middle;width:1em;height:1em"><svg viewBox="0 0 448 512" fill="currentColor" width="1em" height="1em"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.8-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5.1-3.9-10.6-6.9z"/></svg></span> Ganti ke Internet Bebas FUP
 
       </a>
 
@@ -1124,7 +1124,7 @@ ARTIKEL['eksperimen-game-streaming-zoom-bersamaan'] = {
 
       <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20tertarik%20dengan%20kecepatan%20paket%20Spark%20250Mbps" target="_blank" rel="noopener noreferrer" class="btn-cta">
 
-        <i class="fab fa-whatsapp"></i> Cek Ketersediaan Paket
+        <span style="display:inline-flex;align-items:center;vertical-align:middle;width:1em;height:1em"><svg viewBox="0 0 448 512" fill="currentColor" width="1em" height="1em"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.8-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5.1-3.9-10.6-6.9z"/></svg></span> Cek Ketersediaan Paket
 
       </a>
 
@@ -1318,7 +1318,7 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-satu-solo"] = {
 
     <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pindah%20dari%20provider%20lama%20ke%20XL%20SATU" target="_blank" rel="noopener noreferrer" class="btn-cta">
 
-      <i class="fab fa-whatsapp"></i> Chat Admin Sekarang
+      <span style="display:inline-flex;align-items:center;vertical-align:middle;width:1em;height:1em"><svg viewBox="0 0 448 512" fill="currentColor" width="1em" height="1em"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.8-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5.1-3.9-10.6-6.9z"/></svg></span> Chat Admin Sekarang
 
     </a>
 
@@ -1507,7 +1507,7 @@ ARTIKEL["xl-satu-resmi-jadi-xl-home"] = {
 
     <a href="https://wa.me/6287778999141?text=Halo%20kak%2C%20saya%20mau%20daftar%20XL%20Home%20di%20Solo%20Raya" target="_blank" rel="noopener noreferrer" class="btn-cta">
 
-      <i class="fab fa-whatsapp"></i> Chat 0877-7899-9141
+      <span style="display:inline-flex;align-items:center;vertical-align:middle;width:1em;height:1em"><svg viewBox="0 0 448 512" fill="currentColor" width="1em" height="1em"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.8-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5.1-3.9-10.6-6.9z"/></svg></span> Chat 0877-7899-9141
 
     </a>
 
@@ -1613,7 +1613,7 @@ ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
 
     <div style="font-size: 32px; font-weight: 800; color: var(--navy); margin: 8px 0;">0877-7899-9141</div>
 
-    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home" target="_blank" rel="noopener noreferrer" class="btn-pilih" style="display:inline-block; padding: 8px 24px; background: #25D366; color:#fff; border-radius: 99px; text-decoration: none; font-weight: bold;"><i class="fab fa-whatsapp"></i> Chat via WhatsApp</a>
+    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home" target="_blank" rel="noopener noreferrer" class="btn-pilih" style="display:inline-block; padding: 8px 24px; background: #25D366; color:#fff; border-radius: 99px; text-decoration: none; font-weight: bold;"><span style="display:inline-flex;align-items:center;vertical-align:middle;width:1em;height:1em"><svg viewBox="0 0 448 512" fill="currentColor" width="1em" height="1em"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.8-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5.1-3.9-10.6-6.9z"/></svg></span> Chat via WhatsApp</a>
 
   </div>
 
@@ -1643,7 +1643,7 @@ ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
 
     <div class="compare-card">
 
-      <h4><i class="fas fa-headset"></i> Call Center / Web Pusat</h4>
+      <h4><span style="display:inline-flex;align-items:center;vertical-align:middle;width:1em;height:1em"><svg viewBox="0 0 512 512" fill="currentColor" width="1em" height="1em"><path d="M256 48C141.1 48 48 141.1 48 256v40c0 13.3-10.7 24-24 24s-24-10.7-24-24V256C0 114.6 114.6 0 256 0S512 114.6 512 256v40c0 13.3-10.7 24-24 24s-24-10.7-24-24V256c0-114.9-93.1-208-208-208zM80 352c0-35.3 28.7-64 64-64h16c17.7 0 32 14.3 32 32v128c0 17.7-14.3 32-32 32h-16c-35.3 0-64-28.7-64-64V352zm272-64h16c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64h-16c-17.7 0-32-14.3-32-32V320c0-17.7 14.3-32 32-32z"/></svg></span> Call Center / Web Pusat</h4>
 
       <ul>
 
@@ -1659,7 +1659,7 @@ ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
 
     <div class="compare-card">
 
-      <h4><i class="fas fa-user-tie"></i> Sales Lokal (Solo Raya)</h4>
+      <h4><span style="display:inline-flex;align-items:center;vertical-align:middle;width:1em;height:1em"><svg viewBox="0 0 448 512" fill="currentColor" width="1em" height="1em"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></span> Sales Lokal (Solo Raya)</h4>
 
       <ul>
 
@@ -1715,7 +1715,7 @@ ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
 
     <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home,%20tolong%20cek%20lokasi%20saya" target="_blank" rel="noopener noreferrer" class="btn-cta">
 
-      <i class="fab fa-whatsapp"></i> Chat Sales Solo Raya Sekarang
+      <span style="display:inline-flex;align-items:center;vertical-align:middle;width:1em;height:1em"><svg viewBox="0 0 448 512" fill="currentColor" width="1em" height="1em"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.8-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5.1-3.9-10.6-6.9z"/></svg></span> Chat Sales Solo Raya Sekarang
 
     </a>
 
@@ -1817,7 +1817,7 @@ ARTIKEL["pasang-wifi-murah-colomadu"] = {
 
     <a href="https://wa.me/6287778999141?text=Halo%20kak,%20tolong%20cek%20coverage%20XL%20Home%20di%20Colomadu:%20[alamat]" target="_blank" rel="noopener noreferrer" class="btn-cta">
 
-      <i class="fab fa-whatsapp"></i> Cek Lokasi Sekarang (Gratis)
+      <span style="display:inline-flex;align-items:center;vertical-align:middle;width:1em;height:1em"><svg viewBox="0 0 448 512" fill="currentColor" width="1em" height="1em"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.8-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5.1-3.9-10.6-6.9z"/></svg></span> Cek Lokasi Sekarang (Gratis)
 
     </a>
 
@@ -1917,7 +1917,7 @@ ARTIKEL["pasang-wifi-murah-jebres-solo"] = {
 
     <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home%20di%20Jebres,%20mohon%20dicek%20ketersediaannya." target="_blank" rel="noopener noreferrer" class="btn-cta">
 
-      <i class="fab fa-whatsapp"></i> Chat WhatsApp Sales Solo
+      <span style="display:inline-flex;align-items:center;vertical-align:middle;width:1em;height:1em"><svg viewBox="0 0 448 512" fill="currentColor" width="1em" height="1em"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.8-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5.1-3.9-10.6-6.9z"/></svg></span> Chat WhatsApp Sales Solo
 
     </a>
 

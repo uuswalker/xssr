@@ -1,8 +1,7 @@
-﻿import type { Metadata, Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import localFont from "next/font/local";
 import "./globals.css";
-import FontAwesomeLoader from "@/components/FontAwesomeLoader";
 import ClientOnlyComponents from "@/components/ClientOnlyComponents";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -104,7 +103,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         )}
               <Analytics />
         <SpeedInsights />
-        <FontAwesomeLoader />
       </body>
     </html>
   );

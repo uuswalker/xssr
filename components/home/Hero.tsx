@@ -9,36 +9,36 @@ import { WA_DAFTAR, WA_INFO, waLink } from "@/lib/site";
 
 const SLIDES = [
   {
-    imgDesktop: "/images/banner-xlsatu-jadi-xlhome.jpg",
-    imgMobile: "/images/banner-xlsatu-jadi-xlhome.jpg",
+    imgWebp: "/images/banner-xlsatu-jadi-xlhome.webp",
+    imgFallback: "/images/banner-xlsatu-jadi-xlhome.jpg",
     alt: "XL SATU Resmi Jadi XL HOME",
     eager: true,
     action: "wa" as const,
   },
   {
-    imgDesktop: "/images/banner-price.jpg",
-    imgMobile: "/images/banner-price.jpg",
+    imgWebp: "/images/banner-price.webp",
+    imgFallback: "/images/banner-price.jpg",
     alt: "Promo Makin Hemat",
     eager: false,
     action: "wa" as const,
   },
   {
-    imgDesktop: "/images/banner-opensignal.jpeg",
-    imgMobile: "/images/banner-opensignal.jpeg",
+    imgWebp: "/images/banner-opensignal.webp",
+    imgFallback: "/images/banner-opensignal.jpeg",
     alt: "Pemenang Opensignal",
     eager: false,
     action: "hubungi" as const,
   },
   {
-    imgDesktop: "/images/banner-apartemen.jpg",
-    imgMobile: "/images/banner-xlsatu-jadi-xlhome.jpg",
+    imgWebp: "/images/banner-apartemen.webp",
+    imgFallback: "/images/banner-apartemen.jpg",
     alt: "Promo Apartemen",
     eager: false,
     action: "hubungi" as const,
   },
   {
-    imgDesktop: "/images/banner-opensignal.jpeg",
-    imgMobile: "/images/banner-xlsatu-jadi-xlhome.jpg",
+    imgWebp: "/images/banner-opensignal.webp",
+    imgFallback: "/images/banner-opensignal.jpeg",
     alt: "Opensignal Award",
     eager: false,
     action: "hubungi" as const,
@@ -53,10 +53,8 @@ function scrollToId(id: string) {
 
 /** Slider hero — dipakai home (teks WA default) & kota (teks WA per kota). */
 export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
-  preload("/images/banner-xlsatu-jadi-xlhome.jpg", {
+  preload("/images/banner-xlsatu-jadi-xlhome.webp", {
     as: "image",
-    imageSrcSet: "/images/promo-wifi-rumah-koneksi-pasti-mobile.webp 500w, /images/banner-xlsatu-jadi-xlhome.jpg 1080w",
-    imageSizes: "(max-width: 768px) 500px, 1080px",
     fetchPriority: "high"
   });
 
@@ -102,12 +100,12 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
             }
           >
             <picture>
-              <source media="(min-width: 768px)" srcSet={s.imgDesktop} />
+              <source type="image/webp" srcSet={s.imgWebp} />
               <img
-                src={s.imgMobile}
+                src={s.imgFallback}
                 alt={s.alt}
-                width={1200}
-                height={400}
+                width={1440}
+                height={390}
                 className="hero-img-lcp"
                 fetchPriority={s.eager ? "high" : "auto"}
                 loading={s.eager ? "eager" : "lazy"}

@@ -104,9 +104,9 @@ export default function LiveSocialProof() {
     <>
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes pulseDot {
-          0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-          70% { transform: scale(1); box-shadow: 0 0 0 4px rgba(34, 197, 94, 0); }
-          100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+          0% { transform: scale(0.95); opacity: 1; }
+          70% { transform: scale(1.3); opacity: 0.6; }
+          100% { transform: scale(0.95); opacity: 1; }
         }
         .fomo-dot {
           width: 8px;
