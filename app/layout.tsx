@@ -2,6 +2,7 @@
 import Script from "next/script";
 import localFont from "next/font/local";
 import "./globals.css";
+import FontAwesomeLoader from "@/components/FontAwesomeLoader";
 import ClientOnlyComponents from "@/components/ClientOnlyComponents";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -64,7 +65,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="id" className={jakarta.variable}>
       <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossOrigin="anonymous" />
+        
         <link rel="preconnect" href="https://ipwho.is" crossOrigin="anonymous" />
       </head>
       <body data-origin="xlsatusolo.com" data-wm="224CF412">
@@ -103,6 +104,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         )}
               <Analytics />
         <SpeedInsights />
+        <FontAwesomeLoader />
       </body>
     </html>
   );
