@@ -5,8 +5,8 @@ import TrapBeacon from "./beacon";
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: "Arsip - XL SATU Solo Raya",
-    description: "Halaman arsip XL SATU Solo Raya.",
+    title: "Arsip - XL Home Solo Raya",
+    description: "Halaman arsip XL Home Solo Raya.",
     path: "/trap/",
   }),
   robots: { index: false, follow: false },
@@ -28,13 +28,13 @@ export default function TrapPage() {
       <h1>Arsip</h1>
       <p>
         Halaman ini sudah tidak tersedia. Kembali ke{" "}
-        <a href="/">beranda XL SATU Solo Raya</a>.
+        <a href="/">beranda XL Home Solo Raya</a>.
       </p>
       <JsonLd
         data={{
           "@context": "https://schema.org",
           "@type": "WebPage",
-          name: "Arsip - XL SATU Solo Raya",
+          name: "Arsip - XL Home Solo Raya",
           url: "https://xlsatusolo.com/trap/",
         }}
       />

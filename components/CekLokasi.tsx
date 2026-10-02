@@ -508,7 +508,7 @@ export default function CekLokasi() {
     const covLine = coverageLine(coverage);
     const paketLine = paketPilihan ? `Paket: ${paketPilihan}\n` : "";
     const pesan =
-      `Halo kak, saya ${nm}, mau ${paketPilihan ? "daftar" : "cek ketersediaan"} XL SATU.\n` +
+      `Halo kak, saya ${nm}, mau ${paketPilihan ? "daftar" : "cek ketersediaan"} XL Home.\n` +
       paketLine +
       (p.alamat ? `Alamat: ${p.alamat}\n` : "") +
       (mapsLink ? `Peta lokasi: ${mapsLink}\n` : "") +
@@ -729,7 +729,7 @@ export default function CekLokasi() {
                   <MapPin size={22} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 800, fontSize: 14, lineHeight: 1.2, marginBottom: 2 }}>Cek Jaringan XL SATU</div>
+                  <div style={{ fontWeight: 800, fontSize: 14, lineHeight: 1.2, marginBottom: 2 }}>Cek Jaringan XL Home</div>
                   <div style={{ fontSize: 12, color: "#6b7280", lineHeight: 1.3 }}>
                     Apakah rumahmu di {strip || 'areamu'} sudah ter-cover Fiber?
                   </div>
@@ -970,17 +970,17 @@ export default function CekLokasi() {
                     <option value="">-- Pilih Paket --</option>
                     {(!coverage || coverage.status !== "wireless") && (
                       <>
-                        <option value="Saya minat paket XL Satu Starter 20 Mbps Rp185.000">XL Satu Starter 20 Mbps (Rp185.000)</option>
-                        <option value="Saya minat paket XL Satu Spark 250 Mbps Rp229.000">XL Satu Spark 250 Mbps (Rp229.000)</option>
-                        <option value="Saya minat paket XL Satu Spark 300 Mbps Rp239.000">XL Satu Spark 300 Mbps (Rp239.000)</option>
-                        <option value="Saya minat paket XL Satu Spark 400 Mbps Rp299.000">XL Satu Spark 400 Mbps (Rp299.000)</option>
-                        <option value="Saya minat paket XL Satu Spark 500 Mbps Rp399.000">XL Satu Spark 500 Mbps (Rp399.000)</option>
-                        <option value="Saya minat paket XL Satu Spark 1000 Mbps Rp899.000">XL Satu Spark 1000 Mbps (Rp899.000)</option>
+                        <option value="Saya minat paket XL Home Starter 20 Mbps Rp185.000">XL Home Starter 20 Mbps (Rp185.000)</option>
+                        <option value="Saya minat paket XL Home Spark 250 Mbps Rp229.000">XL Home Spark 250 Mbps (Rp229.000)</option>
+                        <option value="Saya minat paket XL Home Spark 300 Mbps Rp239.000">XL Home Spark 300 Mbps (Rp239.000)</option>
+                        <option value="Saya minat paket XL Home Spark 400 Mbps Rp299.000">XL Home Spark 400 Mbps (Rp299.000)</option>
+                        <option value="Saya minat paket XL Home Spark 500 Mbps Rp399.000">XL Home Spark 500 Mbps (Rp399.000)</option>
+                        <option value="Saya minat paket XL Home Spark 1000 Mbps Rp899.000">XL Home Spark 1000 Mbps (Rp899.000)</option>
                       </>
                     )}
-                    <option value="Saya minat XL Satu Wireless Monthly 100 Mbps Rp219.500">Wireless Monthly 100 Mbps (Rp219.500)</option>
-                    <option value="Saya minat XL Satu Wireless 50 Mbps Advance Rp650.000">Wireless Advance 50 Mbps (Rp650.000)</option>
-                    <option value="Saya minat XL Satu Wireless 100 Mbps Advance Rp790.000">Wireless Advance 100 Mbps (Rp790.000)</option>
+                    <option value="Saya minat XL Home Wireless Monthly 100 Mbps Rp219.500">Wireless Monthly 100 Mbps (Rp219.500)</option>
+                    <option value="Saya minat XL Home Wireless 50 Mbps Advance Rp650.000">Wireless Advance 50 Mbps (Rp650.000)</option>
+                    <option value="Saya minat XL Home Wireless 100 Mbps Advance Rp790.000">Wireless Advance 100 Mbps (Rp790.000)</option>
                   </select>
                   {formError && (
                     <p className="cl-status error" style={{ marginTop: 10 }}>

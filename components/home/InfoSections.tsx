@@ -526,7 +526,7 @@ export function About() {
 
             <p>
 
-              XL SATU resmi berganti nama menjadi <strong>XL Home</strong> — wajah baru, semangat baru, koneksi makin kencang.
+              XL Home resmi berganti nama menjadi <strong>XL Home</strong> — wajah baru, semangat baru, koneksi makin kencang.
 
               Nikmati internet rumah fiber &amp; wireless unlimited tanpa FUP di Solo Raya dengan jaringan XLSMART yang lebih luas dan andal.
 
@@ -636,7 +636,7 @@ export function Myxl() {
 
               Dan nikmati berbagai promo eksklusif, poin myXL, serta fitur
 
-              pendukung XL SATU lainnya
+              pendukung XL Home lainnya
 
             </p>
 

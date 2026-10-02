@@ -5,10 +5,10 @@ import type { Metadata } from "next";
 import PageTransition from "@/components/animations/PageTransition";
 
 export const metadata: Metadata = {
-  title: "Artikel & Panduan WiFi Rumah | XL SATU Solo Raya",
+  title: "Artikel & Panduan WiFi Rumah | XL Home Solo Raya",
   description: "Kumpulan artikel edukasi, tips, dan panduan memilih paket internet rumah fiber optic terbaik di Solo Raya.",
   openGraph: {
-    title: "Artikel & Panduan WiFi Rumah | XL SATU Solo",
+    title: "Artikel & Panduan WiFi Rumah | XL Home Solo",
     description: "Kumpulan panduan memilih paket internet rumah fiber optic terbaik.",
   }
 };

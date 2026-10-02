@@ -19,9 +19,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Promo Pasang WiFi XL SATU untuk Perumahan Baru di Solo Raya",
+  title: "Promo Pasang WiFi XL Home untuk Perumahan Baru di Solo Raya",
   description:
-    "Baru pindah rumah di cluster Solo Baru, Colomadu, atau Karanganyar? Pasang WiFi XL SATU sekarang, internet 100% tanpa FUP & gratis biaya pasang.",
+    "Baru pindah rumah di cluster Solo Baru, Colomadu, atau Karanganyar? Pasang WiFi XL Home sekarang, internet 100% tanpa FUP & gratis biaya pasang.",
   path: "/promo-perumahan-solo/",
 });
 
@@ -109,7 +109,7 @@ export default function PromoPerumahan() {
               }}
             >
               {[
-                "Marketing Resmi XL SATU",
+                "Marketing Resmi XL Home",
                 "Teknisi Langsung Datang",
                 "Bayar Setelah WiFi Menyala",
               ].map((t) => (

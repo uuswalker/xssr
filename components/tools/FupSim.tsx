@@ -111,10 +111,10 @@ export default function FupSim() {
         " sampai ganti bulan.</p>";
     }
     html +=
-      '<p style="background:#e6f7f3; border-left:4px solid #037e64; border-radius:8px; padding:12px 14px; margin-top:10px;"><strong>Di XL SATU Fiber, angka di atas tidak ada artinya.</strong> Tanpa FUP — 250 Mbps tanggal 1 tetap 250 Mbps tanggal 30.</p>' +
+      '<p style="background:#e6f7f3; border-left:4px solid #037e64; border-radius:8px; padding:12px 14px; margin-top:10px;"><strong>Di XL Home Fiber, angka di atas tidak ada artinya.</strong> Tanpa FUP — 250 Mbps tanggal 1 tetap 250 Mbps tanggal 30.</p>' +
       '<a href="https://wa.me/6287778999141?text=' +
       encodeURIComponent(
-        `Halo kak, hasil simulatorku ${monthly} GB/bulan dan KENA FUP (${status}). Info paket XL SATU tanpa FUP dong`
+        `Halo kak, hasil simulatorku ${monthly} GB/bulan dan KENA FUP (${status}). Info paket XL Home tanpa FUP dong`
       ) +
       '" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#037e64; color:#fff; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; margin-top:8px;">Bebas FUP via WA</a>';
     return { html, p: paket, status, gb: monthly };
@@ -182,7 +182,7 @@ export default function FupSim() {
       </strong>
       <p style={{ fontSize: 14, marginBottom: 12, color: "#555" }}>
         Isi kebiasaan harian. Lihat tanggal berapa kecepatanmu dipangkas di
-        provider ber-FUP - vs aman di XL SATU Fiber.
+        provider ber-FUP - vs aman di XL Home Fiber.
       </p>
       <label
         style={{ display: "block", fontSize: 14, fontWeight: 700, marginBottom: 6 }}
@@ -206,7 +206,7 @@ export default function FupSim() {
         <option value="30">Paket 30 Mbps (FUP 700 GB ke 1200 GB)</option>
         <option value="50">Paket 50 Mbps (FUP 1200 GB ke 2000 GB)</option>
         <option value="100">Paket 100 Mbps (FUP 2000 GB)</option>
-        <option value="fwa">XL SATU Wireless / FWA (FUP 1024 GB)</option>
+        <option value="fwa">XL Home Wireless / FWA (FUP 1024 GB)</option>
       </select>
       <div style={{ display: "grid", gap: 10, fontSize: 14, marginBottom: 14 }}>
         {numInput("Nonton TV 4K (jam/hari, serumah)", k4, setK4, 24)}

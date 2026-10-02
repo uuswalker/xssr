@@ -82,7 +82,7 @@ export function KotaHero({ city }: { city: City }) {
             }}
           >
             {[
-              "agen resmi XL SATU",
+              "agen resmi XL Home",
               "Harga Transparan, Tanpa Biaya Tersembunyi",
               "Ditemani Sampai Internet Nyala",
             ].map((t) => (
@@ -109,7 +109,7 @@ export function KotaArea({
   return (
     <section className="area-section" id="area">
       <div className="area-inner">
-        <h2 className="section-title">Area Layanan XL SATU di Solo Raya</h2>
+        <h2 className="section-title">Area Layanan XL Home di Solo Raya</h2>
         <p className="section-sub">
           Kami melayani pemasangan internet rumah fiber optic dan wireless di
           5 kabupaten/kota Soloraya
@@ -214,7 +214,7 @@ export function KecamatanBlock({ city }: { city: City }) {
             }}
           >
             <MapPin size={18} />
-            Kami melayani pemasangan XL SATU di {city.h1_kota as string},
+            Kami melayani pemasangan XL Home di {city.h1_kota as string},
             termasuk kecamatan{" "}
             {kecamatanText(city.kecamatan_list as string[])}. Belum yakin area
             kamu sudah terjangkau?{" "}
@@ -247,7 +247,7 @@ export function KecamatanBlock({ city }: { city: City }) {
           </h3>
           <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "#5c3a3a" }}>
             Sedang mempertimbangkan provider lokal atau RT/RW Net di {city.h1_kota as string}? 
-            Pastikan Anda memilih koneksi yang tepat. XL SATU menggunakan <strong>Koneksi Fiber Optik Murni</strong> berstandar Nasional dari XL Axiata. 
+            Pastikan Anda memilih koneksi yang tepat. XL Home menggunakan <strong>Koneksi Fiber Optik Murni</strong> berstandar Nasional dari XL Axiata. 
             Berbeda dengan WiFi tembakan (sinyal radio) yang sering putus dan lemot saat cuaca buruk atau hujan deras, koneksi fiber optik kami kebal cuaca dan dijamin SLA-nya. Jangan korbankan pekerjaan dan hiburan keluarga demi selisih harga yang sedikit!
           </p>
         </div>

@@ -7,8 +7,8 @@ import PageTransition from "@/components/animations/PageTransition";
 import ReferralShareClient from "@/components/referral/ReferralShareClient";
 
 export const metadata: Metadata = {
-  title: "Program Ajak Teman XL SATU - Dapat Saldo!",
-  description: "Dapatkan saldo GoPay/OVO Rp 50.000 hingga Rp 100.000 untuk setiap teman atau tetangga yang berhasil Anda ajak pasang XL SATU Fiber.",
+  title: "Program Ajak Teman XL Home - Dapat Saldo!",
+  description: "Dapatkan saldo GoPay/OVO Rp 50.000 hingga Rp 100.000 untuk setiap teman atau tetangga yang berhasil Anda ajak pasang XL Home Fiber.",
   robots: {
     index: false,
     follow: false,
@@ -23,10 +23,10 @@ export default function ReferralPage() {
         <div style={{ backgroundColor: "#026b55", color: "white", padding: "60px 24px", textAlign: "center", position: "relative", overflow: "hidden" }}>
           <div style={{ maxWidth: 800, margin: "0 auto", position: "relative", zIndex: 2 }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(255,255,255,0.2)", padding: "8px 16px", borderRadius: 999, fontSize: 14, fontWeight: 600, marginBottom: 20 }}>
-              <Gift size={16} /> Program Spesial Pelanggan XL SATU
+              <Gift size={16} /> Program Spesial Pelanggan XL Home
             </div>
             <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: 900, marginBottom: 16, lineHeight: 1.2 }}>
-              Ajak Tetangga Pasang XL SATU, <span style={{ color: "#fde68a" }}>Dapatkan Saldo Rp 50.000 hingga Rp 100.000!</span>
+              Ajak Tetangga Pasang XL Home, <span style={{ color: "#fde68a" }}>Dapatkan Saldo Rp 50.000 hingga Rp 100.000!</span>
             </h1>
             <p style={{ fontSize: "clamp(16px, 2vw, 18px)", opacity: 0.9, lineHeight: 1.6, maxWidth: 600, margin: "0 auto" }}>
               Internet rumah sudah lancar? Yuk sebar kebaikannya ke teman, tetangga, atau anak kos lain. Untuk setiap orang yang berhasil terpasang, Anda akan mendapat komisi cair langsung ke *e-wallet* Anda.
@@ -47,7 +47,7 @@ export default function ReferralPage() {
                   <Users size={28} color="#037e64" style={{ flexShrink: 0 }} />
                   <div>
                     <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>Bagikan Info ke Teman</h3>
-                    <p style={{ fontSize: 14, color: "#555" }}>Sebarkan link khusus atau bagikan nomor kontak Admin XL SATU ke calon pelanggan.</p>
+                    <p style={{ fontSize: 14, color: "#555" }}>Sebarkan link khusus atau bagikan nomor kontak Admin XL Home ke calon pelanggan.</p>
                   </div>
                 </div>
                 <div style={{ display: "flex", gap: 16 }}>

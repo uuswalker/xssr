@@ -224,7 +224,7 @@ export default function Speedtest() {
   const category = dlSpeed === null ? null
     : dlSpeed >= 50 ? { label: "✅ Cepat", color: "#16a34a", bg: "#f0fdf4", text: "Lancar untuk streaming 4K, gaming, dan WFH sekeluarga." }
     : dlSpeed >= 20 ? { label: "⚡ Sedang", color: "#d97706", bg: "#fffbeb", text: "Cukup untuk streaming HD dan browsing, tapi bisa lebih baik." }
-    : { label: "🐢 Lambat", color: "#dc2626", bg: "#fef2f2", text: "Kurang ideal untuk keluarga aktif. Pertimbangkan XL SATU Fiber Optik!" };
+    : { label: "🐢 Lambat", color: "#dc2626", bg: "#fef2f2", text: "Kurang ideal untuk keluarga aktif. Pertimbangkan XL Home Fiber Optik!" };
 
   return (
     <div style={{ maxWidth: 520, margin: "0 auto", fontFamily: "system-ui, sans-serif", padding: "0 4px" }}>

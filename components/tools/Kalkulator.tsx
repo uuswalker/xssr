@@ -101,7 +101,7 @@ export default function Kalkulator() {
       " Mbps</strong> untuk " +
       perangkat +
       " perangkat aktif.</p>" +
-      "<p>Paket yang pas: <strong>XL SATU " +
+      "<p>Paket yang pas: <strong>XL Home " +
       PAKET[tier] +
       "</strong></p>" +
       '<a href="' +

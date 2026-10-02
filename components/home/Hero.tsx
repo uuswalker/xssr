@@ -291,7 +291,7 @@ export function HomeHeroLokal() {
           }}
         >
           {[
-            "agen resmi XL SATU",
+            "agen resmi XL Home",
             "Harga Transparan, Tanpa Biaya Tersembunyi",
             "Ditemani Sampai Internet Nyala",
           ].map((t) => (

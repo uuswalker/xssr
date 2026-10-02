@@ -6,7 +6,7 @@ import { Share2 } from "lucide-react";
 export default function ReferralShareClient() {
   const [referrer, setReferrer] = useState("");
 
-  const baseText = "Halo! Lagi cari WiFi rumah atau kos di Solo Raya? Aku rekomendasikan pakai *XL SATU*. Internetnya asli unlimited tanpa FUP, anti lemot di akhir bulan.\n\nCoba cek harganya dan daftar lewat Admin resminya di sini: https://wa.me/6287778999141";
+  const baseText = "Halo! Lagi cari WiFi rumah atau kos di Solo Raya? Aku rekomendasikan pakai *XL Home*. Internetnya asli unlimited tanpa FUP, anti lemot di akhir bulan.\n\nCoba cek harganya dan daftar lewat Admin resminya di sini: https://wa.me/6287778999141";
   
   const referralText = referrer.trim() 
     ? `\n\n(Jangan lupa bilang dapat rekomendasi dari ${referrer.trim()} ya!)`

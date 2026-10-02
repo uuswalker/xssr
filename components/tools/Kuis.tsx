@@ -17,7 +17,7 @@ interface Q {
 
 const QS: Q[] = [
   {
-    q: "1. Apakah area rumahmu sudah terjangkau kabel fiber optik XL SATU?",
+    q: "1. Apakah area rumahmu sudah terjangkau kabel fiber optik XL Home?",
     opts: [
       { t: "Sudah, ada tiang/kabel fiber di dekat rumah", f: 2, w: 0 },
       {
@@ -260,7 +260,7 @@ export default function Kuis() {
               {type === "fiber" && (
                 <>
                   <p style={{ fontSize: 15 }}>
-                    <strong> Hasil: Fiber Optic XL SATU cocok untukmu.</strong>
+                    <strong> Hasil: Fiber Optic XL Home cocok untukmu.</strong>
                   </p>
                   <p style={{ fontSize: 14 }}>
                     Koneksi kabel paling stabil, latensi rendah untuk gaming &amp;
@@ -302,7 +302,7 @@ export default function Kuis() {
               {type === "wireless" && (
                 <>
                   <p style={{ fontSize: 15 }}>
-                    <strong> Hasil: Wireless XL SATU cocok untukmu.</strong>
+                    <strong> Hasil: Wireless XL Home cocok untukmu.</strong>
                   </p>
                   <p style={{ fontSize: 14 }}>
                     Tanpa tarik kabel ?" aktif cepat, solusi area belum fiber, hemat

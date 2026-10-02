@@ -4,7 +4,7 @@ import { MessageCircle } from "lucide-react";
 import { PHONE_DISPLAY, waLink } from "@/lib/site";
 
 export default function WaFloat({
-  text = "Info XL SATU",
+  text = "Info XL Home",
   small = "Tanya Dulu",
 }: {
   text?: string;

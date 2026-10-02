@@ -17,7 +17,7 @@ export default function CityPills() {
   return (
     <section style={{ padding: "40px 24px 60px", background: "var(--white)", textAlign: "center" }}>
       <h3 style={{ fontSize: 18, fontWeight: 800, color: "var(--text)", marginBottom: 20 }}>
-        Cek Ketersediaan XL Satu di Kota Sekitarmu:
+        Cek Ketersediaan XL Home di Kota Sekitarmu:
       </h3>
       <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12, maxWidth: 800, margin: "0 auto" }}>
         {CITIES.map((city) => {

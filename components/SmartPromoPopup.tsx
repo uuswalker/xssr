@@ -97,7 +97,7 @@ export default function SmartPromoPopup() {
         
         <div style={{ flex: 1 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "4px" }}>
-            <h3 style={{ margin: 0, fontSize: "15px", fontWeight: "700", color: "#111827" }}>Promo XL SATU</h3>
+            <h3 style={{ margin: 0, fontSize: "15px", fontWeight: "700", color: "#111827" }}>Promo XL Home</h3>
             <button 
               onClick={handleClose}
               style={{
