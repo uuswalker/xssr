@@ -79,9 +79,13 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
   return (
     <div className="slider" id="slider">
       <style dangerouslySetInnerHTML={{ __html: `
-    .hero-img-lcp { width: 100%; height: 480px; object-fit: cover; object-position: center; display: block; }
-    @media (max-width: 768px) { .hero-img-lcp { height: 240px; } }
-    @media (max-width: 480px) { .hero-img-lcp { height: 160px; } }
+    .hero-img-lcp { 
+      width: 100%; 
+      height: auto; 
+      object-fit: contain; 
+      display: block; 
+    }
+    /* Karena height auto, gambar akan selalu menyesuaikan proporsi aslinya (tidak akan pernah terpotong) baik di HP maupun Desktop */
   ` }} />
         <div className="slides"
         id="slides"
