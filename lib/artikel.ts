@@ -1403,6 +1403,7 @@ ARTIKEL["xl-satu-resmi-jadi-xl-home"] = {
   <div style="margin: 28px 0; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
 
     <video src="/videos/xl-satu-ganti-nama-xl-home.mp4" controls playsInline poster="/images/banner-xlsatu-jadi-xlhome.jpg" style="width: 100%; height: auto; display: block;" aria-label="Video resmi XL SATU berganti nama menjadi XL Home">
+<track kind="captions" src="/captions.vtt" srcLang="id" label="Indonesia" default />
 
       Browser Anda tidak mendukung pemutaran video.
 

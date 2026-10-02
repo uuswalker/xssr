@@ -1,7 +1,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --green: #05a986;
-      --green-dark: #048c6f;
+      --green: #00755c;
+      --green-dark: #005c48;
       --green-light: #e6f7f3;
       --navy: #18448A;
       --gray-bg: #f5f5f5;
@@ -735,11 +735,11 @@
       align-items: center; 
       gap: 8px;
       margin-top: 24px; 
-      color: #02624c; 
+      color: var(--green); 
       font-size: 14px; 
       font-weight: 700;
       text-decoration: none; 
-      border: 1.5px solid #02624c;
+      border: 1.5px solid var(--green);
       padding: 10px 20px; 
       border-radius: 999px; 
       transition: background .2s;
