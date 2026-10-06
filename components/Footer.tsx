@@ -5,7 +5,7 @@ import { PHONE_DISPLAY, WA_INFO } from "@/lib/site";
 export default function Footer() {
   return (
     <footer>
-      <div className="footer-inner">
+      <div className="footer-inner" style={{ flexWrap: "wrap", alignItems: "flex-start" }}>
         <div className="footer-left">
           <img
             src="/images/xl-home-logo.png"
@@ -31,6 +31,24 @@ export default function Footer() {
             • {PHONE_DISPLAY} • Dikelola agen resmi Solo&nbsp;Raya
           </div>
         </div>
+        
+        <div className="footer-map" style={{ flex: '1', minWidth: '280px', maxWidth: '400px' }}>
+          <h4 style={{ color: '#fff', fontSize: '13px', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>XL Home Solo Raya</h4>
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15819.349544976454!2d110.8252!3d-7.6046!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a17721867cbb9%3A0xc6659c288d3d995c!2sXL%20Home%20Solo%20Raya!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" 
+            width="100%" 
+            height="140" 
+            style={{ border: 0, borderRadius: '8px', opacity: 0.85 }} 
+            allowFullScreen={false} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Lokasi Agen XL Home Solo"
+          ></iframe>
+          <div style={{ fontSize: 11, color: 'rgba(255,255,255,.7)', marginTop: 8 }}>
+            Jl. Raya Solo-Sukoharjo, Jawa Tengah (Melayani 100% Online)
+          </div>
+        </div>
+
         <div className="footer-links">
           <a href="/nomor-sales-xl-home-solo-raya/" style={{ color: "inherit" }}>
             Nomor Sales &amp; Agen

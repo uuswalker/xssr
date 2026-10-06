@@ -33,7 +33,7 @@ const F_FREE2 = IMG + "post-4409f8f4.webp";
 export const FIBER_TIERS: FiberTier[] = [
   {
     name: "XL Home Starter — 20 Mbps",
-    subtitle: "Internet Only",
+    subtitle: "100% Unlimited Tanpa FUP",
     headerClass: "value",
     speedMax: 20,
     barWidth: 20,
@@ -46,11 +46,11 @@ export const FIBER_TIERS: FiberTier[] = [
       { img: F_INST, text: "Biaya Instalasi Rp 100.000" },
     ],
     price: "Rp 185.000",
-    waText: "Saya minat paket XL Home Starter 20 Mbps Rp185.000",
+    waText: "Halo, saya tertarik pasang XL Home paket 20Mbps (Rp 185rb) di area Solo. Boleh cek jaringan?",
   },
   {
     name: "XL Home Spark — 250 Mbps",
-    subtitle: "Internet Only",
+    subtitle: "100% Unlimited Tanpa FUP",
     headerClass: "smart",
     badge: "Best Seller",
     speedMax: 250,
@@ -66,11 +66,11 @@ export const FIBER_TIERS: FiberTier[] = [
       { img: F_FREE, text: "Gratis Biaya Instalasi" },
     ],
     price: "Rp 229.000",
-    waText: "Saya minat paket XL Home Spark 250 Mbps Rp229.000",
+    waText: "Halo, saya tertarik pasang XL Home paket 250Mbps (Promo Rp 229rb) di area Solo. Boleh cek jaringan?",
   },
   {
     name: "XL Home Spark — 300 Mbps",
-    subtitle: "Internet Only",
+    subtitle: "100% Unlimited Tanpa FUP",
     headerClass: "family",
     speedMax: 300,
     speedNormal: 200,
@@ -89,7 +89,7 @@ export const FIBER_TIERS: FiberTier[] = [
   },
   {
     name: "XL Home Spark — 400 Mbps",
-    subtitle: "Internet Only",
+    subtitle: "100% Unlimited Tanpa FUP",
     headerClass: "value",
     speedMax: 400,
     speedNormal: 300,
@@ -108,7 +108,7 @@ export const FIBER_TIERS: FiberTier[] = [
   },
   {
     name: "XL Home Spark — 500 Mbps",
-    subtitle: "Internet Only",
+    subtitle: "100% Unlimited Tanpa FUP",
     headerClass: "smart",
     speedMax: 500,
     barWidth: 86,
@@ -125,7 +125,7 @@ export const FIBER_TIERS: FiberTier[] = [
   },
   {
     name: "XL Home Spark — 1000 Mbps",
-    subtitle: "Internet Only",
+    subtitle: "100% Unlimited Tanpa FUP",
     headerClass: "family",
     speedMax: 1000,
     barWidth: 96,
@@ -255,7 +255,7 @@ export const WIRELESS_ADVANCE: WirelessTier[] = [
     label: "Advance Payment — Bayar 3 Dapat 4",
     price: "Rp 650.000",
     note: "untuk 4 bulan • ≈ Rp162.500/bulan",
-    waText: "Saya minat XL Home Wireless 50 Mbps Advance Rp650.000",
+    waText: "Halo, saya mau cek jaringan untuk paket Wireless 50 Mbps (Advance). Lokasi saya di Solo.",
   },
   {
     speed: 100,
@@ -264,7 +264,7 @@ export const WIRELESS_ADVANCE: WirelessTier[] = [
     label: "Advance Payment — Bayar 3 Dapat 4",
     price: "Rp 790.000",
     note: "untuk 4 bulan • ≈ Rp197.500/bulan",
-    waText: "Saya minat XL Home Wireless 100 Mbps Advance Rp790.000",
+    waText: "Halo, saya mau cek jaringan untuk paket Wireless 100 Mbps (Advance). Lokasi saya di Solo.",
   },
 ];
 
@@ -276,7 +276,7 @@ export const WIRELESS_MONTHLY: WirelessTier[] = [
     label: "Monthly Plan",
     price: "Rp 219.500",
     note: "/bulan",
-    waText: "Saya minat XL Home Wireless Monthly 100 Mbps Rp219.500",
+    waText: "Halo, saya mau cek jaringan untuk paket Wireless Bulanan 100 Mbps. Lokasi saya di Solo.",
   },
 ];
 
