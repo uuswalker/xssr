@@ -116,7 +116,7 @@ export default function FupSim() {
       encodeURIComponent(
         `Halo kak, hasil simulatorku ${monthly} GB/bulan dan KENA FUP (${status}). Info paket XL Home tanpa FUP dong`
       ) +
-      '" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#037e64; color:#fff; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; margin-top:8px;">Bebas FUP via WA</a>';
+      '" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#037e64; color:#fff; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; margin-top:8px;">?? Cek Area XL Home via WA Sekarang (BEBAS FUP) ??</a>';
     return { html, p: paket, status, gb: monthly };
   }
 
@@ -133,7 +133,7 @@ export default function FupSim() {
   const share = () => {
     const r = frun();
     setHasil(r);
-    const url = `https://xlsatusolo.com/wifi-tanpa-fup-unlimited/#fup-${r.p}-${r.status}-${r.gb}`;
+    const url = `https://xlhomesolo.com/wifi-tanpa-fup-unlimited/#fup-${r.p}-${r.status}-${r.gb}`;
     const doneFn = () => {
       setShared(true);
       gtag("event", "fup_share", { page_path: window.location.pathname });
