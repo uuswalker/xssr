@@ -2171,7 +2171,7 @@ ARTIKEL["cara-cek-jaringan-xl-home-di-depan-rumah"] = {
     <p>Setiap <em>Internet Service Provider</em> (ISP) memiliki kode warna penanda di tiangnya masing-masing. Untuk jaringan XL Home, tiangnya terbuat dari besi dengan ciri khas <strong>cat warna hijau-biru di bagian pucuk atasnya</strong>.</p>
     
     <div style="text-align: center; margin: 24px 0;">
-      <img src="/images/pucuk-tiang-xl-home.jpg" alt="Ciri Pucuk Tiang XL Home Berwarna Hijau Biru" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+      <img src="/images/tiang-xl-home-fat-box.jpg" alt="Ciri Pucuk Tiang XL Home Berwarna Hijau Biru" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
       <p style="font-size: 13px; color: #666; margin-top: 8px;"><em>Contoh pucuk tiang XL Home dengan marking warna hijau-biru</em></p>
     </div>
     
