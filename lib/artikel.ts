@@ -2148,3 +2148,63 @@ ARTIKEL["xl-satu-dan-xl-home-apakah-sama"] = {
     </div>
   `
 };
+
+ARTIKEL["cara-cek-jaringan-xl-home-di-depan-rumah"] = {
+  slug: "cara-cek-jaringan-xl-home-di-depan-rumah",
+  title: "Cara Cek Jaringan XL Home di Depan Rumah (Kenali Ciri Tiangnya!)",
+  description: "Ingin pasang XL Home tapi ragu apakah jaringan sudah masuk? Kenali ciri-ciri tiang XL Home (hijau-biru) dan kotak ODP/FAT di sekitar rumah Anda.",
+  keywords: ["cara cek jaringan xl home", "tiang xl home", "odp xl home", "ciri tiang xl home", "cek jangkauan xl home solo", "tiang xl satu", "kotak fat xl"],
+  ogTitle: "Cara Cek Jaringan XL Home: Kenali Ciri Tiangnya!",
+  ogDescription: "Cek sendiri jangkauan XL Home di depan rumah Anda. Cari tiang berpucuk hijau-biru dan kotak ini!",
+  ogImage: "/images/tiang-xl-home-fat-box.jpg",
+  schemas: [],
+  faqs: [],
+  hero: null,
+  headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20di%20depan%20rumah%20saya%20ada%20tiang%20XL%20Home.%20Mau%20pasang!",
+  bodyHtml: `
+    <h2>Cara Tercepat Mengetahui Area Anda Sudah Tercover XL Home</h2>
+    <p>Seringkali calon pelanggan bingung dan harus menunggu lama hanya untuk menanyakan apakah alamatnya sudah tercover jaringan <strong>XL Home (XL SATU)</strong>. Padahal, ada cara yang sangat cepat dan akurat yang bisa Anda lakukan sendiri dalam 1 menit: <strong>Cek tiang listrik atau tiang internet di sekitar rumah Anda!</strong></p>
+    
+    <p>Di jalan raya Solo Raya (Solo, Sukoharjo, Karanganyar, Boyolali, Klaten), banyak sekali tiang kabel yang saling tumpang tindih. Agar tidak tertukar dengan tiang milik IndiHome, Biznet, atau PLN, berikut adalah 2 ciri fisik mutlak dari jaringan XL Home.</p>
+
+    <h2>1. Pucuk Tiang Berwarna Hijau-Biru</h2>
+    <p>Setiap <em>Internet Service Provider</em> (ISP) memiliki kode warna penanda di tiangnya masing-masing. Untuk jaringan XL Home, tiangnya terbuat dari besi dengan ciri khas <strong>cat warna hijau-biru di bagian pucuk atasnya</strong>.</p>
+    
+    <div style="text-align: center; margin: 24px 0;">
+      <img src="/images/pucuk-tiang-xl-home.jpg" alt="Ciri Pucuk Tiang XL Home Berwarna Hijau Biru" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+      <p style="font-size: 13px; color: #666; margin-top: 8px;"><em>Contoh pucuk tiang XL Home dengan marking warna hijau-biru</em></p>
+    </div>
+    
+    <p>Jika Anda berdiri di depan rumah dan melihat ada tiang dengan pucuk hijau-biru ini dalam jarak kurang dari 150 meter, peluang rumah Anda bisa dipasang XL Home sangatlah besar!</p>
+
+    <h2>2. Kotak FAT/ODP Berwarna Putih dengan Kode Spesifik</h2>
+    <p>Tiang saja belum cukup. Kabel dari tiang harus ditarik dari sebuah "kotak distribusi" yang disebut <strong>FAT (Fiber Access Terminal)</strong> atau ODP.</p>
+    
+    <p>Ciri-ciri kotak FAT milik XL Home adalah kotaknya berwarna putih, memiliki stiker segitiga merah (peringatan radiasi laser), dan yang paling penting: <strong>Memiliki kode unik huruf dan angka tebal berwarna hitam</strong> (contoh: <code>FBJO46 SO1A08</code>).</p>
+
+    <div style="text-align: center; margin: 24px 0;">
+      <img src="/images/tiang-xl-home-fat-box.jpg" alt="Kotak FAT ODP XL Home Solo Raya" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+      <p style="font-size: 13px; color: #666; margin-top: 8px;"><em>Kotak distribusi (FAT) XL Home. Perhatikan kode tebal di depannya.</em></p>
+    </div>
+
+    <div class="info-box">
+      <strong>Fakta Lapangan:</strong> Kode seperti "SO" pada kotak FAT di atas merujuk pada kode area (misalnya: Solo). Jika Anda memfoto kotak ini dan mengirimkannya ke agen sales kami, tim teknisi bisa langsung mengunci lokasi rumah Anda di sistem kami dengan akurasi 100%.
+    </div>
+
+    <h2>Sudah Menemukan Tiang dan Kotaknya? Lakukan Ini!</h2>
+    <p>Jika Anda sudah melihat tiang hijau-biru dan kotak putih tersebut di dekat rumah Anda, SELAMAT! Anda bisa mendapatkan internet super cepat tanpa FUP hari ini juga. Langkah selanjutnya sangat mudah:</p>
+    <ol>
+      <li><strong>Foto kotak FAT tersebut</strong>, pastikan kodenya terlihat cukup jelas.</li>
+      <li><strong>Kirimkan foto tersebut beserta titik Share Lokasi rumah Anda</strong> ke WhatsApp Tim Sales Resmi XL Home Solo Raya.</li>
+      <li>Kami akan memproses pendaftaran Anda secara prioritas. Karena kotaknya sudah terlihat, teknisi bisa langsung datang untuk melakukan penarikan kabel!</li>
+    </ol>
+
+    <div class="cta-box">
+      <h3>Daftar Jalur Cepat (Prioritas)</h3>
+      <p>Punya foto tiang XL Home di dekat rumah? Kirimkan fotonya sekarang dan dapatkan jadwal pemasangan lebih cepat!</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20kak,%20di%20depan%20rumah%20saya%20sudah%20ada%20tiang%20dan%20kotak%20XL%20Home.%20Ini%20fotonya,%20mau%20daftar%20sekarang!" target="_blank" rel="noopener noreferrer" class="btn-cta">
+        Kirim Foto Tiang via WA
+      </a>
+    </div>
+  `
+};
