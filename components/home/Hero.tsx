@@ -196,7 +196,7 @@ export function FiturPills() {
           ["icon-fiber.svg", "Speed Makin Kencang"],
           ["icon-internet.svg", "Diakui Opensignal"],
           ["icon-jaringan.svg", "Area Solo Raya"],
-          ["icon-kalender.svg", "Instalasi Cepat"],
+          ["icon-kalender.svg", "Pasang Hari Ini!"],
         ].map(([icon, label]) => (
           <div className="pill-item" key={label}>
             <Image
@@ -218,9 +218,7 @@ export function HomeHeroLokal() {
     <section className="hero-lokal">
       <div className="hero-lokal-inner">
         <h1>
-          Pasang <span>XL Home di Solo Raya</span>
-          <br />
-          Cepat, Stabil, dan Terjangkau
+          Pasang <span>XL Home di Solo Raya</span><br />Daftar Pagi, Sore Dipasang!
         </h1>
         <p>
           XL Home hadir untuk keluarga di{" "}
@@ -293,7 +291,7 @@ export function HomeHeroLokal() {
           {[
             "agen resmi XL Home",
             "Harga Transparan, Tanpa Biaya Tersembunyi",
-            "Ditemani Sampai Internet Nyala",
+            "100% Teknisi Lokal Cepat Tanggap",
           ].map((t) => (
             <span key={t} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
               <CheckCircle2 size={16} color="var(--green)" style={{ flexShrink: 0 }} />
