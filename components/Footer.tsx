@@ -35,7 +35,7 @@ export default function Footer() {
         <div className="footer-map" style={{ flex: '1', minWidth: '280px', maxWidth: '400px' }}>
           <h4 style={{ color: '#fff', fontSize: '13px', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>XL Home Solo Raya</h4>
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15819.349544976454!2d110.8252!3d-7.6046!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a17721867cbb9%3A0xc6659c288d3d995c!2sXL%20Home%20Solo%20Raya!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.05609341492!2d110.80874237582236!3d-7.585723292429402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1735841be64d%3A0x6296368990718b62!2sXL%20Home%20Solo%20Raya!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" 
             width="100%" 
             height="140" 
             style={{ border: 0, borderRadius: '8px', opacity: 0.85 }} 
@@ -44,9 +44,7 @@ export default function Footer() {
             referrerPolicy="no-referrer-when-downgrade"
             title="Lokasi Agen XL Home Solo"
           ></iframe>
-          <div style={{ fontSize: 11, color: 'rgba(255,255,255,.7)', marginTop: 8 }}>
-            Jl. Raya Solo-Sukoharjo, Jawa Tengah (Melayani 100% Online)
-          </div>
+
         </div>
 
         <div className="footer-links">
