@@ -1,7 +1,14 @@
 import type { FaqItem } from "./seo";
 
+
 // Disalin 1:1 dari xssr@ec66035 index.html (jawaban = HTML, render via dangerouslySetInnerHTML).
 export const FAQ_HOME: FaqItem[] = [
+
+  { q: 'Apakah XL HOME masih ada?', a: 'Tentu saja! XL Home justru semakin besar. Sebelumnya sempat bernama XL SATU, kini layanan fiber optic kami resmi kembali menggunakan nama <strong>XL Home</strong> dengan kualitas jaringan yang jauh lebih cepat, stabil, dan jangkauan area yang lebih luas di seluruh Solo Raya.' },
+  { q: 'Berapa harga WiFi XL Home perbulan?', a: 'Harga berlangganan WiFi XL Home sangat terjangkau, mulai dari <strong>Rp 185.000 per bulan</strong> untuk kecepatan 20 Mbps (Fiber Optic Unlimited tanpa FUP). Tersedia juga paket 250 Mbps (Rp 229.000) hingga 1000 Mbps untuk kebutuhan lebih besar. Harga transparan tanpa biaya sewa modem tambahan.' },
+  { q: 'Apakah ada promo XL HOME untuk tahun 2026?', a: 'Ya! Promo unggulan XL Home tahun 2026 di Solo Raya meliputi <strong>Gratis Biaya Instalasi / Pemasangan</strong> (hemat ratusan ribu rupiah) dan internet 100% Unlimited bebas kuota (Tanpa FUP). Promo ini berlaku untuk pendaftaran melalui Sales Resmi.' },
+  { q: 'Gangguan XL HOME lapor kemana?', a: 'Jika terjadi kendala koneksi atau gangguan jaringan, Anda dapat melapor 24 jam melalui Call Center resmi XL Home di <strong>820</strong> (untuk nomor XL) atau <strong>0817-0123442</strong> (untuk operator lain). Anda juga bisa menghubungi Tim Sales lokal kami untuk panduan eskalasi tiket perbaikan.' },
+
   { q: 'Apa itu XL SATU?', a: 'XL SATU adalah layanan internet rumah unlimited terbaik, hasil integrasi XL Home dan First Media. Menggunakan jaringan fiber optik XLSMART yang cepat dan stabil untuk seluruh keluarga.' },
   { q: 'Apakah merger antara XL dan Smartfren akan berdampak pada pelanggan atau layanan XL SATU?', a: 'Merger XL dan Smartfren tidak berdampak negatif pada layanan XL SATU. Justru dengan bergabungnya kedua jaringan, kualitas dan jangkauan layanan akan semakin meningkat untuk pelanggan.' },
   { q: 'Siapa saja yang dapat berlangganan XL SATU?', a: 'Siapa pun yang berada di area layanan XL SATU dapat berlangganan. Cukup hubungi sales kami untuk mengecek ketersediaan di area Anda.' },
