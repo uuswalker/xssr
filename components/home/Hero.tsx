@@ -291,7 +291,7 @@ export function HomeHeroLokal() {
           {[
             "agen resmi XL Home",
             "Harga Transparan, Tanpa Biaya Tersembunyi",
-            "100% Teknisi Lokal Cepat Tanggap",
+            "Tim Sales Lokal Cepat Tanggap",
           ].map((t) => (
             <span key={t} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
               <CheckCircle2 size={16} color="var(--green)" style={{ flexShrink: 0 }} />
