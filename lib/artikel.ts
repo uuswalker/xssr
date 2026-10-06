@@ -2103,3 +2103,48 @@ ARTIKEL["daftar-xl-home-online-tanpa-ke-kantor"] = {
     </div>
   `
 };
+
+ARTIKEL["xl-satu-dan-xl-home-apakah-sama"] = {
+  slug: "xl-satu-dan-xl-home-apakah-sama",
+  title: "XL SATU dan XL Home Apakah Sama? Ini Penjelasan Resminya",
+  description: "Banyak yang bingung, XL SATU dan XL Home apakah sama? Jawabannya: YA! Simak penjelasan lengkap perubahan nama internet rumah super cepat dari XL Axiata ini.",
+  keywords: ["xl satu dan xl home apakah sama", "perbedaan xl satu dan xl home", "xl home", "xl satu", "internet xl rumah"],
+  ogTitle: "XL SATU vs XL Home, Apa Bedanya?",
+  ogDescription: "Ternyata sama saja! Ini alasan kenapa XL merubah penamaan layanannya.",
+  ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+  schemas: [],
+  faqs: [],
+  hero: null,
+  headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home%20di%20Solo",
+  bodyHtml: `
+    <h2>Jawaban Singkat: Ya, Keduanya Sama!</h2>
+    <p>Jika Anda sedang mencari tahu <strong>"XL SATU dan XL Home apakah sama?"</strong>, jawabannya adalah <strong>YA, 100% sama!</strong> Keduanya adalah layanan internet rumah berbasis <em>fiber optic</em> resmi yang dikeluarkan oleh PT XL Axiata Tbk.</p>
+    
+    <p>Anda tidak perlu khawatir jika melihat brosur, tiang di jalan, atau kotak di tembok rumah tertulis "XL SATU", sementara agen menyebutnya "XL Home". Keduanya merujuk pada produk dan kualitas jaringan kabel yang persis sama.</p>
+
+    <h2>Lalu, Kenapa Ada Dua Nama?</h2>
+    <p>Perbedaannya murni hanya pada strategi penamaan <em>(branding)</em> dan paket kuota tambahannya:</p>
+    <ul>
+      <li><strong>XL Home:</strong> Ini adalah nama asli dari layanan internet rumah 100% Unlimited (Fiber) dari XL. Layanan ini berfokus murni pada penyediaan internet cepat untuk di dalam rumah.</li>
+      <li><strong>XL SATU:</strong> Ini adalah produk <em>inovasi tambahan</em>. Kata "SATU" mengacu pada konsep <strong>FMC (Fixed Mobile Convergence)</strong>, di mana pelanggan membayar SATU tagihan untuk mendapatkan WiFi rumah (Fixed) sekaligus bonus kuota HP keluarga (Mobile).</li>
+    </ul>
+    
+    <p>Baru-baru ini, XL kembali menyederhanakan penamaannya ke akar asalnya, yaitu <strong>XL Home</strong>, agar masyarakat lebih mudah memahaminya sebagai produk "Internet Rumah". Namun, fitur-fitur keren seperti bonus kuota HP keluarga (XL SATU) tetap bisa Anda nikmati jika Anda memilih paket tertentu.</p>
+
+    <h2>Keuntungan Memilih XL Home (Eks XL SATU) Hari Ini</h2>
+    <p>Meski namanya berubah-ubah, kualitas layanannya justru semakin brutal (dalam hal kecepatan):</p>
+    <ol>
+      <li><strong>100% Unlimited Tanpa FUP:</strong> Berbeda dengan provider "merah", XL Home membebaskan Anda dari belenggu FUP (Batas Pemakaian Wajar). Kecepatan tidak akan turun meski Anda mendownload game ratusan Gigabyte.</li>
+      <li><strong>Kecepatan Simetris:</strong> Kecepatan <em>Upload</em> dan <em>Download</em> sama cepatnya. Sangat cocok untuk YouTuber, *streamer*, atau *gamer* kompetitif.</li>
+      <li><strong>Gratis Pemasangan:</strong> Tidak ada biaya sewa modem atau tarik kabel untuk instalasi standar.</li>
+    </ol>
+
+    <div class="cta-box">
+      <h3>Siap Berpaling ke XL Home?</h3>
+      <p>Tidak usah pusing dengan pergantian nama. Fokus saja pada kecepatan internet rumah Anda. Kami bantu cek jaringan di lokasi Anda sekarang juga, GRATIS via WhatsApp!</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20tertarik%20dengan%20kecepatan%20XL%20Home%20di%20Solo.%20Bisa%20cek%20lokasi?" target="_blank" rel="noopener noreferrer" class="btn-cta">
+        Cek Jaringan via WA
+      </a>
+    </div>
+  `
+};
