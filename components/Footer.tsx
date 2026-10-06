@@ -5,7 +5,7 @@ import { PHONE_DISPLAY, WA_INFO } from "@/lib/site";
 export default function Footer() {
   return (
     <footer>
-      <div className="footer-inner" style={{ flexWrap: "wrap", alignItems: "flex-start" }}>
+      <div className="footer-inner" >
         <div className="footer-left">
           <img
             src="/images/xl-home-logo.png"
@@ -32,21 +32,6 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="footer-map" style={{ flex: '1', minWidth: '280px', maxWidth: '400px' }}>
-          <h4 style={{ color: '#fff', fontSize: '13px', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>XL Home Solo Raya</h4>
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.05609341492!2d110.80874237582236!3d-7.585723292429402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1735841be64d%3A0x6296368990718b62!2sXL%20Home%20Solo%20Raya!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" 
-            width="100%" 
-            height="140" 
-            style={{ border: 0, borderRadius: '8px', opacity: 0.85 }} 
-            allowFullScreen={false} 
-            loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Lokasi Agen XL Home Solo"
-          ></iframe>
-
-        </div>
-
         <div className="footer-links">
           <a href="/nomor-sales-xl-home-solo-raya/" style={{ color: "inherit" }}>
             Nomor Sales &amp; Agen
