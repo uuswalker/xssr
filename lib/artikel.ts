@@ -2208,3 +2208,53 @@ ARTIKEL["cara-cek-jaringan-xl-home-di-depan-rumah"] = {
     </div>
   `
 };
+
+ARTIKEL["xl-center-solo-terdekat-pasang-wifi"] = {
+  slug: "xl-center-solo-terdekat-pasang-wifi",
+  title: "XL Center Solo Terdekat? Pasang WiFi XL Home Tanpa Antre!",
+  description: "Mencari alamat XL Center Solo terdekat? Jika tujuan Anda pasang WiFi rumah, berhenti! Daftar 100% online via WA di sini, teknisi langsung datang.",
+  keywords: ["xl center solo", "store xl terdekat", "alamat xl center solo", "gerai xl solo", "pasang wifi xl solo", "xl center penumping", "xl center terdekat"],
+  ogTitle: "Jangan Ke XL Center Dulu Sebelum Baca Ini!",
+  ogDescription: "Mau pasang WiFi XL Home? Gak perlu capek antre di gerai fisik. Daftar online lebih cepat.",
+  ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+  schemas: [],
+  faqs: [],
+  hero: null,
+  headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home%20di%20Solo%20tanpa%20harus%20ke%20gerai",
+  bodyHtml: `
+    <h2>Mencari Alamat XL Center Solo? Tunggu Dulu!</h2>
+    <p>Apakah Anda sedang mencari rute ke <strong>XL Center Solo terdekat</strong> (Jl. Bhayangkara No.81, Penumping, Laweyan) untuk mengurus internet Anda hari ini? Jika ya, mohon baca informasi penting ini sebelum Anda memanaskan kendaraan bermotor Anda.</p>
+    
+    <p>Untuk menghemat waktu Anda dari kemacetan, panas terik, dan panjangnya antrean, kita harus memastikan dulu <strong>apa tujuan utama Anda</strong> mencari gerai fisik XL.</p>
+
+    <div class="info-box" style="background: #fff3e0; border-left: 4px solid #f97316; padding: 16px; margin: 24px 0; border-radius: 4px;">
+      <h3 style="color: #c2410c; margin-top:0;">?? Jika Anda Ingin Ganti Kartu SIM Hilang / Rusak</h3>
+      <p style="margin-bottom:0;">Mohon maaf, Anda <strong>wajib</strong> datang langsung ke XL Center fisik dengan membawa KTP asli. Agen *online* mana pun tidak memiliki wewenang untuk mencetak ulang kartu SIM seluler Anda demi keamanan data pribadi.</p>
+    </div>
+
+    <div class="info-box" style="background: #e6f7f3; border-left: 4px solid #037e64; padding: 16px; margin: 24px 0; border-radius: 4px;">
+      <h3 style="color: #047857; margin-top:0;">? Jika Anda Ingin Pasang WiFi XL Home (Internet Rumah)</h3>
+      <p style="margin-bottom:0;">BERHENTI! Anda <strong>tidak perlu datang ke XL Center</strong> sama sekali! Anda bisa mengurus pendaftaran 100% dari layar HP Anda sekarang juga. Kami adalah Tim Sales Resmi XL Home Area Solo Raya yang siap memproses pendaftaran Anda secara instan.</p>
+    </div>
+
+    <h2>Kenapa Lebih Baik Daftar WiFi Via WhatsApp Agen?</h2>
+    <p>Memaksakan diri datang ke gerai fisik hanya untuk berlangganan WiFi rumah justru akan memperlambat proses Anda. Berikut alasannya:</p>
+    <ul>
+      <li><strong>Tanpa Antre:</strong> Di gerai, Anda harus mengambil nomor antrean dan menunggu. Di WhatsApp, chat Anda akan langsung dibalas dalam hitungan menit.</li>
+      <li><strong>Bebas Cuaca & Macet:</strong> Daftar dari ruang tamu Anda sambil minum kopi. Biar teknisi kami yang berjibaku di jalanan menuju rumah Anda.</li>
+      <li><strong>Proses Survei Lebih Cepat:</strong> Dengan <em>Share Lokasi</em> via WA, kami bisa langsung mengecek ketersediaan jaringan tiang fiber optic di depan rumah Anda secara *real-time*.</li>
+      <li><strong>Syarat Sangat Mudah:</strong> Cukup siapkan foto KTP, Alamat Lengkap, dan Email aktif. Semuanya dikirim via *chat* yang dijamin aman 100%.</li>
+    </ul>
+
+    <h2>Dapatkan Layanan "Daftar Pagi, Sore Dipasang!"</h2>
+    <p>Kami memiliki akses prioritas ke tim teknisi lapangan di area Surakarta, Sukoharjo, Karanganyar, Klaten, dan Boyolali. Selama slot masih tersedia dan jarak tiang (ODP) memadai, pendaftaran hari ini akan langsung dikerjakan hari ini juga.</p>
+
+    <div class="cta-box">
+      <h3>Batal Ke Gerai XL Center? Bagus!</h3>
+      <p>Simpan bensin dan tenaga Anda. Klik tombol di bawah ini untuk terhubung langsung dengan admin resmi kami di area Solo. Pendaftaran GRATIS tanpa biaya instalasi tambahan!</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20Admin,%20saya%20batal%20ke%20XL%20Center.%20Mau%20langsung%20daftar%20pasang%20WiFi%20XL%20Home%20lewat%20WA%20saja.%20Bisa%20cek%20lokasi%20saya?" target="_blank" rel="noopener noreferrer" class="btn-cta">
+        Chat WA Agen XL Home Solo
+      </a>
+    </div>
+  `
+};
