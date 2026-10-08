@@ -557,29 +557,19 @@ export function About() {
           <div className="about-video" style={{ position: "relative", borderRadius: 16, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.12)" }}>
 
             <video
-
-              src="/videos/xl-satu-ganti-nama-xl-home.mp4"
-
               controls
-
               autoPlay={false}
-
               loop={false}
-
               muted={false}
-
               playsInline
-
+              preload="none"
               poster="/images/banner-xlsatu-jadi-xlhome.jpg"
-
               style={{ width: "100%", height: "auto", display: "block", borderRadius: 16 }}
-
               aria-label="Video: XL SATU resmi berganti nama menjadi XL Home - Internet rumah terbaik di Solo Raya">
+              <source src="/videos/xl-satu-ganti-nama-xl-home.webm" type="video/webm" />
+              <source src="/videos/xl-satu-ganti-nama-xl-home.mp4" type="video/mp4" />
               <track kind="captions" src="/captions.vtt" srcLang="id" label="Indonesia" default />
-              <track kind="captions" src="/captions.vtt" srcLang="id" label="Indonesia" default />
-
               Browser Anda tidak mendukung pemutaran video.
-
             </video>
 
           </div>
