@@ -18,8 +18,8 @@ export default function ComparisonTable() {
               <tr style={{ background: "#f1f5f9", textAlign: "left" }}>
                 <th style={{ padding: "16px 20px", color: "#334155", fontWeight: 700 }}>Fitur Layanan</th>
                 <th style={{ padding: "16px 20px", color: "#037e64", fontWeight: 800, background: "#e6f7f3", borderTop: "4px solid #037e64" }}>XL Home</th>
-                <th style={{ padding: "16px 20px", color: "#64748b", fontWeight: 700 }}>Provider "I"</th>
-                <th style={{ padding: "16px 20px", color: "#64748b", fontWeight: 700 }}>Provider "B"</th>
+                <th style={{ padding: "16px 20px", color: "#475569", fontWeight: 700 }}>Provider "I"</th>
+                <th style={{ padding: "16px 20px", color: "#475569", fontWeight: 700 }}>Provider "B"</th>
               </tr>
             </thead>
             <tbody>
@@ -37,8 +37,8 @@ export default function ComparisonTable() {
                       <CheckCircle2 size={18} /> {row.xl}
                     </div>
                   </td>
-                  <td style={{ padding: "16px 20px", color: "#64748b" }}>{row.i}</td>
-                  <td style={{ padding: "16px 20px", color: "#64748b" }}>{row.b}</td>
+                  <td style={{ padding: "16px 20px", color: "#475569" }}>{row.i}</td>
+                  <td style={{ padding: "16px 20px", color: "#475569" }}>{row.b}</td>
                 </tr>
               ))}
             </tbody>

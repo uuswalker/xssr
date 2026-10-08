@@ -91,7 +91,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ClientOnlyComponents />
         {!IS_STAGING && (
           <>
-            <Script id="gtag-bootstrap" strategy="beforeInteractive">
+            <Script id="gtag-bootstrap" strategy="afterInteractive">
               {GTAG_BOOTSTRAP}
             </Script>
             <Script
