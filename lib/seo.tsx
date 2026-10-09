@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { IS_STAGING, SITE_DOMAIN, SITE_NAME } from "./site";
 
 export interface FaqItem {
@@ -28,7 +28,20 @@ export function pageMetadata({ title, description, path, image }: PageSeo): Meta
       title,
       description,
       url,
-      images: [{ url: ogImage }],
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
     },
   };
 }
