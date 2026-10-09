@@ -66,6 +66,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         
         <link rel="preconnect" href="https://ipwho.is" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
       </head>
       <body data-origin="xlsatusolo.com" data-wm="224CF412">
         {/* Honeypot anti-scraper — parity xssr, JANGAN dihapus */}

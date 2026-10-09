@@ -1,4 +1,4 @@
-﻿import Header from "@/components/Header";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Hero from "@/components/home/Hero";
 import PageTransition from "@/components/animations/PageTransition";
@@ -24,7 +24,7 @@ export const metadata = pageMetadata({
 });
 
 const ScrollReveal = dynamic(() => import("@/components/animations/ScrollReveal"));
-import Marquee from "@/components/animations/Marquee";
+const Marquee = dynamic(() => import("@/components/animations/Marquee"));
 const ComparisonTable = dynamic(() => import("@/components/home/ComparisonTable"));
 
 export default function Home() {
