@@ -117,14 +117,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                     t.src='https://connect.facebook.net/en_US/fbevents.js';
                     document.head.appendChild(t);
                   }
-                  ['pointerdown','touchstart','scroll'].forEach(function(e){
+                  ['pointerdown','touchstart','scroll','click'].forEach(function(e){
                     window.addEventListener(e,_loadFb,{once:true,passive:true});
                   });
-                  if('requestIdleCallback' in window){
-                    requestIdleCallback(_loadFb,{timeout:7000});
-                  } else {
-                    setTimeout(_loadFb,7000);
-                  }
+                  setTimeout(_loadFb, 8500);
                 `,
               }}
             />
