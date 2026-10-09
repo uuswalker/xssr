@@ -1,4 +1,4 @@
-﻿// Konstanta situs — disalin dari xssr@ec66035 (sumber beku, JANGAN edit xssr asli).
+// Konstanta situs — disalin dari xssr@ec66035 (sumber beku, JANGAN edit xssr asli).
 // Staging default ON (noindex) sampai cutover eksplisit.
 
 export const SITE_DOMAIN = "https://xlhomesolo.com";
@@ -9,6 +9,7 @@ export const PHONE_TEL = "+6287778999141";
 
 export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-5YWJ5LP9LG";
 export const ADS_ID = process.env.NEXT_PUBLIC_ADS_ID || "AW-938834270";
+export const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID || "1440911638104275";
 export const IS_STAGING = (process.env.NEXT_PUBLIC_STAGING ?? "false") !== "false";
 
 export function waLink(text: string): string {

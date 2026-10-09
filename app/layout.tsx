@@ -6,7 +6,7 @@ import ClientOnlyComponents from "@/components/ClientOnlyComponents";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Trackers from "@/components/Trackers";
-import { ADS_ID, GA_ID, IS_STAGING, SITE_NAME } from "@/lib/site";
+import { ADS_ID, GA_ID, FB_PIXEL_ID, IS_STAGING, SITE_NAME } from "@/lib/site";
 
 const jakarta = localFont({
   src: [
@@ -56,6 +56,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://connect.facebook.net" />
+        <link rel="preconnect" href="https://connect.facebook.net" crossOrigin="anonymous" />
         {!IS_STAGING && (
           <script
             dangerouslySetInnerHTML={{
@@ -87,11 +89,40 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Trackers />
         <ClientOnlyComponents />
         {!IS_STAGING && (
-          <Script
-            id="gtag-lib"
-            strategy="lazyOnload"
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          />
+          <>
+            <Script
+              id="gtag-lib"
+              strategy="lazyOnload"
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+            />
+            <Script
+              id="fb-pixel"
+              strategy="lazyOnload"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  !function(f,b,e,v,n,t,s)
+                  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                  n.queue=[];t=b.createElement(e);t.async=!0;
+                  t.src=v;s=b.getElementsByTagName(e)[0];
+                  s.parentNode.insertBefore(t,s)}(window, document,'script',
+                  'https://connect.facebook.net/en_US/fbevents.js');
+                  fbq('init', '${FB_PIXEL_ID}');
+                  fbq('track', 'PageView');
+                `,
+              }}
+            />
+            <noscript>
+              <img
+                height="1"
+                width="1"
+                style={{ display: "none" }}
+                src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}
+                alt=""
+              />
+            </noscript>
+          </>
         )}
         <Analytics />
         <SpeedInsights />

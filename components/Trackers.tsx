@@ -50,6 +50,15 @@ export default function Trackers() {
         });
         gtag("event", "conversion", { send_to: `${ADS_ID}/uoD7CPXb27ADEN7y1b8D` });
       }
+
+      if (typeof (window as unknown as { fbq?: unknown }).fbq === "function") {
+        const fbq = (window as unknown as { fbq: (...a: unknown[]) => void }).fbq;
+        fbq("track", "Contact");
+        fbq("track", "Lead", {
+          content_name: ((l.textContent || "").trim().slice(0, 100) || "whatsapp_click"),
+          content_category: "whatsapp",
+        });
+      }
     };
     const onCtx = (e: Event) => {
       if ((e.target as HTMLElement)?.tagName === "IMG") e.preventDefault();
