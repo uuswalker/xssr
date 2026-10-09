@@ -1,11 +1,87 @@
 import Link from "next/link";
-import { PHONE_DISPLAY, WA_INFO } from "@/lib/site";
+import { PHONE_DISPLAY } from "@/lib/site";
 
-// Port 1:1 footer xssr — SVG sosial disalin verbatim.
 export default function Footer() {
   return (
-    <footer>
-      <div className="footer-inner" >
+    <footer role="contentinfo">
+      {/* ── INTERNAL LINKING SILO FOR GOOGLE INDEXING ── */}
+      <nav aria-label="Area dan Panduan Layanan" className="footer-sitemap">
+        <div className="footer-sitemap-grid">
+          {/* Kolom 1: Solo & Sukoharjo */}
+          <div className="footer-sitemap-col">
+            <h3>Area Solo &amp; Sukoharjo</h3>
+            <ul>
+              <li><a href="/pasang-wifi-xl-satu-banjarsari/">Pasang WiFi Banjarsari</a></li>
+              <li><a href="/pasang-wifi-xl-satu-jebres/">Pasang WiFi Jebres</a></li>
+              <li><a href="/pasang-wifi-xl-satu-laweyan/">Pasang WiFi Laweyan</a></li>
+              <li><a href="/pasang-wifi-xl-satu-pasar-kliwon/">Pasang WiFi Pasar Kliwon</a></li>
+              <li><a href="/pasang-wifi-xl-satu-serengan/">Pasang WiFi Serengan</a></li>
+              <li><a href="/wifi-solo/">Pasang WiFi Solo (Pusat)</a></li>
+              <li><a href="/pasang-wifi-xl-satu-solo-baru/">Pasang WiFi Solo Baru</a></li>
+              <li><a href="/pasang-wifi-xl-satu-kartasura/">Pasang WiFi Kartasura</a></li>
+              <li><a href="/pasang-wifi-xl-satu-grogol/">Pasang WiFi Grogol Sukoharjo</a></li>
+              <li><a href="/pasang-wifi-xl-satu-baki/">Pasang WiFi Baki Sukoharjo</a></li>
+              <li><a href="/pasang-wifi-xl-satu-mojolaban/">Pasang WiFi Mojolaban</a></li>
+              <li><a href="/pasang-wifi-xl-satu-sukoharjo-kota/">Pasang WiFi Sukoharjo Kota</a></li>
+            </ul>
+          </div>
+
+          {/* Kolom 2: Karanganyar, Boyolali & Klaten */}
+          <div className="footer-sitemap-col">
+            <h3>Karanganyar, Boyolali &amp; Klaten</h3>
+            <ul>
+              <li><a href="/pasang-wifi-xl-satu-colomadu/">Pasang WiFi Colomadu</a></li>
+              <li><a href="/pasang-wifi-xl-satu-palur/">Pasang WiFi Palur</a></li>
+              <li><a href="/pasang-wifi-xl-satu-jaten/">Pasang WiFi Jaten Karanganyar</a></li>
+              <li><a href="/pasang-wifi-xl-satu-gondangrejo/">Pasang WiFi Gondangrejo</a></li>
+              <li><a href="/pasang-wifi-xl-satu-karanganyar-kota/">Pasang WiFi Karanganyar Kota</a></li>
+              <li><a href="/pasang-wifi-xl-satu-boyolali-kota/">Pasang WiFi Boyolali Kota</a></li>
+              <li><a href="/pasang-wifi-xl-satu-ngemplak/">Pasang WiFi Ngemplak Boyolali</a></li>
+              <li><a href="/pasang-wifi-xl-satu-banyudono/">Pasang WiFi Banyudono</a></li>
+              <li><a href="/pasang-wifi-xl-satu-klaten-kota/">Pasang WiFi Klaten Kota</a></li>
+              <li><a href="/pasang-wifi-xl-satu-delanggu/">Pasang WiFi Delanggu Klaten</a></li>
+              <li><a href="/pasang-wifi-xl-satu-prambanan/">Pasang WiFi Prambanan</a></li>
+            </ul>
+          </div>
+
+          {/* Kolom 3: Panduan & Pendaftaran */}
+          <div className="footer-sitemap-col">
+            <h3>Panduan &amp; Pasang Baru</h3>
+            <ul>
+              <li><a href="/biaya-pasang-wifi-solo-raya/">Biaya Pasang WiFi Solo 2026</a></li>
+              <li><a href="/panduan-wifi-kos-solo/">Panduan WiFi Kos Solo &amp; Kampus</a></li>
+              <li><a href="/cara-daftar-pasang-wifi-xl-satu-solo/">Syarat &amp; Cara Daftar Pasang WiFi</a></li>
+              <li><a href="/daftar-xl-home-online-tanpa-ke-kantor/">Daftar Online Tanpa ke Kantor</a></li>
+              <li><a href="/xl-center-solo-terdekat-pasang-wifi/">Lokasi XL Center Solo Terdekat</a></li>
+              <li><a href="/5-hal-wajib-dicek-sebelum-pasang-wifi-rumah/">5 Hal Wajib Dicek Sebelum Pasang</a></li>
+              <li><a href="/cara-cek-jaringan-xl-home-di-depan-rumah/">Cara Cek Jaringan Depan Rumah</a></li>
+              <li><a href="/internet-rakyat-vs-xl-satu/">Internet Rakyat vs XL Home</a></li>
+              <li><a href="/cara-berhenti-langganan-indihome-biznet-pindah-xl-satu-solo/">Cara Ganti Provider ke XL Home</a></li>
+              <li><a href="/nomor-sales-xl-home-solo-raya/">Nomor Sales &amp; Agen Resmi</a></li>
+            </ul>
+          </div>
+
+          {/* Kolom 4: Fitur, Promo & Perumahan */}
+          <div className="footer-sitemap-col">
+            <h3>Fitur &amp; Promo Perumahan</h3>
+            <ul>
+              <li><a href="/tes-kecepatan/">Tes Kecepatan Internet Solo</a></li>
+              <li><a href="/berapa-mbps-untuk-berapa-orang/">Kalkulator Kebutuhan Mbps</a></li>
+              <li><a href="/area-layanan/">Cek 79 Kecamatan Tercover</a></li>
+              <li><a href="/wifi-tanpa-fup-unlimited/">WiFi Fiber 100% Tanpa FUP</a></li>
+              <li><a href="/solusi-internet-daerah-belum-ada-fiber-optik/">Solusi Daerah Belum Ada Fiber</a></li>
+              <li><a href="/promo-perumahan-solo/">Promo WiFi Perumahan Solo</a></li>
+              <li><a href="/promo-wifi-pondok-permai-colomadu/">Promo Pondok Permai Colomadu</a></li>
+              <li><a href="/pasang-wifi-tirtamaya-residence-solo-baru/">Tirtamaya Residence Solo Baru</a></li>
+              <li><a href="/layanan-internet-permata-botanical-colomadu/">Permata Botanical Colomadu</a></li>
+              <li><a href="/paket-wifi-tahunan-bayar-10-dapat-12/">Paket Tahunan Bayar 10 Dapat 12</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {/* ── FOOTER BOTTOM BAR ── */}
+      <div className="footer-inner">
         <div className="footer-left">
           <img
             src="/images/xl-home-logo.png"
