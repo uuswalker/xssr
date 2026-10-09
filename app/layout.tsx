@@ -121,9 +121,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                     window.addEventListener(e,_loadFb,{once:true,passive:true});
                   });
                   if('requestIdleCallback' in window){
-                    requestIdleCallback(_loadFb,{timeout:5000});
+                    requestIdleCallback(_loadFb,{timeout:7000});
                   } else {
-                    setTimeout(_loadFb,5000);
+                    setTimeout(_loadFb,7000);
                   }
                 `,
               }}
