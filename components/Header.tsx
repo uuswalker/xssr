@@ -40,7 +40,7 @@ export default function Header({
               alt="XL HOME"
               width={106}
               height={85}
-              loading="lazy"
+              loading="eager"
             />
           </Link>
         </div>

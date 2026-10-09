@@ -23,7 +23,6 @@ export const metadata = pageMetadata({
   path: "/",
 });
 
-const ScrollReveal = dynamic(() => import("@/components/animations/ScrollReveal"));
 const Marquee = dynamic(() => import("@/components/animations/Marquee"));
 const ComparisonTable = dynamic(() => import("@/components/home/ComparisonTable"));
 
@@ -34,18 +33,10 @@ export default function Home() {
       <PageTransition>
         <Hero />
         <Marquee />
-        <ScrollReveal delay={0.1}>
-          <PaketSection />
-        </ScrollReveal>
-        <ScrollReveal delay={0.1}>
-          <InfoSections />
-        </ScrollReveal>
-        <ScrollReveal delay={0.1}>
-          <ComparisonTable />
-        </ScrollReveal>
-        <ScrollReveal delay={0.1}>
-          <Faq faqs={FAQ_HOME} />
-        </ScrollReveal>
+        <PaketSection />
+        <InfoSections />
+        <ComparisonTable />
+        <Faq faqs={FAQ_HOME} />
         <WaFloat />
       </PageTransition>
       <Footer />
