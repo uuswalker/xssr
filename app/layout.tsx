@@ -59,7 +59,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {!IS_STAGING && (
           <script
             dangerouslySetInnerHTML={{
-              __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('consent','default',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});gtag('config','${GA_ID}');gtag('config','${ADS_ID}');`,
+              __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('consent','default',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});gtag('config','${GA_ID}');gtag('config','${ADS_ID}');!function(f,b){if(f.fbq)return;var n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];}(window,document);fbq('init','${FB_PIXEL_ID}');fbq('track','PageView');`,
             }}
           />
         )}
@@ -89,36 +89,27 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {!IS_STAGING && (
           <>
             <Script
-              id="gtag-lib"
-              strategy="lazyOnload"
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-            />
-            <Script
-              id="fb-pixel"
+              id="analytics-loader"
               strategy="lazyOnload"
               dangerouslySetInnerHTML={{
                 __html: `
-                  !function(f,b){
-                    if(f.fbq)return;var n=f.fbq=function(){n.callMethod?
-                    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                    n.queue=[];
-                  }(window, document);
-                  fbq('init', '${FB_PIXEL_ID}');
-                  fbq('track', 'PageView');
+                  function _loadTrackers(){
+                    if(window._trackersLoaded)return;
+                    window._trackersLoaded=true;
+                    var g=document.createElement('script');
+                    g.async=true;
+                    g.src='https://www.googletagmanager.com/gtag/js?id=${GA_ID}';
+                    document.head.appendChild(g);
 
-                  function _loadFb(){
-                    if(window._fbLoaded)return;
-                    window._fbLoaded=true;
-                    var t=document.createElement('script');
-                    t.async=true;
-                    t.src='https://connect.facebook.net/en_US/fbevents.js';
-                    document.head.appendChild(t);
+                    var f=document.createElement('script');
+                    f.async=true;
+                    f.src='https://connect.facebook.net/en_US/fbevents.js';
+                    document.head.appendChild(f);
                   }
                   ['pointerdown','touchstart','scroll','click'].forEach(function(e){
-                    window.addEventListener(e,_loadFb,{once:true,passive:true});
+                    window.addEventListener(e,_loadTrackers,{once:true,passive:true});
                   });
-                  setTimeout(_loadFb, 15000);
+                  setTimeout(_loadTrackers, 12000);
                 `,
               }}
             />
