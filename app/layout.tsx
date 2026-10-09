@@ -56,8 +56,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://connect.facebook.net" />
-        <link rel="preconnect" href="https://connect.facebook.net" crossOrigin="anonymous" />
         {!IS_STAGING && (
           <script
             dangerouslySetInnerHTML={{
@@ -120,7 +118,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                   ['pointerdown','touchstart','scroll','click'].forEach(function(e){
                     window.addEventListener(e,_loadFb,{once:true,passive:true});
                   });
-                  setTimeout(_loadFb, 8500);
+                  setTimeout(_loadFb, 15000);
                 `,
               }}
             />
