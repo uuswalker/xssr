@@ -43,7 +43,7 @@ export default function ConsentBanner() {
       applyConsent(saved.v);
       return;
     }
-    const timer = setTimeout(() => setShow(true), 3500);
+    const timer = setTimeout(() => setShow(true), 5000);
     return () => clearTimeout(timer);
   }, []);
 

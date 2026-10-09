@@ -29,19 +29,21 @@ export default function ClientOnlyComponents() {
       window.removeEventListener("pointerdown", trigger);
       window.removeEventListener("touchstart", trigger);
       window.removeEventListener("scroll", trigger);
+      window.removeEventListener("mousemove", trigger);
     };
 
     window.addEventListener("pointerdown", trigger, { once: true, passive: true });
     window.addEventListener("touchstart", trigger, { once: true, passive: true });
     window.addEventListener("scroll", trigger, { once: true, passive: true });
+    window.addEventListener("mousemove", trigger, { once: true, passive: true });
 
     if ("requestIdleCallback" in window) {
       idleId = (window as unknown as { requestIdleCallback: (fn: () => void, opts: { timeout: number }) => number }).requestIdleCallback(
         trigger,
-        { timeout: 3500 }
+        { timeout: 5000 }
       );
     } else {
-      timerId = setTimeout(trigger, 2500);
+      timerId = setTimeout(trigger, 5000);
     }
 
     return cleanup;
