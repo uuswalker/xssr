@@ -61,3 +61,5 @@ PAGE_CSS["pasang-wifi-tirtamaya-residence-solo-baru"] = PAGE_CSS["cara-daftar-pa
 PAGE_CSS["layanan-internet-permata-botanical-colomadu"] = PAGE_CSS["cara-daftar-pasang-wifi-xl-satu-solo"];
 PAGE_CSS["promo-wifi-pondok-permai-colomadu"] = PAGE_CSS["cara-daftar-pasang-wifi-xl-satu-solo"];
 PAGE_CSS["daftar-xl-home-online-tanpa-ke-kantor"] = PAGE_CSS["cara-daftar-pasang-wifi-xl-satu-solo"];
+
+PAGE_CSS["panduan-fiber-vs-wireless"] = PAGE_CSS["cara-daftar-pasang-wifi-xl-satu-solo"];
