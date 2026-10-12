@@ -1455,3 +1455,15 @@
   }
   .cl-status.error { color: #d33; }
   .cl-status.success { color: #037e64; font-weight: 600; }
+
+  .badge-kel {
+    display: inline-block;
+    background: #e6f7f3;
+    color: #026b55;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(3, 126, 100, 0.15);
+  }
+
