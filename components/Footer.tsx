@@ -49,6 +49,8 @@ export default function Footer() {
             <h3>Panduan &amp; Pasang Baru</h3>
             <ul>
               <li><a href="/biaya-pasang-wifi-solo-raya/">Biaya Pasang WiFi Solo 2026</a></li>
+              <li><a href="/xl-satu-resmi-jadi-xl-home/">XL SATU Resmi Jadi XL Home</a></li>
+              <li><a href="/xl-satu-dan-xl-home-apakah-sama/">XL SATU &amp; XL Home Apakah Sama?</a></li>
               <li><a href="/panduan-wifi-kos-solo/">Panduan WiFi Kos Solo &amp; Kampus</a></li>
               <li><a href="/cara-daftar-pasang-wifi-xl-satu-solo/">Syarat &amp; Cara Daftar Pasang WiFi</a></li>
               <li><a href="/daftar-xl-home-online-tanpa-ke-kantor/">Daftar Online Tanpa ke Kantor</a></li>
@@ -95,7 +97,7 @@ export default function Footer() {
             Copyright © 2026 XL Home Solo Raya. All rights reserved.
           </div>
           <div style={{ fontSize: 11, color: "rgba(255,255,255,.7)", marginTop: 2 }}>
-            Dilarang menyalin/menggandakan konten situs ini tanpa izin tertulis.
+            XL Home Fiber (d/h XL SATU Fiber) • Dikelola Tim Sales Resmi Solo Raya
           </div>
           <div style={{ fontSize: 11, marginTop: 4 }}>
             <a
@@ -104,7 +106,7 @@ export default function Footer() {
             >
               wa.me/xlsatusolo
             </a>{" "}
-            • {PHONE_DISPLAY} • Dikelola agen resmi Solo&nbsp;Raya
+            • {PHONE_DISPLAY} • Dikelola tim sales resmi Solo&nbsp;Raya
           </div>
         </div>
         

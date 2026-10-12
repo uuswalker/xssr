@@ -547,12 +547,16 @@ export function getGeoArticle(slug: string) {
 
   const faqs: FaqItem[] = [
     {
-      q: `Apakah jaringan fiber optik XL SATU / XL Home sudah menjangkau seluruh ${areaName}?`,
-      a: `Jaringan fiber optik XL SATU telah terpasang luas di ${areaName} (${cityName}), mencakup wilayah ${kelList}. Untuk mengecek ketersediaan tiang fiber terdekat dari rumah Anda, silakan hubungi tim sales kami dengan mengirimkan titik lokasi maps via WhatsApp.`
+      q: `Apakah XL Home dan XL SATU di ${areaName} adalah layanan yang sama?`,
+      a: `Ya, XL SATU kini telah resmi bertransformasi menjadi XL Home Fiber. Seluruh infrastruktur kabel fiber optik, perangkat modem WiFi, dan tim operasional di ${areaName} (${cityName}) kini semakin ditingkatkan dengan kecepatan simetris 1:1, bebas batas FUP, dan promo pendaftaran lebih terjangkau.`
     },
     {
-      q: `Berapa biaya pasang WiFi XL SATU di ${areaName}?`,
-      a: `Khusus pendaftaran bulan ini untuk warga ${areaName}, biaya pemasangan dan instalasi adalah GRATIS (Hemat Rp 99.000). Anda hanya membayar tagihan bulan pertama setelah internet aktif dan digunakan di rumah.`
+      q: `Apakah jaringan fiber optik XL Home / XL SATU sudah menjangkau seluruh ${areaName}?`,
+      a: `Jaringan fiber optik XL Home (d/h XL SATU) telah terpasang luas di ${areaName} (${cityName}), mencakup wilayah ${kelList}. Untuk mengecek ketersediaan tiang fiber terdekat dari rumah Anda, silakan hubungi tim sales kami dengan mengirimkan titik lokasi maps via WhatsApp.`
+    },
+    {
+      q: `Berapa biaya pasang WiFi XL Home di ${areaName}?`,
+      a: `Khusus pendaftaran promo bulan ini untuk warga ${areaName}, biaya pemasangan dan instalasi adalah GRATIS (Hemat Rp 99.000). Anda hanya membayar tagihan bulan pertama setelah internet aktif dan digunakan di rumah.`
     },
     {
       q: `Paket WiFi apa yang paling cocok untuk kebutuhan di ${areaName}?`,
@@ -568,8 +572,15 @@ export function getGeoArticle(slug: string) {
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": `XL SATU Solo Raya - Layanan Area ${areaName}`,
-      "description": `Layanan pasang WiFi rumah fiber optik XL SATU (XL Home) 100% tanpa FUP di ${areaName}, ${cityName}. Pendaftaran resmi via agen Solo Raya.`,
+      "name": `XL Home Fiber (d/h XL SATU) ${areaName} - Solo Raya`,
+      "alternateName": [
+        `XL SATU ${areaName}`,
+        `XL Home ${areaName}`,
+        `XL SATU Solo Raya`,
+        `XL Home Fiber ${areaName}`,
+        `Pasang WiFi XL SATU ${areaName}`
+      ],
+      "description": `Layanan pasang WiFi rumah fiber optik XL Home Fiber (transformasi resmi XL SATU Fiber) 100% tanpa FUP di ${areaName}, ${cityName}. Pendaftaran resmi via agen sales Solo Raya.`,
       "telephone": "0877-7899-9141",
       "address": {
         "@type": "PostalAddress",
@@ -582,10 +593,10 @@ export function getGeoArticle(slug: string) {
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": `Pasang WiFi Murah di ${areaName} (${cityName}) | XL SATU Fiber Tanpa FUP`,
-      "description": `Panduan pasang WiFi rumah XL SATU Fiber di ${areaName}, ${cityName}. Bebas batas FUP, gratis biaya pasang, dan bonus kuota HP keluarga.`,
-      "author": { "@type": "Organization", "name": "XL SATU Solo Raya" },
-      "publisher": { "@type": "Organization", "name": "XL SATU Solo Raya" },
+      "headline": `Pasang WiFi Murah di ${areaName} (${cityName}) | XL Home (d/h XL SATU Fiber)`,
+      "description": `Panduan pasang WiFi rumah XL Home Fiber (transformasi resmi XL SATU) di ${areaName}, ${cityName}. Bebas batas FUP, gratis biaya pasang, dan paket bundling kuota.`,
+      "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
+      "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "datePublished": "2026-08-15",
       "dateModified": "2026-10-12",
       "mainEntityOfPage": `https://xlhomesolo.com/pasang-wifi-xl-satu-${areaSlug}/`
@@ -596,10 +607,10 @@ export function getGeoArticle(slug: string) {
     <p>Mencari provider internet rumah yang andal, cepat, dan terjangkau di <strong>${areaName} (${cityName})</strong> kini semakin mudah. Sebagai ${info.character}, kebutuhan koneksi internet stabil berkecepatan tinggi kini menjadi kebutuhan pokok untuk aktivitas harian — mulai dari bekerja dari rumah (WFH), belajar daring, streaming hiburan tanpa jeda, hingga mengoperasikan perangkat smart home.</p>
 
     <div class="info-box">
-      <strong>Promo Khusus Warga ${areaName}:</strong> Daftar sekarang melalui agen resmi Solo Raya untuk mendapatkan <strong>GRATIS Biaya Instalasi (Hemat Rp 99.000)</strong> serta internet fiber optik <strong>100% Tanpa FUP</strong> dari awal hingga akhir bulan.
+      <strong>Info Transformasi Resmi:</strong> XL SATU kini resmi bertransformasi menjadi <strong>XL Home Fiber</strong> dengan jaringan fiber optik lebih stabil dan kecepatan simetris. Khusus warga ${areaName}: Dapatkan promo <strong>GRATIS Biaya Instalasi (Hemat Rp 99.000)</strong> serta internet fiber optik <strong>100% Tanpa FUP</strong> dari awal hingga akhir bulan!
     </div>
 
-    <h2>Cakupan Area Fiber XL SATU di ${areaName}</h2>
+    <h2>Cakupan Area Fiber XL Home (d/h XL SATU) di ${areaName}</h2>
     <p>Jaringan kabel fiber optik kami terus diperluas untuk menjangkau pemukiman warga, perumahan, dan sentra usaha di ${areaName}. Beberapa wilayah kelurahan/desa yang masuk dalam radar pemetaan jaringan kami meliputi:</p>
     
     <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 24px;">
@@ -608,8 +619,8 @@ export function getGeoArticle(slug: string) {
 
     <p>Kami juga melayani pemasangan di berbagai perumahan dan klaster di sekitar ${info.landmarks}, seperti <em>${housingList}</em>, maupun perkampungan warga yang sudah terpasang tiang fiber optik.</p>
 
-    <h2>Mengapa Warga ${areaName} Memilih XL SATU Fiber?</h2>
-    <p>Berbeda dengan provider konvensional yang sering menerapkan pembatasan kecepatan diam-diam, XL SATU memberikan kepastian koneksi berkualitas tinggi:</p>
+    <h2>Mengapa Warga ${areaName} Memilih XL Home Fiber?</h2>
+    <p>Berbeda dengan provider konvensional yang sering menerapkan pembatasan kecepatan diam-diam, XL Home Fiber (evolusi resmi XL SATU) memberikan kepastian koneksi berkualitas tinggi:</p>
 
     <div class="compare-grid">
       <div class="compare-card">
@@ -622,12 +633,13 @@ export function getGeoArticle(slug: string) {
         </ul>
       </div>
       <div class="compare-card">
-        <h4 style="color: #16a34a;"><i class="fas fa-check-circle"></i> XL SATU Fiber</h4>
+        <h4 style="color: #16a34a;"><i class="fas fa-check-circle"></i> XL Home Fiber (d/h XL SATU)</h4>
         <ul>
           <li><strong>100% Tanpa FUP</strong> — bebas kuota, kecepatan stabil dari tanggal 1 sampai 30.</li>
+          <li><strong>Upgrade Jaringan Fiber Simetris</strong> — download & upload setara berteknologi mutakhir.</li>
           <li><strong>GRATIS Biaya Pasang</strong> untuk pendaftaran promo bulan ini.</li>
-          <li><strong>Bonus Kuota HP Bersama</strong> untuk dipakai di luar rumah.</li>
-          <li><strong>Sales & Support Lokal Solo Raya</strong> yang sigap membantu kendala jaringan.</li>
+          <li><strong>Bonus Kuota HP Bersama</strong> untuk dipakai keluarga di luar rumah.</li>
+          <li><strong>Tim Sales & Support Lokal Solo Raya</strong> yang siap melayani konsultasi cepat via WhatsApp.</li>
         </ul>
       </div>
     </div>
@@ -667,12 +679,16 @@ export function getGeoArticle(slug: string) {
 
     <h2>Pertanyaan yang Sering Ditanyakan (FAQ) ${areaName}</h2>
     <div class="faq-item">
-      <h3>Apakah jaringan fiber optik XL SATU / XL Home sudah menjangkau seluruh ${areaName}?</h3>
-      <p>Jaringan fiber optik XL SATU telah terpasang luas di ${areaName} (${cityName}), mencakup wilayah ${kelList}. Untuk mengecek ketersediaan tiang fiber terdekat dari rumah Anda, silakan hubungi tim sales kami dengan mengirimkan titik lokasi maps via WhatsApp.</p>
+      <h3>Apakah XL Home dan XL SATU di ${areaName} adalah layanan yang sama?</h3>
+      <p>Ya, XL SATU kini telah resmi bertransformasi menjadi XL Home Fiber. Seluruh infrastruktur kabel fiber optik, perangkat modem WiFi, dan tim operasional di ${areaName} (${cityName}) kini semakin ditingkatkan dengan kecepatan simetris 1:1, bebas batas FUP, dan promo pendaftaran lebih terjangkau.</p>
     </div>
     <div class="faq-item">
-      <h3>Berapa biaya pasang WiFi XL SATU di ${areaName}?</h3>
-      <p>Khusus pendaftaran bulan ini untuk warga ${areaName}, biaya pemasangan dan instalasi adalah GRATIS (Hemat Rp 99.000). Anda hanya membayar tagihan bulan pertama setelah internet aktif dan digunakan di rumah.</p>
+      <h3>Apakah jaringan fiber optik XL Home / XL SATU sudah menjangkau seluruh ${areaName}?</h3>
+      <p>Jaringan fiber optik XL Home (d/h XL SATU) telah terpasang luas di ${areaName} (${cityName}), mencakup wilayah ${kelList}. Untuk mengecek ketersediaan tiang fiber terdekat dari rumah Anda, silakan hubungi tim sales kami dengan mengirimkan titik lokasi maps via WhatsApp.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Berapa biaya pasang WiFi XL Home di ${areaName}?</h3>
+      <p>Khusus pendaftaran promo bulan ini untuk warga ${areaName}, biaya pemasangan dan instalasi adalah GRATIS (Hemat Rp 99.000). Anda hanya membayar tagihan bulan pertama setelah internet aktif dan digunakan di rumah.</p>
     </div>
     <div class="faq-item">
       <h3>Paket WiFi apa yang paling cocok untuk kebutuhan di ${areaName}?</h3>
@@ -685,8 +701,8 @@ export function getGeoArticle(slug: string) {
 
     <div class="cta-box">
       <h3>Cek Ketersediaan Titik Rumah Anda di ${areaName} Sekarang!</h3>
-      <p>Jangan tunggu sampai kuota seluler boros atau internet rumah lemot. Konsultasikan alamat rumah Anda bersama sales lokal resmi Solo Raya.</p>
-      <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20jaringan%20XL%20SATU%20di%20${areaName}" target="_blank" rel="noopener noreferrer" class="btn-cta">
+      <p>Jangan tunggu sampai kuota seluler boros atau internet rumah lemot. Konsultasikan alamat rumah Anda bersama tim sales resmi XL Home Solo Raya.</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20jaringan%20XL%20Home%20(XL%20SATU)%20di%20${areaName}" target="_blank" rel="noopener noreferrer" class="btn-cta">
         <i class="fab fa-whatsapp"></i> Cek Jaringan via WhatsApp Sales
       </a>
     </div>
@@ -705,8 +721,8 @@ export function getGeoArticle(slug: string) {
 
   return {
     slug,
-    title: `Pasang WiFi Murah di ${areaName} (${cityName}) | XL SATU Fiber Tanpa FUP`,
-    description: `Layanan pasang WiFi rumah XL SATU Fiber di ${areaName}, ${cityName}. Jangkauan ${info.kelurahan.slice(0, 4).join(", ")}, dsb. 100% Tanpa FUP, gratis biaya pasang!`,
+    title: `Pasang WiFi Murah di ${areaName} (${cityName}) | XL Home (d/h XL SATU Fiber)`,
+    description: `Layanan pasang WiFi rumah XL Home Fiber (transformasi resmi XL SATU) di ${areaName}, ${cityName}. Jangkauan ${info.kelurahan.slice(0, 4).join(", ")}, dsb. 100% Tanpa FUP, gratis biaya pasang!`,
     keywords: [
       `pasang wifi ${areaName.toLowerCase()}`,
       `wifi murah ${areaName.toLowerCase()}`,
@@ -715,18 +731,18 @@ export function getGeoArticle(slug: string) {
       `provider internet ${areaName.toLowerCase()}`,
       `wifi rumah ${cityName.toLowerCase()}`
     ],
-    ogTitle: `Pasang WiFi XL SATU Fiber di ${areaName} (${cityName})`,
-    ogDescription: `Internet fiber 100% Unlimited tanpa FUP di ${areaName}. Gratis biaya instalasi, gratis modem router WiFi.`,
+    ogTitle: `Pasang WiFi XL Home Fiber di ${areaName} (${cityName}) (d/h XL SATU)`,
+    ogDescription: `Internet fiber 100% Unlimited tanpa FUP di ${areaName}. Transformasi resmi XL SATU ke XL Home. Gratis biaya instalasi!`,
     ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
     schemas,
     faqs,
     hero: {
       crumb: `<a href="https://xlhomesolo.com/">Beranda</a> / <a href="/area-layanan/">Area Layanan</a> / ${areaName}`,
-      h1: `Pasang WiFi XL SATU Fiber di ${areaName}`,
-      sub: `Internet rumah fiber optik 100% Tanpa FUP untuk warga ${areaName}, ${cityName}. Gratis biaya instalasi!`,
-      meta: `Cakupan ${cityName} · Tim Sales Resmi Solo Raya`
+      h1: `Pasang WiFi XL Home Fiber di ${areaName}`,
+      sub: `Internet rumah fiber optik 100% Tanpa FUP untuk warga ${areaName}, ${cityName} (Transformasi Resmi XL SATU Fiber). Gratis biaya instalasi!`,
+      meta: `Cakupan ${cityName} · Tim Sales Resmi XL Home Solo Raya`
     },
-    headerCta: `https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20jaringan%20XL%20SATU%20di%20${areaName}`,
+    headerCta: `https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20jaringan%20XL%20Home%20(XL%20SATU)%20di%20${areaName}`,
     bodyHtml
   };
 }

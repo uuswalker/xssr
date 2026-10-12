@@ -221,7 +221,7 @@ export function HomeHeroLokal() {
           Pasang <span>XL Home di Solo Raya</span><br />Daftar Pagi, Sore Dipasang!
         </h1>
         <p>
-          XL Home hadir untuk keluarga di{" "}
+          XL Home (transformasi resmi XL SATU Fiber) hadir untuk keluarga di{" "}
           <strong>
             Solo (Surakarta), Sukoharjo, Karanganyar, Klaten, dan Boyolali
           </strong>
@@ -289,7 +289,7 @@ export function HomeHeroLokal() {
           }}
         >
           {[
-            "agen resmi XL Home",
+            "Tim Sales Resmi XL Home (d/h XL SATU)",
             "Harga Transparan, Tanpa Biaya Tersembunyi",
             "Tim Sales Lokal Cepat Tanggap",
           ].map((t) => (

@@ -16,8 +16,8 @@ export function waLink(text: string): string {
   return `https://wa.me/${PHONE_INTL}?text=${encodeURIComponent(text)}`;
 }
 
-export const WA_INFO = waLink("Info XL Home");
-export const WA_DAFTAR = waLink("Daftar XL Home");
+export const WA_INFO = waLink("Halo Sales XL Home Solo, mau tanya promo pasang baru WiFi XL Home (d/h XL SATU)...");
+export const WA_DAFTAR = waLink("Halo Sales XL Home Solo, saya mau daftar pasang baru WiFi XL Home (d/h XL SATU)...");
 
 // Rute v1 (tumbuh per fase; dipakai sitemap + QA paritas)
 export const V1_ROUTES: string[] = [

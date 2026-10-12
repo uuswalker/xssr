@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 
 
@@ -206,7 +206,7 @@ export function AreaHome() {
 
               }}
 
-              href="https://wa.me/6287778999141?text=Halo,%20saya%20mau%20cek%20apakah%20area%20saya%20tersedia%20XL%20SATU"
+              href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20mau%20cek%20apakah%20area%20saya%20tersedia%20XL%20Home%20(d%2Fh%20XL%20SATU)"
 
               target="_blank"
 
@@ -526,31 +526,55 @@ export function About() {
 
             <p>
 
-              XL Home resmi berganti nama menjadi <strong>XL Home</strong> — wajah baru, semangat baru, koneksi makin kencang.
+              XL SATU secara resmi bertransformasi menjadi <strong>XL Home</strong> — wajah baru, semangat baru, jaringan fiber optik makin kencang dan stabil.
 
-              Nikmati internet rumah fiber &amp; wireless unlimited tanpa FUP di Solo Raya dengan jaringan XLSMART yang lebih luas dan andal.
+              Nikmati internet rumah fiber &amp; wireless unlimited 100% tanpa FUP di Solo Raya dengan teknologi XLSMART yang andal.
 
             </p>
 
-            <a
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 16 }}>
 
-              href="/xl-satu-resmi-jadi-xl-home/"
+              <a
 
-              style={{
+                href="/xl-satu-resmi-jadi-xl-home/"
 
-                display: "inline-flex", alignItems: "center", gap: 8,
+                style={{
 
-                marginTop: 16, color: "var(--green)", fontWeight: 700,
+                  display: "inline-flex", alignItems: "center", gap: 6,
 
-                fontSize: 14, textDecoration: "none"
+                  color: "var(--green)", fontWeight: 700,
 
-              }}
+                  fontSize: 14, textDecoration: "none"
 
-            >
+                }}
 
-              Baca selengkapnya →
+              >
 
-            </a>
+                Apa yang berubah? →
+
+              </a>
+
+              <a
+
+                href="/xl-satu-dan-xl-home-apakah-sama/"
+
+                style={{
+
+                  display: "inline-flex", alignItems: "center", gap: 6,
+
+                  color: "#2563eb", fontWeight: 700,
+
+                  fontSize: 14, textDecoration: "none"
+
+                }}
+
+              >
+
+                XL SATU vs XL Home apakah sama? →
+
+              </a>
+
+            </div>
 
           </div>
 
