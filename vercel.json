@@ -21,5 +21,287 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/cara-daftar-pasang-wifi-xl-satu-solo",
+      "destination": "/cara-daftar-pasang-wifi-xl-home-solo/",
+      "permanent": true
+    },
+    {
+      "source": "/cara-daftar-pasang-wifi-xl-satu-solo/",
+      "destination": "/cara-daftar-pasang-wifi-xl-home-solo/",
+      "permanent": true
+    },
+    {
+      "source": "/internet-rakyat-vs-xl-satu",
+      "destination": "/internet-rakyat-vs-xl-home/",
+      "permanent": true
+    },
+    {
+      "source": "/internet-rakyat-vs-xl-satu/",
+      "destination": "/internet-rakyat-vs-xl-home/",
+      "permanent": true
+    },
+    {
+      "source": "/xl-satu-vs-indihome-myrepublic-solo",
+      "destination": "/xl-home-vs-indihome-myrepublic-solo/",
+      "permanent": true
+    },
+    {
+      "source": "/xl-satu-vs-indihome-myrepublic-solo/",
+      "destination": "/xl-home-vs-indihome-myrepublic-solo/",
+      "permanent": true
+    },
+    {
+      "source": "/proses-pendaftaran-pemasangan-xl-satu-fiber",
+      "destination": "/proses-pendaftaran-pemasangan-xl-home-fiber/",
+      "permanent": true
+    },
+    {
+      "source": "/proses-pendaftaran-pemasangan-xl-satu-fiber/",
+      "destination": "/proses-pendaftaran-pemasangan-xl-home-fiber/",
+      "permanent": true
+    },
+    {
+      "source": "/wfh-angkringan-solo-xl-satu",
+      "destination": "/wfh-angkringan-solo-xl-home/",
+      "permanent": true
+    },
+    {
+      "source": "/wfh-angkringan-solo-xl-satu/",
+      "destination": "/wfh-angkringan-solo-xl-home/",
+      "permanent": true
+    },
+    {
+      "source": "/cara-berhenti-langganan-indihome-biznet-pindah-xl-satu-solo",
+      "destination": "/cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo/",
+      "permanent": true
+    },
+    {
+      "source": "/cara-berhenti-langganan-indihome-biznet-pindah-xl-satu-solo/",
+      "destination": "/cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-banjarsari",
+      "destination": "/pasang-wifi-xl-home-banjarsari/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-banjarsari/",
+      "destination": "/pasang-wifi-xl-home-banjarsari/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-jebres",
+      "destination": "/pasang-wifi-xl-home-jebres/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-jebres/",
+      "destination": "/pasang-wifi-xl-home-jebres/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-laweyan",
+      "destination": "/pasang-wifi-xl-home-laweyan/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-laweyan/",
+      "destination": "/pasang-wifi-xl-home-laweyan/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-pasar-kliwon",
+      "destination": "/pasang-wifi-xl-home-pasar-kliwon/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-pasar-kliwon/",
+      "destination": "/pasang-wifi-xl-home-pasar-kliwon/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-serengan",
+      "destination": "/pasang-wifi-xl-home-serengan/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-serengan/",
+      "destination": "/pasang-wifi-xl-home-serengan/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-solo-baru",
+      "destination": "/pasang-wifi-xl-home-solo-baru/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-solo-baru/",
+      "destination": "/pasang-wifi-xl-home-solo-baru/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-kartasura",
+      "destination": "/pasang-wifi-xl-home-kartasura/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-kartasura/",
+      "destination": "/pasang-wifi-xl-home-kartasura/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-grogol",
+      "destination": "/pasang-wifi-xl-home-grogol/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-grogol/",
+      "destination": "/pasang-wifi-xl-home-grogol/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-baki",
+      "destination": "/pasang-wifi-xl-home-baki/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-baki/",
+      "destination": "/pasang-wifi-xl-home-baki/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-mojolaban",
+      "destination": "/pasang-wifi-xl-home-mojolaban/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-mojolaban/",
+      "destination": "/pasang-wifi-xl-home-mojolaban/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-sukoharjo-kota",
+      "destination": "/pasang-wifi-xl-home-sukoharjo-kota/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-sukoharjo-kota/",
+      "destination": "/pasang-wifi-xl-home-sukoharjo-kota/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-colomadu",
+      "destination": "/pasang-wifi-xl-home-colomadu/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-colomadu/",
+      "destination": "/pasang-wifi-xl-home-colomadu/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-palur",
+      "destination": "/pasang-wifi-xl-home-palur/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-palur/",
+      "destination": "/pasang-wifi-xl-home-palur/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-jaten",
+      "destination": "/pasang-wifi-xl-home-jaten/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-jaten/",
+      "destination": "/pasang-wifi-xl-home-jaten/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-gondangrejo",
+      "destination": "/pasang-wifi-xl-home-gondangrejo/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-gondangrejo/",
+      "destination": "/pasang-wifi-xl-home-gondangrejo/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-karanganyar-kota",
+      "destination": "/pasang-wifi-xl-home-karanganyar-kota/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-karanganyar-kota/",
+      "destination": "/pasang-wifi-xl-home-karanganyar-kota/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-boyolali-kota",
+      "destination": "/pasang-wifi-xl-home-boyolali-kota/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-boyolali-kota/",
+      "destination": "/pasang-wifi-xl-home-boyolali-kota/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-ngemplak",
+      "destination": "/pasang-wifi-xl-home-ngemplak/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-ngemplak/",
+      "destination": "/pasang-wifi-xl-home-ngemplak/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-banyudono",
+      "destination": "/pasang-wifi-xl-home-banyudono/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-banyudono/",
+      "destination": "/pasang-wifi-xl-home-banyudono/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-klaten-kota",
+      "destination": "/pasang-wifi-xl-home-klaten-kota/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-klaten-kota/",
+      "destination": "/pasang-wifi-xl-home-klaten-kota/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-delanggu",
+      "destination": "/pasang-wifi-xl-home-delanggu/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-delanggu/",
+      "destination": "/pasang-wifi-xl-home-delanggu/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-prambanan",
+      "destination": "/pasang-wifi-xl-home-prambanan/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-xl-satu-prambanan/",
+      "destination": "/pasang-wifi-xl-home-prambanan/",
+      "permanent": true
+    }
   ]
 }

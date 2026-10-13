@@ -29,7 +29,7 @@ const SOLO_FAQS = [
   },
   {
     q: "Bagaimana cara daftar XL Home di Solo?",
-    a: 'Cukup hubungi sales kami via WhatsApp di <strong>0877-7899-9141</strong>. Kirim nama, alamat lengkap, dan paket yang diinginkan. Tim kami akan memproses dan mengatur jadwal survei serta instalasi. Baca <a href="/cara-daftar-pasang-wifi-xl-satu-solo/">panduan lengkap cara daftar</a>.',
+    a: 'Cukup hubungi sales kami via WhatsApp di <strong>0877-7899-9141</strong>. Kirim nama, alamat lengkap, dan paket yang diinginkan. Tim kami akan memproses dan mengatur jadwal survei serta instalasi. Baca <a href="/cara-daftar-pasang-wifi-xl-home-solo/">panduan lengkap cara daftar</a>.',
   },
   {
     q: "Berapa Mbps yang cukup untuk rumah di Solo?",
@@ -45,7 +45,7 @@ const SOLO_FAQS = [
   },
   {
     q: "Apa perbedaan XL Home dan Internet Rakyat di Solo?",
-    a: 'XL Home menggunakan jaringan fiber optik XLSMART dengan kecepatan hingga 1000 Mbps dan tanpa FUP (untuk paket Fiber). Internet Rakyat adalah program subsidi pemerintah dengan kecepatan terbatas. Baca <a href="/internet-rakyat-vs-xl-satu/">perbandingan Internet Rakyat vs XL Home</a> untuk detail lengkap.',
+    a: 'XL Home menggunakan jaringan fiber optik XLSMART dengan kecepatan hingga 1000 Mbps dan tanpa FUP (untuk paket Fiber). Internet Rakyat adalah program subsidi pemerintah dengan kecepatan terbatas. Baca <a href="/internet-rakyat-vs-xl-home/">perbandingan Internet Rakyat vs XL Home</a> untuk detail lengkap.',
   },
 ];
 
@@ -80,11 +80,11 @@ const SERVICE_JSONLD = {
     "Pasang WiFi di Solo (Surakarta) — paket XL Home fiber optic unlimited 20–1000 Mbps, mulai Rp 185.000/bulan.",
   provider: {
     "@type": "LocalBusiness",
-    "@id": "https://xlsatusolo.com/#business",
+    "@id": "https://xlhomesolo.com/#business",
     name: "XL Home Solo Raya",
-    url: "https://xlsatusolo.com",
+    url: "https://xlhomesolo.com",
     telephone: "+6287778999141",
-    image: "https://xlsatusolo.com/images/banner-xlsatu-jadi-xlhome.jpg",
+    image: "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.jpg",
     priceRange: "Rp185.000 – Rp399.000/bulan",
     address: {
       "@type": "PostalAddress",
@@ -249,7 +249,7 @@ export default function Page() {
               ["/wifi-klaten/", "WiFi Klaten"],
               ["/wifi-boyolali/", "WiFi Boyolali"],
               ["/area-layanan/", "Area Layanan Lengkap"],
-              ["/cara-daftar-pasang-wifi-xl-satu-solo/", "Cara Daftar"],
+              ["/cara-daftar-pasang-wifi-xl-home-solo/", "Cara Daftar"],
               ["/kebijakan-privasi/", "Kebijakan Privasi"],
             ].map(([href, label]) => (
               <a key={href} href={href}>

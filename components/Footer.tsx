@@ -11,18 +11,18 @@ export default function Footer() {
           <div className="footer-sitemap-col">
             <h3>Area Solo &amp; Sukoharjo</h3>
             <ul>
-              <li><a href="/pasang-wifi-xl-satu-banjarsari/">Pasang WiFi Banjarsari</a></li>
-              <li><a href="/pasang-wifi-xl-satu-jebres/">Pasang WiFi Jebres</a></li>
-              <li><a href="/pasang-wifi-xl-satu-laweyan/">Pasang WiFi Laweyan</a></li>
-              <li><a href="/pasang-wifi-xl-satu-pasar-kliwon/">Pasang WiFi Pasar Kliwon</a></li>
-              <li><a href="/pasang-wifi-xl-satu-serengan/">Pasang WiFi Serengan</a></li>
+              <li><a href="/pasang-wifi-xl-home-banjarsari/">Pasang WiFi Banjarsari</a></li>
+              <li><a href="/pasang-wifi-xl-home-jebres/">Pasang WiFi Jebres</a></li>
+              <li><a href="/pasang-wifi-xl-home-laweyan/">Pasang WiFi Laweyan</a></li>
+              <li><a href="/pasang-wifi-xl-home-pasar-kliwon/">Pasang WiFi Pasar Kliwon</a></li>
+              <li><a href="/pasang-wifi-xl-home-serengan/">Pasang WiFi Serengan</a></li>
               <li><a href="/wifi-solo/">Pasang WiFi Solo (Pusat)</a></li>
-              <li><a href="/pasang-wifi-xl-satu-solo-baru/">Pasang WiFi Solo Baru</a></li>
-              <li><a href="/pasang-wifi-xl-satu-kartasura/">Pasang WiFi Kartasura</a></li>
-              <li><a href="/pasang-wifi-xl-satu-grogol/">Pasang WiFi Grogol Sukoharjo</a></li>
-              <li><a href="/pasang-wifi-xl-satu-baki/">Pasang WiFi Baki Sukoharjo</a></li>
-              <li><a href="/pasang-wifi-xl-satu-mojolaban/">Pasang WiFi Mojolaban</a></li>
-              <li><a href="/pasang-wifi-xl-satu-sukoharjo-kota/">Pasang WiFi Sukoharjo Kota</a></li>
+              <li><a href="/pasang-wifi-xl-home-solo-baru/">Pasang WiFi Solo Baru</a></li>
+              <li><a href="/pasang-wifi-xl-home-kartasura/">Pasang WiFi Kartasura</a></li>
+              <li><a href="/pasang-wifi-xl-home-grogol/">Pasang WiFi Grogol Sukoharjo</a></li>
+              <li><a href="/pasang-wifi-xl-home-baki/">Pasang WiFi Baki Sukoharjo</a></li>
+              <li><a href="/pasang-wifi-xl-home-mojolaban/">Pasang WiFi Mojolaban</a></li>
+              <li><a href="/pasang-wifi-xl-home-sukoharjo-kota/">Pasang WiFi Sukoharjo Kota</a></li>
             </ul>
           </div>
 
@@ -30,17 +30,17 @@ export default function Footer() {
           <div className="footer-sitemap-col">
             <h3>Karanganyar, Boyolali &amp; Klaten</h3>
             <ul>
-              <li><a href="/pasang-wifi-xl-satu-colomadu/">Pasang WiFi Colomadu</a></li>
-              <li><a href="/pasang-wifi-xl-satu-palur/">Pasang WiFi Palur</a></li>
-              <li><a href="/pasang-wifi-xl-satu-jaten/">Pasang WiFi Jaten Karanganyar</a></li>
-              <li><a href="/pasang-wifi-xl-satu-gondangrejo/">Pasang WiFi Gondangrejo</a></li>
-              <li><a href="/pasang-wifi-xl-satu-karanganyar-kota/">Pasang WiFi Karanganyar Kota</a></li>
-              <li><a href="/pasang-wifi-xl-satu-boyolali-kota/">Pasang WiFi Boyolali Kota</a></li>
-              <li><a href="/pasang-wifi-xl-satu-ngemplak/">Pasang WiFi Ngemplak Boyolali</a></li>
-              <li><a href="/pasang-wifi-xl-satu-banyudono/">Pasang WiFi Banyudono</a></li>
-              <li><a href="/pasang-wifi-xl-satu-klaten-kota/">Pasang WiFi Klaten Kota</a></li>
-              <li><a href="/pasang-wifi-xl-satu-delanggu/">Pasang WiFi Delanggu Klaten</a></li>
-              <li><a href="/pasang-wifi-xl-satu-prambanan/">Pasang WiFi Prambanan</a></li>
+              <li><a href="/pasang-wifi-xl-home-colomadu/">Pasang WiFi Colomadu</a></li>
+              <li><a href="/pasang-wifi-xl-home-palur/">Pasang WiFi Palur</a></li>
+              <li><a href="/pasang-wifi-xl-home-jaten/">Pasang WiFi Jaten Karanganyar</a></li>
+              <li><a href="/pasang-wifi-xl-home-gondangrejo/">Pasang WiFi Gondangrejo</a></li>
+              <li><a href="/pasang-wifi-xl-home-karanganyar-kota/">Pasang WiFi Karanganyar Kota</a></li>
+              <li><a href="/pasang-wifi-xl-home-boyolali-kota/">Pasang WiFi Boyolali Kota</a></li>
+              <li><a href="/pasang-wifi-xl-home-ngemplak/">Pasang WiFi Ngemplak Boyolali</a></li>
+              <li><a href="/pasang-wifi-xl-home-banyudono/">Pasang WiFi Banyudono</a></li>
+              <li><a href="/pasang-wifi-xl-home-klaten-kota/">Pasang WiFi Klaten Kota</a></li>
+              <li><a href="/pasang-wifi-xl-home-delanggu/">Pasang WiFi Delanggu Klaten</a></li>
+              <li><a href="/pasang-wifi-xl-home-prambanan/">Pasang WiFi Prambanan</a></li>
             </ul>
           </div>
 
@@ -52,13 +52,13 @@ export default function Footer() {
               <li><a href="/xl-satu-resmi-jadi-xl-home/">XL SATU Resmi Jadi XL Home</a></li>
               <li><a href="/xl-satu-dan-xl-home-apakah-sama/">XL SATU &amp; XL Home Apakah Sama?</a></li>
               <li><a href="/panduan-wifi-kos-solo/">Panduan WiFi Kos Solo &amp; Kampus</a></li>
-              <li><a href="/cara-daftar-pasang-wifi-xl-satu-solo/">Syarat &amp; Cara Daftar Pasang WiFi</a></li>
+              <li><a href="/cara-daftar-pasang-wifi-xl-home-solo/">Syarat &amp; Cara Daftar Pasang WiFi</a></li>
               <li><a href="/daftar-xl-home-online-tanpa-ke-kantor/">Daftar Online Tanpa ke Kantor</a></li>
               <li><a href="/xl-center-solo-terdekat-pasang-wifi/">Lokasi XL Center Solo Terdekat</a></li>
               <li><a href="/5-hal-wajib-dicek-sebelum-pasang-wifi-rumah/">5 Hal Wajib Dicek Sebelum Pasang</a></li>
               <li><a href="/cara-cek-jaringan-xl-home-di-depan-rumah/">Cara Cek Jaringan Depan Rumah</a></li>
-              <li><a href="/internet-rakyat-vs-xl-satu/">Internet Rakyat vs XL Home</a></li>
-              <li><a href="/cara-berhenti-langganan-indihome-biznet-pindah-xl-satu-solo/">Cara Ganti Provider ke XL Home</a></li>
+              <li><a href="/internet-rakyat-vs-xl-home/">Internet Rakyat vs XL Home</a></li>
+              <li><a href="/cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo/">Cara Ganti Provider ke XL Home</a></li>
               <li><a href="/nomor-sales-xl-home-solo-raya/">Nomor Sales &amp; Agen Resmi</a></li>
             </ul>
           </div>

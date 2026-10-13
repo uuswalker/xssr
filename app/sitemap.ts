@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const v1Set = new Set(V1_ROUTES.map(r => r.replace(/\//g, '')));
   
   const articleRoutes: MetadataRoute.Sitemap = Object.keys(ARTIKEL)
-    .filter(slug => !v1Set.has(slug))
+    .filter(slug => !v1Set.has(slug) && ARTIKEL[slug].slug === slug)
     .map((slug) => ({
       url: `${SITE_DOMAIN}/${slug}/`,
       lastModified: now,
@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }));
 
   const geoRoutes: MetadataRoute.Sitemap = GEO_AREAS.map((area: string) => ({
-    url: `${SITE_DOMAIN}/pasang-wifi-xl-satu-${area}/`,
+    url: `${SITE_DOMAIN}/pasang-wifi-xl-home-${area}/`,
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.75,

@@ -20,7 +20,7 @@ Cakupan lengkap per kecamatan dan kelurahan: [Area Layanan XL SATU Solo Raya](ht
 
 ## Panduan & Artikel
 
-- [Cara Daftar & Pasang WiFi XL SATU di Solo Raya](https://xlhomesolo.com/cara-daftar-pasang-wifi-xl-satu-solo/): Panduan lengkap syarat dan cara daftar lewat sales resmi WhatsApp, termasuk perbandingan Fiber vs FWA/Wireless 5G.
+- [Cara Daftar & Pasang WiFi XL Home di Solo Raya](https://xlhomesolo.com/cara-daftar-pasang-wifi-xl-home-solo/): Panduan lengkap syarat dan cara daftar lewat sales resmi WhatsApp, termasuk perbandingan Fiber vs FWA/Wireless 5G.
 - [5 Hal Wajib Dicek Sebelum Pasang WiFi Rumah](https://xlhomesolo.com/5-hal-wajib-dicek-sebelum-pasang-wifi-rumah/): Panduan umum sebelum daftar internet rumah apapun providernya — respons sales, penanganan gangguan, transparansi harga, izin pemasangan, dan pemahaman lokasi.
 - [Solusi Internet Daerah Belum Ada Fiber Optik](https://xlhomesolo.com/solusi-internet-daerah-belum-ada-fiber-optik/): Kenapa fiber optik belum masuk ke semua daerah, dan kenapa FWA (Fixed Wireless Access) jadi solusi tanpa perlu menunggu tarik kabel.
 - [Biaya Pasang WiFi Solo Raya](https://xlhomesolo.com/biaya-pasang-wifi-solo-raya/): Rincian lengkap harga semua paket fiber optic dan biaya instalasi.
@@ -28,7 +28,7 @@ Cakupan lengkap per kecamatan dan kelurahan: [Area Layanan XL SATU Solo Raya](ht
 - [Fiber vs Wireless](https://xlhomesolo.com/panduan-fiber-vs-wireless/): Perbandingan lengkap internet fiber optic dan wireless untuk membantu memilih jenis koneksi yang tepat.
 - [Kecepatan WiFi Ideal untuk Keluarga](https://xlhomesolo.com/kecepatan-wifi-ideal-keluarga/): Panduan memilih kecepatan WiFi berdasarkan jumlah anggota keluarga dan aktivitas rumah tangga.
 - [WiFi Lemot? Penyebab dan Cara Mengatasi](https://xlhomesolo.com/penyebab-wifi-lemot-cara-mengatasi/): Penyebab umum WiFi lemot di rumah dan langkah-langkah mengatasinya.
-- [Internet Rakyat vs XL SATU](https://xlhomesolo.com/internet-rakyat-vs-xl-satu/): Perbandingan lengkap antara program Internet Rakyat pemerintah dan layanan XL SATU untuk area Solo Raya.
+- [Internet Rakyat vs XL Home](https://xlhomesolo.com/internet-rakyat-vs-xl-home/): Perbandingan lengkap antara program Internet Rakyat pemerintah dan layanan XL Home untuk area Solo Raya.
 - [WiFi Tanpa FUP: Unlimited XL SATU Dijelaskan](https://xlhomesolo.com/wifi-tanpa-fup-unlimited/): Penjelasan kebijakan FUP (Fair Usage Policy) pada paket Fiber dan Wireless XL SATU.
 - [Berapa Mbps untuk Berapa Orang? Kalkulator & Panduan](https://xlhomesolo.com/berapa-mbps-untuk-berapa-orang/): Kalkulator kebutuhan WiFi 20–600 Mbps berdasarkan jumlah orang dan aktivitas, plus tabel dan rekomendasi paket.
 - [250 Mbps untuk Berapa Orang? Panduan + Tabel Aktivitas](https://xlhomesolo.com/250-mbps-untuk-berapa-orang/): 250 Mbps untuk 4–6 pengguna aktif atau hingga 10 perangkat — hitungan streaming 4K, video call, gaming + paket XL SATU 250 Mbps.

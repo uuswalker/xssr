@@ -533,9 +533,9 @@ export const AREA_METAS: Record<string, AreaMeta> = {
 };
 
 export function getGeoArticle(slug: string) {
-  if (!slug.startsWith("pasang-wifi-xl-satu-")) return null;
+  if (!slug.startsWith("pasang-wifi-xl-home-") && !slug.startsWith("pasang-wifi-xl-satu-")) return null;
   
-  const areaSlug = slug.replace("pasang-wifi-xl-satu-", "");
+  const areaSlug = slug.replace("pasang-wifi-xl-home-", "").replace("pasang-wifi-xl-satu-", "");
   const info = AREA_METAS[areaSlug];
   if (!info) return null;
 
@@ -720,7 +720,7 @@ export function getGeoArticle(slug: string) {
   `;
 
   return {
-    slug,
+    slug: `pasang-wifi-xl-home-${areaSlug}`,
     title: `Pasang WiFi Murah di ${areaName} (${cityName}) | XL Home (d/h XL SATU Fiber)`,
     description: `Layanan pasang WiFi rumah XL Home Fiber (transformasi resmi XL SATU) di ${areaName}, ${cityName}. Jangkauan ${info.kelurahan.slice(0, 4).join(", ")}, dsb. 100% Tanpa FUP, gratis biaya pasang!`,
     keywords: [
