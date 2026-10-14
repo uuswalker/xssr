@@ -176,38 +176,9 @@ export function FiberPaket({ promoBadge = "Promo XL Home Soloraya" }: { promoBad
           berlaku
         </p>
 
-        {/* Trik Hemat Decoy Effect & Anti-FUP Banner */}
-        <div
-          style={{
-            maxWidth: "780px",
-            margin: "0 auto 28px auto",
-            background: "linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%)",
-            border: "1.5px solid #86efac",
-            borderRadius: "14px",
-            padding: "16px 20px",
-            boxShadow: "0 4px 14px rgba(13, 158, 122, 0.08)",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
-            <span style={{ fontSize: "20px" }}>💡</span>
-            <span style={{ fontWeight: 800, fontSize: "15px", color: "#166534", textTransform: "uppercase", letterSpacing: "0.5px" }}>
-              Trik Cerdas Hemat Pasang Baru Solo Raya:
-            </span>
-          </div>
-          <p style={{ margin: "0 0 12px 0", fontSize: "14px", lineHeight: "1.5", color: "#1e293b" }}>
-            Bulan pertama paket <strong>Spark 250 Mbps (Rp 254.190 nett)</strong> justru <strong>LEBIH HEMAT Rp 62.000</strong> dibanding paket Starter 20 Mbps (Rp 316.350 nett karena biaya pasang Rp 100rb). Nikmati kecepatan <strong>12.5x lipat</strong> dengan biaya awal yang lebih murah + 100% Unlimited Murni Tanpa FUP!
-          </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", fontSize: "13px", fontWeight: 600 }}>
-            <span style={{ background: "#f1f5f9", color: "#475569", padding: "4px 12px", borderRadius: "6px" }}>
-              Starter 20 Mbps: Rp 316.350 nett (Bln 1)
-            </span>
-            <span style={{ background: "#dcfce7", color: "#15803d", padding: "4px 12px", borderRadius: "6px", border: "1px solid #4ade80" }}>
-              🔥 Spark 250 Mbps: Rp 254.190 nett (Gratis Pasang • Hemat Rp 62rb!)
-            </span>
-            <span style={{ background: "#e0e7ff", color: "#3730a3", padding: "4px 12px", borderRadius: "6px" }}>
-              ⚡ 100% Bebas FUP Akhir Bulan
-            </span>
-          </div>
+        <div style={{ maxWidth: "700px", margin: "0 auto 24px auto", background: "#f0fdf4", border: "1.5px dashed #4ade80", borderRadius: "10px", padding: "12px 20px", display: "flex", alignItems: "center", gap: "12px", justifyContent: "center" }}>
+          <span style={{ fontSize: "20px" }}>🚨</span>
+          <p style={{ margin: 0, fontSize: "14px", fontWeight: 600, color: "#166534" }}>Beralih ke XL Home: 100% Tanpa FUP &amp; GRATIS Biaya Pasang (Hemat Rp 99.000!)</p>
         </div>
 
         <div className="paket-grid">
@@ -238,7 +209,14 @@ export function FiberPaket({ promoBadge = "Promo XL Home Soloraya" }: { promoBad
           >
             rincian biaya pasang WiFi Solo Raya 2026 — mulai Rp185rb/bulan
           </a>{" "}
-          (instalasi Rp100rb/gratis) + simulasi bulan pertama.
+          atau baca{" "}
+          <a
+            href="/trik-hemat-pasang-wifi-solo-raya/"
+            style={{ color: "var(--green)", fontWeight: 700 }}
+          >
+            trik hemat pasang baru (250 Mbps vs 20 Mbps)
+          </a>
+          .
         </p>
 
         {isMobile && (
@@ -301,10 +279,6 @@ export function TahunanPaket() {
           Bayar 10 bulan, pakai 12 bulan. Bonus Speed Booster + Kuota HP
           se-keluarga. Harga belum termasuk PPN 11%.
         </p>
-
-        <div style={{ maxWidth: "720px", margin: "0 auto 24px auto", background: "#faf5ff", border: "1.5px dashed #c084fc", borderRadius: "10px", padding: "10px 18px", textAlign: "center", fontSize: "13px", color: "#6b21a8", fontWeight: 600 }}>
-          🎓 Pilihan Favorit Pemilik Kos Mahasiswa (UNS Kentingan &amp; UMS Pabelan) serta Rumah Tangga: 1 Kali Bayar Aktif 12 Bulan Penuh Tanpa Khawatir Kuota Habis!
-        </div>
 
         <div className="paket-grid">
           {TAHUNAN_TIERS.map((t) => (
@@ -474,12 +448,12 @@ export function WirelessPaket({
             ) : (
               <p className="section-sub" style={{ marginBottom: 0 }}>
                 Internet cepat, stabil, tanpa ribet - solusi wireless untuk
-                area yang belum terjangkau kabel fiber (seperti perumahan baru di Ngemplak, Banyudono, Gondangrejo &amp; Klaten). Baca{" "}
+                area yang belum terjangkau kabel fiber. Baca{" "}
                 <a
                   href="/solusi-internet-daerah-belum-ada-fiber-optik/"
                   style={{ color: "var(--green)", fontWeight: 600 }}
                 >
-                  kenapa daerahmu belum ada fiber &amp; solusinya
+                  kenapa daerahmu mungkin belum ada fiber &amp; solusinya
                 </a>
                 .
               </p>

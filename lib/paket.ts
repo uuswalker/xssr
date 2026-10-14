@@ -66,7 +66,6 @@ export const FIBER_TIERS: FiberTier[] = [
       { img: F_FREE, text: "Gratis Biaya Instalasi" },
     ],
     price: "Rp 229.000",
-    badgePromo: "Paling Hemat Bln 1 (Hemat Rp 62rb vs 20 Mbps)",
     waText: "Halo, saya tertarik pasang XL Home paket 250Mbps (Promo Rp 229rb) di area Solo. Boleh cek jaringan?",
   },
   {
