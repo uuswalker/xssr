@@ -82,7 +82,7 @@ const TOOLS = [
 
     title: "Tes Kecepatan Internet",
 
-    desc: "Ukur download & upload ke server terdekat Â±20 detik.",
+    desc: "Ukur download & upload ke server terdekat ±20 detik.",
 
   },
 
