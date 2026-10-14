@@ -51,23 +51,31 @@ const SOLO_FAQS = [
 
 export async function generateMetadata(): Promise<Metadata> {
   const base = pageMetadata({
-    title: "Pasang WiFi di Solo (Surakarta) Mulai Rp 185rb/bln | XL Home",
+    title: "Pasang WiFi Solo Murah 2026 Mulai 185rb/Bln | XL Home Fiber Tanpa FUP",
     description:
-      "Pasang WiFi di Solo (Surakarta) mulai Rp 185.000/bulan — XL Home fiber optic unlimited, cover 5 kecamatan: Laweyan, Jebres, Banjarsari, Serengan, Pasar Kliwon. Cek ketersediaan.",
+      "Layanan pasang WiFi Solo murah 2026 mulai 185rb/bln (kategori 100 ribuan). 100% Fiber Optic tanpa batas FUP, gratis biaya pasang teknisi. Cover Jebres, Banjarsari, Laweyan & sekitarnya.",
     path: "/wifi-solo/",
     image: "/images/banner-xlsatu-jadi-xlhome.jpg",
   });
   return {
     ...base,
-    keywords:
-      "pasang wifi solo gerbang, wifi solo laweyan jebres banjarsari, pasang wifi solo surakarta sukoharjo karanganyar klaten boyolali".split(
-        /,?\s+/
-      ),
+    keywords: [
+      "pasang wifi solo",
+      "pasang wifi solo murah",
+      "wifi murah solo 100 ribuan",
+      "biaya pasang wifi solo",
+      "harga pasang wifi solo",
+      "rekomendasi wifi solo",
+      "provider wifi solo terbaik",
+      "pasang wifi surakarta",
+      "xl home solo",
+      "xl satu solo",
+    ],
     openGraph: {
       ...base.openGraph,
-      title: "Pasang WiFi di Solo (Surakarta) Mulai Rp 185rb/bln | XL Home",
+      title: "Pasang WiFi Solo Murah 2026 Mulai 185rb/Bln | XL Home Fiber Tanpa FUP",
       description:
-        "Pasang WiFi di Solo (Surakarta) mulai Rp 185.000/bulan — XL Home fiber optic unlimited tanpa FUP, cover 5 kecamatan Kota Solo. Cek ketersediaan.",
+        "Layanan pasang WiFi Solo murah 2026 mulai 185rb/bln (kategori 100 ribuan). 100% Fiber Optic tanpa batas FUP, gratis biaya pasang teknisi. Cover Jebres, Banjarsari, Laweyan & sekitarnya.",
     },
   };
 }
@@ -75,9 +83,10 @@ export async function generateMetadata(): Promise<Metadata> {
 const SERVICE_JSONLD = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "XL Home Internet Rumah Solo",
+  name: "XL Home Pasang WiFi Solo Murah",
+  url: "https://xlhomesolo.com/wifi-solo/",
   description:
-    "Pasang WiFi di Solo (Surakarta) — paket XL Home fiber optic unlimited 20–1000 Mbps, mulai Rp 185.000/bulan.",
+    "Pasang WiFi Solo murah 2026 mulai Rp 185.000/bulan — XL Home fiber optic unlimited 20–1000 Mbps tanpa FUP, gratis pasang.",
   provider: {
     "@type": "LocalBusiness",
     "@id": "https://xlhomesolo.com/#business",
@@ -168,7 +177,7 @@ export default function Page() {
             seluruh wilayah Kota Solo (Surakarta).
           </p>
           <a
-            href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20info%20XL%20SATU%20di%20Solo"
+            href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20WiFi%20XL%20Home%20di%20Solo"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-hero"
@@ -184,9 +193,9 @@ export default function Page() {
               Banyak orang mengenal kota ini dengan nama &quot;Solo&quot;,
               padahal nama resminya adalah <strong>Kota Surakarta</strong>.
               Kedua nama ini merujuk ke kota yang sama. Jadi kalau Anda mencari
-              &quot;pasang wifi solo&quot; atau &quot;pasang wifi
+              &quot;pasang wifi solo murah&quot; atau &quot;pasang wifi
               surakarta&quot;, hasilnya sama — Anda akan terhubung dengan sales
-              kami yang melayani seluruh wilayah kota.
+              resmi lokal kami yang melayani seluruh wilayah kota.
             </p>
             <p>
               Untuk melihat daftar paket lengkap, harga, dan detail coverage,
@@ -202,10 +211,23 @@ export default function Page() {
             </a>
           </div>
 
+          <div className="explain-card" style={{ marginTop: "24px" }}>
+            <h2>Rekomendasi Paket WiFi Murah di Solo (Kategori 100 Ribuan)</h2>
+            <p>
+              Mencari <strong>WiFi murah 100 ribuan di Solo</strong> yang kecepatannya stabil tanpa FUP? 
+              Paket <strong>XL Home Starter 20 Mbps</strong> (Rp 185.000/bln nett) menjadi pilihan paling favorit 
+              untuk kos mahasiswa di Jebres (UNS/ISI) dan Banjarsari, maupun hunian keluarga di Laweyan, Serengan, dan Pasar Kliwon.
+            </p>
+            <ul style={{ paddingLeft: "20px", marginTop: "12px", lineHeight: "1.8" }}>
+              <li><strong>Gratis Biaya Pasang (Rp 0):</strong> Promo bulan ini bebas biaya instalasi teknisi (hemat Rp 99.000).</li>
+              <li><strong>100% Tanpa FUP:</strong> Kuota unlimited murni, bebas streaming YouTube, TikTok, dan Zoom tanpa penurunan kecepatan akhir bulan.</li>
+              <li><strong>Router Fiber Optic Gratis:</strong> Perangkat WiFi sudah include dipinjamkan selama berlangganan.</li>
+            </ul>
+          </div>
+
           <h2 className="section-title">Wilayah Kota Solo yang Kami Layani</h2>
           <p className="section-sub">
-            5 kecamatan di Kota Solo (Surakarta) sudah terjangkau jaringan XL
-            SATU fiber &amp; wireless.
+            5 kecamatan di Kota Solo (Surakarta) sudah terjangkau jaringan fiber optik FTTH XL Home (transformasi resmi XL SATU).
           </p>
           <div className="kecamatan">
             {["Laweyan", "Serengan", "Pasar Kliwon", "Jebres", "Banjarsari"].map(

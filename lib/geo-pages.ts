@@ -588,18 +588,18 @@ export function getGeoArticle(slug: string) {
         "addressRegion": cityName,
         "addressCountry": "ID"
       },
-      "url": `https://xlhomesolo.com/pasang-wifi-xl-satu-${areaSlug}/`
+      "url": `https://xlhomesolo.com/pasang-wifi-xl-home-${areaSlug}/`
     },
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": `Pasang WiFi Murah di ${areaName} (${cityName}) | XL Home (d/h XL SATU Fiber)`,
+      "headline": `Pasang WiFi ${areaName} Murah 2026 (${cityName}) | XL Home (d/h XL SATU)`,
       "description": `Panduan pasang WiFi rumah XL Home Fiber (transformasi resmi XL SATU) di ${areaName}, ${cityName}. Bebas batas FUP, gratis biaya pasang, dan paket bundling kuota.`,
       "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "datePublished": "2026-08-15",
-      "dateModified": "2026-10-12",
-      "mainEntityOfPage": `https://xlhomesolo.com/pasang-wifi-xl-satu-${areaSlug}/`
+      "dateModified": "2026-10-14",
+      "mainEntityOfPage": `https://xlhomesolo.com/pasang-wifi-xl-home-${areaSlug}/`
     }
   ];
 
@@ -721,18 +721,21 @@ export function getGeoArticle(slug: string) {
 
   return {
     slug: `pasang-wifi-xl-home-${areaSlug}`,
-    title: `Pasang WiFi Murah di ${areaName} (${cityName}) | XL Home (d/h XL SATU Fiber)`,
-    description: `Layanan pasang WiFi rumah XL Home Fiber (transformasi resmi XL SATU) di ${areaName}, ${cityName}. Jangkauan ${info.kelurahan.slice(0, 4).join(", ")}, dsb. 100% Tanpa FUP, gratis biaya pasang!`,
+    title: `Pasang WiFi ${areaName} Murah 2026 (${cityName}) | XL Home Fiber (d/h XL SATU)`,
+    description: `Layanan pasang WiFi ${areaName} murah 2026 mulai 185rb/bln (kategori 100 ribuan) dari XL Home Fiber (d/h XL SATU). Jangkauan ${info.kelurahan.slice(0, 3).join(", ")}, dsb. 100% Tanpa FUP, gratis biaya pasang!`,
     keywords: [
       `pasang wifi ${areaName.toLowerCase()}`,
+      `pasang wifi murah ${areaName.toLowerCase()}`,
       `wifi murah ${areaName.toLowerCase()}`,
+      `wifi murah ${areaName.toLowerCase()} 100 ribuan`,
+      `biaya pasang wifi ${areaName.toLowerCase()}`,
       `xl home ${areaName.toLowerCase()}`,
       `xl satu ${areaName.toLowerCase()}`,
       `provider internet ${areaName.toLowerCase()}`,
       `wifi rumah ${cityName.toLowerCase()}`
     ],
-    ogTitle: `Pasang WiFi XL Home Fiber di ${areaName} (${cityName}) (d/h XL SATU)`,
-    ogDescription: `Internet fiber 100% Unlimited tanpa FUP di ${areaName}. Transformasi resmi XL SATU ke XL Home. Gratis biaya instalasi!`,
+    ogTitle: `Pasang WiFi ${areaName} Murah 2026 (${cityName}) | XL Home Fiber`,
+    ogDescription: `Internet fiber 100% Unlimited tanpa FUP di ${areaName}. Transformasi resmi XL SATU ke XL Home mulai 185rb/bln. Gratis biaya instalasi!`,
     ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
     schemas,
     faqs,
