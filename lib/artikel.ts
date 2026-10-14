@@ -20,28 +20,73 @@ ARTIKEL["panduan-wifi-kos-solo"] = {
 
   slug: "panduan-wifi-kos-solo",
 
-  title: "WiFi Kos Solo: Kecepatan Ideal, Biaya Patungan & Area UNS UMS | XL SATU",
+  title: "WiFi Kos Solo: Kecepatan Ideal, Biaya Patungan & Area UNS UMS | XL Home",
 
-  description: "WiFi kos Solo butuh berapa Mbps? Panduan kecepatan untuk 3-4 & 5-8 penghuni, cara patungan adil per kamar, & info area kampus UNS, UMS, UNISRI, ISI yang sudah fiber.",
+  description: "WiFi kos Solo butuh berapa Mbps? Panduan kecepatan kos mahasiswa UNS Jebres & UMS Pabelan, cara patungan murah cuma 28rb-an/kamar, & area kampus yang sudah fiber.",
 
-  keywords: "wifi kos solo, wifi kos dekat uns ums, kecepatan wifi kos 3-4 orang, biaya patungan wifi kos, internet kontrakan solo raya".split(/,\s*/),
+  keywords: "wifi kos solo, wifi kos uns jebres, wifi kos ums pabelan kartasura, wifi kos dekat uns ums, kecepatan wifi kos 3-4 orang, biaya patungan wifi kos, internet kontrakan solo raya".split(/,\s*/),
 
   ogTitle: "WiFi Kos Solo: Kecepatan Ideal, Biaya Patungan & Area UNS UMS",
 
-  ogDescription: "WiFi kos Solo butuh berapa Mbps? Panduan untuk 3-4 & 5-8 penghuni, cara patungan per kamar, & area kampus UNS, UMS, UNISRI, ISI.",
+  ogDescription: "WiFi kos Solo butuh berapa Mbps? Panduan untuk 3-4 & 5-8 penghuni, simulasi patungan murah, & area kampus UNS, UMS, UNISRI, ISI.",
 
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
 
-  schemas: [{"@context":"https://schema.org","@type":"Article","headline":"WiFi Kos Solo: Kecepatan Ideal, Biaya Patungan & Area UNS UMS","description":"WiFi kos Solo butuh berapa Mbps? Panduan kecepatan untuk 3-4 & 5-8 penghuni, cara patungan per kamar, & area kampus UNS, UMS, UNISRI, ISI.","author":{"@type":"Organization","name":"XL SATU Solo Raya"},"publisher":{"@type":"Organization","name":"XL SATU Solo Raya"},"datePublished":"2026-08-09","dateModified":"2026-09-17","mainEntityOfPage":"https://xlhomesolo.com/panduan-wifi-kos-solo/"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Berapa kecepatan WiFi yang ideal untuk kos isi 3-4 orang?","acceptedAnswer":{"@type":"Answer","text":"Untuk kos dengan 3-4 penghuni yang masing-masing browsing, streaming, dan sesekali video call, kecepatan 100-250 Mbps biasanya sudah cukup nyaman. Kalau ada yang gaming online atau kerja WFH dengan meeting Zoom bersamaan, sebaiknya naik ke 250-400 Mbps."}},{"@type":"Question","name":"Bagaimana cara patungan WiFi kos yang adil?","acceptedAnswer":{"@type":"Answer","text":"Cara paling umum adalah membagi rata biaya bulanan sesuai jumlah penghuni kamar yang ikut memakai. Untuk kos dengan penghuni keluar masuk (kos harian atau musiman), lebih adil dihitung per kamar aktif bulan itu, bukan per kepala tetap."}},{"@type":"Question","name":"Apakah pemilik kos atau penghuni yang sebaiknya daftar WiFi?","acceptedAnswer":{"@type":"Answer","text":"Keduanya bisa. Kalau pemilik kos yang daftar, biaya WiFi biasanya sudah termasuk di harga sewa bulanan sehingga lebih praktis untuk penghuni baru. Kalau penghuni yang daftar sendiri, lebih fleksibel soal kecepatan dan bisa dibawa pindah kalau suatu saat pindah kos, asal instalasi memungkinkan di kos baru."}},{"@type":"Question","name":"Kos di area kampus Solo Raya sudah terjangkau fiber optic?","acceptedAnswer":{"@type":"Answer","text":"Sebagian besar area kos di sekitar kampus-kampus utama Solo Raya seperti UNS, UMS, UNISRI, ISI Solo, dan Poltekkes sudah terjangkau jaringan fiber optic. Untuk kos di gang sempit atau area yang belum tercover kabel, tersedia alternatif solusi wireless dengan proses pemasangan yang lebih cepat."}}]}],
+  schemas: [{"@context":"https://schema.org","@type":"Article","headline":"WiFi Kos Solo: Kecepatan Ideal, Biaya Patungan & Area UNS UMS | XL Home","description":"WiFi kos Solo butuh berapa Mbps? Panduan kecepatan untuk 3-4 & 5-8 penghuni, cara patungan per kamar, & area kampus UNS, UMS, UNISRI, ISI.","author":{"@type":"Organization","name":"XL Home Solo Raya"},"publisher":{"@type":"Organization","name":"XL Home Solo Raya"},"datePublished":"2026-08-09","dateModified":"2026-10-15","mainEntityOfPage":"https://xlhomesolo.com/panduan-wifi-kos-solo/"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Berapa kecepatan WiFi yang ideal untuk kos isi 3-4 orang?","acceptedAnswer":{"@type":"Answer","text":"Untuk kos dengan 3-4 penghuni yang masing-masing browsing, streaming, dan sesekali video call, kecepatan 100-250 Mbps biasanya sudah cukup nyaman. Kalau ada yang gaming online atau kerja WFH dengan meeting Zoom bersamaan, paket Spark 250 Mbps sangat direkomendasikan."}},{"@type":"Question","name":"Berapa biaya patungan WiFi kos per orang di Solo?","acceptedAnswer":{"@type":"Answer","text":"Sangat murah! Untuk paket Starter 20 Mbps seharga Rp 185.000/bln jika dibagi 4 anak kos hanya sekitar Rp 46.000 per orang/bulan. Untuk paket Spark 250 Mbps (Rp 229.000/bln) dibagi 8 penghuni kamar, biayanya hanya sekitar Rp 28.000-an per kamar per bulan, jauh lebih hemat dibanding beli paket data HP."}},{"@type":"Question","name":"Apakah pemilik kos atau penghuni yang sebaiknya daftar WiFi?","acceptedAnswer":{"@type":"Answer","text":"Keduanya bisa. Kalau pemilik kos yang daftar, biaya WiFi biasanya sudah termasuk di harga sewa bulanan sehingga lebih praktis untuk penghuni baru. Kalau penghuni yang daftar sendiri, proses pendaftaran online sangat mudah cukup lewat WhatsApp ke sales resmi."}},{"@type":"Question","name":"Kos di area kampus Solo Raya sudah terjangkau fiber optic?","acceptedAnswer":{"@type":"Answer","text":"Sebagian besar area kos di sekitar kampus-kampus utama Solo Raya seperti UNS Kentingan/Jebres, UMS Pabelan/Gonilan Kartasura, UNISRI Kadipiro, ISI Solo, dan Poltekkes Mojosongo sudah terjangkau jaringan fiber optic XL Home (d/h XL SATU)."}}]}],
 
-  faqs: [{"q":"Berapa kecepatan WiFi yang ideal untuk kos isi 3-4 orang?","a":"Untuk kos dengan 3-4 penghuni yang masing-masing browsing, streaming, dan sesekali video call, kecepatan 100-250 Mbps biasanya sudah cukup nyaman. Kalau ada yang gaming online atau kerja WFH dengan meeting Zoom bersamaan, sebaiknya naik ke 250-400 Mbps."},{"q":"Bagaimana cara patungan WiFi kos yang adil?","a":"Cara paling umum adalah membagi rata biaya bulanan sesuai jumlah penghuni kamar yang ikut memakai. Untuk kos dengan penghuni keluar masuk (kos harian atau musiman), lebih adil dihitung per kamar aktif bulan itu, bukan per kepala tetap."},{"q":"Apakah pemilik kos atau penghuni yang sebaiknya daftar WiFi?","a":"Keduanya bisa. Kalau pemilik kos yang daftar, biaya WiFi biasanya sudah termasuk di harga sewa bulanan sehingga lebih praktis untuk penghuni baru. Kalau penghuni yang daftar sendiri, lebih fleksibel soal kecepatan dan bisa dibawa pindah kalau suatu saat pindah kos, asal instalasi memungkinkan di kos baru."},{"q":"Kos di area kampus Solo Raya sudah terjangkau fiber optic?","a":"Sebagian besar area kos di sekitar kampus-kampus utama Solo Raya seperti UNS, UMS, UNISRI, ISI Solo, dan Poltekkes sudah terjangkau jaringan fiber optic. Untuk kos di gang sempit atau area yang belum tercover kabel, tersedia alternatif solusi wireless dengan proses pemasangan yang lebih cepat."}],
+  faqs: [{"q":"Berapa kecepatan WiFi yang ideal untuk kos isi 3-4 orang?","a":"Untuk kos dengan 3-4 penghuni yang masing-masing browsing, streaming, dan sesekali video call, kecepatan 100-250 Mbps biasanya sudah cukup nyaman. Kalau ada yang gaming online atau kerja WFH dengan meeting Zoom bersamaan, paket Spark 250 Mbps sangat direkomendasikan."},{"q":"Berapa biaya patungan WiFi kos per orang di Solo?","a":"Sangat murah! Untuk paket Starter 20 Mbps seharga Rp 185.000/bln jika dibagi 4 anak kos hanya sekitar Rp 46.000 per orang/bulan. Untuk paket Spark 250 Mbps (Rp 229.000/bln) dibagi 8 penghuni kamar, biayanya hanya sekitar Rp 28.000-an per kamar per bulan, jauh lebih hemat dibanding beli paket data HP."},{"q":"Apakah pemilik kos atau penghuni yang sebaiknya daftar WiFi?","a":"Keduanya bisa. Kalau pemilik kos yang daftar, biaya WiFi biasanya sudah termasuk di harga sewa bulanan sehingga lebih praktis untuk penghuni baru. Kalau penghuni yang daftar sendiri, proses pendaftaran online sangat mudah cukup lewat WhatsApp ke sales resmi."},{"q":"Kos di area kampus Solo Raya sudah terjangkau fiber optic?","a":"Sebagian besar area kos di sekitar kampus-kampus utama Solo Raya seperti UNS Kentingan/Jebres, UMS Pabelan/Gonilan Kartasura, UNISRI Kadipiro, ISI Solo, dan Poltekkes Mojosongo sudah terjangkau jaringan fiber optic XL Home (d/h XL SATU)."}],
 
-  hero: {"crumb":"<a href=\"https://xlhomesolo.com/\">Beranda</a> / Panduan Pilih WiFi Kos Solo Raya","h1":"Panduan Pilih WiFi untuk Kos & Kontrakan di Solo Raya","sub":"Tips kecepatan yang pas, cara patungan yang adil, dan info area kampus yang sudah terjangkau fiber optic.","meta":"Diperbarui 17 September 2026 • XL SATU Solo Raya"},
+  hero: {"crumb":"<a href=\"https://xlhomesolo.com/\">Beranda</a> / Panduan Pilih WiFi Kos Solo Raya","h1":"Panduan Pilih WiFi untuk Kos Mahasiswa & Kontrakan Solo Raya","sub":"Tips kecepatan yang pas, cara patungan super hemat mulai 28rb-an per anak, dan area kampus UNS & UMS yang sudah tercover fiber optic tanpa FUP.","meta":"Diperbarui 15 Oktober 2026 • Tim XL Home Solo Raya"},
 
-  headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20info%20WiFi%20kos",
+  headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20info%20WiFi%20kos%20di%20Solo",
 
-  bodyHtml: "\n\n  <p>Buat anak kos dan penghuni kontrakan di Solo Raya, WiFi bukan cuma soal hiburan —  tapi kebutuhan pokok buat kuliah online, kerja remote, dan video call keluarga. Masalahnya, banyak yang asal pilih paket termurah tanpa mikir jumlah penghuni, akhirnya internet lemot pas jam ramai. Panduan ini bantu kamu mikir lebih matang sebelum pasang WiFi kos.</p>\n\n  <h2>Kenapa Kecepatan WiFi Kos Beda dengan WiFi Rumah Biasa</h2>\n  <p>Kos dan kontrakan biasanya diisi lebih dari satu orang yang memakai internet secara bersamaan, di jam yang sama pula —  biasanya malam hari setelah pulang kuliah atau kerja. Ini beda dengan rumah tangga biasa yang penggunanya lebih sedikit dan jadwalnya lebih tersebar. Semakin banyak penghuni aktif memakai internet bersamaan, semakin besar kecepatan yang dibutuhkan supaya tidak saling rebutan bandwidth.</p>\n\n  <div class=\"info-box\">\n    <strong>Tips cepat:</strong> Hitung kasar kebutuhan dengan rumus: jumlah penghuni aktif ƒÆ’” 20-30 Mbps untuk pemakaian standar (browsing, streaming, kuliah online), atau ƒÆ’” 50 Mbps kalau ada yang gaming online atau sering video call kerja.\n  </div>\n\n  <h2>Rekomendasi Kecepatan Berdasarkan Jumlah Penghuni</h2>\n  <table class=\"speed-table\">\n    <tr><th>Jumlah Penghuni</th><th>Kecepatan Disarankan</th><th>Cocok Untuk</th></tr>\n    <tr><td>1-2 orang</td><td>20-100 Mbps</td><td>Browsing, kuliah online, streaming standar</td></tr>\n    <tr><td>3-4 orang</td><td>100-250 Mbps</td><td>Streaming HD bersamaan, video call, kerja WFH</td></tr>\n    <tr><td>5-8 orang (kos putra/putri)</td><td>250-400 Mbps</td><td>Multi-streaming, gaming online, banyak perangkat</td></tr>\n    <tr><td>Kos besar / kontrakan bisnis</td><td>500 Mbps ke atas</td><td>Penggunaan berat, banyak kamar aktif</td></tr>\n  </table>\n\n  <h2>Cara Patungan WiFi Kos yang Adil</h2>\n  <p>Salah satu alasan WiFi kos sering jadi sumber drama adalah pembagian biaya yang nggak jelas. Beberapa cara yang biasa dipakai penghuni kos di Solo Raya:</p>\n  <ul>\n    <li><strong>Bagi rata per kamar aktif</strong> —  cara paling simpel, total biaya dibagi jumlah kamar yang ikut pakai, bukan per kepala. Adil untuk kamar isi 1 maupun isi 2.</li>\n    <li><strong>Termasuk di harga sewa</strong> —  pemilik kos yang daftar dan bayar, biayanya sudah dimasukkan ke harga sewa bulanan. Paling praktis buat penghuni baru karena tinggal pakai.</li>\n    <li><strong>Kolektor bulanan</strong> —  satu orang jadi koordinator, kumpulin uang tiap bulan sebelum tanggal jatuh tempo, supaya nggak telat bayar dan kena putus.</li>\n  </ul>\n\n  <h2>Area Kampus di Solo Raya yang Sudah Terjangkau Fiber</h2>\n  <p>Sebagian besar area kos di sekitar kampus-kampus utama Solo Raya sudah terjangkau jaringan fiber optic. Berikut beberapa area yang umum dicari anak kos:</p>\n  <div class=\"kampus-grid\">\n    <div class=\"kampus-item\">Sekitar UNS <span>Kentingan, Jebres, Solo</span></div>\n    <div class=\"kampus-item\">Sekitar UMS <span>Pabelan, Kartasura, Sukoharjo</span></div>\n    <div class=\"kampus-item\">Sekitar UNISRI <span>Kadipiro, Solo</span></div>\n    <div class=\"kampus-item\">Sekitar ISI Solo <span>Mojosongo, Solo</span></div>\n    <div class=\"kampus-item\">Sekitar Poltekkes Solo <span>Mojosongo, Solo</span></div>\n    <div class=\"kampus-item\">Area Karanganyar Kota <span>dekat kampus & perkantoran</span></div>\n  </div>\n  <p>Untuk kos di gang sempit atau area yang belum tercover kabel fiber, tersedia alternatif solusi wireless dengan proses pemasangan yang lebih cepat dan tanpa perlu penarikan kabel panjang.</p>\n\n  <h2>Checklist Sebelum Daftar WiFi Kos</h2>\n  <ol>\n    <li>Konfirmasi dulu ke pemilik kos apakah instalasi kabel fiber diizinkan (beberapa kos punya aturan sendiri soal ini)</li>\n    <li>Hitung jumlah penghuni aktif dan kebutuhan pemakaian (kuliah online saja, atau ada yang gaming/kerja berat) —  baca <a href=\"/kecepatan-wifi-ideal-keluarga/\">panduan kecepatan WiFi ideal</a> untuk hitungan lebih detail</li>\n    <li>Cek dulu apakah area kos sudah terjangkau fiber, atau perlu solusi wireless</li>\n    <li>Sepakati cara pembagian biaya sebelum daftar, supaya nggak ada drama di bulan pertama</li>\n    <li>Tanyakan biaya instalasi dan promo yang sedang berlaku ke sales</li>\n  </ol>\n\n  <div class=\"cta-box\">\n    <h3>Mau Cek Ketersediaan WiFi di Kos Kamu?</h3>\n    <p>Tim support XL SATU siap bantu cek jaringan dan rekomendasi paket sesuai jumlah penghuni kos kamu.</p>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20ketersediaan%20WiFi%20untuk%20kos%20saya\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\">\n      <i class=\"fab fa-whatsapp\"></i> Tanya Dulu\n    </a>\n  </div>\n\n  <h2>Pertanyaan yang Sering Ditanyakan</h2>\n\n  <h3>Berapa kecepatan WiFi yang ideal untuk kos isi 3-4 orang?</h3>\n  <p>Untuk kos dengan 3-4 penghuni yang masing-masing browsing, streaming, dan sesekali video call, kecepatan 100-250 Mbps biasanya sudah cukup nyaman. Kalau ada yang gaming online atau kerja WFH dengan meeting Zoom bersamaan, sebaiknya naik ke 250-400 Mbps.</p>\n\n  <h3>Bagaimana cara patungan WiFi kos yang adil?</h3>\n  <p>Cara paling umum adalah membagi rata biaya bulanan sesuai jumlah penghuni kamar yang ikut memakai. Untuk kos dengan penghuni keluar masuk (kos harian atau musiman), lebih adil dihitung per kamar aktif bulan itu, bukan per kepala tetap.</p>\n\n  <h3>Apakah pemilik kos atau penghuni yang sebaiknya daftar WiFi?</h3>\n  <p>Keduanya bisa. Kalau pemilik kos yang daftar, biaya WiFi biasanya sudah termasuk di harga sewa bulanan sehingga lebih praktis untuk penghuni baru. Kalau penghuni yang daftar sendiri, lebih fleksibel soal kecepatan dan bisa dibawa pindah kalau suatu saat pindah kos, asal instalasi memungkinkan di kos baru.</p>\n\n  <h3>Kos di area kampus Solo Raya sudah terjangkau fiber optic?</h3>\n  <p>Sebagian besar area kos di sekitar kampus-kampus utama Solo Raya seperti UNS, UMS, UNISRI, ISI Solo, dan Poltekkes sudah terjangkau jaringan fiber optic. Untuk kos di gang sempit atau area yang belum tercover kabel, tersedia alternatif solusi wireless dengan proses pemasangan yang lebih cepat.</p>\n\n  <h2>Cek Area Layanan di Kotamu</h2>\n  <p>XL SATU melayani pemasangan internet rumah dan kos di 5 wilayah Solo Raya: Sudah siap daftar? Baca <a href=\"/cara-daftar-pasang-wifi-xl-satu-solo/\">panduan lengkap cara daftar & syarat pemasangan</a>.</p>\n  <div class=\"related-cities\">\n    <a href=\"/wifi-solo/\">Pasang WiFi Solo</a>\n    <a href=\"/wifi-sukoharjo/\">Pasang WiFi Sukoharjo</a>\n    <a href=\"/wifi-karanganyar/\">Pasang WiFi Karanganyar</a>\n    <a href=\"/wifi-klaten/\">Pasang WiFi Klaten</a>\n    <a href=\"/wifi-boyolali/\">Pasang WiFi Boyolali</a>\n    <a href=\"/wifi-surakarta/\">Pasang WiFi Surakarta</a>\n  </div>\n  <p style=\"margin-top:16px;\">Sebelum daftar ke provider manapun, baca dulu <a href=\"/5-hal-wajib-dicek-sebelum-pasang-wifi-rumah/\">5 hal wajib dicek sebelum pasang WiFi rumah</a>.</p>\n\n  <p>Ngekos beramai-ramai? <a href=\"/berapa-mbps-untuk-berapa-orang/\">Hitung kebutuhan Mbps sekosmu pakai kalkulator interaktif</a> —  isi perangkat tiap penghuni, dapat rekomendasi paket + link hasil buat patungan.</p>\n",
+  bodyHtml: `
 
+  <p>Buat anak kos dan penghuni kontrakan di Solo Raya (terutama kawasan kampus <strong>UNS Kentingan Jebres</strong>, <strong>UMS Pabelan Kartasura</strong>, <strong>UNISRI</strong>, dan <strong>ISI Solo</strong>), WiFi bukan cuma soal hiburan — tapi kebutuhan pokok buat kuliah daring, tugas skripsi, live streaming, dan video call keluarga. Masalahnya, banyak yang asal pasang WiFi murah yang menerapkan FUP, akibatnya internet lemot parah pas akhir bulan saat musim ujian. Panduan ini membantu kamu memilih paket WiFi kos yang paling hemat dan bebas lemot.</p>
+
+  <h2>Kenapa Kecepatan WiFi Kos Butuh Bandwidth Besar & Upload Simetris?</h2>
+  <p>Kos dan kontrakan diisi oleh banyak orang yang memakai internet bersamaan di jam sibuk — biasanya malam hari setelah pulang kampus. Di provider konvensional yang punya kuota FUP dan rasio upload kecil (1:3), koneksi akan langsung ngelag parah ketika satu kamar streaming video dan kamar lain sedang main game online atau upload tugas video. Dengan <strong>XL Home Fiber</strong>, kecepatan 100% simetris 1:1 dan <strong>murni tanpa FUP</strong>, sehingga ping game tetap stabil di bawah 20ms.</p>
+
+  <div class="info-box">
+    <strong>Rumus Kebutuhan Bandwidth Kos:</strong> Hitung kasar kebutuhan dengan rumus: <em>Jumlah penghuni aktif × 20–30 Mbps</em> untuk pemakaian standar kuliah & streaming, atau <em>Jumlah penghuni × 40–50 Mbps</em> jika ada yang gaming kompetitif (Valorant/MLBB) atau freelancer remote.
+  </div>
+
+  <h2>Rekomendasi Paket & Simulasi Biaya Patungan Per Anak</h2>
+  <table class="speed-table">
+    <tr><th>Pilihan Paket</th><th>Kecepatan</th><th>Harga Bulanan</th><th>Simulasi Patungan Per Kamar</th></tr>
+    <tr><td><strong>Starter</strong></td><td>20 Mbps</td><td>Rp 185.000/bln</td><td>Kos 3-4 anak: <strong>~Rp 46.000 / anak / bulan</strong></td></tr>
+    <tr><td><strong>Value</strong></td><td>100 Mbps (Promo 200 Mbps)</td><td>Rp 219.000/bln</td><td>Kos 4-6 anak: <strong>~Rp 36.000 / anak / bulan</strong></td></tr>
+    <tr style="background: #e6f7f3;"><td><strong>Spark (Paling Laris)</strong></td><td>250 Mbps Booster</td><td>Rp 229.000/bln</td><td>Kos 6-8 anak: <strong>~Rp 28.000 / anak / bulan</strong> 🔥</td></tr>
+    <tr><td><strong>Prime</strong></td><td>400 Mbps Booster</td><td>Rp 299.000/bln</td><td>Kos besar 10-15 kamar aktif</td></tr>
+  </table>
+
+  <p>Bandingkan dengan paket kuota seluler perorangan yang rata-rata menghabiskan Rp 60.000 – Rp 100.000/bulan per anak hanya untuk kuota 20-30 GB. Dengan pasang WiFi XL Home bersama teman kos, kamu hanya bayar <strong>Rp 28.000 – Rp 46.000 per bulan</strong> untuk internetan sepuasnya tanpa batas kuota FUP!</p>
+
+  <h2>Cara Patungan WiFi Kos yang Adil & Bebas Drama</h2>
+  <ul>
+    <li><strong>Bagi rata per kamar aktif:</strong> Total tagihan bulanan dibagi rata jumlah kamar yang ikut memakai. Ini cara paling adil dan transparan.</li>
+    <li><strong>Ditanggung pemilik kos:</strong> Pemilik kos memasang WiFi dan memasukkan biayanya ke dalam sewa kamar. Kos langsung punya nilai jual lebih tinggi dan cepat penuh.</li>
+    <li><strong>Sistem bayar awal bulan:</strong> Tunjuk satu koordinator kos untuk mengumpulkan iuran patungan di minggu pertama tiap bulan agar terhindar dari denda telat bayar.</li>
+  </ul>
+
+  <h2>Area Kampus di Solo Raya yang Sudah Tercover Fiber XL Home</h2>
+  <div class="kampus-grid">
+    <div class="kampus-item">Sekitar Kampus UNS <span>Kentingan, Ngoresan, Jebres, Solo</span></div>
+    <div class="kampus-item">Sekitar Kampus UMS <span>Pabelan, Gonilan, Kartasura, Sukoharjo</span></div>
+    <div class="kampus-item">Sekitar Kampus UNISRI <span>Kadipiro, Banjarsari, Solo</span></div>
+    <div class="kampus-item">Sekitar ISI Solo & Poltekkes <span>Mojosongo, Jebres, Solo</span></div>
+    <div class="kampus-item">Sekitar UIN Raden Mas Said <span>Pucangan, Kartasura</span></div>
+    <div class="kampus-item">Area Karanganyar & Palur <span>Kos dekat kampus perbatasan</span></div>
+  </div>
+
+  <div class="cta-box">
+    <h3>Mau Pasang WiFi di Kos Kamu Hari Ini?</h3>
+    <p>Pendaftaran mudah tanpa ribet! Cukup hubungi tim sales resmi XL Home Solo Raya via WhatsApp. Kami bantu cek tiang ODP terdekat dan jadwalkan teknisi pasang tanpa biaya instalasi.</p>
+    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20WiFi%20XL%20Home%20untuk%20kos%20mahasiswa" target="_blank" rel="noopener noreferrer" class="btn-cta">
+      <i class="fab fa-whatsapp"></i> Chat Sales XL Home via WhatsApp
+    </a>
+  </div>
+  `
 };
 
 
@@ -380,43 +425,51 @@ ARTIKEL["xl-home-vs-indihome-myrepublic-solo"] = {
 
   slug: "xl-home-vs-indihome-myrepublic-solo",
 
-  title: "XL Home vs IndiHome & MyRepublic Solo 2026: Mana Terbaik? | XL Home",
+  title: "XL Home vs IndiHome, Biznet & MyRepublic Solo 2026: Mana yang Bebas FUP? | XL Home",
 
-  description: "Bingung pilih XL Home (d/h XL SATU), IndiHome, atau MyRepublic di Solo? Jangan sampai salah pasang! Bandingkan harga, batas FUP, & temukan provider WiFi paling stabil 2026.",
+  description: "Bandingkan jujur XL Home (d/h XL SATU), IndiHome, Biznet & MyRepublic di Solo Raya 2026. Bongkar aturan FUP baru, biaya beli modem, dan jebakan harga naik setelah setahun.",
 
-  keywords: ["xl home vs indihome solo", "xl home vs myrepublic", "perbandingan provider wifi solo", "wifi terbaik solo raya", "xl home vs biznet"],
+  keywords: ["xl home vs indihome solo", "biznet vs xl satu fiber", "xl satu vs myrepublic solo", "wifi tanpa fup solo", "perbandingan provider wifi solo", "wifi terbaik solo raya 2026", "biaya pasang biznet solo", "fup indihome solo"],
 
-  ogTitle: "XL Home vs IndiHome & MyRepublic Solo 2026: Mana Terbaik?",
+  ogTitle: "XL Home vs IndiHome, Biznet & MyRepublic Solo 2026: Mana Terbaik?",
 
-  ogDescription: "Bingung pilih XL Home (d/h XL SATU), IndiHome, atau MyRepublic di Solo? Jangan sampai salah pasang! Bandingkan harga, batas FUP, & temukan provider WiFi paling stabil 2026.",
+  ogDescription: "Bandingkan jujur XL Home, IndiHome, Biznet & MyRepublic di Solo Raya 2026. Bongkar aturan FUP, biaya beli modem, dan jebakan harga promo.",
 
   ogImage: "https://xlhomesolo.com/og.jpg",
 
-  schemas: [{"@context":"https://schema.org/","@type":"Product","name":"Internet Rumah XL Home Fiber","review":{"@type":"Review","name":"Perbandingan XL Home vs Provider Lain","author":{"@type":"Person","name":"Tim XL Home Solo"},"positiveNotes":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"XL Home: 100% Unlimited Tanpa FUP Tersembunyi"},{"@type":"ListItem","position":2,"name":"XL Home: Gratis Bonus Kuota Bersama untuk HP Keluarga"}]},"negativeNotes":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Provider Lain: Beberapa menerapkan FUP / batas kuota yang menurunkan kecepatan"}]}}}, ],
+  schemas: [{"@context":"https://schema.org/","@type":"Product","name":"Internet Rumah XL Home Fiber Solo","review":{"@type":"Review","name":"Perbandingan Provider WiFi Solo 2026: XL Home vs IndiHome vs Biznet vs MyRepublic","author":{"@type":"Organization","name":"Tim XL Home Solo Raya"},"positiveNotes":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"XL Home: 100% True Unlimited Murni Tanpa FUP"},{"@type":"ListItem","position":2,"name":"XL Home: Modem WiFi Dipinjamkan Gratis Tanpa Deposit Beli"},{"@type":"ListItem","position":3,"name":"XL Home: Gratis Biaya Pasang Promo & Harga Flat Transparan"}]},"negativeNotes":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"IndiHome & Biznet: Menerapkan batasan FUP kuota gigabyte yang memangkas kecepatan di akhir bulan"},{"@type":"ListItem","position":2,"name":"Biznet: Wajib beli/deposit perangkat modem Rp 750.000 - Rp 900.000 di awal"},{"@type":"ListItem","position":3,"name":"MyRepublic: Tagihan melonjak drastis setelah promo 12 bulan berakhir"}]}}}, ],
 
   faqs: [
 
     {
 
-      q: "Mana yang lebih murah, XL SATU, IndiHome, atau MyRepublic?",
+      q: "Provider mana di Solo yang benar-benar 100% tanpa batas FUP di 2026?",
 
-      a: "Untuk paket entry-level, XL SATU menawarkan harga mulai dari Rp185.000/bulan yang sudah termasuk bonus kuota seluler keluarga, membuatnya sangat kompetitif secara nilai keseluruhan."
-
-    },
-
-    {
-
-      q: "Apakah XL SATU menggunakan Fiber Optic?",
-
-      a: "Ya! XL SATU menggunakan jaringan 100% Fiber Optic yang stabil dan kebal terhadap cuaca buruk, berbeda dengan ISP lokal (RT/RW net) yang masih menggunakan sistem tembak radio."
+      a: "XL Home Fiber adalah provider yang 100% MURNI TANPA FUP di Solo Raya. IndiHome menerapkan FUP bertingkat (misal kuota habis speed turun ke 15 Mbps lalu 6 Mbps), dan Biznet per 2026 juga menerapkan FUP (paket 50 Mbps dibatasi 1.500 GB lalu turun drastis ke 5 Mbps)."
 
     },
 
     {
 
-      q: "Provider mana yang tidak ada FUP?",
+      q: "Berapa biaya awal pasang baru (PSB) masing-masing provider di Solo?",
 
-      a: "XL SATU Fiber 100% tanpa batas FUP, artinya kecepatan Anda tidak akan dicekik atau diturunkan di akhir bulan meskipun pemakaian data sangat besar."
+      a: "XL Home gratis biaya pasang untuk paket promo dan modem dipinjamkan gratis (biaya awal Rp 0). IndiHome membebankan biaya pasang Rp 150.000 - Rp 500.000 di tagihan pertama. Biznet mewajibkan beli/deposit modem seharga Rp 750.000 - Rp 900.000 sehingga biaya awal bisa tembus Rp 1 jutaan."
+
+    },
+
+    {
+
+      q: "Benarkah tagihan MyRepublic naik setelah 12 bulan?",
+
+      a: "Ya, harga promo diskon MyRepublic umumnya hanya berlaku selama 12 bulan pertama. Memasuki bulan ke-13, tagihan akan kembali normal dengan kenaikan berkisar antara Rp 50.000 hingga Rp 90.000 per bulan. Sedangkan XL Home menawarkan skema harga flat transparan."
+
+    },
+
+    {
+
+      q: "Bagaimana ketersediaan tiang ODP fiber di perkampungan & perumahan Solo Raya?",
+
+      a: "Jaringan fiber XL Home (bekerja sama dengan infrastruktur FiberStar dan iForte) tersebar sangat luas mencakup Kota Solo, Colomadu, Solo Baru, Kartasura, Baki, Mojolaban, Jaten, hingga Ngemplak Boyolali. Biznet dan MyRepublic cenderung hanya padat di jalur protokol utama dan perumahan elit ring 1."
 
     }
 
@@ -424,29 +477,25 @@ ARTIKEL["xl-home-vs-indihome-myrepublic-solo"] = {
 
   hero: {
 
-    crumb: "<a href=\"/\">Beranda</a> / XL SATU vs IndiHome & MyRepublic",
+    crumb: "<a href=\"/\">Beranda</a> / Perbandingan Provider WiFi Solo Raya",
 
-    h1: "XL SATU vs IndiHome & MyRepublic di Solo: Mana yang Terbaik?",
+    h1: "XL Home vs IndiHome, Biznet & MyRepublic di Solo: Mana yang Terbaik?",
 
-    sub: "Bandingkan harga, stabilitas, FUP, dan keunggulan masing-masing provider sebelum Anda memutuskan pasang WiFi di rumah.",
+    sub: "Bandingkan harga, batas FUP baru 2026, biaya deposit modem, dan kejujuran tagihan sebelum Anda memutuskan pasang internet di rumah.",
 
-    meta: "Diperbarui September 2026 • Tim XL SATU Solo Raya"
+    meta: "Diperbarui 15 Oktober 2026 • Tim Analis XL Home Solo Raya"
 
   },
 
-  headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20perbandingan%20XL%20SATU",
+  headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20konsultasi%20perbandingan%20WiFi%20di%20Solo",
 
   bodyHtml: `
 
-  <p>Memilih provider internet (ISP) di Solo Raya saat ini cukup membingungkan. Tiga nama besar yang sering dibandingkan adalah <strong>XL SATU</strong>, <strong>IndiHome</strong>, dan <strong>MyRepublic</strong>. Masing-masing memiliki kelebihan tersendiri, namun mana yang paling cocok untuk keluarga Anda di tahun 2026?</p>
+  <p>Memilih provider internet rumah (ISP) di Solo Raya saat ini cukup membingungkan. Empat nama besar yang paling sering dicari warga Solo adalah <strong>XL Home (transformasi resmi XL SATU)</strong>, <strong>IndiHome (Telkomsel One)</strong>, <strong>Biznet Home</strong>, dan <strong>MyRepublic</strong>. Masing-masing memiliki klaim kecepatan tinggi, namun mana yang paling menguntungkan dan jujur untuk keluarga Anda di tahun 2026?</p>
 
+  <p>Berikut adalah perbandingan objektif berbasis data lapangan, terms & conditions terbaru, dan ulasan konsumen di Solo Raya agar Anda tidak terjebak biaya siluman atau internet lemot di akhir bulan.</p>
 
-
-  <p>Berikut adalah perbandingan jujur dan objektif dari ketiga raksasa internet fiber optik ini agar Anda tidak salah pilih.</p>
-
-
-
-  <h2>Tabel Perbandingan: XL SATU vs IndiHome vs MyRepublic</h2>
+  <h2>Tabel Perbandingan Lengkap: 4 Provider WiFi Terbesar Solo Raya 2026</h2>
 
   <div style="overflow-x: auto;">
 
@@ -456,11 +505,13 @@ ARTIKEL["xl-home-vs-indihome-myrepublic-solo"] = {
 
         <tr>
 
-          <th>Fitur Utama</th>
+          <th>Faktor Penentu</th>
 
-          <th style="background-color: #f0fdf4; border-bottom: 2px solid #22c55e;">XL SATU</th>
+          <th style="background-color: #f0fdf4; border-bottom: 2px solid #22c55e;">XL Home (d/h XL SATU)</th>
 
           <th>IndiHome</th>
+
+          <th>Biznet Home</th>
 
           <th>MyRepublic</th>
 
@@ -474,9 +525,11 @@ ARTIKEL["xl-home-vs-indihome-myrepublic-solo"] = {
 
           <td><strong>Batas Kuota (FUP)</strong></td>
 
-          <td style="color: #15803d; font-weight: 700;">100% Tanpa FUP</td>
+          <td style="color: #15803d; font-weight: 700;">100% True Unlimited (Tanpa FUP)</td>
 
-          <td>Ada Batas FUP</td>
+          <td>Ada FUP Bertingkat (Speed dipotong ke 15 Mbps & 6 Mbps)</td>
+
+          <td>Ada FUP (1.500 GB, habis turun drastis ke 5 Mbps)</td>
 
           <td style="color: #15803d; font-weight: 700;">Tanpa FUP</td>
 
@@ -484,13 +537,43 @@ ARTIKEL["xl-home-vs-indihome-myrepublic-solo"] = {
 
         <tr>
 
-          <td><strong>Estimasi Harga Awal</strong></td>
+          <td><strong>Biaya Awal & Modem</strong></td>
 
-          <td style="font-weight: 700;">Rp 185.000 / bln</td>
+          <td style="color: #15803d; font-weight: 700;">GRATIS Pasang Promo & Modem Dipinjamkan Gratis</td>
 
-          <td>Rp 200.000+ / bln</td>
+          <td>Biaya PSB Rp 150rb - Rp 500rb masuk di tagihan bulan 1</td>
 
-          <td>Rp 200.000+ / bln</td>
+          <td>Wajib Beli/Deposit Modem Rp 750rb - Rp 900rb</td>
+
+          <td>Biaya pasang Rp 50rb - Rp 100rb</td>
+
+        </tr>
+
+        <tr>
+
+          <td><strong>Rasio Upload : Download</strong></td>
+
+          <td style="color: #15803d; font-weight: 700;">1:1 Simetris Murni</td>
+
+          <td>Asimetris (1:3 hingga 1:4)</td>
+
+          <td style="color: #15803d; font-weight: 700;">1:1 Simetris</td>
+
+          <td style="color: #15803d; font-weight: 700;">1:1 Simetris</td>
+
+        </tr>
+
+        <tr>
+
+          <td><strong>Harga Mulai</strong></td>
+
+          <td style="font-weight: 700;">Rp 185.000 / bln (20 Mbps) - Rp 229.000 (250 Mbps)</td>
+
+          <td>Rp 280.000+ / bln (30 Mbps)</td>
+
+          <td>Rp 250.000+ / bln (50 Mbps)</td>
+
+          <td>Promo Rp 205.000 (Bulan 13 naik ke Rp 275.000+)</td>
 
         </tr>
 
@@ -498,35 +581,27 @@ ARTIKEL["xl-home-vs-indihome-myrepublic-solo"] = {
 
           <td><strong>Bonus Ekstra</strong></td>
 
-          <td style="background-color: #f0fdf4; font-weight: 700;">Kuota HP Seluler (Berbagi sekeluarga)</td>
+          <td style="background-color: #f0fdf4; font-weight: 700;">Kuota HP Keluarga XL Bersama (Bisa Dipakai di Luar Rumah)</td>
 
-          <td>TV Kabel / UseeTV</td>
+          <td>Aplikasi IndiHome / Telkomsel One</td>
 
-          <td>Channel TV (Tergantung Paket)</td>
+          <td>Tidak ada kuota HP</td>
 
-        </tr>
-
-        <tr>
-
-          <td><strong>Jaringan</strong></td>
-
-          <td>Fiber Optic Murni</td>
-
-          <td>Fiber Optic Murni</td>
-
-          <td>Fiber Optic Murni</td>
+          <td>Vidio / WeTV (Paket tertentu)</td>
 
         </tr>
 
         <tr>
 
-          <td><strong>Target Pengguna Ideal</strong></td>
+          <td><strong>CS & Respon Teknisi</strong></td>
 
-          <td>Keluarga cerdas (Hemat Internet Rumah + Pulsa HP)</td>
+          <td style="color: #15803d; font-weight: 700;">Sales & Tim Support Lokal Solo (WhatsApp Respons Cepat)</td>
 
-          <td>Keluarga pecinta tayangan TV Kabel</td>
+          <td>Call center nasional 188 / Bot MyTelkomsel</td>
 
-          <td>Gamer hardcore & Heavy Downloader</td>
+          <td>Call center / Cabang kota</td>
+
+          <td>Call center / Web form</td>
 
         </tr>
 
@@ -536,25 +611,25 @@ ARTIKEL["xl-home-vs-indihome-myrepublic-solo"] = {
 
   </div>
 
-  <p style="font-size: 13px; color: var(--text-muted); text-align: center; margin-top: 8px;">*Harga estimasi belum termasuk PPN 11% dan dapat berubah sesuai promo yang berlaku di masing-masing area.</p>
+  <p style="font-size: 13px; color: var(--text-muted); text-align: center; margin-top: 8px;">*Data diverifikasi berdasarkan penawaran resmi dan terms & conditions aktif di Solo Raya per 2026.</p>
 
+  <h2>1. Fakta FUP: Siapa yang Masih Membatasi Kecepatan Anda?</h2>
 
-
-  <h2>1. Kebijakan Kuota & FUP (Fair Usage Policy)</h2>
-
-  <p>FUP adalah batasan penggunaan wajar. Jika Anda melewati batas FUP, kecepatan internet Anda akan diturunkan drastis (lemot). Bagaimana kebijakan ketiga provider ini?</p>
+  <p>FUP (Fair Usage Policy) adalah aturan pembatasan pemakaian wajar. Ketika FUP habis, kecepatan internet Anda langsung dicekik turun drastis:</p>
 
   <ul>
 
-    <li><strong>XL SATU Fiber:</strong> 100% <strong>TANPA FUP</strong>. Anda bebas streaming 4K, download game puluhan gigabyte, atau digunakan oleh banyak perangkat tanpa takut kecepatan dicekik di akhir bulan.</li>
+    <li><strong>XL Home Fiber:</strong> Murni <strong>100% Bebas FUP</strong>. Anda bebas maraton streaming 4K, live shopping, dan download game 100 GB setiap hari tanpa pernah khawatir kecepatan turun di akhir bulan.</li>
 
-    <li><strong>MyRepublic:</strong> Juga dikenal dengan layanan tanpa FUP untuk paket fiber optik rumahan.</li>
+    <li><strong>IndiHome:</strong> Menerapkan skema FUP bertingkat. Paket 30 Mbps misalnya, dibatasi sekitar 1.200 GB. Jika lewat, kecepatan diturunkan 50% menjadi 15 Mbps, dan jika melebihi 2.000 GB kecepatan anjlok ke 6 Mbps.</li>
 
-    <li><strong>IndiHome:</strong> Menerapkan kebijakan FUP. Jika Anda melewati batas tertentu (misalnya 500GB atau 1TB tergantung paket), kecepatan internet Anda akan diturunkan.</li>
+    <li><strong>Biznet:</strong> Berbeda dengan masa lalu, kebijakan terbaru Biznet kini menerapkan FUP. Pada paket 50 Mbps, setelah kuota 1.500 GB habis, kecepatan dipotong sangat drastis menjadi hanya <strong>5 Mbps</strong>!</li>
+
+    <li><strong>MyRepublic:</strong> Murni tanpa FUP untuk paket fiber optik rumahan.</li>
 
   </ul>
 
-  <div class="info-box"><strong>Pemenang Kategori FUP:</strong> XL SATU & MyRepublic.</div>
+  <div class="info-box"><strong>Kesimpulan FUP:</strong> Jika rumah Anda memiliki banyak pengguna aktif atau anak kos, <strong>XL Home Fiber</strong> adalah pilihan paling aman dari risiko internet lemot mendadak.</div>
 
 
 
@@ -2686,5 +2761,189 @@ ARTIKEL["trik-hemat-pasang-wifi-solo-raya"] = {
     <li><a href="/paket-wifi-tahunan-bayar-10-dapat-12/">Paket Tahunan Bayar 10 Dapat 12</a> — hemat biaya 2 bulan penuh + kuota HP.</li>
     <li><a href="/cara-daftar-pasang-wifi-xl-home-solo/">Cara Daftar & Syarat Pasang XL Home Solo</a> — panduan langkah cepat via WhatsApp.</li>
   </ul>
+  `
+};
+
+ARTIKEL["panduan-warna-tiang-wifi-xl-home-jarak-kabel"] = {
+  slug: "panduan-warna-tiang-wifi-xl-home-jarak-kabel",
+  title: "Panduan Warna Tiang WiFi XL Home & Jarak Kabel Maksimal ke Rumah di Solo Raya",
+  description: "Kenali ciri warna tiang WiFi XL Home (d/h XL SATU), letak kotak ODP/FAT di jalan, beda tiang listrik vs wifi, dan batas jarak maksimal kabel ke rumah di Solo Raya.",
+  keywords: [
+    "warna tiang wifi xl satu",
+    "warna tiang xl home",
+    "tiang xl home warna apa",
+    "ciri ciri tiang wifi xl",
+    "perbedaan tiang listrik dan wifi",
+    "jarak maksimal odp ke rumah",
+    "cara cek tiang wifi di rumah",
+    "pasang wifi jauh dari tiang",
+    "cek tiang odp fiberstar xl solo"
+  ],
+  ogTitle: "Warna Tiang WiFi XL Home & Jarak Kabel Maksimal ke Rumah di Solo Raya",
+  ogDescription: "Panduan mengenali tiang fiber XL Home, kode kotak FAT/ODP, perbedaan tiang PLN, dan batas jarak maksimal kabel drop wire ke rumah Anda.",
+  ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+  schemas: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Panduan Warna Tiang WiFi XL Home & Jarak Kabel Maksimal ke Rumah di Solo Raya",
+      "description": "Kenali ciri warna tiang WiFi XL Home (d/h XL SATU), letak kotak ODP/FAT di jalan, beda tiang listrik vs wifi, dan batas jarak maksimal kabel ke rumah di Solo Raya.",
+      "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
+      "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
+      "datePublished": "2026-10-15",
+      "dateModified": "2026-10-15",
+      "mainEntityOfPage": "https://xlhomesolo.com/panduan-warna-tiang-wifi-xl-home-jarak-kabel/"
+    }
+  ],
+  faqs: [
+    {
+      q: "Tiang WiFi XL Home (XL SATU) warnanya apa?",
+      a: "Tiang fiber optik XL Home dan mitra jaringannya (FiberStar / iForte) umumnya berupa tiang besi hitam/silver dengan sabuk plat logam atau stiker berwarna biru muda / tosca. Di bagian atas tiang terpasang kotak FAT (Fiber Access Terminal) berbentuk persegi panjang berwarna putih atau hitam dengan label kode ODP."
+    },
+    {
+      q: "Berapa jarak maksimal tarikan kabel dari tiang WiFi ke rumah?",
+      a: "Standar instalasi gratis biasanya mencakup panjang kabel drop core hingga 150–200 meter dari tiang ODP ke router di dalam rumah. Jika jarak rumah Anda antara 150 hingga 200 meter, koneksi masih sangat stabil dan aman selama jalur kabel tidak terhalang banyak pohon rimbun."
+    },
+    {
+      q: "Apakah bisa pasang WiFi kalau rumah jauh dari tiang (>200 meter)?",
+      a: "Bisa! Untuk rumah di dalam gang yang jaraknya melebihi 200 meter, tim sales resmi XL Home Solo Raya akan membantu pengecekan tiang alternatif di gang sebelah atau mengajukan penambahan tiang sisipan/tiang pembantu. Kirimkan share location rumah Anda via WhatsApp untuk survei kelayakan jalur."
+    },
+    {
+      q: "Apa perbedaan tiang listrik PLN dan tiang WiFi fiber optik?",
+      a: "Tiang PLN berukuran jauh lebih besar, berbentuk silinder beton tebal atau besi raksasa dengan kabel telanjang dan trafo listrik bertegangan tinggi. Sedangkan tiang WiFi fiber optik berbentuk pipa besi ramping berdiameter sekitar 3–4 inci, dilengkapi kotak distribusi (ODP) dan gulungan kabel serat optik hitam lentur."
+    }
+  ],
+  hero: {
+    crumb: '<a href="https://xlhomesolo.com/">Beranda</a> / Panduan Teknis & Infrastruktur',
+    h1: 'Ciri Warna Tiang WiFi XL Home & Batas Jarak Kabel ke Rumah',
+    sub: 'Panduan visual cara mengenali tiang fiber optik XL Home di jalan, beda tiang listrik PLN, dan cara menghitung jarak kabel drop wire agar pemasangan gratis 100%.',
+    meta: 'Diperbarui 15 Oktober 2026 · Tim Teknis XL Home Solo Raya'
+  },
+  headerCta: 'https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20bantu%20cek%20tiang%20ODP%20XL%20Home%20di%20dekat%20rumah%20saya',
+  bodyHtml: `
+    <div class="info-box">
+      <strong>Mau Cek Tiang Cepat Tanpa Ribet?</strong> Anda tidak perlu memanjat atau memeriksa kode tiang sendiri. Cukup <strong>foto tiang di depan/dekat rumah</strong> dan kirimkan <strong>share location Google Maps</strong> via WhatsApp ke tim sales kami di <strong>0877-7899-9141</strong>. Tim kami akan mengecek posisi ODP dan ketersediaan port kosong dalam waktu 3–5 menit!
+    </div>
+
+    <p>Sebelum memutuskan mendaftar pasang internet rumah di Solo Raya (Kota Solo, Sukoharjo, Karanganyar, Klaten, Boyolali), salah satu pertanyaan teknis yang paling sering diajukan calon pelanggan adalah: <em>"Di depan rumah saya ada tiang kabel, apakah itu tiang XL Home? Berapa jarak maksimalnya kalau rumah saya masuk gang?"</em></p>
+
+    <p>Mengetahui posisi tiang fiber optik sangat penting agar proses pendaftaran berjalan cepat dan Anda tidak terkena biaya tambahan penarikan kabel. Berikut panduan lengkapnya.</p>
+
+    <h2>Tabel Ciri-Ciri Warna Tiang Provider Internet di Solo Raya</h2>
+    <p>Setiap operator telekomunikasi dan penyedia jaringan kabel optik memiliki kode warna sabuk tiang (marking band) yang khas. Berikut perbandingannya di lapangan:</p>
+
+    <div style="overflow-x: auto;">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>Provider / Jaringan</th>
+            <th>Ciri Warna Tiang / Sabuk</th>
+            <th>Bentuk Kotak Terminal (ODP / FAT)</th>
+            <th>Karakteristik Kabel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>XL Home (FiberStar / iForte)</strong></td>
+            <td style="color: #0284c7; font-weight: 700;">Sabuk Biru Muda / Tosca / Silver Metalik</td>
+            <td>Kotak persegi panjang putih atau hitam berlabel FAT-FST / iForte</td>
+            <td>Kabel serat optik hitam dengan kawat penguat (messenger wire)</td>
+          </tr>
+          <tr>
+            <td><strong>IndiHome (Telkom)</strong></td>
+            <td style="color: #dc2626; font-weight: 700;">Sabuk Cat Merah / Putih Telkom</td>
+            <td>Kotak ODP putih bertuliskan Telkom / logo IndiHome</td>
+            <td>Kabel multi-core dengan banyak sambungan closure bulat</td>
+          </tr>
+          <tr>
+            <td><strong>Biznet Home</strong></td>
+            <td style="color: #d97706; font-weight: 700;">Sabuk Kuning / Oranye Cerah</td>
+            <td>Kotak ODP abu-abu / hitam berlabel Biznet</td>
+            <td>Jalur kabel tebal, kebanyakan di pinggir jalan raya protokol</td>
+          </tr>
+          <tr>
+            <td><strong>MyRepublic</strong></td>
+            <td style="color: #e11d48; font-weight: 700;">Ujung Tiang Cat Merah Terang</td>
+            <td>Kotak ODP hitam berstiker ungu/merah MyRepublic</td>
+            <td>Tersebar di perumahan klaster baru dan area ring 1 kota</td>
+          </tr>
+          <tr>
+            <td><strong>Tiang Listrik PLN</strong></td>
+            <td style="color: #4b5563; font-weight: 700;">Tiang Beton Silinder Tebal / Besi Raksasa</td>
+            <td>Tidak ada kotak ODP WiFi (hanya trafo dan isolator keramik)</td>
+            <td>Kabel telanjang tegangan menengah/rendah (bukan kabel internet)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Perbedaan Tiang Listrik PLN vs Tiang WiFi Fiber Optik</h2>
+    <p>Banyak warga mengira tiang beton di depan rumah bisa langsung ditarik kabel internet. Padahal keduanya sangat berbeda:</p>
+    <ul>
+      <li><strong>Tiang Listrik PLN:</strong> Terbuat dari beton cor abu-abu atau tiang besi besar berdiameter 8–12 inci. Mengalirkan arus listrik tegangan tinggi. Provider internet biasa tidak diizinkan menempelkan kabel sembarangan kecuali program khusus (seperti Iconnet).</li>
+      <li><strong>Tiang Fiber Optik WiFi:</strong> Berupa tiang pipa besi langsing hitam atau galvanis dengan diameter 3–4 inci dan tinggi 7 meter. Tiang ini ditancapkan khusus di bahu jalan atau saluran drainase dan memuat kotak distribusi optik (ODP/FAT).</li>
+    </ul>
+
+    <h2>Batas Jarak Maksimal Tarikan Kabel dari Tiang ke Rumah</h2>
+    <p>Kabel yang menghubungkan tiang ODP ke router WiFi di dalam rumah disebut <strong>Kabel Drop Core (Drop Wire)</strong>. Mengapa jaraknya dibatasi?</p>
+    <p>Kabel fiber optik mentransmisikan data menggunakan cahaya. Semakin panjang kabel dan semakin banyak lekukan tajam, redaman sinyal (loss dalam satuan dBm) akan meningkat. Untuk memastikan koneksi tetap kencang dan stabil, berikut zona jarak yang berlaku:</p>
+
+    <div class="step-box">
+      <div class="step-num">1</div>
+      <div>
+        <h4>Zona Ideal: Jarak 0 – 100 Meter (Sangat Direkomendasikan)</h4>
+        <p>Jarak tiang berada tepat di depan rumah atau seberang jalan. Redaman optik sangat rendah (di bawah -18 dBm), ping game super rendah, dan instalasi teknisi bisa selesai dalam waktu 1 jam saja.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">2</div>
+      <div>
+        <h4>Zona Standar Promo: Jarak 100 – 150 Meter (100% Gratis)</h4>
+        <p>Rumah berada beberapa nomor dari tiang atau masuk sedikit ke dalam gang. Seluruh jatah penarikan kabel ini <strong>GRATIS tanpa dipungut biaya per meter</strong> oleh teknisi resmi XL Home Solo Raya.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">3</div>
+      <div>
+        <h4>Zona Toleransi: Jarak 150 – 200 Meter</h4>
+        <p>Rumah berada di ujung gang perkampungan. Pemasangan tetap bisa dilakukan dan koneksi tetap stabil selama jalur kabel aman dari gesekan dahan pohon besar atau lalu lintas truk tinggi.</p>
+      </div>
+    </div>
+
+    <h2>Solusi Jika Rumah Masuk Gang Jauh dari Tiang (>200 Meter)</h2>
+    <p>Bagaimana jika rumah Anda terletak di dalam perkampungan atau perumahan baru yang jaraknya lebih dari 200 meter dari tiang terdekat? Jangan langsung putus asa:</p>
+    <ol>
+      <li><strong>Cek Titik Tiang Alternatif:</strong> Sering kali di gang belakang atau jalur samping rumah terdapat tiang FAT lain yang lebih dekat namun belum Anda sadari.</li>
+      <li><strong>Pengajuan Tiang Sisipan:</strong> Jika ada 3–5 tetangga yang berminat pasang bersama, tim sales kami dapat mengajukan penambahan tiang baru (tiang sisipan) ke pihak pengembang jaringan FiberStar/iForte.</li>
+      <li><strong>Solusi WiFi Nirkabel (Wireless FWA):</strong> Jika tarikan kabel fiber optik benar-benar terhalang izin perlintasan atau terlalu jauh, XL Home memiliki opsi <strong>WiFi Wireless Rumah (Home Wireless)</strong> yang langsung menyala tanpa perlu tarik kabel dari tiang!</li>
+    </ol>
+
+    <h2>Langkah Mudah Cek Ketersediaan Tiang Depan Rumah</h2>
+    <p>Ingin tahu apakah tiang di depan rumah Anda sudah siap dipasang XL Home hari ini?</p>
+    <ol>
+      <li>Buka Google Maps di HP Anda dan kunci titik lokasi akurat di rumah.</li>
+      <li>Ambil foto tiang kabel yang berada di radius 50–100 meter dari gerbang rumah Anda.</li>
+      <li>Kirimkan foto dan tautan Google Maps ke sales resmi kami via WhatsApp.</li>
+      <li>Tim kami langsung mencocokkan koordinat dengan peta jaringan ODP GIS internal secara akurat.</li>
+    </ol>
+
+    <div class="cta-box">
+      <h3>Bantu Saya Cek Tiang WiFi di Alamat Rumah!</h3>
+      <p>Tidak perlu repot mencari kode tiang. Cukup kirim share location WhatsApp, tim sales lokal XL Home Solo Raya siap melayani Anda dalam hitungan menit.</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20kak,%20tolong%20bantu%20cek%20apakah%20tiang%20di%20dekat%20rumah%20saya%20sudah%20tercover%20XL%20Home" target="_blank" rel="noopener noreferrer" class="btn-cta">
+        <i class="fab fa-whatsapp"></i> Cek Tiang via WhatsApp Sales Resmi
+      </a>
+    </div>
+
+    <h2>Baca Juga Panduan Terkait Lainnya</h2>
+    <p>Simak artikel bermanfaat lainnya seputar pemasangan internet rumah di Solo Raya:</p>
+    <ul>
+      <li><a href="/cara-cek-jaringan-xl-home-di-depan-rumah/">Cara Cek Jaringan XL Home di Depan Rumah Secara Mandiri</a></li>
+      <li><a href="/biaya-pasang-wifi-solo-raya/">Rincian Biaya Pasang WiFi Solo Raya 2026</a></li>
+      <li><a href="/xl-home-vs-indihome-myrepublic-solo/">Komparasi XL Home vs IndiHome vs Biznet vs MyRepublic</a></li>
+      <li><a href="/solusi-internet-daerah-belum-ada-fiber-optik/">Solusi Internet untuk Area yang Belum Ada Tiang Fiber Optik</a></li>
+    </ul>
   `
 };
