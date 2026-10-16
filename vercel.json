@@ -302,6 +302,56 @@
       "source": "/pasang-wifi-xl-satu-prambanan/",
       "destination": "/pasang-wifi-xl-home-prambanan/",
       "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-solo-baru",
+      "destination": "/pasang-wifi-xl-home-solo-baru/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-solo-baru/",
+      "destination": "/pasang-wifi-xl-home-solo-baru/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-kartasura",
+      "destination": "/pasang-wifi-xl-home-kartasura/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-kartasura/",
+      "destination": "/pasang-wifi-xl-home-kartasura/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-jaten",
+      "destination": "/pasang-wifi-xl-home-jaten/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-jaten/",
+      "destination": "/pasang-wifi-xl-home-jaten/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-laweyan",
+      "destination": "/pasang-wifi-xl-home-laweyan/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-laweyan/",
+      "destination": "/pasang-wifi-xl-home-laweyan/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-jebres",
+      "destination": "/pasang-wifi-xl-home-jebres/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-jebres/",
+      "destination": "/pasang-wifi-xl-home-jebres/",
+      "permanent": true
     }
   ]
 }

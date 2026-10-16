@@ -187,6 +187,38 @@ export function KotaArea({
   );
 }
 
+const KEC_SLUG_MAP: Record<string, string> = {
+  "solo baru": "solo-baru",
+  "kartasura": "kartasura",
+  "grogol": "grogol",
+  "baki": "baki",
+  "mojolaban": "mojolaban",
+  "sukoharjo": "sukoharjo-kota",
+  "sukoharjo kota": "sukoharjo-kota",
+  "colomadu": "colomadu",
+  "jaten": "jaten",
+  "gondangrejo": "gondangrejo",
+  "palur": "palur",
+  "karanganyar": "karanganyar-kota",
+  "karanganyar kota": "karanganyar-kota",
+  "banjarsari": "banjarsari",
+  "jebres": "jebres",
+  "laweyan": "laweyan",
+  "pasar kliwon": "pasar-kliwon",
+  "serengan": "serengan",
+  "boyolali": "boyolali-kota",
+  "boyolali kota": "boyolali-kota",
+  "ngemplak": "ngemplak",
+  "banyudono": "banyudono",
+  "delanggu": "delanggu",
+  "prambanan": "prambanan",
+  "klaten": "klaten-kota",
+  "klaten kota": "klaten-kota",
+  "klaten tengah": "klaten-kota",
+  "klaten selatan": "klaten-kota",
+  "klaten utara": "klaten-kota",
+};
+
 /** Blok kecamatan per kota. */
 export function KecamatanBlock({ city }: { city: City }) {
   const cekUrl = `https://wa.me/6287778999141?text=${waEncode(
@@ -215,8 +247,7 @@ export function KecamatanBlock({ city }: { city: City }) {
           >
             <MapPin size={18} />
             Kami melayani pemasangan XL Home di {city.h1_kota as string},
-            termasuk kecamatan{" "}
-            {kecamatanText(city.kecamatan_list as string[])}. Belum yakin area
+            termasuk seluruh kecamatan di bawah ini. Belum yakin area
             kamu sudah terjangkau?{" "}
             <a
               href={cekUrl}
@@ -230,6 +261,56 @@ export function KecamatanBlock({ city }: { city: City }) {
             </a>{" "}
             untuk kepastian jaringan di alamat spesifik Anda.
           </p>
+
+          <div style={{ marginTop: 18 }}>
+            <h4 style={{ margin: "0 0 10px 0", fontSize: 15, color: "var(--text, #1e293b)", fontWeight: 700 }}>
+              Cakupan Kecamatan &amp; Area di {city.h1_kota as string}:
+            </h4>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+              {(city.kecamatan_list as string[]).map((kec, i) => {
+                const lower = kec.toLowerCase().trim();
+                const slug = KEC_SLUG_MAP[lower];
+                if (slug) {
+                  return (
+                    <a
+                      key={i}
+                      href={`/pasang-wifi-xl-home-${slug}/`}
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "4px",
+                        background: "#e6f7f3",
+                        color: "var(--green-dark, #037e64)",
+                        border: "1px solid #c0e8de",
+                        padding: "6px 12px",
+                        borderRadius: "8px",
+                        fontSize: "13px",
+                        fontWeight: 600,
+                        textDecoration: "none",
+                      }}
+                    >
+                      <MapPin size={12} />
+                      Pasang WiFi {kec}
+                    </a>
+                  );
+                }
+                return (
+                  <span
+                    key={i}
+                    style={{
+                      background: "#f0f4f3",
+                      color: "#556b64",
+                      padding: "6px 12px",
+                      borderRadius: "8px",
+                      fontSize: "13px",
+                    }}
+                  >
+                    {kec}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
         </div>
 
         <div
