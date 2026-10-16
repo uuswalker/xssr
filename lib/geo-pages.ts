@@ -707,6 +707,15 @@ export function getGeoArticle(slug: string) {
       </a>
     </div>
 
+    <h2>Panduan & Rekomendasi Solusi Khusus</h2>
+    <p>Temukan solusi internet terbaik sesuai kebutuhan Anda di ${areaName}:</p>
+    <ul>
+      <li><a href="/wifi-untuk-live-streaming-jualan-solo/">WiFi untuk Live Streaming Jualan Solo (TikTok & Shopee Live Simetris 1:1)</a></li>
+      <li><a href="/panduan-wifi-kos-solo/">Panduan WiFi Kos Mahasiswa & Kontrakan (UNS, UMS & Sekitarnya)</a></li>
+      <li><a href="/paket-wifi-tahunan-bayar-10-dapat-12/">Paket Tahunan Bayar 10 Dapat 12 Bulan (Hemat Biaya 2 Bulan Penuh)</a></li>
+      <li><a href="/cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo/">Cara Pindah Provider ke XL Home Tanpa Putus Koneksi</a></li>
+    </ul>
+
     <h2>Cek Area Layanan Lain di Solo Raya</h2>
     <p>Selain ${areaName}, kami juga melayani pemasangan internet fiber optik di seluruh wilayah sekitar:</p>
     <div class="related-cities">

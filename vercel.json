@@ -352,6 +352,26 @@
       "source": "/pasang-wifi-jebres/",
       "destination": "/pasang-wifi-xl-home-jebres/",
       "permanent": true
+    },
+    {
+      "source": "/wifi-live-streaming-solo",
+      "destination": "/wifi-untuk-live-streaming-jualan-solo/",
+      "permanent": true
+    },
+    {
+      "source": "/wifi-live-streaming-solo/",
+      "destination": "/wifi-untuk-live-streaming-jualan-solo/",
+      "permanent": true
+    },
+    {
+      "source": "/wifi-live-streaming-jualan-solo",
+      "destination": "/wifi-untuk-live-streaming-jualan-solo/",
+      "permanent": true
+    },
+    {
+      "source": "/wifi-live-streaming-jualan-solo/",
+      "destination": "/wifi-untuk-live-streaming-jualan-solo/",
+      "permanent": true
     }
   ]
 }
