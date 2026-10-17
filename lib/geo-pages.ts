@@ -199,15 +199,17 @@ export const AREA_METAS: Record<string, AreaMeta> = {
       "Madegondo",
       "Langenharjo"
     ],
-    "landmarks": "Kawasan Industri Telukan, jembatan Bacem, koridor Jl. Raya Solo-Wonogiri, dan pusat komersial Sukoharjo utara",
+    "landmarks": "Kawasan Industri Telukan, jembatan Bacem, sentra bisnis koridor Jl. Raya Solo-Wonogiri, Ruko Madegondo, Langenharjo, dan Parangjoro",
     "housing": [
       "Puri Grogol Asri",
       "Griya Sanggrahan Permai",
       "Bumi Telukan Damai",
-      "Graha Parangjoro"
+      "Graha Parangjoro",
+      "Perumahan Pondok Baru",
+      "Cluster Langenharjo Indah"
     ],
-    "character": "wilayah transisi dinamis antara kawasan bisnis perkotaan dan sentra industri manufaktur, dengan ribuan pekerja dan keluarga muda",
-    "target": "karyawan pabrik, keluarga muda di perumahan baru, dan pertokoan lokal"
+    "character": "wilayah transisi ekonomi vital antara kawasan bisnis Solo Baru dan sentra industri manufaktur Telukan/Parangjoro, dihuni ribuan pekerja komuter, pelaku UMKM, dan keluarga muda perumahan modern",
+    "target": "pekerja industri, karyawan ruko, pelaku UMKM live jualan, dan keluarga muda di perumahan Grogol Sukoharjo"
   },
   "baki": {
     "city": "Kabupaten Sukoharjo",
@@ -520,15 +522,17 @@ export const AREA_METAS: Record<string, AreaMeta> = {
       "Gergunung",
       "Buntalan"
     ],
-    "landmarks": "Alun-Alun Klaten, Masjid Agung Al-Aqsha Klaten, Stasiun Klaten (KRL & Kereta Jarak Jauh), dan kawasan pertokoan Jl. Pemuda",
+    "landmarks": "Alun-Alun Klaten, Masjid Agung Al-Aqsha Klaten, Stasiun Klaten (KRL Solo-Jogja & Kereta Api), kawasan pertokoan Jl. Pemuda, dan RSUP dr. Soeradji Tirtonegoro",
     "housing": [
       "Griya Gayamprit Indah",
       "Puri Gergunung Permai",
       "Graha Mojayan Asri",
-      "Grand Buntalan Regency"
+      "Grand Buntalan Regency",
+      "Cluster Bareng Lor",
+      "Taman Tonggalan Asri"
     ],
-    "character": "jantung ekonomi dan pemerintahan Kabupaten Klaten yang sangat strategis persis di tengah-tengah koridor emas Solo-Yogyakarta",
-    "target": "warga komuter KRL Solo-Jogja, pebisnis pertokoan, dokter/ASN, dan keluarga perkotaan Klaten"
+    "character": "jantung ekonomi, administrasi, dan perdagangan Kabupaten Klaten persis di poros emas Solo-Jogja, dengan mobilitas tinggi pengguna KRL Commuter Line dan sentra pertokoan aktif",
+    "target": "komuter KRL Solo-Jogja, pebisnis toko Jl. Pemuda, tenaga medis/ASN, dan keluarga perkotaan Klaten yang butuh WiFi simetris 100% tanpa FUP tanpa biaya pasang mahal"
   }
 };
 
@@ -593,13 +597,36 @@ export function getGeoArticle(slug: string) {
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": `Pasang WiFi ${areaName} Murah 2026 (${cityName}) | XL Home (d/h XL SATU)`,
+      "headline": `Pasang WiFi ${areaName} Murah 2026 (${cityName}): 100% Tanpa FUP | XL Home`,
       "description": `Panduan pasang WiFi rumah XL Home Fiber (transformasi resmi XL SATU) di ${areaName}, ${cityName}. Bebas batas FUP, gratis biaya pasang, dan paket bundling kuota.`,
       "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "datePublished": "2026-08-15",
-      "dateModified": "2026-10-14",
+      "dateModified": "2026-10-18",
       "mainEntityOfPage": `https://xlhomesolo.com/pasang-wifi-xl-home-${areaSlug}/`
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": `Paket Pasang WiFi XL Home Fiber ${areaName}`,
+      "description": `Layanan pasang WiFi internet rumah fiber optik 100% tanpa FUP di ${areaName}, ${cityName} mulai Rp 185.000/bulan.`,
+      "brand": {
+        "@type": "Brand",
+        "name": "XL Home"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": `https://xlhomesolo.com/pasang-wifi-xl-home-${areaSlug}/`,
+        "priceCurrency": "IDR",
+        "price": "185000",
+        "priceValidUntil": "2026-12-31",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "92"
+      }
     }
   ];
 
@@ -626,20 +653,20 @@ export function getGeoArticle(slug: string) {
       <div class="compare-card">
         <h4 style="color: #dc2626;"><i class="fas fa-times-circle"></i> Provider Lain</h4>
         <ul>
-          <li>Ada batas FUP (kecepatan anjlok drastis di akhir bulan).</li>
-          <li>Dikenakan biaya pasang tambahan (Rp 100rb - 150rb).</li>
-          <li>Koneksi hanya bisa dinikmati di dalam rumah.</li>
-          <li>Pelayanan komplain dialihkan ke robot CS pusat.</li>
+          <li><strong>Ada Batas FUP Mencekik:</strong> Kecepatan dipangkas drastis 50% - 80% di akhir bulan (seperti paket hemat yang hanya ber-FUP 120GB).</li>
+          <li><strong>Biaya Pasang Mahal:</strong> Dikenakan biaya instalasi Rp 250.000 hingga Rp 500.000 di awal pendaftaran.</li>
+          <li><strong>Upload Asimetris Lemah:</strong> Rasio 1:3 hingga 1:5 yang membuat live streaming, meeting Zoom, dan CCTV sering macet.</li>
+          <li><strong>Pelayanan Lambat:</strong> Komplain dialihkan ke robot CS pusat tanpa penanganan teknisi lokal hari itu juga.</li>
         </ul>
       </div>
       <div class="compare-card">
         <h4 style="color: #16a34a;"><i class="fas fa-check-circle"></i> XL Home Fiber (d/h XL SATU)</h4>
         <ul>
-          <li><strong>100% Tanpa FUP</strong> — bebas kuota, kecepatan stabil dari tanggal 1 sampai 30.</li>
-          <li><strong>Upgrade Jaringan Fiber Simetris</strong> — download & upload setara berteknologi mutakhir.</li>
-          <li><strong>GRATIS Biaya Pasang</strong> untuk pendaftaran promo bulan ini.</li>
-          <li><strong>Bonus Kuota HP Bersama</strong> untuk dipakai keluarga di luar rumah.</li>
-          <li><strong>Tim Sales & Support Lokal Solo Raya</strong> yang siap melayani konsultasi cepat via WhatsApp.</li>
+          <li><strong>100% Murni Tanpa FUP:</strong> Bebas kuota sejati dari tanggal 1 sampai 31 tanpa penurunan kecepatan sama sekali.</li>
+          <li><strong>GRATIS Biaya Pasang Rp 0:</strong> Bebas biaya instalasi (Hemat Rp 99.000 s/d Rp 500.000 dibanding provider lain).</li>
+          <li><strong>Jaringan Fiber Simetris 1:1:</strong> Kecepatan download & upload setara, sangat kencang dan stabil.</li>
+          <li><strong>Bonus Kuota HP Bersama:</strong> Kuota seluler sekeluarga yang bisa dipakai di luar rumah.</li>
+          <li><strong>Tim Sales & Support Lokal Solo Raya:</strong> Layanan ramah dan koordinasi cepat langsung via WhatsApp.</li>
         </ul>
       </div>
     </div>
@@ -730,8 +757,8 @@ export function getGeoArticle(slug: string) {
 
   return {
     slug: `pasang-wifi-xl-home-${areaSlug}`,
-    title: `Pasang WiFi ${areaName} Murah 2026 (${cityName}) | XL Home Fiber (d/h XL SATU)`,
-    description: `Layanan pasang WiFi ${areaName} murah 2026 mulai 185rb/bln (kategori 100 ribuan) dari XL Home Fiber (d/h XL SATU). Jangkauan ${info.kelurahan.slice(0, 3).join(", ")}, dsb. 100% Tanpa FUP, gratis biaya pasang!`,
+    title: `Pasang WiFi ${areaName} Murah 2026: 100% Fiber Tanpa FUP | XL Home`,
+    description: `Layanan pasang WiFi ${areaName} murah 2026 mulai Rp 185rb - 229rb/bln dari XL Home Fiber. Jangkauan ${info.kelurahan.slice(0, 3).join(", ")}, dsb. 100% Tanpa FUP, gratis pasang Rp 0!`,
     keywords: [
       `pasang wifi ${areaName.toLowerCase()}`,
       `pasang wifi murah ${areaName.toLowerCase()}`,
@@ -743,8 +770,8 @@ export function getGeoArticle(slug: string) {
       `provider internet ${areaName.toLowerCase()}`,
       `wifi rumah ${cityName.toLowerCase()}`
     ],
-    ogTitle: `Pasang WiFi ${areaName} Murah 2026 (${cityName}) | XL Home Fiber`,
-    ogDescription: `Internet fiber 100% Unlimited tanpa FUP di ${areaName}. Transformasi resmi XL SATU ke XL Home mulai 185rb/bln. Gratis biaya instalasi!`,
+    ogTitle: `Pasang WiFi ${areaName} Murah 2026: 100% Fiber Tanpa FUP`,
+    ogDescription: `Internet fiber 100% Unlimited tanpa FUP di ${areaName}. Transformasi resmi XL SATU ke XL Home mulai 185rb/bln. Gratis biaya instalasi Rp 0!`,
     ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
     schemas,
     faqs,

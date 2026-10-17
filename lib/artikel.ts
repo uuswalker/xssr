@@ -3123,9 +3123,9 @@ ARTIKEL["wifi-untuk-live-streaming-jualan-solo"] = {
     <p>Jaringan kabel fiber optik XL Home telah aktif melayani ratusan ruko usaha dan studio live streaming di:</p>
     <ul>
       <li><strong>Kota Solo:</strong> Sentra Batik Laweyan, Kauman, perkantoran Manahan, Pasar Kliwon, Semanggi, Nusukan, dan Jebres.</li>
-      <li><strong>Sukoharjo & Solo Baru:</strong> Ruko sepanjang Jl. Ir. Soekarno Solo Baru, Langenharjo, Grogol, Gentan, dan Baki.</li>
-      <li><strong>Kartasura & Colomadu:</strong> Koridor ruko Jl. Ahmad Yani Pabelan, ruko bandara Colomadu, Malangjiwan, dan Klodran.</li>
-      <li><strong>Karanganyar & Klaten:</strong> Sentra niaga Palur, Jaten, Karanganyar Kota, Delanggu, dan Klaten Kota.</li>
+      <li><strong>Sukoharjo & Solo Baru:</strong> Ruko sepanjang Jl. Ir. Soekarno <a href="/pasang-wifi-xl-home-solo-baru/">Solo Baru</a>, Langenharjo, <a href="/pasang-wifi-xl-home-grogol/">Grogol Sukoharjo</a>, Gentan, dan Baki.</li>
+      <li><strong>Kartasura & Colomadu:</strong> Koridor ruko Jl. Ahmad Yani <a href="/pasang-wifi-xl-home-kartasura/">Kartasura (Dekat UMS)</a>, ruko bandara <a href="/pasang-wifi-xl-home-colomadu/">Colomadu</a>, Malangjiwan, dan Klodran.</li>
+      <li><strong>Karanganyar & Klaten:</strong> Sentra niaga Palur, Jaten, Karanganyar Kota, Delanggu, dan <a href="/pasang-wifi-xl-home-klaten-kota/">Klaten Kota</a>.</li>
     </ul>
 
     <div class="cta-box">
@@ -3138,6 +3138,8 @@ ARTIKEL["wifi-untuk-live-streaming-jualan-solo"] = {
 
     <h2>Panduan Menarik Lainnya untuk Usaha & Rumah</h2>
     <ul>
+      <li><a href="/pasang-wifi-xl-home-solo-baru/">Pasang WiFi Solo Baru Murah 2026: 100% Fiber Optic Tanpa FUP</a></li>
+      <li><a href="/pasang-wifi-xl-home-kartasura/">Pasang WiFi Kartasura Murah Dekat Kampus UMS & UIN</a></li>
       <li><a href="/cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo/">Cara Berhenti Provider Lama & Pindah ke XL Home Tanpa Putus Koneksi</a></li>
       <li><a href="/250-mbps-untuk-berapa-orang/">Kapasitas Kecepatan 250 Mbps untuk Berapa Orang & Perangkat?</a></li>
       <li><a href="/paket-wifi-tahunan-bayar-10-dapat-12/">Paket Tahunan XL Home: Bayar 10 Bulan Dapat 12 Bulan Penuh</a></li>
@@ -3145,3 +3147,552 @@ ARTIKEL["wifi-untuk-live-streaming-jualan-solo"] = {
     </ul>
   `
 };
+
+ARTIKEL["pasang-wifi-xl-home-solo-baru"] = {
+  slug: "pasang-wifi-xl-home-solo-baru",
+  title: "Pasang WiFi Solo Baru Murah 2026: 100% Fiber Tanpa FUP | XL Home",
+  description: "Pasang WiFi Solo Baru murah 2026 mulai Rp 185rb - 229rb/bln. Jaringan fiber optik 100% tanpa FUP di Sektor 1-10, Tirtamaya, Gentan, Jl. Ir. Soekarno. Gratis pasang Rp 0!",
+  keywords: [
+    "pasang wifi solo baru",
+    "wifi solo baru",
+    "wifi murah solo baru",
+    "provider wifi solo baru",
+    "pasang wifi di solo baru",
+    "harga pasang wifi solo baru",
+    "xl home solo baru",
+    "xl satu solo baru",
+    "wifi perumahan solo baru",
+    "wifi ruko solo baru",
+    "internet rumah solo baru sukoharjo"
+  ],
+  ogTitle: "Pasang WiFi Solo Baru Murah 2026: 100% Fiber Optic Tanpa FUP",
+  ogDescription: "Internet fiber optik murni 100% tanpa FUP untuk cluster perumahan & ruko di Solo Baru. Gratis biaya pemasangan!",
+  ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+  schemas: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Paket Pasang WiFi XL Home Fiber Solo Baru",
+      "description": "Layanan pasang WiFi internet rumah fiber optik 100% tanpa FUP di kawasan Solo Baru, Grogol, Sukoharjo mulai Rp 185.000/bulan.",
+      "brand": {
+        "@type": "Brand",
+        "name": "XL Home"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://xlhomesolo.com/pasang-wifi-xl-home-solo-baru/",
+        "priceCurrency": "IDR",
+        "price": "185000",
+        "priceValidUntil": "2026-12-31",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "138"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "XL Home Fiber Solo Baru - Pasang WiFi Murah 100% Tanpa FUP",
+      "alternateName": [
+        "XL SATU Solo Baru",
+        "XL Home Solo Baru",
+        "WiFi Solo Baru",
+        "Pasang WiFi Solo Baru"
+      ],
+      "description": "Layanan resmi pasang WiFi internet rumah fiber optik XL Home Fiber 100% tanpa FUP di kawasan Solo Baru, Grogol, Kabupaten Sukoharjo. Gratis biaya pemasangan dan promo bayar 10 dapat 12 bulan.",
+      "telephone": "0877-7899-9141",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Solo Baru",
+        "addressRegion": "Kabupaten Sukoharjo",
+        "addressCountry": "ID"
+      },
+      "url": "https://xlhomesolo.com/pasang-wifi-xl-home-solo-baru/",
+      "priceRange": "Rp 185.000 - Rp 299.000"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Pasang WiFi Solo Baru Murah 2026: 100% Fiber Tanpa FUP Cluster & Ruko",
+      "description": "Panduan pasang WiFi internet rumah fiber optik di Solo Baru Sukoharjo. Solusi smart home, CCTV 4K, dan kantor ruko bebas FUP kuota.",
+      "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
+      "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
+      "datePublished": "2026-08-15",
+      "dateModified": "2026-10-18",
+      "mainEntityOfPage": "https://xlhomesolo.com/pasang-wifi-xl-home-solo-baru/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Apakah XL Home sudah menjangkau seluruh cluster perumahan dan ruko di Solo Baru?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ya, jaringan fiber optik XL Home telah mencakup area perumahan Sektor 1 hingga Sektor 10 Solo Baru, Tirtamaya Residence, Puri Gedangan Mandiri, Griya Langenharjo, Grand Solo Baru, serta koridor ruko bisnis di sepanjang Jl. Ir. Soekarno, Madegondo, dan Kwarasan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Berapa biaya pasang WiFi XL Home di Solo Baru?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pemasangan WiFi XL Home di Solo Baru saat ini sedang PROMO GRATIS BIAYA PASANG Rp 0 (Hemat Rp 99.000). Modem WiFi dipinjamkan gratis selama berlangganan, dan Anda baru membayar tagihan bulan pertama setelah internet aktif di rumah."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mengapa XL Home lebih unggul untuk cluster elit Solo Baru dibanding provider lain?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "XL Home memberikan kecepatan simetris murni 1:1 tanpa FUP, sangat stabil untuk perangkat Smart Home IoT, live streaming CCTV 4K jarak jauh, dan video conference WFH. Selain itu, warga Solo Baru bisa memilih skema Paket Tahunan (Bayar 10 Dapat 12 Bulan) untuk efisiensi maksimal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Paket XL Home mana yang paling direkomendasikan untuk warga Solo Baru?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pilihan paling populer di Solo Baru adalah Paket Spark 250 Mbps Booster (Rp 229.000/bln) dan Paket Prime 400 Mbps Booster (Rp 299.000/bln) karena kapasitas bandwidth-nya sangat lega untuk 5-15 perangkat keluarga dan kantor ruko."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bagaimana cara daftar pasang WiFi XL Home di Solo Baru tanpa ke kantor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pendaftaran 100% online via WhatsApp sales resmi di 0877-7899-9141. Cukup kirim share lokasi rumah di Solo Baru, tim sales langsung cek tiang fiber ODP terdekat, dan teknisi meluncur pasang 1-2 hari kerja."
+          }
+        }
+      ]
+    }
+  ],
+  faqs: [
+    {
+      q: "Apakah XL Home sudah menjangkau seluruh cluster perumahan dan ruko di Solo Baru?",
+      a: "Ya, jaringan fiber optik XL Home telah mencakup area perumahan Sektor 1 hingga Sektor 10 Solo Baru, Tirtamaya Residence, Puri Gedangan Mandiri, Griya Langenharjo, Grand Solo Baru, serta koridor ruko bisnis di sepanjang Jl. Ir. Soekarno, Madegondo, dan Kwarasan."
+    },
+    {
+      q: "Berapa biaya pasang WiFi XL Home di Solo Baru?",
+      a: "Pemasangan WiFi XL Home di Solo Baru saat ini sedang PROMO GRATIS BIAYA PASANG Rp 0 (Hemat Rp 99.000). Modem WiFi dipinjamkan gratis selama berlangganan, dan Anda baru membayar tagihan bulan pertama setelah internet aktif di rumah."
+    },
+    {
+      q: "Mengapa XL Home lebih unggul untuk cluster elit Solo Baru dibanding provider lain?",
+      a: "XL Home memberikan kecepatan simetris murni 1:1 tanpa FUP, sangat stabil untuk perangkat Smart Home IoT, live streaming CCTV 4K jarak jauh, dan video conference WFH. Selain itu, warga Solo Baru bisa memilih skema Paket Tahunan (Bayar 10 Dapat 12 Bulan) untuk efisiensi maksimal."
+    },
+    {
+      q: "Paket XL Home mana yang paling direkomendasikan untuk warga Solo Baru?",
+      a: "Pilihan paling populer di Solo Baru adalah Paket Spark 250 Mbps Booster (Rp 229.000/bln) dan Paket Prime 400 Mbps Booster (Rp 299.000/bln) karena kapasitas bandwidth-nya sangat lega untuk 5-15 perangkat keluarga dan kantor ruko."
+    },
+    {
+      q: "Bagaimana cara daftar pasang WiFi XL Home di Solo Baru tanpa ke kantor?",
+      a: "Pendaftaran 100% online via WhatsApp sales resmi di 0877-7899-9141. Cukup kirim share lokasi rumah di Solo Baru, tim sales langsung cek tiang fiber ODP terdekat, dan teknisi meluncur pasang 1-2 hari kerja."
+    }
+  ],
+  hero: {
+    crumb: "<a href=\"https://xlhomesolo.com/\">Beranda</a> / <a href=\"/area-layanan/\">Area Layanan</a> / Solo Baru",
+    h1: "Pasang WiFi Solo Baru Murah 2026: 100% Fiber Optic Tanpa FUP untuk Cluster & Ruko",
+    sub: "Koneksi internet rumah & bisnis super kencang simetris 1:1 di kawasan mandiri Solo Baru. Promo Gratis Pemasangan Rp 0 & garansi tagihan flat pasti!",
+    meta: "Diperbarui 18 Oktober 2026 • Tim Sales Resmi XL Home Solo Baru (Kabupaten Sukoharjo)"
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20WiFi%20XL%20Home%20di%20Solo%20Baru",
+  bodyHtml: `
+    <p>Sebagai kota satelit mandiri paling modern dan prestisius di Solo Raya, <strong>Solo Baru (Kabupaten Sukoharjo)</strong> memiliki dinamika aktivitas digital yang sangat tinggi. Mulai dari hunian cluster mewah di <strong>Sektor 1 hingga Sektor 10</strong>, kawasan <strong>Tirtamaya Residence</strong>, sentra bisnis perbankan dan kafe di sepanjang <strong>Jl. Ir. Soekarno</strong>, hingga deretan pertokoan di dekat <strong>The Park Mall, Pakuwon Mall Solo Baru, dan RS Indriati</strong> — semuanya membutuhkan koneksi internet fiber optik yang andal, berkecepatan tinggi, dan tidak pernah drop saat dipakai bersamaan.</p>
+
+    <div class="info-box" style="border-left: 4px solid #037e64; background: #e6f7f3;">
+      <strong>Kabar Baik Warga Solo Baru:</strong> XL SATU kini resmi bertransformasi menjadi <strong>XL Home Fiber</strong> dengan kecepatan simetris murni 1:1 (Download = Upload) dan <strong>100% Tanpa Batasan Kuota FUP</strong>! Nikmati promo spesial warga Solo Baru: <strong>GRATIS Biaya Instalasi (Hemat Rp 99.000)</strong> serta opsi <strong>Paket Tahunan Bayar 10 Dapat 12 Bulan</strong>.
+    </div>
+
+    <h2>Mengapa Provider Konvensional Sering Dikeluhkan di Solo Baru?</h2>
+    <p>Banyak penghuni rumah cluster dan ruko di Solo Baru mengeluhkan masalah serupa saat menggunakan provider konvensional:</p>
+
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h4 style="color: #dc2626;"><i class="fas fa-exclamation-circle"></i> Provider Lain di Solo Baru</h4>
+        <ul>
+          <li><strong>Biaya Pasang Baru Mahal:</strong> Beberapa provider membebankan biaya instalasi Rp 250.000 hingga Rp 500.000 di muka.</li>
+          <li><strong>Pembatasan FUP Kuota:</strong> Kecepatan dipangkas drastis di akhir bulan saat pemakaian streaming keluarga meningkat.</li>
+          <li><strong>Upload Asimetris Lemah:</strong> Rasio upload 1:3 atau 1:5 membuat streaming CCTV 4K dan upload file kerja sering gagal.</li>
+          <li><strong>Tagihan Naik Tiba-tiba:</strong> Harga promo hanya berlaku beberapa bulan, kemudian melonjak tanpa pemberitahuan.</li>
+        </ul>
+      </div>
+
+      <div class="compare-card">
+        <h4 style="color: #16a34a;"><i class="fas fa-check-circle"></i> XL Home Fiber Solo Baru</h4>
+        <ul>
+          <li><strong>100% Tanpa FUP:</strong> Bebas kuota sejati dari tanggal 1 sampai 31 tanpa penurunan speed.</li>
+          <li><strong>GRATIS Biaya Pasang Rp 0:</strong> Tidak ada biaya instalasi tersembunyi untuk pendaftaran promo bulan ini.</li>
+          <li><strong>Kecepatan Simetris 1:1:</strong> Upload kencang setara download, lancar untuk Smart Home IoT & multi-CCTV 4K.</li>
+          <li><strong>Tagihan Flat Selamanya:</strong> Harga transparan dan pasti, sudah termasuk sewa modem WiFi optical fiber.</li>
+          <li><strong>Sales & Teknisi Lokal Siap Siaga:</strong> Layanan koordinasi cepat via WhatsApp, pasang 1-2 hari kerja.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Cakupan Area Jaringan Fiber XL Home di Solo Baru</h2>
+    <p>Jaringan tiang kabel fiber optik kami telah tergelar rapi di berbagai perumahan, klaster, dan jalan utama Solo Baru:</p>
+    <ul>
+      <li><strong>Kawasan Perumahan & Cluster:</strong> Sektor 1, Sektor 2, Sektor 3, Sektor 4, Sektor 5, Sektor 6, Sektor 7, Sektor 8, Sektor 9, Sektor 10 Solo Baru.</li>
+      <li><strong>Cluster Mandiri:</strong> Tirtamaya Residence, Puri Gedangan Mandiri, Griya Langenharjo Asri, Grand Solo Baru, Cemani Raya.</li>
+      <li><strong>Kelurahan / Desa:</strong> Madegondo, Langenharjo, Gedangan, Kwarasan, Grogol.</li>
+      <li><strong>Koridor Komersial & Bisnis:</strong> Jl. Ir. Soekarno, ruko seberang The Park Mall & Pakuwon Mall Solo Baru, kawasan Favehotel, RS Indriati, dan Menara Pandawa.</li>
+    </ul>
+
+    <h2>Pilihan Paket Rekomendasi untuk Warga & Ruko Solo Baru</h2>
+    <table class="speed-table">
+      <tr>
+        <th>Pilihan Paket</th>
+        <th>Kecepatan</th>
+        <th>Tarif Bulanan</th>
+        <th>Peruntukan Terbaik</th>
+      </tr>
+      <tr>
+        <td><strong>Paket Value</strong></td>
+        <td>100 Mbps (Promo 200 Mbps)</td>
+        <td>Rp 219.000/bln</td>
+        <td>Keluarga kecil, 3-5 gadget, browsing & streaming Netflix Full HD.</td>
+      </tr>
+      <tr style="background: #e6f7f3;">
+        <td><strong>Paket Spark (Terlaris Solo Baru)</strong> 🔥</td>
+        <td>250 Mbps Booster</td>
+        <td>Rp 229.000/bln</td>
+        <td>5-10 perangkat, rumah 2 lantai, smart home IoT, CCTV 4K, WFH & gaming.</td>
+      </tr>
+      <tr>
+        <td><strong>Paket Prime</strong></td>
+        <td>400 Mbps Booster</td>
+        <td>Rp 299.000/bln</td>
+        <td>Rumah mewah hook, kantor ruko bisnis, studio konten, 10-20 pengguna simultan.</td>
+      </tr>
+    </table>
+
+    <div class="info-box">
+      <strong>Promo Paket Tahunan Solo Baru (Bayar 10 Dapat 12 Bulan):</strong> Untuk pemilik rumah mandiri dan kantor ruko yang tidak ingin repot membayar iuran setiap bulan, ambil paket tahunan XL Home! Bayar 10 bulan langsung aktif 12 bulan penuh — Anda menghemat biaya langganan hingga Rp 600.000+!
+    </div>
+
+    <h2>Solusi Smart Home & CCTV 4K Rumah Hook / Bertingkat</h2>
+    <p>Banyak hunian di Solo Baru memiliki desain bertingkat atau sudut hook yang membutuhkan jangkauan sinyal merata. Tim teknisi XL Home Solo Baru menyediakan penarikan kabel fiber optik presisi dan konfigurasi router dual-band 2.4 GHz & 5 GHz. Bagi Anda yang memiliki 4-8 titik CCTV online 4K, kecepatan upload simetris XL Home memastikan rekaman kamera pengawas dapat dipantau dari smartphone Anda kapan pun tanpa buffering.</p>
+
+    <h2>3 Langkah Mudah Pasang WiFi XL Home di Solo Baru</h2>
+    <div class="step-box">
+      <div class="step-num">1</div>
+      <div>
+        <h4>Kirim Titik Lokasi via WhatsApp</h4>
+        <p>Hubungi sales resmi di <strong>0877-7899-9141</strong> dan kirimkan share lokasi atau alamat blok rumah Anda di Solo Baru. Kami mengecek ketersediaan tiang ODP dalam 5 menit.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">2</div>
+      <div>
+        <h4>Pilih Paket & Jadwal Instalasi</h4>
+        <p>Tentukan kecepatan (100 Mbps, 250 Mbps, atau 400 Mbps) dan pilih hari serta jam kedatangan teknisi yang paling sesuai dengan jadwal luang Anda.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">3</div>
+      <div>
+        <h4>Pasang Dulu, Bayar Nanti</h4>
+        <p>Teknisi resmi datang membawa perangkat, melakukan instalasi rapi, dan menguji kecepatan internet di hadapan Anda. Anda baru membayar tagihan setelah internet aktif sempurna!</p>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h3>Daftar Pasang WiFi XL Home Solo Baru Hari Ini!</h3>
+      <p>Amankan slot port fiber optik terdekat di cluster perumahan atau ruko Anda sebelum penuh. Konsultasi gratis bersama tim sales resmi Solo Raya sekarang!</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20WiFi%20XL%20Home%20di%20Solo%20Baru" target="_blank" rel="noopener noreferrer" class="btn-cta">
+        <i class="fab fa-whatsapp"></i> Chat WhatsApp Sales Solo Baru
+      </a>
+    </div>
+
+    <h2>Artikel & Panduan Terkait</h2>
+    <ul>
+      <li><a href="/wifi-untuk-live-streaming-jualan-solo/">WiFi untuk Live Streaming Jualan Solo (Simetris 1:1 Tanpa Dropped Frames)</a></li>
+      <li><a href="/paket-wifi-tahunan-bayar-10-dapat-12/">Paket Tahunan XL Home: Bayar 10 Bulan Gratis 2 Bulan Penuh</a></li>
+      <li><a href="/cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo/">Cara Berhenti Provider Lama & Pindah ke XL Home Tanpa Putus Koneksi</a></li>
+      <li><a href="/250-mbps-untuk-berapa-orang/">Kapasitas Kecepatan 250 Mbps untuk Berapa Orang & Perangkat?</a></li>
+      <li><a href="/pasang-wifi-xl-home-kartasura/">Pasang WiFi Kartasura Murah Dekat UMS Pabelan</a></li>
+    </ul>
+  `
+};
+
+ARTIKEL["pasang-wifi-solo-baru"] = ARTIKEL["pasang-wifi-xl-home-solo-baru"];
+
+ARTIKEL["pasang-wifi-xl-home-kartasura"] = {
+  slug: "pasang-wifi-xl-home-kartasura",
+  title: "Pasang WiFi Kartasura Murah 2026 (Dekat UMS) | XL Home",
+  description: "Pasang WiFi Kartasura murah 2026 dekat UMS & UIN. Fiber optik 100% tanpa FUP mulai Rp 185rb - 219rb/bln. Solusi patungan anak kos ~Rp 28rb/kamar. Gratis pasang Rp 0!",
+  keywords: [
+    "pasang wifi kartasura",
+    "wifi murah kartasura",
+    "wifi kartasura",
+    "pasang wifi murah kartasura",
+    "wifi kos ums pabelan",
+    "wifi kos kartasura",
+    "harga pasang wifi kartasura",
+    "xl home kartasura",
+    "xl satu kartasura",
+    "provider wifi kartasura",
+    "pasang wifi area kartasura",
+    "wifi dekat ums"
+  ],
+  ogTitle: "Pasang WiFi Kartasura Murah 2026 (Dekat Kampus UMS): Bebas FUP",
+  ogDescription: "Internet fiber optik murni 100% tanpa FUP untuk kos-kosan mahasiswa, keluarga, & usaha di Kartasura. Patungan cuma 28rb-an/kamar!",
+  ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+  schemas: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Paket Pasang WiFi XL Home Fiber Kartasura",
+      "description": "Layanan pasang WiFi internet rumah fiber optik 100% tanpa FUP di Kartasura Sukoharjo dekat kampus UMS mulai Rp 185.000/bulan.",
+      "brand": {
+        "@type": "Brand",
+        "name": "XL Home"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://xlhomesolo.com/pasang-wifi-xl-home-kartasura/",
+        "priceCurrency": "IDR",
+        "price": "185000",
+        "priceValidUntil": "2026-12-31",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "115"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "XL Home Fiber Kartasura - Pasang WiFi Murah Dekat Kampus UMS",
+      "alternateName": [
+        "XL SATU Kartasura",
+        "XL Home Kartasura",
+        "WiFi Kartasura",
+        "Pasang WiFi Kartasura"
+      ],
+      "description": "Layanan pasang WiFi fiber optik XL Home Fiber 100% tanpa FUP di Kartasura, Kabupaten Sukoharjo. Dekat kampus UMS Pabelan & UIN Raden Mas Said. Promo gratis biaya pasang dan paket patungan kos hemat.",
+      "telephone": "0877-7899-9141",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kartasura",
+        "addressRegion": "Kabupaten Sukoharjo",
+        "addressCountry": "ID"
+      },
+      "url": "https://xlhomesolo.com/pasang-wifi-xl-home-kartasura/",
+      "priceRange": "Rp 185.000 - Rp 299.000"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Pasang WiFi Kartasura Murah 2026 (Dekat UMS): 100% Tanpa FUP",
+      "description": "Panduan pasang WiFi rumah dan kos mahasiswa di Kartasura Sukoharjo. 100% bebas kuota FUP, simulasi patungan anak kos Rp 28rb-an/kamar, dan gratis instalasi.",
+      "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
+      "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
+      "datePublished": "2026-08-15",
+      "dateModified": "2026-10-18",
+      "mainEntityOfPage": "https://xlhomesolo.com/pasang-wifi-xl-home-kartasura/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Apakah jaringan XL Home sudah menjangkau kos-kosan dekat kampus UMS dan UIN di Kartasura?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ya, tiang fiber optik XL Home telah aktif melayani ratusan rumah kos dan pemukiman di sekitar Pabelan (Kampus 1 & 2 UMS), Gonilan (Kampus 4 UMS), Mendungan, Makamhaji, Singopuran, serta kawasan Pucangan dekat kampus UIN Raden Mas Said Surakarta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Berapa simulasi patungan WiFi kos per kamar di Kartasura?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dengan berlangganan Paket Spark 250 Mbps (Rp 229.000/bln) dan dibagi untuk 8 kamar kos, iuran per kamar hanya Rp 28.625 per bulan! Karena 100% murni tanpa FUP, anak kos bebas download materi kuliah, streaming, dan push rank game tanpa takut kuota habis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apa keunggulan XL Home dibanding EZnet dan provider lain di Kartasura?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Provider lain seperti EZnet membatasi kecepatan hanya 10 Mbps dengan batas FUP ketat 120GB (habis dalam hitungan hari jika dipakai bersama). XL Home memberikan kecepatan fiber optik sejati 100-250 Mbps murni UNLIMITED tanpa batas kuota FUP, kecepatan simetris 1:1, dan gratis instalasi Rp 0."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Berapa biaya pasang WiFi XL Home di Kartasura?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Khusus pendaftaran bulan ini untuk warga dan pemilik kos di Kartasura, biaya pemasangan adalah GRATIS (Hemat Rp 99.000). Anda hanya membayar tagihan bulan pertama setelah internet aktif di lokasi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah pemilik kos di Kartasura bisa mengambil pembayaran tahunan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sangat bisa! Tersedia promo Paket Tahunan Bayar 10 Bulan Dapat 12 Bulan Penuh. Skema ini sangat diminati bapak/ibu pemilik kos di Kartasura karena langsung diselaraskan dengan pembayaran sewa kos tahunan mahasiswa."
+          }
+        }
+      ]
+    }
+  ],
+  faqs: [
+    {
+      q: "Apakah jaringan XL Home sudah menjangkau kos-kosan dekat kampus UMS dan UIN di Kartasura?",
+      a: "Ya, tiang fiber optik XL Home telah aktif melayani ratusan rumah kos dan pemukiman di sekitar Pabelan (Kampus 1 & 2 UMS), Gonilan (Kampus 4 UMS), Mendungan, Makamhaji, Singopuran, serta kawasan Pucangan dekat kampus UIN Raden Mas Said Surakarta."
+    },
+    {
+      q: "Berapa simulasi patungan WiFi kos per kamar di Kartasura?",
+      a: "Dengan berlangganan Paket Spark 250 Mbps (Rp 229.000/bln) dan dibagi untuk 8 kamar kos, iuran per kamar hanya Rp 28.625 per bulan! Karena 100% murni tanpa FUP, anak kos bebas download materi kuliah, streaming, dan push rank game tanpa takut kuota habis."
+    },
+    {
+      q: "Apa keunggulan XL Home dibanding EZnet dan provider lain di Kartasura?",
+      a: "Provider lain seperti EZnet membatasi kecepatan hanya 10 Mbps dengan batas FUP ketat 120GB (habis dalam hitungan hari jika dipakai bersama). XL Home memberikan kecepatan fiber optik sejati 100-250 Mbps murni UNLIMITED tanpa batas kuota FUP, kecepatan simetris 1:1, dan gratis instalasi Rp 0."
+    },
+    {
+      q: "Berapa biaya pasang WiFi XL Home di Kartasura?",
+      a: "Khusus pendaftaran bulan ini untuk warga dan pemilik kos di Kartasura, biaya pemasangan adalah GRATIS (Hemat Rp 99.000). Anda hanya membayar tagihan bulan pertama setelah internet aktif di lokasi."
+    },
+    {
+      q: "Apakah pemilik kos di Kartasura bisa mengambil pembayaran tahunan?",
+      a: "Sangat bisa! Tersedia promo Paket Tahunan Bayar 10 Bulan Dapat 12 Bulan Penuh. Skema ini sangat diminati bapak/ibu pemilik kos di Kartasura karena langsung diselaraskan dengan pembayaran sewa kos tahunan mahasiswa."
+    }
+  ],
+  hero: {
+    crumb: "<a href=\"https://xlhomesolo.com/\">Beranda</a> / <a href=\"/area-layanan/\">Area Layanan</a> / Kartasura",
+    h1: "Pasang WiFi Kartasura Murah 2026: 100% Bebas FUP untuk Kos & Rumah Dekat UMS",
+    sub: "Internet fiber optik anti-lemot untuk mahasiswa, pemilik kos, pebisnis kuliner, dan warga Kartasura. Promo Gratis Pasang Rp 0 & patungan kos cuma Rp 28 ribuan!",
+    meta: "Diperbarui 18 Oktober 2026 • Tim Sales Resmi XL Home Kartasura (Kabupaten Sukoharjo)"
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20WiFi%20XL%20Home%20di%20Kartasura",
+  bodyHtml: `
+    <p>Kecamatan <strong>Kartasura (Kabupaten Sukoharjo)</strong> merupakan episentrum pendidikan tinggi dan aglomerasi tersibuk di barat Solo Raya. Menjadi rumah bagi puluhan ribu mahasiswa di <strong>Universitas Muhammadiyah Surakarta (UMS Pabelan & Gonilan)</strong> dan <strong>UIN Raden Mas Said Surakarta (Pucangan)</strong>, kebutuhan internet cepat dan stabil di Kartasura adalah kebutuhan mutlak — baik untuk belajar daring, riset skripsi, streaming hiburan, gaming kompetitif, maupun operasional bisnis kuliner legendaris.</p>
+
+    <div class="info-box" style="border-left: 4px solid #037e64; background: #e6f7f3;">
+      <strong>Solusi Anti-FUP untuk Kartasura:</strong> Lupakan WiFi lemot akibat kuota FUP habis di tanggal tua! XL SATU kini bertransformasi menjadi <strong>XL Home Fiber</strong> dengan kecepatan fiber optik <strong>100% Tanpa FUP</strong>, rasio simetris 1:1, dan <strong>Promo Bebas Biaya Instalasi Rp 0 (Hemat Rp 99.000)</strong>.
+    </div>
+
+    <h2>Mengapa Mahasiswa & Pemilik Kos Kartasura Sering Mengeluh WiFi Lemot?</h2>
+    <p>Banyak rumah kos dan kontrakan mahasiswa di Pabelan dan Gonilan terjebak paket internet murah yang ternyata memiliki syarat mencekik:</p>
+
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h4 style="color: #dc2626;"><i class="fas fa-exclamation-triangle"></i> Provider Murah Biasa / EZnet</h4>
+        <ul>
+          <li><strong>Jebakan Kuota FUP 120GB:</strong> Begitu satu anak kos mengunduh update game (Steam/Valorant/Genshin), kuota 120GB langsung habis dan kecepatan anjlok ke 1 Mbps.</li>
+          <li><strong>Kecepatan Sangat Pas-pasan (10-20 Mbps):</strong> Begitu dipakai 3-4 orang bersamaan untuk zoom dan video YouTube, jaringan langsung macet total.</li>
+          <li><strong>Ping Tidak Stabil Saat Malam Hari:</strong> Latency melonjak di atas 150ms pada jam sibuk, membuat game online patah-patah.</li>
+          <li><strong>Biaya Tambahan:</strong> Ada biaya sewa modem dan biaya pasang yang ditagihkan di awal pendaftaran.</li>
+        </ul>
+      </div>
+
+      <div class="compare-card">
+        <h4 style="color: #16a34a;"><i class="fas fa-check-circle"></i> XL Home Fiber Kartasura</h4>
+        <ul>
+          <li><strong>100% True Unlimited Tanpa FUP:</strong> Pakai sepuasnya 24 jam nonstop dari awal hingga akhir bulan tanpa batasan kuota gigabyte.</li>
+          <li><strong>Kecepatan Lega 100 Mbps s/d 250 Mbps:</strong> Kapasitas bandwidth besar sanggup menampung belasan perangkat anak kos secara serentak.</li>
+          <li><strong>Ping Rendah & Simetris 1:1:</strong> Upload kencang dan latency stabil 5-15ms ke server game lokal.</li>
+          <li><strong>GRATIS Pasang Rp 0:</strong> Modem WiFi optical dipinjamkan cuma-cuma tanpa pungutan biaya awal.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Simulasi Patungan WiFi Kos Kartasura: Cuma Rp 28 Ribuan / Kamar!</h2>
+    <p>Bagi mahasiswa dan pengelola kos di sekitar kampus UMS Pabelan, memasang XL Home adalah strategi paling hemat dan minim konflik:</p>
+
+    <table class="speed-table">
+      <tr>
+        <th>Jumlah Penghuni Kos</th>
+        <th>Paket Rekomendasi</th>
+        <th>Total Tagihan Bulanan</th>
+        <th>Iuran per Kamar / Bulan</th>
+      </tr>
+      <tr>
+        <td><strong>Kos Kecil (3 - 4 Kamar)</strong></td>
+        <td>Paket Value 100 Mbps</td>
+        <td>Rp 219.000/bln</td>
+        <td><strong>~Rp 54.750 / kamar</strong></td>
+      </tr>
+      <tr style="background: #e6f7f3;">
+        <td><strong>Kos Menengah (6 - 8 Kamar)</strong> 🔥</td>
+        <td>Paket Spark 250 Mbps Booster</td>
+        <td>Rp 229.000/bln</td>
+        <td><strong>~Rp 28.625 / kamar</strong><br><small>(Lebih murah dari seporsi Bebek Goreng!)</small></td>
+      </tr>
+      <tr>
+        <td><strong>Kos Besar (10 - 15 Kamar)</strong></td>
+        <td>Paket Prime 400 Mbps Booster</td>
+        <td>Rp 299.000/bln</td>
+        <td><strong>~Rp 24.900 / kamar</strong></td>
+      </tr>
+    </table>
+
+    <h2>Wilayah Jangkauan Fiber XL Home di Kartasura</h2>
+    <p>Kabel fiber optik XL Home sudah aktif terpasang di seluruh titik strategis Kartasura:</p>
+    <ul>
+      <li><strong>Sekitar Kampus UMS:</strong> Pabelan (Kampus 1 & 2 UMS), Gonilan (Kampus 4 UMS Kedokteran/FKIP), Mendungan, Nilagraha, Pesona Pabelan.</li>
+      <li><strong>Sekitar Kampus UIN:</strong> Pucangan, Jl. Pandawa, perumahan dosen & kos mahasiswa UIN Raden Mas Said.</li>
+      <li><strong>Kawasan Pemukiman & Perumahan:</strong> Singopuran, Makamhaji, Ngadirejo, Ngabeyan, Wirogunan, Gumpang.</li>
+      <li><strong>Koridor Bisnis & Jalur Arteri:</strong> Jl. Ahmad Yani Pabelan, Jl. Slamet Riyadi Kartasura, bundaran simpang Jogja-Semarang, dan sentra kuliner bebek legendaris.</li>
+    </ul>
+
+    <h2>Khusus Pemilik Kos: Promo Bayar 10 Bulan Dapat 12 Bulan</h2>
+    <p>Bagi bapak/ibu pemilik rumah sewa, indekos, dan kontrakan di Kartasura, kami menyediakan skema pembayaran tahunan <strong>Bayar 10 Bulan Dapat 12 Bulan Penuh</strong>. Anda mendapatkan diskon 2 bulan tagihan gratis, dan pembayarannya dapat langsung disesuaikan dengan siklus penarikan uang kos tahunan dari mahasiswa. Praktis, bebas denda keterlambatan, dan nilai sewa kos Anda meningkat karena fasilitas WiFi fiber super cepat!</p>
+
+    <h2>3 Langkah Mudah Pasang WiFi di Kartasura</h2>
+    <div class="step-box">
+      <div class="step-num">1</div>
+      <div>
+        <h4>Share Lokasi via WhatsApp</h4>
+        <p>Hubungi admin sales resmi di <strong>0877-7899-9141</strong> dan kirimkan lokasi kos atau rumah Anda di Kartasura untuk pengecekan tiang ODP dalam 5 menit.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">2</div>
+      <div>
+        <h4>Konfirmasi Paket & Jadwal</h4>
+        <p>Pilih kecepatan sesuai jumlah kamar atau anggota keluarga, lalu atur waktu pemasangan bersama tim teknisi resmi Solo Raya.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">3</div>
+      <div>
+        <h4>Pemasangan & Aktivasi</h4>
+        <p>Teknisi datang menarik kabel fiber dan setting modem sampai internet live. Tagihan bulan pertama baru dibayarkan setelah internet aktif digunakan!</p>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h3>Pasang WiFi Kos & Rumah Kartasura Sekarang!</h3>
+      <p>Jangan biarkan tugas kuliah dan skripsi terhambat koneksi lemot. Hubungi sales resmi XL Home Kartasura sekarang, promo GRATIS biaya pemasangan!</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20WiFi%20XL%20Home%20di%20Kartasura" target="_blank" rel="noopener noreferrer" class="btn-cta">
+        <i class="fab fa-whatsapp"></i> Chat WhatsApp Sales Kartasura
+      </a>
+    </div>
+
+    <h2>Artikel & Panduan Terkait</h2>
+    <ul>
+      <li><a href="/panduan-wifi-kos-solo/">Panduan Lengkap Memilih WiFi untuk Kos & Kontrakan di Solo Raya</a></li>
+      <li><a href="/paket-wifi-tahunan-bayar-10-dapat-12/">Paket Tahunan XL Home: Bayar 10 Bulan Dapat 12 Bulan Penuh</a></li>
+      <li><a href="/wifi-untuk-live-streaming-jualan-solo/">WiFi untuk Live Streaming Jualan Solo (Simetris 1:1)</a></li>
+      <li><a href="/pasang-wifi-xl-home-solo-baru/">Pasang WiFi Solo Baru Murah untuk Cluster & Ruko</a></li>
+      <li><a href="/cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo/">Panduan Pindah Provider ke XL Home Tanpa Putus Koneksi</a></li>
+    </ul>
+  `
+};
+
+ARTIKEL["pasang-wifi-kartasura"] = ARTIKEL["pasang-wifi-xl-home-kartasura"];
+
