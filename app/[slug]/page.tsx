@@ -23,10 +23,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const a = ARTIKEL[slug] || getGeoArticle(slug);
   if (!a) return {};
 
+  const canonicalSlug = a.slug || slug;
   const base = pageMetadata({
     title: decodeEntities(a.title),
     description: decodeEntities(a.description),
-    path: `/${slug}/`,
+    path: `/${canonicalSlug}/`,
     image: a.ogImage || "/images/banner-xlsatu-jadi-xlhome.jpg",
   });
   return {

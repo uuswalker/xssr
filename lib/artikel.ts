@@ -3138,6 +3138,8 @@ ARTIKEL["wifi-untuk-live-streaming-jualan-solo"] = {
 
     <h2>Panduan Menarik Lainnya untuk Usaha & Rumah</h2>
     <ul>
+      <li><a href="/eksperimen-game-streaming-zoom-bersamaan/">Eksperimen Bandwidth Multi-Device: Main Game, Netflix 4K & Zoom Barengan</a></li>
+      <li><a href="/rahasia-fup-internet-rumah/">Bongkar Rahasia FUP Internet: Kenapa XL Home Fiber 100% Bebas FUP</a></li>
       <li><a href="/pasang-wifi-xl-home-solo-baru/">Pasang WiFi Solo Baru Murah 2026: 100% Fiber Optic Tanpa FUP</a></li>
       <li><a href="/pasang-wifi-xl-home-kartasura/">Pasang WiFi Kartasura Murah Dekat Kampus UMS & UIN</a></li>
       <li><a href="/cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo/">Cara Berhenti Provider Lama & Pindah ke XL Home Tanpa Putus Koneksi</a></li>
@@ -3412,6 +3414,8 @@ ARTIKEL["pasang-wifi-xl-home-solo-baru"] = {
 
     <h2>Artikel & Panduan Terkait</h2>
     <ul>
+      <li><a href="/rahasia-fup-internet-rumah/">Bongkar Rahasia FUP Internet Rumah: Kenapa XL Home 100% Bebas FUP</a></li>
+      <li><a href="/eksperimen-game-streaming-zoom-bersamaan/">Eksperimen Bandwidth Multi-Device: Gaming, 4K & Zoom Barengan</a></li>
       <li><a href="/wifi-untuk-live-streaming-jualan-solo/">WiFi untuk Live Streaming Jualan Solo (Simetris 1:1 Tanpa Dropped Frames)</a></li>
       <li><a href="/paket-wifi-tahunan-bayar-10-dapat-12/">Paket Tahunan XL Home: Bayar 10 Bulan Gratis 2 Bulan Penuh</a></li>
       <li><a href="/cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo/">Cara Berhenti Provider Lama & Pindah ke XL Home Tanpa Putus Koneksi</a></li>
@@ -3685,6 +3689,8 @@ ARTIKEL["pasang-wifi-xl-home-kartasura"] = {
 
     <h2>Artikel & Panduan Terkait</h2>
     <ul>
+      <li><a href="/rahasia-fup-internet-rumah/">Bongkar Rahasia FUP Internet: Kenapa WiFi Kos Sering Mendadak Lemot</a></li>
+      <li><a href="/eksperimen-game-streaming-zoom-bersamaan/">Eksperimen Bandwidth Multi-Device: Main Game & Zoom Barengan</a></li>
       <li><a href="/panduan-wifi-kos-solo/">Panduan Lengkap Memilih WiFi untuk Kos & Kontrakan di Solo Raya</a></li>
       <li><a href="/paket-wifi-tahunan-bayar-10-dapat-12/">Paket Tahunan XL Home: Bayar 10 Bulan Dapat 12 Bulan Penuh</a></li>
       <li><a href="/wifi-untuk-live-streaming-jualan-solo/">WiFi untuk Live Streaming Jualan Solo (Simetris 1:1)</a></li>

@@ -53,12 +53,14 @@ export default function Footer() {
               <li><a href="/xl-satu-dan-xl-home-apakah-sama/">XL SATU &amp; XL Home Apakah Sama?</a></li>
               <li><a href="/panduan-wifi-kos-solo/">Panduan WiFi Kos Solo &amp; Kampus</a></li>
               <li><a href="/cara-daftar-pasang-wifi-xl-home-solo/">Syarat &amp; Cara Daftar Pasang WiFi</a></li>
+              <li><a href="/proses-pendaftaran-pemasangan-xl-home-fiber/">Proses Pendaftaran &amp; Pasang Fiber</a></li>
               <li><a href="/daftar-xl-home-online-tanpa-ke-kantor/">Daftar Online Tanpa ke Kantor</a></li>
               <li><a href="/xl-center-solo-terdekat-pasang-wifi/">Lokasi XL Center Solo Terdekat</a></li>
               <li><a href="/5-hal-wajib-dicek-sebelum-pasang-wifi-rumah/">5 Hal Wajib Dicek Sebelum Pasang</a></li>
               <li><a href="/cara-cek-jaringan-xl-home-di-depan-rumah/">Cara Cek Jaringan Depan Rumah</a></li>
               <li><a href="/internet-rakyat-vs-xl-home/">Internet Rakyat vs XL Home</a></li>
               <li><a href="/cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo/">Cara Ganti Provider ke XL Home</a></li>
+              <li><a href="/wfh-angkringan-solo-xl-home/">WFH &amp; Usaha Angkringan Solo</a></li>
               <li><a href="/nomor-sales-xl-home-solo-raya/">Nomor Sales &amp; Agen Resmi</a></li>
             </ul>
           </div>
@@ -69,14 +71,17 @@ export default function Footer() {
             <ul>
               <li><a href="/tes-kecepatan/">Tes Kecepatan Internet Solo</a></li>
               <li><a href="/berapa-mbps-untuk-berapa-orang/">Kalkulator Kebutuhan Mbps</a></li>
-              <li><a href="/area-layanan/">Cek 79 Kecamatan Tercover</a></li>
               <li><a href="/wifi-tanpa-fup-unlimited/">WiFi Fiber 100% Tanpa FUP</a></li>
+              <li><a href="/rahasia-fup-internet-rumah/">Bongkar Rahasia FUP Internet Rumah</a></li>
+              <li><a href="/eksperimen-game-streaming-zoom-bersamaan/">Eksperimen Bandwidth Multi-Device</a></li>
+              <li><a href="/wifi-untuk-live-streaming-jualan-solo/">WiFi untuk Live Streaming Solo</a></li>
               <li><a href="/solusi-internet-daerah-belum-ada-fiber-optik/">Solusi Daerah Belum Ada Fiber</a></li>
               <li><a href="/promo-perumahan-solo/">Promo WiFi Perumahan Solo</a></li>
               <li><a href="/promo-wifi-pondok-permai-colomadu/">Promo Pondok Permai Colomadu</a></li>
               <li><a href="/pasang-wifi-tirtamaya-residence-solo-baru/">Tirtamaya Residence Solo Baru</a></li>
               <li><a href="/layanan-internet-permata-botanical-colomadu/">Permata Botanical Colomadu</a></li>
               <li><a href="/paket-wifi-tahunan-bayar-10-dapat-12/">Paket Tahunan Bayar 10 Dapat 12</a></li>
+              <li><a href="/area-layanan/">Cek 79 Kecamatan Tercover</a></li>
             </ul>
           </div>
         </div>
