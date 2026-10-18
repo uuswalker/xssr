@@ -152,15 +152,17 @@ export const AREA_METAS: Record<string, AreaMeta> = {
       "Gedangan",
       "Kwarasan"
     ],
-    "landmarks": "The Park Mall Solo Baru, Pakuwon Mall Solo Baru, RS Indriati, Favehotel Solo Baru, dan Menara Pandawa",
+    "landmarks": "The Park Mall Solo Baru, Pakuwon Mall Solo Baru, RS Indriati, Favehotel Solo Baru, Bundaran Patung Pandawa, dan Koridor Ruko Jl. Ir. Soekarno",
     "housing": [
       "Sektor 1 s/d Sektor 10 Solo Baru",
       "Tirtamaya Residence",
-      "Griya Langenharjo",
-      "Puri Gedangan Mandiri"
+      "Griya Langenharjo Asri",
+      "Puri Gedangan Mandiri",
+      "Grand Solo Baru",
+      "Cluster Langenharjo Indah"
     ],
-    "character": "kawasan kota satelit mandiri paling modern dan prestisius di Solo Raya dengan fasilitas pusat perbelanjaan, bisnis perbankan, dan cluster perumahan elit",
-    "target": "penghuni cluster modern, kantor perbankan, restoran, dan keluarga eksekutif"
+    "character": "kawasan kota satelit mandiri paling modern dan prestisius di Solo Raya dengan fasilitas pusat perbelanjaan, sentra perbankan, kafe kuliner, ruko bisnis, dan cluster perumahan elit",
+    "target": "keluarga eksekutif di cluster modern Sektor 1-10, pemilik ruko komersial Jl. Ir. Soekarno, dan pengguna Smart Home IoT"
   },
   "kartasura": {
     "city": "Kabupaten Sukoharjo",
@@ -176,15 +178,18 @@ export const AREA_METAS: Record<string, AreaMeta> = {
       "Wirogunan",
       "Pucangan"
     ],
-    "landmarks": "Kampus Universitas Muhammadiyah Surakarta (UMS), UIN Raden Mas Said, RS PKU Muhammadiyah Kartasura, dan simpang tiga Jogja-Semarang",
+    "landmarks": "Kampus Universitas Muhammadiyah Surakarta (UMS Kampus 1, 2 & 4 Pabelan-Gonilan), UIN Raden Mas Said Surakarta (Pucangan), RS PKU Muhammadiyah Kartasura, simpang tiga Tugu Kartasura Jogja-Semarang, Jl. Adi Sumarmo, Jl. Rajawali, dan Jl. Joko Tingkir",
     "housing": [
       "Puri Pabelan Indah",
       "Griya Gonilan Asri",
       "Pesona Singopuran",
-      "Grand Makamhaji"
+      "Grand Makamhaji",
+      "Griya Pucangan Asri",
+      "Cluster Gumpang",
+      "Perumahan Mendungan"
     ],
-    "character": "simpul aglomerasi barat yang luar biasa sibuk, menjadi titik temu jalur Solo-Jogja-Semarang dengan ribuan anak kos dan pusat kuliner bebek legendaris",
-    "target": "mahasiswa, pemilik kos/kontrakan, pebisnis kuliner, dan keluarga perumahan"
+    "character": "simpul aglomerasi barat yang luar biasa sibuk, sentra pendidikan tinggi ribuan anak kos UMS/UIN, perumahan keluarga berkembang, dan pusat kuliner bebek legendaris",
+    "target": "mahasiswa UMS/UIN, pemilik rumah kos & kontrakan, pebisnis kuliner, dan keluarga perumahan Kartasura"
   },
   "grogol": {
     "city": "Kabupaten Sukoharjo",
@@ -411,10 +416,11 @@ export const AREA_METAS: Record<string, AreaMeta> = {
       "Griya Pulisen Indah",
       "Puri Banaran Permai",
       "Perumahan Kemiri Regency",
-      "Graha Siswodipuran"
+      "Graha Siswodipuran",
+      "Cluster Mojosongo Boyolali"
     ],
     "character": "pusat administratif Kota Susu dengan konsep smart city perkantoran terpadu, udara pegunungan Merbabu yang segar, dan fasilitas infrastruktur modern",
-    "target": "pegawai instansi daerah, wirausaha peternakan/kuliner susu, dan keluarga perkotaan Boyolali"
+    "target": "keluarga di pusat kota Boyolali, pegawai instansi pemerintahan perkantoran terpadu Kemiri, wirausaha kuliner susu, dan penghuni perumahan Siswodipuran/Pulisen"
   },
   "ngemplak": {
     "city": "Kabupaten Boyolali",
@@ -522,17 +528,18 @@ export const AREA_METAS: Record<string, AreaMeta> = {
       "Gergunung",
       "Buntalan"
     ],
-    "landmarks": "Alun-Alun Klaten, Masjid Agung Al-Aqsha Klaten, Stasiun Klaten (KRL Solo-Jogja & Kereta Api), kawasan pertokoan Jl. Pemuda, dan RSUP dr. Soeradji Tirtonegoro",
+    "landmarks": "Alun-Alun Klaten, Masjid Agung Al-Aqsha Klaten, Stasiun Klaten (KRL Solo-Jogja & Kereta Api Antarkota), kawasan pertokoan Jl. Pemuda, dan RSUP dr. Soeradji Tirtonegoro",
     "housing": [
       "Griya Gayamprit Indah",
       "Puri Gergunung Permai",
       "Graha Mojayan Asri",
       "Grand Buntalan Regency",
       "Cluster Bareng Lor",
-      "Taman Tonggalan Asri"
+      "Taman Tonggalan Asri",
+      "Perumahan Klaten Baru"
     ],
     "character": "jantung ekonomi, administrasi, dan perdagangan Kabupaten Klaten persis di poros emas Solo-Jogja, dengan mobilitas tinggi pengguna KRL Commuter Line dan sentra pertokoan aktif",
-    "target": "komuter KRL Solo-Jogja, pebisnis toko Jl. Pemuda, tenaga medis/ASN, dan keluarga perkotaan Klaten yang butuh WiFi simetris 100% tanpa FUP tanpa biaya pasang mahal"
+    "target": "komuter KRL Commuter Line Solo-Jogja, pebisnis ruko pertokoan Jl. Pemuda, tenaga medis RSUP dr. Soeradji, dan keluarga perkotaan Klaten"
   }
 };
 
@@ -671,20 +678,46 @@ export function getGeoArticle(slug: string) {
       </div>
     </div>
 
-    <h2>Paket Rekomendasi untuk ${info.target}</h2>
+    <h2>Pilihan Paket WiFi Terbaik di ${areaName}</h2>
+    <p>Disesuaikan khusus untuk kebutuhan ${info.target}:</p>
     <table class="speed-table">
-      <tr><th>Pilihan Paket</th><th>Kecepatan</th><th>Biaya Bulanan</th><th>Peruntukan Terbaik</th></tr>
-      <tr><td><strong>Paket Value</strong></td><td>100 Mbps (Promo 200 Mbps)</td><td>Rp 219.000/bln</td><td>1-4 HP, browsing harian & streaming keluarga</td></tr>
-      <tr style="background: #e6f7f3;"><td><strong>Paket Spark (Terlaris)</strong></td><td>250 Mbps Booster</td><td>Rp 229.000/bln</td><td>5-10 perangkat, gaming online, video call & WFH lancar</td></tr>
-      <tr><td><strong>Paket Prime</strong></td><td>400 Mbps Booster</td><td>Rp 299.000/bln</td><td>Keluarga besar, rumah bertingkat, kos-kosan & kantor UMKM</td></tr>
+      <tr><th>Pilihan Paket</th><th>Kecepatan</th><th>Biaya Bulanan</th><th>Biaya Bulan Pertama & Peruntukan</th></tr>
+      <tr>
+        <td><strong>Paket Starter</strong></td>
+        <td>20 Mbps</td>
+        <td>Rp 185.000/bln</td>
+        <td>+ Instalasi Rp 100rb (Bln 1: Rp 285rb) • 1-4 HP, browsing & sosmed harian</td>
+      </tr>
+      <tr>
+        <td><strong>Paket Value</strong></td>
+        <td>100 Mbps (Promo 200 Mbps)</td>
+        <td>Rp 219.000/bln</td>
+        <td><strong>Gratis Pasang Rp 0</strong> • Streaming HD keluarga & WFH lancar</td>
+      </tr>
+      <tr style="background: #e6f7f3;">
+        <td><strong>Paket Spark (Pilihan 85% Keluarga)</strong> 🔥</td>
+        <td>250 Mbps Booster</td>
+        <td><strong>Rp 229.000/bln</strong></td>
+        <td><strong>Gratis Pasang Rp 0 (Bulan 1 Lebih Hemat Rp 56rb dari 20 Mbps!)</strong> • 5-10 perangkat, gaming online, CCTV 4K & multi-device</td>
+      </tr>
+      <tr>
+        <td><strong>Paket Prime</strong></td>
+        <td>400 Mbps Booster</td>
+        <td>Rp 299.000/bln</td>
+        <td><strong>Gratis Pasang Rp 0</strong> • Rumah bertingkat, ruko bisnis, studio konten & kos-kosan</td>
+      </tr>
     </table>
+
+    <div class="info-box" style="margin: 20px 0; border-left: 4px solid #7c3aed; background: #f5f3ff;">
+      <strong style="color: #6d28d9;">Promo Paket Tahunan di ${areaName} (Bayar 10 Dapat 12 Bulan):</strong> Mau bebas tagihan sepanjang tahun? Ambil skema pembayaran tahunan: Cukup bayar 10 bulan, Anda langsung menikmati 12 bulan penuh tanpa jeda + bonus Kuota HP Bersama sekeluarga!
+    </div>
 
     <h2>3 Langkah Mudah Pasang WiFi di ${areaName}</h2>
     <div class="step-box">
       <div class="step-num">1</div>
       <div>
         <h4>Kirim Alamat & Share Lokasi</h4>
-        <p>Chat tim sales via WhatsApp dan kirimkan alamat lengkap di ${areaName}. Kami akan mengecek ketersediaan tiang fiber terdekat dalam hitungan menit.</p>
+        <p>Chat tim sales via WhatsApp dan kirimkan alamat lengkap atau share lokasi di ${areaName}. Kami akan mengecek ketersediaan tiang fiber terdekat dalam hitungan menit.</p>
       </div>
     </div>
     
@@ -715,11 +748,11 @@ export function getGeoArticle(slug: string) {
     </div>
     <div class="faq-item">
       <h3>Berapa biaya pasang WiFi XL Home di ${areaName}?</h3>
-      <p>Khusus pendaftaran promo bulan ini untuk warga ${areaName}, biaya pemasangan dan instalasi adalah GRATIS (Hemat Rp 99.000). Anda hanya membayar tagihan bulan pertama setelah internet aktif dan digunakan di rumah.</p>
+      <p>Khusus pendaftaran promo bulan ini untuk warga ${areaName}, biaya pemasangan dan instalasi adalah GRATIS (Hemat Rp 99.000 s/d Rp 500.000). Anda hanya membayar tagihan bulan pertama setelah internet aktif dan digunakan di rumah tanpa biaya tersembunyi.</p>
     </div>
     <div class="faq-item">
       <h3>Paket WiFi apa yang paling cocok untuk kebutuhan di ${areaName}?</h3>
-      <p>Untuk ${info.target}, paket Spark 250 Mbps (Rp 229rb/bln) atau Value 100-200 Mbps sangat ideal karena bebas FUP, stabil untuk streaming 4K, video meeting, belajar daring, dan pemakaian banyak perangkat sekaligus.</p>
+      <p>Untuk ${info.target}, paket Spark 250 Mbps (Rp 229rb/bln) sangat direkomendasikan karena merupakan pilihan paling laris: bebas biaya pasang, lebih hemat Rp 56.000 di bulan pertama dibanding 20 Mbps, serta bebas FUP untuk streaming 4K, video meeting, dan gaming online bersamaan.</p>
     </div>
     <div class="faq-item">
       <h3>Berapa lama proses pemasangan teknisi di area ${areaName}?</h3>
@@ -729,7 +762,7 @@ export function getGeoArticle(slug: string) {
     <div class="cta-box">
       <h3>Cek Ketersediaan Titik Rumah Anda di ${areaName} Sekarang!</h3>
       <p>Jangan tunggu sampai kuota seluler boros atau internet rumah lemot. Konsultasikan alamat rumah Anda bersama tim sales resmi XL Home Solo Raya.</p>
-      <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20jaringan%20XL%20Home%20(XL%20SATU)%20di%20${areaName}" target="_blank" rel="noopener noreferrer" class="btn-cta">
+      <a href="https://wa.me/6287778999141?text=${encodeURIComponent(`Halo Sales XL Home Solo Raya, saya mau cek jangkauan fiber dan promo pasang WiFi di ${areaName} (${cityName}). Boleh dibantu cek tiang terdekat?`)}" target="_blank" rel="noopener noreferrer" class="btn-cta">
         <i class="fab fa-whatsapp"></i> Cek Jaringan via WhatsApp Sales
       </a>
     </div>
@@ -738,8 +771,10 @@ export function getGeoArticle(slug: string) {
     <p>Temukan solusi internet terbaik sesuai kebutuhan Anda di ${areaName}:</p>
     <ul>
       <li><a href="/wifi-untuk-live-streaming-jualan-solo/">WiFi untuk Live Streaming Jualan Solo (TikTok & Shopee Live Simetris 1:1)</a></li>
+      <li><a href="/biaya-pasang-wifi-pertama-kali-solo/">Biaya Pasang WiFi Pertama Kali Solo 2026: Perbandingan Lengkap All Provider</a></li>
       <li><a href="/panduan-wifi-kos-solo/">Panduan WiFi Kos Mahasiswa & Kontrakan (UNS, UMS & Sekitarnya)</a></li>
       <li><a href="/paket-wifi-tahunan-bayar-10-dapat-12/">Paket Tahunan Bayar 10 Dapat 12 Bulan (Hemat Biaya 2 Bulan Penuh)</a></li>
+      <li><a href="/wifi-tanpa-kabel-solo/">WiFi Tanpa Kabel Solo 2026: Solusi Internet Tanpa Tiang & Fiber</a></li>
       <li><a href="/cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo/">Cara Pindah Provider ke XL Home Tanpa Putus Koneksi</a></li>
     </ul>
 
@@ -755,10 +790,36 @@ export function getGeoArticle(slug: string) {
     </div>
   `;
 
+  let pageTitle = `Pasang WiFi ${areaName} Murah 2026: 100% Fiber Simetris | XL Home`;
+  let heroH1 = `Pasang WiFi ${areaName} Murah 2026: 100% Fiber Simetris Tanpa FUP`;
+  let pageDesc = `Layanan pasang WiFi ${areaName} murah 2026 mulai Rp 185rb - 229rb/bln dari XL Home Fiber. Jangkauan ${info.kelurahan.slice(0, 3).join(", ")}, dsb. 100% Tanpa FUP, gratis pasang Rp 0!`;
+
+  if (areaSlug === "solo-baru") {
+    pageTitle = `Pasang WiFi Solo Baru Murah 2026 (Sektor 1-10 & Ruko) | Bebas FUP XL Home`;
+    heroH1 = `Pasang WiFi Solo Baru Murah 2026: 100% Fiber Tanpa FUP Cluster & Ruko`;
+    pageDesc = `Promo pasang WiFi Solo Baru murah 2026: 100% fiber tanpa FUP mulai Rp 185rb - 229rb/bln. Jangkauan Sektor 1-10, Jl. Ir Soekarno, The Park & TirtaMaya. Gratis pasang Rp 0! WA: 0877-7899-9141.`;
+  } else if (areaSlug === "kartasura") {
+    pageTitle = `Pasang WiFi Kartasura Murah 2026 (Dekat Kampus UMS) | 100% Tanpa FUP XL Home`;
+    heroH1 = `Pasang WiFi Kartasura Murah 2026: 100% Bebas FUP untuk Kos & Rumah Dekat UMS`;
+    pageDesc = `Promo pasang WiFi Kartasura murah 2026 dekat UMS & UIN. Fiber optik 100% tanpa FUP mulai Rp 185rb - 229rb/bln. Solusi patungan anak kos ~Rp 28rb/kamar. Gratis pasang Rp 0!`;
+  } else if (areaSlug === "klaten-kota") {
+    pageTitle = `Pasang WiFi Klaten Kota Murah 2026: 100% Fiber Simetris | XL Home`;
+    heroH1 = `Pasang WiFi Klaten Kota Murah 2026: 100% Fiber Simetris Tanpa FUP`;
+    pageDesc = `Pasang WiFi Klaten Kota murah 2026 mulai 185rb - 229rb/bln. 100% Fiber optik simetris tanpa FUP untuk komuter KRL Solo-Jogja & ruko Jl. Pemuda. Gratis pasang Rp 0!`;
+  } else if (areaSlug === "boyolali-kota") {
+    pageTitle = `Pasang WiFi Boyolali Kota Murah 2026 (Pusat Kota & Kemiri) | XL Home Fiber`;
+    heroH1 = `Pasang WiFi Boyolali Kota Murah 2026: 100% Fiber Tanpa FUP Pusat Kota`;
+    pageDesc = `Pasang WiFi murah di Boyolali Kota 2026: 100% fiber tanpa FUP mulai 185rb - 229rb/bln. Cover Kemiri, Pulisen, Siswodipuran, Alun-Alun Kidul & Patung Kuda. Gratis pasang!`;
+  } else if (areaSlug === "colomadu") {
+    pageTitle = `Pasang WiFi Colomadu Murah 2026 (Fajar Indah & Sekitarnya) | XL Home Fiber`;
+    heroH1 = `Pasang WiFi Colomadu Murah 2026: 100% Fiber Optic Tanpa FUP`;
+    pageDesc = `Pasang WiFi Colomadu murah 2026 mulai 185rb - 229rb/bln. Fiber optik tanpa FUP untuk perumahan Fajar Indah, Malangjiwan, Klodran, Baturan, Paulan. Gratis pasang Rp 0!`;
+  }
+
   return {
     slug: `pasang-wifi-xl-home-${areaSlug}`,
-    title: `Pasang WiFi ${areaName} Murah 2026: 100% Fiber Tanpa FUP | XL Home`,
-    description: `Layanan pasang WiFi ${areaName} murah 2026 mulai Rp 185rb - 229rb/bln dari XL Home Fiber. Jangkauan ${info.kelurahan.slice(0, 3).join(", ")}, dsb. 100% Tanpa FUP, gratis pasang Rp 0!`,
+    title: pageTitle,
+    description: pageDesc,
     keywords: [
       `pasang wifi ${areaName.toLowerCase()}`,
       `pasang wifi murah ${areaName.toLowerCase()}`,
@@ -770,18 +831,18 @@ export function getGeoArticle(slug: string) {
       `provider internet ${areaName.toLowerCase()}`,
       `wifi rumah ${cityName.toLowerCase()}`
     ],
-    ogTitle: `Pasang WiFi ${areaName} Murah 2026: 100% Fiber Tanpa FUP`,
-    ogDescription: `Internet fiber 100% Unlimited tanpa FUP di ${areaName}. Transformasi resmi XL SATU ke XL Home mulai 185rb/bln. Gratis biaya instalasi Rp 0!`,
+    ogTitle: pageTitle,
+    ogDescription: pageDesc,
     ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
     schemas,
     faqs,
     hero: {
       crumb: `<a href="https://xlhomesolo.com/">Beranda</a> / <a href="/area-layanan/">Area Layanan</a> / ${areaName}`,
-      h1: `Pasang WiFi XL Home Fiber di ${areaName}`,
+      h1: heroH1,
       sub: `Internet rumah fiber optik 100% Tanpa FUP untuk warga ${areaName}, ${cityName} (Transformasi Resmi XL SATU Fiber). Gratis biaya instalasi!`,
       meta: `Cakupan ${cityName} · Tim Sales Resmi XL Home Solo Raya`
     },
-    headerCta: `https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20jaringan%20XL%20Home%20(XL%20SATU)%20di%20${areaName}`,
+    headerCta: `https://wa.me/6287778999141?text=${encodeURIComponent(`Halo Sales XL Home, saya mau cek jaringan dan promo pasang WiFi di ${areaName}`)}`,
     bodyHtml
   };
 }

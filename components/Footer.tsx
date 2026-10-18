@@ -48,6 +48,7 @@ export default function Footer() {
           <div className="footer-sitemap-col">
             <h3>Panduan &amp; Pasang Baru</h3>
             <ul>
+              <li><a href="/biaya-pasang-wifi-pertama-kali-solo/">Biaya Pasang Pertama Kali Solo</a></li>
               <li><a href="/biaya-pasang-wifi-solo-raya/">Biaya Pasang WiFi Solo 2026</a></li>
               <li><a href="/xl-satu-resmi-jadi-xl-home/">XL SATU Resmi Jadi XL Home</a></li>
               <li><a href="/xl-satu-dan-xl-home-apakah-sama/">XL SATU &amp; XL Home Apakah Sama?</a></li>
@@ -69,6 +70,7 @@ export default function Footer() {
           <div className="footer-sitemap-col">
             <h3>Fitur &amp; Promo Perumahan</h3>
             <ul>
+              <li><a href="/wifi-tanpa-kabel-solo/">WiFi Tanpa Kabel Solo (FWA)</a></li>
               <li><a href="/tes-kecepatan/">Tes Kecepatan Internet Solo</a></li>
               <li><a href="/berapa-mbps-untuk-berapa-orang/">Kalkulator Kebutuhan Mbps</a></li>
               <li><a href="/wifi-tanpa-fup-unlimited/">WiFi Fiber 100% Tanpa FUP</a></li>
