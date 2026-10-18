@@ -1564,15 +1564,15 @@ ARTIKEL["xl-satu-resmi-jadi-xl-home"] = {
 
   slug: "xl-satu-resmi-jadi-xl-home",
 
-  title: "XL SATU Resmi Berganti Nama Menjadi XL Home – Apa yang Berubah?",
+  title: "XL SATU Resmi Jadi XL Home: Promo Tetap Murah Mulai 185rb",
 
-  description: "XL SATU kini resmi menjadi XL Home. Simak apa saja yang berubah, apakah paket internet lama tetap berlaku, dan kenapa ini kabar baik untuk pelanggan di Solo Raya.",
+  description: "XL SATU resmi jadi XL Home! Paket tetap murah mulai 185rb/bln, 100% Fiber Unlimited Tanpa FUP & Gratis Pasang. Daftar resmi Solo Raya WA: 0877-7899-9141.",
 
   keywords: ["xl satu jadi xl home","xl satu berganti nama","xl home solo raya","xl home adalah","rebranding xl satu xl home"],
 
-  ogTitle: "XL SATU Resmi Berganti Nama Menjadi XL Home",
+  ogTitle: "XL SATU Resmi Jadi XL Home: Promo Tetap Murah Mulai 185rb",
 
-  ogDescription: "XL SATU kini resmi menjadi XL Home. Paket lama tetap berlaku, jaringan makin baik. Info lengkap untuk pelanggan Solo Raya.",
+  ogDescription: "XL SATU resmi jadi XL Home! Paket tetap murah mulai 185rb/bln, 100% Fiber Unlimited Tanpa FUP & Gratis Pasang. Daftar resmi Solo Raya WA: 0877-7899-9141.",
 
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
 
@@ -2325,11 +2325,11 @@ ARTIKEL["daftar-xl-home-online-tanpa-ke-kantor"] = {
 
 ARTIKEL["xl-satu-dan-xl-home-apakah-sama"] = {
   slug: "xl-satu-dan-xl-home-apakah-sama",
-  title: "Beda XL Home dan XL Satu: Apakah Sama? Jangan Salah Pilih! (Update 2026)",
-  description: "Penasaran apa beda XL Home dan XL Satu? Ternyata 100% sama! Simak penjelasan resmi perbedaan nama, batas FUP kuota, kecepatan simetris, dan paket promo pasang baru di Solo Raya.",
+  title: "Beda XL Home & XL Satu: Ternyata Sama! Promo Mulai 185rb",
+  description: "Beda XL Home & XL Satu? Ternyata 100% sama! Internet fiber tanpa FUP mulai 185rb/bln + Gratis Pasang. Info resmi & daftar cepat Solo Raya WA: 0877-7899-9141.",
   keywords: ["beda xl home dan xl satu", "perbedaan xl satu dan xl home", "apa bedanya xl home dan xl satu", "xl satu dan xl home apakah sama", "apakah xl home dan xl satu sama", "xl home", "xl satu", "internet xl rumah", "rebranding xl satu solo"],
-  ogTitle: "Beda XL Home dan XL Satu: Apakah Sama? Simak Penjelasannya",
-  ogDescription: "Ternyata 100% sama! Simak perbedaan nama, batas FUP kuota, dan paket internet fiber optic XL Axiata resmi di Solo Raya.",
+  ogTitle: "Beda XL Home & XL Satu: Ternyata Sama! Promo Mulai 185rb",
+  ogDescription: "Beda XL Home & XL Satu? Ternyata 100% sama! Internet fiber tanpa FUP mulai 185rb/bln + Gratis Pasang. Info resmi & daftar cepat Solo Raya WA: 0877-7899-9141.",
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
   schemas: [
     {
@@ -3152,8 +3152,8 @@ ARTIKEL["wifi-untuk-live-streaming-jualan-solo"] = {
 
 ARTIKEL["pasang-wifi-xl-home-solo-baru"] = {
   slug: "pasang-wifi-xl-home-solo-baru",
-  title: "Pasang WiFi Solo Baru Murah 2026: 100% Fiber Tanpa FUP | XL Home",
-  description: "Pasang WiFi Solo Baru murah 2026 mulai Rp 185rb - 229rb/bln. Jaringan fiber optik 100% tanpa FUP di Sektor 1-10, Tirtamaya, Gentan, Jl. Ir. Soekarno. Gratis pasang Rp 0!",
+  title: "Pasang WiFi Solo Baru Murah Mulai 185rb ⚡ XL Home Fiber",
+  description: "Promo pasang WiFi Solo Baru 2026 mulai 185rb/bln! 100% Fiber Tanpa FUP Sektor 1-10 & Ruko. Gratis pasang Rp 0. Chat Sales Resmi WA: 0877-7899-9141.",
   keywords: [
     "pasang wifi solo baru",
     "wifi solo baru",
@@ -3167,8 +3167,8 @@ ARTIKEL["pasang-wifi-xl-home-solo-baru"] = {
     "wifi ruko solo baru",
     "internet rumah solo baru sukoharjo"
   ],
-  ogTitle: "Pasang WiFi Solo Baru Murah 2026: 100% Fiber Optic Tanpa FUP",
-  ogDescription: "Internet fiber optik murni 100% tanpa FUP untuk cluster perumahan & ruko di Solo Baru. Gratis biaya pemasangan!",
+  ogTitle: "Pasang WiFi Solo Baru Murah Mulai 185rb ⚡ XL Home Fiber",
+  ogDescription: "Promo pasang WiFi Solo Baru 2026 mulai 185rb/bln! 100% Fiber Tanpa FUP Sektor 1-10 & Ruko. Gratis pasang Rp 0. Chat Sales Resmi WA: 0877-7899-9141.",
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
   schemas: [
     {
