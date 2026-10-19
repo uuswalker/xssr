@@ -218,22 +218,20 @@ export function HomeHeroLokal() {
     <section className="hero-lokal">
       <div className="hero-lokal-inner">
         <h1>
-          Pasang <span>XL Home di Solo Raya</span><br />Daftar Pagi, Sore Dipasang!
+          Pasang <span>WiFi Solo Murah</span> &amp; Solo Raya ⚡ XL Home Resmi
         </h1>
         <p>
-          XL Home (transformasi resmi XL SATU Fiber) hadir untuk keluarga di{" "}
+          Layanan pasang WiFi murah di{" "}
           <strong>
             Solo (Surakarta), Sukoharjo, Karanganyar, Klaten, dan Boyolali
           </strong>
-          . Internet fiber optic unlimited dan terjangkau mulai Rp
-          185.000/bulan —{" "}
+          . Internet fiber optic 100% unlimited mulai Rp 185.000/bulan —{" "}
           <a
             href="/wifi-tanpa-fup-unlimited/"
             style={{ color: "inherit", textDecoration: "underline" }}
           >
-            tanpa FUP, tanpa gangguan
+            tanpa FUP, gratis pasang Rp 0, daftar pagi sore dipasang!
           </a>
-          .
         </p>
         <button
           type="button"
