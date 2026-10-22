@@ -287,9 +287,9 @@ export function HomeHeroLokal() {
           }}
         >
           {[
-            "Tim Sales Resmi XL Home (d/h XL SATU)",
-            "Harga Transparan, Tanpa Biaya Tersembunyi",
-            "Tim Sales Lokal Cepat Tanggap",
+            "100% Fiber Murni Tanpa FUP (Bebas Kuota)",
+            "Bukan Jebakan Promo yang Naik di Tahun ke-2",
+            "Gratis Biaya Pasang Rp 0 & Sales Cepat Tanggap",
           ].map((t) => (
             <span key={t} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
               <CheckCircle2 size={16} color="var(--green)" style={{ flexShrink: 0 }} />

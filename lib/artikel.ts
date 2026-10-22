@@ -301,9 +301,9 @@ ARTIKEL["kecepatan-wifi-ideal-keluarga"] = {
 
   slug: "kecepatan-wifi-ideal-keluarga",
 
-  title: "Kecepatan WiFi Ideal Keluarga: 1-2, 3-4, 5+ Orang Berapa Mbps? | XL SATU",
+  title: "Kecepatan WiFi Ideal Keluarga: 1-2, 3-4, 5+ Orang Berapa Mbps? | XL Home",
 
-  description: "Berapa Mbps yang pas untuk keluarga? 1—2 orang: 20—100 Mbps. 3—4 orang WFH+streaming: 100—250 Mbps. 5+ orang atau smart home: 250—400 Mbps. Tabel lengkap + rekomendasi paket XL SATU.",
+  description: "Berapa Mbps yang pas untuk kebutuhan rumah tangga Anda? Simak rekomendasi kecepatan untuk 1-2, 3-4, dan 5+ orang WFH, streaming 4K, serta paket hemat XL Home Solo.",
 
   keywords: "kecepatan wifi ideal keluarga, berapa mbps untuk keluarga, wifi untuk keluarga 4 orang, kecepatan internet rumah tangga".split(/,\s*/),
 
@@ -2619,8 +2619,8 @@ ARTIKEL["cara-cek-jaringan-xl-home-di-depan-rumah"] = {
 
 ARTIKEL["xl-center-solo-terdekat-pasang-wifi"] = {
   slug: "xl-center-solo-terdekat-pasang-wifi",
-  title: "XL Center Solo Terdekat? Pasang WiFi XL Home Tanpa Antre!",
-  description: "Mencari alamat XL Center Solo terdekat? Jika tujuan Anda pasang WiFi rumah, berhenti! Daftar 100% online via WA di sini, teknisi langsung datang.",
+  title: "XL Center Solo & Call Center CS 24 Jam: Alamat & Pasang WiFi | XL Home",
+  description: "Info alamat resmi XL Center Solo (Penumping), nomor call center CS 24 jam (820 / 0817-0123442), serta cara daftar pasang WiFi XL Home tanpa antre di gerai.",
   keywords: ["xl center solo", "store xl terdekat", "alamat xl center solo", "gerai xl solo", "pasang wifi xl solo", "xl center penumping", "xl center terdekat"],
   ogTitle: "Jangan Ke XL Center Dulu Sebelum Baca Ini!",
   ogDescription: "Mau pasang WiFi XL Home? Gak perlu capek antre di gerai fisik. Daftar online lebih cepat.",
