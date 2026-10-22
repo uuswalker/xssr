@@ -628,6 +628,7 @@ export function getGeoArticle(slug: string) {
         "priceCurrency": "IDR",
         "price": "185000",
         "priceValidUntil": "2026-12-31",
+        "validFrom": "2026-01-01",
         "availability": "https://schema.org/InStock",
         "hasMerchantReturnPolicy": {
           "@type": "MerchantReturnPolicy",

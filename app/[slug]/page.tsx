@@ -46,8 +46,30 @@ export default async function Page({ params }: Props) {
   
   if (!a) notFound();
 
+  const canonicalSlug = a.slug || slug;
+
+  const breadcrumbsJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://xlhomesolo.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": decodeEntities(a.title),
+        "item": `https://xlhomesolo.com/${canonicalSlug}/`
+      }
+    ]
+  };
+
   return (
     <>
+      <JsonLd data={breadcrumbsJsonLd} />
       <Article data={a} />
       {a.schemas && a.schemas.map((s, i) => (
         <JsonLd key={i} data={s} />

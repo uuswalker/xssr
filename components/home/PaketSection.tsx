@@ -109,7 +109,7 @@ function FiberCard({ t }: { t: FiberTier }) {
             </div>
           )}
           <div className="price-main">
-            {t.price.includes("Rp") ? <NumberCounter value={parseInt(t.price.replace(/\D/g, ""), 10)} prefix="Rp " /> : t.price}
+            {t.price}
             <span>/bulan</span>
           </div>
           {t.badgePromo && (

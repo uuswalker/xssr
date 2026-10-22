@@ -331,7 +331,7 @@ ARTIKEL["internet-rakyat-vs-xl-home"] = {
 
   slug: "internet-rakyat-vs-xl-home",
 
-  title: "Internet Rakyat 5G FWA vs XL Home Solo 2026: Cakupan 1.4 GHz & Harga | XL Home",
+  title: "XL Home FWA 5G Solo: Internet Rumah Cepat Tanpa Tarik Kabel",
 
   description: "Internet Rakyat vs XL Home Solo 2026: cakupan 5G FWA 1.4 GHz Banjarsari Laweyan, harga Rp100rb vs Rp185rb, & kecepatan. Cek alternatif XL Home untuk Sukoharjo Karanganyar Klaten Boyolali.",
 
@@ -1632,7 +1632,7 @@ ARTIKEL["xl-satu-resmi-jadi-xl-home"] = {
 
   slug: "xl-satu-resmi-jadi-xl-home",
 
-  title: "XL SATU Resmi Jadi XL Home: Promo Tetap Murah Mulai 185rb",
+  title: "XL SATU Solo Resmi Ganti XL Home ⚡ Cek Paket & Pasang Baru",
 
   description: "XL SATU resmi jadi XL Home! Paket tetap murah mulai 185rb/bln, 100% Fiber Unlimited Tanpa FUP & Gratis Pasang. Daftar resmi Solo Raya WA: 0877-7899-9141.",
 
@@ -2238,7 +2238,7 @@ ARTIKEL["pasang-wifi-tirtamaya-residence-solo-baru"] = {
     sub: "Penuhi kebutuhan bandwidth Smart Home dan streaming 4K tanpa hambatan FUP.",
     meta: "Kawasan Solo Baru, Grogol \u00B7 Fiber Optic \u00B7 Instalasi Prioritas"
   },
-  headerCta: "Cek Titik Tiang di TirtaMaya",
+  headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20titik%20tiang%20WiFi%20di%20Tirtamaya%20Residence%20Solo%20Baru",
   bodyHtml: `
   <h2 class="section-title">Koneksi Tanpa Batas untuk Gaya Hidup Modern di TirtaMaya</h2>
   <p>TirtaMaya Residence di kawasan Solo Baru (Grogol, Sukoharjo) dikenal sebagai salah satu perumahan elit dengan standar keamanan dan fasilitas premium. Untuk hunian modern yang dilengkapi dengan <em>Smart Home System</em>, CCTV, dan kebutuhan WFH eksekutif, koneksi internet biasa tidaklah cukup.</p>
@@ -2281,7 +2281,7 @@ ARTIKEL["layanan-internet-permata-botanical-colomadu"] = {
     sub: "Solusi internet rumah berkelas untuk gaya hidup modern Anda.",
     meta: "Colomadu, Karanganyar/Sukoharjo \u00B7 Jaringan Stabil"
   },
-  headerCta: "Tanya Jadwal Instalasi",
+  headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20jadwal%20instalasi%20di%20Permata%20Botanical%20Colomadu",
   bodyHtml: `
   <h2 class="section-title">Fasilitas Resort Perlu Jaringan Internet yang Setara</h2>
   <p>Perumahan <strong>Permata Botanical</strong> di Colomadu terkenal dengan desain lingkungannya yang eksklusif, rimbun, dan berkelas seperti sebuah resort. Untuk menunjang gaya hidup modern penghuninya?yang seringkali mencakup bekerja dari rumah (WFH) dan hiburan keluarga secara digital?koneksi internet yang anti-lemot mutlak dibutuhkan.</p>
@@ -2324,7 +2324,7 @@ ARTIKEL["promo-wifi-pondok-permai-colomadu"] = {
     sub: "Koneksi ngebut bebas kuota. Temani waktu kumpul keluarga dan belajar anak tanpa hambatan.",
     meta: "Ngantirejo / Malangjiwan \u00B7 Harga Flat Tiap Bulan"
   },
-  headerCta: "Daftar Promo Bebas Biaya",
+  headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20daftar%20promo%20bebas%20biaya%20pasang%20di%20Pondok%20Permai%20Colomadu",
   bodyHtml: `
   <h2 class="section-title">Internet Rumah Murah, Cocok Untuk Keluarga</h2>
   <p>Perumahan <strong>Pondok Permai Colomadu</strong> (mulai dari tahap 1, 2, hingga 3) merupakan kawasan pemukiman yang sangat dinamis dengan mayoritas dihuni oleh keluarga muda produktif. Anak-anak yang butuh koneksi untuk belajar online, hingga orang tua yang ingin menikmati hiburan setelah seharian bekerja?semuanya membutuhkan jaringan WiFi yang tangguh namun bersahabat di kantong.</p>
@@ -2393,11 +2393,11 @@ ARTIKEL["daftar-xl-home-online-tanpa-ke-kantor"] = {
 
 ARTIKEL["xl-satu-dan-xl-home-apakah-sama"] = {
   slug: "xl-satu-dan-xl-home-apakah-sama",
-  title: "Beda XL Home & XL Satu: Ternyata Sama! Promo Mulai 185rb",
-  description: "Beda XL Home & XL Satu? Ternyata 100% sama! Internet fiber tanpa FUP mulai 185rb/bln + Gratis Pasang. Info resmi & daftar cepat Solo Raya WA: 0877-7899-9141.",
+  title: "Beda XL Satu dan XL Home (2026): Cek Perubahan Paket & Fitur",
+  description: "Bingung beda XL Satu dan XL Home? Simak penjelasan resmi perubahan nama, perbedaan kuota HP vs fiber, status pelanggan lama, serta promo pasang baru 2026.",
   keywords: ["beda xl home dan xl satu", "perbedaan xl satu dan xl home", "apa bedanya xl home dan xl satu", "xl satu dan xl home apakah sama", "apakah xl home dan xl satu sama", "xl home", "xl satu", "internet xl rumah", "rebranding xl satu solo"],
-  ogTitle: "Beda XL Home & XL Satu: Ternyata Sama! Promo Mulai 185rb",
-  ogDescription: "Beda XL Home & XL Satu? Ternyata 100% sama! Internet fiber tanpa FUP mulai 185rb/bln + Gratis Pasang. Info resmi & daftar cepat Solo Raya WA: 0877-7899-9141.",
+  ogTitle: "Beda XL Satu dan XL Home (2026): Cek Perubahan Paket & Fitur",
+  ogDescription: "Bingung beda XL Satu dan XL Home? Simak penjelasan resmi perubahan nama, perbedaan kuota HP vs fiber, status pelanggan lama, serta promo pasang baru 2026.",
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
   schemas: [
     {
@@ -3327,6 +3327,7 @@ ARTIKEL["pasang-wifi-xl-home-solo-baru"] = {
         "priceCurrency": "IDR",
         "price": "185000",
         "priceValidUntil": "2026-12-31",
+        "validFrom": "2026-01-01",
         "availability": "https://schema.org/InStock",
         "hasMerchantReturnPolicy": {
           "@type": "MerchantReturnPolicy",
@@ -3644,6 +3645,7 @@ ARTIKEL["pasang-wifi-xl-home-kartasura"] = {
         "priceCurrency": "IDR",
         "price": "185000",
         "priceValidUntil": "2026-12-31",
+        "validFrom": "2026-01-01",
         "availability": "https://schema.org/InStock",
         "hasMerchantReturnPolicy": {
           "@type": "MerchantReturnPolicy",

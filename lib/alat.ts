@@ -25,7 +25,7 @@ ALAT["panduan-fiber-vs-wireless"] = {
 
 ALAT["berapa-mbps-untuk-berapa-orang"] = {
   slug: "berapa-mbps-untuk-berapa-orang",
-  title: "250 Mbps Apakah Cepat? Panduan Kecepatan WiFi Sesuai Jumlah Orang",
+  title: "250 Mbps Apakah Cepat? Simulasi Berapa Orang & Kecepatan Game",
   description: "100 Mbps: 2–4 orang. 250 Mbps: 4–6 orang. 400 Mbps: 6–8 orang. Hitung kebutuhan WiFi rumah pakai kalkulator interaktif — hasil & rekomendasi paket XL Home Solo Raya.",
   keywords: "berapa mbps untuk berapa orang, kalkulator kebutuhan wifi, hitung kebutuhan mbps, 250 mbps untuk berapa orang, 100 mbps untuk berapa orang, wifi berapa mbps untuk rumah".split(/,\s*/),
   ogTitle: "Berapa Mbps untuk Berapa Orang? 100–1000 Mbps + Kalkulator",
@@ -41,8 +41,8 @@ ALAT["berapa-mbps-untuk-berapa-orang"] = {
 
 ALAT["wifi-tanpa-fup-unlimited"] = {
   slug: "wifi-tanpa-fup-unlimited",
-  title: "Apakah XL Home Ada FUP? 100% Fiber Unlimited Bebas Kuota",
-  description: "Paket Fiber XL Home 100% Bebas FUP! Kecepatan simetris tanpa kuota mulai 185rb/bln + Gratis Pasang. Cek jangkauan & daftar via WA: 0877-7899-9141 sekarang!",
+  title: "Apakah XL Home Ada FUP? Fakta Kuota Unlimited Fiber vs FWA",
+  description: "Ketahui aturan resmi batas pemakaian wajar (FUP) XL Home 2026. Benarkah 100% unlimited tanpa penurunan kecepatan? Simak perbandingan paket Fiber vs 5G FWA di sini.",
   keywords: [
     "apakah xl home ada fup",
     "apakah xl satu ada fup",
