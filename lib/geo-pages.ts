@@ -616,6 +616,7 @@ export function getGeoArticle(slug: string) {
       "@context": "https://schema.org",
       "@type": "Product",
       "name": `Paket Pasang WiFi XL Home Fiber ${areaName}`,
+      "image": "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.jpg",
       "description": `Layanan pasang WiFi internet rumah fiber optik 100% tanpa FUP di ${areaName}, ${cityName} mulai Rp 185.000/bulan.`,
       "brand": {
         "@type": "Brand",
@@ -627,7 +628,39 @@ export function getGeoArticle(slug: string) {
         "priceCurrency": "IDR",
         "price": "185000",
         "priceValidUntil": "2026-12-31",
-        "availability": "https://schema.org/InStock"
+        "availability": "https://schema.org/InStock",
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "ID",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+        },
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": 0,
+            "currency": "IDR"
+          },
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "ID"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 0,
+              "maxValue": 1,
+              "unitCode": "DAY"
+            },
+            "transitTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 1,
+              "maxValue": 2,
+              "unitCode": "DAY"
+            }
+          }
+        }
       },
       "aggregateRating": {
         "@type": "AggregateRating",

@@ -297,6 +297,14 @@ export function HomeHeroLokal() {
             </span>
           ))}
         </div>
+        <div style={{ marginTop: 20, paddingTop: 16, borderTop: "1px dashed rgba(0,0,0,0.1)", display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "8px 12px", fontSize: 13 }}>
+          <span style={{ fontWeight: 700, color: "#1f2937" }}>⚡ Area Prioritas Pasang Cepat:</span>
+          <a href="/pasang-wifi-xl-home-kartasura/" style={{ background: "#f0fdf4", color: "#15803d", padding: "5px 12px", borderRadius: "999px", textDecoration: "none", fontWeight: 600, border: "1px solid #bbf7d0" }}>Pasang WiFi Kartasura (Dekat UMS)</a>
+          <a href="/pasang-wifi-xl-home-solo-baru/" style={{ background: "#f0fdf4", color: "#15803d", padding: "5px 12px", borderRadius: "999px", textDecoration: "none", fontWeight: 600, border: "1px solid #bbf7d0" }}>Solo Baru Sektor 1-10</a>
+          <a href="/pasang-wifi-xl-home-grogol/" style={{ background: "#f0fdf4", color: "#15803d", padding: "5px 12px", borderRadius: "999px", textDecoration: "none", fontWeight: 600, border: "1px solid #bbf7d0" }}>Grogol Sukoharjo</a>
+          <a href="/pasang-wifi-xl-home-colomadu/" style={{ background: "#f0fdf4", color: "#15803d", padding: "5px 12px", borderRadius: "999px", textDecoration: "none", fontWeight: 600, border: "1px solid #bbf7d0" }}>Colomadu Fajar Indah</a>
+          <a href="/pasang-wifi-xl-home-laweyan/" style={{ background: "#f0fdf4", color: "#15803d", padding: "5px 12px", borderRadius: "999px", textDecoration: "none", fontWeight: 600, border: "1px solid #bbf7d0" }}>Laweyan Sentra Batik</a>
+        </div>
       </div>
     </section>
   );
