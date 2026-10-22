@@ -14,8 +14,7 @@ type Props = {
 export async function generateStaticParams() {
   const articleRoutes = Object.keys(ARTIKEL).map((slug) => ({ slug }));
   const geoRoutes = GEO_AREAS.map((area) => ({ slug: `pasang-wifi-xl-home-${area}` }));
-  const legacyGeoRoutes = GEO_AREAS.map((area) => ({ slug: `pasang-wifi-xl-satu-${area}` }));
-  return [...articleRoutes, ...geoRoutes, ...legacyGeoRoutes];
+  return [...articleRoutes, ...geoRoutes];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -57,4 +56,3 @@ export default async function Page({ params }: Props) {
     </>
   );
 }
-

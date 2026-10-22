@@ -203,7 +203,7 @@ ARTIKEL["cara-daftar-pasang-wifi-xl-home-solo"] = {
   </div>
   `
 };
-ARTIKEL["cara-daftar-pasang-wifi-xl-satu-solo"] = ARTIKEL["cara-daftar-pasang-wifi-xl-home-solo"];
+// [REDIRECTED VIA VERCEL.JSON 301] ARTIKEL["cara-daftar-pasang-wifi-xl-satu-solo"] = ARTIKEL["cara-daftar-pasang-wifi-xl-home-solo"];
 
 
 
@@ -355,7 +355,7 @@ ARTIKEL["internet-rakyat-vs-xl-home"] = {
 
 };
 
-ARTIKEL["internet-rakyat-vs-xl-satu"] = ARTIKEL["internet-rakyat-vs-xl-home"];
+// [REDIRECTED VIA VERCEL.JSON 301] ARTIKEL["internet-rakyat-vs-xl-satu"] = ARTIKEL["internet-rakyat-vs-xl-home"];
 
 
 
@@ -715,7 +715,7 @@ ARTIKEL["xl-home-vs-indihome-myrepublic-solo"] = {
 
 };
 
-ARTIKEL["xl-satu-vs-indihome-myrepublic-solo"] = ARTIKEL["xl-home-vs-indihome-myrepublic-solo"];
+// [REDIRECTED VIA VERCEL.JSON 301] ARTIKEL["xl-satu-vs-indihome-myrepublic-solo"] = ARTIKEL["xl-home-vs-indihome-myrepublic-solo"];
 
 ARTIKEL['proses-pendaftaran-pemasangan-xl-home-fiber'] = {
 
@@ -878,7 +878,7 @@ ARTIKEL['proses-pendaftaran-pemasangan-xl-home-fiber'] = {
 
 };
 
-ARTIKEL["proses-pendaftaran-pemasangan-xl-satu-fiber"] = ARTIKEL["proses-pendaftaran-pemasangan-xl-home-fiber"];
+// [REDIRECTED VIA VERCEL.JSON 301] ARTIKEL["proses-pendaftaran-pemasangan-xl-satu-fiber"] = ARTIKEL["proses-pendaftaran-pemasangan-xl-home-fiber"];
 
 ARTIKEL['wfh-angkringan-solo-xl-home'] = {
 
@@ -1031,7 +1031,7 @@ ARTIKEL['wfh-angkringan-solo-xl-home'] = {
 
 };
 
-ARTIKEL["wfh-angkringan-solo-xl-satu"] = ARTIKEL["wfh-angkringan-solo-xl-home"];
+// [REDIRECTED VIA VERCEL.JSON 301] ARTIKEL["wfh-angkringan-solo-xl-satu"] = ARTIKEL["wfh-angkringan-solo-xl-home"];
 
 ARTIKEL['rahasia-fup-internet-rumah'] = {
   slug: 'rahasia-fup-internet-rumah',
@@ -1052,6 +1052,36 @@ ARTIKEL['rahasia-fup-internet-rumah'] = {
       "datePublished": "2026-08-20",
       "dateModified": "2026-10-13",
       "mainEntityOfPage": "https://xlhomesolo.com/rahasia-fup-internet-rumah/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Apa itu FUP pada koneksi internet rumah?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FUP (Fair Usage Policy) adalah pembatasan kuota gigabyte tersembunyi. Begitu pemakaian melewati batas kuota wajar, kecepatan bandwidth dipangkas drastis hingga tagihan bulan berikutnya."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah XL Home Fiber memiliki batasan FUP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sama sekali TIDAK! XL Home Fiber Solo Raya 100% murni tanpa FUP seumur hidup. Kecepatan 100 Mbps hingga 400 Mbps tetap stabil nonstop dari tanggal 1 sampai akhir bulan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bagaimana perbandingan FUP provider di Solo Raya?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IndiHome dan Biznet menerapkan batasan FUP tertentu yang menurunkan kecepatan di akhir bulan, sedangkan XL Home Fiber memberikan akses internet tanpa kuota FUP sama sekali."
+          }
+        }
+      ]
     }
   ],
   faqs: [
@@ -1094,6 +1124,44 @@ ARTIKEL['rahasia-fup-internet-rumah'] = {
     <p>Ketika total penggunaan data di rumah melewati ambang kuota tertentu (biasanya antara 300 GB hingga 500 GB per bulan), sistem operator secara otomatis memangkas bandwidth kecepatan Anda (disebut <em>throttling</em>). Kecepatan langganan yang semula 50 Mbps bisa merosot tajam menjadi hanya 1-2 Mbps, bahkan lebih lambat dari jaringan ponsel jadul.</p>
 
     <p>Padahal, Anda tetap membayar tagihan penuh 100% setiap bulannya. Inilah alasan mengapa FUP sering membuat konsumen merasa kecewa dan dirugikan.</p>
+
+    <h2>Tabel Perbandingan FUP Provider Internet di Solo Raya 2026</h2>
+    <table class="speed-table">
+      <thead>
+        <tr>
+          <th>Provider</th>
+          <th>Batas Kuota FUP</th>
+          <th>Status Akhir Bulan</th>
+          <th>Biaya Pemasangan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#f0fdf4; font-weight:700;">
+          <td>XL Home Fiber Solo</td>
+          <td>100% Murni Bebas FUP</td>
+          <td>Kecepatan Stabil 100%</td>
+          <td>GRATIS Rp 0</td>
+        </tr>
+        <tr>
+          <td>IndiHome</td>
+          <td>FUP 700GB - 1200GB</td>
+          <td>Speed Anjlok 50-80%</td>
+          <td>Rp 150rb - Rp 500rb</td>
+        </tr>
+        <tr>
+          <td>Biznet Home</td>
+          <td>FUP Fair Usage per Tier</td>
+          <td>Speed Diturunkan</td>
+          <td>Wajib Beli Modem Rp 750rb+</td>
+        </tr>
+        <tr>
+          <td>EZnet</td>
+          <td>FUP Ketat 120GB</td>
+          <td>Kecepatan Turun ke 1 Mbps</td>
+          <td>Ada Biaya Registrasi</td>
+        </tr>
+      </tbody>
+    </table>
 
     <h2>Perbandingan: Provider Ber-FUP vs XL Home Fiber</h2>
     <div class="compare-grid">
@@ -1558,7 +1626,7 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
 
 };
 
-ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-satu-solo"] = ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"];
+// [REDIRECTED VIA VERCEL.JSON 301] ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-satu-solo"] = ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"];
 
 ARTIKEL["xl-satu-resmi-jadi-xl-home"] = {
 
@@ -2342,6 +2410,36 @@ ARTIKEL["xl-satu-dan-xl-home-apakah-sama"] = {
       "datePublished": "2026-09-01",
       "dateModified": "2026-10-17",
       "mainEntityOfPage": "https://xlhomesolo.com/xl-satu-dan-xl-home-apakah-sama/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Apa beda XL Home dan XL Satu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Beda XL Home dan XL Satu hanyalah pada nama strategi merek. XL Home adalah layanan internet fiber rumah murni tanpa FUP, sedangkan XL Satu adalah paket konvergensi kuota seluler bersama. Mulai 2026, keduanya resmi disatukan sebagai XL Home Fiber."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah XL Home dan XL Satu sama-sama tanpa FUP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ya, keduanya 100% murni tanpa FUP! Internet fiber optik XL Home di Solo Raya memberikan kecepatan simetris murni tanpa penurunan batas kuota gigabyte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Berapa harga pasang baru WiFi XL Home di Solo Raya?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Paket internet rumah XL Home di Solo Raya dibanderol mulai Rp 185.000/bulan (Starter 20 Mbps) dan Rp 229.000/bulan (Spark 250 Mbps) dengan promo bebas biaya instalasi Rp 0."
+          }
+        }
+      ]
     }
   ],
   faqs: [
@@ -2571,13 +2669,55 @@ ARTIKEL["xl-center-solo-terdekat-pasang-wifi"] = {
 
 ARTIKEL["panduan-fiber-vs-wireless"] = {
   slug: "panduan-fiber-vs-wireless",
-  title: "Fiber vs Wireless: Mana yang Cocok untuk Rumah di Solo Raya? | XL SATU",
+  title: "Fiber vs Wireless: Mana yang Pas untuk Rumah di Solo Raya? (Update 2026) | XL Home",
   description: "Bingung pilih internet fiber optic atau wireless untuk rumah di Solo Raya? Panduan lengkap perbandingan kecepatan, harga, dan kondisi rumah yang cocok untuk masing-masing.",
   keywords: ["fiber vs wireless", "internet fiber atau wireless", "pilih wifi rumah solo", "perbedaan fiber optic wireless", "wifi tanpa kabel solo raya"],
   ogTitle: "Fiber vs Wireless: Mana yang Cocok untuk Rumah di Solo Raya?",
   ogDescription: "Perbandingan lengkap internet fiber optic dan wireless \u2014 kecepatan, harga, dan kondisi rumah yang cocok untuk masing-masing pilihan.",
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
-  schemas: [],
+  schemas: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Fiber vs Wireless: Mana yang Pas untuk Rumah di Solo Raya? (Update 2026)",
+      "description": "Perbandingan lengkap internet fiber optic kabel vs wireless nirkabel untuk rumah di Solo Raya beserta rekomendasi paket dan cakupan area.",
+      "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
+      "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
+      "datePublished": "2026-08-11",
+      "dateModified": "2026-10-22",
+      "mainEntityOfPage": "https://xlhomesolo.com/panduan-fiber-vs-wireless/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Apa perbedaan utama internet fiber optic dan wireless?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fiber optic menggunakan kabel serat kaca yang ditarik langsung ke rumah, memberikan kecepatan simetris 100-400 Mbps murni tanpa FUP dan latency sangat rendah (3-8ms). Wireless menggunakan sinyal radio nirkabel (FWA), ideal untuk lokasi perumahan baru atau pinggiran kota yang belum terjangkau tiang kabel fiber."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kapan sebaiknya memilih paket Fiber Optic di Solo Raya?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pilih fiber optic jika alamat Anda sudah tercover tiang ODP (seperti area perkotaan Solo, Solo Baru, Kartasura, Colomadu, Palur) dan kebutuhan Anda mencakup gaming online, streaming 4K bersamaan, atau WFH dengan banyak panggilan Zoom."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kapan sebaiknya memilih paket Wireless / FWA di Solo Raya?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pilih wireless jika rumah Anda berada di area blank spot kabel fiber (seperti beberapa wilayah perbukitan Boyolali, pelosok Karanganyar, atau Klaten) atau Anda memerlukan internet darurat yang bisa aktif langsung tanpa menunggu penarikan kabel fisik."
+          }
+        }
+      ]
+    }
+  ],
   hero: {
     crumb: '<a href="/">Beranda</a> / Fiber vs Wireless',
     h1: "Fiber vs Wireless: Mana yang Cocok untuk Rumah di Solo Raya?",
@@ -3464,7 +3604,7 @@ ARTIKEL["pasang-wifi-xl-home-solo-baru"] = {
   `
 };
 
-ARTIKEL["pasang-wifi-solo-baru"] = ARTIKEL["pasang-wifi-xl-home-solo-baru"];
+// [REDIRECTED VIA VERCEL.JSON 301] ARTIKEL["pasang-wifi-solo-baru"] = ARTIKEL["pasang-wifi-xl-home-solo-baru"];
 
 ARTIKEL["pasang-wifi-xl-home-kartasura"] = {
   slug: "pasang-wifi-xl-home-kartasura",
@@ -3773,7 +3913,7 @@ ARTIKEL["pasang-wifi-xl-home-kartasura"] = {
   `
 };
 
-ARTIKEL["pasang-wifi-kartasura"] = ARTIKEL["pasang-wifi-xl-home-kartasura"];
+// [REDIRECTED VIA VERCEL.JSON 301] ARTIKEL["pasang-wifi-kartasura"] = ARTIKEL["pasang-wifi-xl-home-kartasura"];
 
 ARTIKEL["biaya-pasang-wifi-pertama-kali-solo"] = {
   slug: "biaya-pasang-wifi-pertama-kali-solo",

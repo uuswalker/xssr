@@ -1,6 +1,15 @@
 {
   "headers": [
     {
+      "source": "/site.webmanifest",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
       "source": "/(.*)",
       "headers": [
         {
@@ -373,5 +382,6 @@
       "destination": "/wifi-untuk-live-streaming-jualan-solo/",
       "permanent": true
     }
-  ]
+  ],
+  "trailingSlash": true
 }
