@@ -43,7 +43,7 @@ export const FIBER_TIERS: FiberTier[] = [
     tags: ["Browsing", "Media Sosial", "Streaming SD"],
     feats: [
       { img: F_DEV5, text: "Hingga 5 Perangkat" },
-      { img: F_INST, text: "Biaya Instalasi Rp 100.000" },
+      { img: F_FREE, text: "Biaya Instalasi: Normal Rp 100rb ➔ GRATIS Rp 0 (Promo Sales)" },
     ],
     price: "Rp 185.000",
     waText: "Halo, saya tertarik pasang XL Home paket 20Mbps (Rp 185rb) di area Solo. Boleh cek jaringan?",

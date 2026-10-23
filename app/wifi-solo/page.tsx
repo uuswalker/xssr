@@ -304,10 +304,10 @@ export default function Page() {
               </div>
               <div style={{ fontSize: 11, marginTop: 4 }}>
                 <a
-                  href="https://wa.me/xlsatusolo"
+                  href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20mau%20tanya%20promo%20pasang%20WiFi%20terbaru"
                   style={{ color: "rgba(255,255,255,.6)", textDecoration: "none" }}
                 >
-                  wa.me/xlsatusolo
+                  0877-7899-9141
                 </a>{" "}
                 • 0877-7899-9141
               </div>

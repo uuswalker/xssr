@@ -76,18 +76,19 @@ export function jsonLdLocalBusiness() {
     telephone: "+6287778999141",
     image: `${SITE_DOMAIN}/images/banner-xlsatu-jadi-xlhome.jpg`,
     priceRange: "Rp185.000 – Rp399.000/bulan",
+    hasMap: "https://maps.app.goo.gl/exTMsZCCVmCvtZzs9",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Surakarta",
-      addressLocality: "Surakarta",
+      streetAddress: "Gg. Salak Jl. Waringinrejo No.27, Ngruki, Cemani, Kec. Grogol",
+      addressLocality: "Sukoharjo",
       addressRegion: "Jawa Tengah",
-      postalCode: "57100",
+      postalCode: "57552",
       addressCountry: "ID",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: -7.57533,
-      longitude: 110.82481,
+      latitude: -7.5857286,
+      longitude: 110.8113173,
     },
     areaServed: [
       { "@type": "City", name: "Surakarta" },
@@ -100,8 +101,8 @@ export function jsonLdLocalBusiness() {
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-      opens: "08:00",
-      closes: "21:00",
+      opens: "00:00",
+      closes: "23:59",
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -131,9 +132,10 @@ export function jsonLdLocalBusiness() {
       ],
     },
     sameAs: [
+      "https://maps.app.goo.gl/exTMsZCCVmCvtZzs9",
+      "https://www.google.com/maps?cid=7103925426685315938",
       "https://satu.xl.co.id",
       "https://share.google/98sEij0jKY6VsIwcP",
-      "https://maps.app.goo.gl/exTMsZCCVmCvtZzs9",
       "https://www.facebook.com/profile.php?id=61594596763493",
       "https://www.instagram.com/xlhome.sukoharjo/",
     ],
