@@ -109,7 +109,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                   ['pointerdown','touchstart','scroll','click'].forEach(function(e){
                     window.addEventListener(e,_loadTrackers,{once:true,passive:true});
                   });
-                  setTimeout(_loadTrackers, 12000);
+                  if ('requestIdleCallback' in window) {
+                    window.requestIdleCallback(_loadTrackers, { timeout: 3500 });
+                  } else {
+                    setTimeout(_loadTrackers, 3500);
+                  }
                 `,
               }}
             />

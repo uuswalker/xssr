@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 import { MapPin, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
-import { WA_DAFTAR, WA_INFO, waLink } from "@/lib/site";
+import { ADS_ID, WA_DAFTAR, WA_INFO, waLink } from "@/lib/site";
 
 const SLIDES = [
   {
@@ -45,7 +45,7 @@ const SLIDES = [
   }
 ];
 
-const WA_OPEN_DEFAULT = waLink("Halo kak, saya mau info XL Home");
+const WA_OPEN_DEFAULT = waLink("Halo Sales XL Home Solo, mau tanya promo pasang baru WiFi (Gratis Pasang Rp 0). Mohon info paket terbaik:");
 
 function scrollToId(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -93,11 +93,39 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
           <div
             key={i}
             className="slide"
-            onClick={() =>
-              s.action === "wa"
-                ? window.open(WA_OPEN_DEFAULT, "_blank")
-                : scrollToId("hubungi")
-            }
+            onClick={() => {
+              if (s.action === "wa") {
+                if (typeof (window as unknown as { gtag?: unknown }).gtag === "function") {
+                  const gtagFn = (window as unknown as { gtag: (...a: unknown[]) => void }).gtag;
+                  gtagFn("event", "click_whatsapp", {
+                    link_text: "Hero Banner Slide " + (i + 1),
+                    link_url: WA_OPEN_DEFAULT,
+                    page_path: window.location.pathname,
+                  });
+                  gtagFn("event", "conversion", { send_to: `${ADS_ID}/uoD7CPXb27ADEN7y1b8D` });
+                }
+                if (typeof (window as unknown as { fbq?: unknown }).fbq === "function") {
+                  const fbq = (window as unknown as { fbq: (...a: unknown[]) => void }).fbq;
+                  fbq("track", "Contact");
+                  fbq("track", "Lead", {
+                    content_name: "Hero Banner Slide " + (i + 1),
+                    content_category: "hero_banner",
+                    value: 185000,
+                    currency: "IDR",
+                  });
+                }
+                let targetUrl = WA_OPEN_DEFAULT;
+                try {
+                  const storedUtm = sessionStorage.getItem("xlsr_utm");
+                  if (storedUtm) {
+                    targetUrl += encodeURIComponent(` [Sumber: ${storedUtm}]`);
+                  }
+                } catch {}
+                window.open(targetUrl, "_blank");
+              } else {
+                scrollToId("hubungi");
+              }
+            }}
           >
             <picture>
               <source type="image/webp" srcSet={s.imgWebp} />

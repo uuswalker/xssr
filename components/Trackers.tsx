@@ -57,6 +57,8 @@ export default function Trackers() {
         fbq("track", "Lead", {
           content_name: ((l.textContent || "").trim().slice(0, 100) || "whatsapp_click"),
           content_category: "whatsapp",
+          value: 185000,
+          currency: "IDR",
         });
       }
     };

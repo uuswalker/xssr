@@ -4,7 +4,7 @@ import { MessageCircle } from "lucide-react";
 import { PHONE_DISPLAY, waLink } from "@/lib/site";
 
 export default function WaFloat({
-  text = "Info XL Home",
+  text = "Halo Sales XL Home Solo, mau tanya promo pasang baru WiFi (Gratis Pasang Rp 0)...",
   small = "Tanya Dulu",
 }: {
   text?: string;

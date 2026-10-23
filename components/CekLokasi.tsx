@@ -15,6 +15,7 @@ import {
   type CoverageData,
   type CoverageResult,
 } from "@/lib/coverage";
+import { ADS_ID } from "@/lib/site";
 import {
   LS_KOTA,
   LS_LEAD,
@@ -499,6 +500,29 @@ export default function CekLokasi() {
       kota_terdeteksi: p.kota || "unknown",
       page_path: window.location.pathname,
     });
+    if (typeof (window as unknown as { gtag?: unknown }).gtag === "function") {
+      const g = (window as unknown as { gtag: (...a: unknown[]) => void }).gtag;
+      g("event", "conversion", { send_to: `${ADS_ID}/uoD7CPXb27ADEN7y1b8D` });
+    }
+    if (typeof (window as unknown as { fbq?: unknown }).fbq === "function") {
+      const fbq = (window as unknown as { fbq: (...a: unknown[]) => void }).fbq;
+      fbq("track", "Contact");
+      fbq("track", "Lead", {
+        content_name: paketPilihan || "Form Cek Lokasi",
+        content_category: "location_check_modal",
+        value: paketPilihan && (paketPilihan.includes("250") || paketPilihan.includes("300")) ? 229000 : 185000,
+        currency: "IDR",
+      });
+    }
+    let utmSuffix = "";
+    try {
+      const u = sessionStorage.getItem("xlsr_utm");
+      if (u) {
+        utmSuffix = `\n[Sumber: ${u}]`;
+      }
+    } catch {
+      /* abaikan */
+    }
     try {
       const ls = localStorage;
       ls.setItem("xlsr_lead_done", JSON.stringify({ ts: Date.now() }));
@@ -513,7 +537,8 @@ export default function CekLokasi() {
       (p.alamat ? `Alamat: ${p.alamat}\n` : "") +
       (mapsLink ? `Peta lokasi: ${mapsLink}\n` : "") +
       (p.kota ? `Area terdekat: ${p.kota}\n` : "") +
-      covLine;
+      covLine +
+      utmSuffix;
     window.open(`https://wa.me/${NOMOR_WA_SALES}?text=${encodeURIComponent(pesan)}`, "_blank");
     setOpen(false);
     setSending(false);
