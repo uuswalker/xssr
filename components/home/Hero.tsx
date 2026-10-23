@@ -246,7 +246,7 @@ export function HomeHeroLokal() {
     <section className="hero-lokal">
       <div className="hero-lokal-inner">
         <h1>
-          Pasang <span>WiFi Solo Murah</span> &amp; Solo Raya ⚡ XL Home Resmi
+          Pasang <span>WiFi Solo Murah</span> &amp; Provider Internet Terbaik Solo Raya ⚡ XL Home Resmi
         </h1>
         <p>
           Layanan pasang WiFi murah di{" "}
@@ -258,7 +258,7 @@ export function HomeHeroLokal() {
             href="/wifi-tanpa-fup-unlimited/"
             style={{ color: "inherit", textDecoration: "underline" }}
           >
-            tanpa FUP, gratis pasang Rp 0, daftar pagi sore dipasang!
+            tanpa FUP, gratis pasang Rp 0, CS & Sales 24 Jam siap survei 1-2 hari!
           </a>
         </p>
         <button

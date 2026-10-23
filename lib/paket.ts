@@ -58,9 +58,9 @@ export const FIBER_TIERS: FiberTier[] = [
     barWidth: 74,
     barGradient: "linear-gradient(90deg,#1a8ac0,#2ba8e0)",
     barDotColor: "#1a8ac0",
-    speedNote: "Ideal untuk streaming & WFH",
+    speedNote: "Ideal untuk WFH, live seller & kos (patungan 45rb/bln)",
     boosterNote: "*Normal 100 Mbps + Speed Booster hingga 250 Mbps (promo periode tertentu)",
-    tags: ["Streaming HD", "Gaming Online", "WFH"],
+    tags: ["Streaming 4K", "WFH / Mahasiswa", "Seller Live TikTok"],
     feats: [
       { img: F_DEV10, text: "Hingga 10 Perangkat" },
       { img: F_FREE, text: "Gratis Biaya Instalasi" },

@@ -2393,8 +2393,8 @@ ARTIKEL["daftar-xl-home-online-tanpa-ke-kantor"] = {
 
 ARTIKEL["xl-satu-dan-xl-home-apakah-sama"] = {
   slug: "xl-satu-dan-xl-home-apakah-sama",
-  title: "Beda XL Satu dan XL Home (2026): Cek Perubahan Paket & Fitur",
-  description: "Bingung beda XL Satu dan XL Home? Simak penjelasan resmi perubahan nama, perbedaan kuota HP vs fiber, status pelanggan lama, serta promo pasang baru 2026.",
+  title: "Beda XL SATU dan XL Home: Apakah Sama? Cek Penjelasan Resmi 2026",
+  description: "Bingung beda XL Satu dan XL Home? Simak penjelasan resmi perubahan nama, perbedaan kuota HP vs fiber murni tanpa FUP, serta promo pasang baru mulai 185rb!",
   keywords: ["beda xl home dan xl satu", "perbedaan xl satu dan xl home", "apa bedanya xl home dan xl satu", "xl satu dan xl home apakah sama", "apakah xl home dan xl satu sama", "xl home", "xl satu", "internet xl rumah", "rebranding xl satu solo"],
   ogTitle: "Beda XL Satu dan XL Home (2026): Cek Perubahan Paket & Fitur",
   ogDescription: "Bingung beda XL Satu dan XL Home? Simak penjelasan resmi perubahan nama, perbedaan kuota HP vs fiber, status pelanggan lama, serta promo pasang baru 2026.",
