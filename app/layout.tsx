@@ -55,7 +55,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="image/webp"
         />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://connect.facebook.net" />
         {!IS_STAGING && (
           <script
             dangerouslySetInnerHTML={{
@@ -109,11 +109,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                   ['pointerdown','touchstart','scroll','click'].forEach(function(e){
                     window.addEventListener(e,_loadTrackers,{once:true,passive:true});
                   });
-                  if ('requestIdleCallback' in window) {
-                    window.requestIdleCallback(_loadTrackers, { timeout: 3500 });
-                  } else {
-                    setTimeout(_loadTrackers, 3500);
-                  }
+                  setTimeout(_loadTrackers, 12000);
                 `,
               }}
             />

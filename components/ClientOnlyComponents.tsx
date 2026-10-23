@@ -13,7 +13,6 @@ export default function ClientOnlyComponents() {
   const [loadWidgets, setLoadWidgets] = useState(false);
 
   useEffect(() => {
-    let idleId: number | null = null;
     let timerId: NodeJS.Timeout | null = null;
 
     const trigger = () => {
@@ -22,9 +21,6 @@ export default function ClientOnlyComponents() {
     };
 
     const cleanup = () => {
-      if (idleId !== null && "cancelIdleCallback" in window) {
-        (window as unknown as { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(idleId);
-      }
       if (timerId !== null) clearTimeout(timerId);
       window.removeEventListener("pointerdown", trigger);
       window.removeEventListener("touchstart", trigger);
@@ -37,14 +33,7 @@ export default function ClientOnlyComponents() {
     window.addEventListener("scroll", trigger, { once: true, passive: true });
     window.addEventListener("mousemove", trigger, { once: true, passive: true });
 
-    if ("requestIdleCallback" in window) {
-      idleId = (window as unknown as { requestIdleCallback: (fn: () => void, opts: { timeout: number }) => number }).requestIdleCallback(
-        trigger,
-        { timeout: 5000 }
-      );
-    } else {
-      timerId = setTimeout(trigger, 5000);
-    }
+    timerId = setTimeout(trigger, 12000);
 
     return cleanup;
   }, []);
