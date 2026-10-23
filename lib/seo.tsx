@@ -134,6 +134,8 @@ export function jsonLdLocalBusiness() {
       "https://satu.xl.co.id",
       "https://share.google/98sEij0jKY6VsIwcP",
       "https://maps.app.goo.gl/exTMsZCCVmCvtZzs9",
+      "https://www.facebook.com/profile.php?id=61594596763493",
+      "https://www.instagram.com/xlhome.sukoharjo/",
     ],
   };
 }

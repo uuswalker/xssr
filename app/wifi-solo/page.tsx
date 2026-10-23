@@ -118,7 +118,12 @@ const SERVICE_JSONLD = {
       closes: "21:00",
     },
     serviceType: "Internet Service Provider",
-    sameAs: ["https://satu.xl.co.id", "https://maps.app.goo.gl/exTMsZCCVmCvtZzs9"],
+    sameAs: [
+      "https://satu.xl.co.id",
+      "https://maps.app.goo.gl/exTMsZCCVmCvtZzs9",
+      "https://www.facebook.com/profile.php?id=61594596763493",
+      "https://www.instagram.com/xlhome.sukoharjo/",
+    ],
   },
   offers: {
     "@type": "AggregateOffer",
