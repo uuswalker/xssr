@@ -145,7 +145,15 @@ ARTIKEL["cara-daftar-pasang-wifi-xl-home-solo"] = {
   <div class="step-box">
     <div class="step-num">1</div>
     <div>
-      <h4>Kirim Alamat & Foto Rumah</h4>
+      <h4>Siapkan 5 Syarat Pendaftaran Lengkap</h4>
+        <p>Cukup siapkan <strong>5 syarat resmi</strong>: Foto KTP asli, Email aktif, Nomor HP 1 (WhatsApp), Nomor HP 2 (cadangan), dan Foto rumah tampak depan. Baca rincian lengkapnya di <a href="/syarat-pasang-wifi-xl-home-solo/" style="color:#16a34a; font-weight:700;">panduan 5 syarat pasang WiFi XL Home Solo</a>.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">2</div>
+      <div>
+        <h4>Pengecekan ODP & Registrasi Sistem</h4>
       <p>Siapkan alamat lengkap lokasi pemasangan (nama jalan, RT/RW, kelurahan) dan foto tampak depan rumah. Ini dipakai buat cek apakah area kamu sudah tercover jaringan fiber atau perlu opsi wireless.</p>
     </div>
   </div>
@@ -4413,3 +4421,203 @@ ARTIKEL["wifi-tanpa-kabel-solo"] = {
   `
 };
 
+
+ARTIKEL["syarat-pasang-wifi-xl-home-solo"] = {
+  slug: "syarat-pasang-wifi-xl-home-solo",
+  title: "5 Syarat Pasang WiFi XL Home Solo (Resmi 2026): Cepat & Mudah via WA",
+  description: "Panduan lengkap 5 syarat pasang WiFi XL Home Solo Raya 2026: Foto KTP, Email aktif, Nomor HP 1 & 2, serta Foto rumah tampak depan. Cek proses daftar cepat 1-2 hari kerja!",
+  keywords: ["syarat pasang wifi xl home", "syarat daftar xl home solo", "syarat pasang wifi solo", "dokumen pasang wifi xl home", "syarat pasang wifi rumah 2026", "daftar wifi xl home solo raya", "cara daftar wifi xl home", "syarat pasang wifi fiber"],
+  ogTitle: "5 Syarat Pasang WiFi XL Home Solo (Resmi 2026): Cepat & Mudah via WA",
+  ogDescription: "Mau pasang WiFi rumah di Solo Raya? Cek 5 syarat mudah pendaftaran resmi XL Home: Foto KTP, Email aktif, 2 Nomor HP, dan Foto rumah. Proses cepat 1-2 hari!",
+  ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
+  schemas: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "5 Syarat Pasang WiFi XL Home Solo (Resmi 2026): Cepat & Mudah via WA",
+      "description": "Panduan lengkap 5 syarat pasang WiFi XL Home Solo Raya 2026: Foto KTP, Email aktif, Nomor HP 1 & 2, serta Foto rumah tampak depan.",
+      "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
+      "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
+      "datePublished": "2026-10-23",
+      "dateModified": "2026-10-23",
+      "mainEntityOfPage": "https://xlhomesolo.com/syarat-pasang-wifi-xl-home-solo/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Apa saja syarat pasang WiFi XL Home di Solo Raya?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ada 5 syarat utama: 1) Foto KTP asli yang jelas, 2) Alamat email yang aktif, 3) Nomor HP 1 (WhatsApp utama), 4) Nomor HP 2 (kontak cadangan/keluarga), dan 5) Foto rumah tampak depan. Seluruh berkas cukup difoto dan dikirim melalui WhatsApp ke nomor sales resmi 0877-7899-9141."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah pendaftaran butuh fotokopi berkas atau harus ke kantor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tidak perlu fotokopi dan tidak perlu antre ke kantor! Seluruh proses registrasi 100% paperless dan online. Anda cukup mengirimkan data dan foto dokumen lewat WhatsApp resmi sales XL Home Solo Raya."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kenapa harus mencantumkan 2 Nomor HP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nomor HP 1 adalah nomor WhatsApp utama pemohon untuk koordinasi survei jadwal teknisi. Nomor HP 2 adalah nomor kontak cadangan (keluarga/pasangan) agar jika nomor utama sedang sibuk atau baterai habis saat teknisi datang ke rumah, tim lapangan tetap bisa berkomunikasi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Untuk apa melampirkan foto rumah tampak depan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Foto rumah tampak depan dibutuhkan tim Presales & Teknisi untuk memverifikasi patokan fisik bangunan rumah, mengukur jarak tarikan kabel fiber optic dari tiang ODP terdekat, dan mencegah salah alamat saat pemasangan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Berapa lama proses pemasangan setelah mengirim 5 syarat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pengecekan jaringan ODP di sistem membutuhkan waktu sekitar 5-15 menit. Jika jaringan fiber tersedia, jadwal pemasangan oleh teknisi resmi biasanya terlaksana dalam 1 hingga 2 hari kerja."
+          }
+        }
+      ]
+    }
+  ],
+  faqs: [
+    {
+      q: "Apa saja syarat pasang WiFi XL Home di Solo Raya?",
+      a: "Ada 5 syarat utama: 1) Foto KTP asli yang jelas, 2) Alamat email yang aktif, 3) Nomor HP 1 (WhatsApp utama), 4) Nomor HP 2 (kontak cadangan/keluarga), dan 5) Foto rumah tampak depan. Seluruh berkas cukup difoto dan dikirim melalui WhatsApp ke nomor sales resmi 0877-7899-9141."
+    },
+    {
+      q: "Apakah pendaftaran butuh fotokopi berkas atau harus ke kantor?",
+      a: "Tidak perlu fotokopi dan tidak perlu antre ke kantor! Seluruh proses registrasi 100% paperless dan online. Anda cukup mengirimkan data dan foto dokumen lewat WhatsApp resmi sales XL Home Solo Raya."
+    },
+    {
+      q: "Kenapa harus mencantumkan 2 Nomor HP?",
+      a: "Nomor HP 1 adalah nomor WhatsApp utama pemohon untuk koordinasi survei jadwal teknisi. Nomor HP 2 adalah nomor kontak cadangan (keluarga/pasangan) agar jika nomor utama sedang sibuk atau baterai habis saat teknisi datang ke rumah, tim lapangan tetap bisa berkomunikasi."
+    },
+    {
+      q: "Untuk apa melampirkan foto rumah tampak depan?",
+      a: "Foto rumah tampak depan dibutuhkan tim Presales & Teknisi untuk memverifikasi patokan fisik bangunan rumah, mengukur jarak tarikan kabel fiber optic dari tiang ODP terdekat, dan mencegah salah alamat saat pemasangan."
+    },
+    {
+      q: "Berapa lama proses pemasangan setelah mengirim 5 syarat?",
+      a: "Pengecekan jaringan ODP di sistem membutuhkan waktu sekitar 5-15 menit. Jika jaringan fiber tersedia, jadwal pemasangan oleh teknisi resmi biasanya terlaksana dalam 1 hingga 2 hari kerja."
+    }
+  ],
+  hero: {
+    crumb: '<a href="https://xlhomesolo.com/">Beranda</a> / <a href="/artikel/">Artikel</a> / Syarat Pasang WiFi XL Home Solo',
+    h1: "5 Syarat Pasang WiFi XL Home Solo (Resmi 2026): Cepat & Mudah via WA",
+    sub: "Mau pasang internet fiber rumah unlimited tanpa ribet? Cukup siapkan 5 syarat mudah ini langsung dari smartphone Anda tanpa perlu fotokopi atau datang ke kantor.",
+    meta: "Diperbarui 23 Oktober 2026 • Tim Sales Resmi XL Home Solo Raya"
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20mau%20daftar%20pasang%20baru.%20Mohon%20cek%20syarat%20dan%20jadwal%20pasang",
+  bodyHtml: `
+    <p>Ingin pasang internet rumah yang cepat, stabil, dan bebas batasan kuota (FUP) di Solo Raya? Sekarang mendaftar <strong>XL Home (XL SATU Fiber)</strong> jauh lebih praktis dan serba digital. Anda tidak perlu repot mencari tempat fotokopi, tidak perlu mengisi formulir kertas yang tebal, dan tidak perlu membuang waktu antre di kantor cabang.</p>
+
+    <div class="info-box">
+      <strong>Ringkasan Pendaftaran:</strong> Pendaftaran XL Home Solo Raya 100% online melalui WhatsApp Sales Resmi <strong>0877-7899-9141</strong>. Cukup kirimkan 5 syarat pendaftaran, tim sales akan langsung memverifikasi titik ODP tiang terdekat dan menjadwalkan teknisi pasang dalam 1-2 hari kerja.
+    </div>
+
+    <h2>Daftar Lengkap 5 Syarat Pasang WiFi XL Home</h2>
+    <p>Sebelum menghubungi tim sales, pastikan Anda telah menyiapkan 5 data berikut di smartphone Anda:</p>
+
+    <div class="step-box">
+      <div class="step-num">1</div>
+      <div>
+        <h4>Foto KTP Asli (e-KTP)</h4>
+        <p>Foto KTP asli pemohon (warga negara Indonesia usia minimal 17 tahun). Pastikan hasil foto KTP jelas, terang, tidak buram (blur), tidak terpotong sudutnya, serta NIK dan nama lengkap terbaca dengan sempurna. Data ini digunakan untuk registrasi akun pelanggan resmi di sistem XL Axiata dan dijamin kerahasiaannya sesuai UU Pelindungan Data Pribadi (UU PDP).</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">2</div>
+      <div>
+        <h4>Alamat Email yang Aktif</h4>
+        <p>Sediakan satu alamat email aktif (disarankan akun Gmail yang terhubung di smartphone Anda). Email ini berfungsi sebagai jalur resmi penerimaan nomor ID Pelanggan (<em>Customer ID</em>), rincian paket berlangganan, faktur tagihan bulanan resmi (<em>e-billing</em>), serta tanda terima pembayaran resmi.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">3</div>
+      <div>
+        <h4>Nomor HP 1 (Nomor WhatsApp Utama)</h4>
+        <p>Nomor handphone utama milik pemohon yang aktif terhubung dengan aplikasi WhatsApp. Nomor ini akan menjadi sarana komunikasi langsung tim sales untuk konfirmasi registrasi, notifikasi status pesanan, serta koordinasi jam kedatangan teknisi saat hari pemasangan.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">4</div>
+      <div>
+        <h4>Nomor HP 2 (Nomor Kontak Cadangan / Keluarga)</h4>
+        <p>Sediakan nomor telepon alternatif kedua (bisa nomor pasangan suami/istri, orang tua, anak, atau anggota keluarga yang tinggal satu rumah). Nomor cadangan ini sangat penting agar saat teknisi berada di jalan atau tiba di depan gang rumah, tim tetap dapat menghubungi jika Nomor HP 1 sedang sibuk rapat, baterai habis, atau di luar jangkauan.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">5</div>
+      <div>
+        <h4>Foto Rumah Tampak Depan</h4>
+        <p>Ambil foto bangunan rumah Anda dari arah depan jalan yang memperlihatkan pagar, nomor rumah, atau ciri visual fasad depan rumah. Foto ini sangat krusial bagi tim <em>Planning & Presales</em> untuk menentukan posisi tiang ODP (<em>Optical Distribution Point</em>) terdekat, memperkirakan panjang kabel fiber optic, dan memandu teknisi agar tiba tepat sasaran tanpa salah alamat.</p>
+      </div>
+    </div>
+
+    <h2>Format Chat WhatsApp Siap Kirim (Tinggal Salin)</h2>
+    <p>Agar proses pendaftaran Anda langsung diprioritaskan oleh tim sales, Anda bisa menyalin (copy-paste) format pendaftaran berikut dan melengkapinya langsung di WhatsApp:</p>
+
+    <div style="background:#f8fafc; border:1px dashed #cbd5e1; border-radius:10px; padding:18px 20px; margin:20px 0; font-family:monospace; font-size:13.5px; line-height:1.7; color:#1e293b;">
+      <strong>FORMAT PENDAFTARAN PASANG BARU XL HOME SOLO RAYA:</strong><br><br>
+      Halo Tim Sales XL Home Solo, saya ingin mendaftar pasang baru internet WiFi rumah. Berikut data persyaratan saya:<br><br>
+      1. Foto KTP: (Lampirkan foto di WA)<br>
+      2. Email Aktif: [Tuliskan email Anda di sini]<br>
+      3. Nomor HP 1 (WhatsApp): [Tuliskan nomor HP utama]<br>
+      4. Nomor HP 2 (Cadangan): [Tuliskan nomor HP keluarga]<br>
+      5. Foto Rumah Tampak Depan: (Lampirkan foto di WA)<br>
+      * Alamat Lengkap Pasang: [Nama Jalan, No. Rumah, RT/RW, Kelurahan, Kecamatan, Kota/Kabupaten]<br>
+      * Pilihan Paket: [Starter 185rb / Spark 250 Mbps 229rb / Paket Lainnya]<br><br>
+      Mohon dibantu cek titik jaringan tiang ODP terdekat dan jadwal pemasangannya. Terima kasih!
+    </div>
+
+    <div class="cta-box">
+      <h3>Siap Pasang Hari Ini? Kirim Syarat Sekarang via WhatsApp</h3>
+      <p>Tim sales resmi XL Home Solo Raya aktif 24 jam siap mengecek jangkauan fiber di alamat Anda dalam hitungan menit!</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20mau%20kirim%205%20syarat%20pendaftaran%20pasang%20WiFi%20baru" target="_blank" rel="noopener noreferrer" class="btn-cta">
+        <i class="fab fa-whatsapp"></i> Kirim Syarat via WhatsApp (0877-7899-9141)
+      </a>
+    </div>
+
+    <h2>Alur Proses Pemasangan: Dari Chat Hingga Aktif</h2>
+    <p>Setelah Anda mengirimkan 5 syarat di atas, berikut alur kerja tim resmi kami:</p>
+    <ol style="margin-left:20px; line-height:1.8; color:#334155; font-size:14.5px;">
+      <li><strong>Verifikasi Titik Jaringan (Presales Check):</strong> Sales mencocokkan foto rumah dan titik lokasi Google Maps dengan data titik ODP tiang terdekat (5-15 menit).</li>
+      <li><strong>Penerbitan Nomor Registrasi (Work Order):</strong> Data KTP dan email dimasukkan ke sistem registrasi resmi XL Axiata, pelanggan menerima email konfirmasi.</li>
+      <li><strong>Jadwal Kunjungan Teknisi:</strong> Tim teknisi menghubungi Nomor HP 1 untuk konfirmasi tanggal dan jam kedatangan pemasangan (biasanya 1-2 hari kerja).</li>
+      <li><strong>Instalasi Kabel & Modem:</strong> Teknisi menarik kabel fiber optic dari tiang ODP ke dalam rumah, memasang modem WiFi optical network terminal (ONT), dan melakukan uji redaman sinyal.</li>
+      <li><strong>Aktivasi & Uji Kecepatan:</strong> Internet langsung aktif, dilakukan uji kecepatan bersama pelanggan di tempat. Anda bisa langsung berselancar tanpa batas!</li>
+    </ol>
+
+    <h2>Keuntungan Pasang XL Home di Solo Raya</h2>
+    <p>Mengapa ribuan keluarga di Kota Solo, Sukoharjo, Karanganyar, Klaten, dan Boyolali beralih ke XL Home?</p>
+    <ul style="margin-left:20px; line-height:1.8; color:#334155; font-size:14.5px;">
+      <li><strong>100% Fiber Unlimited Tanpa FUP:</strong> Bebas download, streaming 4K, dan main game sepuasnya tanpa takut kecepatan diturunkan di akhir bulan.</li>
+      <li><strong>Bebas Biaya Instalasi (Promo Sales):</strong> Nikmati promo bebas biaya pasang Rp 0 untuk paket favorit keluarga.</li>
+      <li><strong>Pinjam Modem WiFi Gratis:</strong> Perangkat modem optical router dipinjamkan gratis selama berlangganan.</li>
+      <li><strong>Harga Transparan:</strong> Paket hemat mulai Rp 185.000/bulan hingga 250 Mbps hanya Rp 229.000/bulan (Paket Best Seller).</li>
+    </ul>
+
+    <h2>Panduan & Informasi Terkait Lainnya</h2>
+    <ul style="margin-left:20px; line-height:1.8; font-size:14px;">
+      <li><a href="/biaya-pasang-wifi-solo-raya/">Rincian Biaya Pasang WiFi Solo Raya Lengkap: Paket Bulanan & Promo</a></li>
+      <li><a href="/cara-daftar-pasang-wifi-xl-home-solo/">Panduan Cara Daftar & Pasang XL Home Solo 2026</a></li>
+      <li><a href="/250-mbps-untuk-berapa-orang/">Kapasitas Paket 250 Mbps: Cukup untuk Berapa Perangkat & Orang?</a></li>
+      <li><a href="/paket-wifi-tahunan-bayar-10-dapat-12/">Promo Paket Tahunan: Bayar 10 Bulan Gratis 2 Bulan</a></li>
+      <li><a href="/wifi-tanpa-fup-unlimited/">Bongkar Keunggulan WiFi Rumah Tanpa Batasan Kuota (FUP)</a></li>
+    </ul>
+  `
+};
