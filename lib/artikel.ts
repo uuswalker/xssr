@@ -4533,6 +4533,10 @@ ARTIKEL["syarat-pasang-wifi-xl-home-solo"] = {
       <div>
         <h4>Foto KTP Asli (e-KTP)</h4>
         <p>Foto KTP asli pemohon (warga negara Indonesia usia minimal 17 tahun). Pastikan hasil foto KTP jelas, terang, tidak buram (blur), tidak terpotong sudutnya, serta NIK dan nama lengkap terbaca dengan sempurna. Data ini digunakan untuk registrasi akun pelanggan resmi di sistem XL Axiata dan dijamin kerahasiaannya sesuai UU Pelindungan Data Pribadi (UU PDP).</p>
+        <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px; padding:12px 16px; margin:10px 0; font-size:13.5px; color:#166534; line-height:1.6;">
+          <strong>🔒 Jaminan Keamanan Privasi Data (UU PDP No. 27/2022):</strong> Data e-KTP Anda 100% aman dan hanya diinput langsung ke portal registrasi pelanggan PT XL Axiata Tbk.<br>
+          <em>Tips Aman:</em> Anda diperkenankan memberikan coretan/watermark pada foto KTP, contoh: <code>Hanya untuk Verifikasi Registrasi XL Home Solo</code> asalkan tidak menutupi NIK dan Nama lengkap.
+        </div>
       </div>
     </div>
 
@@ -4566,6 +4570,11 @@ ARTIKEL["syarat-pasang-wifi-xl-home-solo"] = {
         <h4>Foto Rumah Tampak Depan</h4>
         <p>Ambil foto bangunan rumah Anda dari arah depan jalan yang memperlihatkan pagar, nomor rumah, atau ciri visual fasad depan rumah. Foto ini sangat krusial bagi tim <em>Planning & Presales</em> untuk menentukan posisi tiang ODP (<em>Optical Distribution Point</em>) terdekat, memperkirakan panjang kabel fiber optic, dan memandu teknisi agar tiba tepat sasaran tanpa salah alamat.</p>
       </div>
+    </div>
+
+    <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:16px 20px; margin:24px 0; font-size:14px; color:#1e40af; line-height:1.7;">
+      <strong>💡 Belum Yakin Rumah Anda Tercover Jaringan Fiber?</strong><br>
+      Anda bisa berkonsultasi santai dan meminta tim sales resmi mengecek ketersediaan tiang ODP fiber di gang rumah Anda terlebih dahulu <strong>sebelum mengirimkan berkas KTP</strong>. Cukup kirimkan titik <em>Share Live Location</em> Google Maps atau nama gang ke WhatsApp sales kami!
     </div>
 
     <h2>Format Chat WhatsApp Siap Kirim (Tinggal Salin)</h2>
