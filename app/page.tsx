@@ -17,9 +17,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Pasang WiFi Solo Murah Mulai 185rb ⚡ Provider Internet Terbaik Solo (XL Home)",
+  title: "XL Satu & XL Home Solo: Pasang WiFi Murah Mulai 185rb ⚡ Bebas Biaya Pasang",
   description:
-    "Promo pasang WiFi Solo 2026 mulai 185rb/bln! 100% Fiber Unlimited Tanpa FUP + Gratis Pasang Rp 0. Chat Sales Resmi Solo Raya WA: 0877-7899-9141 (Aktif 24 Jam).",
+    "Promo resmi XL Satu & XL Home Solo Raya 2026 mulai 185rb/bln! 100% Fiber Optic Tanpa FUP + Gratis Pasang Rp 0. Chat Sales Resmi WA: 0877-7899-9141 (Aktif 24 Jam).",
   path: "/",
 });
 
