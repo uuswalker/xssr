@@ -53,6 +53,8 @@ export const V1_ROUTES: string[] = [
   "/rahasia-fup-internet-rumah/",
   "/eksperimen-game-streaming-zoom-bersamaan/",
   "/promo-perumahan-solo/",
+  "/artikel/",
+  "/cek-jaringan/",
 ];
 
 
