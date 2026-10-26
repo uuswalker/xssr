@@ -219,15 +219,15 @@ ARTIKEL["5-hal-wajib-dicek-sebelum-pasang-wifi-rumah"] = {
 
   slug: "5-hal-wajib-dicek-sebelum-pasang-wifi-rumah",
 
-  title: "5 Hal Wajib Dicek Sebelum Pasang WiFi Biar Nggak Nyesel 2026 | XL SATU",
+  title: "5 Hal Wajib Dicek Sebelum Pasang WiFi Rumah Biar Nggak Nyesel & Rugi [2026]",
 
-  description: "5 hal wajib cek sebelum pasang WiFi rumah biar nggak nyesel 2026: cara tes kecepatan respons support, penanganan gangguan, harga transparan, izin tiang, & sales paham lokasi.",
+  description: "Awas jebakan batas kuota FUP & biaya tersembunyi! Cek 5 hal ini sebelum pasang internet rumah: kecepatan simetris, biaya instalasi, dan promo pasang baru Solo Raya.",
 
   keywords: "tips pasang wifi rumah biar nggak kecewa, 5 hal wajib cek sebelum pasang wifi, cara pilih isp bagus, tips pilih wifi solo raya".split(/,\s*/),
 
-  ogTitle: "5 Hal Wajib Dicek Sebelum Pasang WiFi Rumah Biar Nggak Nyesel",
+  ogTitle: "5 Hal Wajib Dicek Sebelum Pasang WiFi Rumah Biar Nggak Nyesel & Rugi [2026]",
 
-  ogDescription: "5 hal wajib cek sebelum pasang WiFi 2026 biar nggak nyesel: tes kecepatan respons support, penanganan gangguan, harga transparan, izin tiang, & sales paham lokasi.",
+  ogDescription: "Awas jebakan batas kuota FUP & biaya tersembunyi! Cek 5 hal ini sebelum pasang internet rumah: kecepatan simetris, biaya instalasi, dan promo pasang baru Solo Raya.",
 
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
 
@@ -309,15 +309,15 @@ ARTIKEL["kecepatan-wifi-ideal-keluarga"] = {
 
   slug: "kecepatan-wifi-ideal-keluarga",
 
-  title: "Kecepatan WiFi Ideal Keluarga: 1-2, 3-4, 5+ Orang Berapa Mbps? | XL Home",
+  title: "Kecepatan WiFi yang Bagus untuk Rumah Berapa Mbps? Panduan Keluarga Bebas Lemot [2026]",
 
-  description: "Berapa Mbps yang pas untuk kebutuhan rumah tangga Anda? Simak rekomendasi kecepatan untuk 1-2, 3-4, dan 5+ orang WFH, streaming 4K, serta paket hemat XL Home Solo.",
+  description: "Berapa Mbps yang pas untuk WiFi rumah? Cek panduan: 1-2 orang (30 Mbps), 3-4 orang (100 Mbps), 5+ orang (250 Mbps). Paket XL Home Solo mulai 185rb Bebas FUP!",
 
   keywords: "kecepatan wifi ideal keluarga, berapa mbps untuk keluarga, wifi untuk keluarga 4 orang, kecepatan internet rumah tangga".split(/,\s*/),
 
-  ogTitle: "Kecepatan WiFi Ideal Keluarga: 1-2, 3-4, 5+ Orang Berapa Mbps?",
+  ogTitle: "Kecepatan WiFi yang Bagus untuk Rumah Berapa Mbps? Panduan Keluarga Bebas Lemot [2026]",
 
-  ogDescription: "1—2 orang: 20—100 Mbps. 3—4 orang WFH+streaming: 100—250 Mbps. 5+ orang atau smart home: 250—400 Mbps. Tabel + rekomendasi paket XL SATU Solo Raya.",
+  ogDescription: "Berapa Mbps yang pas untuk WiFi rumah? Cek panduan: 1-2 orang (30 Mbps), 3-4 orang (100 Mbps), 5+ orang (250 Mbps). Paket XL Home Solo mulai 185rb Bebas FUP!",
 
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
 
@@ -339,15 +339,15 @@ ARTIKEL["internet-rakyat-vs-xl-home"] = {
 
   slug: "internet-rakyat-vs-xl-home",
 
-  title: "XL Home FWA 5G Solo: Internet Rumah Cepat Tanpa Tarik Kabel",
+  title: "Internet Rakyat vs XL Home Solo 2026: Perbandingan Harga, FUP & Kestabilan",
 
-  description: "Internet Rakyat vs XL Home Solo 2026: cakupan 5G FWA 1.4 GHz Banjarsari Laweyan, harga Rp100rb vs Rp185rb, & kecepatan. Cek alternatif XL Home untuk Sukoharjo Karanganyar Klaten Boyolali.",
+  description: "Bagusan mana Internet Rakyat atau XL Home? Bandingkan harga 100rb vs 185rb, batas kuota FUP, kestabilan jaringan fiber, & area cover Solo Raya sebelum pasang WiFi!",
 
   keywords: "internet rakyat vs xl home, internet rakyat solo, internet rakyat vs xl home solo, perbandingan internet rakyat, wifi murah solo raya".split(/,\s*/),
 
-  ogTitle: "Internet Rakyat 5G FWA vs XL Home Solo 2026: Cakupan 1.4 GHz & Harga",
+  ogTitle: "Internet Rakyat vs XL Home Solo 2026: Perbandingan Harga, FUP & Kestabilan",
 
-  ogDescription: "Internet Rakyat vs XL Home Solo 2026: bandingkan cakupan, harga Rp100rb vs Rp185rb, & kecepatan. Cek alternatif untuk 4 wilayah Solo Raya.",
+  ogDescription: "Bagusan mana Internet Rakyat atau XL Home? Bandingkan harga 100rb vs 185rb, batas kuota FUP, kestabilan jaringan fiber, & area cover Solo Raya sebelum pasang WiFi!",
 
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
 
@@ -371,15 +371,15 @@ ARTIKEL["250-mbps-untuk-berapa-orang"] = {
 
   slug: "250-mbps-untuk-berapa-orang",
 
-  title: "250 Mbps untuk Berapa Orang? 4—6 Pengguna, Tabel Aktivitas | XL SATU",
+  title: "250 Mbps Apakah Cepat & untuk Berapa Orang? Panduan Lengkap WiFi Rumah 2026",
 
-  description: "250 Mbps untuk berapa orang? Jawaban: 4—6 pengguna aktif bersamaan (streaming 4K, video call, gaming) atau hingga 10 perangkat. Tabel aktivitas + paket XL SATU 250 Mbps.",
+  description: "Kecepatan 250 Mbps sangat cepat untuk 4-8 perangkat, streaming 4K & game tanpa lag! Cek paket Spark 250 Mbps XL Home Solo Raya (229rb/bln) + Gratis Pasang Rp 0.",
 
   keywords: "250 mbps untuk berapa orang, wifi 250 mbps untuk berapa orang, 250 mbps cukup untuk berapa device, paket xl satu 250 mbps, wifi 250 mbps kuat berapa tv".split(/,\s*/),
 
-  ogTitle: "250 Mbps untuk Berapa Orang? Panduan Lengkap + Tabel Aktivitas",
+  ogTitle: "250 Mbps Apakah Cepat & untuk Berapa Orang? Panduan Lengkap WiFi Rumah 2026",
 
-  ogDescription: "250 Mbps nyaman untuk 4—6 pengguna aktif bersamaan atau hingga 10 perangkat. Hitungan streaming 4K, video call, gaming + paket XL SATU 250 Mbps.",
+  ogDescription: "Kecepatan 250 Mbps sangat cepat untuk 4-8 perangkat, streaming 4K & game tanpa lag! Cek paket Spark 250 Mbps XL Home Solo Raya (229rb/bln) + Gratis Pasang Rp 0.",
 
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
 
@@ -2401,11 +2401,11 @@ ARTIKEL["daftar-xl-home-online-tanpa-ke-kantor"] = {
 
 ARTIKEL["xl-satu-dan-xl-home-apakah-sama"] = {
   slug: "xl-satu-dan-xl-home-apakah-sama",
-  title: "Beda XL SATU dan XL Home: Apakah Sama? Cek Penjelasan Resmi 2026",
-  description: "Bingung beda XL Satu dan XL Home? Simak penjelasan resmi perubahan nama, perbedaan kuota HP vs fiber murni tanpa FUP, serta promo pasang baru mulai 185rb!",
+  title: "XL Satu & XL Home Apakah Sama? Ini Perbedaan Resmi, Tarif & Cara Migrasi 2026",
+  description: "Ternyata XL Satu resmi berganti nama jadi XL Home! Simak beda kuota HP, kecepatan fiber murni tanpa FUP, tarif mulai 185rb di Solo Raya, & cara daftar via WA sales.",
   keywords: ["beda xl home dan xl satu", "perbedaan xl satu dan xl home", "apa bedanya xl home dan xl satu", "xl satu dan xl home apakah sama", "apakah xl home dan xl satu sama", "xl home", "xl satu", "internet xl rumah", "rebranding xl satu solo"],
-  ogTitle: "Beda XL Satu dan XL Home (2026): Cek Perubahan Paket & Fitur",
-  ogDescription: "Bingung beda XL Satu dan XL Home? Simak penjelasan resmi perubahan nama, perbedaan kuota HP vs fiber, status pelanggan lama, serta promo pasang baru 2026.",
+  ogTitle: "XL Satu & XL Home Apakah Sama? Ini Perbedaan Resmi, Tarif & Cara Migrasi 2026",
+  ogDescription: "Ternyata XL Satu resmi berganti nama jadi XL Home! Simak beda kuota HP, kecepatan fiber murni tanpa FUP, tarif mulai 185rb di Solo Raya, & cara daftar via WA sales.",
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
   schemas: [
     {
@@ -2918,8 +2918,8 @@ ARTIKEL["trik-hemat-pasang-wifi-solo-raya"] = {
 
 ARTIKEL["panduan-warna-tiang-wifi-xl-home-jarak-kabel"] = {
   slug: "panduan-warna-tiang-wifi-xl-home-jarak-kabel",
-  title: "Panduan Warna Tiang WiFi XL Home & Jarak Kabel Maksimal ke Rumah di Solo Raya",
-  description: "Kenali ciri warna tiang WiFi XL Home (d/h XL SATU), letak kotak ODP/FAT di jalan, beda tiang listrik vs wifi, dan batas jarak maksimal kabel ke rumah di Solo Raya.",
+  title: "Ciri Warna Tiang WiFi XL Home & Batas Jarak Kabel ODP ke Rumah (Solo Raya 2026)",
+  description: "Mau pasang WiFi rumah? Kenali ciri warna tiang & ODP XL Home di jalan, beda tiang listrik vs fiber, jarak tarikan kabel maks 200m, dan cara cek cover via WhatsApp!",
   keywords: [
     "warna tiang wifi xl satu",
     "warna tiang xl home",
@@ -2931,7 +2931,7 @@ ARTIKEL["panduan-warna-tiang-wifi-xl-home-jarak-kabel"] = {
     "pasang wifi jauh dari tiang",
     "cek tiang odp fiberstar xl solo"
   ],
-  ogTitle: "Warna Tiang WiFi XL Home & Jarak Kabel Maksimal ke Rumah di Solo Raya",
+  ogTitle: "Ciri Warna Tiang WiFi XL Home & Batas Jarak Kabel ODP ke Rumah (Solo Raya 2026)",
   ogDescription: "Panduan mengenali tiang fiber XL Home, kode kotak FAT/ODP, perbedaan tiang PLN, dan batas jarak maksimal kabel drop wire ke rumah Anda.",
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
   schemas: [

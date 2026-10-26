@@ -51,9 +51,9 @@ const SOLO_FAQS = [
 
 export async function generateMetadata(): Promise<Metadata> {
   const base = pageMetadata({
-    title: "Pasang WiFi Solo Murah Mulai 185rb ⚡ XL Home Solo Resmi",
+    title: "Pasang WiFi XL Satu & XL Home Solo Mulai 185rb ⚡ Promo Resmi 2026",
     description:
-      "Promo pasang WiFi Solo 2026 mulai 185rb/bln! 100% Fiber Tanpa FUP + Gratis Pasang Rp 0. Daftar cepat teknisi ke rumah via WA Sales: 0877-7899-9141.",
+      "Promo resmi pasang baru XL Satu & XL Home Solo 2026 mulai 185rb/bln! 100% Fiber Optic Tanpa FUP + Gratis Pasang Rp 0. Chat WhatsApp Sales Resmi: 0877-7899-9141.",
     path: "/wifi-solo/",
     image: "/images/banner-xlsatu-jadi-xlhome.jpg",
   });
