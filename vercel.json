@@ -33,6 +33,21 @@
   ],
   "redirects": [
     {
+      "source": "/pasang-wifi-murah-jebres-solo",
+      "destination": "/pasang-wifi-murah-jebres-solo/",
+      "permanent": true
+    },
+    {
+      "source": "/pasang-wifi-murah-colomadu",
+      "destination": "/pasang-wifi-murah-colomadu/",
+      "permanent": true
+    },
+    {
+      "source": "/xl-center-solo-terdekat-pasang-wifi",
+      "destination": "/xl-center-solo-terdekat-pasang-wifi/",
+      "permanent": true
+    },
+    {
       "source": "/cara-daftar-pasang-wifi-xl-satu-solo",
       "destination": "/cara-daftar-pasang-wifi-xl-home-solo/",
       "permanent": true
