@@ -20,9 +20,9 @@ ARTIKEL["panduan-wifi-kos-solo"] = {
 
   slug: "panduan-wifi-kos-solo",
 
-  title: "WiFi Kos Solo: Kecepatan Ideal, Biaya Patungan & Area UNS UMS | XL Home",
+  title: "WiFi Kos Solo Murah: Panduan Patungan UNS & UMS [2026]",
 
-  description: "WiFi kos Solo butuh berapa Mbps? Panduan kecepatan kos mahasiswa UNS Jebres & UMS Pabelan, cara patungan murah cuma 28rb-an/kamar, & area kampus yang sudah fiber.",
+  description: "WiFi kos Solo butuh berapa Mbps? Panduan patungan murah mahasiswa UNS Jebres & UMS Pabelan mulai 28rb-an/kamar. Jaringan fiber optik siap pasang!",
 
   keywords: "wifi kos solo, wifi kos uns jebres, wifi kos ums pabelan kartasura, wifi kos dekat uns ums, kecepatan wifi kos 3-4 orang, biaya patungan wifi kos, internet kontrakan solo raya".split(/,\s*/),
 
@@ -95,9 +95,9 @@ ARTIKEL["biaya-pasang-wifi-solo-raya"] = {
 
   slug: "biaya-pasang-wifi-solo-raya",
 
-  title: "Biaya Pasang WiFi Solo 2026: Mulai Rp185rb —  Rincian Paket & Instalasi | XL SATU",
+  title: "Biaya Pasang WiFi Solo 2026: Mulai 185rb [Gratis Instalasi]",
 
-  description: "Biaya pasang WiFi Solo berapa? Rincian 2026: paket fiber 20—1000 Mbps mulai Rp185rb/bulan, instalasi Rp100rb/gratis, + simulasi total bulan pertama & PPN.",
+  description: "Rincian lengkap biaya pasang WiFi di Solo 2026. Paket fiber mulai 185rb/bulan, gratis biaya instalasi, tanpa biaya tersembunyi. Simak simulasi totalnya!",
 
   keywords: "biaya pasang wifi solo 2026, harga wifi solo raya mulai 185rb, biaya instalasi wifi solo, rincian biaya xl satu solo".split(/,\s*/),
 
@@ -123,8 +123,8 @@ ARTIKEL["biaya-pasang-wifi-solo-raya"] = {
 
 ARTIKEL["cara-daftar-pasang-wifi-xl-home-solo"] = {
   slug: "cara-daftar-pasang-wifi-xl-home-solo",
-  title: "Cara Daftar & Pasang XL Home Solo (d/h XL SATU) 2026: 3 Langkah via WA",
-  description: "Cara daftar & pasang XL Home Solo (transformasi resmi XL SATU) 2026: 3 langkah via WhatsApp 0877-7899-9141, syarat alamat + foto rumah, biaya hemat, instalasi cepat.",
+  title: "Cara Daftar & Pasang WiFi XL Home Solo [3 Langkah via WA]",
+  description: "Cara daftar pasang WiFi XL Home Solo 2026: cukup 3 langkah via WhatsApp resmi sales, share lokasi & foto rumah. Pemasangan cepat tanpa antre!",
   keywords: "cara daftar pasang wifi xl home solo, cara pasang wifi solo, syarat pasang wifi xl home, daftar wifi xl home solo raya, sales xl home solo".split(/,\s*/),
   ogTitle: "Cara Daftar & Pasang XL Home Solo 2026: 3 Langkah via WA",
   ogDescription: "Cara daftar & pasang XL Home Solo 2026: 3 langkah via WhatsApp, syarat alamat + foto rumah, instalasi cepat tanpa ke kantor.",
@@ -219,9 +219,9 @@ ARTIKEL["5-hal-wajib-dicek-sebelum-pasang-wifi-rumah"] = {
 
   slug: "5-hal-wajib-dicek-sebelum-pasang-wifi-rumah",
 
-  title: "5 Hal Wajib Dicek Sebelum Pasang WiFi Rumah Biar Nggak Nyesel & Rugi [2026]",
+  title: "5 Hal Wajib Dicek Sebelum Pasang WiFi Rumah [2026]",
 
-  description: "Awas jebakan batas kuota FUP & biaya tersembunyi! Cek 5 hal ini sebelum pasang internet rumah: kecepatan simetris, biaya instalasi, dan promo pasang baru Solo Raya.",
+  description: "Awas jebakan batas kuota FUP dan biaya pasang tersembunyi! Simak 5 tips penting sebelum pasang WiFi di rumah agar tidak rugi dan menyesal.",
 
   keywords: "tips pasang wifi rumah biar nggak kecewa, 5 hal wajib cek sebelum pasang wifi, cara pilih isp bagus, tips pilih wifi solo raya".split(/,\s*/),
 
@@ -309,9 +309,9 @@ ARTIKEL["kecepatan-wifi-ideal-keluarga"] = {
 
   slug: "kecepatan-wifi-ideal-keluarga",
 
-  title: "Kecepatan WiFi yang Bagus untuk Rumah Berapa Mbps? Panduan Keluarga Bebas Lemot [2026]",
+  title: "Berapa Mbps WiFi Rumah yang Pas? [Simulasi Hemat 2026]",
 
-  description: "Berapa Mbps yang pas untuk WiFi rumah? Cek panduan: 1-2 orang (20 Mbps), 3-4 orang (100 Mbps), 5+ orang (250 Mbps). Paket XL Home Solo mulai 185rb Bebas FUP!",
+  description: "Panduan memilih kecepatan WiFi ideal keluarga: 20, 100, hingga 250 Mbps. Temukan paket internet fiber paling hemat & bebas FUP di Solo Raya!",
 
   keywords: "kecepatan wifi ideal keluarga, berapa mbps untuk keluarga, wifi untuk keluarga 4 orang, kecepatan internet rumah tangga".split(/,\s*/),
 
@@ -339,9 +339,9 @@ ARTIKEL["internet-rakyat-vs-xl-home"] = {
 
   slug: "internet-rakyat-vs-xl-home",
 
-  title: "Internet Rakyat vs XL Home Solo 2026: Perbandingan Harga, FUP & Kestabilan",
+  title: "Internet Rakyat vs XL Home Solo [Perbandingan Jujur 2026]",
 
-  description: "Bagusan mana Internet Rakyat atau XL Home? Bandingkan harga 100rb vs 185rb, batas kuota FUP, kestabilan jaringan fiber, & area cover Solo Raya sebelum pasang WiFi!",
+  description: "Bagusan mana Internet Rakyat atau XL Home? Bandingkan harga 100rb vs 185rb, batas FUP & kestabilan jaringan fiber di Solo Raya sebelum pasang WiFi!",
 
   keywords: "internet rakyat vs xl home, internet rakyat solo, internet rakyat vs xl home solo, perbandingan internet rakyat, wifi murah solo raya".split(/,\s*/),
 
@@ -371,9 +371,9 @@ ARTIKEL["250-mbps-untuk-berapa-orang"] = {
 
   slug: "250-mbps-untuk-berapa-orang",
 
-  title: "250 Mbps Apakah Cepat & untuk Berapa Orang? Panduan Lengkap WiFi Rumah 2026",
+  title: "250 Mbps Apakah Cepat? [Panduan WiFi Rumah 2026]",
 
-  description: "Kecepatan 250 Mbps sangat cepat untuk 4-8 perangkat, streaming 4K & game tanpa lag! Cek paket Spark 250 Mbps XL Home Solo Raya (229rb/bln) + Gratis Pasang Rp 0.",
+  description: "Berapa kencang 250 Mbps dan cocok untuk berapa orang? Simak simulasi pemakaian streaming 4K, WFH & gaming tanpa lag paket Spark XL Home Solo!",
 
   keywords: "250 mbps untuk berapa orang, wifi 250 mbps untuk berapa orang, 250 mbps cukup untuk berapa device, paket xl satu 250 mbps, wifi 250 mbps kuat berapa tv".split(/,\s*/),
 
@@ -433,9 +433,9 @@ ARTIKEL["xl-home-vs-indihome-myrepublic-solo"] = {
 
   slug: "xl-home-vs-indihome-myrepublic-solo",
 
-  title: "XL Home vs IndiHome, Biznet & MyRepublic Solo 2026: Mana yang Bebas FUP? | XL Home",
+  title: "XL Home vs IndiHome, Biznet & MyRepublic Solo [2026]",
 
-  description: "Bandingkan jujur XL Home (d/h XL SATU), IndiHome, Biznet & MyRepublic di Solo Raya 2026. Bongkar aturan FUP baru, biaya beli modem, dan jebakan harga naik setelah setahun.",
+  description: "Perbandingan jujur provider WiFi Solo Raya 2026: beda kuota FUP, kecepatan simetris, dan biaya pasang. Temukan pilihan terbaik keluarga Anda!",
 
   keywords: ["xl home vs indihome solo", "biznet vs xl satu fiber", "xl satu vs myrepublic solo", "wifi tanpa fup solo", "perbandingan provider wifi solo", "wifi terbaik solo raya 2026", "biaya pasang biznet solo", "fup indihome solo"],
 
@@ -1422,9 +1422,9 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
 
   slug: "cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo",
 
-  title: "Cara Berhenti Langganan IndiHome/Biznet & Pindah ke XL Home Solo (d/h XL SATU)",
+  title: "Cara Pindah Provider WiFi ke XL Home Solo [Anti Putus]",
 
-  description: "Kecewa dengan FUP dan internet lemot di akhir bulan? Ini panduan lengkap cara berhenti berlangganan IndiHome, Biznet, atau MyRepublic, dan cara pindah ke XL Home Fiber di Solo tanpa putus koneksi.",
+  description: "Kecewa internet lemot kena FUP? Panduan lengkap cara berhenti IndiHome/Biznet dan pindah ke XL Home Solo tanpa putus koneksi. Cek promo migrasinya!",
 
   keywords: ["cara berhenti indihome", "cara putus biznet", "pindah ke xl home solo", "wifi tanpa fup", "promo xl home solo", "cara ganti provider wifi"],
 
@@ -2401,8 +2401,8 @@ ARTIKEL["daftar-xl-home-online-tanpa-ke-kantor"] = {
 
 ARTIKEL["xl-satu-dan-xl-home-apakah-sama"] = {
   slug: "xl-satu-dan-xl-home-apakah-sama",
-  title: "XL Satu & XL Home Apakah Sama? Ini Perbedaan Resmi, Tarif & Cara Migrasi 2026",
-  description: "Ternyata XL Satu resmi berganti nama jadi XL Home! Simak beda kuota HP, kecepatan fiber murni tanpa FUP, tarif mulai 185rb di Solo Raya, & cara daftar via WA sales.",
+  title: "Beda XL Satu & XL Home Resmi [Panduan Migrasi 2026]",
+  description: "Apakah XL Satu dan XL Home sama? Simak penjelasan resmi evolusi layanan, perubahan paket fiber, dan cara daftar pasang baru di Solo Raya.",
   keywords: ["beda xl home dan xl satu", "perbedaan xl satu dan xl home", "apa bedanya xl home dan xl satu", "xl satu dan xl home apakah sama", "apakah xl home dan xl satu sama", "xl home", "xl satu", "internet xl rumah", "rebranding xl satu solo"],
   ogTitle: "XL Satu & XL Home Apakah Sama? Ini Perbedaan Resmi, Tarif & Cara Migrasi 2026",
   ogDescription: "Ternyata XL Satu resmi berganti nama jadi XL Home! Simak beda kuota HP, kecepatan fiber murni tanpa FUP, tarif mulai 185rb di Solo Raya, & cara daftar via WA sales.",
@@ -2567,8 +2567,8 @@ ARTIKEL["xl-satu-dan-xl-home-apakah-sama"] = {
 
 ARTIKEL["cara-cek-jaringan-xl-home-di-depan-rumah"] = {
   slug: "cara-cek-jaringan-xl-home-di-depan-rumah",
-  title: "Cara Cek Jaringan XL Home di Depan Rumah (Kenali Ciri Tiangnya!)",
-  description: "Ingin pasang XL Home tapi ragu apakah jaringan sudah masuk? Kenali ciri-ciri tiang XL Home (hijau-biru) dan kotak ODP/FAT di sekitar rumah Anda.",
+  title: "Cara Cek Jaringan XL Home di Rumah [Ciri Tiang ODP]",
+  description: "Ingin tahu apakah rumah Anda tercover fiber XL Home? Kenali ciri tiang ODP resmi Link Net dan cara cek slot kabel gratis lewat WhatsApp sales.",
   keywords: ["cara cek jaringan xl home", "tiang xl home", "odp xl home", "ciri tiang xl home", "cek jangkauan xl home solo", "tiang xl satu", "kotak fat xl"],
   ogTitle: "Cara Cek Jaringan XL Home: Kenali Ciri Tiangnya!",
   ogDescription: "Cek sendiri jangkauan XL Home di depan rumah Anda. Cari tiang berpucuk hijau-biru dan kotak ini!",
@@ -2627,8 +2627,8 @@ ARTIKEL["cara-cek-jaringan-xl-home-di-depan-rumah"] = {
 
 ARTIKEL["xl-center-solo-terdekat-pasang-wifi"] = {
   slug: "xl-center-solo-terdekat-pasang-wifi",
-  title: "XL Center Solo & Call Center CS 24 Jam: Alamat & Pasang WiFi | XL Home",
-  description: "Info alamat resmi XL Center Solo (Penumping), nomor call center CS 24 jam (820 / 0817-0123442), serta cara daftar pasang WiFi XL Home tanpa antre di gerai.",
+  title: "Alamat XL Center Solo & CS Pasang WiFi [Resmi 2026]",
+  description: "Info alamat XL Center Solo Penumping, call center CS 24 jam, dan panduan daftar pasang baru WiFi XL Home tanpa antre di gerai. Chat via WhatsApp!",
   keywords: ["xl center solo", "store xl terdekat", "alamat xl center solo", "gerai xl solo", "pasang wifi xl solo", "xl center penumping", "xl center terdekat"],
   ogTitle: "Jangan Ke XL Center Dulu Sebelum Baca Ini!",
   ogDescription: "Mau pasang WiFi XL Home? Gak perlu capek antre di gerai fisik. Daftar online lebih cepat.",
@@ -2756,8 +2756,8 @@ ARTIKEL["panduan-fiber-vs-wireless"] = {
 
 ARTIKEL["trik-hemat-pasang-wifi-solo-raya"] = {
   slug: "trik-hemat-pasang-wifi-solo-raya",
-  title: "Trik Cerdas Hemat Pasang WiFi Solo Raya 2026: Kenapa 250 Mbps Lebih Murah di Bulan ke-1? | XL Home",
-  description: "Trik rahasia hemat pasang WiFi baru di Solo Raya 2026: Kenapa paket Spark 250 Mbps (Rp254.190 nett) lebih hemat Rp62.000 di bulan pertama dibanding 20 Mbps? Cek perhitungannya.",
+  title: "Trik Hemat Pasang WiFi Solo 2026 [Kupas Rahasia Sales]",
+  description: "Trik rahasia hemat pasang WiFi Solo 2026: kenapa paket Spark 250 Mbps gratis pasang Rp 0 lebih hemat di bulan pertama dibanding 20 Mbps? Simak hitungannya!",
   keywords: ["trik hemat pasang wifi solo raya", "cara hemat pasang wifi rumah", "biaya pasang wifi xl home solo", "paket 250 mbps vs 20 mbps", "wifi murah tanpa fup solo"],
   ogTitle: "Trik Cerdas Hemat Pasang WiFi Solo Raya: 250 Mbps Lebih Murah di Bulan ke-1!",
   ogDescription: "Bulan pertama paket 250 Mbps justru LEBIH HEMAT Rp 62.000 dibanding 20 Mbps. Dapatkan speed 12.5x lipat + 100% Bebas FUP di Solo Raya.",
@@ -2918,8 +2918,8 @@ ARTIKEL["trik-hemat-pasang-wifi-solo-raya"] = {
 
 ARTIKEL["panduan-warna-tiang-wifi-xl-home-jarak-kabel"] = {
   slug: "panduan-warna-tiang-wifi-xl-home-jarak-kabel",
-  title: "Ciri Warna Tiang WiFi XL Home & Batas Jarak Kabel ODP ke Rumah (Solo Raya 2026)",
-  description: "Mau pasang WiFi rumah? Kenali ciri warna tiang & ODP XL Home di jalan, beda tiang listrik vs fiber, jarak tarikan kabel maks 200m, dan cara cek cover via WhatsApp!",
+  title: "Warna Tiang WiFi XL Home & Batas Jarak Kabel ODP",
+  description: "Berapa meter batas maksimal tarikan kabel fiber ke rumah? Kenali warna tiang dan kode ODP XL Home agar instalasi teknisi disetujui tanpa kendala!",
   keywords: [
     "warna tiang wifi xl satu",
     "warna tiang xl home",
@@ -3102,8 +3102,8 @@ ARTIKEL["panduan-warna-tiang-wifi-xl-home-jarak-kabel"] = {
 
 ARTIKEL["wifi-untuk-live-streaming-jualan-solo"] = {
   slug: "wifi-untuk-live-streaming-jualan-solo",
-  title: "WiFi untuk Live Streaming Jualan Solo (TikTok & Shopee) Bebas Buffer: Rekomendasi Internet Simetris 1:1 Murah",
-  description: "Cari WiFi terbaik untuk live streaming jualan di Solo? Solusi internet simetris 1:1 bebas buffer untuk TikTok Shop, Shopee Live, UMKM Batik Laweyan, Pasar Kliwon & ruko Solo Baru.",
+  title: "WiFi untuk Live Streaming Solo [Anti-Lag TikTok & Shopee]",
+  description: "WiFi terbaik untuk live streaming jualan di Solo (TikTok & Shopee Live): internet simetris 1:1 bebas lag untuk UMKM Laweyan, Pasar Kliwon & Solo Baru!",
   keywords: [
     "wifi untuk live streaming jualan solo",
     "wifi live streaming solo",
@@ -3927,8 +3927,8 @@ ARTIKEL["pasang-wifi-xl-home-kartasura"] = {
 
 ARTIKEL["biaya-pasang-wifi-pertama-kali-solo"] = {
   slug: "biaya-pasang-wifi-pertama-kali-solo",
-  title: "Biaya Pasang WiFi Pertama Kali Solo 2026: Tabel Jujur All Provider | XL Home",
-  description: "Berapa biaya pasang WiFi pertama kali di Solo? Tabel perbandingan jujur biaya awal IndiHome, Biznet, MyRepublic vs XL Home (Gratis Pasang Rp 0 & 100% Tanpa FUP).",
+  title: "Biaya Pasang WiFi Pertama Kali Solo [Tabel Jujur 2026]",
+  description: "Berapa biaya pasang WiFi pertama kali di Solo? Cek tabel jujur biaya awal IndiHome, Biznet & XL Home (Gratis Pasang Rp 0). Temukan paket paling hemat!",
   keywords: [
     "biaya pasang wifi pertama kali solo",
     "pasang wifi pertama kali bayar berapa",
@@ -4200,8 +4200,8 @@ ARTIKEL["biaya-pasang-wifi-pertama-kali-solo"] = {
 
 ARTIKEL["wifi-tanpa-kabel-solo"] = {
   slug: "wifi-tanpa-kabel-solo",
-  title: "WiFi Tanpa Kabel Solo 2026: Internet Rumah Tanpa Tiang & Fiber | XL Home",
-  description: "Cari WiFi rumah tanpa kabel di Solo Raya? Solusi internet nirkabel FWA untuk area blank spot Boyolali, Karanganyar, Klaten & Solo. Praktis tinggal colok tanpa tarik kabel!",
+  title: "WiFi Tanpa Kabel Solo 2026 [Internet Praktis Siap Colok]",
+  description: "Cari WiFi rumah tanpa kabel di Solo Raya? Solusi praktis tinggal colok tanpa tiang fiber untuk area Boyolali, Karanganyar & Solo. Cek promo pasang baru!",
   keywords: [
     "wifi tanpa kabel solo",
     "pasang wifi tanpa kabel solo",
@@ -4424,8 +4424,8 @@ ARTIKEL["wifi-tanpa-kabel-solo"] = {
 
 ARTIKEL["syarat-pasang-wifi-xl-home-solo"] = {
   slug: "syarat-pasang-wifi-xl-home-solo",
-  title: "5 Syarat Pasang WiFi XL Home Solo (Resmi 2026): Cepat & Mudah via WA",
-  description: "Panduan lengkap 5 syarat pasang WiFi XL Home Solo Raya 2026: Foto KTP, Email aktif, Nomor HP 1 & 2, serta Foto rumah tampak depan. Cek proses daftar cepat 1-2 hari kerja!",
+  title: "Syarat Pasang WiFi XL Home Solo [Daftar Online Cepat]",
+  description: "Syarat mudah daftar pasang baru WiFi XL Home Solo Raya: cukup KTP & share lokasi GPS. Tanpa perlu antre ke kantor, dipasang teknisi 1-2 hari!",
   keywords: ["syarat pasang wifi xl home", "syarat daftar xl home solo", "syarat pasang wifi solo", "dokumen pasang wifi xl home", "syarat pasang wifi rumah 2026", "daftar wifi xl home solo raya", "cara daftar wifi xl home", "syarat pasang wifi fiber"],
   ogTitle: "5 Syarat Pasang WiFi XL Home Solo (Resmi 2026): Cepat & Mudah via WA",
   ogDescription: "Mau pasang WiFi rumah di Solo Raya? Cek 5 syarat mudah pendaftaran resmi XL Home: Foto KTP, Email aktif, 2 Nomor HP, dan Foto rumah. Proses cepat 1-2 hari!",

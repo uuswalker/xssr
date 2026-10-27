@@ -850,90 +850,90 @@ export function getGeoArticle(slug: string) {
   `;
 
   // Standard high-CTR hook under 58 chars
-  let pageTitle = `Pasang WiFi ${areaName} Murah Mulai 185rb ⚡ XL Home`;
+  let pageTitle = `Pasang WiFi ${areaName} Mulai 185rb [Bebas Pasang]`;
   let heroH1 = `Pasang WiFi ${areaName} Murah 2026: 100% Fiber Simetris Tanpa FUP`;
-  let pageDesc = `Promo pasang WiFi ${areaName} murah 2026 mulai 185rb - 229rb/bln! 100% Fiber Tanpa FUP (d/h XL SATU). Jangkauan ${info.kelurahan.slice(0, 3).join(", ")}, dsb. Gratis pasang Rp 0! WA: 0877-7899-9141.`;
+  let pageDesc = `Promo pasang WiFi ${areaName} 2026 mulai 185rb/bln! 100% Fiber optic tanpa FUP. Gratis pasang Rp 0 teknisi. Cek coverage & daftar via WA: 0877-7899-9141.`;
 
   if (areaSlug === "solo-baru") {
-    pageTitle = `Pasang WiFi Solo Baru Murah Mulai 185rb ⚡ XL Home`;
+    pageTitle = `Pasang WiFi Solo Baru Mulai 185rb [Bebas Pasang]`;
     heroH1 = `Pasang WiFi Solo Baru Murah 2026: 100% Fiber Tanpa FUP Cluster & Ruko`;
-    pageDesc = `Promo pasang WiFi Solo Baru murah 2026 mulai 185rb/bln! 100% Fiber Tanpa FUP Sektor 1-10, Jl. Ir Soekarno & TirtaMaya. Gratis pasang Rp 0! WA: 0877-7899-9141.`;
+    pageDesc = `Promo pasang WiFi Solo Baru 2026 mulai 185rb/bln! 100% Fiber optic tanpa FUP Sektor 1-10 & TirtaMaya. Gratis pasang Rp 0! Chat WA: 0877-7899-9141.`;
   } else if (areaSlug === "kartasura") {
-    pageTitle = `Pasang WiFi Kartasura Murah Mulai 185rb ⚡ XL Home`;
+    pageTitle = `Pasang WiFi Kartasura Mulai 185rb [Bebas Pasang]`;
     heroH1 = `Pasang WiFi Kartasura Murah 2026: 100% Bebas FUP untuk Kos & Rumah Dekat UMS`;
-    pageDesc = `Promo pasang WiFi Kartasura murah 2026 dekat UMS & UIN mulai 185rb/bln! Fiber optik 100% tanpa FUP, patungan kos cuma ~28rb/kamar. Gratis pasang Rp 0! WA: 0877-7899-9141.`;
+    pageDesc = `Promo pasang WiFi Kartasura dekat UMS & UIN mulai 185rb/bln! Fiber optic 100% tanpa FUP, gratis pasang Rp 0. Chat WhatsApp sales: 0877-7899-9141.`;
   } else if (areaSlug === "klaten-kota") {
-    pageTitle = `Pasang WiFi Klaten Kota Murah Mulai 185rb ⚡ XL Home`;
+    pageTitle = `Pasang WiFi Klaten Kota Mulai 185rb [Bebas Pasang]`;
     heroH1 = `Pasang WiFi Klaten Kota Murah 2026: 100% Fiber Simetris Tanpa FUP`;
-    pageDesc = `Pasang WiFi Klaten Kota murah 2026 mulai 185rb/bln. 100% Fiber optik simetris tanpa FUP untuk komuter KRL Solo-Jogja & ruko Jl. Pemuda. Gratis pasang Rp 0! WA: 0877-7899-9141.`;
+    pageDesc = `Pasang WiFi Klaten Kota 2026 mulai 185rb/bln! 100% Fiber optic simetris tanpa FUP area komuter & ruko Jl. Pemuda. Gratis pasang! WA: 0877-7899-9141.`;
   } else if (areaSlug === "boyolali-kota") {
-    pageTitle = `Pasang WiFi Boyolali Kota Mulai 185rb ⚡ XL Home`;
+    pageTitle = `Pasang WiFi Boyolali Kota Mulai 185rb [Bebas Pasang]`;
     heroH1 = `Pasang WiFi Boyolali Kota Murah 2026: 100% Fiber Tanpa FUP Pusat Kota`;
-    pageDesc = `Pasang WiFi murah di Boyolali Kota 2026 mulai 185rb/bln! 100% Fiber tanpa FUP cover Kemiri, Pulisen, Siswodipuran & Alun-Alun Kidul. Gratis pasang! WA: 0877-7899-9141.`;
+    pageDesc = `Pasang WiFi Boyolali Kota 2026 mulai 185rb/bln! 100% Fiber tanpa FUP cover Kemiri, Pulisen & Alun-Alun Kidul. Gratis pasang! WA: 0877-7899-9141.`;
   } else if (areaSlug === "colomadu") {
-    pageTitle = `Pasang WiFi Colomadu Murah Mulai 185rb ⚡ XL Home`;
+    pageTitle = `Pasang WiFi Colomadu Mulai 185rb [Bebas Pasang]`;
     heroH1 = `Pasang WiFi Colomadu Murah 2026: 100% Fiber Optic Tanpa FUP`;
-    pageDesc = `Promo pasang WiFi Colomadu murah 2026 mulai 185rb/bln! 100% Fiber optik perumahan Fajar Indah, Malangjiwan, Klodran, Baturan. Gratis pasang Rp 0! WA: 0877-7899-9141.`;
+    pageDesc = `Promo pasang WiFi Colomadu 2026 mulai 185rb/bln! 100% Fiber perumahan Fajar Indah, Malangjiwan, Klodran, Baturan. Bebas pasang! WA: 0877-7899-9141.`;
   } else if (areaSlug === "grogol") {
-    pageTitle = `Pasang WiFi Grogol Sukoharjo Mulai 185rb ⚡ XL Home`;
+    pageTitle = `Pasang WiFi Grogol Sukoharjo Mulai 185rb [Bebas Pasang]`;
     heroH1 = `Pasang WiFi Grogol Sukoharjo Murah 2026: 100% Fiber Simetris`;
-    pageDesc = `Promo pasang WiFi Grogol Sukoharjo murah 2026 mulai 185rb/bln! 100% Fiber tanpa FUP area Telukan, Madegondo, Langenharjo. Gratis pasang Rp 0! WA: 0877-7899-9141.`;
+    pageDesc = `Promo pasang WiFi Grogol Sukoharjo 2026 mulai 185rb/bln! 100% Fiber tanpa FUP Telukan, Madegondo & Langenharjo. Bebas pasang! WA: 0877-7899-9141.`;
   } else if (areaSlug === "baki") {
-    pageTitle = `Pasang WiFi Baki Sukoharjo Murah Mulai 185rb ⚡ XL Home`;
-    heroH1 = `Pasang WiFi Baki Sukoharjo Murah 2026: 100% Fiber Tanpa FUP`;
-    pageDesc = `Promo pasang WiFi Baki Sukoharjo murah 2026 mulai 185rb/bln! Jangkauan Gentan, Baki Pandeyan, Waru & Mangesti. Gratis pasang Rp 0! WA: 0877-7899-9141.`;
+    pageTitle = `Pasang WiFi Baki Sukoharjo Mulai 185rb [Bebas Pasang]`;
+    heroH1 = `Pasang WiFi Baki Sukoharjo Murah 2026: 100% Fiber Tanpa FUP Gentan & Sekitarnya`;
+    pageDesc = `Promo pasang WiFi Baki Sukoharjo 2026 mulai 185rb/bln! Jangkauan Gentan, Baki Pandeyan & Kudu. Bebas biaya pasang teknisi! WA: 0877-7899-9141.`;
   } else if (areaSlug === "sukoharjo-kota") {
-    pageTitle = `Pasang WiFi Sukoharjo Kota Mulai 185rb ⚡ XL Home`;
-    heroH1 = `Pasang WiFi Sukoharjo Kota Murah 2026: 100% Fiber Simetris`;
-    pageDesc = `Promo pasang WiFi Sukoharjo Kota murah 2026 mulai 185rb/bln! Cover Alun-Alun, Proliman, Gayam, Jombor, Mandan. 100% Tanpa FUP + Gratis Pasang! WA: 0877-7899-9141.`;
+    pageTitle = `Pasang WiFi Sukoharjo Kota Mulai 185rb [Bebas Pasang]`;
+    heroH1 = `Pasang WiFi Sukoharjo Kota Murah 2026: 100% Fiber Optic Pusat Kabupaten`;
+    pageDesc = `Promo pasang WiFi Sukoharjo Kota 2026 mulai 185rb/bln! Cover Alun-Alun, Proliman & Jetis. 100% Fiber tanpa FUP, bebas pasang! WA: 0877-7899-9141.`;
   } else if (areaSlug === "jaten") {
-    pageTitle = `Pasang WiFi Jaten Karanganyar Mulai 185rb ⚡ XL Home`;
-    heroH1 = `Pasang WiFi Jaten Karanganyar Murah 2026: 100% Fiber Bebas FUP`;
-    pageDesc = `Promo pasang WiFi Jaten Karanganyar 2026 mulai 185rb/bln! Cover Perumahan UNS IV, Sroyo, Dagen, Palur. 100% Fiber optik simetris + Gratis pasang Rp 0! WA: 0877-7899-9141.`;
+    pageTitle = `Pasang WiFi Jaten Karanganyar Mulai 185rb [Bebas Pasang]`;
+    heroH1 = `Pasang WiFi Jaten Karanganyar Murah 2026: 100% Fiber Tanpa FUP`;
+    pageDesc = `Promo pasang WiFi Jaten Karanganyar 2026 mulai 185rb/bln! Cover UNS IV, Ngringo, Dagen & Josroyo Indah. Bebas pasang Rp 0! WA: 0877-7899-9141.`;
   } else if (areaSlug === "karanganyar-kota") {
-    pageTitle = `Pasang WiFi Karanganyar Kota Mulai 185rb ⚡ XL Home`;
-    heroH1 = `Pasang WiFi Karanganyar Kota Murah 2026: 100% Fiber Simetris`;
-    pageDesc = `Pasang WiFi Karanganyar Kota murah 2026 mulai 185rb/bln! Cover Alun-Alun, Cangakan, Popongan, Tegalgede, Bejen. 100% Tanpa FUP, gratis pasang Rp 0! WA: 0877-7899-9141.`;
+    pageTitle = `Pasang WiFi Karanganyar Kota Mulai 185rb [Bebas Pasang]`;
+    heroH1 = `Pasang WiFi Karanganyar Kota Murah 2026: 100% Fiber Tanpa FUP`;
+    pageDesc = `Pasang WiFi Karanganyar Kota 2026 mulai 185rb/bln! Cover Alun-Alun, Cangakan, Popongan & Bejen. 100% Fiber tanpa FUP + bebas pasang! WA: 0877-7899-9141.`;
   } else if (areaSlug === "delanggu") {
-    pageTitle = `Pasang WiFi Delanggu Klaten Mulai 185rb ⚡ XL Home`;
-    heroH1 = `Pasang WiFi Delanggu Klaten Murah 2026: 100% Fiber Optic`;
-    pageDesc = `Promo pasang WiFi Delanggu Klaten 2026 mulai 185rb/bln! Jangkauan dekat Stasiun KRL Delanggu, Sabrang, Bowan. 100% Tanpa FUP, gratis pasang! WA: 0877-7899-9141.`;
+    pageTitle = `Pasang WiFi Delanggu Klaten Mulai 185rb [Bebas Pasang]`;
+    heroH1 = `Pasang WiFi Delanggu Klaten Murah 2026: 100% Fiber Tanpa FUP`;
+    pageDesc = `Promo pasang WiFi Delanggu Klaten 2026 mulai 185rb/bln! Jangkauan dekat Stasiun Delanggu & Jl. Raya Solo-Jogja. Bebas pasang! WA: 0877-7899-9141.`;
   } else if (areaSlug === "prambanan") {
-    pageTitle = `Pasang WiFi Prambanan Klaten Mulai 185rb ⚡ XL Home`;
-    heroH1 = `Pasang WiFi Prambanan Klaten Murah 2026: 100% Fiber Simetris`;
-    pageDesc = `Promo pasang WiFi Prambanan Klaten 2026 mulai 185rb/bln! Solusi internet fiber untuk homestay, kafe & pemukiman dekat Candi Prambanan. Bebas FUP! WA: 0877-7899-9141.`;
+    pageTitle = `Pasang WiFi Prambanan Klaten Mulai 185rb [Bebas Pasang]`;
+    heroH1 = `Pasang WiFi Prambanan Klaten Murah 2026: 100% Fiber Simetris Cepat`;
+    pageDesc = `Promo pasang WiFi Prambanan Klaten 2026 mulai 185rb/bln! Solusi fiber cepat dekat Candi Prambanan & Klaten Barat. Bebas pasang! WA: 0877-7899-9141.`;
   } else if (areaSlug === "laweyan") {
-    pageTitle = `Pasang WiFi Laweyan Solo Murah Mulai 185rb ⚡ XL Home`;
-    heroH1 = `Pasang WiFi Laweyan Solo Murah 2026: 100% Fiber Simetris UMKM`;
-    pageDesc = `Pasang WiFi Laweyan Solo murah 2026 mulai 185rb/bln! 100% Fiber simetris tanpa FUP untuk sentra batik, ruko niaga & rumah tangga. Gratis pasang Rp 0! WA: 0877-7899-9141.`;
+    pageTitle = `Pasang WiFi Laweyan Solo Mulai 185rb [Bebas Pasang]`;
+    heroH1 = `Pasang WiFi Laweyan Solo Murah 2026: 100% Fiber Sentra Batik & Rumah`;
+    pageDesc = `Pasang WiFi Laweyan Solo murah 2026 mulai 185rb/bln! 100% Fiber simetris tanpa FUP Kampung Batik Laweyan & Pajang. Bebas pasang! WA: 0877-7899-9141.`;
   } else if (areaSlug === "jebres") {
-    pageTitle = `Pasang WiFi Jebres Solo Murah Mulai 185rb ⚡ XL Home`;
+    pageTitle = `Pasang WiFi Jebres Solo Mulai 185rb [Bebas Pasang]`;
     heroH1 = `Pasang WiFi Jebres Solo Murah 2026: 100% Fiber Tanpa FUP Kos & Rumah`;
-    pageDesc = `Pasang WiFi Jebres Solo murah 2026 mulai 185rb/bln! Cover area kampus UNS, ISI, RS Moewardi & perumahan Mojosongo. Bebas FUP, gratis pasang Rp 0! WA: 0877-7899-9141.`;
+    pageDesc = `Pasang WiFi Jebres Solo 2026 mulai 185rb/bln! Cover area kampus UNS, ISI, RS Moewardi & Mojosongo. Bebas FUP & bebas pasang! WA: 0877-7899-9141.`;
   } else if (areaSlug === "banjarsari") {
-    pageTitle = `Pasang WiFi Banjarsari Solo Mulai 185rb ⚡ XL Home`;
+    pageTitle = `Pasang WiFi Banjarsari Solo Mulai 185rb [Bebas Pasang]`;
     heroH1 = `Pasang WiFi Banjarsari Solo Murah 2026: 100% Fiber Simetris`;
-    pageDesc = `Pasang WiFi Banjarsari Solo murah 2026 mulai 185rb/bln! Jangkauan Manahan, Banyuanyar, Kadipiro, Nusukan. 100% Tanpa FUP, gratis pasang Rp 0! WA: 0877-7899-9141.`;
+    pageDesc = `Pasang WiFi Banjarsari Solo 2026 mulai 185rb/bln! Jangkauan Manahan, Banyuanyar, Kadipiro & Nusukan. Bebas biaya pasang! WA: 0877-7899-9141.`;
   } else if (areaSlug === "pasar-kliwon") {
-    pageTitle = `Pasang WiFi Pasar Kliwon Solo Mulai 185rb ⚡ XL Home`;
+    pageTitle = `Pasang WiFi Pasar Kliwon Solo Mulai 185rb [Bebas Pasang]`;
     heroH1 = `Pasang WiFi Pasar Kliwon Solo Murah 2026: 100% Fiber Grosir & Rumah`;
-    pageDesc = `Pasang WiFi Pasar Kliwon Solo murah 2026 mulai 185rb/bln! Internet simetris untuk grosir kain, Pasar Klewer, Kauman & Semanggi. Bebas FUP! WA: 0877-7899-9141.`;
+    pageDesc = `Pasang WiFi Pasar Kliwon Solo 2026 mulai 185rb/bln! Internet simetris untuk grosir kain, Kauman & Semanggi. Bebas pasang! WA: 0877-7899-9141.`;
   } else if (areaSlug === "mojolaban") {
-    pageTitle = `Pasang WiFi Mojolaban Sukoharjo Mulai 185rb ⚡ XL Home`;
+    pageTitle = `Pasang WiFi Mojolaban Sukoharjo Mulai 185rb [Bebas Pasang]`;
     heroH1 = `Pasang WiFi Mojolaban Sukoharjo Murah 2026: 100% Fiber Tanpa FUP`;
-    pageDesc = `Promo pasang WiFi Mojolaban Sukoharjo murah 2026 mulai 185rb/bln! Cover Bekonang, Palur Sukoharjo, Laban, Wirun. Bebas FUP, gratis pasang Rp 0! WA: 0877-7899-9141.`;
+    pageDesc = `Promo WiFi Mojolaban Sukoharjo 2026 mulai 185rb/bln! Cover Bekonang, Palur Sukoharjo, Laban, Wirun. Bebas pasang Rp 0! WA: 0877-7899-9141.`;
   } else if (areaSlug === "banyudono") {
-    pageTitle = `Pasang WiFi Banyudono Boyolali Mulai 185rb ⚡ XL Home`;
+    pageTitle = `Pasang WiFi Banyudono Boyolali Mulai 185rb [Bebas Pasang]`;
     heroH1 = `Pasang WiFi Banyudono Boyolali Murah 2026: 100% Fiber Optic`;
-    pageDesc = `Promo pasang WiFi Banyudono Boyolali murah 2026 mulai 185rb/bln! Jangkauan Pengging, Ketaon, Sambon & batas Kartasura. 100% Bebas FUP + Gratis pasang! WA: 0877-7899-9141.`;
+    pageDesc = `Promo pasang WiFi Banyudono Boyolali 2026 mulai 185rb/bln! Jangkauan Pengging, Ketaon & batas Kartasura. 100% Bebas pasang! WA: 0877-7899-9141.`;
   } else if (areaSlug === "gondangrejo") {
-    pageTitle = `Pasang WiFi Gondangrejo Murah Mulai 185rb ⚡ XL Home`;
+    pageTitle = `Pasang WiFi Gondangrejo Mulai 185rb [Bebas Pasang]`;
     heroH1 = `Pasang WiFi Gondangrejo Murah 2026: 100% Fiber Simetris`;
-    pageDesc = `Pasang WiFi Gondangrejo Karanganyar murah 2026 mulai 185rb/bln! Cover Plesungan, Jeruksawit, Selokaton & pintu tol Gondangrejo. Bebas FUP! WA: 0877-7899-9141.`;
+    pageDesc = `Pasang WiFi Gondangrejo Karanganyar 2026 mulai 185rb/bln! Cover Plesungan, Jeruksawit & pintu tol Gondangrejo. Bebas pasang! WA: 0877-7899-9141.`;
   } else if (areaSlug === "palur") {
-    pageTitle = `Pasang WiFi Palur Solo Raya Mulai 185rb ⚡ XL Home`;
+    pageTitle = `Pasang WiFi Palur Solo Raya Mulai 185rb [Bebas Pasang]`;
     heroH1 = `Pasang WiFi Palur Murah 2026: 100% Fiber Sentra Niaga & Rumah`;
-    pageDesc = `Pasang WiFi Palur murah 2026 mulai 185rb/bln! Cover flyover Palur, Dagen, Ngringo, sentra niaga Solo-Karanganyar. 100% Tanpa FUP, gratis pasang! WA: 0877-7899-9141.`;
+    pageDesc = `Pasang WiFi Palur murah 2026 mulai 185rb/bln! Cover flyover Palur, Dagen & sentra niaga Solo-Karanganyar. Bebas pasang! WA: 0877-7899-9141.`;
   }
 
   return {

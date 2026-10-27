@@ -51,9 +51,9 @@ const SOLO_FAQS = [
 
 export async function generateMetadata(): Promise<Metadata> {
   const base = pageMetadata({
-    title: "Pasang WiFi XL Satu & XL Home Solo Mulai 185rb ⚡ Promo Resmi 2026",
+    title: "Pasang WiFi Solo Murah Mulai 185rb [Promo Resmi 2026]",
     description:
-      "Promo resmi pasang baru XL Satu & XL Home Solo 2026 mulai 185rb/bln! 100% Fiber Optic Tanpa FUP + Gratis Pasang Rp 0. Chat WhatsApp Sales Resmi: 0877-7899-9141.",
+      "Promo resmi pasang WiFi Solo 2026 mulai 185rb/bln! 100% Fiber Optic Tanpa FUP + Gratis Pasang Rp 0. Chat WhatsApp Sales Resmi: 0877-7899-9141.",
     path: "/wifi-solo/",
     image: "/images/banner-xlsatu-jadi-xlhome.jpg",
   });
@@ -73,9 +73,9 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     openGraph: {
       ...base.openGraph,
-      title: "Pasang WiFi Solo Murah 2026 Mulai 185rb/Bln | XL Home Fiber Tanpa FUP",
+      title: "Pasang WiFi Solo Murah Mulai 185rb [Promo Resmi 2026]",
       description:
-        "Layanan pasang WiFi Solo murah 2026 mulai 185rb/bln (kategori 100 ribuan). 100% Fiber Optic tanpa batas FUP, gratis biaya pasang teknisi. Cover Jebres, Banjarsari, Laweyan & sekitarnya.",
+        "Promo resmi pasang WiFi Solo 2026 mulai 185rb/bln! 100% Fiber Optic Tanpa FUP + Gratis Pasang Rp 0. Chat WhatsApp Sales Resmi: 0877-7899-9141.",
     },
   };
 }
