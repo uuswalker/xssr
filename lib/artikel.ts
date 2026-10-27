@@ -311,13 +311,13 @@ ARTIKEL["kecepatan-wifi-ideal-keluarga"] = {
 
   title: "Kecepatan WiFi yang Bagus untuk Rumah Berapa Mbps? Panduan Keluarga Bebas Lemot [2026]",
 
-  description: "Berapa Mbps yang pas untuk WiFi rumah? Cek panduan: 1-2 orang (30 Mbps), 3-4 orang (100 Mbps), 5+ orang (250 Mbps). Paket XL Home Solo mulai 185rb Bebas FUP!",
+  description: "Berapa Mbps yang pas untuk WiFi rumah? Cek panduan: 1-2 orang (20 Mbps), 3-4 orang (100 Mbps), 5+ orang (250 Mbps). Paket XL Home Solo mulai 185rb Bebas FUP!",
 
   keywords: "kecepatan wifi ideal keluarga, berapa mbps untuk keluarga, wifi untuk keluarga 4 orang, kecepatan internet rumah tangga".split(/,\s*/),
 
   ogTitle: "Kecepatan WiFi yang Bagus untuk Rumah Berapa Mbps? Panduan Keluarga Bebas Lemot [2026]",
 
-  ogDescription: "Berapa Mbps yang pas untuk WiFi rumah? Cek panduan: 1-2 orang (30 Mbps), 3-4 orang (100 Mbps), 5+ orang (250 Mbps). Paket XL Home Solo mulai 185rb Bebas FUP!",
+  ogDescription: "Berapa Mbps yang pas untuk WiFi rumah? Cek panduan: 1-2 orang (20 Mbps), 3-4 orang (100 Mbps), 5+ orang (250 Mbps). Paket XL Home Solo mulai 185rb Bebas FUP!",
 
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
 
@@ -4653,7 +4653,7 @@ ARTIKEL["pasang-wifi-perumahan-jetis-permai-gentan"] = {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Pasang WiFi Fiber di Perumahan Jetis Permai Gentan Sukoharjo: Internet Cepat Tanpa FUP",
-      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Jetis Permai, Gentan, Baki, Sukoharjo. Rincian paket 30-1000 Mbps, promo gratis pasang, dan cara cek tiang ODP.",
+      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Jetis Permai, Gentan, Baki, Sukoharjo. Rincian paket 20-1000 Mbps, promo gratis pasang, dan cara cek tiang ODP.",
       "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "datePublished": "2026-10-27",
@@ -4677,7 +4677,7 @@ ARTIKEL["pasang-wifi-perumahan-jetis-permai-gentan"] = {
           "name": "Berapa biaya pasang WiFi XL Home di Perumahan Jetis Permai?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Untuk paket Spark 250 Mbps (Rp 229.000/bulan), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber."
+            "text": "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
           }
         },
         {
@@ -4698,7 +4698,7 @@ ARTIKEL["pasang-wifi-perumahan-jetis-permai-gentan"] = {
     },
     {
       q: "Berapa biaya pasang WiFi XL Home di Perumahan Jetis Permai?",
-      a: "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Untuk paket Spark 250 Mbps (Rp 229.000/bulan), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber."
+      a: "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
     },
     {
       q: "Apakah internet XL Home di Jetis Permai ada batasan kuota (FUP)?",
@@ -4735,16 +4735,17 @@ ARTIKEL["pasang-wifi-perumahan-jetis-permai-gentan"] = {
       <div style="border:2px solid #e2e8f0; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between;">
         <div>
           <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Hemat &amp; Nyaman</span>
-          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 30 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
-            <li>Cocok untuk 1-3 orang di rumah</li>
-            <li>Browsing, medsos, YouTube 1080p lancar</li>
-            <li>100% Fiber Unlimited Tanpa FUP</li>
-            <li>Pinjam pakai router WiFi gratis</li>
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
           </ul>
         </div>
-        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Jetis%20Permai%20Gentan%20mau%20pasang%20Paket%20Starter%2030%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 185rb</a>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Jetis%20Permai%20Gentan%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
       </div>
 
       <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
@@ -4896,7 +4897,7 @@ ARTIKEL["pasang-wifi-perumahan-grogol-indah-telukan"] = {
       <div style="border:2px solid #e2e8f0; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between;">
         <div>
           <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Hemat Berkualitas</span>
-          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 30 Mbps</h3>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
           <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
             <li>Pas untuk 1-3 pengguna aktif</li>
@@ -4905,19 +4906,20 @@ ARTIKEL["pasang-wifi-perumahan-grogol-indah-telukan"] = {
             <li>Termasuk modem router WiFi</li>
           </ul>
         </div>
-        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Grogol%20Indah%20Telukan%20mau%20pasang%20Paket%20Starter%2030%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 185rb</a>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Grogol%20Indah%20Telukan%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
       </div>
 
       <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
         <div style="position:absolute; top:-11px; right:16px; background:#037e64; color:#fff; font-size:11px; font-weight:800; padding:2px 10px; border-radius:999px;">PILIHAN UTAMA KELUARGA</div>
         <div>
-          <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Stabil</span>
+          <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
           <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
-            <li>Ideal untuk 4-8 perangkat bersamaan</li>
-            <li>Smart TV 4K, CCTV Online, &amp; Gaming kompetitif</li>
-            <li><strong>Gratis Biaya Pasang Rp 0</strong></li>
+            <li>Sangat ideal untuk 4-8 perangkat aktif</li>
+            <li>Streaming Netflix 4K lancar tanpa jeda</li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
             <li>100% Fiber Simetris Murni Bebas FUP</li>
           </ul>
         </div>
@@ -4974,7 +4976,7 @@ ARTIKEL["pasang-wifi-perumahan-gremet-manahan"] = {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Pasang WiFi Fiber di Perumahan Rakyat Gremet Manahan: Internet Cepat Tanpa FUP",
-      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Rakyat Gremet Manahan, Kel. Manahan, Kec. Banjarsari, Kota Surakarta (Solo). Rincian paket 30-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
+      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Rakyat Gremet Manahan, Kel. Manahan, Kec. Banjarsari, Kota Surakarta (Solo). Rincian paket 20-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
       "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "datePublished": "2026-10-27",
@@ -4998,7 +5000,7 @@ ARTIKEL["pasang-wifi-perumahan-gremet-manahan"] = {
           "name": "Berapa biaya pasang WiFi XL Home di Perum Gremet Manahan?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+            "text": "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
           }
         },
         {
@@ -5019,7 +5021,7 @@ ARTIKEL["pasang-wifi-perumahan-gremet-manahan"] = {
     },
     {
       q: "Berapa biaya pasang WiFi XL Home di Perum Gremet Manahan?",
-      a: "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+      a: "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
     },
     {
       q: "Apakah internet XL Home di Perum Gremet Manahan ada batasan kuota (FUP)?",
@@ -5057,16 +5059,17 @@ ARTIKEL["pasang-wifi-perumahan-gremet-manahan"] = {
       <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
         <div>
           <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
-          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 30 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
-            <li>Cocok untuk 2-4 perangkat bersamaan</li>
-            <li>Browsing, medsos, YouTube HD, dan Zoom meeting</li>
-            <li>Gratis biaya sewa modem Wi-Fi</li>
-            <li>Unlimited tanpa batasan kuota (Bebas FUP)</li>
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
           </ul>
         </div>
-        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Rakyat%20Gremet%20Manahan%20mau%20pasang%20Paket%20Starter%2030%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 185rb</a>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Rakyat%20Gremet%20Manahan%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
       </div>
 
       <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
@@ -5074,11 +5077,12 @@ ARTIKEL["pasang-wifi-perumahan-gremet-manahan"] = {
         <div>
           <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
           <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
             <li>Sangat ideal untuk 4-8 perangkat aktif</li>
             <li>Streaming Netflix 4K lancar tanpa jeda</li>
-            <li><strong>Gratis Biaya Pasang Rp 0</strong></li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
             <li>100% Fiber Simetris Murni Bebas FUP</li>
           </ul>
         </div>
@@ -5132,7 +5136,7 @@ ARTIKEL["pasang-wifi-perumahan-klodran-indah-colomadu"] = {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Pasang WiFi Fiber di Perumahan Klodran Indah Colomadu: Internet Cepat Tanpa FUP",
-      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Klodran Indah Colomadu, Desa Klodran, Kec. Colomadu, Kab. Karanganyar. Rincian paket 30-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
+      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Klodran Indah Colomadu, Desa Klodran, Kec. Colomadu, Kab. Karanganyar. Rincian paket 20-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
       "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "datePublished": "2026-10-27",
@@ -5156,7 +5160,7 @@ ARTIKEL["pasang-wifi-perumahan-klodran-indah-colomadu"] = {
           "name": "Berapa biaya pasang WiFi XL Home di Perum Klodran Indah?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+            "text": "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
           }
         },
         {
@@ -5177,7 +5181,7 @@ ARTIKEL["pasang-wifi-perumahan-klodran-indah-colomadu"] = {
     },
     {
       q: "Berapa biaya pasang WiFi XL Home di Perum Klodran Indah?",
-      a: "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+      a: "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
     },
     {
       q: "Apakah internet XL Home di Perum Klodran Indah ada batasan kuota (FUP)?",
@@ -5215,16 +5219,17 @@ ARTIKEL["pasang-wifi-perumahan-klodran-indah-colomadu"] = {
       <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
         <div>
           <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
-          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 30 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
-            <li>Cocok untuk 2-4 perangkat bersamaan</li>
-            <li>Browsing, medsos, YouTube HD, dan Zoom meeting</li>
-            <li>Gratis biaya sewa modem Wi-Fi</li>
-            <li>Unlimited tanpa batasan kuota (Bebas FUP)</li>
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
           </ul>
         </div>
-        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Klodran%20Indah%20Colomadu%20mau%20pasang%20Paket%20Starter%2030%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 185rb</a>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Klodran%20Indah%20Colomadu%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
       </div>
 
       <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
@@ -5232,11 +5237,12 @@ ARTIKEL["pasang-wifi-perumahan-klodran-indah-colomadu"] = {
         <div>
           <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
           <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
             <li>Sangat ideal untuk 4-8 perangkat aktif</li>
             <li>Streaming Netflix 4K lancar tanpa jeda</li>
-            <li><strong>Gratis Biaya Pasang Rp 0</strong></li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
             <li>100% Fiber Simetris Murni Bebas FUP</li>
           </ul>
         </div>
@@ -5290,7 +5296,7 @@ ARTIKEL["pasang-wifi-perumahan-adi-sucipto-jajar"] = {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Pasang WiFi Fiber di Perumahan Adi Sucipto Jajar Solo: Internet Cepat Tanpa FUP",
-      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Adi Sucipto Jajar Solo, Kel. Jajar, Kec. Laweyan, Kota Surakarta (Solo). Rincian paket 30-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
+      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Adi Sucipto Jajar Solo, Kel. Jajar, Kec. Laweyan, Kota Surakarta (Solo). Rincian paket 20-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
       "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "datePublished": "2026-10-27",
@@ -5314,7 +5320,7 @@ ARTIKEL["pasang-wifi-perumahan-adi-sucipto-jajar"] = {
           "name": "Berapa biaya pasang WiFi XL Home di Perum Adi Sucipto Jajar?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+            "text": "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
           }
         },
         {
@@ -5335,7 +5341,7 @@ ARTIKEL["pasang-wifi-perumahan-adi-sucipto-jajar"] = {
     },
     {
       q: "Berapa biaya pasang WiFi XL Home di Perum Adi Sucipto Jajar?",
-      a: "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+      a: "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
     },
     {
       q: "Apakah internet XL Home di Perum Adi Sucipto Jajar ada batasan kuota (FUP)?",
@@ -5373,16 +5379,17 @@ ARTIKEL["pasang-wifi-perumahan-adi-sucipto-jajar"] = {
       <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
         <div>
           <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
-          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 30 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
-            <li>Cocok untuk 2-4 perangkat bersamaan</li>
-            <li>Browsing, medsos, YouTube HD, dan Zoom meeting</li>
-            <li>Gratis biaya sewa modem Wi-Fi</li>
-            <li>Unlimited tanpa batasan kuota (Bebas FUP)</li>
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
           </ul>
         </div>
-        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Adi%20Sucipto%20Jajar%20Solo%20mau%20pasang%20Paket%20Starter%2030%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 185rb</a>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Adi%20Sucipto%20Jajar%20Solo%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
       </div>
 
       <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
@@ -5390,11 +5397,12 @@ ARTIKEL["pasang-wifi-perumahan-adi-sucipto-jajar"] = {
         <div>
           <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
           <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
             <li>Sangat ideal untuk 4-8 perangkat aktif</li>
             <li>Streaming Netflix 4K lancar tanpa jeda</li>
-            <li><strong>Gratis Biaya Pasang Rp 0</strong></li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
             <li>100% Fiber Simetris Murni Bebas FUP</li>
           </ul>
         </div>
@@ -5448,7 +5456,7 @@ ARTIKEL["pasang-wifi-perumahan-gading-permai-grogol"] = {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Pasang WiFi Fiber di Perumahan Gading Permai Grogol: Internet Cepat Tanpa FUP",
-      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Gading Permai Grogol, Desa Grogol, Kec. Grogol, Kab. Sukoharjo. Rincian paket 30-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
+      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Gading Permai Grogol, Desa Grogol, Kec. Grogol, Kab. Sukoharjo. Rincian paket 20-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
       "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "datePublished": "2026-10-27",
@@ -5472,7 +5480,7 @@ ARTIKEL["pasang-wifi-perumahan-gading-permai-grogol"] = {
           "name": "Berapa biaya pasang WiFi XL Home di Perum Gading Permai?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+            "text": "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
           }
         },
         {
@@ -5493,7 +5501,7 @@ ARTIKEL["pasang-wifi-perumahan-gading-permai-grogol"] = {
     },
     {
       q: "Berapa biaya pasang WiFi XL Home di Perum Gading Permai?",
-      a: "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+      a: "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
     },
     {
       q: "Apakah internet XL Home di Perum Gading Permai ada batasan kuota (FUP)?",
@@ -5531,16 +5539,17 @@ ARTIKEL["pasang-wifi-perumahan-gading-permai-grogol"] = {
       <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
         <div>
           <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
-          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 30 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
-            <li>Cocok untuk 2-4 perangkat bersamaan</li>
-            <li>Browsing, medsos, YouTube HD, dan Zoom meeting</li>
-            <li>Gratis biaya sewa modem Wi-Fi</li>
-            <li>Unlimited tanpa batasan kuota (Bebas FUP)</li>
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
           </ul>
         </div>
-        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Gading%20Permai%20Grogol%20mau%20pasang%20Paket%20Starter%2030%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 185rb</a>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Gading%20Permai%20Grogol%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
       </div>
 
       <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
@@ -5548,11 +5557,12 @@ ARTIKEL["pasang-wifi-perumahan-gading-permai-grogol"] = {
         <div>
           <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
           <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
             <li>Sangat ideal untuk 4-8 perangkat aktif</li>
             <li>Streaming Netflix 4K lancar tanpa jeda</li>
-            <li><strong>Gratis Biaya Pasang Rp 0</strong></li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
             <li>100% Fiber Simetris Murni Bebas FUP</li>
           </ul>
         </div>
@@ -5606,7 +5616,7 @@ ARTIKEL["pasang-wifi-perumahan-ngringo-indah-jaten"] = {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Pasang WiFi Fiber di Perumahan Ngringo Indah Jaten: Internet Cepat Tanpa FUP",
-      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Ngringo Indah Jaten, Desa Ngringo, Kec. Jaten, Kab. Karanganyar. Rincian paket 30-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
+      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Ngringo Indah Jaten, Desa Ngringo, Kec. Jaten, Kab. Karanganyar. Rincian paket 20-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
       "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "datePublished": "2026-10-27",
@@ -5630,7 +5640,7 @@ ARTIKEL["pasang-wifi-perumahan-ngringo-indah-jaten"] = {
           "name": "Berapa biaya pasang WiFi XL Home di Perum Ngringo Indah?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+            "text": "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
           }
         },
         {
@@ -5651,7 +5661,7 @@ ARTIKEL["pasang-wifi-perumahan-ngringo-indah-jaten"] = {
     },
     {
       q: "Berapa biaya pasang WiFi XL Home di Perum Ngringo Indah?",
-      a: "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+      a: "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
     },
     {
       q: "Apakah internet XL Home di Perum Ngringo Indah ada batasan kuota (FUP)?",
@@ -5689,16 +5699,17 @@ ARTIKEL["pasang-wifi-perumahan-ngringo-indah-jaten"] = {
       <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
         <div>
           <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
-          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 30 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
-            <li>Cocok untuk 2-4 perangkat bersamaan</li>
-            <li>Browsing, medsos, YouTube HD, dan Zoom meeting</li>
-            <li>Gratis biaya sewa modem Wi-Fi</li>
-            <li>Unlimited tanpa batasan kuota (Bebas FUP)</li>
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
           </ul>
         </div>
-        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Ngringo%20Indah%20Jaten%20mau%20pasang%20Paket%20Starter%2030%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 185rb</a>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Ngringo%20Indah%20Jaten%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
       </div>
 
       <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
@@ -5706,11 +5717,12 @@ ARTIKEL["pasang-wifi-perumahan-ngringo-indah-jaten"] = {
         <div>
           <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
           <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
             <li>Sangat ideal untuk 4-8 perangkat aktif</li>
             <li>Streaming Netflix 4K lancar tanpa jeda</li>
-            <li><strong>Gratis Biaya Pasang Rp 0</strong></li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
             <li>100% Fiber Simetris Murni Bebas FUP</li>
           </ul>
         </div>
@@ -5764,7 +5776,7 @@ ARTIKEL["pasang-wifi-perumahan-griya-klumprit-mojolaban"] = {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Pasang WiFi Fiber di Perumahan Griya Klumprit Mojolaban: Internet Cepat Tanpa FUP",
-      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Griya Klumprit Mojolaban, Desa Klumprit, Kec. Mojolaban, Kab. Sukoharjo. Rincian paket 30-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
+      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Griya Klumprit Mojolaban, Desa Klumprit, Kec. Mojolaban, Kab. Sukoharjo. Rincian paket 20-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
       "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "datePublished": "2026-10-27",
@@ -5788,7 +5800,7 @@ ARTIKEL["pasang-wifi-perumahan-griya-klumprit-mojolaban"] = {
           "name": "Berapa biaya pasang WiFi XL Home di Perum Griya Klumprit?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+            "text": "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
           }
         },
         {
@@ -5809,7 +5821,7 @@ ARTIKEL["pasang-wifi-perumahan-griya-klumprit-mojolaban"] = {
     },
     {
       q: "Berapa biaya pasang WiFi XL Home di Perum Griya Klumprit?",
-      a: "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+      a: "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
     },
     {
       q: "Apakah internet XL Home di Perum Griya Klumprit ada batasan kuota (FUP)?",
@@ -5847,16 +5859,17 @@ ARTIKEL["pasang-wifi-perumahan-griya-klumprit-mojolaban"] = {
       <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
         <div>
           <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
-          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 30 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
-            <li>Cocok untuk 2-4 perangkat bersamaan</li>
-            <li>Browsing, medsos, YouTube HD, dan Zoom meeting</li>
-            <li>Gratis biaya sewa modem Wi-Fi</li>
-            <li>Unlimited tanpa batasan kuota (Bebas FUP)</li>
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
           </ul>
         </div>
-        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Griya%20Klumprit%20Mojolaban%20mau%20pasang%20Paket%20Starter%2030%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 185rb</a>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Griya%20Klumprit%20Mojolaban%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
       </div>
 
       <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
@@ -5864,11 +5877,12 @@ ARTIKEL["pasang-wifi-perumahan-griya-klumprit-mojolaban"] = {
         <div>
           <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
           <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
             <li>Sangat ideal untuk 4-8 perangkat aktif</li>
             <li>Streaming Netflix 4K lancar tanpa jeda</li>
-            <li><strong>Gratis Biaya Pasang Rp 0</strong></li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
             <li>100% Fiber Simetris Murni Bebas FUP</li>
           </ul>
         </div>
@@ -5922,7 +5936,7 @@ ARTIKEL["pasang-wifi-perumahan-permata-plesungan"] = {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Pasang WiFi Fiber di Perumahan Permata Plesungan Karanganyar: Internet Cepat Tanpa FUP",
-      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Permata Plesungan Karanganyar, Desa Plesungan, Kec. Gondangrejo, Kab. Karanganyar. Rincian paket 30-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
+      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Permata Plesungan Karanganyar, Desa Plesungan, Kec. Gondangrejo, Kab. Karanganyar. Rincian paket 20-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
       "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "datePublished": "2026-10-27",
@@ -5946,7 +5960,7 @@ ARTIKEL["pasang-wifi-perumahan-permata-plesungan"] = {
           "name": "Berapa biaya pasang WiFi XL Home di Perum Permata Plesungan?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+            "text": "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
           }
         },
         {
@@ -5967,7 +5981,7 @@ ARTIKEL["pasang-wifi-perumahan-permata-plesungan"] = {
     },
     {
       q: "Berapa biaya pasang WiFi XL Home di Perum Permata Plesungan?",
-      a: "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+      a: "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
     },
     {
       q: "Apakah internet XL Home di Perum Permata Plesungan ada batasan kuota (FUP)?",
@@ -6005,16 +6019,17 @@ ARTIKEL["pasang-wifi-perumahan-permata-plesungan"] = {
       <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
         <div>
           <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
-          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 30 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
-            <li>Cocok untuk 2-4 perangkat bersamaan</li>
-            <li>Browsing, medsos, YouTube HD, dan Zoom meeting</li>
-            <li>Gratis biaya sewa modem Wi-Fi</li>
-            <li>Unlimited tanpa batasan kuota (Bebas FUP)</li>
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
           </ul>
         </div>
-        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Permata%20Plesungan%20Karanganyar%20mau%20pasang%20Paket%20Starter%2030%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 185rb</a>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Permata%20Plesungan%20Karanganyar%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
       </div>
 
       <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
@@ -6022,11 +6037,12 @@ ARTIKEL["pasang-wifi-perumahan-permata-plesungan"] = {
         <div>
           <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
           <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
             <li>Sangat ideal untuk 4-8 perangkat aktif</li>
             <li>Streaming Netflix 4K lancar tanpa jeda</li>
-            <li><strong>Gratis Biaya Pasang Rp 0</strong></li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
             <li>100% Fiber Simetris Murni Bebas FUP</li>
           </ul>
         </div>
@@ -6080,7 +6096,7 @@ ARTIKEL["pasang-wifi-perumahan-jaten-permai-indah"] = {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Pasang WiFi Fiber di Perumahan Jaten Permai Indah Karanganyar: Internet Cepat Tanpa FUP",
-      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Jaten Permai Indah Karanganyar, Desa Jaten, Kec. Jaten, Kab. Karanganyar. Rincian paket 30-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
+      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Jaten Permai Indah Karanganyar, Desa Jaten, Kec. Jaten, Kab. Karanganyar. Rincian paket 20-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
       "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "datePublished": "2026-10-27",
@@ -6104,7 +6120,7 @@ ARTIKEL["pasang-wifi-perumahan-jaten-permai-indah"] = {
           "name": "Berapa biaya pasang WiFi XL Home di Perum Jaten Permai Indah?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+            "text": "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
           }
         },
         {
@@ -6125,7 +6141,7 @@ ARTIKEL["pasang-wifi-perumahan-jaten-permai-indah"] = {
     },
     {
       q: "Berapa biaya pasang WiFi XL Home di Perum Jaten Permai Indah?",
-      a: "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+      a: "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
     },
     {
       q: "Apakah internet XL Home di Perum Jaten Permai Indah ada batasan kuota (FUP)?",
@@ -6163,16 +6179,17 @@ ARTIKEL["pasang-wifi-perumahan-jaten-permai-indah"] = {
       <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
         <div>
           <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
-          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 30 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
-            <li>Cocok untuk 2-4 perangkat bersamaan</li>
-            <li>Browsing, medsos, YouTube HD, dan Zoom meeting</li>
-            <li>Gratis biaya sewa modem Wi-Fi</li>
-            <li>Unlimited tanpa batasan kuota (Bebas FUP)</li>
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
           </ul>
         </div>
-        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Jaten%20Permai%20Indah%20Karanganyar%20mau%20pasang%20Paket%20Starter%2030%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 185rb</a>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Jaten%20Permai%20Indah%20Karanganyar%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
       </div>
 
       <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
@@ -6180,11 +6197,12 @@ ARTIKEL["pasang-wifi-perumahan-jaten-permai-indah"] = {
         <div>
           <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
           <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
             <li>Sangat ideal untuk 4-8 perangkat aktif</li>
             <li>Streaming Netflix 4K lancar tanpa jeda</li>
-            <li><strong>Gratis Biaya Pasang Rp 0</strong></li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
             <li>100% Fiber Simetris Murni Bebas FUP</li>
           </ul>
         </div>
@@ -6238,7 +6256,7 @@ ARTIKEL["pasang-wifi-perumahan-viena-solo-baru"] = {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Pasang WiFi Fiber di Perumahan Viena Solo Baru Kwarasan: Internet Cepat Tanpa FUP",
-      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Viena Solo Baru Kwarasan, Desa Kwarasan, Kec. Grogol, Kab. Sukoharjo. Rincian paket 30-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
+      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Viena Solo Baru Kwarasan, Desa Kwarasan, Kec. Grogol, Kab. Sukoharjo. Rincian paket 20-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
       "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "datePublished": "2026-10-27",
@@ -6262,7 +6280,7 @@ ARTIKEL["pasang-wifi-perumahan-viena-solo-baru"] = {
           "name": "Berapa biaya pasang WiFi XL Home di Perum Viena Solo Baru?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+            "text": "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
           }
         },
         {
@@ -6283,7 +6301,7 @@ ARTIKEL["pasang-wifi-perumahan-viena-solo-baru"] = {
     },
     {
       q: "Berapa biaya pasang WiFi XL Home di Perum Viena Solo Baru?",
-      a: "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+      a: "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
     },
     {
       q: "Apakah internet XL Home di Perum Viena Solo Baru ada batasan kuota (FUP)?",
@@ -6321,16 +6339,17 @@ ARTIKEL["pasang-wifi-perumahan-viena-solo-baru"] = {
       <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
         <div>
           <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
-          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 30 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
-            <li>Cocok untuk 2-4 perangkat bersamaan</li>
-            <li>Browsing, medsos, YouTube HD, dan Zoom meeting</li>
-            <li>Gratis biaya sewa modem Wi-Fi</li>
-            <li>Unlimited tanpa batasan kuota (Bebas FUP)</li>
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
           </ul>
         </div>
-        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Viena%20Solo%20Baru%20Kwarasan%20mau%20pasang%20Paket%20Starter%2030%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 185rb</a>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Viena%20Solo%20Baru%20Kwarasan%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
       </div>
 
       <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
@@ -6338,11 +6357,12 @@ ARTIKEL["pasang-wifi-perumahan-viena-solo-baru"] = {
         <div>
           <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
           <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
             <li>Sangat ideal untuk 4-8 perangkat aktif</li>
             <li>Streaming Netflix 4K lancar tanpa jeda</li>
-            <li><strong>Gratis Biaya Pasang Rp 0</strong></li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
             <li>100% Fiber Simetris Murni Bebas FUP</li>
           </ul>
         </div>
@@ -6396,7 +6416,7 @@ ARTIKEL["pasang-wifi-perumahan-griya-salaam-banyudono"] = {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Pasang WiFi Fiber di Perumahan Griya Salaam Banyudono Boyolali: Internet Cepat Tanpa FUP",
-      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Griya Salaam Banyudono Boyolali, Desa Sambon, Kec. Banyudono, Kab. Boyolali. Rincian paket 30-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
+      "description": "Panduan pasang internet fiber optik XL Home di Perumahan Griya Salaam Banyudono Boyolali, Desa Sambon, Kec. Banyudono, Kab. Boyolali. Rincian paket 20-1000 Mbps, promo gratis pasang, dan verifikasi tiang ODP.",
       "author": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "datePublished": "2026-10-27",
@@ -6420,7 +6440,7 @@ ARTIKEL["pasang-wifi-perumahan-griya-salaam-banyudono"] = {
           "name": "Berapa biaya pasang WiFi XL Home di Perum Griya Salaam?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+            "text": "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
           }
         },
         {
@@ -6441,7 +6461,7 @@ ARTIKEL["pasang-wifi-perumahan-griya-salaam-banyudono"] = {
     },
     {
       q: "Berapa biaya pasang WiFi XL Home di Perum Griya Salaam?",
-      a: "Paket internet rumah mulai dari Rp 185.000/bulan untuk kecepatan 30 Mbps. Tersedia paket favorit Spark 250 Mbps (Rp 229.000/bulan) dengan biaya instalasi gratis Rp 0 dan gratis peminjaman modem router fiber Wi-Fi."
+      a: "Paket internet rumah mulai dari Rp 185.000/bulan (belum PPN 11%) untuk kecepatan 20 Mbps dengan biaya instalasi Rp 100.000 (sekali bayar). Untuk paket favorit keluarga Spark 250 Mbps (Rp 229.000/bulan belum PPN 11%), biaya instalasi gratis Rp 0 dan sudah dipinjamkan modem router fiber Wi-Fi."
     },
     {
       q: "Apakah internet XL Home di Perum Griya Salaam ada batasan kuota (FUP)?",
@@ -6479,16 +6499,17 @@ ARTIKEL["pasang-wifi-perumahan-griya-salaam-banyudono"] = {
       <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
         <div>
           <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
-          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 30 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
-            <li>Cocok untuk 2-4 perangkat bersamaan</li>
-            <li>Browsing, medsos, YouTube HD, dan Zoom meeting</li>
-            <li>Gratis biaya sewa modem Wi-Fi</li>
-            <li>Unlimited tanpa batasan kuota (Bebas FUP)</li>
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
           </ul>
         </div>
-        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Griya%20Salaam%20Banyudono%20Boyolali%20mau%20pasang%20Paket%20Starter%2030%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 185rb</a>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Perumahan%20Griya%20Salaam%20Banyudono%20Boyolali%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
       </div>
 
       <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
@@ -6496,11 +6517,12 @@ ARTIKEL["pasang-wifi-perumahan-griya-salaam-banyudono"] = {
         <div>
           <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
           <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
-          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:8px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
           <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
             <li>Sangat ideal untuk 4-8 perangkat aktif</li>
             <li>Streaming Netflix 4K lancar tanpa jeda</li>
-            <li><strong>Gratis Biaya Pasang Rp 0</strong></li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
             <li>100% Fiber Simetris Murni Bebas FUP</li>
           </ul>
         </div>
