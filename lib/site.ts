@@ -55,6 +55,8 @@ export const V1_ROUTES: string[] = [
   "/promo-perumahan-solo/",
   "/artikel/",
   "/cek-jaringan/",
+  "/pasang-wifi-perumahan-jetis-permai-gentan/",
+  "/pasang-wifi-perumahan-grogol-indah-telukan/",
 ];
 
 
