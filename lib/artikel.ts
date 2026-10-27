@@ -18394,3 +18394,1097 @@ ARTIKEL["pasang-wifi-perumahan-asabri-gagaksipat"] = {
     </div>
   `
 };
+
+
+ARTIKEL["pasang-wifi-xl-home-cemani"] = {
+  slug: "pasang-wifi-xl-home-cemani",
+  title: "Pasang WiFi XL Home Area Pemukiman Cemani Grogol Sukoharjo \u2014 Internet Fiber 100% Cepat & Unlimited",
+  description: "Promo pasang WiFi XL Home di Area Pemukiman Cemani Grogol Sukoharjo (Kelurahan Cemani, Kec. Grogol). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  keywords: ["pasang wifi cemani sukoharjo", "wifi xl home cemani sukoharjo", "pasang internet cemani sukoharjo", "wifi fiber kelurahan cemani", "paket internet kec. grogol", "xl satu cemani sukoharjo", "biaya pasang wifi kec. grogol"],
+  ogTitle: "Pasang WiFi XL Home Area Pemukiman Cemani Grogol Sukoharjo \u2014 Internet Fiber 100% Cepat & Unlimited",
+  ogDescription: "Promo pasang WiFi XL Home di Area Pemukiman Cemani Grogol Sukoharjo (Kelurahan Cemani, Kec. Grogol). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  ogImage: "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.webp",
+  schemas: [{"@context": "https://schema.org", "@type": "Article", "headline": "Pasang WiFi XL Home Area Pemukiman Cemani Grogol Sukoharjo \u2014 Internet Fiber 100% Cepat & Unlimited", "description": "Promo pasang WiFi XL Home di Area Pemukiman Cemani Grogol Sukoharjo (Kelurahan Cemani, Kec. Grogol). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!", "author": {"@type": "Organization", "name": "XL Home Solo Raya"}, "publisher": {"@type": "Organization", "name": "XL Home Solo Raya"}, "datePublished": "2026-10-28", "dateModified": "2026-10-28", "mainEntityOfPage": "https://xlhomesolo.com/pasang-wifi-xl-home-cemani/"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Cemani Sukoharjo?", "acceptedAnswer": {"@type": "Answer", "text": "Ya, Area Cemani Grogol Sukoharjo kini telah terhubung jaringan 100% Fiber Optic XL Home (jaringan Link Net) dengan tiang ODP aktif siap sambung ke rumah dan ruko tempat usaha warga. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}}, {"@type": "Question", "name": "Berapa biaya pasang WiFi XL Home untuk warga Cemani Sukoharjo?", "acceptedAnswer": {"@type": "Answer", "text": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}}, {"@type": "Question", "name": "Berapa lama proses pemasangan teknisi di Cemani Sukoharjo?", "acceptedAnswer": {"@type": "Answer", "text": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}}, {"@type": "Question", "name": "Apakah kuota internet XL Home di Cemani Sukoharjo dibatasi FUP?", "acceptedAnswer": {"@type": "Answer", "text": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}}]}],
+  faqs: [{"q": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Cemani Sukoharjo?", "a": "Ya, Area Cemani Grogol Sukoharjo kini telah terhubung jaringan 100% Fiber Optic XL Home (jaringan Link Net) dengan tiang ODP aktif siap sambung ke rumah dan ruko tempat usaha warga. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}, {"q": "Berapa biaya pasang WiFi XL Home untuk warga Cemani Sukoharjo?", "a": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}, {"q": "Berapa lama proses pemasangan teknisi di Cemani Sukoharjo?", "a": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}, {"q": "Apakah kuota internet XL Home di Cemani Sukoharjo dibatasi FUP?", "a": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}],
+  hero: {
+    crumb: "<a href='https://xlhomesolo.com/'>Beranda</a> / <a href='/area-layanan/'>Area Layanan</a> / Cemani Sukoharjo",
+    h1: "Pasang WiFi Fiber di Area Pemukiman Cemani Grogol Sukoharjo",
+    sub: "Solusi internet rumah 100% Fiber Optic murni tanpa batasan kuota (FUP) untuk warga Cemani Sukoharjo, Kelurahan Cemani, Kec. Grogol.",
+    meta: "Kelurahan Cemani · Kec. Grogol · Kab. Sukoharjo · 100% Fiber Ready"
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Pemukiman%20Cemani%20Grogol%20Sukoharjo%20mau%20cek%20tiang%20fiber%20%26%20promo%20pasang%20baru",
+  bodyHtml: `
+    <p>Kabar gembira bagi warga <strong>Area Pemukiman Cemani Grogol Sukoharjo</strong>! Kini Anda dapat menikmati akses internet rumah super cepat dan stabil berbasis 100% Fiber Optic dari <strong>XL Home Solo Raya</strong> (jaringan Link Net). Tidak ada lagi kendala koneksi lemot saat rapat online Zoom/Google Meet, streaming film kualitas 4K, maupun bermain game online bersama keluarga di rumah.</p>
+
+    <div style="background:#f8fafc; border-left:4px solid #037e64; padding:16px; margin:20px 0; border-radius:0 8px 8px 0;">
+      <h3 style="margin:0 0 8px; color:#037e64; font-size:17px;">Kondisi Jaringan Fiber di Cemani Sukoharjo</h3>
+      <p style="margin:0; font-size:14px; color:#475569; line-height:1.6;">Area Cemani Grogol Sukoharjo kini telah terhubung jaringan 100% Fiber Optic XL Home (jaringan Link Net) dengan tiang ODP aktif siap sambung ke rumah dan ruko tempat usaha warga. Tiang ODP fiber telah terpasang dengan status <em>Ready for Service (RFS)</em>. Pendaftaran langsung diproses cepat oleh teknisi resmi area Kab. Sukoharjo. Patokan lokasi: Kawasan padat Cemani Raya, Jl. Batik Keris, perbatasan Laweyan Solo & Sukoharjo, dekat Tiga Serangkai dan RS DKT Solo.</p>
+    </div>
+
+    <h2>Mengapa Warga Cemani Sukoharjo Memilih XL Home Fiber?</h2>
+    <p>Berikut keunggulan utama layanan internet fiber optik XL Home dibandingkan provider kabel tembaga atau modem kuota seluler:</p>
+    <ul style="line-height:1.8; font-size:15px; color:#333; margin-left:20px;">
+      <li><strong>100% Bebas FUP (True Unlimited):</strong> Pemakaian kuota tanpa batas. Kecepatan internet tetap stabil dari awal hingga akhir bulan tanpa batasan pemakaian wajar.</li>
+      <li><strong>Kecepatan Simetris &amp; Latensi Rendah:</strong> Sangat ideal untuk WFH, video conference, CCTV rumah online, live streaming jualan, dan download file berukuran besar.</li>
+      <li><strong>Pilihan Paket Terjangkau &amp; Promo Hemat:</strong> Paket hemat mulai Rp 185.000/bln dan promo bebas biaya instalasi untuk paket Spark 250 Mbps ke atas.</li>
+      <li><strong>Layanan Tim Sales &amp; Teknisi Lokal:</strong> Ditangani langsung oleh tim sales dan teknisi resmi perwakilan Solo Raya, menjamin respon survei tiang ODP dan penanganan cepat.</li>
+    </ul>
+
+    <h2>Daftar Pilihan Paket WiFi Rumah untuk Cemani Sukoharjo</h2>
+    <p>Pilih paket internet rumah yang paling sesuai dengan kebutuhan anggota keluarga Anda:</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin:28px 0;">
+      <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
+        <div>
+          <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Pemukiman%20Cemani%20Grogol%20Sukoharjo%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
+      </div>
+
+      <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
+        <div style="position:absolute; top:-11px; right:16px; background:#037e64; color:#fff; font-size:11px; font-weight:800; padding:2px 10px; border-radius:999px;">PILIHAN TERBAIK KELUARGA</div>
+        <div>
+          <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Sangat ideal untuk 4-8 perangkat aktif</li>
+            <li>Streaming Netflix 4K lancar tanpa jeda</li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
+            <li>100% Fiber Simetris Murni Bebas FUP</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Pemukiman%20Cemani%20Grogol%20Sukoharjo%20mau%20pasang%20Paket%20Spark%20250%20Mbps%20(Rp%20229.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#16a34a; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 250 Mbps (229rb)</a>
+      </div>
+    </div>
+
+    <h2>Cara Mudah Pendaftaran Pasang Baru di Cemani Sukoharjo</h2>
+    <p>Warga Area Pemukiman Cemani Grogol Sukoharjo dapat mendaftar pasang baru secara online tanpa perlu datang ke kantor:</p>
+    <ol style="margin-left:20px; line-height:1.8; font-size:15px; color:#333;">
+      <li>Hubungi nomor WhatsApp resmi sales XL Home Solo Raya di <strong>0877-7899-9141</strong>.</li>
+      <li>Kirimkan alamat lengkap rumah (contoh: nama jalan, nomor rumah di Cemani Sukoharjo) atau share location GPS.</li>
+      <li>Sales akan langsung mengecek jarak dan slot tiang ODP fiber terdekat di depan rumah Anda.</li>
+      <li>Pilih jadwal pemasangan teknisi. Teknisi datang melakukan penarikan kabel fiber optik, instalasi modem, dan internet langsung aktif!</li>
+    </ol>
+
+    <div class="cta-box" style="background:linear-gradient(135deg, #037e64 0%, #025946 100%); color:#fff; padding:28px; border-radius:12px; text-align:center; margin:36px 0;">
+      <h3 style="color:#fff; font-size:22px; margin-bottom:8px;">Cek Tiang ODP Fiber di Rumah Anda Sekarang!</h3>
+      <p style="color:#e2e8f0; font-size:15px; margin-bottom:20px; max-width:600px; margin-left:auto; margin-right:auto;">Dapatkan promo gratis instalasi Rp 0 dan promo harga spesial untuk warga Cemani Sukoharjo.</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Pemukiman%20Cemani%20Grogol%20Sukoharjo%20mau%20cek%20titik%20tiang%20pasang%20WiFi" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#037e64; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; font-size:15px;">
+        Hubungi WhatsApp Sales Resmi (0877-7899-9141)
+      </a>
+    </div>
+
+    <h2>Area Terkait di Sekitar Kec. Grogol &amp; Kab. Sukoharjo</h2>
+    <p>Lihat juga informasi jangkauan jaringan fiber optik di kawasan sekitar:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+            <a href="/pasang-wifi-perumahan-tiga-serangkai-cemani/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Tiga Serangkai Cemani</a>
+      <a href="/pasang-wifi-xl-home-grogol/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Grogol Sukoharjo</a>
+      <a href="/wifi-solo/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Solo</a>
+      <a href="/area-layanan/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">Area Layanan</a>
+    </div>
+  `
+};
+
+ARTIKEL["pasang-wifi-xl-home-sanggrahan-grogol"] = {
+  slug: "pasang-wifi-xl-home-sanggrahan-grogol",
+  title: "Pasang WiFi XL Home Area Pemukiman Sanggrahan Grogol Sukoharjo \u2014 Internet Fiber 100% Cepat & Unlimited",
+  description: "Promo pasang WiFi XL Home di Area Pemukiman Sanggrahan Grogol Sukoharjo (Desa Sanggrahan, Kec. Grogol). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  keywords: ["pasang wifi sanggrahan grogol", "wifi xl home sanggrahan grogol", "pasang internet sanggrahan grogol", "wifi fiber desa sanggrahan", "paket internet kec. grogol", "xl satu sanggrahan grogol", "biaya pasang wifi kec. grogol"],
+  ogTitle: "Pasang WiFi XL Home Area Pemukiman Sanggrahan Grogol Sukoharjo \u2014 Internet Fiber 100% Cepat & Unlimited",
+  ogDescription: "Promo pasang WiFi XL Home di Area Pemukiman Sanggrahan Grogol Sukoharjo (Desa Sanggrahan, Kec. Grogol). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  ogImage: "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.webp",
+  schemas: [{"@context": "https://schema.org", "@type": "Article", "headline": "Pasang WiFi XL Home Area Pemukiman Sanggrahan Grogol Sukoharjo \u2014 Internet Fiber 100% Cepat & Unlimited", "description": "Promo pasang WiFi XL Home di Area Pemukiman Sanggrahan Grogol Sukoharjo (Desa Sanggrahan, Kec. Grogol). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!", "author": {"@type": "Organization", "name": "XL Home Solo Raya"}, "publisher": {"@type": "Organization", "name": "XL Home Solo Raya"}, "datePublished": "2026-10-28", "dateModified": "2026-10-28", "mainEntityOfPage": "https://xlhomesolo.com/pasang-wifi-xl-home-sanggrahan-grogol/"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Sanggrahan Grogol?", "acceptedAnswer": {"@type": "Answer", "text": "Ya, Sanggrahan Grogol memiliki lebih dari 1.402 Homepass fiber optic aktif di portal jaringan \u2014 klaster pemukiman fiber optic terbesar di wilayah Sukoharjo. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}}, {"@type": "Question", "name": "Berapa biaya pasang WiFi XL Home untuk warga Sanggrahan Grogol?", "acceptedAnswer": {"@type": "Answer", "text": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}}, {"@type": "Question", "name": "Berapa lama proses pemasangan teknisi di Sanggrahan Grogol?", "acceptedAnswer": {"@type": "Answer", "text": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}}, {"@type": "Question", "name": "Apakah kuota internet XL Home di Sanggrahan Grogol dibatasi FUP?", "acceptedAnswer": {"@type": "Answer", "text": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}}]}],
+  faqs: [{"q": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Sanggrahan Grogol?", "a": "Ya, Sanggrahan Grogol memiliki lebih dari 1.402 Homepass fiber optic aktif di portal jaringan \u2014 klaster pemukiman fiber optic terbesar di wilayah Sukoharjo. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}, {"q": "Berapa biaya pasang WiFi XL Home untuk warga Sanggrahan Grogol?", "a": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}, {"q": "Berapa lama proses pemasangan teknisi di Sanggrahan Grogol?", "a": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}, {"q": "Apakah kuota internet XL Home di Sanggrahan Grogol dibatasi FUP?", "a": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}],
+  hero: {
+    crumb: "<a href='https://xlhomesolo.com/'>Beranda</a> / <a href='/area-layanan/'>Area Layanan</a> / Sanggrahan Grogol",
+    h1: "Pasang WiFi Fiber di Area Pemukiman Sanggrahan Grogol Sukoharjo",
+    sub: "Solusi internet rumah 100% Fiber Optic murni tanpa batasan kuota (FUP) untuk warga Sanggrahan Grogol, Desa Sanggrahan, Kec. Grogol.",
+    meta: "Desa Sanggrahan · Kec. Grogol · Kab. Sukoharjo · 100% Fiber Ready"
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Pemukiman%20Sanggrahan%20Grogol%20Sukoharjo%20mau%20cek%20tiang%20fiber%20%26%20promo%20pasang%20baru",
+  bodyHtml: `
+    <p>Kabar gembira bagi warga <strong>Area Pemukiman Sanggrahan Grogol Sukoharjo</strong>! Kini Anda dapat menikmati akses internet rumah super cepat dan stabil berbasis 100% Fiber Optic dari <strong>XL Home Solo Raya</strong> (jaringan Link Net). Tidak ada lagi kendala koneksi lemot saat rapat online Zoom/Google Meet, streaming film kualitas 4K, maupun bermain game online bersama keluarga di rumah.</p>
+
+    <div style="background:#f8fafc; border-left:4px solid #037e64; padding:16px; margin:20px 0; border-radius:0 8px 8px 0;">
+      <h3 style="margin:0 0 8px; color:#037e64; font-size:17px;">Kondisi Jaringan Fiber di Sanggrahan Grogol</h3>
+      <p style="margin:0; font-size:14px; color:#475569; line-height:1.6;">Sanggrahan Grogol memiliki lebih dari 1.402 Homepass fiber optic aktif di portal jaringan — klaster pemukiman fiber optic terbesar di wilayah Sukoharjo. Tiang ODP fiber telah terpasang dengan status <em>Ready for Service (RFS)</em>. Pendaftaran langsung diproses cepat oleh teknisi resmi area Kab. Sukoharjo. Patokan lokasi: Kawasan pemukiman padat Sanggrahan, koridor Jl. Raya Solo–Wonogiri, dekat kawasan Solo Baru, Langenharjo & Madegondo.</p>
+    </div>
+
+    <h2>Mengapa Warga Sanggrahan Grogol Memilih XL Home Fiber?</h2>
+    <p>Berikut keunggulan utama layanan internet fiber optik XL Home dibandingkan provider kabel tembaga atau modem kuota seluler:</p>
+    <ul style="line-height:1.8; font-size:15px; color:#333; margin-left:20px;">
+      <li><strong>100% Bebas FUP (True Unlimited):</strong> Pemakaian kuota tanpa batas. Kecepatan internet tetap stabil dari awal hingga akhir bulan tanpa batasan pemakaian wajar.</li>
+      <li><strong>Kecepatan Simetris &amp; Latensi Rendah:</strong> Sangat ideal untuk WFH, video conference, CCTV rumah online, live streaming jualan, dan download file berukuran besar.</li>
+      <li><strong>Pilihan Paket Terjangkau &amp; Promo Hemat:</strong> Paket hemat mulai Rp 185.000/bln dan promo bebas biaya instalasi untuk paket Spark 250 Mbps ke atas.</li>
+      <li><strong>Layanan Tim Sales &amp; Teknisi Lokal:</strong> Ditangani langsung oleh tim sales dan teknisi resmi perwakilan Solo Raya, menjamin respon survei tiang ODP dan penanganan cepat.</li>
+    </ul>
+
+    <h2>Daftar Pilihan Paket WiFi Rumah untuk Sanggrahan Grogol</h2>
+    <p>Pilih paket internet rumah yang paling sesuai dengan kebutuhan anggota keluarga Anda:</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin:28px 0;">
+      <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
+        <div>
+          <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Pemukiman%20Sanggrahan%20Grogol%20Sukoharjo%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
+      </div>
+
+      <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
+        <div style="position:absolute; top:-11px; right:16px; background:#037e64; color:#fff; font-size:11px; font-weight:800; padding:2px 10px; border-radius:999px;">PILIHAN TERBAIK KELUARGA</div>
+        <div>
+          <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Sangat ideal untuk 4-8 perangkat aktif</li>
+            <li>Streaming Netflix 4K lancar tanpa jeda</li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
+            <li>100% Fiber Simetris Murni Bebas FUP</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Pemukiman%20Sanggrahan%20Grogol%20Sukoharjo%20mau%20pasang%20Paket%20Spark%20250%20Mbps%20(Rp%20229.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#16a34a; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 250 Mbps (229rb)</a>
+      </div>
+    </div>
+
+    <h2>Cara Mudah Pendaftaran Pasang Baru di Sanggrahan Grogol</h2>
+    <p>Warga Area Pemukiman Sanggrahan Grogol Sukoharjo dapat mendaftar pasang baru secara online tanpa perlu datang ke kantor:</p>
+    <ol style="margin-left:20px; line-height:1.8; font-size:15px; color:#333;">
+      <li>Hubungi nomor WhatsApp resmi sales XL Home Solo Raya di <strong>0877-7899-9141</strong>.</li>
+      <li>Kirimkan alamat lengkap rumah (contoh: nama jalan, nomor rumah di Sanggrahan Grogol) atau share location GPS.</li>
+      <li>Sales akan langsung mengecek jarak dan slot tiang ODP fiber terdekat di depan rumah Anda.</li>
+      <li>Pilih jadwal pemasangan teknisi. Teknisi datang melakukan penarikan kabel fiber optik, instalasi modem, dan internet langsung aktif!</li>
+    </ol>
+
+    <div class="cta-box" style="background:linear-gradient(135deg, #037e64 0%, #025946 100%); color:#fff; padding:28px; border-radius:12px; text-align:center; margin:36px 0;">
+      <h3 style="color:#fff; font-size:22px; margin-bottom:8px;">Cek Tiang ODP Fiber di Rumah Anda Sekarang!</h3>
+      <p style="color:#e2e8f0; font-size:15px; margin-bottom:20px; max-width:600px; margin-left:auto; margin-right:auto;">Dapatkan promo gratis instalasi Rp 0 dan promo harga spesial untuk warga Sanggrahan Grogol.</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Pemukiman%20Sanggrahan%20Grogol%20Sukoharjo%20mau%20cek%20titik%20tiang%20pasang%20WiFi" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#037e64; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; font-size:15px;">
+        Hubungi WhatsApp Sales Resmi (0877-7899-9141)
+      </a>
+    </div>
+
+    <h2>Area Terkait di Sekitar Kec. Grogol &amp; Kab. Sukoharjo</h2>
+    <p>Lihat juga informasi jangkauan jaringan fiber optik di kawasan sekitar:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+            <a href="/pasang-wifi-xl-home-grogol/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Grogol Sukoharjo</a>
+      <a href="/pasang-wifi-xl-home-solo-baru/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Solo Baru</a>
+      <a href="/wifi-sukoharjo/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Sukoharjo</a>
+      <a href="/biaya-pasang-wifi-solo-raya/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">Biaya Pasang WiFi</a>
+    </div>
+  `
+};
+
+ARTIKEL["pasang-wifi-xl-home-gonilan-kartasura"] = {
+  slug: "pasang-wifi-xl-home-gonilan-kartasura",
+  title: "Pasang WiFi XL Home Area Pemukiman Gonilan Kartasura Sukoharjo \u2014 Internet Fiber 100% Cepat & Unlimited",
+  description: "Promo pasang WiFi XL Home di Area Pemukiman Gonilan Kartasura Sukoharjo (Desa Gonilan, Kec. Kartasura). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  keywords: ["pasang wifi gonilan ums kartasura", "wifi xl home gonilan ums kartasura", "pasang internet gonilan ums kartasura", "wifi fiber desa gonilan", "paket internet kec. kartasura", "xl satu gonilan ums kartasura", "biaya pasang wifi kec. kartasura"],
+  ogTitle: "Pasang WiFi XL Home Area Pemukiman Gonilan Kartasura Sukoharjo \u2014 Internet Fiber 100% Cepat & Unlimited",
+  ogDescription: "Promo pasang WiFi XL Home di Area Pemukiman Gonilan Kartasura Sukoharjo (Desa Gonilan, Kec. Kartasura). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  ogImage: "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.webp",
+  schemas: [{"@context": "https://schema.org", "@type": "Article", "headline": "Pasang WiFi XL Home Area Pemukiman Gonilan Kartasura Sukoharjo \u2014 Internet Fiber 100% Cepat & Unlimited", "description": "Promo pasang WiFi XL Home di Area Pemukiman Gonilan Kartasura Sukoharjo (Desa Gonilan, Kec. Kartasura). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!", "author": {"@type": "Organization", "name": "XL Home Solo Raya"}, "publisher": {"@type": "Organization", "name": "XL Home Solo Raya"}, "datePublished": "2026-10-28", "dateModified": "2026-10-28", "mainEntityOfPage": "https://xlhomesolo.com/pasang-wifi-xl-home-gonilan-kartasura/"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Gonilan UMS Kartasura?", "acceptedAnswer": {"@type": "Answer", "text": "Ya, Gonilan Kartasura merupakan sentra hunian keluarga dan ratusan rumah kos mahasiswa UMS dengan kebutuhan internet WiFi fiber optik super cepat, stabil, dan bebas FUP. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}}, {"@type": "Question", "name": "Berapa biaya pasang WiFi XL Home untuk warga Gonilan UMS Kartasura?", "acceptedAnswer": {"@type": "Answer", "text": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}}, {"@type": "Question", "name": "Berapa lama proses pemasangan teknisi di Gonilan UMS Kartasura?", "acceptedAnswer": {"@type": "Answer", "text": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}}, {"@type": "Question", "name": "Apakah kuota internet XL Home di Gonilan UMS Kartasura dibatasi FUP?", "acceptedAnswer": {"@type": "Answer", "text": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}}]}],
+  faqs: [{"q": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Gonilan UMS Kartasura?", "a": "Ya, Gonilan Kartasura merupakan sentra hunian keluarga dan ratusan rumah kos mahasiswa UMS dengan kebutuhan internet WiFi fiber optik super cepat, stabil, dan bebas FUP. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}, {"q": "Berapa biaya pasang WiFi XL Home untuk warga Gonilan UMS Kartasura?", "a": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}, {"q": "Berapa lama proses pemasangan teknisi di Gonilan UMS Kartasura?", "a": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}, {"q": "Apakah kuota internet XL Home di Gonilan UMS Kartasura dibatasi FUP?", "a": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}],
+  hero: {
+    crumb: "<a href='https://xlhomesolo.com/'>Beranda</a> / <a href='/area-layanan/'>Area Layanan</a> / Gonilan UMS Kartasura",
+    h1: "Pasang WiFi Fiber di Area Pemukiman Gonilan Kartasura Sukoharjo",
+    sub: "Solusi internet rumah 100% Fiber Optic murni tanpa batasan kuota (FUP) untuk warga Gonilan UMS Kartasura, Desa Gonilan, Kec. Kartasura.",
+    meta: "Desa Gonilan · Kec. Kartasura · Kab. Sukoharjo · 100% Fiber Ready"
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Pemukiman%20Gonilan%20Kartasura%20Sukoharjo%20mau%20cek%20tiang%20fiber%20%26%20promo%20pasang%20baru",
+  bodyHtml: `
+    <p>Kabar gembira bagi warga <strong>Area Pemukiman Gonilan Kartasura Sukoharjo</strong>! Kini Anda dapat menikmati akses internet rumah super cepat dan stabil berbasis 100% Fiber Optic dari <strong>XL Home Solo Raya</strong> (jaringan Link Net). Tidak ada lagi kendala koneksi lemot saat rapat online Zoom/Google Meet, streaming film kualitas 4K, maupun bermain game online bersama keluarga di rumah.</p>
+
+    <div style="background:#f8fafc; border-left:4px solid #037e64; padding:16px; margin:20px 0; border-radius:0 8px 8px 0;">
+      <h3 style="margin:0 0 8px; color:#037e64; font-size:17px;">Kondisi Jaringan Fiber di Gonilan UMS Kartasura</h3>
+      <p style="margin:0; font-size:14px; color:#475569; line-height:1.6;">Gonilan Kartasura merupakan sentra hunian keluarga dan ratusan rumah kos mahasiswa UMS dengan kebutuhan internet WiFi fiber optik super cepat, stabil, dan bebas FUP. Tiang ODP fiber telah terpasang dengan status <em>Ready for Service (RFS)</em>. Pendaftaran langsung diproses cepat oleh teknisi resmi area Kab. Sukoharjo. Patokan lokasi: Kawasan lingkar Kampus 1 & Kampus 2 UMS (Universitas Muhammadiyah Surakarta), koridor Jl. Garuda Mas, Jl. Rajawali, kawasan kos mahasiswa & pemukiman warga.</p>
+    </div>
+
+    <h2>Mengapa Warga Gonilan UMS Kartasura Memilih XL Home Fiber?</h2>
+    <p>Berikut keunggulan utama layanan internet fiber optik XL Home dibandingkan provider kabel tembaga atau modem kuota seluler:</p>
+    <ul style="line-height:1.8; font-size:15px; color:#333; margin-left:20px;">
+      <li><strong>100% Bebas FUP (True Unlimited):</strong> Pemakaian kuota tanpa batas. Kecepatan internet tetap stabil dari awal hingga akhir bulan tanpa batasan pemakaian wajar.</li>
+      <li><strong>Kecepatan Simetris &amp; Latensi Rendah:</strong> Sangat ideal untuk WFH, video conference, CCTV rumah online, live streaming jualan, dan download file berukuran besar.</li>
+      <li><strong>Pilihan Paket Terjangkau &amp; Promo Hemat:</strong> Paket hemat mulai Rp 185.000/bln dan promo bebas biaya instalasi untuk paket Spark 250 Mbps ke atas.</li>
+      <li><strong>Layanan Tim Sales &amp; Teknisi Lokal:</strong> Ditangani langsung oleh tim sales dan teknisi resmi perwakilan Solo Raya, menjamin respon survei tiang ODP dan penanganan cepat.</li>
+    </ul>
+
+    <h2>Daftar Pilihan Paket WiFi Rumah untuk Gonilan UMS Kartasura</h2>
+    <p>Pilih paket internet rumah yang paling sesuai dengan kebutuhan anggota keluarga Anda:</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin:28px 0;">
+      <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
+        <div>
+          <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Pemukiman%20Gonilan%20Kartasura%20Sukoharjo%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
+      </div>
+
+      <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
+        <div style="position:absolute; top:-11px; right:16px; background:#037e64; color:#fff; font-size:11px; font-weight:800; padding:2px 10px; border-radius:999px;">PILIHAN TERBAIK KELUARGA</div>
+        <div>
+          <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Sangat ideal untuk 4-8 perangkat aktif</li>
+            <li>Streaming Netflix 4K lancar tanpa jeda</li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
+            <li>100% Fiber Simetris Murni Bebas FUP</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Pemukiman%20Gonilan%20Kartasura%20Sukoharjo%20mau%20pasang%20Paket%20Spark%20250%20Mbps%20(Rp%20229.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#16a34a; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 250 Mbps (229rb)</a>
+      </div>
+    </div>
+
+    <h2>Cara Mudah Pendaftaran Pasang Baru di Gonilan UMS Kartasura</h2>
+    <p>Warga Area Pemukiman Gonilan Kartasura Sukoharjo dapat mendaftar pasang baru secara online tanpa perlu datang ke kantor:</p>
+    <ol style="margin-left:20px; line-height:1.8; font-size:15px; color:#333;">
+      <li>Hubungi nomor WhatsApp resmi sales XL Home Solo Raya di <strong>0877-7899-9141</strong>.</li>
+      <li>Kirimkan alamat lengkap rumah (contoh: nama jalan, nomor rumah di Gonilan UMS Kartasura) atau share location GPS.</li>
+      <li>Sales akan langsung mengecek jarak dan slot tiang ODP fiber terdekat di depan rumah Anda.</li>
+      <li>Pilih jadwal pemasangan teknisi. Teknisi datang melakukan penarikan kabel fiber optik, instalasi modem, dan internet langsung aktif!</li>
+    </ol>
+
+    <div class="cta-box" style="background:linear-gradient(135deg, #037e64 0%, #025946 100%); color:#fff; padding:28px; border-radius:12px; text-align:center; margin:36px 0;">
+      <h3 style="color:#fff; font-size:22px; margin-bottom:8px;">Cek Tiang ODP Fiber di Rumah Anda Sekarang!</h3>
+      <p style="color:#e2e8f0; font-size:15px; margin-bottom:20px; max-width:600px; margin-left:auto; margin-right:auto;">Dapatkan promo gratis instalasi Rp 0 dan promo harga spesial untuk warga Gonilan UMS Kartasura.</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Pemukiman%20Gonilan%20Kartasura%20Sukoharjo%20mau%20cek%20titik%20tiang%20pasang%20WiFi" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#037e64; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; font-size:15px;">
+        Hubungi WhatsApp Sales Resmi (0877-7899-9141)
+      </a>
+    </div>
+
+    <h2>Area Terkait di Sekitar Kec. Kartasura &amp; Kab. Sukoharjo</h2>
+    <p>Lihat juga informasi jangkauan jaringan fiber optik di kawasan sekitar:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+            <a href="/panduan-wifi-kos-solo/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Khusus Kos-Kosan</a>
+      <a href="/pasang-wifi-perumahan-taman-kuantan-gonilan/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Taman Kuantan Gonilan</a>
+      <a href="/pasang-wifi-xl-home-kartasura/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Kartasura</a>
+      <a href="/wifi-sukoharjo/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Sukoharjo</a>
+    </div>
+  `
+};
+
+ARTIKEL["pasang-wifi-xl-home-bumi-laweyan"] = {
+  slug: "pasang-wifi-xl-home-bumi-laweyan",
+  title: "Pasang WiFi XL Home Area Kelurahan Bumi Laweyan Solo \u2014 Internet Fiber 100% Cepat & Unlimited",
+  description: "Promo pasang WiFi XL Home di Area Kelurahan Bumi Laweyan Solo (Kelurahan Bumi, Kec. Laweyan). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  keywords: ["pasang wifi kelurahan bumi solo", "wifi xl home kelurahan bumi solo", "pasang internet kelurahan bumi solo", "wifi fiber kelurahan bumi", "paket internet kec. laweyan", "xl satu kelurahan bumi solo", "biaya pasang wifi kec. laweyan"],
+  ogTitle: "Pasang WiFi XL Home Area Kelurahan Bumi Laweyan Solo \u2014 Internet Fiber 100% Cepat & Unlimited",
+  ogDescription: "Promo pasang WiFi XL Home di Area Kelurahan Bumi Laweyan Solo (Kelurahan Bumi, Kec. Laweyan). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  ogImage: "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.webp",
+  schemas: [{"@context": "https://schema.org", "@type": "Article", "headline": "Pasang WiFi XL Home Area Kelurahan Bumi Laweyan Solo \u2014 Internet Fiber 100% Cepat & Unlimited", "description": "Promo pasang WiFi XL Home di Area Kelurahan Bumi Laweyan Solo (Kelurahan Bumi, Kec. Laweyan). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!", "author": {"@type": "Organization", "name": "XL Home Solo Raya"}, "publisher": {"@type": "Organization", "name": "XL Home Solo Raya"}, "datePublished": "2026-10-28", "dateModified": "2026-10-28", "mainEntityOfPage": "https://xlhomesolo.com/pasang-wifi-xl-home-bumi-laweyan/"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Kelurahan Bumi Solo?", "acceptedAnswer": {"@type": "Answer", "text": "Ya, Kelurahan Bumi Laweyan memiliki lebih dari 525 Homepass fiber optic aktif dengan tiang ODP siap sambung untuk hunian warga maupun tempat usaha. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}}, {"@type": "Question", "name": "Berapa biaya pasang WiFi XL Home untuk warga Kelurahan Bumi Solo?", "acceptedAnswer": {"@type": "Answer", "text": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}}, {"@type": "Question", "name": "Berapa lama proses pemasangan teknisi di Kelurahan Bumi Solo?", "acceptedAnswer": {"@type": "Answer", "text": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}}, {"@type": "Question", "name": "Apakah kuota internet XL Home di Kelurahan Bumi Solo dibatasi FUP?", "acceptedAnswer": {"@type": "Answer", "text": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}}]}],
+  faqs: [{"q": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Kelurahan Bumi Solo?", "a": "Ya, Kelurahan Bumi Laweyan memiliki lebih dari 525 Homepass fiber optic aktif dengan tiang ODP siap sambung untuk hunian warga maupun tempat usaha. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}, {"q": "Berapa biaya pasang WiFi XL Home untuk warga Kelurahan Bumi Solo?", "a": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}, {"q": "Berapa lama proses pemasangan teknisi di Kelurahan Bumi Solo?", "a": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}, {"q": "Apakah kuota internet XL Home di Kelurahan Bumi Solo dibatasi FUP?", "a": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}],
+  hero: {
+    crumb: "<a href='https://xlhomesolo.com/'>Beranda</a> / <a href='/area-layanan/'>Area Layanan</a> / Kelurahan Bumi Solo",
+    h1: "Pasang WiFi Fiber di Area Kelurahan Bumi Laweyan Solo",
+    sub: "Solusi internet rumah 100% Fiber Optic murni tanpa batasan kuota (FUP) untuk warga Kelurahan Bumi Solo, Kelurahan Bumi, Kec. Laweyan.",
+    meta: "Kelurahan Bumi · Kec. Laweyan · Kota Surakarta · 100% Fiber Ready"
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Kelurahan%20Bumi%20Laweyan%20Solo%20mau%20cek%20tiang%20fiber%20%26%20promo%20pasang%20baru",
+  bodyHtml: `
+    <p>Kabar gembira bagi warga <strong>Area Kelurahan Bumi Laweyan Solo</strong>! Kini Anda dapat menikmati akses internet rumah super cepat dan stabil berbasis 100% Fiber Optic dari <strong>XL Home Solo Raya</strong> (jaringan Link Net). Tidak ada lagi kendala koneksi lemot saat rapat online Zoom/Google Meet, streaming film kualitas 4K, maupun bermain game online bersama keluarga di rumah.</p>
+
+    <div style="background:#f8fafc; border-left:4px solid #037e64; padding:16px; margin:20px 0; border-radius:0 8px 8px 0;">
+      <h3 style="margin:0 0 8px; color:#037e64; font-size:17px;">Kondisi Jaringan Fiber di Kelurahan Bumi Solo</h3>
+      <p style="margin:0; font-size:14px; color:#475569; line-height:1.6;">Kelurahan Bumi Laweyan memiliki lebih dari 525 Homepass fiber optic aktif dengan tiang ODP siap sambung untuk hunian warga maupun tempat usaha. Tiang ODP fiber telah terpasang dengan status <em>Ready for Service (RFS)</em>. Pendaftaran langsung diproses cepat oleh teknisi resmi area Kota Surakarta. Patokan lokasi: Kawasan hunian Jl. Kebangkitan Nasional, Jl. Dr. Radjiman, sentra Batik Laweyan, dekat perbatasan Cemani dan Baron.</p>
+    </div>
+
+    <h2>Mengapa Warga Kelurahan Bumi Solo Memilih XL Home Fiber?</h2>
+    <p>Berikut keunggulan utama layanan internet fiber optik XL Home dibandingkan provider kabel tembaga atau modem kuota seluler:</p>
+    <ul style="line-height:1.8; font-size:15px; color:#333; margin-left:20px;">
+      <li><strong>100% Bebas FUP (True Unlimited):</strong> Pemakaian kuota tanpa batas. Kecepatan internet tetap stabil dari awal hingga akhir bulan tanpa batasan pemakaian wajar.</li>
+      <li><strong>Kecepatan Simetris &amp; Latensi Rendah:</strong> Sangat ideal untuk WFH, video conference, CCTV rumah online, live streaming jualan, dan download file berukuran besar.</li>
+      <li><strong>Pilihan Paket Terjangkau &amp; Promo Hemat:</strong> Paket hemat mulai Rp 185.000/bln dan promo bebas biaya instalasi untuk paket Spark 250 Mbps ke atas.</li>
+      <li><strong>Layanan Tim Sales &amp; Teknisi Lokal:</strong> Ditangani langsung oleh tim sales dan teknisi resmi perwakilan Solo Raya, menjamin respon survei tiang ODP dan penanganan cepat.</li>
+    </ul>
+
+    <h2>Daftar Pilihan Paket WiFi Rumah untuk Kelurahan Bumi Solo</h2>
+    <p>Pilih paket internet rumah yang paling sesuai dengan kebutuhan anggota keluarga Anda:</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin:28px 0;">
+      <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
+        <div>
+          <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Kelurahan%20Bumi%20Laweyan%20Solo%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
+      </div>
+
+      <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
+        <div style="position:absolute; top:-11px; right:16px; background:#037e64; color:#fff; font-size:11px; font-weight:800; padding:2px 10px; border-radius:999px;">PILIHAN TERBAIK KELUARGA</div>
+        <div>
+          <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Sangat ideal untuk 4-8 perangkat aktif</li>
+            <li>Streaming Netflix 4K lancar tanpa jeda</li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
+            <li>100% Fiber Simetris Murni Bebas FUP</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Kelurahan%20Bumi%20Laweyan%20Solo%20mau%20pasang%20Paket%20Spark%20250%20Mbps%20(Rp%20229.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#16a34a; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 250 Mbps (229rb)</a>
+      </div>
+    </div>
+
+    <h2>Cara Mudah Pendaftaran Pasang Baru di Kelurahan Bumi Solo</h2>
+    <p>Warga Area Kelurahan Bumi Laweyan Solo dapat mendaftar pasang baru secara online tanpa perlu datang ke kantor:</p>
+    <ol style="margin-left:20px; line-height:1.8; font-size:15px; color:#333;">
+      <li>Hubungi nomor WhatsApp resmi sales XL Home Solo Raya di <strong>0877-7899-9141</strong>.</li>
+      <li>Kirimkan alamat lengkap rumah (contoh: nama jalan, nomor rumah di Kelurahan Bumi Solo) atau share location GPS.</li>
+      <li>Sales akan langsung mengecek jarak dan slot tiang ODP fiber terdekat di depan rumah Anda.</li>
+      <li>Pilih jadwal pemasangan teknisi. Teknisi datang melakukan penarikan kabel fiber optik, instalasi modem, dan internet langsung aktif!</li>
+    </ol>
+
+    <div class="cta-box" style="background:linear-gradient(135deg, #037e64 0%, #025946 100%); color:#fff; padding:28px; border-radius:12px; text-align:center; margin:36px 0;">
+      <h3 style="color:#fff; font-size:22px; margin-bottom:8px;">Cek Tiang ODP Fiber di Rumah Anda Sekarang!</h3>
+      <p style="color:#e2e8f0; font-size:15px; margin-bottom:20px; max-width:600px; margin-left:auto; margin-right:auto;">Dapatkan promo gratis instalasi Rp 0 dan promo harga spesial untuk warga Kelurahan Bumi Solo.</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Kelurahan%20Bumi%20Laweyan%20Solo%20mau%20cek%20titik%20tiang%20pasang%20WiFi" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#037e64; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; font-size:15px;">
+        Hubungi WhatsApp Sales Resmi (0877-7899-9141)
+      </a>
+    </div>
+
+    <h2>Area Terkait di Sekitar Kec. Laweyan &amp; Kota Surakarta</h2>
+    <p>Lihat juga informasi jangkauan jaringan fiber optik di kawasan sekitar:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+            <a href="/pasang-wifi-xl-home-cemani/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Cemani</a>
+      <a href="/pasang-wifi-xl-home-laweyan/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Laweyan Solo</a>
+      <a href="/wifi-surakarta/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Surakarta</a>
+      <a href="/cek-jaringan/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">Cek Tiang ODP</a>
+    </div>
+  `
+};
+
+ARTIKEL["pasang-wifi-xl-home-pajang-solo"] = {
+  slug: "pasang-wifi-xl-home-pajang-solo",
+  title: "Pasang WiFi XL Home Area Kelurahan Pajang Laweyan Solo \u2014 Internet Fiber 100% Cepat & Unlimited",
+  description: "Promo pasang WiFi XL Home di Area Kelurahan Pajang Laweyan Solo (Kelurahan Pajang, Kec. Laweyan). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  keywords: ["pasang wifi kelurahan pajang solo", "wifi xl home kelurahan pajang solo", "pasang internet kelurahan pajang solo", "wifi fiber kelurahan pajang", "paket internet kec. laweyan", "xl satu kelurahan pajang solo", "biaya pasang wifi kec. laweyan"],
+  ogTitle: "Pasang WiFi XL Home Area Kelurahan Pajang Laweyan Solo \u2014 Internet Fiber 100% Cepat & Unlimited",
+  ogDescription: "Promo pasang WiFi XL Home di Area Kelurahan Pajang Laweyan Solo (Kelurahan Pajang, Kec. Laweyan). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  ogImage: "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.webp",
+  schemas: [{"@context": "https://schema.org", "@type": "Article", "headline": "Pasang WiFi XL Home Area Kelurahan Pajang Laweyan Solo \u2014 Internet Fiber 100% Cepat & Unlimited", "description": "Promo pasang WiFi XL Home di Area Kelurahan Pajang Laweyan Solo (Kelurahan Pajang, Kec. Laweyan). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!", "author": {"@type": "Organization", "name": "XL Home Solo Raya"}, "publisher": {"@type": "Organization", "name": "XL Home Solo Raya"}, "datePublished": "2026-10-28", "dateModified": "2026-10-28", "mainEntityOfPage": "https://xlhomesolo.com/pasang-wifi-xl-home-pajang-solo/"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Kelurahan Pajang Solo?", "acceptedAnswer": {"@type": "Answer", "text": "Ya, Kelurahan Pajang memiliki jaringan FTTH murni dengan ketersediaan tiang ODP fiber yang menjangkau jalan utama hingga gang perkampungan warga. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}}, {"@type": "Question", "name": "Berapa biaya pasang WiFi XL Home untuk warga Kelurahan Pajang Solo?", "acceptedAnswer": {"@type": "Answer", "text": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}}, {"@type": "Question", "name": "Berapa lama proses pemasangan teknisi di Kelurahan Pajang Solo?", "acceptedAnswer": {"@type": "Answer", "text": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}}, {"@type": "Question", "name": "Apakah kuota internet XL Home di Kelurahan Pajang Solo dibatasi FUP?", "acceptedAnswer": {"@type": "Answer", "text": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}}]}],
+  faqs: [{"q": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Kelurahan Pajang Solo?", "a": "Ya, Kelurahan Pajang memiliki jaringan FTTH murni dengan ketersediaan tiang ODP fiber yang menjangkau jalan utama hingga gang perkampungan warga. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}, {"q": "Berapa biaya pasang WiFi XL Home untuk warga Kelurahan Pajang Solo?", "a": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}, {"q": "Berapa lama proses pemasangan teknisi di Kelurahan Pajang Solo?", "a": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}, {"q": "Apakah kuota internet XL Home di Kelurahan Pajang Solo dibatasi FUP?", "a": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}],
+  hero: {
+    crumb: "<a href='https://xlhomesolo.com/'>Beranda</a> / <a href='/area-layanan/'>Area Layanan</a> / Kelurahan Pajang Solo",
+    h1: "Pasang WiFi Fiber di Area Kelurahan Pajang Laweyan Solo",
+    sub: "Solusi internet rumah 100% Fiber Optic murni tanpa batasan kuota (FUP) untuk warga Kelurahan Pajang Solo, Kelurahan Pajang, Kec. Laweyan.",
+    meta: "Kelurahan Pajang · Kec. Laweyan · Kota Surakarta · 100% Fiber Ready"
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Kelurahan%20Pajang%20Laweyan%20Solo%20mau%20cek%20tiang%20fiber%20%26%20promo%20pasang%20baru",
+  bodyHtml: `
+    <p>Kabar gembira bagi warga <strong>Area Kelurahan Pajang Laweyan Solo</strong>! Kini Anda dapat menikmati akses internet rumah super cepat dan stabil berbasis 100% Fiber Optic dari <strong>XL Home Solo Raya</strong> (jaringan Link Net). Tidak ada lagi kendala koneksi lemot saat rapat online Zoom/Google Meet, streaming film kualitas 4K, maupun bermain game online bersama keluarga di rumah.</p>
+
+    <div style="background:#f8fafc; border-left:4px solid #037e64; padding:16px; margin:20px 0; border-radius:0 8px 8px 0;">
+      <h3 style="margin:0 0 8px; color:#037e64; font-size:17px;">Kondisi Jaringan Fiber di Kelurahan Pajang Solo</h3>
+      <p style="margin:0; font-size:14px; color:#475569; line-height:1.6;">Kelurahan Pajang memiliki jaringan FTTH murni dengan ketersediaan tiang ODP fiber yang menjangkau jalan utama hingga gang perkampungan warga. Tiang ODP fiber telah terpasang dengan status <em>Ready for Service (RFS)</em>. Pendaftaran langsung diproses cepat oleh teknisi resmi area Kota Surakarta. Patokan lokasi: Kawasan pemukiman Pajang, dekat Stasiun Purwosari, koridor Jl. Joko Tingkir, batas Makamhaji & Gentan Baki.</p>
+    </div>
+
+    <h2>Mengapa Warga Kelurahan Pajang Solo Memilih XL Home Fiber?</h2>
+    <p>Berikut keunggulan utama layanan internet fiber optik XL Home dibandingkan provider kabel tembaga atau modem kuota seluler:</p>
+    <ul style="line-height:1.8; font-size:15px; color:#333; margin-left:20px;">
+      <li><strong>100% Bebas FUP (True Unlimited):</strong> Pemakaian kuota tanpa batas. Kecepatan internet tetap stabil dari awal hingga akhir bulan tanpa batasan pemakaian wajar.</li>
+      <li><strong>Kecepatan Simetris &amp; Latensi Rendah:</strong> Sangat ideal untuk WFH, video conference, CCTV rumah online, live streaming jualan, dan download file berukuran besar.</li>
+      <li><strong>Pilihan Paket Terjangkau &amp; Promo Hemat:</strong> Paket hemat mulai Rp 185.000/bln dan promo bebas biaya instalasi untuk paket Spark 250 Mbps ke atas.</li>
+      <li><strong>Layanan Tim Sales &amp; Teknisi Lokal:</strong> Ditangani langsung oleh tim sales dan teknisi resmi perwakilan Solo Raya, menjamin respon survei tiang ODP dan penanganan cepat.</li>
+    </ul>
+
+    <h2>Daftar Pilihan Paket WiFi Rumah untuk Kelurahan Pajang Solo</h2>
+    <p>Pilih paket internet rumah yang paling sesuai dengan kebutuhan anggota keluarga Anda:</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin:28px 0;">
+      <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
+        <div>
+          <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Kelurahan%20Pajang%20Laweyan%20Solo%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
+      </div>
+
+      <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
+        <div style="position:absolute; top:-11px; right:16px; background:#037e64; color:#fff; font-size:11px; font-weight:800; padding:2px 10px; border-radius:999px;">PILIHAN TERBAIK KELUARGA</div>
+        <div>
+          <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Sangat ideal untuk 4-8 perangkat aktif</li>
+            <li>Streaming Netflix 4K lancar tanpa jeda</li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
+            <li>100% Fiber Simetris Murni Bebas FUP</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Kelurahan%20Pajang%20Laweyan%20Solo%20mau%20pasang%20Paket%20Spark%20250%20Mbps%20(Rp%20229.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#16a34a; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 250 Mbps (229rb)</a>
+      </div>
+    </div>
+
+    <h2>Cara Mudah Pendaftaran Pasang Baru di Kelurahan Pajang Solo</h2>
+    <p>Warga Area Kelurahan Pajang Laweyan Solo dapat mendaftar pasang baru secara online tanpa perlu datang ke kantor:</p>
+    <ol style="margin-left:20px; line-height:1.8; font-size:15px; color:#333;">
+      <li>Hubungi nomor WhatsApp resmi sales XL Home Solo Raya di <strong>0877-7899-9141</strong>.</li>
+      <li>Kirimkan alamat lengkap rumah (contoh: nama jalan, nomor rumah di Kelurahan Pajang Solo) atau share location GPS.</li>
+      <li>Sales akan langsung mengecek jarak dan slot tiang ODP fiber terdekat di depan rumah Anda.</li>
+      <li>Pilih jadwal pemasangan teknisi. Teknisi datang melakukan penarikan kabel fiber optik, instalasi modem, dan internet langsung aktif!</li>
+    </ol>
+
+    <div class="cta-box" style="background:linear-gradient(135deg, #037e64 0%, #025946 100%); color:#fff; padding:28px; border-radius:12px; text-align:center; margin:36px 0;">
+      <h3 style="color:#fff; font-size:22px; margin-bottom:8px;">Cek Tiang ODP Fiber di Rumah Anda Sekarang!</h3>
+      <p style="color:#e2e8f0; font-size:15px; margin-bottom:20px; max-width:600px; margin-left:auto; margin-right:auto;">Dapatkan promo gratis instalasi Rp 0 dan promo harga spesial untuk warga Kelurahan Pajang Solo.</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Kelurahan%20Pajang%20Laweyan%20Solo%20mau%20cek%20titik%20tiang%20pasang%20WiFi" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#037e64; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; font-size:15px;">
+        Hubungi WhatsApp Sales Resmi (0877-7899-9141)
+      </a>
+    </div>
+
+    <h2>Area Terkait di Sekitar Kec. Laweyan &amp; Kota Surakarta</h2>
+    <p>Lihat juga informasi jangkauan jaringan fiber optik di kawasan sekitar:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+            <a href="/pasang-wifi-perumahan-pondok-baru-permai-pajang/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Pondok Baru Pajang</a>
+      <a href="/pasang-wifi-xl-home-laweyan/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Laweyan</a>
+      <a href="/wifi-solo/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Solo</a>
+    </div>
+  `
+};
+
+ARTIKEL["pasang-wifi-xl-home-mangkubumen-solo"] = {
+  slug: "pasang-wifi-xl-home-mangkubumen-solo",
+  title: "Pasang WiFi XL Home Area Kelurahan Mangkubumen Banjarsari Solo \u2014 Internet Fiber 100% Cepat & Unlimited",
+  description: "Promo pasang WiFi XL Home di Area Kelurahan Mangkubumen Banjarsari Solo (Kelurahan Mangkubumen, Kec. Banjarsari). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  keywords: ["pasang wifi mangkubumen banjarsari", "wifi xl home mangkubumen banjarsari", "pasang internet mangkubumen banjarsari", "wifi fiber kelurahan mangkubumen", "paket internet kec. banjarsari", "xl satu mangkubumen banjarsari", "biaya pasang wifi kec. banjarsari"],
+  ogTitle: "Pasang WiFi XL Home Area Kelurahan Mangkubumen Banjarsari Solo \u2014 Internet Fiber 100% Cepat & Unlimited",
+  ogDescription: "Promo pasang WiFi XL Home di Area Kelurahan Mangkubumen Banjarsari Solo (Kelurahan Mangkubumen, Kec. Banjarsari). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  ogImage: "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.webp",
+  schemas: [{"@context": "https://schema.org", "@type": "Article", "headline": "Pasang WiFi XL Home Area Kelurahan Mangkubumen Banjarsari Solo \u2014 Internet Fiber 100% Cepat & Unlimited", "description": "Promo pasang WiFi XL Home di Area Kelurahan Mangkubumen Banjarsari Solo (Kelurahan Mangkubumen, Kec. Banjarsari). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!", "author": {"@type": "Organization", "name": "XL Home Solo Raya"}, "publisher": {"@type": "Organization", "name": "XL Home Solo Raya"}, "datePublished": "2026-10-28", "dateModified": "2026-10-28", "mainEntityOfPage": "https://xlhomesolo.com/pasang-wifi-xl-home-mangkubumen-solo/"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Mangkubumen Banjarsari?", "acceptedAnswer": {"@type": "Answer", "text": "Ya, Mangkubumen berada di episentrum Kota Solo dengan infrastruktur fiber optik berkecepatan tinggi hingga 250 Mbps untuk rumah tangga dan ruko komersial. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}}, {"@type": "Question", "name": "Berapa biaya pasang WiFi XL Home untuk warga Mangkubumen Banjarsari?", "acceptedAnswer": {"@type": "Answer", "text": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}}, {"@type": "Question", "name": "Berapa lama proses pemasangan teknisi di Mangkubumen Banjarsari?", "acceptedAnswer": {"@type": "Answer", "text": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}}, {"@type": "Question", "name": "Apakah kuota internet XL Home di Mangkubumen Banjarsari dibatasi FUP?", "acceptedAnswer": {"@type": "Answer", "text": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}}]}],
+  faqs: [{"q": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Mangkubumen Banjarsari?", "a": "Ya, Mangkubumen berada di episentrum Kota Solo dengan infrastruktur fiber optik berkecepatan tinggi hingga 250 Mbps untuk rumah tangga dan ruko komersial. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}, {"q": "Berapa biaya pasang WiFi XL Home untuk warga Mangkubumen Banjarsari?", "a": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}, {"q": "Berapa lama proses pemasangan teknisi di Mangkubumen Banjarsari?", "a": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}, {"q": "Apakah kuota internet XL Home di Mangkubumen Banjarsari dibatasi FUP?", "a": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}],
+  hero: {
+    crumb: "<a href='https://xlhomesolo.com/'>Beranda</a> / <a href='/area-layanan/'>Area Layanan</a> / Mangkubumen Banjarsari",
+    h1: "Pasang WiFi Fiber di Area Kelurahan Mangkubumen Banjarsari Solo",
+    sub: "Solusi internet rumah 100% Fiber Optic murni tanpa batasan kuota (FUP) untuk warga Mangkubumen Banjarsari, Kelurahan Mangkubumen, Kec. Banjarsari.",
+    meta: "Kelurahan Mangkubumen · Kec. Banjarsari · Kota Surakarta · 100% Fiber Ready"
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Kelurahan%20Mangkubumen%20Banjarsari%20Solo%20mau%20cek%20tiang%20fiber%20%26%20promo%20pasang%20baru",
+  bodyHtml: `
+    <p>Kabar gembira bagi warga <strong>Area Kelurahan Mangkubumen Banjarsari Solo</strong>! Kini Anda dapat menikmati akses internet rumah super cepat dan stabil berbasis 100% Fiber Optic dari <strong>XL Home Solo Raya</strong> (jaringan Link Net). Tidak ada lagi kendala koneksi lemot saat rapat online Zoom/Google Meet, streaming film kualitas 4K, maupun bermain game online bersama keluarga di rumah.</p>
+
+    <div style="background:#f8fafc; border-left:4px solid #037e64; padding:16px; margin:20px 0; border-radius:0 8px 8px 0;">
+      <h3 style="margin:0 0 8px; color:#037e64; font-size:17px;">Kondisi Jaringan Fiber di Mangkubumen Banjarsari</h3>
+      <p style="margin:0; font-size:14px; color:#475569; line-height:1.6;">Mangkubumen berada di episentrum Kota Solo dengan infrastruktur fiber optik berkecepatan tinggi hingga 250 Mbps untuk rumah tangga dan ruko komersial. Tiang ODP fiber telah terpasang dengan status <em>Ready for Service (RFS)</em>. Pendaftaran langsung diproses cepat oleh teknisi resmi area Kota Surakarta. Patokan lokasi: Pusat kota Solo Mangkubumen, dekat Solo Paragon Lifestyle Mall, Jl. RM Said, Jl. Yosodipuro, dan RS PKU Muhammadiyah Surakarta.</p>
+    </div>
+
+    <h2>Mengapa Warga Mangkubumen Banjarsari Memilih XL Home Fiber?</h2>
+    <p>Berikut keunggulan utama layanan internet fiber optik XL Home dibandingkan provider kabel tembaga atau modem kuota seluler:</p>
+    <ul style="line-height:1.8; font-size:15px; color:#333; margin-left:20px;">
+      <li><strong>100% Bebas FUP (True Unlimited):</strong> Pemakaian kuota tanpa batas. Kecepatan internet tetap stabil dari awal hingga akhir bulan tanpa batasan pemakaian wajar.</li>
+      <li><strong>Kecepatan Simetris &amp; Latensi Rendah:</strong> Sangat ideal untuk WFH, video conference, CCTV rumah online, live streaming jualan, dan download file berukuran besar.</li>
+      <li><strong>Pilihan Paket Terjangkau &amp; Promo Hemat:</strong> Paket hemat mulai Rp 185.000/bln dan promo bebas biaya instalasi untuk paket Spark 250 Mbps ke atas.</li>
+      <li><strong>Layanan Tim Sales &amp; Teknisi Lokal:</strong> Ditangani langsung oleh tim sales dan teknisi resmi perwakilan Solo Raya, menjamin respon survei tiang ODP dan penanganan cepat.</li>
+    </ul>
+
+    <h2>Daftar Pilihan Paket WiFi Rumah untuk Mangkubumen Banjarsari</h2>
+    <p>Pilih paket internet rumah yang paling sesuai dengan kebutuhan anggota keluarga Anda:</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin:28px 0;">
+      <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
+        <div>
+          <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Kelurahan%20Mangkubumen%20Banjarsari%20Solo%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
+      </div>
+
+      <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
+        <div style="position:absolute; top:-11px; right:16px; background:#037e64; color:#fff; font-size:11px; font-weight:800; padding:2px 10px; border-radius:999px;">PILIHAN TERBAIK KELUARGA</div>
+        <div>
+          <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Sangat ideal untuk 4-8 perangkat aktif</li>
+            <li>Streaming Netflix 4K lancar tanpa jeda</li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
+            <li>100% Fiber Simetris Murni Bebas FUP</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Kelurahan%20Mangkubumen%20Banjarsari%20Solo%20mau%20pasang%20Paket%20Spark%20250%20Mbps%20(Rp%20229.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#16a34a; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 250 Mbps (229rb)</a>
+      </div>
+    </div>
+
+    <h2>Cara Mudah Pendaftaran Pasang Baru di Mangkubumen Banjarsari</h2>
+    <p>Warga Area Kelurahan Mangkubumen Banjarsari Solo dapat mendaftar pasang baru secara online tanpa perlu datang ke kantor:</p>
+    <ol style="margin-left:20px; line-height:1.8; font-size:15px; color:#333;">
+      <li>Hubungi nomor WhatsApp resmi sales XL Home Solo Raya di <strong>0877-7899-9141</strong>.</li>
+      <li>Kirimkan alamat lengkap rumah (contoh: nama jalan, nomor rumah di Mangkubumen Banjarsari) atau share location GPS.</li>
+      <li>Sales akan langsung mengecek jarak dan slot tiang ODP fiber terdekat di depan rumah Anda.</li>
+      <li>Pilih jadwal pemasangan teknisi. Teknisi datang melakukan penarikan kabel fiber optik, instalasi modem, dan internet langsung aktif!</li>
+    </ol>
+
+    <div class="cta-box" style="background:linear-gradient(135deg, #037e64 0%, #025946 100%); color:#fff; padding:28px; border-radius:12px; text-align:center; margin:36px 0;">
+      <h3 style="color:#fff; font-size:22px; margin-bottom:8px;">Cek Tiang ODP Fiber di Rumah Anda Sekarang!</h3>
+      <p style="color:#e2e8f0; font-size:15px; margin-bottom:20px; max-width:600px; margin-left:auto; margin-right:auto;">Dapatkan promo gratis instalasi Rp 0 dan promo harga spesial untuk warga Mangkubumen Banjarsari.</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Kelurahan%20Mangkubumen%20Banjarsari%20Solo%20mau%20cek%20titik%20tiang%20pasang%20WiFi" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#037e64; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; font-size:15px;">
+        Hubungi WhatsApp Sales Resmi (0877-7899-9141)
+      </a>
+    </div>
+
+    <h2>Area Terkait di Sekitar Kec. Banjarsari &amp; Kota Surakarta</h2>
+    <p>Lihat juga informasi jangkauan jaringan fiber optik di kawasan sekitar:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+            <a href="/pasang-wifi-perumahan-turisari-mangkubumen/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Turisari Mangkubumen</a>
+      <a href="/pasang-wifi-xl-home-banjarsari/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Banjarsari Solo</a>
+      <a href="/wifi-surakarta/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Surakarta</a>
+    </div>
+  `
+};
+
+ARTIKEL["pasang-wifi-xl-home-joyosuran-solo"] = {
+  slug: "pasang-wifi-xl-home-joyosuran-solo",
+  title: "Pasang WiFi XL Home Area Kelurahan Joyosuran Pasar Kliwon Solo \u2014 Internet Fiber 100% Cepat & Unlimited",
+  description: "Promo pasang WiFi XL Home di Area Kelurahan Joyosuran Pasar Kliwon Solo (Kelurahan Joyosuran, Kec. Pasar Kliwon). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  keywords: ["pasang wifi joyosuran pasar kliwon", "wifi xl home joyosuran pasar kliwon", "pasang internet joyosuran pasar kliwon", "wifi fiber kelurahan joyosuran", "paket internet kec. pasar kliwon", "xl satu joyosuran pasar kliwon", "biaya pasang wifi kec. pasar kliwon"],
+  ogTitle: "Pasang WiFi XL Home Area Kelurahan Joyosuran Pasar Kliwon Solo \u2014 Internet Fiber 100% Cepat & Unlimited",
+  ogDescription: "Promo pasang WiFi XL Home di Area Kelurahan Joyosuran Pasar Kliwon Solo (Kelurahan Joyosuran, Kec. Pasar Kliwon). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  ogImage: "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.webp",
+  schemas: [{"@context": "https://schema.org", "@type": "Article", "headline": "Pasang WiFi XL Home Area Kelurahan Joyosuran Pasar Kliwon Solo \u2014 Internet Fiber 100% Cepat & Unlimited", "description": "Promo pasang WiFi XL Home di Area Kelurahan Joyosuran Pasar Kliwon Solo (Kelurahan Joyosuran, Kec. Pasar Kliwon). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!", "author": {"@type": "Organization", "name": "XL Home Solo Raya"}, "publisher": {"@type": "Organization", "name": "XL Home Solo Raya"}, "datePublished": "2026-10-28", "dateModified": "2026-10-28", "mainEntityOfPage": "https://xlhomesolo.com/pasang-wifi-xl-home-joyosuran-solo/"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Joyosuran Pasar Kliwon?", "acceptedAnswer": {"@type": "Answer", "text": "Ya, Kelurahan Joyosuran telah tercover tiang fiber optic resmi Link Net / XL Home dengan sinyal stabil anti gangguan cuaca. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}}, {"@type": "Question", "name": "Berapa biaya pasang WiFi XL Home untuk warga Joyosuran Pasar Kliwon?", "acceptedAnswer": {"@type": "Answer", "text": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}}, {"@type": "Question", "name": "Berapa lama proses pemasangan teknisi di Joyosuran Pasar Kliwon?", "acceptedAnswer": {"@type": "Answer", "text": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}}, {"@type": "Question", "name": "Apakah kuota internet XL Home di Joyosuran Pasar Kliwon dibatasi FUP?", "acceptedAnswer": {"@type": "Answer", "text": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}}]}],
+  faqs: [{"q": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Joyosuran Pasar Kliwon?", "a": "Ya, Kelurahan Joyosuran telah tercover tiang fiber optic resmi Link Net / XL Home dengan sinyal stabil anti gangguan cuaca. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}, {"q": "Berapa biaya pasang WiFi XL Home untuk warga Joyosuran Pasar Kliwon?", "a": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}, {"q": "Berapa lama proses pemasangan teknisi di Joyosuran Pasar Kliwon?", "a": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}, {"q": "Apakah kuota internet XL Home di Joyosuran Pasar Kliwon dibatasi FUP?", "a": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}],
+  hero: {
+    crumb: "<a href='https://xlhomesolo.com/'>Beranda</a> / <a href='/area-layanan/'>Area Layanan</a> / Joyosuran Pasar Kliwon",
+    h1: "Pasang WiFi Fiber di Area Kelurahan Joyosuran Pasar Kliwon Solo",
+    sub: "Solusi internet rumah 100% Fiber Optic murni tanpa batasan kuota (FUP) untuk warga Joyosuran Pasar Kliwon, Kelurahan Joyosuran, Kec. Pasar Kliwon.",
+    meta: "Kelurahan Joyosuran · Kec. Pasar Kliwon · Kota Surakarta · 100% Fiber Ready"
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Kelurahan%20Joyosuran%20Pasar%20Kliwon%20Solo%20mau%20cek%20tiang%20fiber%20%26%20promo%20pasang%20baru",
+  bodyHtml: `
+    <p>Kabar gembira bagi warga <strong>Area Kelurahan Joyosuran Pasar Kliwon Solo</strong>! Kini Anda dapat menikmati akses internet rumah super cepat dan stabil berbasis 100% Fiber Optic dari <strong>XL Home Solo Raya</strong> (jaringan Link Net). Tidak ada lagi kendala koneksi lemot saat rapat online Zoom/Google Meet, streaming film kualitas 4K, maupun bermain game online bersama keluarga di rumah.</p>
+
+    <div style="background:#f8fafc; border-left:4px solid #037e64; padding:16px; margin:20px 0; border-radius:0 8px 8px 0;">
+      <h3 style="margin:0 0 8px; color:#037e64; font-size:17px;">Kondisi Jaringan Fiber di Joyosuran Pasar Kliwon</h3>
+      <p style="margin:0; font-size:14px; color:#475569; line-height:1.6;">Kelurahan Joyosuran telah tercover tiang fiber optic resmi Link Net / XL Home dengan sinyal stabil anti gangguan cuaca. Tiang ODP fiber telah terpasang dengan status <em>Ready for Service (RFS)</em>. Pendaftaran langsung diproses cepat oleh teknisi resmi area Kota Surakarta. Patokan lokasi: Kawasan pemukiman Joyosuran, dekat Pasar Kliwon, Danukusuman Serengan, dan koridor Jl. Kapten Mulyadi.</p>
+    </div>
+
+    <h2>Mengapa Warga Joyosuran Pasar Kliwon Memilih XL Home Fiber?</h2>
+    <p>Berikut keunggulan utama layanan internet fiber optik XL Home dibandingkan provider kabel tembaga atau modem kuota seluler:</p>
+    <ul style="line-height:1.8; font-size:15px; color:#333; margin-left:20px;">
+      <li><strong>100% Bebas FUP (True Unlimited):</strong> Pemakaian kuota tanpa batas. Kecepatan internet tetap stabil dari awal hingga akhir bulan tanpa batasan pemakaian wajar.</li>
+      <li><strong>Kecepatan Simetris &amp; Latensi Rendah:</strong> Sangat ideal untuk WFH, video conference, CCTV rumah online, live streaming jualan, dan download file berukuran besar.</li>
+      <li><strong>Pilihan Paket Terjangkau &amp; Promo Hemat:</strong> Paket hemat mulai Rp 185.000/bln dan promo bebas biaya instalasi untuk paket Spark 250 Mbps ke atas.</li>
+      <li><strong>Layanan Tim Sales &amp; Teknisi Lokal:</strong> Ditangani langsung oleh tim sales dan teknisi resmi perwakilan Solo Raya, menjamin respon survei tiang ODP dan penanganan cepat.</li>
+    </ul>
+
+    <h2>Daftar Pilihan Paket WiFi Rumah untuk Joyosuran Pasar Kliwon</h2>
+    <p>Pilih paket internet rumah yang paling sesuai dengan kebutuhan anggota keluarga Anda:</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin:28px 0;">
+      <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
+        <div>
+          <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Kelurahan%20Joyosuran%20Pasar%20Kliwon%20Solo%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
+      </div>
+
+      <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
+        <div style="position:absolute; top:-11px; right:16px; background:#037e64; color:#fff; font-size:11px; font-weight:800; padding:2px 10px; border-radius:999px;">PILIHAN TERBAIK KELUARGA</div>
+        <div>
+          <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Sangat ideal untuk 4-8 perangkat aktif</li>
+            <li>Streaming Netflix 4K lancar tanpa jeda</li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
+            <li>100% Fiber Simetris Murni Bebas FUP</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Kelurahan%20Joyosuran%20Pasar%20Kliwon%20Solo%20mau%20pasang%20Paket%20Spark%20250%20Mbps%20(Rp%20229.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#16a34a; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 250 Mbps (229rb)</a>
+      </div>
+    </div>
+
+    <h2>Cara Mudah Pendaftaran Pasang Baru di Joyosuran Pasar Kliwon</h2>
+    <p>Warga Area Kelurahan Joyosuran Pasar Kliwon Solo dapat mendaftar pasang baru secara online tanpa perlu datang ke kantor:</p>
+    <ol style="margin-left:20px; line-height:1.8; font-size:15px; color:#333;">
+      <li>Hubungi nomor WhatsApp resmi sales XL Home Solo Raya di <strong>0877-7899-9141</strong>.</li>
+      <li>Kirimkan alamat lengkap rumah (contoh: nama jalan, nomor rumah di Joyosuran Pasar Kliwon) atau share location GPS.</li>
+      <li>Sales akan langsung mengecek jarak dan slot tiang ODP fiber terdekat di depan rumah Anda.</li>
+      <li>Pilih jadwal pemasangan teknisi. Teknisi datang melakukan penarikan kabel fiber optik, instalasi modem, dan internet langsung aktif!</li>
+    </ol>
+
+    <div class="cta-box" style="background:linear-gradient(135deg, #037e64 0%, #025946 100%); color:#fff; padding:28px; border-radius:12px; text-align:center; margin:36px 0;">
+      <h3 style="color:#fff; font-size:22px; margin-bottom:8px;">Cek Tiang ODP Fiber di Rumah Anda Sekarang!</h3>
+      <p style="color:#e2e8f0; font-size:15px; margin-bottom:20px; max-width:600px; margin-left:auto; margin-right:auto;">Dapatkan promo gratis instalasi Rp 0 dan promo harga spesial untuk warga Joyosuran Pasar Kliwon.</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Kelurahan%20Joyosuran%20Pasar%20Kliwon%20Solo%20mau%20cek%20titik%20tiang%20pasang%20WiFi" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#037e64; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; font-size:15px;">
+        Hubungi WhatsApp Sales Resmi (0877-7899-9141)
+      </a>
+    </div>
+
+    <h2>Area Terkait di Sekitar Kec. Pasar Kliwon &amp; Kota Surakarta</h2>
+    <p>Lihat juga informasi jangkauan jaringan fiber optik di kawasan sekitar:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+            <a href="/pasang-wifi-xl-home-pasar-kliwon/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Pasar Kliwon</a>
+      <a href="/pasang-wifi-xl-home-serengan/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Serengan</a>
+      <a href="/wifi-solo/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Solo</a>
+    </div>
+  `
+};
+
+ARTIKEL["pasang-wifi-xl-home-cangakan-karanganyar"] = {
+  slug: "pasang-wifi-xl-home-cangakan-karanganyar",
+  title: "Pasang WiFi XL Home Area Cangakan Karanganyar Kota \u2014 Internet Fiber 100% Cepat & Unlimited",
+  description: "Promo pasang WiFi XL Home di Area Cangakan Karanganyar Kota (Kelurahan Cangakan, Kec. Karanganyar). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  keywords: ["pasang wifi cangakan karanganyar", "wifi xl home cangakan karanganyar", "pasang internet cangakan karanganyar", "wifi fiber kelurahan cangakan", "paket internet kec. karanganyar", "xl satu cangakan karanganyar", "biaya pasang wifi kec. karanganyar"],
+  ogTitle: "Pasang WiFi XL Home Area Cangakan Karanganyar Kota \u2014 Internet Fiber 100% Cepat & Unlimited",
+  ogDescription: "Promo pasang WiFi XL Home di Area Cangakan Karanganyar Kota (Kelurahan Cangakan, Kec. Karanganyar). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  ogImage: "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.webp",
+  schemas: [{"@context": "https://schema.org", "@type": "Article", "headline": "Pasang WiFi XL Home Area Cangakan Karanganyar Kota \u2014 Internet Fiber 100% Cepat & Unlimited", "description": "Promo pasang WiFi XL Home di Area Cangakan Karanganyar Kota (Kelurahan Cangakan, Kec. Karanganyar). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!", "author": {"@type": "Organization", "name": "XL Home Solo Raya"}, "publisher": {"@type": "Organization", "name": "XL Home Solo Raya"}, "datePublished": "2026-10-28", "dateModified": "2026-10-28", "mainEntityOfPage": "https://xlhomesolo.com/pasang-wifi-xl-home-cangakan-karanganyar/"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Cangakan Karanganyar?", "acceptedAnswer": {"@type": "Answer", "text": "Ya, Cangakan merupakan pusat perkotaan Karanganyar dengan ketersediaan jaringan fiber optic FTTH untuk pemukiman warga, perkantoran, dan tempat usaha. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}}, {"@type": "Question", "name": "Berapa biaya pasang WiFi XL Home untuk warga Cangakan Karanganyar?", "acceptedAnswer": {"@type": "Answer", "text": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}}, {"@type": "Question", "name": "Berapa lama proses pemasangan teknisi di Cangakan Karanganyar?", "acceptedAnswer": {"@type": "Answer", "text": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}}, {"@type": "Question", "name": "Apakah kuota internet XL Home di Cangakan Karanganyar dibatasi FUP?", "acceptedAnswer": {"@type": "Answer", "text": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}}]}],
+  faqs: [{"q": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Cangakan Karanganyar?", "a": "Ya, Cangakan merupakan pusat perkotaan Karanganyar dengan ketersediaan jaringan fiber optic FTTH untuk pemukiman warga, perkantoran, dan tempat usaha. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}, {"q": "Berapa biaya pasang WiFi XL Home untuk warga Cangakan Karanganyar?", "a": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}, {"q": "Berapa lama proses pemasangan teknisi di Cangakan Karanganyar?", "a": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}, {"q": "Apakah kuota internet XL Home di Cangakan Karanganyar dibatasi FUP?", "a": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}],
+  hero: {
+    crumb: "<a href='https://xlhomesolo.com/'>Beranda</a> / <a href='/area-layanan/'>Area Layanan</a> / Cangakan Karanganyar",
+    h1: "Pasang WiFi Fiber di Area Cangakan Karanganyar Kota",
+    sub: "Solusi internet rumah 100% Fiber Optic murni tanpa batasan kuota (FUP) untuk warga Cangakan Karanganyar, Kelurahan Cangakan, Kec. Karanganyar.",
+    meta: "Kelurahan Cangakan · Kec. Karanganyar · Kab. Karanganyar · 100% Fiber Ready"
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Cangakan%20Karanganyar%20Kota%20mau%20cek%20tiang%20fiber%20%26%20promo%20pasang%20baru",
+  bodyHtml: `
+    <p>Kabar gembira bagi warga <strong>Area Cangakan Karanganyar Kota</strong>! Kini Anda dapat menikmati akses internet rumah super cepat dan stabil berbasis 100% Fiber Optic dari <strong>XL Home Solo Raya</strong> (jaringan Link Net). Tidak ada lagi kendala koneksi lemot saat rapat online Zoom/Google Meet, streaming film kualitas 4K, maupun bermain game online bersama keluarga di rumah.</p>
+
+    <div style="background:#f8fafc; border-left:4px solid #037e64; padding:16px; margin:20px 0; border-radius:0 8px 8px 0;">
+      <h3 style="margin:0 0 8px; color:#037e64; font-size:17px;">Kondisi Jaringan Fiber di Cangakan Karanganyar</h3>
+      <p style="margin:0; font-size:14px; color:#475569; line-height:1.6;">Cangakan merupakan pusat perkotaan Karanganyar dengan ketersediaan jaringan fiber optic FTTH untuk pemukiman warga, perkantoran, dan tempat usaha. Tiang ODP fiber telah terpasang dengan status <em>Ready for Service (RFS)</em>. Pendaftaran langsung diproses cepat oleh teknisi resmi area Kab. Karanganyar. Patokan lokasi: Pusat pemerintahan Karanganyar Kota, Alun-Alun Karanganyar, Jl. Lawu, dekat Badran Asri dan RSUD Karanganyar.</p>
+    </div>
+
+    <h2>Mengapa Warga Cangakan Karanganyar Memilih XL Home Fiber?</h2>
+    <p>Berikut keunggulan utama layanan internet fiber optik XL Home dibandingkan provider kabel tembaga atau modem kuota seluler:</p>
+    <ul style="line-height:1.8; font-size:15px; color:#333; margin-left:20px;">
+      <li><strong>100% Bebas FUP (True Unlimited):</strong> Pemakaian kuota tanpa batas. Kecepatan internet tetap stabil dari awal hingga akhir bulan tanpa batasan pemakaian wajar.</li>
+      <li><strong>Kecepatan Simetris &amp; Latensi Rendah:</strong> Sangat ideal untuk WFH, video conference, CCTV rumah online, live streaming jualan, dan download file berukuran besar.</li>
+      <li><strong>Pilihan Paket Terjangkau &amp; Promo Hemat:</strong> Paket hemat mulai Rp 185.000/bln dan promo bebas biaya instalasi untuk paket Spark 250 Mbps ke atas.</li>
+      <li><strong>Layanan Tim Sales &amp; Teknisi Lokal:</strong> Ditangani langsung oleh tim sales dan teknisi resmi perwakilan Solo Raya, menjamin respon survei tiang ODP dan penanganan cepat.</li>
+    </ul>
+
+    <h2>Daftar Pilihan Paket WiFi Rumah untuk Cangakan Karanganyar</h2>
+    <p>Pilih paket internet rumah yang paling sesuai dengan kebutuhan anggota keluarga Anda:</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin:28px 0;">
+      <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
+        <div>
+          <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Cangakan%20Karanganyar%20Kota%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
+      </div>
+
+      <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
+        <div style="position:absolute; top:-11px; right:16px; background:#037e64; color:#fff; font-size:11px; font-weight:800; padding:2px 10px; border-radius:999px;">PILIHAN TERBAIK KELUARGA</div>
+        <div>
+          <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Sangat ideal untuk 4-8 perangkat aktif</li>
+            <li>Streaming Netflix 4K lancar tanpa jeda</li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
+            <li>100% Fiber Simetris Murni Bebas FUP</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Cangakan%20Karanganyar%20Kota%20mau%20pasang%20Paket%20Spark%20250%20Mbps%20(Rp%20229.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#16a34a; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 250 Mbps (229rb)</a>
+      </div>
+    </div>
+
+    <h2>Cara Mudah Pendaftaran Pasang Baru di Cangakan Karanganyar</h2>
+    <p>Warga Area Cangakan Karanganyar Kota dapat mendaftar pasang baru secara online tanpa perlu datang ke kantor:</p>
+    <ol style="margin-left:20px; line-height:1.8; font-size:15px; color:#333;">
+      <li>Hubungi nomor WhatsApp resmi sales XL Home Solo Raya di <strong>0877-7899-9141</strong>.</li>
+      <li>Kirimkan alamat lengkap rumah (contoh: nama jalan, nomor rumah di Cangakan Karanganyar) atau share location GPS.</li>
+      <li>Sales akan langsung mengecek jarak dan slot tiang ODP fiber terdekat di depan rumah Anda.</li>
+      <li>Pilih jadwal pemasangan teknisi. Teknisi datang melakukan penarikan kabel fiber optik, instalasi modem, dan internet langsung aktif!</li>
+    </ol>
+
+    <div class="cta-box" style="background:linear-gradient(135deg, #037e64 0%, #025946 100%); color:#fff; padding:28px; border-radius:12px; text-align:center; margin:36px 0;">
+      <h3 style="color:#fff; font-size:22px; margin-bottom:8px;">Cek Tiang ODP Fiber di Rumah Anda Sekarang!</h3>
+      <p style="color:#e2e8f0; font-size:15px; margin-bottom:20px; max-width:600px; margin-left:auto; margin-right:auto;">Dapatkan promo gratis instalasi Rp 0 dan promo harga spesial untuk warga Cangakan Karanganyar.</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Cangakan%20Karanganyar%20Kota%20mau%20cek%20titik%20tiang%20pasang%20WiFi" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#037e64; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; font-size:15px;">
+        Hubungi WhatsApp Sales Resmi (0877-7899-9141)
+      </a>
+    </div>
+
+    <h2>Area Terkait di Sekitar Kec. Karanganyar &amp; Kab. Karanganyar</h2>
+    <p>Lihat juga informasi jangkauan jaringan fiber optik di kawasan sekitar:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+            <a href="/pasang-wifi-perumahan-badran-asri-karanganyar/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Badran Asri Cangakan</a>
+      <a href="/pasang-wifi-xl-home-karanganyar-kota/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Karanganyar Kota</a>
+      <a href="/wifi-karanganyar/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Karanganyar</a>
+    </div>
+  `
+};
+
+ARTIKEL["pasang-wifi-xl-home-blulukan-colomadu"] = {
+  slug: "pasang-wifi-xl-home-blulukan-colomadu",
+  title: "Pasang WiFi XL Home Area Desa Blulukan Colomadu Karanganyar \u2014 Internet Fiber 100% Cepat & Unlimited",
+  description: "Promo pasang WiFi XL Home di Area Desa Blulukan Colomadu Karanganyar (Desa Blulukan, Kec. Colomadu). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  keywords: ["pasang wifi blulukan colomadu", "wifi xl home blulukan colomadu", "pasang internet blulukan colomadu", "wifi fiber desa blulukan", "paket internet kec. colomadu", "xl satu blulukan colomadu", "biaya pasang wifi kec. colomadu"],
+  ogTitle: "Pasang WiFi XL Home Area Desa Blulukan Colomadu Karanganyar \u2014 Internet Fiber 100% Cepat & Unlimited",
+  ogDescription: "Promo pasang WiFi XL Home di Area Desa Blulukan Colomadu Karanganyar (Desa Blulukan, Kec. Colomadu). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  ogImage: "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.webp",
+  schemas: [{"@context": "https://schema.org", "@type": "Article", "headline": "Pasang WiFi XL Home Area Desa Blulukan Colomadu Karanganyar \u2014 Internet Fiber 100% Cepat & Unlimited", "description": "Promo pasang WiFi XL Home di Area Desa Blulukan Colomadu Karanganyar (Desa Blulukan, Kec. Colomadu). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!", "author": {"@type": "Organization", "name": "XL Home Solo Raya"}, "publisher": {"@type": "Organization", "name": "XL Home Solo Raya"}, "datePublished": "2026-10-28", "dateModified": "2026-10-28", "mainEntityOfPage": "https://xlhomesolo.com/pasang-wifi-xl-home-blulukan-colomadu/"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Blulukan Colomadu?", "acceptedAnswer": {"@type": "Answer", "text": "Ya, Blulukan Colomadu memiliki 363 Homepass fiber optic aktif \u2014 kawasan strategis hunian komuter Solo\u2013Colomadu dengan akses internet cepat dan stabil. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}}, {"@type": "Question", "name": "Berapa biaya pasang WiFi XL Home untuk warga Blulukan Colomadu?", "acceptedAnswer": {"@type": "Answer", "text": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}}, {"@type": "Question", "name": "Berapa lama proses pemasangan teknisi di Blulukan Colomadu?", "acceptedAnswer": {"@type": "Answer", "text": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}}, {"@type": "Question", "name": "Apakah kuota internet XL Home di Blulukan Colomadu dibatasi FUP?", "acceptedAnswer": {"@type": "Answer", "text": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}}]}],
+  faqs: [{"q": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Blulukan Colomadu?", "a": "Ya, Blulukan Colomadu memiliki 363 Homepass fiber optic aktif \u2014 kawasan strategis hunian komuter Solo\u2013Colomadu dengan akses internet cepat dan stabil. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}, {"q": "Berapa biaya pasang WiFi XL Home untuk warga Blulukan Colomadu?", "a": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}, {"q": "Berapa lama proses pemasangan teknisi di Blulukan Colomadu?", "a": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}, {"q": "Apakah kuota internet XL Home di Blulukan Colomadu dibatasi FUP?", "a": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}],
+  hero: {
+    crumb: "<a href='https://xlhomesolo.com/'>Beranda</a> / <a href='/area-layanan/'>Area Layanan</a> / Blulukan Colomadu",
+    h1: "Pasang WiFi Fiber di Area Desa Blulukan Colomadu Karanganyar",
+    sub: "Solusi internet rumah 100% Fiber Optic murni tanpa batasan kuota (FUP) untuk warga Blulukan Colomadu, Desa Blulukan, Kec. Colomadu.",
+    meta: "Desa Blulukan · Kec. Colomadu · Kab. Karanganyar · 100% Fiber Ready"
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Desa%20Blulukan%20Colomadu%20Karanganyar%20mau%20cek%20tiang%20fiber%20%26%20promo%20pasang%20baru",
+  bodyHtml: `
+    <p>Kabar gembira bagi warga <strong>Area Desa Blulukan Colomadu Karanganyar</strong>! Kini Anda dapat menikmati akses internet rumah super cepat dan stabil berbasis 100% Fiber Optic dari <strong>XL Home Solo Raya</strong> (jaringan Link Net). Tidak ada lagi kendala koneksi lemot saat rapat online Zoom/Google Meet, streaming film kualitas 4K, maupun bermain game online bersama keluarga di rumah.</p>
+
+    <div style="background:#f8fafc; border-left:4px solid #037e64; padding:16px; margin:20px 0; border-radius:0 8px 8px 0;">
+      <h3 style="margin:0 0 8px; color:#037e64; font-size:17px;">Kondisi Jaringan Fiber di Blulukan Colomadu</h3>
+      <p style="margin:0; font-size:14px; color:#475569; line-height:1.6;">Blulukan Colomadu memiliki 363 Homepass fiber optic aktif — kawasan strategis hunian komuter Solo–Colomadu dengan akses internet cepat dan stabil. Tiang ODP fiber telah terpasang dengan status <em>Ready for Service (RFS)</em>. Pendaftaran langsung diproses cepat oleh teknisi resmi area Kab. Karanganyar. Patokan lokasi: Kawasan Blulukan Colomadu, dekat Jl. Adi Sucipto, The Heritage Palace, Hotel Lorin Solo, dan batas Jajar Solo.</p>
+    </div>
+
+    <h2>Mengapa Warga Blulukan Colomadu Memilih XL Home Fiber?</h2>
+    <p>Berikut keunggulan utama layanan internet fiber optik XL Home dibandingkan provider kabel tembaga atau modem kuota seluler:</p>
+    <ul style="line-height:1.8; font-size:15px; color:#333; margin-left:20px;">
+      <li><strong>100% Bebas FUP (True Unlimited):</strong> Pemakaian kuota tanpa batas. Kecepatan internet tetap stabil dari awal hingga akhir bulan tanpa batasan pemakaian wajar.</li>
+      <li><strong>Kecepatan Simetris &amp; Latensi Rendah:</strong> Sangat ideal untuk WFH, video conference, CCTV rumah online, live streaming jualan, dan download file berukuran besar.</li>
+      <li><strong>Pilihan Paket Terjangkau &amp; Promo Hemat:</strong> Paket hemat mulai Rp 185.000/bln dan promo bebas biaya instalasi untuk paket Spark 250 Mbps ke atas.</li>
+      <li><strong>Layanan Tim Sales &amp; Teknisi Lokal:</strong> Ditangani langsung oleh tim sales dan teknisi resmi perwakilan Solo Raya, menjamin respon survei tiang ODP dan penanganan cepat.</li>
+    </ul>
+
+    <h2>Daftar Pilihan Paket WiFi Rumah untuk Blulukan Colomadu</h2>
+    <p>Pilih paket internet rumah yang paling sesuai dengan kebutuhan anggota keluarga Anda:</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin:28px 0;">
+      <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
+        <div>
+          <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Desa%20Blulukan%20Colomadu%20Karanganyar%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
+      </div>
+
+      <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
+        <div style="position:absolute; top:-11px; right:16px; background:#037e64; color:#fff; font-size:11px; font-weight:800; padding:2px 10px; border-radius:999px;">PILIHAN TERBAIK KELUARGA</div>
+        <div>
+          <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Sangat ideal untuk 4-8 perangkat aktif</li>
+            <li>Streaming Netflix 4K lancar tanpa jeda</li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
+            <li>100% Fiber Simetris Murni Bebas FUP</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Desa%20Blulukan%20Colomadu%20Karanganyar%20mau%20pasang%20Paket%20Spark%20250%20Mbps%20(Rp%20229.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#16a34a; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 250 Mbps (229rb)</a>
+      </div>
+    </div>
+
+    <h2>Cara Mudah Pendaftaran Pasang Baru di Blulukan Colomadu</h2>
+    <p>Warga Area Desa Blulukan Colomadu Karanganyar dapat mendaftar pasang baru secara online tanpa perlu datang ke kantor:</p>
+    <ol style="margin-left:20px; line-height:1.8; font-size:15px; color:#333;">
+      <li>Hubungi nomor WhatsApp resmi sales XL Home Solo Raya di <strong>0877-7899-9141</strong>.</li>
+      <li>Kirimkan alamat lengkap rumah (contoh: nama jalan, nomor rumah di Blulukan Colomadu) atau share location GPS.</li>
+      <li>Sales akan langsung mengecek jarak dan slot tiang ODP fiber terdekat di depan rumah Anda.</li>
+      <li>Pilih jadwal pemasangan teknisi. Teknisi datang melakukan penarikan kabel fiber optik, instalasi modem, dan internet langsung aktif!</li>
+    </ol>
+
+    <div class="cta-box" style="background:linear-gradient(135deg, #037e64 0%, #025946 100%); color:#fff; padding:28px; border-radius:12px; text-align:center; margin:36px 0;">
+      <h3 style="color:#fff; font-size:22px; margin-bottom:8px;">Cek Tiang ODP Fiber di Rumah Anda Sekarang!</h3>
+      <p style="color:#e2e8f0; font-size:15px; margin-bottom:20px; max-width:600px; margin-left:auto; margin-right:auto;">Dapatkan promo gratis instalasi Rp 0 dan promo harga spesial untuk warga Blulukan Colomadu.</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Desa%20Blulukan%20Colomadu%20Karanganyar%20mau%20cek%20titik%20tiang%20pasang%20WiFi" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#037e64; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; font-size:15px;">
+        Hubungi WhatsApp Sales Resmi (0877-7899-9141)
+      </a>
+    </div>
+
+    <h2>Area Terkait di Sekitar Kec. Colomadu &amp; Kab. Karanganyar</h2>
+    <p>Lihat juga informasi jangkauan jaringan fiber optik di kawasan sekitar:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+            <a href="/pasang-wifi-xl-home-colomadu/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Colomadu</a>
+      <a href="/pasang-wifi-perumahan-klodran-indah-colomadu/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Klodran Indah</a>
+      <a href="/wifi-karanganyar/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Karanganyar</a>
+    </div>
+  `
+};
+
+ARTIKEL["pasang-wifi-xl-home-donohudan-boyolali"] = {
+  slug: "pasang-wifi-xl-home-donohudan-boyolali",
+  title: "Pasang WiFi XL Home Area Desa Donohudan Ngemplak Boyolali \u2014 Internet Fiber 100% Cepat & Unlimited",
+  description: "Promo pasang WiFi XL Home di Area Desa Donohudan Ngemplak Boyolali (Desa Donohudan, Kec. Ngemplak). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  keywords: ["pasang wifi donohudan boyolali", "wifi xl home donohudan boyolali", "pasang internet donohudan boyolali", "wifi fiber desa donohudan", "paket internet kec. ngemplak", "xl satu donohudan boyolali", "biaya pasang wifi kec. ngemplak"],
+  ogTitle: "Pasang WiFi XL Home Area Desa Donohudan Ngemplak Boyolali \u2014 Internet Fiber 100% Cepat & Unlimited",
+  ogDescription: "Promo pasang WiFi XL Home di Area Desa Donohudan Ngemplak Boyolali (Desa Donohudan, Kec. Ngemplak). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  ogImage: "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.webp",
+  schemas: [{"@context": "https://schema.org", "@type": "Article", "headline": "Pasang WiFi XL Home Area Desa Donohudan Ngemplak Boyolali \u2014 Internet Fiber 100% Cepat & Unlimited", "description": "Promo pasang WiFi XL Home di Area Desa Donohudan Ngemplak Boyolali (Desa Donohudan, Kec. Ngemplak). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!", "author": {"@type": "Organization", "name": "XL Home Solo Raya"}, "publisher": {"@type": "Organization", "name": "XL Home Solo Raya"}, "datePublished": "2026-10-28", "dateModified": "2026-10-28", "mainEntityOfPage": "https://xlhomesolo.com/pasang-wifi-xl-home-donohudan-boyolali/"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Donohudan Boyolali?", "acceptedAnswer": {"@type": "Answer", "text": "Ya, Donohudan Boyolali memiliki 163 Homepass fiber optic aktif dengan tiang ODP yang terbentang di sepanjang jalan pemukiman dan sentra usaha warga. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}}, {"@type": "Question", "name": "Berapa biaya pasang WiFi XL Home untuk warga Donohudan Boyolali?", "acceptedAnswer": {"@type": "Answer", "text": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}}, {"@type": "Question", "name": "Berapa lama proses pemasangan teknisi di Donohudan Boyolali?", "acceptedAnswer": {"@type": "Answer", "text": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}}, {"@type": "Question", "name": "Apakah kuota internet XL Home di Donohudan Boyolali dibatasi FUP?", "acceptedAnswer": {"@type": "Answer", "text": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}}]}],
+  faqs: [{"q": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Donohudan Boyolali?", "a": "Ya, Donohudan Boyolali memiliki 163 Homepass fiber optic aktif dengan tiang ODP yang terbentang di sepanjang jalan pemukiman dan sentra usaha warga. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}, {"q": "Berapa biaya pasang WiFi XL Home untuk warga Donohudan Boyolali?", "a": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}, {"q": "Berapa lama proses pemasangan teknisi di Donohudan Boyolali?", "a": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}, {"q": "Apakah kuota internet XL Home di Donohudan Boyolali dibatasi FUP?", "a": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}],
+  hero: {
+    crumb: "<a href='https://xlhomesolo.com/'>Beranda</a> / <a href='/area-layanan/'>Area Layanan</a> / Donohudan Boyolali",
+    h1: "Pasang WiFi Fiber di Area Desa Donohudan Ngemplak Boyolali",
+    sub: "Solusi internet rumah 100% Fiber Optic murni tanpa batasan kuota (FUP) untuk warga Donohudan Boyolali, Desa Donohudan, Kec. Ngemplak.",
+    meta: "Desa Donohudan · Kec. Ngemplak · Kab. Boyolali · 100% Fiber Ready"
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Desa%20Donohudan%20Ngemplak%20Boyolali%20mau%20cek%20tiang%20fiber%20%26%20promo%20pasang%20baru",
+  bodyHtml: `
+    <p>Kabar gembira bagi warga <strong>Area Desa Donohudan Ngemplak Boyolali</strong>! Kini Anda dapat menikmati akses internet rumah super cepat dan stabil berbasis 100% Fiber Optic dari <strong>XL Home Solo Raya</strong> (jaringan Link Net). Tidak ada lagi kendala koneksi lemot saat rapat online Zoom/Google Meet, streaming film kualitas 4K, maupun bermain game online bersama keluarga di rumah.</p>
+
+    <div style="background:#f8fafc; border-left:4px solid #037e64; padding:16px; margin:20px 0; border-radius:0 8px 8px 0;">
+      <h3 style="margin:0 0 8px; color:#037e64; font-size:17px;">Kondisi Jaringan Fiber di Donohudan Boyolali</h3>
+      <p style="margin:0; font-size:14px; color:#475569; line-height:1.6;">Donohudan Boyolali memiliki 163 Homepass fiber optic aktif dengan tiang ODP yang terbentang di sepanjang jalan pemukiman dan sentra usaha warga. Tiang ODP fiber telah terpasang dengan status <em>Ready for Service (RFS)</em>. Pendaftaran langsung diproses cepat oleh teknisi resmi area Kab. Boyolali. Patokan lokasi: Kawasan Asrama Haji Donohudan, Jl. Sanggrahan–Embarkasi, dekat Bandara Internasional Adi Soemarmo.</p>
+    </div>
+
+    <h2>Mengapa Warga Donohudan Boyolali Memilih XL Home Fiber?</h2>
+    <p>Berikut keunggulan utama layanan internet fiber optik XL Home dibandingkan provider kabel tembaga atau modem kuota seluler:</p>
+    <ul style="line-height:1.8; font-size:15px; color:#333; margin-left:20px;">
+      <li><strong>100% Bebas FUP (True Unlimited):</strong> Pemakaian kuota tanpa batas. Kecepatan internet tetap stabil dari awal hingga akhir bulan tanpa batasan pemakaian wajar.</li>
+      <li><strong>Kecepatan Simetris &amp; Latensi Rendah:</strong> Sangat ideal untuk WFH, video conference, CCTV rumah online, live streaming jualan, dan download file berukuran besar.</li>
+      <li><strong>Pilihan Paket Terjangkau &amp; Promo Hemat:</strong> Paket hemat mulai Rp 185.000/bln dan promo bebas biaya instalasi untuk paket Spark 250 Mbps ke atas.</li>
+      <li><strong>Layanan Tim Sales &amp; Teknisi Lokal:</strong> Ditangani langsung oleh tim sales dan teknisi resmi perwakilan Solo Raya, menjamin respon survei tiang ODP dan penanganan cepat.</li>
+    </ul>
+
+    <h2>Daftar Pilihan Paket WiFi Rumah untuk Donohudan Boyolali</h2>
+    <p>Pilih paket internet rumah yang paling sesuai dengan kebutuhan anggota keluarga Anda:</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin:28px 0;">
+      <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
+        <div>
+          <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Desa%20Donohudan%20Ngemplak%20Boyolali%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
+      </div>
+
+      <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
+        <div style="position:absolute; top:-11px; right:16px; background:#037e64; color:#fff; font-size:11px; font-weight:800; padding:2px 10px; border-radius:999px;">PILIHAN TERBAIK KELUARGA</div>
+        <div>
+          <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Sangat ideal untuk 4-8 perangkat aktif</li>
+            <li>Streaming Netflix 4K lancar tanpa jeda</li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
+            <li>100% Fiber Simetris Murni Bebas FUP</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Desa%20Donohudan%20Ngemplak%20Boyolali%20mau%20pasang%20Paket%20Spark%20250%20Mbps%20(Rp%20229.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#16a34a; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 250 Mbps (229rb)</a>
+      </div>
+    </div>
+
+    <h2>Cara Mudah Pendaftaran Pasang Baru di Donohudan Boyolali</h2>
+    <p>Warga Area Desa Donohudan Ngemplak Boyolali dapat mendaftar pasang baru secara online tanpa perlu datang ke kantor:</p>
+    <ol style="margin-left:20px; line-height:1.8; font-size:15px; color:#333;">
+      <li>Hubungi nomor WhatsApp resmi sales XL Home Solo Raya di <strong>0877-7899-9141</strong>.</li>
+      <li>Kirimkan alamat lengkap rumah (contoh: nama jalan, nomor rumah di Donohudan Boyolali) atau share location GPS.</li>
+      <li>Sales akan langsung mengecek jarak dan slot tiang ODP fiber terdekat di depan rumah Anda.</li>
+      <li>Pilih jadwal pemasangan teknisi. Teknisi datang melakukan penarikan kabel fiber optik, instalasi modem, dan internet langsung aktif!</li>
+    </ol>
+
+    <div class="cta-box" style="background:linear-gradient(135deg, #037e64 0%, #025946 100%); color:#fff; padding:28px; border-radius:12px; text-align:center; margin:36px 0;">
+      <h3 style="color:#fff; font-size:22px; margin-bottom:8px;">Cek Tiang ODP Fiber di Rumah Anda Sekarang!</h3>
+      <p style="color:#e2e8f0; font-size:15px; margin-bottom:20px; max-width:600px; margin-left:auto; margin-right:auto;">Dapatkan promo gratis instalasi Rp 0 dan promo harga spesial untuk warga Donohudan Boyolali.</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Desa%20Donohudan%20Ngemplak%20Boyolali%20mau%20cek%20titik%20tiang%20pasang%20WiFi" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#037e64; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; font-size:15px;">
+        Hubungi WhatsApp Sales Resmi (0877-7899-9141)
+      </a>
+    </div>
+
+    <h2>Area Terkait di Sekitar Kec. Ngemplak &amp; Kab. Boyolali</h2>
+    <p>Lihat juga informasi jangkauan jaringan fiber optik di kawasan sekitar:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+            <a href="/pasang-wifi-xl-home-ngemplak/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Ngemplak Boyolali</a>
+      <a href="/wifi-boyolali/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Boyolali</a>
+      <a href="/biaya-pasang-wifi-solo-raya/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">Biaya Pasang WiFi</a>
+    </div>
+  `
+};
+
+ARTIKEL["pasang-wifi-xl-home-sambon-banyudono"] = {
+  slug: "pasang-wifi-xl-home-sambon-banyudono",
+  title: "Pasang WiFi XL Home Area Desa Sambon Banyudono Boyolali \u2014 Internet Fiber 100% Cepat & Unlimited",
+  description: "Promo pasang WiFi XL Home di Area Desa Sambon Banyudono Boyolali (Desa Sambon, Kec. Banyudono). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  keywords: ["pasang wifi sambon banyudono", "wifi xl home sambon banyudono", "pasang internet sambon banyudono", "wifi fiber desa sambon", "paket internet kec. banyudono", "xl satu sambon banyudono", "biaya pasang wifi kec. banyudono"],
+  ogTitle: "Pasang WiFi XL Home Area Desa Sambon Banyudono Boyolali \u2014 Internet Fiber 100% Cepat & Unlimited",
+  ogDescription: "Promo pasang WiFi XL Home di Area Desa Sambon Banyudono Boyolali (Desa Sambon, Kec. Banyudono). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!",
+  ogImage: "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.webp",
+  schemas: [{"@context": "https://schema.org", "@type": "Article", "headline": "Pasang WiFi XL Home Area Desa Sambon Banyudono Boyolali \u2014 Internet Fiber 100% Cepat & Unlimited", "description": "Promo pasang WiFi XL Home di Area Desa Sambon Banyudono Boyolali (Desa Sambon, Kec. Banyudono). 100% fiber optic murni tanpa batasan FUP. Paket mulai Rp 185rb/bln, gratis instalasi 250 Mbps!", "author": {"@type": "Organization", "name": "XL Home Solo Raya"}, "publisher": {"@type": "Organization", "name": "XL Home Solo Raya"}, "datePublished": "2026-10-28", "dateModified": "2026-10-28", "mainEntityOfPage": "https://xlhomesolo.com/pasang-wifi-xl-home-sambon-banyudono/"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Sambon Banyudono?", "acceptedAnswer": {"@type": "Answer", "text": "Ya, Sambon Banyudono memiliki 148 Homepass fiber optic aktif yang mencakup permukiman warga dan klaster hunian Griya Salaam Sambon. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}}, {"@type": "Question", "name": "Berapa biaya pasang WiFi XL Home untuk warga Sambon Banyudono?", "acceptedAnswer": {"@type": "Answer", "text": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}}, {"@type": "Question", "name": "Berapa lama proses pemasangan teknisi di Sambon Banyudono?", "acceptedAnswer": {"@type": "Answer", "text": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}}, {"@type": "Question", "name": "Apakah kuota internet XL Home di Sambon Banyudono dibatasi FUP?", "acceptedAnswer": {"@type": "Answer", "text": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}}]}],
+  faqs: [{"q": "Apakah jaringan WiFi Fiber XL Home sudah bisa dipasang di Sambon Banyudono?", "a": "Ya, Sambon Banyudono memiliki 148 Homepass fiber optic aktif yang mencakup permukiman warga dan klaster hunian Griya Salaam Sambon. Pendaftaran pasang baru dapat langsung diproses dengan menghubungi nomor WhatsApp sales resmi di 0877-7899-9141."}, {"q": "Berapa biaya pasang WiFi XL Home untuk warga Sambon Banyudono?", "a": "Biaya pemasangan untuk Paket Starter 20 Mbps adalah Rp 100.000 (sekali bayar). Sedangkan untuk Paket Spark 250 Mbps (Rp 229.000/bln) ke atas, ada promo spesial Bebas Biaya Instalasi alias GRATIS Rp 0."}, {"q": "Berapa lama proses pemasangan teknisi di Sambon Banyudono?", "a": "Setelah data registrasi Anda diverifikasi dan slot tiang ODP terkonfirmasi, jadwal pemasangan teknisi biasanya dilakukan dalam 1 hingga 2 hari kerja."}, {"q": "Apakah kuota internet XL Home di Sambon Banyudono dibatasi FUP?", "a": "Sama sekali tidak ada batasan kuota (100% Bebas FUP). Anda dan seluruh anggota keluarga bebas streaming 4K, WFH, belajar online, dan gaming tanpa risiko penurunan kecepatan di akhir bulan."}],
+  hero: {
+    crumb: "<a href='https://xlhomesolo.com/'>Beranda</a> / <a href='/area-layanan/'>Area Layanan</a> / Sambon Banyudono",
+    h1: "Pasang WiFi Fiber di Area Desa Sambon Banyudono Boyolali",
+    sub: "Solusi internet rumah 100% Fiber Optic murni tanpa batasan kuota (FUP) untuk warga Sambon Banyudono, Desa Sambon, Kec. Banyudono.",
+    meta: "Desa Sambon · Kec. Banyudono · Kab. Boyolali · 100% Fiber Ready"
+  },
+  headerCta: "https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Desa%20Sambon%20Banyudono%20Boyolali%20mau%20cek%20tiang%20fiber%20%26%20promo%20pasang%20baru",
+  bodyHtml: `
+    <p>Kabar gembira bagi warga <strong>Area Desa Sambon Banyudono Boyolali</strong>! Kini Anda dapat menikmati akses internet rumah super cepat dan stabil berbasis 100% Fiber Optic dari <strong>XL Home Solo Raya</strong> (jaringan Link Net). Tidak ada lagi kendala koneksi lemot saat rapat online Zoom/Google Meet, streaming film kualitas 4K, maupun bermain game online bersama keluarga di rumah.</p>
+
+    <div style="background:#f8fafc; border-left:4px solid #037e64; padding:16px; margin:20px 0; border-radius:0 8px 8px 0;">
+      <h3 style="margin:0 0 8px; color:#037e64; font-size:17px;">Kondisi Jaringan Fiber di Sambon Banyudono</h3>
+      <p style="margin:0; font-size:14px; color:#475569; line-height:1.6;">Sambon Banyudono memiliki 148 Homepass fiber optic aktif yang mencakup permukiman warga dan klaster hunian Griya Salaam Sambon. Tiang ODP fiber telah terpasang dengan status <em>Ready for Service (RFS)</em>. Pendaftaran langsung diproses cepat oleh teknisi resmi area Kab. Boyolali. Patokan lokasi: Kawasan pemukiman Sambon Banyudono, dekat jalur Solo–Semarang, perbatasan Kartasura dan pusat oleh-oleh Pengging.</p>
+    </div>
+
+    <h2>Mengapa Warga Sambon Banyudono Memilih XL Home Fiber?</h2>
+    <p>Berikut keunggulan utama layanan internet fiber optik XL Home dibandingkan provider kabel tembaga atau modem kuota seluler:</p>
+    <ul style="line-height:1.8; font-size:15px; color:#333; margin-left:20px;">
+      <li><strong>100% Bebas FUP (True Unlimited):</strong> Pemakaian kuota tanpa batas. Kecepatan internet tetap stabil dari awal hingga akhir bulan tanpa batasan pemakaian wajar.</li>
+      <li><strong>Kecepatan Simetris &amp; Latensi Rendah:</strong> Sangat ideal untuk WFH, video conference, CCTV rumah online, live streaming jualan, dan download file berukuran besar.</li>
+      <li><strong>Pilihan Paket Terjangkau &amp; Promo Hemat:</strong> Paket hemat mulai Rp 185.000/bln dan promo bebas biaya instalasi untuk paket Spark 250 Mbps ke atas.</li>
+      <li><strong>Layanan Tim Sales &amp; Teknisi Lokal:</strong> Ditangani langsung oleh tim sales dan teknisi resmi perwakilan Solo Raya, menjamin respon survei tiang ODP dan penanganan cepat.</li>
+    </ul>
+
+    <h2>Daftar Pilihan Paket WiFi Rumah untuk Sambon Banyudono</h2>
+    <p>Pilih paket internet rumah yang paling sesuai dengan kebutuhan anggota keluarga Anda:</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin:28px 0;">
+      <div style="border:1px solid #cbd5e1; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
+        <div>
+          <span style="color:#64748b; font-size:12px; font-weight:700; text-transform:uppercase;">Ekonomis &amp; Hemat</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Starter 20 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 185.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Cocok untuk 1-3 perangkat aktif bersamaan</li>
+            <li>Browsing, medsos, YouTube HD, &amp; Zoom meeting</li>
+            <li>Biaya pasang teknisi: <strong>Rp 100.000</strong> (sekali bayar)</li>
+            <li>100% Fiber Unlimited Murni (Bebas FUP)</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Desa%20Sambon%20Banyudono%20Boyolali%20mau%20pasang%20Paket%20Starter%2020%20Mbps%20(Rp%20185.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#037e64; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 20 Mbps (185rb)</a>
+      </div>
+
+      <div style="border:2px solid #037e64; border-radius:12px; padding:20px; background:#f0fdf4; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 4px 12px rgba(3,126,100,0.15);">
+        <div style="position:absolute; top:-11px; right:16px; background:#037e64; color:#fff; font-size:11px; font-weight:800; padding:2px 10px; border-radius:999px;">PILIHAN TERBAIK KELUARGA</div>
+        <div>
+          <span style="color:#037e64; font-size:12px; font-weight:700; text-transform:uppercase;">Super Cepat &amp; Puas</span>
+          <h3 style="margin:4px 0 8px; font-size:20px; color:#0f172a;">Paket Spark 250 Mbps</h3>
+          <div style="font-size:24px; font-weight:800; color:#037e64; margin-bottom:2px;">Rp 229.000<span style="font-size:13px; font-weight:400; color:#64748b;">/bln</span></div>
+          <div style="font-size:11.5px; color:#64748b; margin-bottom:8px;">*Harga belum termasuk PPN 11%</div>
+          <ul style="padding-left:18px; margin:0 0 16px; font-size:13px; color:#475569; line-height:1.6;">
+            <li>Sangat ideal untuk 4-8 perangkat aktif</li>
+            <li>Streaming Netflix 4K lancar tanpa jeda</li>
+            <li><strong>Gratis Biaya Pasang Rp 0 (Hemat Rp 100.000!)</strong></li>
+            <li>100% Fiber Simetris Murni Bebas FUP</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%2C%20saya%20warga%20Area%20Desa%20Sambon%20Banyudono%20Boyolali%20mau%20pasang%20Paket%20Spark%20250%20Mbps%20(Rp%20229.000)" target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; background:#16a34a; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px;">Pilih Paket 250 Mbps (229rb)</a>
+      </div>
+    </div>
+
+    <h2>Cara Mudah Pendaftaran Pasang Baru di Sambon Banyudono</h2>
+    <p>Warga Area Desa Sambon Banyudono Boyolali dapat mendaftar pasang baru secara online tanpa perlu datang ke kantor:</p>
+    <ol style="margin-left:20px; line-height:1.8; font-size:15px; color:#333;">
+      <li>Hubungi nomor WhatsApp resmi sales XL Home Solo Raya di <strong>0877-7899-9141</strong>.</li>
+      <li>Kirimkan alamat lengkap rumah (contoh: nama jalan, nomor rumah di Sambon Banyudono) atau share location GPS.</li>
+      <li>Sales akan langsung mengecek jarak dan slot tiang ODP fiber terdekat di depan rumah Anda.</li>
+      <li>Pilih jadwal pemasangan teknisi. Teknisi datang melakukan penarikan kabel fiber optik, instalasi modem, dan internet langsung aktif!</li>
+    </ol>
+
+    <div class="cta-box" style="background:linear-gradient(135deg, #037e64 0%, #025946 100%); color:#fff; padding:28px; border-radius:12px; text-align:center; margin:36px 0;">
+      <h3 style="color:#fff; font-size:22px; margin-bottom:8px;">Cek Tiang ODP Fiber di Rumah Anda Sekarang!</h3>
+      <p style="color:#e2e8f0; font-size:15px; margin-bottom:20px; max-width:600px; margin-left:auto; margin-right:auto;">Dapatkan promo gratis instalasi Rp 0 dan promo harga spesial untuk warga Sambon Banyudono.</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20warga%20Area%20Desa%20Sambon%20Banyudono%20Boyolali%20mau%20cek%20titik%20tiang%20pasang%20WiFi" target="_blank" rel="noopener noreferrer" style="background:#fff; color:#037e64; padding:12px 24px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; font-size:15px;">
+        Hubungi WhatsApp Sales Resmi (0877-7899-9141)
+      </a>
+    </div>
+
+    <h2>Area Terkait di Sekitar Kec. Banyudono &amp; Kab. Boyolali</h2>
+    <p>Lihat juga informasi jangkauan jaringan fiber optik di kawasan sekitar:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+            <a href="/pasang-wifi-perumahan-griya-salaam-banyudono/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Griya Salaam Sambon</a>
+      <a href="/pasang-wifi-xl-home-banyudono/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Banyudono</a>
+      <a href="/wifi-boyolali/" style="display:inline-block; background:#e0f2fe; color:#0369a1; padding:6px 12px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">WiFi Boyolali</a>
+    </div>
+  `
+};
