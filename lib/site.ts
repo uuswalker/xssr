@@ -57,6 +57,16 @@ export const V1_ROUTES: string[] = [
   "/cek-jaringan/",
   "/pasang-wifi-perumahan-jetis-permai-gentan/",
   "/pasang-wifi-perumahan-grogol-indah-telukan/",
+  "/pasang-wifi-perumahan-gremet-manahan/",
+  "/pasang-wifi-perumahan-klodran-indah-colomadu/",
+  "/pasang-wifi-perumahan-adi-sucipto-jajar/",
+  "/pasang-wifi-perumahan-gading-permai-grogol/",
+  "/pasang-wifi-perumahan-ngringo-indah-jaten/",
+  "/pasang-wifi-perumahan-griya-klumprit-mojolaban/",
+  "/pasang-wifi-perumahan-permata-plesungan/",
+  "/pasang-wifi-perumahan-jaten-permai-indah/",
+  "/pasang-wifi-perumahan-viena-solo-baru/",
+  "/pasang-wifi-perumahan-griya-salaam-banyudono/",
 ];
 
 
