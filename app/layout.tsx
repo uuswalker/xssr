@@ -3,8 +3,6 @@ import Script from "next/script";
 import localFont from "next/font/local";
 import "./globals.css";
 import ClientOnlyComponents from "@/components/ClientOnlyComponents";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import Trackers from "@/components/Trackers";
 import { ADS_ID, GA_ID, FB_PIXEL_ID, IS_STAGING, SITE_NAME } from "@/lib/site";
 
@@ -18,7 +16,7 @@ const jakarta = localFont({
   ],
   display: "swap",
   variable: "--font-jakarta",
-  preload: true,
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -166,8 +164,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </noscript>
           </>
         )}
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );

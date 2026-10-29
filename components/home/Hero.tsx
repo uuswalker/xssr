@@ -10,35 +10,35 @@ import { ADS_ID, WA_DAFTAR, WA_INFO, waLink } from "@/lib/site";
 const SLIDES = [
   {
     imgWebp: "/images/banner-xlsatu-jadi-xlhome.webp",
-    imgFallback: "/images/banner-xlsatu-jadi-xlhome.jpg",
+    imgFallback: "/images/banner-xlsatu-jadi-xlhome.webp",
     alt: "XL SATU Resmi Jadi XL HOME",
     eager: true,
     action: "wa" as const,
   },
   {
     imgWebp: "/images/banner-price.webp",
-    imgFallback: "/images/banner-price.jpg",
+    imgFallback: "/images/banner-price.webp",
     alt: "Promo Makin Hemat",
     eager: false,
     action: "wa" as const,
   },
   {
     imgWebp: "/images/banner-opensignal.webp",
-    imgFallback: "/images/banner-opensignal.jpeg",
+    imgFallback: "/images/banner-opensignal.webp",
     alt: "Pemenang Opensignal",
     eager: false,
     action: "hubungi" as const,
   },
   {
     imgWebp: "/images/banner-apartemen.webp",
-    imgFallback: "/images/banner-apartemen.jpg",
+    imgFallback: "/images/banner-apartemen.webp",
     alt: "Promo Apartemen",
     eager: false,
     action: "hubungi" as const,
   },
   {
     imgWebp: "/images/banner-opensignal.webp",
-    imgFallback: "/images/banner-opensignal.jpeg",
+    imgFallback: "/images/banner-opensignal.webp",
     alt: "Opensignal Award",
     eager: false,
     action: "hubungi" as const,
@@ -130,7 +130,7 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
             <picture>
               <source type="image/webp" srcSet={s.imgWebp} />
               <img
-                src={s.imgFallback}
+                src={s.imgWebp}
                 alt={s.alt}
                 width={1440}
                 height={390}

@@ -587,7 +587,7 @@ export function About() {
               muted={false}
               playsInline
               preload="none"
-              poster="/images/banner-xlsatu-jadi-xlhome.jpg"
+              poster="/images/banner-xlsatu-jadi-xlhome.webp"
               style={{ width: "100%", height: "auto", display: "block", borderRadius: 16 }}
               aria-label="Video: XL SATU resmi berganti nama menjadi XL Home - Internet rumah terbaik di Solo Raya">
               <source src="/videos/xl-satu-ganti-nama-xl-home.webm" type="video/webm" />
