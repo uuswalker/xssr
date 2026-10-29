@@ -37,15 +37,18 @@ function SpeedBar({ barWidth, barGradient, barDotColor }: { barWidth: number, ba
         style={{
           background: barGradient,
           width: inView ? `${barWidth}%` : "0%",
-          transition: "width 1.2s ease-out 0.2s"
+          transition: "width 0.95s cubic-bezier(0.16, 1, 0.3, 1)",
+          willChange: "width",
         }}
       ></div>
       <div
         className="speed-bar-dot"
         style={{
           borderColor: barDotColor,
-          left: inView ? `calc(${barWidth}% - 8px)` : "0%",
-          transition: "left 1.2s ease-out 0.2s"
+          left: inView ? `calc(${barWidth}% - 8px)` : "-8px",
+          opacity: inView ? 1 : 0,
+          transition: "left 0.95s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-out",
+          willChange: "left, opacity",
         }}
       ></div>
     </div>

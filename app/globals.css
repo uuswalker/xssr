@@ -169,7 +169,8 @@
     }
     .slides { 
       display: flex; 
-      transition: transform .6s ease; 
+      transition: transform .65s cubic-bezier(0.25, 1, 0.5, 1); 
+      will-change: transform;
     }
     .slide {
       min-width: 100%;
@@ -377,6 +378,8 @@
       position: absolute; 
       top: 50%; 
       transform: translateY(-50%); 
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18), 0 0 1px rgba(0, 0, 0, 0.1);
+      pointer-events: none;
     }
     .speed-note { 
       font-size: 11px; 
