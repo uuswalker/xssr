@@ -10,6 +10,7 @@ import {
   cekCoverage,
   coverageDetail,
   coverageLine,
+  cekAreaBlacklist,
   deteksiKota,
   jarakFiberField,
   type CoverageData,
@@ -227,19 +228,24 @@ export default function CekLokasi() {
         kota_terdeteksi: p.kota || "unknown",
         page_path: window.location.pathname,
       });
-      if (hasil.dalamArea) {
+      const bl = cekAreaBlacklist(alamatText || "");
+      if (bl) {
+        setStatusClass("cl-status error");
+        setStatusMsg(`⚠️ Area ${bl} di luar jangkauan tiang fiber XL Home. Layanan kami fokus di Solo, Sukoharjo, Karanganyar, Boyolali & Klaten.`);
+      } else if (hasil.dalamArea) {
         setStatusClass("cl-status success");
         setStatusMsg(` Lokasi terdeteksi di area ${hasil.nama}`);
       } else {
-        setStatusClass("cl-status");
+        setStatusClass("cl-status error");
         setStatusMsg(
-          `Lokasi terdeteksi dekat ${hasil.nama || "Solo Raya"}. Tetap bisa dicek manual oleh sales kami.`
+          `⚠️ Lokasi di luar 5 wilayah jangkauan XL Home Solo Raya (Hanya melayani Solo, Sukoharjo, Karanganyar, Boyolali & Klaten).`
         );
       }
       later(() => {
+        const tagLuar = bl ? ` [LUAR JANGKAUAN - ${bl}]` : (!hasil.dalamArea ? " [LUAR WILAYAH]" : "");
         setLokasiInfo(
           `Lokasi: ${alamatText ? alamatText : lat.toFixed(5) + ", " + lng.toFixed(5)}` +
-            (hasil.nama ? ` (dekat ${hasil.nama})` : "")
+            (hasil.nama ? ` (dekat ${hasil.nama})` : "") + tagLuar
         );
         setStep("form");
       }, 900);
@@ -261,14 +267,26 @@ export default function CekLokasi() {
         kota_terdeteksi: "unknown",
         page_path: window.location.pathname,
       });
-      setStatusClass("cl-status");
-      setStatusMsg(
-        "Alamat dicatat tanpa titik peta pasti. Sales kami akan konfirmasi lokasi lebih lanjut."
-      );
-      later(() => {
-        setLokasiInfo(`Alamat: ${alamatText} (lokasi belum terverifikasi peta)`);
-        setStep("form");
-      }, 600);
+      const bl = cekAreaBlacklist(alamatText);
+      if (bl) {
+        setStatusClass("cl-status error");
+        setStatusMsg(
+          `⚠️ Area ${bl} di luar jangkauan tiang fiber XL Home. Layanan kami fokus di Solo, Sukoharjo, Karanganyar, Boyolali & Klaten.`
+        );
+        later(() => {
+          setLokasiInfo(`Alamat: ${alamatText} [LUAR JANGKAUAN - ${bl}]`);
+          setStep("form");
+        }, 800);
+      } else {
+        setStatusClass("cl-status");
+        setStatusMsg(
+          "Alamat dicatat tanpa titik peta pasti. Sales kami akan konfirmasi lokasi lebih lanjut."
+        );
+        later(() => {
+          setLokasiInfo(`Alamat: ${alamatText} (lokasi belum terverifikasi peta)`);
+          setStep("form");
+        }, 600);
+      }
       kirimSoftLead();
       fokusForm();
     },

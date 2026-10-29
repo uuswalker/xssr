@@ -26,6 +26,35 @@ export const KOTA_ALIASES: Record<string, string> = {
 };
 
 /** format Nominatim viewbox: left,top,right,bottom (lon,lat,lon,lat) */
+
+export const DAFTAR_BLACKLIST = [
+  "sragen",
+  "wonogiri",
+  "salatiga",
+  "grobogan",
+  "purwodadi",
+  "semarang",
+  "sleman",
+  "gunungkidul",
+  "magelang",
+  "ngawi",
+  "magetan",
+  "yogyakarta",
+  "jogja",
+];
+
+export function cekAreaBlacklist(alamat: string): string | null {
+  if (!alamat) return null;
+  const low = alamat.toLowerCase();
+  for (const b of DAFTAR_BLACKLIST) {
+    const regex = new RegExp("(^|[^a-z0-9])" + b + "([^a-z0-9]|$)", "i");
+    if (regex.test(low)) {
+      return b.charAt(0).toUpperCase() + b.slice(1);
+    }
+  }
+  return null;
+}
+
 export const SOLORAYA_VIEWBOX = "110.45,-7.30,111.15,-7.95";
 
 export function haversineM(
