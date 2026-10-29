@@ -8,18 +8,18 @@ export default function SiloSoloHub() {
         maxWidth: 720, 
         margin: "32px auto 16px", 
         padding: "24px", 
-        background: "linear-gradient(135deg, #023835 0%, #037e64 100%)", 
+        background: "linear-gradient(135deg, var(--color-accent-dark) 0%, var(--color-accent) 100%)", 
         borderRadius: "16px", 
-        color: "#ffffff", 
+        color: "var(--color-paper)", 
         boxShadow: "0 10px 25px rgba(3,126,100,0.18)" 
       }}
       aria-label="Layanan Pasang WiFi Solo Murah"
     >
-      <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(255,255,255,0.18)", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "700", marginBottom: "12px", color: "#ffd000" }}>
+      <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(255,255,255,0.18)", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "700", marginBottom: "12px", color: "var(--color-signal-amber)" }}>
         <Zap size={14} /> Layanan Resmi Solo Raya 2026
       </div>
       
-      <h3 style={{ margin: "0 0 10px", fontSize: "20px", fontWeight: "800", color: "#ffffff", lineHeight: "1.3" }}>
+      <h3 style={{ margin: "0 0 10px", fontSize: "20px", fontWeight: "800", color: "var(--color-paper)", lineHeight: "1.3" }}>
         Mau Pasang WiFi Rumah Cepat &amp; Murah di Solo?
       </h3>
       
@@ -28,7 +28,7 @@ export default function SiloSoloHub() {
         <Link 
           href="/wifi-solo/" 
           title="Pasang WiFi Solo Murah 2026"
-          style={{ color: "#ffd000", fontWeight: "800", textDecoration: "underline", textUnderlineOffset: "3px" }}
+          style={{ color: "var(--color-signal-amber)", fontWeight: "800", textDecoration: "underline", textUnderlineOffset: "3px" }}
         >
           pasang wifi solo murah
         </Link>{" "}
@@ -42,8 +42,8 @@ export default function SiloSoloHub() {
             display: "inline-flex", 
             alignItems: "center", 
             gap: "8px", 
-            background: "#ffd000", 
-            color: "#023835", 
+            background: "var(--color-signal-amber)", 
+            color: "var(--color-accent-dark)", 
             fontWeight: "800", 
             padding: "11px 20px", 
             borderRadius: "10px", 
@@ -63,7 +63,7 @@ export default function SiloSoloHub() {
             alignItems: "center", 
             gap: "8px", 
             background: "rgba(255,255,255,0.15)", 
-            color: "#ffffff", 
+            color: "var(--color-paper)", 
             fontWeight: "700", 
             padding: "11px 18px", 
             borderRadius: "10px", 
@@ -77,8 +77,8 @@ export default function SiloSoloHub() {
       </div>
 
       <div style={{ marginTop: "14px", paddingTop: "12px", borderTop: "1px solid rgba(255,255,255,0.15)", display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px", fontSize: "12px", color: "rgba(255,255,255,0.88)" }}>
-        <ShieldCheck size={16} color="#ffd000" />
-        <span>Pilihan terfavorit <Link href="/wifi-solo/" style={{ color: "#ffffff", textDecoration: "underline" }}>wifi murah solo</Link> tanpa FUP. Kontak: <Link href="/nomor-sales-xl-home-solo-raya/" title="Nomor Resmi Sales XL Home Solo" style={{ color: "#ffd000", fontWeight: "700", textDecoration: "underline" }}>nomor resmi sales XL Home Solo</Link> (<a href="https://wa.me/xlhomesolo" target="_blank" rel="noopener noreferrer" style={{ color: "#ffd000", textDecoration: "underline" }}>wa.me/xlhomesolo</a> • 0877-7899-9141).</span>
+        <ShieldCheck size={16} color="var(--color-signal-amber)" />
+        <span>Pilihan terfavorit <Link href="/wifi-solo/" style={{ color: "var(--color-paper)", textDecoration: "underline" }}>wifi murah solo</Link> tanpa FUP. Kontak: <Link href="/nomor-sales-xl-home-solo-raya/" title="Nomor Resmi Sales XL Home Solo" style={{ color: "var(--color-signal-amber)", fontWeight: "700", textDecoration: "underline" }}>nomor resmi sales XL Home Solo</Link> (<a href="https://wa.me/xlhomesolo" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-signal-amber)", textDecoration: "underline" }}>wa.me/xlhomesolo</a> • 0877-7899-9141).</span>
       </div>
     </section>
   );

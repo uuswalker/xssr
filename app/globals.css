@@ -1,5 +1,23 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
+      /* Hallmark Ink Theme Tokens */
+      --color-paper: #ffffff;
+      --color-paper-2: #f8fdfb;
+      --color-paper-3: #f1f5f9;
+      --color-ink: #0f172a;
+      --color-ink-2: #1e293b;
+      --color-muted: #64748b;
+      --color-rule: #e2e8f0;
+      --color-rule-2: #edf2f7;
+      --color-accent: #037e64;
+      --color-accent-dark: #023835;
+      --color-accent-ink: #ffffff;
+      --color-accent-soft: #e6f7f3;
+      --color-accent-soft-ink: #023835;
+      --color-signal-amber: #ffd000;
+      --color-signal-amber-dark: #b45309;
+      --color-focus: #037e64;
+      --color-success: #059669;
       --green: #00755c;
       --green-dark: #005c48;
       --green-light: #e6f7f3;
@@ -10,12 +28,22 @@
       --border: #e5e7eb;
       --white: #ffffff;
     }
+    html, body {
+      overflow-x: clip;
+    }
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body { 
       font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif; 
       background: var(--white); 
       color: var(--text);
       line-height: 1.6;
+    }
+    :focus-visible {
+      outline: 2px solid var(--color-focus);
+      outline-offset: 2px;
+    }
+    a:active, button:active, .btn-hero:active, .btn-pilih:active, .btn-cta:active, .btn-link:active, .btn-wa-header:active {
+      transform: translateY(1px);
     }
 
     /* â”€â”€ HEADER â”€â”€ */
@@ -720,7 +748,14 @@
     .faq-a { 
       font-size: 14px; 
       color: var(--text-muted); 
-      line-height: 1.6; 
+      line-height: 1.6;
+    }
+    :focus-visible {
+      outline: 2px solid var(--color-focus);
+      outline-offset: 2px;
+    }
+    a:active, button:active, .btn-hero:active, .btn-pilih:active, .btn-cta:active, .btn-link:active, .btn-wa-header:active {
+      transform: translateY(1px); 
       margin-top: 10px; 
       display: none; 
     }
@@ -1465,5 +1500,143 @@
     padding: 5px 12px;
     border-radius: 999px;
     border: 1px solid rgba(3, 126, 100, 0.15);
+  }
+
+  /* ── HALLMARK INK UTILITY CLASSES ── */
+  .tag-promo {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .benefit-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0 24px;
+  }
+  .benefit-pill {
+    background: var(--color-paper);
+    border: 1px solid var(--color-rule);
+    color: var(--color-accent-dark);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hero-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .btn-hero-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .btn-hero-compare {
+    background: var(--color-paper);
+    color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .ai-summary-card {
+    border: 2px solid var(--color-accent);
+    background: var(--color-paper-2);
+  }
+  .ai-summary-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .ai-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .ai-grid-box {
+    background: var(--color-paper);
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--color-rule);
+  }
+  .ai-grid-label {
+    font-size: 12px;
+    color: var(--color-muted);
+    display: block;
+  }
+  .ai-grid-val-accent {
+    font-size: 15px;
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+  .ai-grid-val-success {
+    font-size: 15px;
+    color: var(--color-success);
+    font-weight: 700;
+  }
+  .matrix-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 580px;
+  }
+  .matrix-table th {
+    padding: 12px;
+    border: 1px solid var(--color-rule);
+    background: var(--color-paper-3);
+    text-align: left;
+  }
+  .matrix-table td {
+    padding: 12px;
+    border: 1px solid var(--color-rule);
+  }
+  .matrix-row-highlight {
+    background: var(--color-accent-soft);
+    font-weight: 600;
+  }
+  .matrix-cell-brand {
+    color: var(--color-accent-dark);
+  }
+  .matrix-cell-success {
+    color: var(--color-success);
+  }
+  .matrix-cell-muted {
+    color: #dc2626;
+  }
+  .conclusion-box {
+    background: var(--color-accent-soft);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--color-accent-dark);
   }
 

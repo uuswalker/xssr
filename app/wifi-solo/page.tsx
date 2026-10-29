@@ -1,4 +1,4 @@
-import { MessageCircle, ArrowRight, ShieldCheck, Zap, CheckCircle2, Award, Clock } from "lucide-react";
+import { MessageCircle, ArrowRight, ShieldCheck, Zap, CheckCircle2, Award, Clock, Sparkles } from "lucide-react";
 import type { Metadata } from "next";
 import WaFloat from "@/components/WaFloat";
 import Watermark from "@/components/Watermark";
@@ -175,7 +175,15 @@ export default function Page() {
   return (
     <div>
       <Watermark token="3D40D863" />
-      <style dangerouslySetInnerHTML={{ __html: PAGE_CSS["wifi-solo"] || "" }} />
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            :focus-visible { outline: 2px solid var(--color-focus, #037e64); outline-offset: 2px; }
+            a:active, button:active, .btn-hero:active { transform: translateY(1px); }
+            ${PAGE_CSS["wifi-solo"] || ""}
+          `,
+        }}
+      />
       <header role="banner">
         <div className="header-inner">
           <div className="logo">
@@ -185,7 +193,7 @@ export default function Page() {
                 alt="XL HOME"
                 width={106}
                 height={85}
-                loading="lazy"
+                loading="eager"
               />
             </a>
           </div>
@@ -213,7 +221,7 @@ export default function Page() {
             <a href="/">Beranda</a> / Pasang WiFi Solo Murah
           </div>
           
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#e6f7f3", color: "#026b55", padding: "6px 14px", borderRadius: "20px", fontSize: "13px", fontWeight: "700", marginBottom: "14px" }}>
+          <div className="tag-promo">
             <Zap size={15} /> Promo Terbatas 2026: Bebas Biaya Instalasi Teknisi Rp 0
           </div>
 
@@ -226,35 +234,34 @@ export default function Page() {
             Koneksi 100% Fiber Simetris tanpa batas FUP, gratis biaya instalasi teknisi, dan modem WiFi dipinjamkan cuma-cuma.
           </p>
 
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px", margin: "20px 0 24px" }}>
-            <span style={{ background: "#ffffff", border: "1px solid #d1fae5", color: "#065f46", padding: "6px 12px", borderRadius: "8px", fontSize: "13px", fontWeight: "600", display: "inline-flex", alignItems: "center", gap: "6px" }}>
-              <CheckCircle2 size={15} color="#059669" /> Mulai 185rb/bulan
+          <div className="benefit-pills">
+            <span className="benefit-pill">
+              <CheckCircle2 size={15} color="var(--color-success)" /> Mulai 185rb/bulan
             </span>
-            <span style={{ background: "#ffffff", border: "1px solid #d1fae5", color: "#065f46", padding: "6px 12px", borderRadius: "8px", fontSize: "13px", fontWeight: "600", display: "inline-flex", alignItems: "center", gap: "6px" }}>
-              <CheckCircle2 size={15} color="#059669" /> Gratis Pasang Rp 0
+            <span className="benefit-pill">
+              <CheckCircle2 size={15} color="var(--color-success)" /> Gratis Pasang Rp 0
             </span>
-            <span style={{ background: "#ffffff", border: "1px solid #d1fae5", color: "#065f46", padding: "6px 12px", borderRadius: "8px", fontSize: "13px", fontWeight: "600", display: "inline-flex", alignItems: "center", gap: "6px" }}>
-              <CheckCircle2 size={15} color="#059669" /> 100% Tanpa FUP Murni
+            <span className="benefit-pill">
+              <CheckCircle2 size={15} color="var(--color-success)" /> 100% Tanpa FUP Murni
             </span>
-            <span style={{ background: "#ffffff", border: "1px solid #d1fae5", color: "#065f46", padding: "6px 12px", borderRadius: "8px", fontSize: "13px", fontWeight: "600", display: "inline-flex", alignItems: "center", gap: "6px" }}>
-              <CheckCircle2 size={15} color="#059669" /> Teknisi Cepat 1-2 Hari
+            <span className="benefit-pill">
+              <CheckCircle2 size={15} color="var(--color-success)" /> Teknisi Cepat 1-2 Hari
             </span>
           </div>
 
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "12px" }}>
+          <div className="hero-cta-group">
             <a
               href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20mau%20pasang%20WiFi%20murah%20di%20Solo"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-hero"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+              className="btn-hero btn-hero-wa"
+              style={{ whiteSpace: "nowrap" }}
             >
               <MessageCircle size={18} /> Chat Sales WhatsApp (Aktif 24 Jam)
             </a>
             <a
               href="#komparasi"
-              className="btn-hero"
-              style={{ background: "#ffffff", color: "#037e64", border: "2px solid #037e64", display: "inline-flex", alignItems: "center", gap: "8px" }}
+              className="btn-hero btn-hero-compare"
             >
               Lihat Komparasi Provider <ArrowRight size={16} />
             </a>
@@ -263,32 +270,32 @@ export default function Page() {
 
         <section className="section">
           {/* GOOGLE AI OVERVIEW SNIPPET TARGET BLOCK (#0) */}
-          <div className="explain-card" style={{ border: "2px solid #05a986", background: "#f8fdfb" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#e6f7f3", color: "#026b55", padding: "3px 10px", borderRadius: "12px", fontSize: "12px", fontWeight: "700", marginBottom: "8px" }}>
+          <div className="explain-card ai-summary-card">
+            <div className="ai-summary-badge">
               <Award size={14} /> Ringkasan Resmi 2026
             </div>
             <h2 style={{ fontSize: "22px", marginTop: "4px", marginBottom: "12px" }}>
               Berapa Biaya &amp; Rekomendasi Pasang WiFi di Solo 2026?
             </h2>
-            <p style={{ fontSize: "15px", lineHeight: "1.7", color: "#1f2937" }}>
+            <p style={{ fontSize: "15px", lineHeight: "1.7" }}>
               Biaya pasang WiFi di Solo (Surakarta) tahun 2026 termurah mulai <strong>Rp 185.000/bulan</strong> untuk kecepatan 20 Mbps (Paket XL Home Starter) dengan promo <strong>Gratis Biaya Pasang Rp 0</strong>. Untuk pemakaian keluarga dan streaming 4K bebas lemot, rekomendasi terbaik adalah <strong>Paket Spark 250 Mbps seharga Rp 229.000/bulan</strong> (100% Fiber Optic simetris tanpa batasan kuota FUP).
             </p>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "10px", marginTop: "16px" }}>
-              <div style={{ background: "#ffffff", padding: "12px 14px", borderRadius: "8px", border: "1px solid #e5e7eb" }}>
-                <span style={{ fontSize: "12px", color: "#6b7280", display: "block" }}>Paket Termurah Solo</span>
-                <strong style={{ fontSize: "15px", color: "#037e64" }}>Starter 20 Mbps: Rp 185.000/bln</strong>
+            <div className="ai-grid">
+              <div className="ai-grid-box">
+                <span className="ai-grid-label">Paket Termurah Solo</span>
+                <strong className="ai-grid-val-accent">Starter 20 Mbps: Rp 185.000/bln</strong>
               </div>
-              <div style={{ background: "#ffffff", padding: "12px 14px", borderRadius: "8px", border: "1px solid #e5e7eb" }}>
-                <span style={{ fontSize: "12px", color: "#6b7280", display: "block" }}>Rekomendasi Keluarga</span>
-                <strong style={{ fontSize: "15px", color: "#037e64" }}>Spark 250 Mbps: Rp 229.000/bln</strong>
+              <div className="ai-grid-box">
+                <span className="ai-grid-label">Rekomendasi Keluarga</span>
+                <strong className="ai-grid-val-accent">Spark 250 Mbps: Rp 229.000/bln</strong>
               </div>
-              <div style={{ background: "#ffffff", padding: "12px 14px", borderRadius: "8px", border: "1px solid #e5e7eb" }}>
-                <span style={{ fontSize: "12px", color: "#6b7280", display: "block" }}>Biaya Pasang Baru</span>
-                <strong style={{ fontSize: "15px", color: "#059669" }}>Rp 0 (Gratis Promo)</strong>
+              <div className="ai-grid-box">
+                <span className="ai-grid-label">Biaya Pasang Baru</span>
+                <strong className="ai-grid-val-success">Rp 0 (Gratis Promo)</strong>
               </div>
-              <div style={{ background: "#ffffff", padding: "12px 14px", borderRadius: "8px", border: "1px solid #e5e7eb" }}>
-                <span style={{ fontSize: "12px", color: "#6b7280", display: "block" }}>Kebijakan Kuota</span>
-                <strong style={{ fontSize: "15px", color: "#059669" }}>100% Unlimited Tanpa FUP</strong>
+              <div className="ai-grid-box">
+                <span className="ai-grid-label">Kebijakan Kuota</span>
+                <strong className="ai-grid-val-success">100% Unlimited Tanpa FUP</strong>
               </div>
             </div>
           </div>
@@ -339,62 +346,62 @@ export default function Page() {
               Sebelum memutuskan langganan, simak perbandingan jujur penyedia internet rumah populer di Solo Raya berikut:
             </p>
             
-            <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
-              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px", minWidth: "580px" }}>
+            <div className="matrix-container">
+              <table className="matrix-table">
                 <thead>
-                  <tr style={{ background: "#f3f4f6", textAlign: "left" }}>
-                    <th style={{ padding: "12px", border: "1px solid #e5e7eb" }}>Provider</th>
-                    <th style={{ padding: "12px", border: "1px solid #e5e7eb" }}>Paket &amp; Harga Termurah</th>
-                    <th style={{ padding: "12px", border: "1px solid #e5e7eb" }}>Kebijakan FUP</th>
-                    <th style={{ padding: "12px", border: "1px solid #e5e7eb" }}>Biaya Pasang &amp; Alat</th>
-                    <th style={{ padding: "12px", border: "1px solid #e5e7eb" }}>Kecepatan</th>
+                  <tr>
+                    <th>Provider</th>
+                    <th>Paket &amp; Harga Termurah</th>
+                    <th>Kebijakan FUP</th>
+                    <th>Biaya Pasang &amp; Alat</th>
+                    <th>Kecepatan</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr style={{ background: "#ecfdf5", fontWeight: "600" }}>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb", color: "#065f46" }}>
-                      ⭐ <strong>XL Home Solo</strong>
+                  <tr className="matrix-row-highlight">
+                    <td className="matrix-cell-brand">
+                      <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}><Sparkles size={14} color="var(--color-signal-amber-dark)" /> <strong>XL Home Solo</strong></span>
                     </td>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb", color: "#065f46" }}>
+                    <td className="matrix-cell-brand">
                       <strong>Rp 185rb</strong> (20M)<br/><strong>Rp 229rb</strong> (250M)
                     </td>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb", color: "#059669" }}>
+                    <td className="matrix-cell-success">
                       <strong>100% Bebas FUP</strong>
                     </td>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb", color: "#059669" }}>
+                    <td className="matrix-cell-success">
                       <strong>Gratis Rp 0</strong> (Dipinjamkan)
                     </td>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb" }}>
+                    <td>
                       Simetris 1:1
                     </td>
                   </tr>
                   <tr>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb" }}>IndiHome Solo</td>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb" }}>Rp 280.000+ (30 Mbps)</td>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb", color: "#dc2626" }}>Ada Batas FUP</td>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb" }}>Rp 150rb – Rp 500rb</td>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb" }}>Asimetris 1:3</td>
+                    <td>IndiHome Solo</td>
+                    <td>Rp 280.000+ (30 Mbps)</td>
+                    <td className="matrix-cell-muted">Ada Batas FUP</td>
+                    <td>Rp 150rb - Rp 500rb</td>
+                    <td>Asimetris 1:3</td>
                   </tr>
                   <tr>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb" }}>Biznet Solo</td>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb" }}>Rp 250.000+ (30 Mbps)</td>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb" }}>Tanpa FUP</td>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb", color: "#dc2626" }}>Beli Modem / Pasang</td>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb" }}>Simetris 1:1</td>
+                    <td>Biznet Solo</td>
+                    <td>Rp 250.000+ (30 Mbps)</td>
+                    <td>Tanpa FUP</td>
+                    <td className="matrix-cell-muted">Beli Modem / Pasang</td>
+                    <td>Simetris 1:1</td>
                   </tr>
                   <tr>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb" }}>MyRepublic Solo</td>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb" }}>Rp 200.000-an (30 Mbps)</td>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb" }}>Tanpa FUP</td>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb" }}>Promo Tertentu</td>
-                    <td style={{ padding: "12px", border: "1px solid #e5e7eb" }}>Simetris 1:1</td>
+                    <td>MyRepublic Solo</td>
+                    <td>Rp 200.000-an (30 Mbps)</td>
+                    <td>Tanpa FUP</td>
+                    <td>Promo Tertentu</td>
+                    <td>Simetris 1:1</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <div style={{ background: "#e6f7f3", borderRadius: "10px", padding: "14px 18px", marginTop: "16px", fontSize: "14px", color: "#065f46" }}>
-              💡 <strong>Kesimpulan Pemilihan:</strong> XL Home Solo memberikan *value for money* tertinggi di Solo Raya karena dengan <strong>Rp 229.000/bulan</strong> pelanggan sudah mendapatkan kecepatan raksasa <strong>250 Mbps</strong>, bebas biaya pasang, dan kuota unlimited tanpa FUP.
+            <div className="conclusion-box">
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}><Zap size={15} color="var(--color-accent)" /> <strong>Kesimpulan Pemilihan:</strong></span> XL Home Solo memberikan *value for money* tertinggi di Solo Raya karena dengan <strong>Rp 229.000/bulan</strong> pelanggan sudah mendapatkan kecepatan raksasa <strong>250 Mbps</strong>, bebas biaya pasang, dan kuota unlimited tanpa FUP.
             </div>
           </div>
 
@@ -461,7 +468,7 @@ export default function Page() {
                 src="/images/xl-home-logo.png"
                 alt="XL HOME"
                 className="footer-logo"
-                loading="lazy"
+                loading="eager"
               />
               <div className="footer-copy">
                 Copyright © 2026 XL Home Solo Raya. All rights reserved.

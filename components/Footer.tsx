@@ -98,7 +98,7 @@ export default function Footer() {
             className="footer-logo"
             width={84}
             height={28}
-            loading="lazy"
+            loading="eager"
           />
           <div className="footer-copy">
             Copyright © 2026 XL Home Solo Raya. All rights reserved.
@@ -106,14 +106,24 @@ export default function Footer() {
           <div style={{ fontSize: 11, color: "rgba(255,255,255,.7)", marginTop: 2 }}>
             XL Home Fiber (d/h XL SATU Fiber) • Dikelola Tim Sales Resmi Solo Raya
           </div>
-          <div style={{ fontSize: 11, marginTop: 4 }}>
+          <div style={{ fontSize: 11, marginTop: 4, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px" }}>
+            <a
+              href="https://wa.me/xlhomesolo"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "rgba(255,255,255,.9)", textDecoration: "underline", fontWeight: 700 }}
+            >
+              wa.me/xlhomesolo
+            </a>
+            <span style={{ opacity: 0.35 }}>|</span>
             <a
               href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20mau%20tanya%20promo%20pasang%20WiFi%20terbaru"
               style={{ color: "rgba(255,255,255,.9)", textDecoration: "underline" }}
             >
               0877-7899-9141
-            </a>{" "}
-            • <a href="https://wa.me/xlhomesolo" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,.9)", textDecoration: "underline", fontWeight: 700 }}>wa.me/xlhomesolo</a> • Dikelola tim sales resmi Solo&nbsp;Raya
+            </a>
+            <span style={{ opacity: 0.35 }}>|</span>
+            <span>Dikelola tim sales resmi Solo&nbsp;Raya</span>
           </div>
         </div>
         
