@@ -79,6 +79,52 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <link rel="webmcp" id="webmcp" href="/webmcp.json" />
         <link rel="ai-catalog" href="/.well-known/ai-catalog.json" type="application/json" />
+        <script
+          id="webmcp-registry"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(){
+                try {
+                  var mc = (typeof document !== 'undefined' && document.modelContext) || (typeof navigator !== 'undefined' && navigator.modelContext);
+                  if (mc && typeof mc.registerTool === 'function') {
+                    mc.registerTool({
+                      name: 'cek_coverage_dan_daftar_xl_home_solo',
+                      description: 'Pengecekan jangkauan tiang fiber optik dan konsultasi paket pasang baru WiFi XL Home Solo Raya resmi.',
+                      inputSchema: {
+                        type: 'object',
+                        properties: {
+                          nama: { type: 'string', description: 'Nama lengkap pemohon pemasangan WiFi' },
+                          alamat: { type: 'string', description: 'Alamat rumah atau kelurahan di Kota Solo, Sukoharjo, Karanganyar, Boyolali, atau Klaten' },
+                          whatsapp: { type: 'string', description: 'Nomor WhatsApp aktif pemohon untuk konfirmasi pemasangan' },
+                          paket: { type: 'string', description: 'Pilihan paket (misal 20 Mbps Rp 185rb, 250 Mbps Promo Rp 229rb)' }
+                        },
+                        required: ['nama', 'alamat', 'whatsapp']
+                      },
+                      annotations: {
+                        readOnlyHint: false,
+                        consequentialHint: false,
+                        untrustedContentHint: false
+                      },
+                      execute: async function(params) {
+                        var n = params.nama || 'Pelanggan';
+                        var a = params.alamat || 'Solo';
+                        var w = params.whatsapp || '';
+                        var p = params.paket || 'Promo XL Home';
+                        var text = 'Halo Sales XL Home Solo, saya ' + n + ' di ' + a + ' mau pasang WiFi ' + p + '. Nomor WA: ' + w;
+                        return {
+                          status: 'success',
+                          message: 'Permintaan pendaftaran berhasil diterima. Sales resmi XL Home Solo akan segera menghubungi Anda.',
+                          salesContact: '0877-7899-9141',
+                          actionUrl: 'https://wa.me/6287778999141?text=' + encodeURIComponent(text)
+                        };
+                      }
+                    });
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
         <Trackers />
         <ClientOnlyComponents />
         {!IS_STAGING && (

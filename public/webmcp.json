@@ -1,21 +1,29 @@
 {
   "tools": [
     {
-      "name": "checkLocation",
-      "description": "Submit user location and contact details to register for WiFi installation",
+      "name": "cek_coverage_dan_daftar_xl_home_solo",
+      "description": "Pengecekan jangkauan tiang fiber optik dan konsultasi paket pasang baru WiFi XL Home Solo Raya (0877-7899-9141).",
       "parameters": {
         "type": "object",
         "properties": {
           "nama": {
             "type": "string",
-            "description": "Full name of the user"
+            "description": "Nama lengkap pemohon pemasangan"
           },
-          "wa": {
+          "alamat": {
             "type": "string",
-            "description": "WhatsApp phone number of the user starting with 08"
+            "description": "Alamat lengkap atau kelurahan di Solo Raya"
+          },
+          "whatsapp": {
+            "type": "string",
+            "description": "Nomor WhatsApp aktif pemohon mulai 08"
+          },
+          "paket": {
+            "type": "string",
+            "description": "Pilihan paket kecepatan (misal Starter 20 Mbps, Spark 250 Mbps)"
           }
         },
-        "required": ["nama", "wa"]
+        "required": ["nama", "alamat", "whatsapp"]
       }
     }
   ]

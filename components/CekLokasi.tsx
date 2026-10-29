@@ -952,9 +952,11 @@ export default function CekLokasi() {
                 )}
                 <form 
                   // @ts-ignore
-                  toolname="checkLocation" 
+                  toolname="daftarPasangWifiSolo" 
                   // @ts-ignore
-                  tooldescription="Submit user location and contact details to register for WiFi installation"
+                  tooldescription="Formulir resmi pendaftaran pasang baru dan pengecekan jangkauan tiang fiber optik XL Home Solo Raya."
+                  // @ts-ignore
+                  toolautosubmit="true"
                   onSubmit={(e) => { e.preventDefault(); kirim(); }}
                 >
                   <label htmlFor="cl-nama" className="cl-label">
@@ -963,12 +965,14 @@ export default function CekLokasi() {
                   <input
                     type="text"
                     id="cl-nama"
+                    name="nama"
+                    required
                     className="cl-input"
                     placeholder="Nama kamu"
                     value={nama}
                     onChange={(e) => setNama(e.target.value)}
                     // @ts-ignore
-                    toolparamdescription="Full name of the user"
+                    toolparamdescription="Nama lengkap pemohon pemasangan WiFi XL Home"
                   />
                   <label htmlFor="cl-wa" className="cl-label">
                     Nomor WhatsApp
@@ -976,21 +980,26 @@ export default function CekLokasi() {
                   <input
                     type="text"
                     id="cl-wa"
+                    name="whatsapp"
+                    required
                     className="cl-input"
                     placeholder="0812xxxxxxx"
                     value={wa}
                     onChange={(e) => setWa(e.target.value)}
                     // @ts-ignore
-                    toolparamdescription="WhatsApp phone number of the user starting with 08"
+                    toolparamdescription="Nomor WhatsApp aktif pemohon untuk konfirmasi jadwal pasang teknisi"
                   />
                   <label htmlFor="cl-paket" className="cl-label">
                     Pilihan Paket
                   </label>
                   <select
                     id="cl-paket"
+                    name="paket"
                     className="cl-input"
                     value={paketPilihan || ""}
                     onChange={(e) => setPaketPilihan(e.target.value)}
+                    // @ts-ignore
+                    toolparamdescription="Pilihan paket internet WiFi XL Home yang diinginkan"
                   >
                     <option value="">-- Pilih Paket --</option>
                     {(!coverage || coverage.status !== "wireless") && (
