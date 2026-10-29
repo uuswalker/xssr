@@ -1844,7 +1844,58 @@ ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
 
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
 
-  schemas: [],
+  schemas: [
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://xlhomesolo.com/#business",
+      "name": "Sales Resmi XL Home Solo Raya",
+      "telephone": "+6287778999141",
+      "image": "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.jpg",
+      "url": "https://xlhomesolo.com/nomor-sales-xl-home-solo-raya/",
+      "priceRange": "Rp 185.000 - Rp 229.000",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Surakarta",
+        "addressRegion": "Jawa Tengah",
+        "addressCountry": "ID"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -7.5666,
+        "longitude": 110.8166
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+6287778999141",
+        "contactType": "sales",
+        "areaServed": ["Surakarta", "Sukoharjo", "Karanganyar", "Klaten", "Boyolali"],
+        "availableLanguage": ["id", "jv"]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Berapa nomor resmi sales XL Home Solo Raya?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nomor resmi sales dan WhatsApp agen resmi XL Home Solo Raya adalah 0877-7899-9141 (layanan 24 jam untuk pendaftaran pasang baru, cek jangkauan ODP, dan promo bebas biaya pasang)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah nomor 0877-7899-9141 melayani pasang baru di Sukoharjo dan Karanganyar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ya, nomor WhatsApp 0877-7899-9141 melayani seluruh wilayah Solo Raya meliputi Kota Surakarta, Sukoharjo, Solo Baru, Kartasura, Karanganyar, Boyolali, dan Klaten."
+          }
+        }
+      ]
+    }
+  ],
 
   hero: {
 
@@ -1889,6 +1940,17 @@ ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
   ],
 
   bodyHtml: `
+  <div style="background: #e6f7f3; border-left: 5px solid #037e64; padding: 20px 24px; border-radius: 8px; margin: 24px 0 32px; box-shadow: 0 4px 12px rgba(3,126,100,0.08);">
+    <div style="display:inline-block; background:#037e64; color:#fff; font-size:12px; font-weight:800; padding:2px 10px; border-radius:20px; margin-bottom:10px; text-transform:uppercase;">Kontak Resmi Solo Raya 2026</div>
+    <h3 style="margin: 0 0 10px; font-size: 18px; color: #023835; font-weight: 800;">Berapa Nomor Resmi Sales XL Home Solo Raya?</h3>
+    <p style="margin: 0 0 14px; font-size: 15.5px; line-height: 1.6; color: #1a1a1a;">
+      <strong>Nomor resmi sales XL Home Solo Raya</strong> adalah <strong><a href="https://wa.me/6287778999141" style="color: #037e64; text-decoration: underline; font-weight: 800;">0877-7899-9141</a></strong> (WhatsApp aktif 24 jam). Layanan resmi langsung terhubung ke tim sales lokal untuk pendaftaran pasang baru WiFi fiber optik tanpa batasan kuota (FUP), pengecekan tiang ODP di depan rumah, serta promo Bebas Biaya Instalasi Rp 0 di seluruh wilayah Solo, Sukoharjo, Solo Baru, Karanganyar, Klaten, dan Boyolali.
+    </p>
+    <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20mau%20daftar%20pasang%20baru%20WiFi%20(Gratis%20Pasang%20Rp%200)" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:8px; background:#25D366; color:#fff; font-weight:700; padding:10px 20px; border-radius:8px; text-decoration:none; font-size:14px;">
+      Chat WhatsApp Sales Resmi: 0877-7899-9141
+    </a>
+  </div>
+
 
   <p>Sedang mencari <strong>nomor sales XL Home (dulu XL SATU) di wilayah Solo Raya</strong> untuk pasang WiFi baru? Anda berada di tempat yang tepat. Mendaftar lewat agen/sales lokal seringkali jauh lebih cepat dan praktis dibandingkan mendaftar lewat jalur call center nasional, karena agen lokal bisa langsung mengecek ketersediaan jaringan di tiang terdekat rumah Anda.</p>
 
