@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import WaFloat from "@/components/WaFloat";
 import ArticleHero from "@/components/ArticleHero";
 import ScrollReveal from "@/components/animations/ScrollReveal";
+import SiloSoloHub from "@/components/SiloSoloHub";
 import ArtikelTerkait from "@/components/ArtikelTerkait";
 import type { Artikel } from "@/lib/artikel";
 import { PAGE_CSS } from "@/lib/page-css";
@@ -24,6 +25,7 @@ export default function Article({ data }: { data: Artikel }) {
             dangerouslySetInnerHTML={{ __html: data.bodyHtml }}
           />
         </ScrollReveal>
+        <SiloSoloHub />
         <ArtikelTerkait currentSlug={data.slug} />
       </main>
       <Footer />
