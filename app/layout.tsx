@@ -48,12 +48,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="id" className={jakarta.variable}>
       <head>
-        <link
-          rel="preload"
-          as="image"
-          href="/images/banner-xlsatu-jadi-xlhome.webp"
-          type="image/webp"
-        />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://connect.facebook.net" />
         {!IS_STAGING && (

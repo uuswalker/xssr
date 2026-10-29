@@ -98,7 +98,7 @@ export default function Footer() {
             className="footer-logo"
             width={84}
             height={28}
-            loading="eager"
+            loading="lazy"
           />
           <div className="footer-copy">
             Copyright © 2026 XL Home Solo Raya. All rights reserved.
