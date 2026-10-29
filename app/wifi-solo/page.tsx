@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import WaFloat from "@/components/WaFloat";
 import Watermark from "@/components/Watermark";
 import Faq from "@/components/home/Faq";
+import Footer from "@/components/Footer";
 import { PAGE_CSS } from "@/lib/page-css";
 import { JsonLd, pageMetadata } from "@/lib/seo";
 
@@ -461,38 +462,7 @@ export default function Page() {
           </div>
         </div>
 
-        <footer>
-          <div className="footer-inner">
-            <div className="footer-left">
-              <img
-                src="/images/xl-home-logo.png"
-                alt="XL HOME"
-                className="footer-logo"
-                loading="eager"
-              />
-              <div className="footer-copy">
-                Copyright © 2026 XL Home Solo Raya. All rights reserved.
-              </div>
-              <div style={{ fontSize: 11, opacity: 0.55, marginTop: 2 }}>
-                Dilarang menyalin/menggandakan konten situs ini tanpa izin
-                tertulis.
-              </div>
-              <div style={{ fontSize: 11, marginTop: 4 }}>
-                <a
-                  href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20mau%20tanya%20promo%20pasang%20WiFi%20terbaru"
-                  style={{ color: "rgba(255,255,255,.6)", textDecoration: "none" }}
-                >
-                  0877-7899-9141
-                </a>{" "}
-                • 0877-7899-9141
-              </div>
-            </div>
-            <div className="footer-links">
-              <a href="/area-layanan/">Area Layanan</a>
-              <a href="/kebijakan-privasi/">Privasi &amp; Cookie</a>
-            </div>
-          </div>
-        </footer>
+        <Footer />
 
         <WaFloat small="Info XL Home Solo" />
       </main>
