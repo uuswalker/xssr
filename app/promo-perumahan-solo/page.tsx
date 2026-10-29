@@ -57,7 +57,7 @@ export default function PromoPerumahan() {
             <button
               type="button"
               id="btn-buka-cek-lokasi"
-              className="btn-pilih"
+              className="btn-pilih btn-cek-lokasi-trigger"
               style={{
                 display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, width: "auto", padding: "14px 32px",
                 borderRadius: 999,

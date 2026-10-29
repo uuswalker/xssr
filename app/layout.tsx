@@ -57,6 +57,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         )}
       </head>
       <body data-origin="xlhomesolo.com" data-wm="224CF412">
+        <script
+          id="early-click-capture"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){document.addEventListener('click',function(e){var el=e.target&&e.target.closest&&e.target.closest('#btn-buka-cek-lokasi,.btn-cek-lokasi-trigger');if(el){window.__pendingCekLokasi=el.getAttribute('data-paket')||'trigger';}},true);})();`,
+          }}
+        />
         {/* Honeypot anti-scraper — parity xssr, JANGAN dihapus */}
         <a
           href="https://xlhomesolo.com/trap/"

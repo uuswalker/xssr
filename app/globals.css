@@ -801,15 +801,7 @@
       font-size: 14px; 
       color: var(--text-muted); 
       line-height: 1.6;
-    }
-    :focus-visible {
-      outline: 2px solid var(--color-focus);
-      outline-offset: 2px;
-    }
-    a:active, button:active, .btn-hero:active, .btn-pilih:active, .btn-cta:active, .btn-link:active, .btn-wa-header:active {
-      transform: translateY(1px); 
-      margin-top: 10px; 
-      display: none; 
+      margin-top: 10px;
     }
     .faq-item.open .faq-a { 
       display: block; 
