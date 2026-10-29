@@ -302,13 +302,36 @@ export default function CekLokasi() {
     [loadCoverage]
   );
 
-  // Delegasi global: semua tombol #btn-buka-cek-lokasi / .btn-cek-lokasi-trigger
+  // Delegasi global: semua tombol #btn-buka-cek-lokasi / .btn-cek-lokasi-trigger + deep-link param (?cek=1)
   useEffect(() => {
-    if (typeof window !== "undefined" && (window as any).__pendingCekLokasi) {
-      const p = (window as any).__pendingCekLokasi;
-      (window as any).__pendingCekLokasi = null;
-      setPaketPilihan(p !== "trigger" ? p : null);
-      bukaModal(p !== "trigger" ? "paket" : "header");
+    if (typeof window !== "undefined") {
+      if ((window as any).__pendingCekLokasi) {
+        const p = (window as any).__pendingCekLokasi;
+        (window as any).__pendingCekLokasi = null;
+        setPaketPilihan(p !== "trigger" ? p : null);
+        bukaModal(p !== "trigger" ? "paket" : "header");
+      } else {
+        try {
+          const sp = new URLSearchParams(window.location.search);
+          const hash = window.location.hash;
+          const cekParam = sp.get("cek") || (sp.has("open") ? sp.get("open") : null);
+          const paketParam = sp.get("paket");
+          if (cekParam || hash === "#modal-cek-lokasi") {
+            modalOpened.current = true;
+            setStrip(null);
+            if (paketParam) {
+              setPaketPilihan(paketParam);
+            } else if (cekParam && cekParam !== "1" && cekParam !== "lokasi" && cekParam !== "true") {
+              setPaketPilihan(`Spark ${cekParam} Mbps`);
+            }
+            window.setTimeout(() => {
+              bukaModal("url_param");
+            }, 250);
+          }
+        } catch {
+          /* abaikan */
+        }
+      }
     }
 
     const onClick = (e: MouseEvent) => {
