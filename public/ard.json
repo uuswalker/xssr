@@ -1,0 +1,60 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "XL Home Solo Raya - Sales Resmi & Layanan Pemasangan WiFi",
+    "identifier": "did:web:xlhomesolo.com",
+    "documentationUrl": "https://xlhomesolo.com/",
+    "logoUrl": "https://xlhomesolo.com/images/xl-home-logo.png"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:xlhomesolo.com:tools:check-location",
+      "displayName": "Cek Jangkauan Fiber & Pendaftaran Pasang Baru XL Home Solo",
+      "type": "application/mcp-server-card+json",
+      "url": "https://xlhomesolo.com/webmcp.json",
+      "description": "Layanan verifikasi titik tiang fiber optik dan pendaftaran pasang baru WiFi XL Home untuk seluruh wilayah Solo Raya (Surakarta, Sukoharjo, Karanganyar, Boyolali, Klaten). Hubungi Sales Resmi WhatsApp 0877-7899-9141.",
+      "capabilities": [
+        "CoverageCheckTool",
+        "WifiRegistrationTool",
+        "SalesConsultation"
+      ],
+      "tags": [
+        "wifi-solo",
+        "pasang-wifi-solo",
+        "xl-home",
+        "fiber-optik",
+        "promo-wifi-solo"
+      ],
+      "representativeQueries": [
+        "cek jangkauan fiber xl home solo",
+        "pasang wifi murah solo mulai 185rb",
+        "daftar xl home surakarta sales resmi"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-30T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:xlhomesolo.com:services:official-sales",
+      "displayName": "Kontak Sales Resmi XL Home Solo Raya",
+      "type": "application/json",
+      "url": "https://xlhomesolo.com/wifi-solo/",
+      "description": "Layanan konsultasi paket internet fiber optik bebas FUP dan pemasangan gratis Rp 0 di Solo Raya melalui WhatsApp resmi 0877-7899-9141.",
+      "capabilities": [
+        "OfficialSalesSupport",
+        "PackageConsultation"
+      ],
+      "tags": [
+        "sales-resmi-xl-home",
+        "whatsapp-sales-xl-home",
+        "internet-rumah-solo"
+      ],
+      "representativeQueries": [
+        "nomor whatsapp sales resmi xl home solo",
+        "kontak pasang wifi xl home sukoharjo karanganyar",
+        "sales resmi xl satu solo 087778999141"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-30T00:00:00Z"
+    }
+  ]
+}

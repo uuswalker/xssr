@@ -78,6 +78,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         {children}
         <link rel="webmcp" id="webmcp" href="/webmcp.json" />
+        <link rel="ard" href="/.well-known/ard.json" type="application/json" />
         <link rel="ai-catalog" href="/.well-known/ai-catalog.json" type="application/json" />
         <script
           id="webmcp-registry"
