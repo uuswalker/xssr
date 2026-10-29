@@ -18,7 +18,7 @@ export default function StickyMobileBar() {
       <button 
         type="button" 
         className="btn-cek-lokasi-trigger smb-btn smb-btn-primary"
-        aria-label="Cek Jangkauan Lokasi"
+        aria-label="Cek Lokasi Jangkauan Fiber"
       >
         <MapPin size={18} style={{ flexShrink: 0 }} /> Cek Lokasi
       </button>
@@ -28,7 +28,7 @@ export default function StickyMobileBar() {
         target="_blank" 
         rel="noopener noreferrer"
         className="smb-btn smb-btn-wa"
-        aria-label="Chat WhatsApp Sales XL Home Solo"
+        aria-label="Tanya Dulu via WhatsApp Sales XL Home Solo"
       >
         <MessageCircle size={18} style={{ flexShrink: 0 }} /> Tanya Dulu
       </a>

@@ -18,7 +18,7 @@
       --color-signal-amber: oklch(80% 0.16 85);
       --color-signal-amber-dark: oklch(55% 0.16 75);
       --color-focus: oklch(50% 0.095 188);
-      --color-success: oklch(55% 0.16 155);
+      --color-success: oklch(44% 0.14 155);
       --color-danger: oklch(55% 0.22 25);
       --color-wa: oklch(50% 0.15 145);
       --color-wa-hover: oklch(42% 0.15 145);
@@ -1679,6 +1679,9 @@
   }
   .matrix-cell-success {
     color: var(--color-success);
+  }
+  .matrix-row-highlight .matrix-cell-success {
+    color: var(--color-accent-dark);
   }
   .matrix-cell-muted {
     color: var(--color-danger);
