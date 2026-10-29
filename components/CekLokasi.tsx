@@ -295,6 +295,13 @@ export default function CekLokasi() {
 
   // Delegasi global: semua tombol #btn-buka-cek-lokasi / .btn-cek-lokasi-trigger
   useEffect(() => {
+    if (typeof window !== "undefined" && (window as any).__pendingCekLokasi) {
+      const p = (window as any).__pendingCekLokasi;
+      (window as any).__pendingCekLokasi = null;
+      setPaketPilihan(p !== "trigger" ? p : null);
+      bukaModal(p !== "trigger" ? "paket" : "header");
+    }
+
     const onClick = (e: MouseEvent) => {
       const t = e.target as HTMLElement | null;
       const el = t?.closest?.("#btn-buka-cek-lokasi, .btn-cek-lokasi-trigger") as HTMLElement | null;

@@ -44,9 +44,9 @@ export default function ClientOnlyComponents() {
     <>
       <StickyMobileBar />
       <ConsentBanner />
+      <CekLokasi />
       {loadWidgets && (
         <>
-          <CekLokasi />
           <SmartPromoPopup />
           <LiveSocialProof />
           <Analytics />
