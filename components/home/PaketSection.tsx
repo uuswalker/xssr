@@ -121,7 +121,7 @@ function FiberCard({ t }: { t: FiberTier }) {
           <button
             type="button"
             className="btn-pilih btn-cek-lokasi-trigger"
-            aria-label={`Pilih Paket ${t.name}`}
+            aria-label={`Saya Pilih Ini - Paket ${t.name}`}
             data-paket={t.waText}
             style={t.badgePromo ? { background: 'var(--navy)', borderColor: 'var(--navy)', width: '100%' } : undefined}
           >
@@ -376,7 +376,7 @@ export function TahunanPaket() {
                     <button
                       type="button"
                       className="btn-pilih btn-cek-lokasi-trigger"
-                      aria-label={`Pilih Paket ${t.name}`}
+                      aria-label={`Saya Pilih Ini - Paket ${t.name}`}
                       data-paket={t.waText}
                     >
                       Saya Pilih Ini
@@ -570,7 +570,7 @@ export function WirelessPaket({
                       type="button"
                       className="btn-pilih btn-cek-lokasi-trigger"
                       style={{ width: "100%", marginTop: "auto" }}
-                      aria-label={`Pilih Paket ${w.speed} Mbps`}
+                      aria-label={`Saya Pilih Ini - Paket ${w.speed} Mbps`}
                       data-paket={w.waText}
                     >
                       Saya Pilih Ini
@@ -646,7 +646,7 @@ export function WirelessPaket({
                       type="button"
                       className="btn-pilih btn-cek-lokasi-trigger"
                       style={{ width: "100%", marginTop: "auto" }}
-                      aria-label={`Pilih Paket ${w.speed} Mbps`}
+                      aria-label={`Saya Pilih Ini - Paket ${w.speed} Mbps`}
                       data-paket={w.waText}
                     >
                       Saya Pilih Ini

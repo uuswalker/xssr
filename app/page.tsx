@@ -29,6 +29,13 @@ const ComparisonTable = dynamic(() => import("@/components/home/ComparisonTable"
 export default function Home() {
   return (
     <>
+      <link
+        rel="preload"
+        as="image"
+        href="/images/banner-xlsatu-jadi-xlhome.webp"
+        type="image/webp"
+        fetchPriority="high"
+      />
       <Header />
       <PageTransition>
         <Hero />
