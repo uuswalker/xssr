@@ -78,7 +78,7 @@ export default function SiloSoloHub() {
 
       <div style={{ marginTop: "14px", paddingTop: "12px", borderTop: "1px solid rgba(255,255,255,0.15)", display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px", fontSize: "12px", color: "rgba(255,255,255,0.88)" }}>
         <ShieldCheck size={16} color="#ffd000" />
-        <span>Pilihan terfavorit <Link href="/wifi-solo/" style={{ color: "#ffffff", textDecoration: "underline" }}>wifi murah solo</Link> tanpa FUP. Kontak: <Link href="/nomor-sales-xl-home-solo-raya/" title="Nomor Resmi Sales XL Home Solo" style={{ color: "#ffd000", fontWeight: "700", textDecoration: "underline" }}>nomor resmi sales XL Home Solo</Link> (0877-7899-9141).</span>
+        <span>Pilihan terfavorit <Link href="/wifi-solo/" style={{ color: "#ffffff", textDecoration: "underline" }}>wifi murah solo</Link> tanpa FUP. Kontak: <Link href="/nomor-sales-xl-home-solo-raya/" title="Nomor Resmi Sales XL Home Solo" style={{ color: "#ffd000", fontWeight: "700", textDecoration: "underline" }}>nomor resmi sales XL Home Solo</Link> (<a href="https://wa.me/xlhomesolo" target="_blank" rel="noopener noreferrer" style={{ color: "#ffd000", textDecoration: "underline" }}>wa.me/xlhomesolo</a> • 0877-7899-9141).</span>
       </div>
     </section>
   );

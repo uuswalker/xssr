@@ -1854,6 +1854,12 @@ ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
       "image": "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.jpg",
       "url": "https://xlhomesolo.com/nomor-sales-xl-home-solo-raya/",
       "priceRange": "Rp 185.000 - Rp 229.000",
+      "sameAs": [
+        "https://wa.me/xlhomesolo",
+        "https://maps.app.goo.gl/exTMsZCCVmCvtZzs9",
+        "https://www.instagram.com/xlhome.sukoharjo/",
+        "https://www.facebook.com/profile.php?id=61594596763493"
+      ],
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Surakarta",
@@ -1903,7 +1909,7 @@ ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
 
     h1: "Nomor Sales & Agen Resmi XL Home Solo Raya (2026)",
 
-    sub: "Hubungi kontak resmi kami untuk cek jaringan fiber optic, konsultasi paket, dan jadwal pemasangan WiFi XL Home di Solo Raya.",
+    sub: "Hubungi kontak resmi kami via WhatsApp di 0877-7899-9141 atau wa.me/xlhomesolo untuk cek jaringan fiber optic, konsultasi paket, dan jadwal pemasangan WiFi XL Home di Solo Raya.",
 
     meta: "Diperbarui 1 Oktober 2026 • XL Home Solo Raya",
 
@@ -1917,7 +1923,7 @@ ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
 
       q: "Berapa nomor WA sales resmi XL Home Solo Raya?",
 
-      a: "Nomor agen resmi XL Home wilayah Solo Raya (Solo, Sukoharjo, Karanganyar, Boyolali, Klaten) adalah 0877-7899-9141. Anda bisa menghubungi nomor ini via WhatsApp untuk pendaftaran pemasangan baru.",
+      a: "Nomor agen resmi XL Home wilayah Solo Raya (Solo, Sukoharjo, Karanganyar, Boyolali, Klaten) adalah 0877-7899-9141 atau via tautan singkat resmi wa.me/xlhomesolo. Anda bisa menghubungi nomor ini via WhatsApp untuk pendaftaran pemasangan baru.",
 
     },
 
@@ -1944,10 +1950,10 @@ ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
     <div style="display:inline-block; background:#037e64; color:#fff; font-size:12px; font-weight:800; padding:2px 10px; border-radius:20px; margin-bottom:10px; text-transform:uppercase;">Kontak Resmi Solo Raya 2026</div>
     <h3 style="margin: 0 0 10px; font-size: 18px; color: #023835; font-weight: 800;">Berapa Nomor Resmi Sales XL Home Solo Raya?</h3>
     <p style="margin: 0 0 14px; font-size: 15.5px; line-height: 1.6; color: #1a1a1a;">
-      <strong>Nomor resmi sales XL Home Solo Raya</strong> adalah <strong><a href="https://wa.me/6287778999141" style="color: #037e64; text-decoration: underline; font-weight: 800;">0877-7899-9141</a></strong> (WhatsApp aktif 24 jam). Layanan resmi langsung terhubung ke tim sales lokal untuk pendaftaran pasang baru WiFi fiber optik tanpa batasan kuota (FUP), pengecekan tiang ODP di depan rumah, serta promo Bebas Biaya Instalasi Rp 0 di seluruh wilayah Solo, Sukoharjo, Solo Baru, Karanganyar, Klaten, dan Boyolali.
+      <strong>Nomor resmi sales XL Home Solo Raya</strong> adalah <strong><a href="https://wa.me/xlhomesolo" style="color: #037e64; text-decoration: underline; font-weight: 800;">0877-7899-9141</a></strong> (WhatsApp shortlink: <strong><a href="https://wa.me/xlhomesolo" style="color: #037e64; text-decoration: underline; font-weight: 800;">wa.me/xlhomesolo</a></strong>, aktif 24 jam). Layanan resmi langsung terhubung ke tim sales lokal untuk pendaftaran pasang baru WiFi fiber optik tanpa batasan kuota (FUP), pengecekan tiang ODP di depan rumah, serta promo Bebas Biaya Instalasi Rp 0 di seluruh wilayah Solo, Sukoharjo, Solo Baru, Karanganyar, Klaten, dan Boyolali.
     </p>
-    <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20mau%20daftar%20pasang%20baru%20WiFi%20(Gratis%20Pasang%20Rp%200)" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:8px; background:#25D366; color:#fff; font-weight:700; padding:10px 20px; border-radius:8px; text-decoration:none; font-size:14px;">
-      Chat WhatsApp Sales Resmi: 0877-7899-9141
+    <a href="https://wa.me/xlhomesolo" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:8px; background:#25D366; color:#fff; font-weight:700; padding:10px 20px; border-radius:8px; text-decoration:none; font-size:14px;">
+      Chat WhatsApp Sales Resmi: wa.me/xlhomesolo (0877-7899-9141)
     </a>
   </div>
 
@@ -1963,6 +1969,7 @@ ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
     <p style="margin:0; font-size: 14px; color: var(--text-muted);">Nomor WhatsApp Sales / Agen Resmi:</p>
 
     <div style="font-size: 32px; font-weight: 800; color: var(--navy); margin: 8px 0;">0877-7899-9141</div>
+    <div style="font-size: 16px; font-weight: 700; color: #037e64; margin-bottom: 12px;"><a href="https://wa.me/xlhomesolo" target="_blank" rel="noopener noreferrer" style="color: #037e64; text-decoration: underline;">wa.me/xlhomesolo</a></div>
 
     <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home" target="_blank" rel="noopener noreferrer" class="btn-pilih" style="display:inline-block; padding: 8px 24px; background: #25D366; color:#fff; border-radius: 99px; text-decoration: none; font-weight: bold;"><span style="display:inline-flex;align-items:center;vertical-align:middle;width:1em;height:1em"><svg viewBox="0 0 448 512" fill="currentColor" width="1em" height="1em"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.8-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5.1-3.9-10.6-6.9z"/></svg></span> Chat via WhatsApp</a>
 
@@ -2032,7 +2039,7 @@ ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
 
   <div class="info-box">
 
-    <strong>Penting:</strong> Nomor 0877-7899-9141 melayani wilayah <strong>Kota Solo (Surakarta), Sukoharjo, Karanganyar, Klaten, dan Boyolali</strong>. Pendaftaran lewat agen kami 100% GRATIS tanpa dipungut biaya pendaftaran di awal.
+    <strong>Penting:</strong> Nomor 0877-7899-9141 (WhatsApp: <a href="https://wa.me/xlhomesolo" target="_blank" rel="noopener noreferrer">wa.me/xlhomesolo</a>) melayani wilayah <strong>Kota Solo (Surakarta), Sukoharjo, Karanganyar, Klaten, dan Boyolali</strong>. Pendaftaran lewat agen kami 100% GRATIS tanpa dipungut biaya pendaftaran di awal.
 
   </div>
 
@@ -2042,7 +2049,7 @@ ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
 
   <h3>Berapa nomor WA sales resmi XL Home Solo Raya?</h3>
 
-  <p>Nomor agen resmi XL Home wilayah Solo Raya (Solo, Sukoharjo, Karanganyar, Boyolali, Klaten) adalah <strong>0877-7899-9141</strong>. Anda bisa menghubungi nomor ini via WhatsApp untuk pendaftaran pemasangan baru.</p>
+  <p>Nomor agen resmi XL Home wilayah Solo Raya (Solo, Sukoharjo, Karanganyar, Boyolali, Klaten) adalah <strong>0877-7899-9141</strong> atau tautan langsung <a href="https://wa.me/xlhomesolo" target="_blank" rel="noopener noreferrer"><strong>wa.me/xlhomesolo</strong></a>. Anda bisa menghubungi nomor ini via WhatsApp untuk pendaftaran pemasangan baru.</p>
 
   
 

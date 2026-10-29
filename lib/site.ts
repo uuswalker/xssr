@@ -6,6 +6,7 @@ export const SITE_NAME = "XL Home (XL SATU) Solo Raya";
 export const PHONE_DISPLAY = "0877-7899-9141";
 export const PHONE_INTL = "6287778999141";
 export const PHONE_TEL = "+6287778999141";
+export const WA_ME_CUSTOM = "https://wa.me/xlhomesolo";
 export const INSTAGRAM_URL = "https://www.instagram.com/xlhome.sukoharjo/";
 export const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61594596763493";
 

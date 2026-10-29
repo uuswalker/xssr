@@ -132,6 +132,7 @@ export function jsonLdLocalBusiness() {
       ],
     },
     sameAs: [
+      "https://wa.me/xlhomesolo",
       "https://maps.app.goo.gl/exTMsZCCVmCvtZzs9",
       "https://www.google.com/maps?cid=7103925426685315938",
       "https://satu.xl.co.id",
@@ -172,7 +173,7 @@ export function jsonLdLocalBusinessKota(path: string, areaServed: unknown) {
       closes: "21:00",
     },
     areaServed,
-    sameAs: ["https://xlhomesolo.com"],
+    sameAs: ["https://xlhomesolo.com", "https://wa.me/xlhomesolo"],
   };
 }
 

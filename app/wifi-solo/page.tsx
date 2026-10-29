@@ -135,6 +135,7 @@ const SERVICE_JSONLD = {
     },
     serviceType: "Internet Service Provider",
     sameAs: [
+      "https://wa.me/xlhomesolo",
       "https://satu.xl.co.id",
       "https://maps.app.goo.gl/exTMsZCCVmCvtZzs9",
       "https://www.facebook.com/profile.php?id=61594596763493",
