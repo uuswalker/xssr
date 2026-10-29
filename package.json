@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "guard": "node scripts/guard-contacts.mjs",
+    "build": "node scripts/guard-contacts.mjs && next build",
     "start": "next start",
     "lint": "eslint"
   },
