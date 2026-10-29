@@ -10,7 +10,7 @@ import { PAGE_CSS } from "@/lib/page-css";
 
 export default function Article({ data }: { data: Artikel }) {
   // Gunakan template default secara otomatis jika slug tidak didaftarkan di page-css.ts
-  const css = PAGE_CSS[data.slug] || PAGE_CSS['cara-daftar-pasang-wifi-xl-satu-solo'];
+  const css = PAGE_CSS[data.slug] || PAGE_CSS['cara-daftar-pasang-wifi-xl-home-solo'];
   return (
     <>
       <Header ctaHref={data.headerCta || undefined} />

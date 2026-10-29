@@ -64,10 +64,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           />
         )}
       </head>
-      <body data-origin="xlsatusolo.com" data-wm="224CF412">
+      <body data-origin="xlhomesolo.com" data-wm="224CF412">
         {/* Honeypot anti-scraper — parity xssr, JANGAN dihapus */}
         <a
-          href="https://xlsatusolo.com/trap/"
+          href="https://xlhomesolo.com/trap/"
           className="hp-trap"
           tabIndex={-1}
           aria-hidden="true"
