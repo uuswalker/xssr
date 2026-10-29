@@ -33,6 +33,26 @@
   ],
   "redirects": [
     {
+      "source": "/xl-satu-resmi-jadi-xl-home",
+      "destination": "/perubahan-resmi-xl-home/",
+      "permanent": true
+    },
+    {
+      "source": "/xl-satu-resmi-jadi-xl-home/",
+      "destination": "/perubahan-resmi-xl-home/",
+      "permanent": true
+    },
+    {
+      "source": "/xl-satu-dan-xl-home-apakah-sama",
+      "destination": "/perbedaan-paket-layanan-xl-home/",
+      "permanent": true
+    },
+    {
+      "source": "/xl-satu-dan-xl-home-apakah-sama/",
+      "destination": "/perbedaan-paket-layanan-xl-home/",
+      "permanent": true
+    },
+    {
       "source": "/pasang-wifi-murah-jebres-solo",
       "destination": "/pasang-wifi-murah-jebres-solo/",
       "permanent": true

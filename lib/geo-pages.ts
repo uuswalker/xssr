@@ -544,9 +544,9 @@ export const AREA_METAS: Record<string, AreaMeta> = {
 };
 
 export function getGeoArticle(slug: string) {
-  if (!slug.startsWith("pasang-wifi-xl-home-") && !slug.startsWith("pasang-wifi-xl-satu-")) return null;
+  if (!slug.startsWith("pasang-wifi-xl-home-")) return null;
   
-  const areaSlug = slug.replace("pasang-wifi-xl-home-", "").replace("pasang-wifi-xl-satu-", "");
+  const areaSlug = slug.replace("pasang-wifi-xl-home-", "");
   const info = AREA_METAS[areaSlug];
   if (!info) return null;
 

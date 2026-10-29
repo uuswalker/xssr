@@ -35,7 +35,7 @@ export default function TrapPage() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "Arsip - XL Home Solo Raya",
-          url: "https://xlsatusolo.com/trap/",
+          url: "https://xlhomesolo.com/trap/",
         }}
       />
     </main>

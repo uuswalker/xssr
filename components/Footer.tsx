@@ -50,8 +50,8 @@ export default function Footer() {
             <ul>
               <li><a href="/biaya-pasang-wifi-pertama-kali-solo/">Biaya Pasang Pertama Kali Solo</a></li>
               <li><a href="/biaya-pasang-wifi-solo-raya/">Biaya Pasang WiFi Solo 2026</a></li>
-              <li><a href="/xl-satu-resmi-jadi-xl-home/">XL SATU Resmi Jadi XL Home</a></li>
-              <li><a href="/xl-satu-dan-xl-home-apakah-sama/">XL SATU &amp; XL Home Apakah Sama?</a></li>
+              <li><a href="/perubahan-resmi-xl-home/">XL SATU Resmi Jadi XL Home</a></li>
+              <li><a href="/perbedaan-paket-layanan-xl-home/">XL SATU &amp; XL Home Apakah Sama?</a></li>
               <li><a href="/panduan-wifi-kos-solo/">Panduan WiFi Kos Solo &amp; Kampus</a></li>
               <li><a href="/cara-daftar-pasang-wifi-xl-home-solo/">Syarat &amp; Cara Daftar Pasang WiFi</a></li>
               <li><a href="/proses-pendaftaran-pemasangan-xl-home-fiber/">Proses Pendaftaran &amp; Pasang Fiber</a></li>

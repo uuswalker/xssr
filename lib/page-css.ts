@@ -50,7 +50,7 @@ PAGE_CSS['cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo'] = PAGE_C
 PAGE_CSS['cara-berhenti-langganan-indihome-biznet-pindah-xl-satu-solo'] = PAGE_CSS['cara-daftar-pasang-wifi-xl-satu-solo'];
 
 
-PAGE_CSS['xl-satu-resmi-jadi-xl-home'] = PAGE_CSS['cara-daftar-pasang-wifi-xl-satu-solo'];
+PAGE_CSS['perubahan-resmi-xl-home'] = PAGE_CSS['cara-daftar-pasang-wifi-xl-satu-solo'];
 
 
 PAGE_CSS['nomor-sales-xl-home-solo-raya'] = PAGE_CSS['cara-daftar-pasang-wifi-xl-satu-solo'];
@@ -69,3 +69,5 @@ PAGE_CSS["promo-wifi-pondok-permai-colomadu"] = PAGE_CSS["cara-daftar-pasang-wif
 PAGE_CSS["daftar-xl-home-online-tanpa-ke-kantor"] = PAGE_CSS["cara-daftar-pasang-wifi-xl-satu-solo"];
 
 PAGE_CSS["panduan-fiber-vs-wireless"] = PAGE_CSS["cara-daftar-pasang-wifi-xl-satu-solo"];
+
+PAGE_CSS['perbedaan-paket-layanan-xl-home'] = PAGE_CSS['cara-daftar-pasang-wifi-xl-home-solo'];

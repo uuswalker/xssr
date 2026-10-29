@@ -153,7 +153,7 @@ export default function Kuis() {
   }, []);
 
   const share = useCallback(() => {
-    const url = `https://xlsatusolo.com/panduan-fiber-vs-wireless/#kuis-${answers.join("")}`;
+    const url = `https://xlhomesolo.com/panduan-fiber-vs-wireless/#kuis-${answers.join("")}`;
     const doneFn = () => {
       setShared(true);
       gtag("event", "quiz_share", {

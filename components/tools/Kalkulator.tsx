@@ -134,7 +134,7 @@ export default function Kalkulator() {
     const r = hitung(vals);
     setHasil(r);
     const q = FIELDS.map((f) => `${f}=${r.vals[f]}`).join("&");
-    const url = `https://xlsatusolo.com/berapa-mbps-untuk-berapa-orang/#calc-${q}`;
+    const url = `https://xlhomesolo.com/berapa-mbps-untuk-berapa-orang/#calc-${q}`;
     const doneFn = () => {
       setShared(true);
       gtag("event", "share_kalkulator", { page_path: window.location.pathname });

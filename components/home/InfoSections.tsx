@@ -536,7 +536,7 @@ export function About() {
 
               <a
 
-                href="/xl-satu-resmi-jadi-xl-home/"
+                href="/perubahan-resmi-xl-home/"
 
                 style={{
 
@@ -556,7 +556,7 @@ export function About() {
 
               <a
 
-                href="/xl-satu-dan-xl-home-apakah-sama/"
+                href="/perbedaan-paket-layanan-xl-home/"
 
                 style={{
 

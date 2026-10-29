@@ -211,7 +211,6 @@ ARTIKEL["cara-daftar-pasang-wifi-xl-home-solo"] = {
   </div>
   `
 };
-// [REDIRECTED VIA VERCEL.JSON 301] ARTIKEL["cara-daftar-pasang-wifi-xl-satu-solo"] = ARTIKEL["cara-daftar-pasang-wifi-xl-home-solo"];
 
 
 
@@ -363,7 +362,6 @@ ARTIKEL["internet-rakyat-vs-xl-home"] = {
 
 };
 
-// [REDIRECTED VIA VERCEL.JSON 301] ARTIKEL["internet-rakyat-vs-xl-satu"] = ARTIKEL["internet-rakyat-vs-xl-home"];
 
 
 
@@ -723,7 +721,6 @@ ARTIKEL["xl-home-vs-indihome-myrepublic-solo"] = {
 
 };
 
-// [REDIRECTED VIA VERCEL.JSON 301] ARTIKEL["xl-satu-vs-indihome-myrepublic-solo"] = ARTIKEL["xl-home-vs-indihome-myrepublic-solo"];
 
 ARTIKEL['proses-pendaftaran-pemasangan-xl-home-fiber'] = {
 
@@ -886,7 +883,6 @@ ARTIKEL['proses-pendaftaran-pemasangan-xl-home-fiber'] = {
 
 };
 
-// [REDIRECTED VIA VERCEL.JSON 301] ARTIKEL["proses-pendaftaran-pemasangan-xl-satu-fiber"] = ARTIKEL["proses-pendaftaran-pemasangan-xl-home-fiber"];
 
 ARTIKEL['wfh-angkringan-solo-xl-home'] = {
 
@@ -1039,7 +1035,6 @@ ARTIKEL['wfh-angkringan-solo-xl-home'] = {
 
 };
 
-// [REDIRECTED VIA VERCEL.JSON 301] ARTIKEL["wfh-angkringan-solo-xl-satu"] = ARTIKEL["wfh-angkringan-solo-xl-home"];
 
 ARTIKEL['rahasia-fup-internet-rumah'] = {
   slug: 'rahasia-fup-internet-rumah',
@@ -1634,11 +1629,10 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
 
 };
 
-// [REDIRECTED VIA VERCEL.JSON 301] ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-satu-solo"] = ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"];
 
-ARTIKEL["xl-satu-resmi-jadi-xl-home"] = {
+ARTIKEL["perubahan-resmi-xl-home"] = {
 
-  slug: "xl-satu-resmi-jadi-xl-home",
+  slug: "perubahan-resmi-xl-home",
 
   title: "XL SATU Solo Resmi Ganti XL Home ⚡ Cek Paket & Pasang Baru",
 
@@ -1662,7 +1656,7 @@ ARTIKEL["xl-satu-resmi-jadi-xl-home"] = {
       "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "datePublished": "2026-08-01",
       "dateModified": "2026-10-12",
-      "mainEntityOfPage": "https://xlhomesolo.com/xl-satu-resmi-jadi-xl-home/"
+      "mainEntityOfPage": "https://xlhomesolo.com/perubahan-resmi-xl-home/"
     }
   ],
 
@@ -2399,8 +2393,8 @@ ARTIKEL["daftar-xl-home-online-tanpa-ke-kantor"] = {
   `
 };
 
-ARTIKEL["xl-satu-dan-xl-home-apakah-sama"] = {
-  slug: "xl-satu-dan-xl-home-apakah-sama",
+ARTIKEL["perbedaan-paket-layanan-xl-home"] = {
+  slug: "perbedaan-paket-layanan-xl-home",
   title: "Beda XL Satu & XL Home Resmi [Panduan Migrasi 2026]",
   description: "Apakah XL Satu dan XL Home sama? Simak penjelasan resmi evolusi layanan, perubahan paket fiber, dan cara daftar pasang baru di Solo Raya.",
   keywords: ["beda xl home dan xl satu", "perbedaan xl satu dan xl home", "apa bedanya xl home dan xl satu", "xl satu dan xl home apakah sama", "apakah xl home dan xl satu sama", "xl home", "xl satu", "internet xl rumah", "rebranding xl satu solo"],
@@ -2417,7 +2411,7 @@ ARTIKEL["xl-satu-dan-xl-home-apakah-sama"] = {
       "publisher": { "@type": "Organization", "name": "XL Home Solo Raya" },
       "datePublished": "2026-09-01",
       "dateModified": "2026-10-17",
-      "mainEntityOfPage": "https://xlhomesolo.com/xl-satu-dan-xl-home-apakah-sama/"
+      "mainEntityOfPage": "https://xlhomesolo.com/perbedaan-paket-layanan-xl-home/"
     },
     {
       "@context": "https://schema.org",
@@ -3613,7 +3607,6 @@ ARTIKEL["pasang-wifi-xl-home-solo-baru"] = {
   `
 };
 
-// [REDIRECTED VIA VERCEL.JSON 301] ARTIKEL["pasang-wifi-solo-baru"] = ARTIKEL["pasang-wifi-xl-home-solo-baru"];
 
 ARTIKEL["pasang-wifi-xl-home-kartasura"] = {
   slug: "pasang-wifi-xl-home-kartasura",
@@ -3923,7 +3916,6 @@ ARTIKEL["pasang-wifi-xl-home-kartasura"] = {
   `
 };
 
-// [REDIRECTED VIA VERCEL.JSON 301] ARTIKEL["pasang-wifi-kartasura"] = ARTIKEL["pasang-wifi-xl-home-kartasura"];
 
 ARTIKEL["biaya-pasang-wifi-pertama-kali-solo"] = {
   slug: "biaya-pasang-wifi-pertama-kali-solo",
