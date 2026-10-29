@@ -62,20 +62,35 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
   const total = SLIDES.length;
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  const resetTimer = useCallback(() => {
+    if (timer.current) clearInterval(timer.current);
+    timer.current = setInterval(() => setCur((c) => (c + 1) % total), 5000);
+  }, [total]);
+
   const goToSlide = useCallback(
-    (n: number) => setCur(((n % total) + total) % total),
-    [total]
+    (n: number) => {
+      setCur(((n % total) + total) % total);
+      resetTimer();
+    },
+    [total, resetTimer]
   );
 
   useEffect(() => {
-    timer.current = setInterval(() => setCur((c) => (c + 1) % total), 5000);
+    resetTimer();
     return () => {
       if (timer.current) clearInterval(timer.current);
     };
-  }, [total]);
+  }, [resetTimer]);
 
   return (
-    <div className="slider" id="slider">
+    <div
+      className="slider"
+      id="slider"
+      onMouseEnter={() => {
+        if (timer.current) clearInterval(timer.current);
+      }}
+      onMouseLeave={resetTimer}
+    >
       <style dangerouslySetInnerHTML={{ __html: `
     .hero-img-lcp { 
       width: 100%; 

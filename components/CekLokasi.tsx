@@ -276,12 +276,21 @@ export default function CekLokasi() {
   );
 
   // ---- buka/tutup ----
+  const tutupModal = useCallback(() => {
+    setOpen(false);
+    setCoverage(null);
+    setStatusMsg("");
+    setStatusClass("cl-status");
+    setFormError(null);
+  }, []);
+
   const bukaModal = useCallback(
     (trigger?: string) => {
       setOpen(true);
       setStep("lokasi");
       modalOpened.current = true;
       setStrip(null);
+      setCoverage(null);
       loadCoverage();
       
       gtag("event", "open_cek_lokasi", {
@@ -290,7 +299,7 @@ export default function CekLokasi() {
       });
       
     },
-    [later, loadCoverage]
+    [loadCoverage]
   );
 
   // Delegasi global: semua tombol #btn-buka-cek-lokasi / .btn-cek-lokasi-trigger
@@ -547,10 +556,10 @@ export default function CekLokasi() {
       covLine +
       utmSuffix;
     window.open(`https://wa.me/${NOMOR_WA_SALES}?text=${encodeURIComponent(pesan)}`, "_blank");
-    setOpen(false);
+    tutupModal();
     setSending(false);
     setPaketPilihan(null);
-  }, [nama, wa, coverage, paketPilihan]);
+  }, [nama, wa, coverage, paketPilihan, tutupModal]);
 
   // ---- strip + IP layer ----
   useEffect(() => {
@@ -806,13 +815,20 @@ export default function CekLokasi() {
         </AnimatePresence>
 
       {open && (
-        <div id="modal-cek-lokasi" className="cl-modal-overlay" style={{ display: "flex" }}>
+        <div
+          id="modal-cek-lokasi"
+          className="cl-modal-overlay"
+          style={{ display: "flex" }}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) tutupModal();
+          }}
+        >
           <motion.div className="cl-modal-box" initial={{ opacity: 0, y: 50, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ type: "spring", damping: 25, stiffness: 300 }}>
             <button
               type="button"
               className="cl-modal-close"
               aria-label="Tutup"
-              onClick={() => setOpen(false)}
+              onClick={tutupModal}
             >
               &times;
             </button>
