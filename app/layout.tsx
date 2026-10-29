@@ -78,6 +78,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         {children}
         <link rel="webmcp" id="webmcp" href="/webmcp.json" />
+        <link rel="ai-catalog" href="/.well-known/ai-catalog.json" type="application/json" />
         <Trackers />
         <ClientOnlyComponents />
         {!IS_STAGING && (
