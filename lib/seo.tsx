@@ -79,10 +79,10 @@ export function jsonLdLocalBusiness() {
     hasMap: "https://maps.app.goo.gl/exTMsZCCVmCvtZzs9",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Gg. Salak Jl. Waringinrejo No.27, Ngruki, Cemani, Kec. Grogol",
-      addressLocality: "Sukoharjo",
+      streetAddress: "Layanan Pemasangan Fiber Solo Raya (Pendaftaran Online & Kunjungan Teknisi)",
+      addressLocality: "Surakarta",
       addressRegion: "Jawa Tengah",
-      postalCode: "57552",
+      postalCode: "57146",
       addressCountry: "ID",
     },
     geo: {
