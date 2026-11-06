@@ -202,12 +202,14 @@ export default function CekLokasi() {
       setCoverage(cv);
       fireCoverageEvent(lat, lng, cv);
 
-      // Cek Cloudflare D1 National FTTH API (100k Homepass Presisi)
+      // Cek Cloudflare D1 National FTTH API (Multi-Database Edge SQLite)
       cekCoverageWorkerAPI(lat, lng).then((apiCv) => {
         const q = posRef.current;
         if (q.lat === lat && q.lng === lng && apiCv && apiCv.status === "fiber") {
           setCoverage(apiCv);
           fireCoverageEvent(lat, lng, apiCv);
+          setStatusClass("cl-status success");
+          setStatusMsg(`✅ Tercover Fiber Optic XL Home (${apiCv.alamat || "Siap Pasang"})!`);
         }
       });
 
@@ -228,14 +230,14 @@ export default function CekLokasi() {
       const bl = cekAreaBlacklist(alamatText || "");
       if (bl) {
         setStatusClass("cl-status error");
-        setStatusMsg(`⚠️ Area ${bl} di luar jangkauan jaringan fiber XL Home. Layanan kami fokus di Solo, Sukoharjo, Karanganyar, Boyolali & Klaten.`);
+        setStatusMsg(`⚠️ Area ${bl} belum tercover kabel fiber langsung. Kamu bisa ajukan Request Pasang Baru di bawah ini.`);
       } else if (hasil.dalamArea) {
         setStatusClass("cl-status success");
         setStatusMsg(` Lokasi terdeteksi di area ${hasil.nama}`);
       } else {
-        setStatusClass("cl-status error");
+        setStatusClass("cl-status");
         setStatusMsg(
-          `⚠️ Lokasi di luar 5 wilayah jangkauan XL Home Solo Raya (Hanya melayani Solo, Sukoharjo, Karanganyar, Boyolali & Klaten).`
+          ` Mengecek ketersediaan jaringan fiber XL Home di lokasimu...`
         );
       }
       later(() => {

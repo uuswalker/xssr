@@ -27,21 +27,7 @@ export const KOTA_ALIASES: Record<string, string> = {
 
 /** format Nominatim viewbox: left,top,right,bottom (lon,lat,lon,lat) */
 
-export const DAFTAR_BLACKLIST = [
-  "sragen",
-  "wonogiri",
-  "salatiga",
-  "grobogan",
-  "purwodadi",
-  "semarang",
-  "sleman",
-  "gunungkidul",
-  "magelang",
-  "ngawi",
-  "magetan",
-  "yogyakarta",
-  "jogja",
-];
+export const DAFTAR_BLACKLIST: string[] = [];
 
 export function cekAreaBlacklist(alamat: string): string | null {
   if (!alamat) return null;
@@ -55,7 +41,7 @@ export function cekAreaBlacklist(alamat: string): string | null {
   return null;
 }
 
-export const SOLORAYA_VIEWBOX = "110.45,-7.30,111.15,-7.95";
+export const SOLORAYA_VIEWBOX = "109.80,-6.50,111.50,-8.30";
 
 export function haversineM(
   lat1: number,
