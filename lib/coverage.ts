@@ -176,7 +176,7 @@ export function cekCoverage(
   lng: number,
   kota: string | null
 ): CoverageResult {
-  if (kota === "Klaten" || kota === "Boyolali")
+  if (kota === "Klaten")
     return { status: "wireless", jarakM: null, zona: null, fiberM: null, homepassId: null, alamat: null };
   if (!data || !data.pts.length || !loaded)
     return { status: "loading", jarakM: null, zona: null, fiberM: null, homepassId: null, alamat: null };
@@ -194,8 +194,10 @@ export function cekCoverage(
   }
   const m = Math.round(best);
   const w = cekWireless(data, lat, lng);
-  if (m <= 250)
+  if (m <= 150)
     return { status: "fiber", jarakM: m, zona: w ? w.zona : null, fiberM: null, homepassId: bestHpId, alamat: bestAddr };
+  if (m <= 250)
+    return { status: "mungkin", jarakM: m, zona: w ? w.zona : null, fiberM: null, homepassId: bestHpId, alamat: bestAddr };
   if (w)
     return {
       status: "wireless",
@@ -209,23 +211,23 @@ export function cekCoverage(
 }
 
 export const COV_TEXT: Record<CoverageStatus, [string, string, string]> = {
-  fiber: ["#e6f7f3", "#026b55", "TERCOVER FIBER OPTIC"],
-  mungkin: ["#fef3c7", "#92400e", "KEMUNGKINAN TERCOVER"],
-  manual: ["#f3f4f6", "#444444", "CEK MANUAL SALES"],
-  wireless: ["#e0f2fe", "#075985", "WIRELESS TERCOVER"],
-  loading: ["#f3f4f6", "#666666", "MENGECEK COVERAGE..."],
+  fiber: ["#e6f7f3", "#026b55", "TERCOVER FIBER OPTIC (SIAP PASANG)"],
+  mungkin: ["#fef3c7", "#92400e", "KEMUNGKINAN TERCOVER (BUTUH CEK JALUR)"],
+  manual: ["#fff1f2", "#9f1239", "BELUM TERCOVER LANGSUNG"],
+  wireless: ["#e0f2fe", "#075985", "TERCOVER WIRELESS (FWA)"],
+  loading: ["#f3f4f6", "#666666", "MENGECEK JARINGAN ODP..."],
 };
 
 /** Teks detail verdict — persis tampilCoverage() xssr (HTML). */
 export function coverageDetail(cv: CoverageResult): string {
     if (cv.status === "fiber") {
-      let s = `Titik fiber terdekat ${cv.alamat ? `(${cv.alamat}) ` : ""}hanya sekitar ${cv.jarakM} m dari lokasimu. `;
+      let s = `Titik ODP fiber terdekat ${cv.alamat ? `di ${cv.alamat} ` : ""}hanya sekitar ${cv.jarakM} meter dari lokasimu. Port siap pasang! `;
       if (cv.zona) s += `Jaringan Wireless (Area Sukoharjo) juga tersedia di area ini. `;
       return s;
     } else if (cv.status === "mungkin") {
-      return `Titik fiber terdekat ${cv.alamat ? `(${cv.alamat}) ` : ""}sekitar ${cv.jarakM} m. Sales verifikasi + siapkan opsi wireless. `;
+      return `Titik ODP fiber terdekat ${cv.alamat ? `di ${cv.alamat} ` : ""}berjarak sekitar ${cv.jarakM} meter. Masih dalam jangkauan tarikan kabel, tim kami akan verifikasi jalur teknisi. `;
     } else if (cv.status === "manual") {
-      return "Di luar jangkauan data fiber kami. Sales cek manual / tawarkan wireless. ";
+      return `Jarak ke titik ODP fiber terdekat sekitar ${cv.jarakM != null ? `${cv.jarakM} meter` : "di luar jangkauan"}. Kamu bisa ajukan Request Pasang Baru agar tim kami jadwalkan pembukaan titik di lokasimu! `;
     } else if (cv.status === "wireless") {
       let s = cv.zona
         ? `Masuk Area Sukoharjo — jaringan wireless tercover${

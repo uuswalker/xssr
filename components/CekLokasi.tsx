@@ -65,6 +65,8 @@ export default function CekLokasi() {
   const [coverage, setCoverage] = useState<CoverageResult | null>(null);
   const [strip, setStrip] = useState<string | null>(null);
   const [paketPilihan, setPaketPilihan] = useState<string | null>(null);
+  const [peminatSekitar, setPeminatSekitar] = useState("1 Rumah (Hanya rumah saya)");
+  const [providerSaatIni, setProviderSaatIni] = useState("Belum ada internet kabel / Kuota HP");
 
   useEffect(() => {
     if (coverage && coverage.status === "wireless" && paketPilihan && !paketPilihan.toLowerCase().includes("monthly") && !paketPilihan.toLowerCase().includes("advance") && !paketPilihan.toLowerCase().includes("wireless")) {
@@ -231,7 +233,7 @@ export default function CekLokasi() {
       const bl = cekAreaBlacklist(alamatText || "");
       if (bl) {
         setStatusClass("cl-status error");
-        setStatusMsg(`⚠️ Area ${bl} di luar jangkauan tiang fiber XL Home. Layanan kami fokus di Solo, Sukoharjo, Karanganyar, Boyolali & Klaten.`);
+        setStatusMsg(`⚠️ Area ${bl} di luar jangkauan jaringan fiber XL Home. Layanan kami fokus di Solo, Sukoharjo, Karanganyar, Boyolali & Klaten.`);
       } else if (hasil.dalamArea) {
         setStatusClass("cl-status success");
         setStatusMsg(` Lokasi terdeteksi di area ${hasil.nama}`);
@@ -271,7 +273,7 @@ export default function CekLokasi() {
       if (bl) {
         setStatusClass("cl-status error");
         setStatusMsg(
-          `⚠️ Area ${bl} di luar jangkauan tiang fiber XL Home. Layanan kami fokus di Solo, Sukoharjo, Karanganyar, Boyolali & Klaten.`
+          `⚠️ Area ${bl} di luar jangkauan jaringan fiber XL Home. Layanan kami fokus di Solo, Sukoharjo, Karanganyar, Boyolali & Klaten.`
         );
         later(() => {
           setLokasiInfo(`Alamat: ${alamatText} [LUAR JANGKAUAN - ${bl}]`);
@@ -521,7 +523,8 @@ export default function CekLokasi() {
       setFormError("Nomor WhatsApp sepertinya belum benar. Contoh: 081234567890 (8-13 digit).");
       return;
     }
-    if (!paketPilihan) {
+    const isRequestPasangBaru = coverage?.status === "manual";
+    if (!paketPilihan && !isRequestPasangBaru) {
       setFormError("Mohon pilih paket yang ingin dipasang.");
       return;
     }
@@ -538,6 +541,69 @@ export default function CekLokasi() {
       p.lat != null && p.lng != null
         ? `https://www.google.com/maps?q=${p.lat},${p.lng}`
         : "";
+    const isReq = coverage?.status === "manual";
+    if (isReq) {
+      postLead(
+        basePayload("request-pasang-baru", {
+          nama: nm,
+          whatsapp: w,
+          lat: p.lat,
+          lng: p.lng,
+          alamat: p.alamat || "",
+          kota: p.kota || "",
+          coverage: "request-pasang-baru",
+          jarakFiberM: jarakFiberField(coverage),
+          zona: coverage?.zona || null,
+          homepassId: coverage?.homepassId || null,
+          homepassAddress: coverage?.alamat || null,
+          peminatSekitar: peminatSekitar,
+          providerSaatIni: providerSaatIni,
+        })
+      );
+      gtag("event", "submit_request_pasang_baru", {
+        kota_terdeteksi: p.kota || "unknown",
+        jarak_m: coverage?.jarakM || -1,
+        page_path: window.location.pathname,
+      });
+      if (typeof (window as unknown as { fbq?: unknown }).fbq === "function") {
+        const fbq = (window as unknown as { fbq: (...a: unknown[]) => void }).fbq;
+        fbq("track", "Contact");
+        fbq("track", "Lead", {
+          content_name: "Request Pasang Baru",
+          content_category: "request_pasang_baru_unserved",
+          value: 185000,
+          currency: "IDR",
+        });
+      }
+      let utmSuffix = "";
+      try {
+        const u = sessionStorage.getItem("xlsr_utm");
+        if (u) utmSuffix = "\n[Sumber: " + u + "]";
+      } catch {}
+      try {
+        localStorage.setItem("xlsr_lead_done", JSON.stringify({ ts: Date.now() }));
+      } catch {}
+
+      const pesan =
+        "*REQUEST PASANG BARU XL HOME SOLO RAYA*\n" +
+        "Halo Admin XL Home Solo Raya, saya ingin mengajukan *Request Pasang Baru* untuk alamat saya yang belum tercover kabel langsung:\n\n" +
+        "👤 *Nama:* " + nm + "\n" +
+        "📱 *No. WhatsApp:* " + w + "\n" +
+        (p.alamat ? "📍 *Alamat:* " + p.alamat + "\n" : "") +
+        (p.kota ? "🏙️ *Kota/Area:* " + p.kota + "\n" : "") +
+        (mapsLink ? "🧭 *Titik Koordinat:* " + mapsLink + "\n" : "") +
+        (coverage?.jarakM != null ? "📏 *Jarak Jaringan Terdekat:* ±" + coverage.jarakM + " meter\n" : "") +
+        "👥 *Potensi Peminat Sekitar:* " + peminatSekitar + "\n" +
+        "📡 *Provider Saat Ini:* " + providerSaatIni + "\n\n" +
+        "Mohon dibantu pengecekan dan pengajuan jadwal pemasangan baru ya min. Terima kasih!" +
+        utmSuffix;
+
+      window.open("https://wa.me/" + NOMOR_WA_SALES + "?text=" + encodeURIComponent(pesan), "_blank");
+      tutupModal();
+      setSending(false);
+      return;
+    }
+
     postLead(
       basePayload("lengkap", {
         nama: nm,
@@ -1018,7 +1084,7 @@ export default function CekLokasi() {
                   // @ts-ignore
                   toolname="daftarPasangWifiSolo" 
                   // @ts-ignore
-                  tooldescription="Formulir resmi pendaftaran pasang baru dan pengecekan jangkauan tiang fiber optik XL Home Solo Raya."
+                  tooldescription="Formulir resmi pendaftaran pasang baru dan pengecekan jangkauan jaringan fiber optik XL Home Solo Raya."
                   // @ts-ignore
                   toolautosubmit="true"
                   onSubmit={(e) => { e.preventDefault(); kirim(); }}
@@ -1053,9 +1119,47 @@ export default function CekLokasi() {
                     // @ts-ignore
                     toolparamdescription="Nomor WhatsApp aktif pemohon untuk konfirmasi jadwal pasang teknisi"
                   />
-                  <label htmlFor="cl-paket" className="cl-label">
-                    Pilihan Paket
-                  </label>
+                  {coverage?.status === "manual" ? (
+                    <>
+                      <div style={{ background: "#fff5f5", border: "1px solid #fecaca", borderRadius: 10, padding: "10px 14px", margin: "14px 0", fontSize: 13, color: "#991b1b" }}>
+                        <strong>✨ Formulir Request Pasang Baru</strong><br />
+                        Data ini langsung diprioritaskan ke tim jaringan XL Home Solo Raya untuk perencanaan jalur/titik baru ke lokasimu.
+                      </div>
+                      <label htmlFor="cl-peminat" className="cl-label">
+                        Berapa tetangga sekitar yang juga berminat pasang?
+                      </label>
+                      <select
+                        id="cl-peminat"
+                        className="cl-input"
+                        value={peminatSekitar}
+                        onChange={(e) => setPeminatSekitar(e.target.value)}
+                      >
+                        <option value="1 Rumah (Hanya rumah saya)">Hanya rumah saya (1 rumah)</option>
+                        <option value="2 - 3 Rumah tetangga sekitar">2 - 3 rumah tetangga sekitar</option>
+                        <option value="4 - 10 Rumah (satu gang / blok)">4 - 10 rumah (satu gang / blok)</option>
+                        <option value="Lebih dari 10 Rumah (satu RT / komplek)">Lebih dari 10 rumah (satu RT / komplek)</option>
+                      </select>
+
+                      <label htmlFor="cl-provider" className="cl-label">
+                        Provider internet yang saat ini dipakai di rumah
+                      </label>
+                      <select
+                        id="cl-provider"
+                        className="cl-input"
+                        value={providerSaatIni}
+                        onChange={(e) => setProviderSaatIni(e.target.value)}
+                      >
+                        <option value="Belum ada internet kabel / Kuota HP">Belum ada internet kabel / Pakai kuota HP</option>
+                        <option value="IndiHome (Mau beralih ke XL Home)">IndiHome (Mau beralih ke XL Home)</option>
+                        <option value="Biznet / MyRepublic / First Media">Biznet / MyRepublic / First Media</option>
+                        <option value="Provider lokal lainnya / RT-RW Net">Provider lokal lainnya / RT-RW Net</option>
+                      </select>
+                    </>
+                  ) : (
+                    <>
+                      <label htmlFor="cl-paket" className="cl-label">
+                        Pilihan Paket
+                      </label>
                   <select
                     id="cl-paket"
                     name="paket"
@@ -1080,6 +1184,8 @@ export default function CekLokasi() {
                     <option value="Saya minat XL Home Wireless 50 Mbps Advance Rp650.000">Wireless Advance 50 Mbps (Rp650.000)</option>
                     <option value="Saya minat XL Home Wireless 100 Mbps Advance Rp790.000">Wireless Advance 100 Mbps (Rp790.000)</option>
                   </select>
+                    </>
+                  )}
                   {formError && (
                     <p className="cl-status error" style={{ marginTop: 10 }}>
                       {formError}
@@ -1092,7 +1198,7 @@ export default function CekLokasi() {
                     style={{ marginTop: 12 }}
                   >
                     <MessageCircle size={18} />{" "}
-                    {sending ? "Memproses..." : paketPilihan ? "Daftar via WhatsApp" : "Kirim & Lanjut ke WhatsApp"}
+                    {sending ? "Memproses..." : coverage?.status === "manual" ? "Kirim Request Pasang Baru via WhatsApp" : coverage?.status === "mungkin" ? "Konsultasi Jalur via WhatsApp" : paketPilihan ? "Daftar via WhatsApp" : "Daftar Pasang Baru via WhatsApp"}
                   </button>
                   <button
                     type="button"

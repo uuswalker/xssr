@@ -36,7 +36,7 @@ export function gtag(...args: unknown[]): void {
 
 export interface LeadPayload {
   timestamp: string;
-  tipe: "lokasi-saja" | "lengkap";
+  tipe: "lokasi-saja" | "lengkap" | "request-pasang-baru";
   token: string;
   nama: string;
   whatsapp: string;
@@ -53,6 +53,8 @@ export interface LeadPayload {
   mapsLink: string;
   halaman: string;
   referrer: string;
+  peminatSekitar?: string | null;
+  providerSaatIni?: string | null;
 }
 
 function basePayload(
@@ -70,6 +72,8 @@ function basePayload(
     zona: string | null;
     homepassId: string | null;
     homepassAddress: string | null;
+    peminatSekitar?: string | null;
+    providerSaatIni?: string | null;
   }
 
 ): LeadPayload {
@@ -95,6 +99,8 @@ function basePayload(
         : "",
     halaman: window.location.pathname,
     referrer: document.referrer || "",
+    peminatSekitar: f.peminatSekitar || null,
+    providerSaatIni: f.providerSaatIni || null,
   };
 }
 
