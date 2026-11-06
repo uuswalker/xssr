@@ -141,7 +141,7 @@ export function cariAlamatNominatim(
         "https://nominatim.openstreetmap.org/search?format=json&addressdetails=0" +
           `&limit=${limit}` +
           "&countrycodes=id" +
-          `&q=${encodeURIComponent(query + ", Jawa Tengah")}`;
+          `&q=${encodeURIComponent(query)}`;
       return fetch(fb).then((res) => res.json()) as Promise<NominatimItem[]>;
     });
 }
