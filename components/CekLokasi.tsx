@@ -8,6 +8,7 @@ import {
   COV_TEXT,
   KOTA_ALIASES,
   cekCoverage,
+  cekCoverageWorkerAPI,
   coverageDetail,
   coverageLine,
   cekAreaBlacklist,
@@ -200,28 +201,22 @@ export default function CekLokasi() {
       const cv = cekCoverage(c.data, c.loaded, lat, lng, p.kota);
       setCoverage(cv);
       fireCoverageEvent(lat, lng, cv);
+
+      // Cek Cloudflare D1 National FTTH API (100k Homepass Presisi)
+      cekCoverageWorkerAPI(lat, lng).then((apiCv) => {
+        const q = posRef.current;
+        if (q.lat === lat && q.lng === lng && apiCv && apiCv.status === "fiber") {
+          setCoverage(apiCv);
+          fireCoverageEvent(lat, lng, apiCv);
+        }
+      });
+
       if (cv.status === "loading" && c.promise) {
         c.promise.then(() => {
           const q = posRef.current;
           if (q.lat === lat && q.lng === lng) {
             const cv2 = cekCoverage(dataRef.current.data, true, lat, lng, q.kota);
-            setCoverage(cv2);
-            fireCoverageEvent(lat, lng, cv2);
-          }
-        });
-      }
-      if (cv.status === "loading" && c.promise) {
-        c.promise.then(() => {
-          const q = posRef.current;
-          if (q.lat === lat && q.lng === lng) {
-            const cv2 = cekCoverage(
-              dataRef.current.data,
-              true,
-              lat,
-              lng,
-              q.kota
-            );
-            setCoverage(cv2);
+            setCoverage((prev) => (prev && prev.status === "fiber" ? prev : cv2));
             fireCoverageEvent(lat, lng, cv2);
           }
         });

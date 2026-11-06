@@ -268,3 +268,59 @@ export function jarakFiberField(cv: CoverageResult | null): number | string {
   if (cv.status === "wireless") return cv.fiberM != null ? cv.fiberM : "";
   return cv.jarakM != null ? cv.jarakM : "";
 }
+
+export const WORKER_COVERAGE_API = "https://coverage-api.oktaarrijal.workers.dev/api/coverage";
+
+export interface WorkerCoverageResponse {
+  covered: boolean;
+  type: "FIBER_FTTH" | "WIRELESS_FALLBACK";
+  distance: number | null;
+  maxDistance: number;
+  homepassId: string | null;
+  cluster: string | null;
+  odp: string | null;
+  city: string | null;
+  status: string | null;
+  lookupLatencyMs: number;
+  candidateCount: number;
+  source: string;
+}
+
+export async function cekCoverageWorkerAPI(
+  lat: number,
+  lng: number
+): Promise<CoverageResult | null> {
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3500);
+    const res = await fetch(`${WORKER_COVERAGE_API}?lat=${lat}&lng=${lng}`, {
+      signal: controller.signal,
+    });
+    clearTimeout(timeoutId);
+
+    if (!res.ok) return null;
+    const data: WorkerCoverageResponse = await res.json();
+
+    if (data.covered && data.distance !== null) {
+      const clusterText = data.cluster || "Cluster FTTH";
+      const odpText = data.odp ? `ODP: ${data.odp}` : "";
+      const cityText = data.city || "Solo Raya";
+      const alamatLengkap = odpText
+        ? `${clusterText} (${odpText}, ${cityText})`
+        : `${clusterText} (${cityText})`;
+
+      return {
+        status: "fiber",
+        jarakM: data.distance,
+        zona: null,
+        fiberM: null,
+        homepassId: data.homepassId,
+        alamat: alamatLengkap,
+      };
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
