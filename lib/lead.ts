@@ -131,7 +131,7 @@ export function cariAlamatNominatim(
     `&limit=${limit}` +
     "&countrycodes=id" +
     `&viewbox=${SOLORAYA_VIEWBOX}` +
-    "&bounded=1" +
+    "&bounded=0" +
     `&q=${encodeURIComponent(query)}`;
   return fetch(url)
     .then((res) => res.json())

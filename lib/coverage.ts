@@ -9,11 +9,19 @@ export interface Pt {
 }
 
 export const KOTA_SOLORAYA: Pt[] = [
-  { nama: "Solo", lat: -7.5755, lng: 110.8243, radiusKm: 12 },
-  { nama: "Sukoharjo", lat: -7.6807, lng: 110.838, radiusKm: 15 },
-  { nama: "Klaten", lat: -7.7058, lng: 110.6069, radiusKm: 18 },
-  { nama: "Karanganyar", lat: -7.6, lng: 110.95, radiusKm: 18 },
-  { nama: "Boyolali", lat: -7.5333, lng: 110.6, radiusKm: 18 },
+  { nama: "Solo", lat: -7.5755, lng: 110.8243, radiusKm: 15 },
+  { nama: "Sukoharjo", lat: -7.6807, lng: 110.838, radiusKm: 20 },
+  { nama: "Klaten", lat: -7.7058, lng: 110.6069, radiusKm: 20 },
+  { nama: "Karanganyar", lat: -7.6, lng: 110.95, radiusKm: 25 },
+  { nama: "Boyolali", lat: -7.5333, lng: 110.6, radiusKm: 25 },
+  { nama: "Sleman", lat: -7.7167, lng: 110.3556, radiusKm: 25 },
+  { nama: "Yogyakarta", lat: -7.7956, lng: 110.3695, radiusKm: 18 },
+  { nama: "Bantul", lat: -7.8897, lng: 110.3289, radiusKm: 25 },
+  { nama: "Kulon Progo", lat: -7.7713, lng: 110.1581, radiusKm: 30 },
+  { nama: "Gunungkidul", lat: -7.96, lng: 110.6033, radiusKm: 35 },
+  { nama: "Magelang", lat: -7.4706, lng: 110.2178, radiusKm: 30 },
+  { nama: "Semarang", lat: -7.0051, lng: 110.4381, radiusKm: 30 },
+  { nama: "Salatiga", lat: -7.3305, lng: 110.5084, radiusKm: 20 },
 ];
 
 export const KOTA_ALIASES: Record<string, string> = {
@@ -23,6 +31,15 @@ export const KOTA_ALIASES: Record<string, string> = {
   karanganyar: "Karanganyar",
   klaten: "Klaten",
   boyolali: "Boyolali",
+  sleman: "Sleman",
+  yogyakarta: "Yogyakarta",
+  jogja: "Yogyakarta",
+  bantul: "Bantul",
+  kulonprogo: "Kulon Progo",
+  gunungkidul: "Gunungkidul",
+  magelang: "Magelang",
+  semarang: "Semarang",
+  salatiga: "Salatiga",
 };
 
 /** format Nominatim viewbox: left,top,right,bottom (lon,lat,lon,lat) */
@@ -119,6 +136,7 @@ export interface CoverageResult {
   fiberM: number | null;
   homepassId: string | null;
   alamat: string | null;
+  city?: string | null;
 }
 
 export interface CoverageData {
@@ -287,22 +305,36 @@ export async function cekCoverageWorkerAPI(
     if (!res.ok) return null;
     const data: WorkerCoverageResponse = await res.json();
 
-    if (data.covered && data.distance !== null) {
+    if (data && data.distance !== null) {
       const clusterText = data.cluster || "Cluster FTTH";
       const odpText = data.odp ? `ODP: ${data.odp}` : "";
-      const cityText = data.city || "Solo Raya";
+      const cityText = data.city || "Area Layanan";
       const alamatLengkap = odpText
         ? `${clusterText} (${odpText}, ${cityText})`
         : `${clusterText} (${cityText})`;
 
-      return {
-        status: "fiber",
-        jarakM: data.distance,
-        zona: null,
-        fiberM: null,
-        homepassId: data.homepassId,
-        alamat: alamatLengkap,
-      };
+      if (data.covered) {
+        return {
+          status: "fiber",
+          jarakM: data.distance,
+          zona: null,
+          fiberM: null,
+          homepassId: data.homepassId,
+          alamat: alamatLengkap,
+          city: data.city,
+        };
+      } else {
+        // Jarak > 300m (SOP): Request Pasang Baru / Wireless Fallback dengan ODP lokal presisi (bukan lompat ke Solo Raya)
+        return {
+          status: "manual",
+          jarakM: data.distance,
+          zona: null,
+          fiberM: null,
+          homepassId: data.homepassId,
+          alamat: alamatLengkap,
+          city: data.city,
+        };
+      }
     }
     return null;
   } catch {

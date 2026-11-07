@@ -163,17 +163,19 @@ export default function CekLokasi() {
     const latOk = p.lat != null && p.lng != null;
     if (waTmp.length < 9 || !(alamatOk || latOk)) return;
     softSent.current = true;
+    const kotaKirim = p.kota || coverage?.city || "";
+    const alamatKirim = p.alamat || (coverage?.alamat ? coverage.alamat : (p.lat && p.lng ? `${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}` : ""));
     postLead(
       basePayload("lokasi-saja", {
         lat: p.lat,
         lng: p.lng,
-        alamat: p.alamat || "",
-        kota: p.kota || "",
+        alamat: alamatKirim,
+        kota: kotaKirim,
         coverage: coverage?.status || "",
         jarakFiberM: jarakFiberField(coverage),
         zona: coverage?.zona || null,
         homepassId: coverage?.homepassId || null,
-          homepassAddress: coverage?.alamat || null,
+        homepassAddress: coverage?.alamat || null,
       })
     );
   }, [coverage, wa]);
@@ -205,11 +207,25 @@ export default function CekLokasi() {
       // Cek Cloudflare D1 National FTTH API (Multi-Database Edge SQLite)
       cekCoverageWorkerAPI(lat, lng).then((apiCv) => {
         const q = posRef.current;
-        if (q.lat === lat && q.lng === lng && apiCv && apiCv.status === "fiber") {
+        if (q.lat === lat && q.lng === lng && apiCv) {
+          if (apiCv.city) {
+            q.kota = apiCv.city;
+          }
           setCoverage(apiCv);
           fireCoverageEvent(lat, lng, apiCv);
-          setStatusClass("cl-status success");
-          setStatusMsg(`✅ Tercover Fiber Optic XL Home (${apiCv.alamat || "Siap Pasang"})!`);
+          if (apiCv.status === "fiber") {
+            setStatusClass("cl-status success");
+            setStatusMsg(`✅ Tercover Fiber Optic XL Home (${apiCv.alamat || "Siap Pasang"})!`);
+            setLokasiInfo(
+              `Lokasi: ${alamatText ? alamatText : (lat.toFixed(5) + ", " + lng.toFixed(5))} (${apiCv.city || q.kota || hasil.nama})`
+            );
+          } else {
+            setStatusClass("cl-status");
+            setStatusMsg(`📍 ODP terdekat di ${apiCv.alamat || apiCv.city} berjarak ±${apiCv.jarakM}m.`);
+            setLokasiInfo(
+              `Lokasi: ${alamatText ? alamatText : (lat.toFixed(5) + ", " + lng.toFixed(5))} (${apiCv.city || q.kota || hasil.nama})`
+            );
+          }
         }
       });
 
@@ -241,10 +257,12 @@ export default function CekLokasi() {
         );
       }
       later(() => {
-        const tagLuar = bl ? ` [LUAR JANGKAUAN - ${bl}]` : (!hasil.dalamArea ? " [LUAR WILAYAH]" : "");
+        const q = posRef.current;
+        const kotaFinal = q.kota || hasil.nama || "";
+        const tagLuar = bl ? ` [LUAR JANGKAUAN - ${bl}]` : (!hasil.dalamArea && !kotaFinal ? " [LUAR WILAYAH]" : "");
         setLokasiInfo(
           `Lokasi: ${alamatText ? alamatText : lat.toFixed(5) + ", " + lng.toFixed(5)}` +
-            (hasil.nama ? ` (dekat ${hasil.nama})` : "") + tagLuar
+            (kotaFinal ? ` (${kotaFinal})` : "") + tagLuar
         );
         setStep("form");
       }, 900);
@@ -539,6 +557,8 @@ export default function CekLokasi() {
         ? `https://www.google.com/maps?q=${p.lat},${p.lng}`
         : "";
     const isReq = coverage?.status === "manual";
+    const kotaKirim = p.kota || coverage?.city || "Area Layanan";
+    const alamatKirim = p.alamat || (coverage?.alamat ? coverage.alamat : (p.lat && p.lng ? `${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}` : ""));
     if (isReq) {
       postLead(
         basePayload("request-pasang-baru", {
@@ -546,8 +566,8 @@ export default function CekLokasi() {
           whatsapp: w,
           lat: p.lat,
           lng: p.lng,
-          alamat: p.alamat || "",
-          kota: p.kota || "",
+          alamat: alamatKirim,
+          kota: kotaKirim,
           coverage: "request-pasang-baru",
           jarakFiberM: jarakFiberField(coverage),
           zona: coverage?.zona || null,
@@ -582,12 +602,12 @@ export default function CekLokasi() {
       } catch {}
 
       const pesan =
-        "*REQUEST PASANG BARU XL HOME SOLO RAYA*\n" +
-        "Halo Admin XL Home Solo Raya, saya ingin mengajukan *Request Pasang Baru* untuk alamat saya yang belum tercover kabel langsung:\n\n" +
+        "*REQUEST PASANG BARU XL HOME*\n" +
+        "Halo Admin XL Home, saya ingin mengajukan *Request Pasang Baru* untuk alamat saya yang belum tercover kabel langsung:\n\n" +
         "👤 *Nama:* " + nm + "\n" +
         "📱 *No. WhatsApp:* " + w + "\n" +
-        (p.alamat ? "📍 *Alamat:* " + p.alamat + "\n" : "") +
-        (p.kota ? "🏙️ *Kota/Area:* " + p.kota + "\n" : "") +
+        (alamatKirim ? "📍 *Alamat:* " + alamatKirim + "\n" : "") +
+        (kotaKirim ? "🏙️ *Kota/Area:* " + kotaKirim + "\n" : "") +
         (mapsLink ? "🧭 *Titik Koordinat:* " + mapsLink + "\n" : "") +
         (coverage?.jarakM != null ? "📏 *Jarak Jaringan Terdekat:* ±" + coverage.jarakM + " meter\n" : "") +
         "👥 *Potensi Peminat Sekitar:* " + peminatSekitar + "\n" +
@@ -607,13 +627,13 @@ export default function CekLokasi() {
         whatsapp: w,
         lat: p.lat,
         lng: p.lng,
-        alamat: p.alamat || "",
-        kota: p.kota || "",
+        alamat: alamatKirim,
+        kota: kotaKirim,
         coverage: coverage?.status || "",
         jarakFiberM: jarakFiberField(coverage),
         zona: coverage?.zona || null,
         homepassId: coverage?.homepassId || null,
-          homepassAddress: coverage?.alamat || null,
+        homepassAddress: coverage?.alamat || null,
       })
     );
     gtag("event", "submit_cek_lokasi", {
@@ -654,9 +674,9 @@ export default function CekLokasi() {
     const pesan =
       `Halo kak, saya ${nm}, mau ${paketPilihan ? "daftar" : "cek ketersediaan"} XL Home.\n` +
       paketLine +
-      (p.alamat ? `Alamat: ${p.alamat}\n` : "") +
+      (alamatKirim ? `Alamat: ${alamatKirim}\n` : "") +
       (mapsLink ? `Peta lokasi: ${mapsLink}\n` : "") +
-      (p.kota ? `Area terdekat: ${p.kota}\n` : "") +
+      (kotaKirim ? `Area/Kota: ${kotaKirim}\n` : "") +
       covLine +
       utmSuffix;
     window.open(`https://wa.me/${NOMOR_WA_SALES}?text=${encodeURIComponent(pesan)}`, "_blank");
