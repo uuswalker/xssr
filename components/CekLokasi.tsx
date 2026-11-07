@@ -7,14 +7,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   COV_TEXT,
   KOTA_ALIASES,
-  cekCoverage,
   cekCoverageWorkerAPI,
   coverageDetail,
   coverageLine,
   cekAreaBlacklist,
   deteksiKota,
   jarakFiberField,
-  type CoverageData,
   type CoverageResult,
 } from "@/lib/coverage";
 import { ADS_ID } from "@/lib/site";
@@ -75,11 +73,6 @@ export default function CekLokasi() {
     }
   }, [coverage, paketPilihan]);
 
-  const dataRef = useRef<{ data: CoverageData | null; loaded: boolean; promise: Promise<void> | null }>({
-    data: null,
-    loaded: false,
-    promise: null,
-  });
   const posRef = useRef<{ lat: number | null; lng: number | null; kota: string | null; alamat: string | null }>({
     lat: null,
     lng: null,
@@ -115,28 +108,7 @@ export default function CekLokasi() {
     []
   );
 
-  // ---- coverage lazy-load (1x) ----
-  const loadCoverage = useCallback(() => {
-    const c = dataRef.current;
-    if (c.data || c.promise) return c.promise;
-    c.promise = (async () => {
-      try {
-        const [a, b] = await Promise.all([
-          fetch("/data/coverage.json?v=4").then((r) => r.json()),
-          fetch("/data/coverage-wireless.json?v=4").then((r) => r.json()),
-        ]);
-        c.data = {
-          pts: a.pts || [],
-          wpts: (b.pts || []).map((p: any[]) => [p[0], p[1], p[2], p[3], p[4]]),
-          wzones: b.zones || [],
-        };
-      } catch {
-        c.data = { pts: [], wpts: [], wzones: [] };
-      }
-      c.loaded = true;
-    })();
-    return c.promise;
-  }, []);
+
 
   const fireCoverageEvent = useCallback(
     (lat: number, lng: number, cv: CoverageResult) => {
@@ -199,46 +171,53 @@ export default function CekLokasi() {
       
       const hasil = deteksiKota(lat, lng);
       p.kota = hasil.nama;
-      const c = dataRef.current;
-      const cv = cekCoverage(c.data, c.loaded, lat, lng, p.kota);
-      setCoverage(cv);
-      fireCoverageEvent(lat, lng, cv);
+      const cvLoading: CoverageResult = {
+        status: "loading",
+        jarakM: null,
+        zona: null,
+        fiberM: null,
+        homepassId: null,
+        alamat: null,
+      };
+      setCoverage(cvLoading);
 
       // Cek Cloudflare D1 National FTTH API (Multi-Database Edge SQLite)
       cekCoverageWorkerAPI(lat, lng).then((apiCv) => {
         const q = posRef.current;
-        if (q.lat === lat && q.lng === lng && apiCv) {
-          if (apiCv.city) {
-            q.kota = apiCv.city;
+        if (q.lat === lat && q.lng === lng) {
+          const finalCv: CoverageResult = apiCv || {
+            status: "manual",
+            jarakM: null,
+            zona: null,
+            fiberM: null,
+            homepassId: null,
+            alamat: null,
+            city: q.kota || hasil.nama,
+          };
+          if (finalCv.city) {
+            q.kota = finalCv.city;
           }
-          setCoverage(apiCv);
-          fireCoverageEvent(lat, lng, apiCv);
-          if (apiCv.status === "fiber") {
+          setCoverage(finalCv);
+          fireCoverageEvent(lat, lng, finalCv);
+          if (finalCv.status === "fiber") {
             setStatusClass("cl-status success");
-            setStatusMsg(`✅ Tercover Fiber Optic XL Home (${apiCv.alamat || "Siap Pasang"})!`);
+            setStatusMsg(`✅ Tercover Fiber Optic XL Home (${finalCv.alamat || "Siap Pasang"})!`);
             setLokasiInfo(
-              `Lokasi: ${alamatText ? alamatText : (lat.toFixed(5) + ", " + lng.toFixed(5))} (${apiCv.city || q.kota || hasil.nama})`
+              `Lokasi: ${alamatText ? alamatText : (lat.toFixed(5) + ", " + lng.toFixed(5))} (${finalCv.city || q.kota || hasil.nama})`
             );
           } else {
             setStatusClass("cl-status");
-            setStatusMsg(`📍 ODP terdekat di ${apiCv.alamat || apiCv.city} berjarak ±${apiCv.jarakM}m.`);
+            setStatusMsg(
+              finalCv.jarakM != null
+                ? `📍 ODP terdekat di ${finalCv.alamat || finalCv.city} berjarak ±${finalCv.jarakM}m.`
+                : `📍 Lokasi tercatat. Sales kami akan konfirmasi ketersediaan tiang terdekat.`
+            );
             setLokasiInfo(
-              `Lokasi: ${alamatText ? alamatText : (lat.toFixed(5) + ", " + lng.toFixed(5))} (${apiCv.city || q.kota || hasil.nama})`
+              `Lokasi: ${alamatText ? alamatText : (lat.toFixed(5) + ", " + lng.toFixed(5))} (${finalCv.city || q.kota || hasil.nama})`
             );
           }
         }
       });
-
-      if (cv.status === "loading" && c.promise) {
-        c.promise.then(() => {
-          const q = posRef.current;
-          if (q.lat === lat && q.lng === lng) {
-            const cv2 = cekCoverage(dataRef.current.data, true, lat, lng, q.kota);
-            setCoverage((prev) => (prev && prev.status === "fiber" ? prev : cv2));
-            fireCoverageEvent(lat, lng, cv2);
-          }
-        });
-      }
       gtag("event", "lokasi_dikonfirmasi", {
         kota_terdeteksi: p.kota || "unknown",
         page_path: window.location.pathname,
@@ -326,7 +305,6 @@ export default function CekLokasi() {
       modalOpened.current = true;
       setStrip(null);
       setCoverage(null);
-      loadCoverage();
       
       gtag("event", "open_cek_lokasi", {
         page_path: window.location.pathname,
@@ -334,7 +312,7 @@ export default function CekLokasi() {
       });
       
     },
-    [loadCoverage]
+    []
   );
 
   // Delegasi global: semua tombol #btn-buka-cek-lokasi / .btn-cek-lokasi-trigger + deep-link param (?cek=1)
