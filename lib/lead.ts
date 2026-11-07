@@ -260,6 +260,35 @@ export function cariAlamatNominatim(
     });
 }
 
+export async function reverseGeocodeNominatim(
+  lat: number,
+  lng: number
+): Promise<string | null> {
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 2500);
+    const res = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`,
+      { signal: controller.signal }
+    );
+    clearTimeout(timeoutId);
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (data && data.address) {
+      const a = data.address;
+      const road = a.road || a.pedestrian || a.residential || a.path || "";
+      const village = a.village || a.neighbourhood || a.quarter || a.hamlet || a.suburb || "";
+      const district = a.city_district || a.district || a.subdistrict || "";
+      const city = a.city || a.town || a.county || "";
+      const parts = [road, village, district, city].filter(Boolean);
+      return parts.length > 0 ? parts.join(", ") : (data.display_name || null);
+    }
+  } catch {
+    /* fallback jika error */
+  }
+  return null;
+}
+
 export function normalisasiWA(input: string): string {
   let wa = input.trim().replace(/[^\d+]/g, "");
   if (wa.indexOf("+") === 0) wa = wa.slice(1);

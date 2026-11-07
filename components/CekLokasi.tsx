@@ -29,6 +29,7 @@ import {
   lsSet,
   normalisasiWA,
   postLead,
+  reverseGeocodeNominatim,
   type NominatimItem,
   type SmartSuggestionItem,
 } from "@/lib/lead";
@@ -138,7 +139,7 @@ export default function CekLokasi() {
     if (waTmp.length < 9 || !(alamatOk || latOk)) return;
     softSent.current = true;
     const kotaKirim = p.kota || coverage?.city || "";
-    const alamatKirim = p.alamat || (coverage?.alamat ? coverage.alamat : (p.lat && p.lng ? `${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}` : ""));
+    const alamatKirim = p.alamat || (p.lat && p.lng ? `${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}` : "");
     postLead(
       basePayload("lokasi-saja", {
         lat: p.lat,
@@ -170,6 +171,19 @@ export default function CekLokasi() {
       p.lat = lat;
       p.lng = lng;
       p.alamat = alamatText;
+
+      // Prediksi alamat jalan/kelurahan via reverse geocoding jika deteksi via GPS (tanpa input teks manual)
+      if (!alamatText) {
+        reverseGeocodeNominatim(lat, lng).then((prediksi) => {
+          if (prediksi && posRef.current.lat === lat && posRef.current.lng === lng) {
+            posRef.current.alamat = prediksi;
+            const kotaFinal = posRef.current.kota || hasil.nama || "";
+            setLokasiInfo(
+              `Lokasi: ${prediksi}${kotaFinal && !prediksi.toLowerCase().includes(kotaFinal.toLowerCase()) ? ` (${kotaFinal})` : ""}`
+            );
+          }
+        });
+      }
       
       const hasil = deteksiKota(lat, lng);
       p.kota = hasil.nama;
@@ -201,11 +215,13 @@ export default function CekLokasi() {
           }
           setCoverage(finalCv);
           fireCoverageEvent(lat, lng, finalCv);
+          const curAlamat = q.alamat || alamatText;
+          const alamatDisplay = curAlamat ? curAlamat : `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
           if (finalCv.status === "fiber") {
             setStatusClass("cl-status success");
             setStatusMsg(`✅ Tercover Fiber Optic XL Home (${finalCv.alamat || "Siap Pasang"})!`);
             setLokasiInfo(
-              `Lokasi: ${alamatText ? alamatText : (lat.toFixed(5) + ", " + lng.toFixed(5))} (${finalCv.city || q.kota || hasil.nama})`
+              `Lokasi: ${alamatDisplay} (${finalCv.city || q.kota || hasil.nama})`
             );
           } else {
             setStatusClass("cl-status");
@@ -215,7 +231,7 @@ export default function CekLokasi() {
                 : `📍 Lokasi tercatat. Sales kami akan konfirmasi ketersediaan tiang terdekat.`
             );
             setLokasiInfo(
-              `Lokasi: ${alamatText ? alamatText : (lat.toFixed(5) + ", " + lng.toFixed(5))} (${finalCv.city || q.kota || hasil.nama})`
+              `Lokasi: ${alamatDisplay} (${finalCv.city || q.kota || hasil.nama})`
             );
           }
         }
@@ -241,9 +257,11 @@ export default function CekLokasi() {
         const q = posRef.current;
         const kotaFinal = q.kota || hasil.nama || "";
         const tagLuar = bl ? ` [LUAR JANGKAUAN - ${bl}]` : (!hasil.dalamArea && !kotaFinal ? " [LUAR WILAYAH]" : "");
+        const curAlamat = q.alamat || alamatText;
+        const alamatDisplay = curAlamat ? curAlamat : `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
         setLokasiInfo(
-          `Lokasi: ${alamatText ? alamatText : lat.toFixed(5) + ", " + lng.toFixed(5)}` +
-            (kotaFinal ? ` (${kotaFinal})` : "") + tagLuar
+          `Lokasi: ${alamatDisplay}` +
+            (kotaFinal && !alamatDisplay.toLowerCase().includes(kotaFinal.toLowerCase()) ? ` (${kotaFinal})` : "") + tagLuar
         );
         setStep("form");
       }, 900);
@@ -538,7 +556,7 @@ export default function CekLokasi() {
         : "";
     const isReq = coverage?.status === "manual";
     const kotaKirim = p.kota || coverage?.city || "Area Layanan";
-    const alamatKirim = p.alamat || (coverage?.alamat ? coverage.alamat : (p.lat && p.lng ? `${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}` : ""));
+    const alamatKirim = p.alamat || (p.lat && p.lng ? `${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}` : "");
     if (isReq) {
       postLead(
         basePayload("request-pasang-baru", {
@@ -651,10 +669,14 @@ export default function CekLokasi() {
     }
     const covLine = coverageLine(coverage);
     const paketLine = paketPilihan ? `Paket: ${paketPilihan}\n` : "";
+    const odpLine = coverage?.alamat ? `ODP / Cluster: ${coverage.alamat}\n` : "";
+    const hpLine = coverage?.homepassId ? `Homepass ID: ${coverage.homepassId}\n` : "";
     const pesan =
       `Halo kak, saya ${nm}, mau ${paketPilihan ? "daftar" : "cek ketersediaan"} XL Home.\n` +
       paketLine +
       (alamatKirim ? `Alamat: ${alamatKirim}\n` : "") +
+      odpLine +
+      hpLine +
       (mapsLink ? `Peta lokasi: ${mapsLink}\n` : "") +
       (kotaKirim ? `Area/Kota: ${kotaKirim}\n` : "") +
       covLine +

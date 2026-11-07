@@ -253,13 +253,27 @@ function _formatSingleRow(ws, r) {
     .setHorizontalAlignment("center").setVerticalAlignment("middle");
 }
 
+// ── HELPER: PREDIKSI ALAMAT GOOGLE MAPS (REVERSE GEOCODING) ───
+function _prediksiAlamatGoogleMaps(lat, lng) {
+  try {
+    if (!lat || !lng || isNaN(Number(lat)) || isNaN(Number(lng))) return "";
+    const res = Maps.newGeocoder().reverseGeocode(Number(lat), Number(lng));
+    if (res && res.status === "OK" && res.results && res.results.length > 0) {
+      return res.results[0].formatted_address;
+    }
+  } catch (err) {
+    console.log("GEOCODE-ERR:" + err.message);
+  }
+  return "";
+}
+
 // ── NOTIF WA: kirim ringkasan lead ke owner via Fonnte ─────────
 function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId, jarakFiberM, coverage, homepassAddress, paket) {
   try {
     const d = new Date();
     const pad = (n) => (n < 10 ? "0" : "") + n;
     const waktu = pad(d.getDate()) + "-" + pad(d.getMonth() + 1) + "-" + d.getFullYear() +
-      " " + pad(d.getHours()) + ":" + pad(d.getMinutes());
+      " " + pad(d.getHours()) + ":" + pad(d.getMinutes()) + " WIB";
     const maps = (lat !== "" && lat != null && lng !== "" && lng != null)
       ? "https://maps.google.com/?q=" + lat + "," + lng : "-";
     
@@ -280,6 +294,16 @@ function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId, jar
       else statusText = String(coverage).toUpperCase();
     }
 
+    let alamatFinal = String(alamat || "").trim();
+    const isODP = alamatFinal.indexOf("(ODP:") !== -1 || (homepassAddress && alamatFinal === String(homepassAddress).trim());
+    const isKoord = /^-?\d+\.\d+,\s*-?\d+\.\d+$/.test(alamatFinal);
+    if (!alamatFinal || isODP || isKoord) {
+      const gMaps = _prediksiAlamatGoogleMaps(lat, lng);
+      if (gMaps) {
+        alamatFinal = gMaps;
+      }
+    }
+
     const hp = homepassId ? "\nHOMEPASS_ID: " + homepassId : "";
     const odp = homepassAddress ? "\nODP / Cluster: " + homepassAddress : "";
     const pkt = paket ? "\nPaket: " + paket : "";
@@ -288,8 +312,8 @@ function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId, jar
       "━━━━━━━━━━━━━━━━━━━\n" +
       "📅 Waktu: " + waktu + "\n" +
       "👤 Nama: " + nama + "\n" +
-      "📱 WA: " + wa + "\n" +
-      "📍 Alamat: " + alamat + "\n" +
+      "📱 WA: https://wa.me/" + wa + " (" + wa + ")\n" +
+      "📍 Alamat: " + alamatFinal + "\n" +
       "🏙️ Kota: " + kota + "\n" +
       "📶 Status: " + statusText + "\n" +
       "📏 Jarak ke ODP: " + jarakText +
@@ -376,6 +400,17 @@ function doPost(e) {
     const hpAddr = data.homepassAddress || "";
     const paket = data.paket || "";
 
+    // ── PREDIKSI ALAMAT FISIK JALAN / KELURAHAN (FAIL-SAFE) ───────
+    let alamatFinal = String(data.alamat || "").trim();
+    const isODP = alamatFinal.indexOf("(ODP:") !== -1 || (hpAddr && alamatFinal === String(hpAddr).trim());
+    const isKoord = /^-?\d+\.\d+,\s*-?\d+\.\d+$/.test(alamatFinal);
+    if (!alamatFinal || isODP || isKoord) {
+      const gMaps = _prediksiAlamatGoogleMaps(data.latitude, data.longitude);
+      if (gMaps) {
+        alamatFinal = gMaps;
+      }
+    }
+
     // DEDUP BY NOMOR HP: update baris terbaru milik nomor ini
     const lastRow = ws.getLastRow();
     if (lastRow >= DATA_START) {
@@ -391,12 +426,12 @@ function doPost(e) {
           ws.getRange(row, 2).setValue(pilih(data.nama, cur[1]));
           ws.getRange(row, 4).setValue(pilih(data.latitude, cur[3]));
           ws.getRange(row, 5).setValue(pilih(data.longitude, cur[4]));
-          ws.getRange(row, 6).setValue(pilih(data.alamat, cur[5]));
+          ws.getRange(row, 6).setValue(pilih(alamatFinal, cur[5]));
           ws.getRange(row, 7).setValue(pilih(kota, cur[6]));
           ws.getRange(row, 8).setValue(pilih(hpId, cur[7]));
           ws.getRange(row, 10).setValue(pilih(data.halaman, cur[9]));
           _formatSingleRow(ws, row);
-          if (_bolehNotif(wa)) kirimNotifWA(pilih(data.nama, cur[1]), wa, pilih(data.alamat, cur[5]), pilih(kota, cur[6]), pilih(data.halaman, cur[9]), pilih(data.latitude, cur[3]), pilih(data.longitude, cur[4]), pilih(hpId, cur[7]), jarakFiber, cov, hpAddr, paket);
+          if (_bolehNotif(wa)) kirimNotifWA(pilih(data.nama, cur[1]), wa, pilih(alamatFinal, cur[5]), pilih(kota, cur[6]), pilih(data.halaman, cur[9]), pilih(data.latitude, cur[3]), pilih(data.longitude, cur[4]), pilih(hpId, cur[7]), jarakFiber, cov, hpAddr, paket);
           return ContentService
             .createTextOutput(JSON.stringify({ status: "updated", row }))
             .setMimeType(ContentService.MimeType.JSON);
@@ -411,7 +446,7 @@ function doPost(e) {
       wa,
       (data.latitude ?? ""),
       (data.longitude ?? ""),
-      String(data.alamat || "").trim(),
+      alamatFinal,
       kota,
       hpId,
       "",   // Link Maps — diisi formula oleh _formatSingleRow
@@ -420,7 +455,7 @@ function doPost(e) {
     ]]);
 
     _formatSingleRow(ws, newRow);
-    if (_bolehNotif(wa)) kirimNotifWA(String(data.nama || "").trim(), wa, String(data.alamat || "").trim(), kota, data.halaman || "", data.latitude, data.longitude, hpId, jarakFiber, cov, hpAddr, paket);
+    if (_bolehNotif(wa)) kirimNotifWA(String(data.nama || "").trim(), wa, alamatFinal, kota, data.halaman || "", data.latitude, data.longitude, hpId, jarakFiber, cov, hpAddr, paket);
 
     return ContentService
       .createTextOutput(JSON.stringify({ status: "ok", row: newRow }))
