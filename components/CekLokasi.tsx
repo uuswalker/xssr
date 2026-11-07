@@ -1,5 +1,5 @@
 "use client";
-import { MessageCircle, MapPin, CheckCircle2, Target, Search, ArrowRight } from "lucide-react";
+import { MessageCircle, MapPin, CheckCircle2, Target, Search, ArrowRight, Zap } from "lucide-react";
 
 
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -23,12 +23,14 @@ import {
   NOMOR_WA_SALES,
   basePayload,
   cariAlamatNominatim,
+  cariAlamatSmart,
   gtag,
   
   lsSet,
   normalisasiWA,
   postLead,
   type NominatimItem,
+  type SmartSuggestionItem,
 } from "@/lib/lead";
 
 declare global {
@@ -53,7 +55,7 @@ export default function CekLokasi() {
   const [statusClass, setStatusClass] = useState("cl-status");
   const [lokasiInfo, setLokasiInfo] = useState("");
   
-  const [suggestions, setSuggestions] = useState<NominatimItem[]>([]);
+  const [suggestions, setSuggestions] = useState<SmartSuggestionItem[]>([]);
   const [showSugg, setShowSugg] = useState(false);
   const [query, setQuery] = useState("");
   const [nama, setNama] = useState("");
@@ -444,9 +446,9 @@ export default function CekLokasi() {
       }
       setShowSugg(false);
       setStatusClass("cl-status");
-      setStatusMsg("Mencari alamat...");
+      setStatusMsg("Mencari alamat & klaster fiber...");
       setSearching(true);
-      cariAlamatNominatim(alamat, 1).then(
+      cariAlamatSmart(alamat, 1).then(
         (data) => {
           setSearching(false);
           if (data && data.length > 0) {
@@ -475,14 +477,14 @@ export default function CekLokasi() {
     }
     if (debounce.current) clearTimeout(debounce.current);
     debounce.current = setTimeout(() => {
-      cariAlamatNominatim(q, 5).then(
+      cariAlamatSmart(q, 6).then(
         (data) => {
           setSuggestions(data || []);
           setShowSugg(true);
         },
         () => setShowSugg(false)
       );
-    }, 450);
+    }, 350);
     return () => {
       if (debounce.current) clearTimeout(debounce.current);
     };
@@ -828,12 +830,37 @@ export default function CekLokasi() {
     box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   }
   .cl-suggestion-item {
-    padding: 11px 14px; font-size: 13.5px; color: #333; cursor: pointer;
-    border-bottom: 1px solid #f0f0f0; display: flex; align-items: flex-start; gap: 8px;
+    padding: 10px 14px; font-size: 13.5px; color: #333; cursor: pointer;
+    border-bottom: 1px solid #f0f0f0; display: flex; align-items: flex-start; gap: 10px;
+    transition: background 0.15s ease;
   }
   .cl-suggestion-item:last-child { border-bottom: none; }
-  .cl-suggestion-item:hover, .cl-suggestion-item.active { background: #f0f9f7; }
-  .cl-suggestion-item i { color: #037e64; margin-top: 2px; flex-shrink: 0; }
+  .cl-suggestion-item:hover, .cl-suggestion-item.active { background: #f0fdf4; }
+  .cl-suggestion-item.fiber-ready { background: #fcfdfc; }
+  .cl-suggestion-item.fiber-ready:hover { background: #ecfdf5; }
+  .cl-sugg-icon { color: #0284c7; margin-top: 2px; flex-shrink: 0; }
+  .cl-suggestion-item.fiber-ready .cl-sugg-icon { color: #059669; }
+  .cl-sugg-content { flex: 1; min-width: 0; }
+  .cl-sugg-title {
+    font-weight: 600; color: #1e293b; display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    font-size: 13.5px;
+  }
+  .cl-sugg-title span:first-child {
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .cl-sugg-sub {
+    font-size: 12px; color: #64748b; margin-top: 2px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .cl-badge-fiber {
+    font-size: 10px; font-weight: 700; color: #047857; background: #d1fae5; border: 1px solid #a7f3d0;
+    padding: 1.5px 6px; border-radius: 9999px; text-transform: uppercase; white-space: nowrap; flex-shrink: 0;
+    letter-spacing: 0.3px;
+  }
+  .cl-badge-street {
+    font-size: 10px; font-weight: 600; color: #475569; background: #f1f5f9; border: 1px solid #e2e8f0;
+    padding: 1.5px 6px; border-radius: 9999px; text-transform: uppercase; white-space: nowrap; flex-shrink: 0;
+  }
   .cl-suggestion-empty { padding: 12px 14px; font-size: 13px; color: #999; text-align: center; }
   
   .cl-status {
@@ -981,15 +1008,27 @@ export default function CekLokasi() {
                         suggestions.map((s, i) => (
                           <div
                             key={i}
-                            className="cl-suggestion-item"
+                            className={`cl-suggestion-item ${s.isFiberReady ? "fiber-ready" : ""}`}
                             onClick={() => {
                               setQuery(s.display_name);
                               setShowSugg(false);
                               prosesLokasi(parseFloat(s.lat), parseFloat(s.lon), s.display_name);
                             }}
                           >
-                            <MapPin size={18} />
-                            <span>{s.display_name}</span>
+                            <div className="cl-sugg-icon">
+                              {s.isFiberReady ? <Zap size={16} /> : <MapPin size={16} />}
+                            </div>
+                            <div className="cl-sugg-content">
+                              <div className="cl-sugg-title">
+                                <span>{s.title}</span>
+                                {s.isFiberReady ? (
+                                  <span className="cl-badge-fiber">⚡ Siap Pasang</span>
+                                ) : (
+                                  <span className="cl-badge-street">📍 Alamat</span>
+                                )}
+                              </div>
+                              <div className="cl-sugg-sub">{s.subtitle}</div>
+                            </div>
                           </div>
                         ))
                       )}

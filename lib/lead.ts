@@ -116,6 +116,120 @@ export function postLead(p: LeadPayload): void {
 
 export { basePayload };
 
+export interface SmartSuggestionItem {
+  lat: string;
+  lon: string;
+  title: string;
+  subtitle: string;
+  display_name: string;
+  isFiberReady: boolean;
+  odp?: string;
+  cluster?: string;
+  city?: string;
+}
+
+export async function cariAlamatSmart(
+  query: string,
+  limit = 6
+): Promise<SmartSuggestionItem[]> {
+  const q = query.trim();
+  if (q.length < 3) return [];
+
+  const items: SmartSuggestionItem[] = [];
+  const seenClusters = new Set<string>();
+
+  try {
+    const d1Promise = (async () => {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2000);
+        const res = await fetch(
+          `https://coverage-api.oktaarrijal.workers.dev/api/search?q=${encodeURIComponent(q)}`,
+          { signal: controller.signal }
+        );
+        clearTimeout(timeoutId);
+        if (!res.ok) return null;
+        return (await res.json()) as { results?: Array<{
+          id: string;
+          cluster_name: string;
+          city: string;
+          odp_id: string;
+          lat: number;
+          lng: number;
+          status: string;
+        }> };
+      } catch {
+        return null;
+      }
+    })();
+
+    const osmPromise = (async () => {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2500);
+        const res = await fetch(
+          `https://nominatim.openstreetmap.org/search?format=json&addressdetails=0&limit=4&countrycodes=id&viewbox=${SOLORAYA_VIEWBOX}&bounded=0&q=${encodeURIComponent(q)}`,
+          { signal: controller.signal }
+        );
+        clearTimeout(timeoutId);
+        if (!res.ok) return null;
+        return (await res.json()) as NominatimItem[];
+      } catch {
+        return null;
+      }
+    })();
+
+    const [d1Data, osmData] = await Promise.all([d1Promise, osmPromise]);
+
+    // 1. Prioritas Cluster D1 (Pasti ada ODP / Fiber Ready)
+    if (d1Data && Array.isArray(d1Data.results)) {
+      for (const r of d1Data.results) {
+        if (!r.cluster_name) continue;
+        const key = `${r.cluster_name}|${r.city || ""}`.toUpperCase();
+        if (!seenClusters.has(key)) {
+          seenClusters.add(key);
+          const cityText = r.city ? r.city : "Area Fiber";
+          const odpText = r.odp_id ? ` • ODP: ${r.odp_id}` : "";
+          items.push({
+            lat: String(r.lat),
+            lon: String(r.lng),
+            title: r.cluster_name,
+            subtitle: `${cityText}${odpText}`,
+            display_name: `${r.cluster_name}, ${cityText}`,
+            isFiberReady: true,
+            odp: r.odp_id,
+            cluster: r.cluster_name,
+            city: r.city,
+          });
+        }
+        if (items.length >= 4) break;
+      }
+    }
+
+    // 2. Fallback Nominatim (Untuk nama jalan, POI umum, kelurahan)
+    if (Array.isArray(osmData)) {
+      for (const r of osmData) {
+        const parts = r.display_name.split(",");
+        const title = parts[0].trim();
+        const subtitle = parts.slice(1, 4).join(",").trim();
+        items.push({
+          lat: r.lat,
+          lon: r.lon,
+          title,
+          subtitle: subtitle || "Wilayah Indonesia",
+          display_name: r.display_name,
+          isFiberReady: false,
+        });
+        if (items.length >= limit) break;
+      }
+    }
+  } catch {
+    /* fallback jika error jaringan */
+  }
+
+  return items;
+}
+
 export interface NominatimItem {
   lat: string;
   lon: string;
