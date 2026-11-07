@@ -152,7 +152,7 @@ async function queryCandidates(db, lat, lng, delta) {
   const maxLng = lng + delta;
 
   const query = `
-    SELECT id, lat, lng, cluster_name, status, odp_id, city, h3_res10,
+    SELECT id, lat, lng, cluster_name, status, odp_id, city, address, h3_res10,
            ((lat - ?)*(lat - ?) + (lng - ?)*(lng - ?)) as distSq
     FROM homepass
     WHERE lat BETWEEN ? AND ? AND lng BETWEEN ? AND ?
@@ -334,21 +334,21 @@ export default {
         // Tier 3: Query Federated D1 Databases
         const searchPattern = `%${q}%`;
         const querySql = `
-          SELECT id, cluster_name, city, odp_id, lat, lng, status
+          SELECT id, cluster_name, city, odp_id, lat, lng, status, address
           FROM homepass
-          WHERE cluster_name LIKE ? OR id LIKE ? OR odp_id LIKE ?
+          WHERE cluster_name LIKE ? OR address LIKE ? OR id LIKE ? OR odp_id LIKE ?
           LIMIT 25
         `;
 
         let results = [];
         try {
-          const res1 = await env.DB.prepare(querySql).bind(searchPattern, searchPattern, searchPattern).all();
+          const res1 = await env.DB.prepare(querySql).bind(searchPattern, searchPattern, searchPattern, searchPattern).all();
           if (res1.results) results = results.concat(res1.results);
         } catch (e) {}
 
         if (env.DB_JATENG && results.length < 25) {
           try {
-            const res2 = await env.DB_JATENG.prepare(querySql).bind(searchPattern, searchPattern, searchPattern).all();
+            const res2 = await env.DB_JATENG.prepare(querySql).bind(searchPattern, searchPattern, searchPattern, searchPattern).all();
             if (res2.results) results = results.concat(res2.results);
           } catch (e) {}
         }
@@ -537,6 +537,7 @@ export default {
           cluster: bestCandidate ? bestCandidate.cluster_name : null,
           odp: bestCandidate ? bestCandidate.odp_id : null,
           city: bestCandidate ? bestCandidate.city : null,
+          address: bestCandidate ? bestCandidate.address : null,
           status: bestCandidate ? bestCandidate.status : null,
           lookupLatencyMs: Number((t1 - t0).toFixed(2)),
           candidateCount: candidates.length,
@@ -609,8 +610,8 @@ export default {
         }
 
         const targetDb = selectTargetDb(env, body.db || body.targetDb);
-        const stmt = targetDb.prepare("INSERT OR REPLACE INTO homepass (id, h3_res10, lat, lng, cluster_name, status, odp_id, city) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        const batchStatements = rows.map(r => stmt.bind(r.id, r.h3, r.lat, r.lng, r.cluster, r.status, r.odp, r.city));
+        const stmt = targetDb.prepare("INSERT OR REPLACE INTO homepass (id, h3_res10, lat, lng, cluster_name, status, odp_id, city, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        const batchStatements = rows.map(r => stmt.bind(r.id, r.h3, r.lat, r.lng, r.cluster, r.status, r.odp, r.city, r.address || null));
         
         const t0 = performance.now();
         const results = await targetDb.batch(batchStatements);

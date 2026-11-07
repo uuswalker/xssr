@@ -284,6 +284,7 @@ export interface WorkerCoverageResponse {
   cluster: string | null;
   odp: string | null;
   city: string | null;
+  address?: string | null;
   status: string | null;
   lookupLatencyMs: number;
   candidateCount: number;
@@ -309,7 +310,10 @@ export async function cekCoverageWorkerAPI(
       const clusterText = data.cluster || "Cluster FTTH";
       const odpText = data.odp ? `ODP: ${data.odp}` : "";
       const cityText = data.city || "Area Layanan";
-      const alamatLengkap = odpText
+      // Prioritaskan alamat fisik resmi OWS jika tersedia dari database
+      const alamatLengkap = data.address && data.address.trim()
+        ? data.address.trim()
+        : odpText
         ? `${clusterText} (${odpText}, ${cityText})`
         : `${clusterText} (${cityText})`;
 

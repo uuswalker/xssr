@@ -858,17 +858,31 @@ function doPost(e) {
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     const ws = ss.getSheetByName(SHEET_NAME);
     const kota = data.kotaTerdeteksi || data.kota || "";
-    const hpId = data.homepassId || "";
+    let hpId = data.homepassId || "";
     const jarakFiber = (data.jarakFiberM !== "" && data.jarakFiberM != null) ? data.jarakFiberM : "";
     const cov = data.coverage || "";
     const hpAddr = data.homepassAddress || "";
     const paket = data.paket || "";
 
+    // ── FILTER HOMEPASS ID RESMI OWS (BUANG UUID JIKA ADA) ────────
+    hpId = String(hpId).trim();
+    if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i.test(hpId)) {
+      const parts = hpId.split(" - ");
+      if (parts.length > 1 && !/^[0-9a-f]{8}-/i.test(parts[1])) {
+        hpId = parts[1].trim();
+      } else {
+        hpId = "";
+      }
+    }
+
     // ── PREDIKSI ALAMAT FISIK JALAN / KELURAHAN (FAIL-SAFE) ───────
     let alamatFinal = String(data.alamat || "").trim();
-    const isODP = alamatFinal.indexOf("(ODP:") !== -1 || (hpAddr && alamatFinal === String(hpAddr).trim());
+    const isSyntheticODP = alamatFinal.indexOf("(ODP:") !== -1;
     const isKoord = /^-?\d+\.\d+,\s*-?\d+\.\d+$/.test(alamatFinal);
-    if (!alamatFinal || isODP || isKoord) {
+    // Jika alamat fisik resmi OWS tersedia di hpAddr, selalu prioritaskan data resmi OWS
+    if ((isSyntheticODP || isKoord || !alamatFinal) && hpAddr && hpAddr.indexOf("(ODP:") === -1) {
+      alamatFinal = String(hpAddr).trim();
+    } else if (!alamatFinal || isSyntheticODP || isKoord) {
       const gMaps = _prediksiAlamatGoogleMaps(data.latitude, data.longitude);
       if (gMaps) {
         alamatFinal = gMaps;
