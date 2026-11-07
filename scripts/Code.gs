@@ -1,11 +1,15 @@
 // ============================================================
-//  Code.gs — Database Lead xlhomesolo.com
+//  Code.gs — Database Lead & CRM Sales xlhomesolo.com
 //  Google Apps Script — format & styling mirroring final xlsx
 //  Webhook v5.1: token + validasi WA/nama/lokasi + dedup HP
 //  v6.1: notifikasi WA tiap lead via Fonnte (anti-gagal)
 //  v6.2: honeypot trap /trap/ → log ke sheet "Trap Log" tanpa notif
 //  v6.3: COST GUARD — batasi notif Fonnte (per nomor 2/hari, global 30/jam).
 //        Lead TETAP selalu disimpan; yang dibatasi hanya pesan WA.
+//  v7.0: CRM SALES & SLA AUTOMATOR:
+//        - Conditional formatting warna kolom 11 (Status Follow Up)
+//        - Dropdown data validation kolom 11
+//        - Sheet tab 'Dashboard Rekap' (KPI Scorecards, Wilayah, Coverage, Closing Rate)
 //  CATATAN: file ini cermin repo. Token asli hanya di Apps Script live.
 // ============================================================
 
@@ -39,6 +43,23 @@ const HEADERS = [
 
 const COL_WIDTHS = [145, 180, 130, 90, 90, 300, 115, 120, 225, 165, 150]; // pixel
 
+// ── MENU GOOGLE SHEETS ───────────────────────────────────────
+function onOpen() {
+  SpreadsheetApp.getUi()
+    .createMenu("🚀 XL Home CRM")
+    .addItem("📊 Buka / Perbarui Dashboard Rekap", "menuUpdateDashboard")
+    .addItem("🎨 Format Sheet Lead & Status", "applyFormatting")
+    .addItem("🔄 Reformat Semua Baris Data", "reformatAll")
+    .addToUi();
+}
+
+function menuUpdateDashboard() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  createOrUpdateDashboardSummary(ss);
+  SpreadsheetApp.flush();
+  SpreadsheetApp.getUi().alert("✅ Dashboard Rekap berhasil diperbarui!");
+}
+
 // ── ENTRY POINT: jalankan sekali untuk apply semua formatting ─
 function applyFormatting() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -54,9 +75,12 @@ function applyFormatting() {
   _applyDataFormatting(ws);
   _setColumnWidths(ws);
   _freezeAndFilter(ws);
+  _applyConditionalFormatting(ws);
+  _applyStatusDataValidation(ws);
+  createOrUpdateDashboardSummary(ss);
 
   SpreadsheetApp.flush();
-  SpreadsheetApp.getUi().alert("✅ Formatting selesai diapply!");
+  SpreadsheetApp.getUi().alert("✅ Formatting & Dashboard Rekap selesai diapply!");
 }
 
 // ── TITLE ROW (row 1) ────────────────────────────────────────
@@ -188,6 +212,86 @@ function _applyDataFormatting(ws) {
   }
 }
 
+// ── CONDITIONAL FORMATTING STATUS FOLLOW UP (KOLOM 11) ────────
+function _applyConditionalFormatting(ws) {
+  const maxRows = Math.max(ws.getMaxRows(), 100);
+  const statusRange = ws.getRange(DATA_START, 11, maxRows - DATA_START + 1, 1);
+
+  // Filter out existing Column 11 rules to avoid duplicates
+  const existingRules = ws.getConditionalFormatRules();
+  const retainedRules = existingRules.filter(rule => {
+    const ranges = rule.getRanges();
+    return !ranges.some(r => r.getSheet().getName() === ws.getName() && r.getColumn() === 11);
+  });
+
+  const newRules = [];
+
+  // Group 1: Hijau muda (#D1E7DD) untuk status: 'Deal', 'Pasang', 'Closing', 'Selesai'
+  const greenKeywords = ["Deal", "Pasang", "Closing", "Selesai"];
+  greenKeywords.forEach(kw => {
+    newRules.push(
+      SpreadsheetApp.newConditionalFormatRule()
+        .whenTextContains(kw)
+        .setBackground("#D1E7DD")
+        .setFontColor("#0F5132")
+        .setRanges([statusRange])
+        .build()
+    );
+  });
+
+  // Group 2: Kuning muda (#FFF3CD) untuk status: 'Follow Up', 'Proses', 'Menunggu', 'Chat'
+  const yellowKeywords = ["Follow Up", "Proses", "Menunggu", "Chat"];
+  yellowKeywords.forEach(kw => {
+    newRules.push(
+      SpreadsheetApp.newConditionalFormatRule()
+        .whenTextContains(kw)
+        .setBackground("#FFF3CD")
+        .setFontColor("#664D03")
+        .setRanges([statusRange])
+        .build()
+    );
+  });
+
+  // Group 3: Merah muda (#F8D7DA) untuk status: 'Pending', 'Baru', 'Belum Dihubungi'
+  const redKeywords = ["Pending", "Baru", "Belum Dihubungi"];
+  redKeywords.forEach(kw => {
+    newRules.push(
+      SpreadsheetApp.newConditionalFormatRule()
+        .whenTextContains(kw)
+        .setBackground("#F8D7DA")
+        .setFontColor("#842029")
+        .setRanges([statusRange])
+        .build()
+    );
+  });
+
+  ws.setConditionalFormatRules(retainedRules.concat(newRules));
+}
+
+// ── DATA VALIDATION DROPDOWN (KOLOM 11) ───────────────────────
+function _applyStatusDataValidation(ws) {
+  const maxRows = Math.max(ws.getMaxRows(), 100);
+  const statusRange = ws.getRange(DATA_START, 11, maxRows - DATA_START + 1, 1);
+  const statusList = [
+    "Baru",
+    "Belum Dihubungi",
+    "Pending",
+    "Follow Up",
+    "Chat",
+    "Proses",
+    "Menunggu",
+    "Deal",
+    "Pasang",
+    "Closing",
+    "Selesai"
+  ];
+  const rule = SpreadsheetApp.newDataValidation()
+    .requireValueInList(statusList, true)
+    .setAllowInvalid(true)
+    .build();
+  statusRange.setDataValidation(rule);
+}
+
 // ── COLUMN WIDTHS ─────────────────────────────────────────────
 function _setColumnWidths(ws) {
   COL_WIDTHS.forEach((w, i) => ws.setColumnWidth(i + 1, w));
@@ -251,6 +355,366 @@ function _formatSingleRow(ws, r) {
   ws.getRange(r, 9)
     .setFormula(`=IF(ISBLANK(D${r}),"","https://maps.google.com/?q="&ROUND(D${r},6)&","&ROUND(E${r},6))`)
     .setHorizontalAlignment("center").setVerticalAlignment("middle");
+}
+
+// ── HELPER: STYLE KPI SCORECARD BOX ───────────────────────────
+function _styleKpiCard(ws, startRow, startCol, label, formulaValue, formulaSub, theme) {
+  // Label row
+  const labelRange = ws.getRange(startRow, startCol, 1, 3);
+  labelRange.merge()
+    .setValue(label)
+    .setBackground(theme.headerBg)
+    .setFontColor(theme.headerFg)
+    .setFontFamily("Arial")
+    .setFontSize(9)
+    .setFontWeight("bold")
+    .setHorizontalAlignment("center")
+    .setVerticalAlignment("middle");
+
+  // Value row
+  const valRange = ws.getRange(startRow + 1, startCol, 1, 3);
+  valRange.merge();
+  if (formulaValue.startsWith("=")) {
+    valRange.setFormula(formulaValue);
+  } else {
+    valRange.setValue(formulaValue);
+  }
+  valRange
+    .setBackground(theme.bodyBg)
+    .setFontColor(theme.valueFg)
+    .setFontFamily("Arial")
+    .setFontSize(20)
+    .setFontWeight("bold")
+    .setHorizontalAlignment("center")
+    .setVerticalAlignment("middle");
+
+  if (theme.isPercent) {
+    valRange.setNumberFormat("0.0%");
+  } else {
+    valRange.setNumberFormat("#,##0");
+  }
+
+  // Subtitle row
+  const subRange = ws.getRange(startRow + 2, startCol, 1, 3);
+  subRange.merge();
+  if (formulaSub.startsWith("=")) {
+    subRange.setFormula(formulaSub);
+  } else {
+    subRange.setValue(formulaSub);
+  }
+  subRange
+    .setBackground(theme.bodyBg)
+    .setFontColor("#5F6368")
+    .setFontFamily("Arial")
+    .setFontSize(8)
+    .setFontStyle("italic")
+    .setHorizontalAlignment("center")
+    .setVerticalAlignment("middle");
+
+  // Border card
+  const cardBox = ws.getRange(startRow, startCol, 3, 3);
+  cardBox.setBorder(
+    true, true, true, true, false, false,
+    theme.border,
+    SpreadsheetApp.BorderStyle.SOLID
+  );
+}
+
+// ── DASHBOARD REKAP & SALES SLA (v7.0) ─────────────────────────
+function createOrUpdateDashboardSummary(ss) {
+  if (!ss || typeof ss.getSheetByName !== "function") {
+    ss = SpreadsheetApp.getActiveSpreadsheet();
+  }
+  const DASHBOARD_NAME = "Dashboard Rekap";
+  let ws = ss.getSheetByName(DASHBOARD_NAME);
+
+  if (!ws) {
+    const leadSheet = ss.getSheetByName(SHEET_NAME);
+    if (leadSheet) {
+      ws = ss.insertSheet(DASHBOARD_NAME, leadSheet.getIndex());
+    } else {
+      ws = ss.insertSheet(DASHBOARD_NAME);
+    }
+  }
+
+  // Set tab color
+  try {
+    ws.setTabColor("#1A56A0");
+    const leadSheet = ss.getSheetByName(SHEET_NAME);
+    if (leadSheet) leadSheet.setTabColor("#0F9D58");
+  } catch (e) {}
+
+  // Pastikan ada cukup kolom & baris
+  if (ws.getMaxColumns() < 9) {
+    ws.insertColumnsAfter(ws.getMaxColumns(), 9 - ws.getMaxColumns());
+  }
+  if (ws.getMaxRows() < 30) {
+    ws.insertRowsAfter(ws.getMaxRows(), 30 - ws.getMaxRows());
+  }
+
+  // Clear format & konten lama agar sinkron rapi
+  ws.clear();
+  ws.clearFormats();
+  ws.clearConditionalFormatRules();
+
+  // Column Widths
+  const colWidths = [20, 190, 100, 90, 25, 220, 100, 90, 20];
+  colWidths.forEach((w, i) => ws.setColumnWidth(i + 1, w));
+
+  // Row 1: Header Utama
+  const titleRange = ws.getRange(1, 2, 1, 7);
+  titleRange.merge()
+    .setValue("DASHBOARD REKAP SALES & LEAD CRM — XLHOMESOLO.COM")
+    .setBackground(COLOR.HEADER_BG)
+    .setFontColor("#FFFFFF")
+    .setFontFamily("Arial")
+    .setFontSize(13)
+    .setFontWeight("bold")
+    .setHorizontalAlignment("center")
+    .setVerticalAlignment("middle");
+  ws.setRowHeight(1, 40);
+
+  // Row 2: Subtitle
+  const subTitleRange = ws.getRange(2, 2, 1, 7);
+  subTitleRange.merge()
+    .setValue("📊 Monitoring Real-Time SLA Sales, Wilayah Coverage Solo Raya & Closing Rate")
+    .setBackground(COLOR.TITLE_BG)
+    .setFontColor(COLOR.TITLE_FG)
+    .setFontFamily("Arial")
+    .setFontSize(10)
+    .setFontWeight("bold")
+    .setHorizontalAlignment("center")
+    .setVerticalAlignment("middle");
+  ws.setRowHeight(2, 26);
+
+  // Row 3: Spacer
+  ws.setRowHeight(3, 10);
+
+  // Set Row Heights untuk KPI Cards
+  ws.setRowHeight(4, 22);
+  ws.setRowHeight(5, 34);
+  ws.setRowHeight(6, 20);
+  ws.setRowHeight(7, 10);
+  ws.setRowHeight(8, 22);
+  ws.setRowHeight(9, 34);
+  ws.setRowHeight(10, 20);
+  ws.setRowHeight(11, 12);
+
+  // KPI Card 1: Total Lead Masuk (B4:D6)
+  _styleKpiCard(
+    ws, 4, 2,
+    "📈 TOTAL LEAD MASUK",
+    `=COUNTIF('${SHEET_NAME}'!$B$4:$B, "<>")`,
+    `="Closing: " & TEXT(COUNTIF('${SHEET_NAME}'!$K$4:$K,"*Deal*")+COUNTIF('${SHEET_NAME}'!$K$4:$K,"*Pasang*")+COUNTIF('${SHEET_NAME}'!$K$4:$K,"*Closing*")+COUNTIF('${SHEET_NAME}'!$K$4:$K,"*Selesai*"), "#,##0") & " lead"`,
+    {
+      headerBg: "#D6E4F7", headerFg: "#1A56A0", bodyBg: "#F8FAFD",
+      valueFg: "#1A56A0", border: "#1A56A0", isPercent: false
+    }
+  );
+
+  // KPI Card 2: Closing Rate (% Deal) (F4:H6)
+  _styleKpiCard(
+    ws, 4, 6,
+    "🎯 CLOSING RATE (% DEAL)",
+    `=IF(B5=0, 0, (COUNTIF('${SHEET_NAME}'!$K$4:$K, "*Deal*")+COUNTIF('${SHEET_NAME}'!$K$4:$K, "*Pasang*")+COUNTIF('${SHEET_NAME}'!$K$4:$K, "*Closing*")+COUNTIF('${SHEET_NAME}'!$K$4:$K, "*Selesai*"))/B5)`,
+    `="Target SLA: >15% Closing Rate"`,
+    {
+      headerBg: "#D1E7DD", headerFg: "#0F5132", bodyBg: "#F4FBF7",
+      valueFg: "#0F5132", border: "#198754", isPercent: true
+    }
+  );
+
+  // KPI Card 3: Tercover Fiber (B8:D10)
+  _styleKpiCard(
+    ws, 8, 2,
+    "📶 TERCOVER FIBER (READY)",
+    `=COUNTIFS('${SHEET_NAME}'!$B$4:$B, "<>", '${SHEET_NAME}'!$H$4:$H, "<>", '${SHEET_NAME}'!$H$4:$H, "<>-")`,
+    `=IF(B5=0, "0.0%", TEXT(B9/B5, "0.0%")) & " dari total lead"`,
+    {
+      headerBg: "#D6E4F7", headerFg: "#1A56A0", bodyBg: "#F8FAFD",
+      valueFg: "#1A56A0", border: "#1A56A0", isPercent: false
+    }
+  );
+
+  // KPI Card 4: Request Pasang Baru (F8:H10)
+  _styleKpiCard(
+    ws, 8, 6,
+    "📝 REQUEST PASANG BARU",
+    `=MAX(0, B5 - B9)`,
+    `=IF(B5=0, "0.0%", TEXT(F9/B5, "0.0%")) & " perlu survey ODP"`,
+    {
+      headerBg: "#FFF3CD", headerFg: "#664D03", bodyBg: "#FFFDF5",
+      valueFg: "#B06000", border: "#FFC107", isPercent: false
+    }
+  );
+
+  // ── TABEL 1: REKAP PER WILAYAH / KOTA (B12:D22) ──────────────
+  ws.setRowHeight(12, 28);
+  ws.setRowHeight(13, 24);
+
+  const wilayahHeader = ws.getRange(12, 2, 1, 3);
+  wilayahHeader.merge()
+    .setValue("📍 REKAP LEAD PER WILAYAH / KOTA")
+    .setBackground(COLOR.HEADER_BG)
+    .setFontColor("#FFFFFF")
+    .setFontFamily("Arial")
+    .setFontSize(10)
+    .setFontWeight("bold")
+    .setHorizontalAlignment("center")
+    .setVerticalAlignment("middle");
+
+  const wilayahSub = [["Kota / Kabupaten", "Jumlah Lead", "Rasio (%)"]];
+  ws.getRange(13, 2, 1, 3)
+    .setValues(wilayahSub)
+    .setBackground(COLOR.TITLE_BG)
+    .setFontColor(COLOR.TITLE_FG)
+    .setFontFamily("Arial")
+    .setFontSize(9)
+    .setFontWeight("bold")
+    .setHorizontalAlignment("center")
+    .setVerticalAlignment("middle");
+
+  const wilayahData = [
+    ["Solo / Surakarta",    `=COUNTIF('${SHEET_NAME}'!$G$4:$G, "*Solo*") + COUNTIF('${SHEET_NAME}'!$G$4:$G, "*Surakarta*")`],
+    ["Sukoharjo",           `=COUNTIF('${SHEET_NAME}'!$G$4:$G, "*Sukoharjo*")`],
+    ["Karanganyar",         `=COUNTIF('${SHEET_NAME}'!$G$4:$G, "*Karanganyar*")`],
+    ["Klaten",              `=COUNTIF('${SHEET_NAME}'!$G$4:$G, "*Klaten*")`],
+    ["Boyolali",            `=COUNTIF('${SHEET_NAME}'!$G$4:$G, "*Boyolali*")`],
+    ["Sragen",              `=COUNTIF('${SHEET_NAME}'!$G$4:$G, "*Sragen*")`],
+    ["Wonogiri",            `=COUNTIF('${SHEET_NAME}'!$G$4:$G, "*Wonogiri*")`],
+    ["Lainnya / Luar Solo", `=MAX(0, $B$5 - SUM(C14:C20))`],
+  ];
+
+  for (let i = 0; i < wilayahData.length; i++) {
+    const row = 14 + i;
+    ws.setRowHeight(row, 22);
+    const isOdd = i % 2 === 0;
+    const bg = isOdd ? COLOR.ROW_ODD : COLOR.ROW_EVEN;
+
+    ws.getRange(row, 2).setValue(wilayahData[i][0]).setHorizontalAlignment("left").setVerticalAlignment("middle");
+    ws.getRange(row, 3).setFormula(wilayahData[i][1]).setNumberFormat("#,##0").setHorizontalAlignment("center").setVerticalAlignment("middle");
+    ws.getRange(row, 4).setFormula(`=IF($B$5=0, 0, C${row}/$B$5)`).setNumberFormat("0.0%").setHorizontalAlignment("center").setVerticalAlignment("middle");
+    ws.getRange(row, 2, 1, 3).setBackground(bg).setFontFamily("Arial").setFontSize(9);
+  }
+
+  // Total Wilayah (Row 22)
+  ws.setRowHeight(22, 24);
+  ws.getRange(22, 2).setValue("TOTAL WILAYAH").setHorizontalAlignment("left").setVerticalAlignment("middle");
+  ws.getRange(22, 3).setFormula("=SUM(C14:C21)").setNumberFormat("#,##0").setHorizontalAlignment("center").setVerticalAlignment("middle");
+  ws.getRange(22, 4).setFormula("=IF($B$5=0, 0, SUM(D14:D21))").setNumberFormat("0.0%").setHorizontalAlignment("center").setVerticalAlignment("middle");
+  ws.getRange(22, 2, 1, 3).setBackground(COLOR.TITLE_BG).setFontColor(COLOR.TITLE_FG).setFontFamily("Arial").setFontSize(9).setFontWeight("bold");
+
+  _applyBorder(ws.getRange(12, 2, 11, 3));
+
+  // ── TABEL 2: REKAP PIPELINE & STATUS FOLLOW UP (F12:H18) ─────
+  const pipelineHeader = ws.getRange(12, 6, 1, 3);
+  pipelineHeader.merge()
+    .setValue("👥 REKAP PIPELINE & STATUS FOLLOW UP")
+    .setBackground(COLOR.HEADER_BG)
+    .setFontColor("#FFFFFF")
+    .setFontFamily("Arial")
+    .setFontSize(10)
+    .setFontWeight("bold")
+    .setHorizontalAlignment("center")
+    .setVerticalAlignment("middle");
+
+  const pipelineSub = [["Status Follow Up", "Jumlah Lead", "Rasio (%)"]];
+  ws.getRange(13, 6, 1, 3)
+    .setValues(pipelineSub)
+    .setBackground(COLOR.TITLE_BG)
+    .setFontColor(COLOR.TITLE_FG)
+    .setFontFamily("Arial")
+    .setFontSize(9)
+    .setFontWeight("bold")
+    .setHorizontalAlignment("center")
+    .setVerticalAlignment("middle");
+
+  const pipelineData = [
+    { name: "Deal / Closing (Pasang)", formula: `=COUNTIF('${SHEET_NAME}'!$K$4:$K, "*Deal*") + COUNTIF('${SHEET_NAME}'!$K$4:$K, "*Pasang*") + COUNTIF('${SHEET_NAME}'!$K$4:$K, "*Closing*") + COUNTIF('${SHEET_NAME}'!$K$4:$K, "*Selesai*")`, bg: "#D1E7DD", fg: "#0F5132" },
+    { name: "Follow Up / Proses",      formula: `=COUNTIF('${SHEET_NAME}'!$K$4:$K, "*Follow Up*") + COUNTIF('${SHEET_NAME}'!$K$4:$K, "*Proses*") + COUNTIF('${SHEET_NAME}'!$K$4:$K, "*Menunggu*") + COUNTIF('${SHEET_NAME}'!$K$4:$K, "*Chat*")`, bg: "#FFF3CD", fg: "#664D03" },
+    { name: "Pending / Baru Masuk",    formula: `=COUNTIF('${SHEET_NAME}'!$K$4:$K, "*Pending*") + COUNTIF('${SHEET_NAME}'!$K$4:$K, "*Baru*") + COUNTIF('${SHEET_NAME}'!$K$4:$K, "*Belum Dihubungi*")`, bg: "#F8D7DA", fg: "#842029" },
+    { name: "Belum Diisi / Lainnya",   formula: `=MAX(0, $B$5 - SUM(G14:G16))`, bg: "#FFFFFF", fg: "#495057" },
+  ];
+
+  for (let i = 0; i < pipelineData.length; i++) {
+    const row = 14 + i;
+    ws.setRowHeight(row, 22);
+    ws.getRange(row, 6).setValue(pipelineData[i].name).setHorizontalAlignment("left").setVerticalAlignment("middle");
+    ws.getRange(row, 7).setFormula(pipelineData[i].formula).setNumberFormat("#,##0").setHorizontalAlignment("center").setVerticalAlignment("middle");
+    ws.getRange(row, 8).setFormula(`=IF($B$5=0, 0, G${row}/$B$5)`).setNumberFormat("0.0%").setHorizontalAlignment("center").setVerticalAlignment("middle");
+    ws.getRange(row, 6, 1, 3).setBackground(pipelineData[i].bg).setFontColor(pipelineData[i].fg).setFontFamily("Arial").setFontSize(9).setFontWeight("bold");
+  }
+
+  // Total Pipeline (Row 18)
+  ws.setRowHeight(18, 24);
+  ws.getRange(18, 6).setValue("TOTAL STATUS").setHorizontalAlignment("left").setVerticalAlignment("middle");
+  ws.getRange(18, 7).setFormula("=SUM(G14:G17)").setNumberFormat("#,##0").setHorizontalAlignment("center").setVerticalAlignment("middle");
+  ws.getRange(18, 8).setFormula("=IF($B$5=0, 0, SUM(H14:H17))").setNumberFormat("0.0%").setHorizontalAlignment("center").setVerticalAlignment("middle");
+  ws.getRange(18, 6, 1, 3).setBackground(COLOR.TITLE_BG).setFontColor(COLOR.TITLE_FG).setFontFamily("Arial").setFontSize(9).setFontWeight("bold");
+
+  _applyBorder(ws.getRange(12, 6, 7, 3));
+
+  // ── TABEL 3: REKAP STATUS COVERAGE JARINGAN (F20:H24) ────────
+  ws.setRowHeight(19, 10);
+  ws.setRowHeight(20, 28);
+  ws.setRowHeight(21, 24);
+
+  const covHeader = ws.getRange(20, 6, 1, 3);
+  covHeader.merge()
+    .setValue("📶 REKAP STATUS COVERAGE JARINGAN")
+    .setBackground(COLOR.HEADER_BG)
+    .setFontColor("#FFFFFF")
+    .setFontFamily("Arial")
+    .setFontSize(10)
+    .setFontWeight("bold")
+    .setHorizontalAlignment("center")
+    .setVerticalAlignment("middle");
+
+  const covSub = [["Kategori Coverage", "Jumlah Lead", "Rasio (%)"]];
+  ws.getRange(21, 6, 1, 3)
+    .setValues(covSub)
+    .setBackground(COLOR.TITLE_BG)
+    .setFontColor(COLOR.TITLE_FG)
+    .setFontFamily("Arial")
+    .setFontSize(9)
+    .setFontWeight("bold")
+    .setHorizontalAlignment("center")
+    .setVerticalAlignment("middle");
+
+  ws.setRowHeight(22, 22);
+  ws.getRange(22, 6).setValue("Tercover Fiber (Siap Pasang)").setHorizontalAlignment("left").setVerticalAlignment("middle");
+  ws.getRange(22, 7).setFormula("=$B$9").setNumberFormat("#,##0").setHorizontalAlignment("center").setVerticalAlignment("middle");
+  ws.getRange(22, 8).setFormula("=IF($B$5=0, 0, G22/$B$5)").setNumberFormat("0.0%").setHorizontalAlignment("center").setVerticalAlignment("middle");
+  ws.getRange(22, 6, 1, 3).setBackground(COLOR.ROW_ODD).setFontFamily("Arial").setFontSize(9);
+
+  ws.setRowHeight(23, 22);
+  ws.getRange(23, 6).setValue("Request Pasang Baru (>300m)").setHorizontalAlignment("left").setVerticalAlignment("middle");
+  ws.getRange(23, 7).setFormula("=$F$9").setNumberFormat("#,##0").setHorizontalAlignment("center").setVerticalAlignment("middle");
+  ws.getRange(23, 8).setFormula("=IF($B$5=0, 0, G23/$B$5)").setNumberFormat("0.0%").setHorizontalAlignment("center").setVerticalAlignment("middle");
+  ws.getRange(23, 6, 1, 3).setBackground(COLOR.ROW_EVEN).setFontFamily("Arial").setFontSize(9);
+
+  ws.setRowHeight(24, 24);
+  ws.getRange(24, 6).setValue("TOTAL COVERAGE").setHorizontalAlignment("left").setVerticalAlignment("middle");
+  ws.getRange(24, 7).setFormula("=SUM(G22:G23)").setNumberFormat("#,##0").setHorizontalAlignment("center").setVerticalAlignment("middle");
+  ws.getRange(24, 8).setFormula("=IF($B$5=0, 0, SUM(H22:H23))").setNumberFormat("0.0%").setHorizontalAlignment("center").setVerticalAlignment("middle");
+  ws.getRange(24, 6, 1, 3).setBackground(COLOR.TITLE_BG).setFontColor(COLOR.TITLE_FG).setFontFamily("Arial").setFontSize(9).setFontWeight("bold");
+
+  _applyBorder(ws.getRange(20, 6, 5, 3));
+
+  // ── FOOTER TIPS & OPERASIONAL SLA (Row 26) ───────────────────
+  ws.setRowHeight(25, 12);
+  ws.setRowHeight(26, 32);
+  const footerRange = ws.getRange(26, 2, 1, 7);
+  footerRange.merge()
+    .setValue("💡 Tips Tim Sales: Update Kolom 11 ('Status Follow Up') di sheet 'Database Lead'. Seluruh KPI scorecards, persentase closing rate, dan status pipeline di dashboard ini terupdate otomatis secara real-time.")
+    .setBackground("#EEF4FB")
+    .setFontColor(COLOR.HEADER_BG)
+    .setFontFamily("Arial")
+    .setFontSize(8.5)
+    .setFontStyle("italic")
+    .setHorizontalAlignment("center")
+    .setVerticalAlignment("middle");
+  _applyBorder(footerRange);
 }
 
 // ── HELPER: PREDIKSI ALAMAT GOOGLE MAPS (REVERSE GEOCODING) ───
@@ -451,7 +915,7 @@ function doPost(e) {
       hpId,
       "",   // Link Maps — diisi formula oleh _formatSingleRow
       data.halaman || "",
-      data.status || "",
+      data.status || "Baru",
     ]]);
 
     _formatSingleRow(ws, newRow);
@@ -470,8 +934,14 @@ function doPost(e) {
 
 // ── REFORMAT ULANG SEMUA BARIS (kalau ada perubahan masif) ────
 function reformatAll() {
-  const ws = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
-  _applyDataFormatting(ws);
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ws = ss.getSheetByName(SHEET_NAME);
+  if (ws) {
+    _applyDataFormatting(ws);
+    _applyConditionalFormatting(ws);
+    _applyStatusDataValidation(ws);
+  }
+  createOrUpdateDashboardSummary(ss);
   SpreadsheetApp.flush();
-  SpreadsheetApp.getUi().alert("✅ Semua baris sudah direformat!");
+  SpreadsheetApp.getUi().alert("✅ Semua baris & Dashboard Rekap sudah direformat!");
 }

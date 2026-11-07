@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
     // Hapus dead code dari framer-motion dan library animasi lain
     removeConsole: process.env.NODE_ENV === "production",
   },
+  // CATATAN ARSITEKTUR KEAMANAN & CACHING:
+  // Karena Next.js menggunakan output: 'export' (Static HTML Export), fungsi
+  // `headers()` di next.config.ts dilarang oleh Next.js (Error: Specified "headers" cannot be used with "output: export").
+  // Seluruh HTTP Security Headers (nosniff, SAMEORIGIN, strict-origin-when-cross-origin,
+  // Permissions-Policy, HSTS, CSP) serta Caching Headers statis (_next/static, fonts, images)
+  // dikonfigurasi secara tersentralisasi dan optimal di `vercel.json`.
 };
 
 // CATATAN: Next.js 16 + Turbopack selalu inject polyfill-nomodule.js (~14KB,

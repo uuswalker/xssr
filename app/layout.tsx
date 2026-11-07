@@ -40,6 +40,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#037e64",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -48,6 +50,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://connect.facebook.net" />
+        <link rel="webmcp" id="webmcp" href="/webmcp.json" />
+        <link rel="ard" href="/.well-known/ard.json" type="application/json" />
+        <link rel="ai-catalog" href="/.well-known/ai-catalog.json" type="application/json" />
         {!IS_STAGING && (
           <script
             dangerouslySetInnerHTML={{
@@ -81,9 +86,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           arsip
         </a>
         {children}
-        <link rel="webmcp" id="webmcp" href="/webmcp.json" />
-        <link rel="ard" href="/.well-known/ard.json" type="application/json" />
-        <link rel="ai-catalog" href="/.well-known/ai-catalog.json" type="application/json" />
         <script
           id="webmcp-registry"
           dangerouslySetInnerHTML={{
@@ -174,4 +176,3 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     </html>
   );
 }
-
