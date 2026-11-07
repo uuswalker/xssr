@@ -254,7 +254,7 @@ function _formatSingleRow(ws, r) {
 }
 
 // ── NOTIF WA: kirim ringkasan lead ke owner via Fonnte ─────────
-function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId) {
+function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId, jarakFiberM, coverage, homepassAddress, paket) {
   try {
     const d = new Date();
     const pad = (n) => (n < 10 ? "0" : "") + n;
@@ -262,9 +262,42 @@ function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId) {
       " " + pad(d.getHours()) + ":" + pad(d.getMinutes());
     const maps = (lat !== "" && lat != null && lng !== "" && lng != null)
       ? "https://maps.google.com/?q=" + lat + "," + lng : "-";
+    
+    let jarakText = "-";
+    if (jarakFiberM !== "" && jarakFiberM != null && !isNaN(Number(jarakFiberM))) {
+      jarakText = "±" + Math.round(Number(jarakFiberM)) + " meter";
+    } else if (jarakFiberM) {
+      jarakText = String(jarakFiberM);
+    }
+
+    let statusText = "CEK JARINGAN";
+    if (coverage) {
+      const cLower = String(coverage).toLowerCase();
+      if (cLower === "fiber") statusText = "TERCOVER FIBER (SIAP PASANG)";
+      else if (cLower === "mungkin") statusText = "KEMUNGKINAN TERCOVER (CEK JALUR)";
+      else if (cLower === "wireless") statusText = "TERCOVER WIRELESS (FWA)";
+      else if (cLower === "manual" || cLower === "request-pasang-baru") statusText = "REQUEST PASANG BARU (>300m / PERLU SURVEY)";
+      else statusText = String(coverage).toUpperCase();
+    }
+
     const hp = homepassId ? "\nHOMEPASS_ID: " + homepassId : "";
-    const pesan = "Lead baru xlhomesolo.com\nWaktu: " + waktu + "\nNama: " + nama + "\nWA: " + wa +
-      "\nAlamat: " + alamat + "\nKota: " + kota + hp + "\nMaps: " + maps + "\nHalaman: " + halaman;
+    const odp = homepassAddress ? "\nODP / Cluster: " + homepassAddress : "";
+    const pkt = paket ? "\nPaket: " + paket : "";
+
+    const pesan = "⚡ *LEAD BARU XL HOME*\n" +
+      "━━━━━━━━━━━━━━━━━━━\n" +
+      "📅 Waktu: " + waktu + "\n" +
+      "👤 Nama: " + nama + "\n" +
+      "📱 WA: " + wa + "\n" +
+      "📍 Alamat: " + alamat + "\n" +
+      "🏙️ Kota: " + kota + "\n" +
+      "📶 Status: " + statusText + "\n" +
+      "📏 Jarak ke ODP: " + jarakText +
+      odp + hp + pkt + "\n" +
+      "🗺️ Maps: " + maps + "\n" +
+      "📄 Halaman: " + halaman + "\n" +
+      "━━━━━━━━━━━━━━━━━━━";
+
     const res = UrlFetchApp.fetch("https://api.fonnte.com/send", {
       method: "post",
       headers: { Authorization: FONNTE_TOKEN },
@@ -338,6 +371,10 @@ function doPost(e) {
     const ws = ss.getSheetByName(SHEET_NAME);
     const kota = data.kotaTerdeteksi || data.kota || "";
     const hpId = data.homepassId || "";
+    const jarakFiber = (data.jarakFiberM !== "" && data.jarakFiberM != null) ? data.jarakFiberM : "";
+    const cov = data.coverage || "";
+    const hpAddr = data.homepassAddress || "";
+    const paket = data.paket || "";
 
     // DEDUP BY NOMOR HP: update baris terbaru milik nomor ini
     const lastRow = ws.getLastRow();
@@ -359,7 +396,7 @@ function doPost(e) {
           ws.getRange(row, 8).setValue(pilih(hpId, cur[7]));
           ws.getRange(row, 10).setValue(pilih(data.halaman, cur[9]));
           _formatSingleRow(ws, row);
-          if (_bolehNotif(wa)) kirimNotifWA(pilih(data.nama, cur[1]), wa, pilih(data.alamat, cur[5]), pilih(kota, cur[6]), pilih(data.halaman, cur[9]), pilih(data.latitude, cur[3]), pilih(data.longitude, cur[4]), pilih(hpId, cur[7]));
+          if (_bolehNotif(wa)) kirimNotifWA(pilih(data.nama, cur[1]), wa, pilih(data.alamat, cur[5]), pilih(kota, cur[6]), pilih(data.halaman, cur[9]), pilih(data.latitude, cur[3]), pilih(data.longitude, cur[4]), pilih(hpId, cur[7]), jarakFiber, cov, hpAddr, paket);
           return ContentService
             .createTextOutput(JSON.stringify({ status: "updated", row }))
             .setMimeType(ContentService.MimeType.JSON);
@@ -383,7 +420,7 @@ function doPost(e) {
     ]]);
 
     _formatSingleRow(ws, newRow);
-    if (_bolehNotif(wa)) kirimNotifWA(String(data.nama || "").trim(), wa, String(data.alamat || "").trim(), kota, data.halaman || "", data.latitude, data.longitude, hpId);
+    if (_bolehNotif(wa)) kirimNotifWA(String(data.nama || "").trim(), wa, String(data.alamat || "").trim(), kota, data.halaman || "", data.latitude, data.longitude, hpId, jarakFiber, cov, hpAddr, paket);
 
     return ContentService
       .createTextOutput(JSON.stringify({ status: "ok", row: newRow }))
