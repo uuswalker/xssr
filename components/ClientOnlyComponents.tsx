@@ -1,8 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const StickyMobileBar = dynamic(() => import("@/components/StickyMobileBar"), { ssr: false });
 const ConsentBanner = dynamic(() => import("@/components/ConsentBanner"), { ssr: false });
@@ -49,8 +47,6 @@ export default function ClientOnlyComponents() {
         <>
           <SmartPromoPopup />
           <LiveSocialProof />
-          <Analytics />
-          <SpeedInsights />
         </>
       )}
     </>

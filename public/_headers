@@ -1,0 +1,48 @@
+# Cloudflare Pages Security & Cache Headers
+
+# 1. AI Integration & Discovery
+/.well-known/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, OPTIONS
+
+/webmcp.json
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, OPTIONS
+
+/ai-catalog.json
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, OPTIONS
+
+# 2. Web App Manifest
+/site.webmanifest
+  X-Robots-Tag: noindex
+  Content-Type: application/manifest+json; charset=utf-8
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# 3. Next.js Static JS & CSS (Immutable)
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 4. Fonts
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# 5. Media Assets
+/images/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/videos/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+# 6. Global Security & HTML Cache Headers
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self)
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-DNS-Prefetch-Control: on
+  Cross-Origin-Opener-Policy: same-origin
+  Cache-Control: public, max-age=0, must-revalidate
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://unpkg.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com; font-src 'self' data: https://cdnjs.cloudflare.com; img-src 'self' data: https://*.tile.openstreetmap.org https://www.google-analytics.com https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://stats.g.doubleclick.net https://ad.doubleclick.net https://pagead2.googlesyndication.com https://www.googletagmanager.com https://www.facebook.com; connect-src 'self' https://coverage-api.oktaarrijal.workers.dev https://nominatim.openstreetmap.org https://www.google-analytics.com https://analytics.google.com https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://stats.g.doubleclick.net https://pagead2.googlesyndication.com https://script.google.com https://ipwho.is https://connect.facebook.net https://www.facebook.com; frame-src 'self' https://www.google.com
