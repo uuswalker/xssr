@@ -439,11 +439,10 @@ export async function cekCoverageWorkerAPI(
   lat: number,
   lng: number
 ): Promise<CoverageResult | null> {
-  // Multi-endpoint: 1. Same-origin proxy /api/coverage (fastest, zero-cors, adblock-immune)
-  // 2. Direct Cloudflare Worker fallback WORKER_COVERAGE_API
+  // Direct Cloudflare Worker first (Ultra-fast ~70ms edge lookup, CORS verified)
   const endpoints = [
-    typeof window !== "undefined" ? `/api/coverage?lat=${lat}&lng=${lng}` : null,
-    `${WORKER_COVERAGE_API}?lat=${lat}&lng=${lng}`
+    `${WORKER_COVERAGE_API}?lat=${lat}&lng=${lng}`,
+    typeof window !== "undefined" ? `/api/coverage?lat=${lat}&lng=${lng}` : null
   ].filter(Boolean) as string[];
 
   for (const url of endpoints) {

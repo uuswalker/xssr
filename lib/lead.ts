@@ -1,7 +1,7 @@
 // Pengiriman lead + pencarian alamat — port 1:1 cek-lokasi.js xssr@ec66035.
 // Dipakai client-side saja (fetch/browser APIs).
 
-import { SOLORAYA_VIEWBOX } from "./coverage";
+import { SOLORAYA_VIEWBOX, cleanAlamatResmi } from "./coverage";
 
 export const WEBHOOK_URL =
   process.env.NEXT_PUBLIC_LEAD_WEBHOOK ||
@@ -131,6 +131,89 @@ export interface SmartSuggestionItem {
   city?: string;
 }
 
+export interface D1SearchResult {
+  id: string;
+  cluster_name: string;
+  city: string;
+  odp_id: string;
+  lat: number;
+  lng: number;
+  status: string;
+  address?: string;
+}
+
+export function generateSearchVariants(rawQ: string): string[] {
+  const q = rawQ.trim().toLowerCase();
+  const variants: string[] = [];
+
+  // 1. Query utuh
+  variants.push(q);
+
+  // 2. Ekstrak pola ODP (misal FKS181, FRK053)
+  const odpMatch = q.match(/\b(f[a-z]{2}\s*\d+[a-z0-9]*)\b/i);
+  if (odpMatch) {
+    variants.push(odpMatch[1].replace(/\s+/g, ""));
+  }
+
+  // 3. Tokenisasi tanpa kata henti administratif umum
+  const noise = new Set([
+    "kab", "kabupaten", "kota", "kec", "kecamatan", "kel", "kelurahan",
+    "desa", "rt", "rw", "sukoharjo", "surakarta", "solo", "karanganyar",
+    "boyolali", "klaten", "indonesia", "jawa", "tengah", "jateng"
+  ]);
+
+  const tokens = q.split(/[\s,]+/).filter((w) => w.length > 0 && !noise.has(w));
+
+  if (tokens.length >= 2) {
+    // Kombinasi 3 kata & 2 kata utama (misal: "gang salak cemani", "salak cemani", "gang salak")
+    variants.push(tokens.slice(0, 3).join(" "));
+    variants.push(tokens.slice(0, 2).join(" "));
+
+    if (tokens.includes("gang") || tokens.includes("gg")) {
+      const nonGang = tokens.filter((w) => w !== "gang" && w !== "gg");
+      if (nonGang.length >= 2) {
+        variants.push(nonGang.slice(0, 2).join(" "));
+      }
+      if (nonGang.length > 0) {
+        variants.push(nonGang[0]);
+      }
+    }
+  } else if (tokens.length === 1) {
+    variants.push(tokens[0]);
+  }
+
+  // Deduplikasi varian tetap menjaga prioritas urutan
+  const seen = new Set<string>();
+  const result: string[] = [];
+  for (const v of variants) {
+    const cleanV = v.trim();
+    if (cleanV.length >= 2 && !seen.has(cleanV)) {
+      seen.add(cleanV);
+      result.push(cleanV);
+    }
+  }
+  return result;
+}
+
+function scoreD1Result(r: D1SearchResult, queryTokens: string[]): number {
+  const addr = (r.address || "").toLowerCase();
+  const cluster = (r.cluster_name || "").toLowerCase();
+  const city = (r.city || "").toLowerCase();
+  const odp = (r.odp_id || "").toLowerCase();
+  const full = `${addr} ${cluster} ${city} ${odp}`;
+
+  let score = 0;
+  for (const tok of queryTokens) {
+    if (full.includes(tok)) {
+      score += 10;
+      if (addr.includes(tok)) score += 8;
+      if (odp.includes(tok)) score += 15;
+      if (cluster.includes(tok)) score += 5;
+    }
+  }
+  return score;
+}
+
 export async function cariAlamatSmart(
   query: string,
   limit = 6
@@ -139,36 +222,52 @@ export async function cariAlamatSmart(
   if (q.length < 3) return [];
 
   const items: SmartSuggestionItem[] = [];
-  const seenClusters = new Set<string>();
+  const seenAddresses = new Set<string>();
+  const queryTokens = q.toLowerCase().split(/[\s,]+/).filter((w) => w.length >= 2);
 
   try {
-    const d1Promise = (async () => {
-      const endpoints = [
-        typeof window !== "undefined" ? `/api/search?q=${encodeURIComponent(q)}` : null,
-        `https://coverage-api.oktaarrijal.workers.dev/api/search?q=${encodeURIComponent(q)}`
-      ].filter(Boolean) as string[];
+    const d1Promise = (async (): Promise<D1SearchResult[]> => {
+      const variants = generateSearchVariants(q);
+      const collected: D1SearchResult[] = [];
+      const seenIds = new Set<string>();
 
-      for (const url of endpoints) {
-        try {
-          const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 5000);
-          const res = await fetch(url, { signal: controller.signal, headers: { "Accept": "application/json" } });
-          clearTimeout(timeoutId);
-          if (!res.ok) continue;
-          return (await res.json()) as { results?: Array<{
-            id: string;
-            cluster_name: string;
-            city: string;
-            odp_id: string;
-            lat: number;
-            lng: number;
-            status: string;
-          }> };
-        } catch {
-          // Fallback to next endpoint
+      for (const variant of variants) {
+        const endpoints = [
+          `https://coverage-api.oktaarrijal.workers.dev/api/search?q=${encodeURIComponent(variant)}`,
+          typeof window !== "undefined" ? `/api/search?q=${encodeURIComponent(variant)}` : null
+        ].filter(Boolean) as string[];
+
+        for (const url of endpoints) {
+          try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 4000);
+            const res = await fetch(url, {
+              signal: controller.signal,
+              headers: { Accept: "application/json" }
+            });
+            clearTimeout(timeoutId);
+            if (!res.ok) continue;
+
+            const json = (await res.json()) as { results?: D1SearchResult[] };
+            if (json && Array.isArray(json.results)) {
+              for (const item of json.results) {
+                if (item && item.id && !seenIds.has(item.id)) {
+                  seenIds.add(item.id);
+                  collected.push(item);
+                }
+              }
+            }
+            if (collected.length >= 25) break;
+          } catch {
+            // Next endpoint/variant
+          }
         }
+        if (collected.length >= 25) break;
       }
-      return null;
+
+      // Sortir hasil berdasarkan relevansi skor terhadap query pengguna
+      collected.sort((a, b) => scoreD1Result(b, queryTokens) - scoreD1Result(a, queryTokens));
+      return collected;
     })();
 
     const osmPromise = (async () => {
@@ -187,34 +286,40 @@ export async function cariAlamatSmart(
       }
     })();
 
-    const [d1Data, osmData] = await Promise.all([d1Promise, osmPromise]);
+    const [d1Results, osmData] = await Promise.all([d1Promise, osmPromise]);
 
-    // 1. Prioritas Cluster D1 (Pasti ada ODP / Fiber Ready)
-    if (d1Data && Array.isArray(d1Data.results)) {
-      for (const r of d1Data.results) {
-        if (!r.cluster_name) continue;
-        const key = `${r.cluster_name}|${r.city || ""}`.toUpperCase();
-        if (!seenClusters.has(key)) {
-          seenClusters.add(key);
-          const cityText = r.city ? r.city : "Area Fiber";
+    // 1. Prioritas Titik Resmi D1 (Alamat jalan presisi + ODP aktif + Fiber Ready)
+    if (Array.isArray(d1Results) && d1Results.length > 0) {
+      for (const r of d1Results) {
+        const cleanAddr = cleanAlamatResmi(r.address);
+        const itemTitle = cleanAddr || r.cluster_name;
+        if (!itemTitle) continue;
+
+        const dedupeKey = `${cleanAddr || r.cluster_name}|${r.city || ""}`.toUpperCase();
+        if (!seenAddresses.has(dedupeKey)) {
+          seenAddresses.add(dedupeKey);
+          const cityText = r.city ? r.city : "Solo Raya";
+          const odpPart = r.odp_id ? ` • ODP: ${r.odp_id}` : "";
+          const clusterPart = r.cluster_name ? `${r.cluster_name}` : "Area Fiber";
+
           items.push({
             lat: String(r.lat),
             lon: String(r.lng),
-            title: r.cluster_name,
-            subtitle: `${cityText} • Jaringan Fiber Tersedia`,
-            display_name: `${r.cluster_name}, ${cityText}`,
+            title: itemTitle,
+            subtitle: `${clusterPart}${odpPart} • Siap Pasang FTTH`,
+            display_name: `${itemTitle}, ${cityText}`,
             isFiberReady: true,
             odp: r.odp_id,
             cluster: r.cluster_name,
             city: r.city,
           });
         }
-        if (items.length >= 4) break;
+        if (items.length >= limit) break;
       }
     }
 
-    // 2. Fallback Nominatim (Untuk nama jalan, POI umum, kelurahan)
-    if (Array.isArray(osmData)) {
+    // 2. Fallback Nominatim jika kuota suggestions masih ada (POI/Jalan Umum)
+    if (Array.isArray(osmData) && items.length < limit) {
       for (const r of osmData) {
         const parts = r.display_name.split(",");
         const title = parts[0].trim();
