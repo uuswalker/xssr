@@ -224,44 +224,63 @@ export function cekCoverage(
   return { status: "manual", jarakM: m, zona: null, fiberM: null, homepassId: bestHpId, alamat: bestAddr };
 }
 
+export function formatAlamatDisekitarnya(rawAddress: string | null | undefined): string {
+  if (!rawAddress) return "";
+  const addr = rawAddress.trim();
+  if (!addr) return "";
+  // Hindari duplikasi jika sudah ada kata "disekitarnya"
+  if (/(\(|\[)?\s*atau disekitarnya\s*(\)|\])?/i.test(addr)) {
+    return addr;
+  }
+  return `${addr} (atau disekitarnya)`;
+}
+
 export const COV_TEXT: Record<CoverageStatus, [string, string, string]> = {
   fiber: ["#e6f7f3", "#026b55", "TERCOVER FIBER OPTIC (SIAP PASANG)"],
   mungkin: ["#fef3c7", "#92400e", "KEMUNGKINAN TERCOVER (BUTUH CEK JALUR)"],
   manual: ["#fff1f2", "#9f1239", "BELUM TERCOVER LANGSUNG"],
   wireless: ["#e0f2fe", "#075985", "TERCOVER WIRELESS (FWA)"],
-  loading: ["#f3f4f6", "#666666", "MENGECEK JARINGAN ODP..."],
+  loading: ["#f3f4f6", "#666666", "MENGECEK JARINGAN..."],
 };
 
-/** Teks detail verdict — persis tampilCoverage() xssr (HTML). */
+/** Teks detail verdict — ramah pelanggan tanpa istilah teknis ODP/FAT/Site ID */
 export function coverageDetail(cv: CoverageResult): string {
+  const alamatFormat = cv.alamat ? formatAlamatDisekitarnya(cv.alamat) : "area lokasimu";
   if (cv.status === "fiber") {
-    let s = `Titik ODP fiber terdekat ${cv.alamat ? `di ${cv.alamat} ` : ""}hanya sekitar ${cv.jarakM} meter dari lokasimu. Port siap pasang! `;
-    if (cv.zona) s += `Jaringan Wireless (Area Sukoharjo) juga tersedia di area ini. `;
+    let s = `Jaringan Fiber Optic XL Home tersedia di ${alamatFormat} (±${cv.jarakM || 0} meter dari lokasimu). Port jaringan siap dipasang! `;
+    if (cv.zona) s += `Jaringan Wireless juga tersedia di area ini. `;
     return s;
   } else if (cv.status === "mungkin") {
-    return `Titik ODP fiber terdekat ${cv.alamat ? `di ${cv.alamat} ` : ""}berjarak sekitar ${cv.jarakM} meter. Masih dalam jangkauan tarikan kabel, tim kami akan verifikasi jalur teknisi. `;
+    return `Jaringan Fiber Optic XL Home terdeteksi di ${alamatFormat} (±${cv.jarakM || 0} meter). Masih dalam jangkauan tarikan kabel, tim sales kami akan prioritaskan verifikasi jalur untukmu. `;
   } else if (cv.status === "manual") {
-    return `Jarak ke titik ODP fiber terdekat sekitar ${cv.jarakM != null ? `${cv.jarakM} meter` : "di luar jangkauan"}. Kamu bisa ajukan Request Pasang Baru agar tim kami jadwalkan pembukaan titik di lokasimu! `;
+    return `Jaringan kabel fiber terdekat berjarak ${cv.jarakM != null ? `±${cv.jarakM} meter` : "di luar jangkauan langsung"}. Kamu bisa ajukan Request Pasang Baru agar tim teknisi kami jadwalkan pembukaan tiang di lokasimu! `;
   } else if (cv.status === "wireless") {
     let s = cv.zona
-      ? `Masuk Area Sukoharjo — jaringan wireless tercover${
+      ? `Area Sukoharjo — tercover jaringan wireless XL Home${
           cv.jarakM != null ? ` (±${cv.jarakM} m)` : ""
-        }, aktif cepat. `
-      : "Area ini jalur wireless (tanpa kabel) — aktif cepat. ";
-    if (cv.fiberM) s += `Fiber terdekat ${cv.alamat ? `(${cv.alamat}) ` : ""}±${cv.fiberM} m — sales bisa cek opsi fiber dahulu. `;
+        }, aktivasi cepat. `
+      : "Area ini tercover jalur XL Home Wireless (tanpa kabel) — aktivasi cepat tanpa tunggu tiang fiber. ";
+    if (cv.fiberM) s += `Jaringan fiber terdekat ${cv.alamat ? `(${alamatFormat}) ` : ""}±${cv.fiberM} m. `;
     return s;
   }
-  return "Menghitung jarak ke titik fiber terdekat...";
+  return "Menghitung ketersediaan jaringan terdekat...";
 }
 
 /** Baris WA hasil coverage (untuk pesan lanjutKeWA). */
 export function coverageLine(cv: CoverageResult | null): string {
   if (!cv || !cv.status || cv.status === "loading") return "";
+  const label =
+    cv.status === "fiber"
+      ? "TERCOVER FIBER (Siap Pasang)"
+      : cv.status === "wireless"
+      ? "TERCOVER WIRELESS (FWA)"
+      : cv.status === "mungkin"
+      ? "KEMUNGKINAN TERCOVER"
+      : "REQUEST PASANG BARU";
   return (
-    "Hasil cek coverage: " +
-    cv.status.toUpperCase() +
-    (cv.zona ? " (Area Sukoharjo)" : "") +
-    (cv.jarakM != null ? " (sekitar " + cv.jarakM + " m)" : "") +
+    "Status Jaringan: " +
+    label +
+    (cv.jarakM != null ? " (±" + cv.jarakM + " m)" : "") +
     "\n"
   );
 }

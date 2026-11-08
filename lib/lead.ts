@@ -189,12 +189,11 @@ export async function cariAlamatSmart(
         if (!seenClusters.has(key)) {
           seenClusters.add(key);
           const cityText = r.city ? r.city : "Area Fiber";
-          const odpText = r.odp_id ? ` • ODP: ${r.odp_id}` : "";
           items.push({
             lat: String(r.lat),
             lon: String(r.lng),
             title: r.cluster_name,
-            subtitle: `${cityText}${odpText}`,
+            subtitle: `${cityText} • Jaringan Fiber Tersedia`,
             display_name: `${r.cluster_name}, ${cityText}`,
             isFiberReady: true,
             odp: r.odp_id,

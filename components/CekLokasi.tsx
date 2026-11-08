@@ -10,6 +10,7 @@ import {
   cekCoverageWorkerAPI,
   coverageDetail,
   coverageLine,
+  formatAlamatDisekitarnya,
   cekAreaBlacklist,
   deteksiKota,
   jarakFiberField,
@@ -215,23 +216,25 @@ export default function CekLokasi() {
           }
           setCoverage(finalCv);
           fireCoverageEvent(lat, lng, finalCv);
-          const curAlamat = q.alamat || alamatText;
-          const alamatDisplay = curAlamat ? curAlamat : `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+          const rawAlamat = finalCv.alamat || q.alamat || alamatText;
+          const alamatDisplay = rawAlamat ? formatAlamatDisekitarnya(rawAlamat) : `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+          q.alamat = alamatDisplay;
+          setQuery(alamatDisplay);
           if (finalCv.status === "fiber") {
             setStatusClass("cl-status success");
-            setStatusMsg(`✅ Tercover Fiber Optic XL Home (${finalCv.alamat || "Siap Pasang"})!`);
+            setStatusMsg(`✅ Tercover Fiber Optic XL Home (${alamatDisplay})!`);
             setLokasiInfo(
-              `Lokasi: ${alamatDisplay} (${finalCv.city || q.kota || hasil.nama})`
+              `Lokasi: ${alamatDisplay}`
             );
           } else {
             setStatusClass("cl-status");
             setStatusMsg(
               finalCv.jarakM != null
-                ? `📍 ODP terdekat di ${finalCv.alamat || finalCv.city} berjarak ±${finalCv.jarakM}m.`
+                ? `📍 Jaringan fiber di sekitar ${alamatDisplay} berjarak ±${finalCv.jarakM}m.`
                 : `📍 Lokasi tercatat. Sales kami akan konfirmasi ketersediaan tiang terdekat.`
             );
             setLokasiInfo(
-              `Lokasi: ${alamatDisplay} (${finalCv.city || q.kota || hasil.nama})`
+              `Lokasi: ${alamatDisplay}`
             );
           }
         }
@@ -255,13 +258,12 @@ export default function CekLokasi() {
       }
       later(() => {
         const q = posRef.current;
-        const kotaFinal = q.kota || hasil.nama || "";
-        const tagLuar = bl ? ` [LUAR JANGKAUAN - ${bl}]` : (!hasil.dalamArea && !kotaFinal ? " [LUAR WILAYAH]" : "");
+        const tagLuar = bl ? ` [LUAR JANGKAUAN - ${bl}]` : "";
         const curAlamat = q.alamat || alamatText;
-        const alamatDisplay = curAlamat ? curAlamat : `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+        const alamatDisplay = curAlamat ? formatAlamatDisekitarnya(curAlamat) : `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+        q.alamat = alamatDisplay;
         setLokasiInfo(
-          `Lokasi: ${alamatDisplay}` +
-            (kotaFinal && !alamatDisplay.toLowerCase().includes(kotaFinal.toLowerCase()) ? ` (${kotaFinal})` : "") + tagLuar
+          `Lokasi Terpilih: ${alamatDisplay}` + tagLuar
         );
         setStep("form");
       }, 900);
@@ -669,14 +671,11 @@ export default function CekLokasi() {
     }
     const covLine = coverageLine(coverage);
     const paketLine = paketPilihan ? `Paket: ${paketPilihan}\n` : "";
-    const odpLine = coverage?.alamat ? `ODP / Cluster: ${coverage.alamat}\n` : "";
-    const hpLine = coverage?.homepassId ? `Homepass ID: ${coverage.homepassId}\n` : "";
+    // Customer tidak perlu tahu Homepass ID atau Site ID / ODP (laporan teknis dikirim lengkap via Fonnte & Sheets)
     const pesan =
       `Halo kak, saya ${nm}, mau ${paketPilihan ? "daftar" : "cek ketersediaan"} XL Home.\n` +
       paketLine +
       (alamatKirim ? `Alamat: ${alamatKirim}\n` : "") +
-      odpLine +
-      hpLine +
       (mapsLink ? `Peta lokasi: ${mapsLink}\n` : "") +
       (kotaKirim ? `Area/Kota: ${kotaKirim}\n` : "") +
       covLine +
@@ -1032,9 +1031,10 @@ export default function CekLokasi() {
                             key={i}
                             className={`cl-suggestion-item ${s.isFiberReady ? "fiber-ready" : ""}`}
                             onClick={() => {
-                              setQuery(s.display_name);
+                              const formatted = formatAlamatDisekitarnya(s.display_name);
+                              setQuery(formatted);
                               setShowSugg(false);
-                              prosesLokasi(parseFloat(s.lat), parseFloat(s.lon), s.display_name);
+                              prosesLokasi(parseFloat(s.lat), parseFloat(s.lon), formatted);
                             }}
                           >
                             <div className="cl-sugg-icon">
