@@ -198,6 +198,13 @@ export default function CekLokasi() {
             setLokasiInfo(
               `Lokasi: ${prediksi}${kotaFinal && !prediksi.toLowerCase().includes(kotaFinal.toLowerCase()) ? ` (${kotaFinal})` : ""}`
             );
+            setCoverage((prev) => {
+              if (!prev) return prev;
+              if (!prev.alamat || prev.alamat.startsWith("Area Layanan") || prev.alamat.startsWith("Area ")) {
+                return { ...prev, alamat: prediksi };
+              }
+              return prev;
+            });
           }
         });
       }
@@ -1163,18 +1170,43 @@ export default function CekLokasi() {
                     style={{
                       display: "block",
                       borderRadius: 12,
-                      padding: "12px 14px",
+                      padding: "14px 16px",
                       fontSize: 14,
                       margin: "0 0 16px",
                       background: t[0],
                       color: t[1],
+                      whiteSpace: "pre-line",
+                      lineHeight: 1.6,
+                      boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
                     }}
                   >
-                    <strong>{t[2]}</strong>
-                    <br />
-                    <span style={{ fontSize: 13 }}>
-                      {coverageDetail(coverage)}
-                    </span>
+                    <strong style={{ display: "block", marginBottom: 8, fontSize: 14, letterSpacing: "-0.2px" }}>
+                      {t[2]}
+                    </strong>
+                    <div style={{ fontSize: 13, lineHeight: 1.6 }}>
+                      {coverageDetail(coverage)
+                        .split(/(wa\.me\/[^\s)]+)/g)
+                        .map((part, i) => {
+                          if (part.startsWith("wa.me/")) {
+                            return (
+                              <a
+                                key={i}
+                                href={`https://${part}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                  color: "inherit",
+                                  textDecoration: "underline",
+                                  fontWeight: 700,
+                                }}
+                              >
+                                {part}
+                              </a>
+                            );
+                          }
+                          return part;
+                        })}
+                    </div>
                   </div>
                 )}
                 <form 

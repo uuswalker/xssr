@@ -302,35 +302,80 @@ export function formatAlamatDisekitarnya(rawAddress: string | null | undefined):
 }
 
 export const COV_TEXT: Record<CoverageStatus, [string, string, string]> = {
-  fiber: ["#e6f7f3", "#026b55", "TERCOVER FIBER OPTIC (SIAP PASANG)"],
-  mungkin: ["#fef3c7", "#92400e", "KEMUNGKINAN TERCOVER (BUTUH CEK JALUR)"],
-  manual: ["#fff1f2", "#9f1239", "BELUM TERCOVER LANGSUNG"],
-  wireless: ["#e0f2fe", "#075985", "TERCOVER WIRELESS (FWA)"],
+  fiber: ["#e6f7f3", "#026b55", "TERCOVER FIBER OPTIC & WIRELESS (SIAP PASANG) ✅"],
+  mungkin: ["#fef3c7", "#92400e", "KEMUNGKINAN TERCOVER (BUTUH CEK JALUR) ⚠️"],
+  manual: ["#fff1f2", "#9f1239", "BELUM TERCOVER LANGSUNG 📝"],
+  wireless: ["#e0f2fe", "#075985", "TERCOVER WIRELESS (SIAP PASANG) ✅"],
   loading: ["#f3f4f6", "#666666", "MENGECEK JARINGAN..."],
 };
 
-/** Teks detail verdict — ramah pelanggan tanpa istilah teknis ODP/FAT/Site ID */
+/** Teks detail verdict — format resmi tercover fiber & wireless dengan ODP & jarak */
 export function coverageDetail(cv: CoverageResult): string {
-  const alamatFormat = cv.alamat ? formatAlamatDisekitarnya(cv.alamat) : "area lokasimu";
+  const rawAlamat = cv.alamat
+    ? cv.alamat.replace(/(\(|\[)?\s*atau disekitarnya\s*(\)|\])?/i, "").trim()
+    : "";
+  const alamatFormat = rawAlamat || "Area Lokasi Anda";
+  const waSalesLink = "wa.me/6287778999141";
+
   if (cv.status === "fiber") {
-    const jarakText = cv.jarakM != null ? ` (±${cv.jarakM} meter dari lokasimu)` : "";
-    let s = `Jaringan Fiber Optic XL Home tersedia di ${alamatFormat}${jarakText}. Port jaringan siap dipasang! `;
-    if (cv.zona) s += `Jaringan Wireless juga tersedia di area ini. `;
-    return s;
-  } else if (cv.status === "mungkin") {
-    const jarakText = cv.jarakM != null ? ` (±${cv.jarakM} meter)` : "";
-    return `Jaringan Fiber Optic XL Home terdeteksi di ${alamatFormat}${jarakText}. Masih dalam jangkauan tarikan kabel, tim sales kami akan prioritaskan verifikasi jalur untukmu. `;
-  } else if (cv.status === "manual") {
-    return `Jaringan kabel fiber terdekat berjarak ${cv.jarakM != null ? `±${cv.jarakM} meter` : "di luar jangkauan langsung"}. Kamu bisa ajukan Request Pasang Baru agar tim teknisi kami jadwalkan pembukaan tiang di lokasimu! `;
+    const odpText = cv.odp ? `${cv.odp} ` : "";
+    const jarakText =
+      cv.jarakM != null
+        ? `(± ${cv.jarakM} meter dari lokasi Anda)`
+        : "(± dekat dari lokasi Anda)";
+    const barisOdp =
+      cv.odp || cv.jarakM != null
+        ? `🌐 Titik ODP Terdekat: ${odpText}${jarakText}`
+        : `🌐 Titik ODP Terdekat: Port jaringan aktif & terverifikasi`;
+
+    return (
+      `Halo! Kabar gembira untuk area Anda. Jaringan XL Home Fiber Optic kini telah tersedia dan siap dipasang di lokasi terdekat:\n\n` +
+      `📍 Lokasi Acuan: ${alamatFormat} (Lokasi akurat bisa Whatsapp Sales ${waSalesLink})\n` +
+      `${barisOdp}\n` +
+      `🔌 Status: Port jaringan tersedia & siap langsung dipasang!\n\n` +
+      `Selain jalur kabel (Fiber Optic), jaringan Wireless (Nirkabel 4G + 5G) juga sudah aktif dan tersedia di area ini.\n\n` +
+      `Hubungi kami sekarang untuk registrasi dan pemasangan! 🚀`
+    );
   } else if (cv.status === "wireless") {
     const is5G = cv.zona && cv.zona.includes("5G");
-    let s = is5G
-      ? `Area lokasimu tercover sinyal XL Ultra 5G+ Wireless (FWA)! Internet rumah tanpa kabel siap pasang hari ini tanpa tunggu tiang fiber. `
-      : `Area lokasimu tercover jaringan XL Home Wireless (FWA)! Internet rumah tanpa kabel siap pasang hari ini tanpa tunggu tiang fiber. `;
-    if (cv.fiberM) {
-      s += `(Kabel fiber optik terdekat berjarak ±${cv.fiberM}m). `;
-    }
-    return s;
+    const labelSinyal = is5G ? "XL Ultra 5G+ Wireless (FWA)" : "XL Home Wireless 4G/5G (FWA)";
+    const barisFiber =
+      cv.fiberM != null || cv.jarakM != null
+        ? `🌐 Kabel Fiber Terdekat: ± ${cv.fiberM ?? cv.jarakM} meter dari lokasi Anda\n`
+        : "";
+
+    return (
+      `Halo! Kabar gembira untuk area Anda. Jaringan ${labelSinyal} kini telah aktif dan siap dipasang:\n\n` +
+      `📍 Lokasi Acuan: ${alamatFormat} (Lokasi akurat bisa Whatsapp Sales ${waSalesLink})\n` +
+      `📶 Sinyal: Wireless High-Speed Siap Pakai\n` +
+      `🔌 Status: Modem Plug & Play langsung aktif tanpa perlu tarik kabel!\n` +
+      `${barisFiber}\n` +
+      `Hubungi kami sekarang untuk registrasi dan pemasangan cepat! 🚀`
+    );
+  } else if (cv.status === "mungkin") {
+    const jarakText =
+      cv.jarakM != null
+        ? `(± ${cv.jarakM} meter dari lokasi Anda)`
+        : "(dalam radius tarikan kabel)";
+
+    return (
+      `Halo! Jaringan XL Home Fiber Optic terdeteksi di sekitar area Anda:\n\n` +
+      `📍 Lokasi Acuan: ${alamatFormat} (Lokasi akurat bisa Whatsapp Sales ${waSalesLink})\n` +
+      `🌐 Estimasi Tarikan Kabel: ${jarakText}\n` +
+      `🔌 Status: Masih dalam jangkauan tarikan kabel, butuh verifikasi rute oleh teknisi.\n\n` +
+      `Selain itu, jaringan Wireless (Nirkabel 4G + 5G) juga tersedia sebagai alternatif cepat.\n\n` +
+      `Hubungi kami sekarang agar tim kami verifikasi jalur ke rumah Anda! 🚀`
+    );
+  } else if (cv.status === "manual") {
+    const jarakText =
+      cv.jarakM != null ? `± ${cv.jarakM} meter` : "di luar jangkauan langsung";
+
+    return (
+      `Halo! Jaringan kabel fiber terdekat berjarak ${jarakText} dari lokasi Anda:\n\n` +
+      `📍 Lokasi Acuan: ${alamatFormat} (Lokasi akurat bisa Whatsapp Sales ${waSalesLink})\n` +
+      `🔌 Status: Belum tercover kabel langsung (Bisa Request Pasang Baru).\n\n` +
+      `Kamu bisa isi formulir di bawah ini agar tim teknisi XL Home menjadwalkan pembukaan tiang / jalur baru ke lokasimu! 🚀`
+    );
   }
   return "Menghitung ketersediaan jaringan terdekat...";
 }
@@ -340,18 +385,15 @@ export function coverageLine(cv: CoverageResult | null): string {
   if (!cv || !cv.status || cv.status === "loading") return "";
   const label =
     cv.status === "fiber"
-      ? "TERCOVER FIBER (Siap Pasang)"
+      ? "TERCOVER FIBER & WIRELESS (Siap Pasang)"
       : cv.status === "wireless"
       ? "TERCOVER WIRELESS (FWA)"
       : cv.status === "mungkin"
       ? "KEMUNGKINAN TERCOVER"
       : "REQUEST PASANG BARU";
-  return (
-    "Status Jaringan: " +
-    label +
-    (cv.jarakM != null ? " (±" + cv.jarakM + " m)" : "") +
-    "\n"
-  );
+  const odpInfo = cv.odp ? ` [ODP: ${cv.odp}]` : "";
+  const jarakInfo = cv.jarakM != null ? ` (±${cv.jarakM}m)` : "";
+  return `Status Jaringan: ${label}${odpInfo}${jarakInfo}\n`;
 }
 
 /** Kolom jarakFiberM payload sheet (logika v6.3 xssr). */
@@ -408,13 +450,12 @@ export async function cekCoverageWorkerAPI(
 
         if (data && (data.distance !== null || data.wirelessCovered || data.covered)) {
           const clusterText = data.cluster || (data.city ? `Area ${data.city}` : "Area Layanan");
-          const odpText = data.odp ? `ODP: ${data.odp}` : "";
-          const cityText = data.city || "Area Layanan";
+          const cityText = data.city || "";
           const alamatLengkap = data.address && data.address.trim()
             ? data.address.trim()
-            : odpText
-            ? `${clusterText} (${odpText}, ${cityText})`
-            : `${clusterText}`;
+            : clusterText && cityText && !clusterText.toLowerCase().includes(cityText.toLowerCase())
+            ? `${clusterText}, ${cityText}`
+            : clusterText;
 
           if (data.covered) {
             return {
