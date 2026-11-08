@@ -143,27 +143,32 @@ export async function cariAlamatSmart(
 
   try {
     const d1Promise = (async () => {
-      try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 2000);
-        const res = await fetch(
-          `https://coverage-api.oktaarrijal.workers.dev/api/search?q=${encodeURIComponent(q)}`,
-          { signal: controller.signal }
-        );
-        clearTimeout(timeoutId);
-        if (!res.ok) return null;
-        return (await res.json()) as { results?: Array<{
-          id: string;
-          cluster_name: string;
-          city: string;
-          odp_id: string;
-          lat: number;
-          lng: number;
-          status: string;
-        }> };
-      } catch {
-        return null;
+      const endpoints = [
+        typeof window !== "undefined" ? `/api/search?q=${encodeURIComponent(q)}` : null,
+        `https://coverage-api.oktaarrijal.workers.dev/api/search?q=${encodeURIComponent(q)}`
+      ].filter(Boolean) as string[];
+
+      for (const url of endpoints) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 5000);
+          const res = await fetch(url, { signal: controller.signal, headers: { "Accept": "application/json" } });
+          clearTimeout(timeoutId);
+          if (!res.ok) continue;
+          return (await res.json()) as { results?: Array<{
+            id: string;
+            cluster_name: string;
+            city: string;
+            odp_id: string;
+            lat: number;
+            lng: number;
+            status: string;
+          }> };
+        } catch {
+          // Fallback to next endpoint
+        }
       }
+      return null;
     })();
 
     const osmPromise = (async () => {

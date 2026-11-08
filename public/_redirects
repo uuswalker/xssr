@@ -1,3 +1,9 @@
+# Cloudflare Pages API Proxies (Zero-CORS, Fast Edge Multiplexing, Adblock-Resistant)
+/api/coverage https://coverage-api.oktaarrijal.workers.dev/api/coverage 200
+/api/search https://coverage-api.oktaarrijal.workers.dev/api/search 200
+/api/coverage/* https://coverage-api.oktaarrijal.workers.dev/api/coverage/:splat 200
+/api/search/* https://coverage-api.oktaarrijal.workers.dev/api/search/:splat 200
+
 # Cloudflare Pages 301 Redirect Rules
 
 /xl-satu-resmi-jadi-xl-home /perubahan-resmi-xl-home/ 301

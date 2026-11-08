@@ -248,11 +248,13 @@ export const COV_TEXT: Record<CoverageStatus, [string, string, string]> = {
 export function coverageDetail(cv: CoverageResult): string {
   const alamatFormat = cv.alamat ? formatAlamatDisekitarnya(cv.alamat) : "area lokasimu";
   if (cv.status === "fiber") {
-    let s = `Jaringan Fiber Optic XL Home tersedia di ${alamatFormat} (±${cv.jarakM || 0} meter dari lokasimu). Port jaringan siap dipasang! `;
+    const jarakText = cv.jarakM != null ? ` (±${cv.jarakM} meter dari lokasimu)` : "";
+    let s = `Jaringan Fiber Optic XL Home tersedia di ${alamatFormat}${jarakText}. Port jaringan siap dipasang! `;
     if (cv.zona) s += `Jaringan Wireless juga tersedia di area ini. `;
     return s;
   } else if (cv.status === "mungkin") {
-    return `Jaringan Fiber Optic XL Home terdeteksi di ${alamatFormat} (±${cv.jarakM || 0} meter). Masih dalam jangkauan tarikan kabel, tim sales kami akan prioritaskan verifikasi jalur untukmu. `;
+    const jarakText = cv.jarakM != null ? ` (±${cv.jarakM} meter)` : "";
+    return `Jaringan Fiber Optic XL Home terdeteksi di ${alamatFormat}${jarakText}. Masih dalam jangkauan tarikan kabel, tim sales kami akan prioritaskan verifikasi jalur untukmu. `;
   } else if (cv.status === "manual") {
     return `Jaringan kabel fiber terdekat berjarak ${cv.jarakM != null ? `±${cv.jarakM} meter` : "di luar jangkauan langsung"}. Kamu bisa ajukan Request Pasang Baru agar tim teknisi kami jadwalkan pembukaan tiang di lokasimu! `;
   } else if (cv.status === "wireless") {
@@ -318,68 +320,78 @@ export async function cekCoverageWorkerAPI(
   lat: number,
   lng: number
 ): Promise<CoverageResult | null> {
-  try {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 3500);
-    const res = await fetch(`${WORKER_COVERAGE_API}?lat=${lat}&lng=${lng}`, {
-      signal: controller.signal,
-    });
-    clearTimeout(timeoutId);
+  // Multi-endpoint: 1. Same-origin proxy /api/coverage (fastest, zero-cors, adblock-immune)
+  // 2. Direct Cloudflare Worker fallback WORKER_COVERAGE_API
+  const endpoints = [
+    typeof window !== "undefined" ? `/api/coverage?lat=${lat}&lng=${lng}` : null,
+    `${WORKER_COVERAGE_API}?lat=${lat}&lng=${lng}`
+  ].filter(Boolean) as string[];
 
-    if (!res.ok) return null;
-    const data: WorkerCoverageResponse = await res.json();
+  for (const url of endpoints) {
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 7500); // 7.5s toleransi jaringan seluler
+        const res = await fetch(url, {
+          signal: controller.signal,
+          headers: { "Accept": "application/json" }
+        });
+        clearTimeout(timeoutId);
 
-    if (data && (data.distance !== null || data.wirelessCovered)) {
-      const clusterText = data.cluster || (data.city ? `Area ${data.city}` : "Area Layanan");
-      const odpText = data.odp ? `ODP: ${data.odp}` : "";
-      const cityText = data.city || "Area Layanan";
-      // Prioritaskan alamat fisik resmi OWS jika tersedia dari database
-      const alamatLengkap = data.address && data.address.trim()
-        ? data.address.trim()
-        : odpText
-        ? `${clusterText} (${odpText}, ${cityText})`
-        : `${clusterText}`;
+        if (!res.ok) continue;
+        const data: WorkerCoverageResponse = await res.json();
 
-      if (data.covered) {
-        return {
-          status: "fiber",
-          jarakM: data.distance,
-          zona: data.wirelessType || "5G Ultra",
-          fiberM: null,
-          homepassId: data.homepassId,
-          alamat: alamatLengkap,
-          city: data.city,
-          odp: data.odp || null,
-        };
-      } else if (data.wirelessCovered) {
-        // Jarak > 300m tapi tercover Wireless FWA (5G / 4G)
-        const is5G = data.type === "WIRELESS_5G" || (data.wirelessType && data.wirelessType.includes("5G"));
-        return {
-          status: "wireless",
-          jarakM: data.distance,
-          zona: is5G ? "5G Ultra" : "4G LTE",
-          fiberM: data.distance,
-          homepassId: data.homepassId,
-          alamat: alamatLengkap,
-          city: data.city,
-          odp: data.odp || null,
-        };
-      } else {
-        return {
-          status: "manual",
-          jarakM: data.distance,
-          zona: null,
-          fiberM: null,
-          homepassId: data.homepassId,
-          alamat: alamatLengkap,
-          city: data.city,
-          odp: data.odp || null,
-        };
+        if (data && (data.distance !== null || data.wirelessCovered || data.covered)) {
+          const clusterText = data.cluster || (data.city ? `Area ${data.city}` : "Area Layanan");
+          const odpText = data.odp ? `ODP: ${data.odp}` : "";
+          const cityText = data.city || "Area Layanan";
+          const alamatLengkap = data.address && data.address.trim()
+            ? data.address.trim()
+            : odpText
+            ? `${clusterText} (${odpText}, ${cityText})`
+            : `${clusterText}`;
+
+          if (data.covered) {
+            return {
+              status: "fiber",
+              jarakM: data.distance,
+              zona: data.wirelessType || "5G Ultra",
+              fiberM: null,
+              homepassId: data.homepassId,
+              alamat: alamatLengkap,
+              city: data.city,
+              odp: data.odp || null,
+            };
+          } else if (data.wirelessCovered) {
+            const is5G = data.type === "WIRELESS_5G" || (data.wirelessType && data.wirelessType.includes("5G"));
+            return {
+              status: "wireless",
+              jarakM: data.distance,
+              zona: is5G ? "5G Ultra" : "4G LTE",
+              fiberM: data.distance,
+              homepassId: data.homepassId,
+              alamat: alamatLengkap,
+              city: data.city,
+              odp: data.odp || null,
+            };
+          } else {
+            return {
+              status: "manual",
+              jarakM: data.distance,
+              zona: null,
+              fiberM: null,
+              homepassId: data.homepassId,
+              alamat: alamatLengkap,
+              city: data.city,
+              odp: data.odp || null,
+            };
+          }
+        }
+      } catch {
+        // Fallback or retry
       }
     }
-    return null;
-  } catch {
-    return null;
   }
+  return null;
 }
 
