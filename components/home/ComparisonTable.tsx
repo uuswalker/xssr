@@ -61,7 +61,7 @@ export default function ComparisonTable() {
             display: "inline-block", 
             padding: "6px 16px", 
             background: "#e0f2fe", 
-            color: "#0284c7", 
+            color: "#075985", 
             fontSize: 13, 
             fontWeight: 700, 
             borderRadius: 999, 
@@ -101,9 +101,9 @@ export default function ComparisonTable() {
                 }}>
                   XL HOME SOLO 🚀
                 </th>
-                <th style={{ padding: "18px 18px", color: "#64748b", fontWeight: 600, fontSize: 13 }}>Provider "I"</th>
-                <th style={{ padding: "18px 18px", color: "#64748b", fontWeight: 600, fontSize: 13 }}>Provider "B"</th>
-                <th style={{ padding: "18px 18px", color: "#64748b", fontWeight: 600, fontSize: 13 }}>Provider "M"</th>
+                <th style={{ padding: "18px 18px", color: "#334155", fontWeight: 600, fontSize: 13 }}>Provider "I"</th>
+                <th style={{ padding: "18px 18px", color: "#334155", fontWeight: 600, fontSize: 13 }}>Provider "B"</th>
+                <th style={{ padding: "18px 18px", color: "#334155", fontWeight: 600, fontSize: 13 }}>Provider "M"</th>
               </tr>
             </thead>
             <tbody>
@@ -118,13 +118,13 @@ export default function ComparisonTable() {
                       <span>{row.xl}</span>
                     </div>
                   </td>
-                  <td style={{ padding: "16px 18px", color: "#64748b", fontSize: 13, lineHeight: 1.4 }}>
+                  <td style={{ padding: "16px 18px", color: "#334155", fontSize: 13, lineHeight: 1.4 }}>
                     {row.i}
                   </td>
-                  <td style={{ padding: "16px 18px", color: "#64748b", fontSize: 13, lineHeight: 1.4 }}>
+                  <td style={{ padding: "16px 18px", color: "#334155", fontSize: 13, lineHeight: 1.4 }}>
                     {row.b}
                   </td>
-                  <td style={{ padding: "16px 18px", color: "#64748b", fontSize: 13, lineHeight: 1.4 }}>
+                  <td style={{ padding: "16px 18px", color: "#334155", fontSize: 13, lineHeight: 1.4 }}>
                     {row.m}
                   </td>
                 </tr>
