@@ -256,12 +256,13 @@ export function coverageDetail(cv: CoverageResult): string {
   } else if (cv.status === "manual") {
     return `Jaringan kabel fiber terdekat berjarak ${cv.jarakM != null ? `±${cv.jarakM} meter` : "di luar jangkauan langsung"}. Kamu bisa ajukan Request Pasang Baru agar tim teknisi kami jadwalkan pembukaan tiang di lokasimu! `;
   } else if (cv.status === "wireless") {
-    let s = cv.zona
-      ? `Area Sukoharjo — tercover jaringan wireless XL Home${
-          cv.jarakM != null ? ` (±${cv.jarakM} m)` : ""
-        }, aktivasi cepat. `
-      : "Area ini tercover jalur XL Home Wireless (tanpa kabel) — aktivasi cepat tanpa tunggu tiang fiber. ";
-    if (cv.fiberM) s += `Jaringan fiber terdekat ${cv.alamat ? `(${alamatFormat}) ` : ""}±${cv.fiberM} m. `;
+    const is5G = cv.zona && cv.zona.includes("5G");
+    let s = is5G
+      ? `Area lokasimu tercover sinyal XL Ultra 5G+ Wireless (FWA)! Internet rumah tanpa kabel siap pasang hari ini tanpa tunggu tiang fiber. `
+      : `Area lokasimu tercover jaringan XL Home Wireless (FWA)! Internet rumah tanpa kabel siap pasang hari ini tanpa tunggu tiang fiber. `;
+    if (cv.fiberM) {
+      s += `(Kabel fiber optik terdekat berjarak ±${cv.fiberM}m). `;
+    }
     return s;
   }
   return "Menghitung ketersediaan jaringan terdekat...";
@@ -297,7 +298,9 @@ export const WORKER_COVERAGE_API = "https://coverage-api.oktaarrijal.workers.dev
 
 export interface WorkerCoverageResponse {
   covered: boolean;
-  type: "FIBER_FTTH" | "WIRELESS_FALLBACK";
+  type: "FIBER_FTTH" | "WIRELESS_5G" | "WIRELESS_4G" | "WIRELESS_FALLBACK";
+  wirelessCovered?: boolean;
+  wirelessType?: string | null;
   distance: number | null;
   maxDistance: number;
   homepassId: string | null;
@@ -326,8 +329,8 @@ export async function cekCoverageWorkerAPI(
     if (!res.ok) return null;
     const data: WorkerCoverageResponse = await res.json();
 
-    if (data && data.distance !== null) {
-      const clusterText = data.cluster || "Cluster FTTH";
+    if (data && (data.distance !== null || data.wirelessCovered)) {
+      const clusterText = data.cluster || (data.city ? `Area ${data.city}` : "Area Layanan");
       const odpText = data.odp ? `ODP: ${data.odp}` : "";
       const cityText = data.city || "Area Layanan";
       // Prioritaskan alamat fisik resmi OWS jika tersedia dari database
@@ -335,21 +338,33 @@ export async function cekCoverageWorkerAPI(
         ? data.address.trim()
         : odpText
         ? `${clusterText} (${odpText}, ${cityText})`
-        : `${clusterText} (${cityText})`;
+        : `${clusterText}`;
 
       if (data.covered) {
         return {
           status: "fiber",
           jarakM: data.distance,
-          zona: null,
+          zona: data.wirelessType || "5G Ultra",
           fiberM: null,
           homepassId: data.homepassId,
           alamat: alamatLengkap,
           city: data.city,
           odp: data.odp || null,
         };
+      } else if (data.wirelessCovered) {
+        // Jarak > 300m tapi tercover Wireless FWA (5G / 4G)
+        const is5G = data.type === "WIRELESS_5G" || (data.wirelessType && data.wirelessType.includes("5G"));
+        return {
+          status: "wireless",
+          jarakM: data.distance,
+          zona: is5G ? "5G Ultra" : "4G LTE",
+          fiberM: data.distance,
+          homepassId: data.homepassId,
+          alamat: alamatLengkap,
+          city: data.city,
+          odp: data.odp || null,
+        };
       } else {
-        // Jarak > 300m (SOP): Request Pasang Baru / Wireless Fallback dengan ODP lokal presisi (bukan lompat ke Solo Raya)
         return {
           status: "manual",
           jarakM: data.distance,

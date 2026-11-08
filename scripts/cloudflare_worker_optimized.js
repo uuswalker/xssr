@@ -144,6 +144,41 @@ function isSoloRaya(lat, lng) {
   return lat >= -8.20 && lat <= -7.25 && lng >= 110.55 && lng <= 111.35;
 }
 
+/**
+ * Daftar Kota / Area Resmi Blanket Coverage 5G XL Axiata (Per 2026)
+ */
+const XL_5G_CITIES = [
+  "SURAKARTA", "SOLO", "BOYOLALI", "KARANGANYAR", "SUKOHARJO", "KLATEN",
+  "SEMARANG", "KOTA SEMARANG", "SALATIGA", "DEMAK", "KUDUS", "GROBOGAN", "JEPARA", "BLORA", "PATI",
+  "YOGYAKARTA", "KOTA YOGYAKARTA", "SLEMAN", "BANTUL",
+  "SURABAYA", "KOTA SURABAYA", "SIDOARJO", "GRESIK", "TUBAN",
+  "JAKARTA", "JAKARTA PUSAT", "JAKARTA SELATAN", "JAKARTA BARAT", "JAKARTA TIMUR", "JAKARTA UTARA",
+  "DEPOK", "TANGERANG SELATAN", "TANGERANG", "BEKASI", "BOGOR", "BANDUNG",
+  "MEDAN", "BINJAI", "DELI SERDANG", "DENPASAR", "BADUNG", "MAKASSAR", "BANJARMASIN", "BALIKPAPAN"
+];
+
+function isXL5GCoverage(lat, lng, city) {
+  if (city) {
+    const cUpper = String(city).toUpperCase();
+    for (const c of XL_5G_CITIES) {
+      if (cUpper.includes(c)) return true;
+    }
+  }
+  // Bounding box Solo Raya (Surakarta, Sukoharjo, Karanganyar, Boyolali, Klaten) -> 100% 5G Blanket
+  if (lat >= -8.00 && lat <= -7.25 && lng >= 110.55 && lng <= 111.15) return true;
+  // Bounding box DKI Jakarta & Sekitarnya
+  if (lat >= -6.38 && lat <= -6.08 && lng >= 106.68 && lng <= 106.98) return true;
+  // Bounding box Surabaya Raya (Surabaya, Sidoarjo, Gresik)
+  if (lat >= -7.48 && lat <= -7.15 && lng >= 112.60 && lng <= 112.85) return true;
+  // Bounding box Semarang & Salatiga
+  if (lat >= -7.35 && lat <= -6.95 && lng >= 110.30 && lng <= 110.55) return true;
+  // Bounding box Yogyakarta & Sleman
+  if (lat >= -7.90 && lat <= -7.65 && lng >= 110.30 && lng <= 110.50) return true;
+
+  return false;
+}
+
+
 async function queryCandidates(db, lat, lng, delta) {
   if (!db) return [];
   const minLat = lat - delta;
@@ -527,10 +562,14 @@ export default {
         // FTTH standard drop cable SOP radius: 300 meters max from FAT box
         const FTTH_MAX_DISTANCE = 300;
         const isCovered = minDistance <= FTTH_MAX_DISTANCE;
+        const candidateCity = bestCandidate ? bestCandidate.city : null;
+        const is5G = isXL5GCoverage(lat, lng, candidateCity);
 
         const responsePayload = {
           covered: isCovered,
-          type: isCovered ? "FIBER_FTTH" : "WIRELESS_FALLBACK",
+          type: isCovered ? "FIBER_FTTH" : (is5G ? "WIRELESS_5G" : "WIRELESS_4G"),
+          wirelessCovered: true,
+          wirelessType: is5G ? "XL Ultra 5G+ (FWA)" : "XL Home Wireless 4G",
           distance: minDistance === Infinity ? null : Math.round(minDistance),
           maxDistance: FTTH_MAX_DISTANCE,
           homepassId: bestCandidate ? bestCandidate.id : null,
@@ -542,7 +581,7 @@ export default {
           lookupLatencyMs: Number((t1 - t0).toFixed(2)),
           candidateCount: candidates.length,
           databaseServed: activeDbName,
-          source: isCovered ? "CLOUDFLARE_D1_FTTH_OFFICIAL" : "WIRELESS_UNLIMITED_PARTNER"
+          source: isCovered ? "CLOUDFLARE_D1_FTTH_OFFICIAL" : (is5G ? "XL_5G_ULTRA_BLANKET" : "XL_4G_NATIONAL_NETWORK")
         };
 
         // Cache coordinates result

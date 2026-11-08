@@ -72,8 +72,17 @@ export default function CekLokasi() {
   const [providerSaatIni, setProviderSaatIni] = useState("Belum ada internet kabel / Kuota HP");
 
   useEffect(() => {
-    if (coverage && coverage.status === "wireless" && paketPilihan && !paketPilihan.toLowerCase().includes("monthly") && !paketPilihan.toLowerCase().includes("advance") && !paketPilihan.toLowerCase().includes("wireless")) {
-      setPaketPilihan("");
+    if (coverage && coverage.status === "wireless") {
+      if (
+        !paketPilihan ||
+        (!paketPilihan.toLowerCase().includes("monthly") &&
+          !paketPilihan.toLowerCase().includes("advance") &&
+          !paketPilihan.toLowerCase().includes("wireless") &&
+          !paketPilihan.toLowerCase().includes("request") &&
+          !paketPilihan.toLowerCase().includes("kabel"))
+      ) {
+        setPaketPilihan("Saya minat XL Home Wireless Monthly 100 Mbps Rp219.500");
+      }
     }
   }, [coverage, paketPilihan]);
 
@@ -225,9 +234,16 @@ export default function CekLokasi() {
           if (finalCv.status === "fiber") {
             setStatusClass("cl-status success");
             setStatusMsg(`✅ Tercover Fiber Optic XL Home (${alamatDisplay})!`);
-            setLokasiInfo(
-              `Lokasi: ${alamatDisplay}`
+            setLokasiInfo(`Lokasi: ${alamatDisplay}`);
+          } else if (finalCv.status === "wireless") {
+            const is5G = finalCv.zona && finalCv.zona.includes("5G");
+            setStatusClass("cl-status success");
+            setStatusMsg(
+              is5G
+                ? `📶 Tercover XL Ultra 5G+ Wireless (FWA)! Siap pasang hari ini (${alamatDisplay}).`
+                : `📶 Tercover XL Home Wireless (FWA)! Siap pasang hari ini (${alamatDisplay}).`
             );
+            setLokasiInfo(`Lokasi: ${alamatDisplay}`);
           } else {
             setStatusClass("cl-status");
             setStatusMsg(
@@ -235,9 +251,7 @@ export default function CekLokasi() {
                 ? `📍 Jaringan fiber di sekitar ${alamatDisplay} berjarak ±${finalCv.jarakM}m.`
                 : `📍 Lokasi tercatat. Sales kami akan konfirmasi ketersediaan tiang terdekat.`
             );
-            setLokasiInfo(
-              `Lokasi: ${alamatDisplay}`
-            );
+            setLokasiInfo(`Lokasi: ${alamatDisplay}`);
           }
         }
       });
@@ -1245,6 +1259,9 @@ export default function CekLokasi() {
                     <option value="Saya minat XL Home Wireless Monthly 100 Mbps Rp219.500">Wireless Monthly 100 Mbps (Rp219.500)</option>
                     <option value="Saya minat XL Home Wireless 50 Mbps Advance Rp650.000">Wireless Advance 50 Mbps (Rp650.000)</option>
                     <option value="Saya minat XL Home Wireless 100 Mbps Advance Rp790.000">Wireless Advance 100 Mbps (Rp790.000)</option>
+                    {coverage?.status === "wireless" && (
+                      <option value="Saya ingin ajukan Request Pasang Baru Kabel Fiber">Mau Tunggu Kabel Fiber (Ajukan Request Pasang Baru)</option>
+                    )}
                   </select>
                     </>
                   )}
@@ -1260,7 +1277,7 @@ export default function CekLokasi() {
                     style={{ marginTop: 12 }}
                   >
                     <MessageCircle size={18} />{" "}
-                    {sending ? "Memproses..." : coverage?.status === "manual" ? "Kirim Request Pasang Baru via WhatsApp" : coverage?.status === "mungkin" ? "Konsultasi Jalur via WhatsApp" : paketPilihan ? "Daftar via WhatsApp" : "Daftar Pasang Baru via WhatsApp"}
+                    {sending ? "Memproses..." : coverage?.status === "manual" ? "Kirim Request Pasang Baru via WhatsApp" : coverage?.status === "mungkin" ? "Konsultasi Jalur via WhatsApp" : coverage?.status === "wireless" ? "Daftar XL Home Wireless via WhatsApp" : paketPilihan ? "Daftar via WhatsApp" : "Daftar Pasang Baru via WhatsApp"}
                   </button>
                   <button
                     type="button"
