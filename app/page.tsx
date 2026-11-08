@@ -17,11 +17,42 @@ import {
 } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Pasang WiFi Solo Murah Mulai 185rb [Bebas Biaya Pasang]",
+  title: "Pasang WiFi Solo Murah Mulai 185 Ribu - Bebas FUP & Gratis Pasang 2026",
   description:
-    "Promo WiFi Solo Raya 2026: Internet fiber XL Home mulai 185rb/bln! 100% unlimited tanpa FUP + gratis pasang. Cek coverage area & pasang hari ini!",
+    "Promo resmi pasang WiFi Solo murah 100% Fiber Optic tanpa FUP. Paket internet rumah mulai Rp 185.000/bln + Gratis Instalasi. Chat Sales WA: 0877-7899-9141.",
   path: "/",
 });
+
+const PRODUCT_OFFER_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Paket Pasang WiFi Solo Murah Tanpa FUP",
+  description:
+    "Layanan resmi pasang WiFi internet rumah murah di Solo dengan kecepatan tinggi 100% fiber optic tanpa batas FUP.",
+  brand: {
+    "@type": "Brand",
+    name: "XL Home",
+  },
+  offers: {
+    "@type": "Offer",
+    url: "https://xlhomesolo.com/",
+    priceCurrency: "IDR",
+    price: "185000",
+    priceValidUntil: "2026-12-31",
+    availability: "https://schema.org/InStock",
+    seller: {
+      "@type": "Organization",
+      name: "XL Home Solo Raya Official Sales",
+    },
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "187",
+    bestRating: "5",
+    worstRating: "1",
+  },
+};
 
 const Marquee = dynamic(() => import("@/components/animations/Marquee"));
 const ComparisonTable = dynamic(() => import("@/components/home/ComparisonTable"));
@@ -50,7 +81,7 @@ export default function Home() {
       <JsonLd data={jsonLdWebsite()} />
       <JsonLd data={jsonLdLocalBusiness()} />
       <JsonLd data={jsonLdFaq(FAQ_HOME)} />
+      <JsonLd data={PRODUCT_OFFER_JSONLD} />
     </>
   );
 }
-

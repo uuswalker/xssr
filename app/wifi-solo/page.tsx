@@ -5,7 +5,7 @@ import Watermark from "@/components/Watermark";
 import Faq from "@/components/home/Faq";
 import Footer from "@/components/Footer";
 import { PAGE_CSS } from "@/lib/page-css";
-import { JsonLd, pageMetadata } from "@/lib/seo";
+import { JsonLd, pageMetadata, jsonLdFaq } from "@/lib/seo";
 
 const SOLO_FAQS = [
   {
@@ -52,9 +52,9 @@ const SOLO_FAQS = [
 
 export async function generateMetadata(): Promise<Metadata> {
   const base = pageMetadata({
-    title: "Pasang WiFi Solo Murah Mulai 185rb [Promo Resmi 2026]",
+    title: "Pasang WiFi Solo Murah Mulai 185 Ribu - Bebas FUP & Garansi 2026",
     description:
-      "Promo resmi pasang WiFi Solo 2026 mulai 185rb/bln! 100% Fiber Optic Tanpa FUP + Gratis Pasang Rp 0. Chat WhatsApp Sales Resmi: 0877-7899-9141.",
+      "Promo resmi pasang WiFi Solo murah 100% Fiber Optic tanpa FUP mulai Rp 185.000/bln + Gratis Instalasi Rp 0. Chat WhatsApp Sales Resmi: 0877-7899-9141.",
     path: "/wifi-solo/",
     image: "/images/banner-xlsatu-jadi-xlhome.jpg",
   });
@@ -64,6 +64,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "pasang wifi solo",
       "pasang wifi solo murah",
       "wifi murah solo 100 ribuan",
+      "wifi tanpa fup solo",
       "biaya pasang wifi solo",
       "harga pasang wifi solo",
       "rekomendasi wifi solo",
@@ -74,9 +75,9 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     openGraph: {
       ...base.openGraph,
-      title: "Pasang WiFi Solo Murah Mulai 185rb [Promo Resmi 2026]",
+      title: "Pasang WiFi Solo Murah Mulai 185 Ribu - Bebas FUP & Garansi 2026",
       description:
-        "Promo resmi pasang WiFi Solo 2026 mulai 185rb/bln! 100% Fiber Optic Tanpa FUP + Gratis Pasang Rp 0. Chat WhatsApp Sales Resmi: 0877-7899-9141.",
+        "Promo resmi pasang WiFi Solo murah 100% Fiber Optic tanpa FUP mulai Rp 185.000/bln + Gratis Instalasi Rp 0. Chat WhatsApp Sales Resmi: 0877-7899-9141.",
     },
   };
 }
@@ -446,6 +447,7 @@ export default function Page() {
           <h3>Lihat Juga:</h3>
           <div className="related-grid">
             {[
+              ["/wifi-tanpa-fup-unlimited/", "WiFi Tanpa FUP Solo"],
               ["/wifi-surakarta/", "Paket WiFi Surakarta"],
               ["/wifi-sukoharjo/", "WiFi Sukoharjo"],
               ["/wifi-karanganyar/", "WiFi Karanganyar"],
@@ -467,6 +469,7 @@ export default function Page() {
         <WaFloat small="Info XL Home Solo" />
       </main>
       <JsonLd data={SERVICE_JSONLD} />
+      <JsonLd data={jsonLdFaq(SOLO_FAQS)} />
     </div>
   );
 }
