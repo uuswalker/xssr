@@ -275,7 +275,7 @@ export default function CekLokasi() {
             setStatusMsg(
               finalCv.jarakM != null
                 ? `📍 Jaringan fiber di sekitar ${alamatDisplay} berjarak ±${finalCv.jarakM}m.`
-                : `📍 Lokasi tercatat. Sales kami akan konfirmasi ketersediaan tiang terdekat.`
+                : `📍 Lokasi tercatat. Sales kami akan konfirmasi ketersediaan jaringan terdekat.`
             );
             setLokasiInfo(`Lokasi: ${alamatDisplay}`);
           }
@@ -290,7 +290,7 @@ export default function CekLokasi() {
       const bl = cekAreaBlacklist(alamatText || "");
       if (bl) {
         setStatusClass("cl-status error");
-        setStatusMsg(`⚠️ Area ${bl} belum tercover kabel fiber langsung. Kamu bisa ajukan Request Pasang Baru di bawah ini.`);
+        setStatusMsg(`⚠️ Area ${bl} belum tercover kabel fiber langsung. Kamu bisa kirim Pengajuan Pasang di bawah ini untuk diverifikasi tim sales.`);
       } else if (hasil.dalamArea) {
         setStatusClass("cl-status success");
         setStatusMsg(`📍 Lokasi terdeteksi di area ${hasil.nama}`);
@@ -653,17 +653,17 @@ export default function CekLokasi() {
       } catch {}
 
       const pesan =
-        "*REQUEST PASANG BARU XL HOME*\n" +
-        "Halo Admin XL Home, saya ingin mengajukan *Request Pasang Baru* untuk alamat saya yang belum tercover kabel langsung:\n\n" +
+        "*PENGAJUAN PASANG BARU XL HOME*\n" +
+        "Halo Admin XL Home, saya ingin mengajukan *Pemasangan Baru* untuk alamat saya:\n\n" +
         "👤 *Nama:* " + nm + "\n" +
         "📱 *No. WhatsApp:* " + w + "\n" +
         (alamatKirim ? "📍 *Alamat:* " + alamatKirim + "\n" : "") +
         (kotaKirim ? "🏙️ *Kota/Area:* " + kotaKirim + "\n" : "") +
         (mapsLink ? "🧭 *Titik Koordinat:* " + mapsLink + "\n" : "") +
         (coverage?.jarakM != null ? "📏 *Jarak Jaringan Terdekat:* ±" + coverage.jarakM + " meter\n" : "") +
-        "👥 *Potensi Peminat Sekitar:* " + peminatSekitar + "\n" +
-        "📡 *Provider Saat Ini:* " + providerSaatIni + "\n\n" +
-        "Mohon dibantu pengecekan dan pengajuan jadwal pemasangan baru ya min. Terima kasih!" +
+        (paketPilihan ? "📦 *Minat Paket:* " + paketPilihan + "\n" : "") +
+        (providerSaatIni ? "📡 *Provider Saat Ini:* " + providerSaatIni + "\n\n" : "\n") +
+        "Mohon dibantu pengecekan dan verifikasi jadwal pemasangan baru ya min. Terima kasih!" +
         utmSuffix;
 
       window.open("https://wa.me/" + NOMOR_WA_SALES + "?text=" + encodeURIComponent(pesan), "_blank");
@@ -1256,26 +1256,31 @@ export default function CekLokasi() {
                   {coverage?.status === "manual" ? (
                     <>
                       <div style={{ background: "#fff5f5", border: "1px solid #fecaca", borderRadius: 10, padding: "10px 14px", margin: "14px 0", fontSize: 13, color: "#991b1b" }}>
-                        <strong>✨ Formulir Request Pasang Baru</strong><br />
-                        Data ini langsung diprioritaskan ke tim jaringan XL Home Solo Raya untuk perencanaan jalur/titik baru ke lokasimu.
+                        <strong>✨ Formulir Pengajuan Pasang Baru</strong><br />
+                        Data ini langsung diteruskan ke tim sales XL Home Solo Raya untuk verifikasi opsi pemasangan ke lokasimu.
                       </div>
-                      <label htmlFor="cl-peminat" className="cl-label">
-                        Berapa tetangga sekitar yang juga berminat pasang?
+
+                      <label htmlFor="cl-paket-manual" className="cl-label">
+                        Pilihan Paket yang Ingin Dipasang
                       </label>
                       <select
-                        id="cl-peminat"
+                        id="cl-paket-manual"
+                        name="paket"
                         className="cl-input"
-                        value={peminatSekitar}
-                        onChange={(e) => setPeminatSekitar(e.target.value)}
+                        value={paketPilihan || ""}
+                        onChange={(e) => setPaketPilihan(e.target.value)}
                       >
-                        <option value="1 Rumah (Hanya rumah saya)">Hanya rumah saya (1 rumah)</option>
-                        <option value="2 - 3 Rumah tetangga sekitar">2 - 3 rumah tetangga sekitar</option>
-                        <option value="4 - 10 Rumah (satu gang / blok)">4 - 10 rumah (satu gang / blok)</option>
-                        <option value="Lebih dari 10 Rumah (satu RT / komplek)">Lebih dari 10 rumah (satu RT / komplek)</option>
+                        <option value="">-- Pilih Paket Internet --</option>
+                        <option value="Saya minat paket XL Home Starter 20 Mbps Rp185.000">XL Home Starter 20 Mbps (Rp185.000)</option>
+                        <option value="Saya minat paket XL Home Spark 250 Mbps Rp229.000">XL Home Spark 250 Mbps (Rp229.000)</option>
+                        <option value="Saya minat paket XL Home Spark 300 Mbps Rp239.000">XL Home Spark 300 Mbps (Rp239.000)</option>
+                        <option value="Saya minat paket XL Home Spark 400 Mbps Rp299.000">XL Home Spark 400 Mbps (Rp299.000)</option>
+                        <option value="Saya minat paket XL Home Spark 500 Mbps Rp399.000">XL Home Spark 500 Mbps (Rp399.000)</option>
+                        <option value="Saya minat XL Home Wireless Monthly 100 Mbps Rp219.500">XL Home Wireless 100 Mbps (Rp219.500)</option>
                       </select>
 
                       <label htmlFor="cl-provider" className="cl-label">
-                        Provider internet yang saat ini dipakai di rumah
+                        Provider internet saat ini di rumah (opsional)
                       </label>
                       <select
                         id="cl-provider"
@@ -1318,7 +1323,7 @@ export default function CekLokasi() {
                     <option value="Saya minat XL Home Wireless 50 Mbps Advance Rp650.000">Wireless Advance 50 Mbps (Rp650.000)</option>
                     <option value="Saya minat XL Home Wireless 100 Mbps Advance Rp790.000">Wireless Advance 100 Mbps (Rp790.000)</option>
                     {coverage?.status === "wireless" && (
-                      <option value="Saya ingin ajukan Request Pasang Baru Kabel Fiber">Mau Tunggu Kabel Fiber (Ajukan Request Pasang Baru)</option>
+                      <option value="Saya ingin konsultasi pasang kabel fiber">Konsultasi Opsi Pasang Kabel Fiber</option>
                     )}
                   </select>
                     </>
@@ -1335,7 +1340,7 @@ export default function CekLokasi() {
                     style={{ marginTop: 12 }}
                   >
                     <MessageCircle size={18} />{" "}
-                    {sending ? "Memproses..." : coverage?.status === "manual" ? "Kirim Request Pasang Baru via WhatsApp" : coverage?.status === "mungkin" ? "Konsultasi Jalur via WhatsApp" : coverage?.status === "wireless" ? "Daftar XL Home Wireless via WhatsApp" : paketPilihan ? "Daftar via WhatsApp" : "Daftar Pasang Baru via WhatsApp"}
+                    {sending ? "Memproses..." : coverage?.status === "manual" ? "Kirim Pengajuan Pasang via WhatsApp" : coverage?.status === "mungkin" ? "Konsultasi Jalur via WhatsApp" : coverage?.status === "wireless" ? "Daftar XL Home Wireless via WhatsApp" : paketPilihan ? "Daftar via WhatsApp" : "Daftar Pasang Baru via WhatsApp"}
                   </button>
                   <button
                     type="button"

@@ -385,8 +385,8 @@ export function coverageDetail(cv: CoverageResult): string {
     return (
       `Halo! Jaringan kabel fiber terdekat berjarak ${jarakText} dari lokasi Anda:\n\n` +
       `📍 Lokasi Acuan: ${alamatFormat} (Lokasi akurat bisa Whatsapp Sales ${waSalesLink})\n` +
-      `🔌 Status: Belum tercover kabel langsung (Bisa Request Pasang Baru).\n\n` +
-      `Kamu bisa isi formulir di bawah ini agar tim teknisi XL Home menjadwalkan pembukaan tiang / jalur baru ke lokasimu! 🚀`
+      `🔌 Status: Belum tercover kabel langsung.\n\n` +
+      `Kamu bisa isi formulir Pengajuan Pasang di bawah ini atau hubungi WhatsApp Sales agar tim kami verifikasi opsi pemasangan terbaik ke lokasimu! 🚀`
     );
   }
   return "Menghitung ketersediaan jaringan terdekat...";
@@ -402,7 +402,7 @@ export function coverageLine(cv: CoverageResult | null): string {
       ? "TERCOVER WIRELESS (FWA)"
       : cv.status === "mungkin"
       ? "KEMUNGKINAN TERCOVER"
-      : "REQUEST PASANG BARU";
+      : "PENGAJUAN PASANG BARU";
   const odpInfo = cv.odp ? ` [ODP: ${cv.odp}]` : "";
   const jarakInfo = cv.jarakM != null ? ` (±${cv.jarakM}m)` : "";
   return `Status Jaringan: ${label}${odpInfo}${jarakInfo}\n`;
