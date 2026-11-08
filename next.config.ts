@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
   // `headers()` di next.config.ts dilarang oleh Next.js (Error: Specified "headers" cannot be used with "output: export").
   // Seluruh HTTP Security Headers (nosniff, SAMEORIGIN, strict-origin-when-cross-origin,
   // Permissions-Policy, HSTS, CSP) serta Caching Headers statis (_next/static, fonts, images)
-  // dikonfigurasi secara tersentralisasi dan optimal di `vercel.json`.
+  // dikonfigurasi secara tersentralisasi dan optimal di `public/_headers` (format Cloudflare Pages).
 };
 
 // CATATAN: Next.js 16 + Turbopack selalu inject polyfill-nomodule.js (~14KB,

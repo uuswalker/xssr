@@ -8,7 +8,7 @@ type Phase = "idle" | "ping" | "download" | "upload" | "done";
 const PING_URL = "/speedtest/chunk.bin";
 const DOWN_URL = "/speedtest/chunk.bin"; // 1MB static file
 // Upload: POST to our own domain — body still transmits even though server returns 404.
-// Vercel Edge receives the full request body before responding.
+// Cloudflare Edge receives the full request body before responding.
 const UP_URL = "/speedtest/ul";
 
 export default function Speedtest() {
@@ -297,7 +297,7 @@ export default function Speedtest() {
         )}
 
         <div style={{ textAlign: "center", fontSize: 11, color: "#334155", marginTop: 18 }}>
-          Server: Vercel CDN · Nearest Edge
+          Server: Cloudflare CDN · Nearest Edge
         </div>
       </div>
 

@@ -11,7 +11,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/_next/", "/site.webmanifest", "/_vercel/", "/api/"],
+      disallow: ["/_next/", "/site.webmanifest", "/api/"],
     },
     sitemap: `${SITE_DOMAIN}/sitemap.xml`,
   };
