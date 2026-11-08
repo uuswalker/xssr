@@ -319,7 +319,7 @@ export const COV_TEXT: Record<CoverageStatus, [string, string, string]> = {
   fiber: ["#e6f7f3", "#026b55", "TERCOVER FIBER OPTIC & WIRELESS (SIAP PASANG) ✅"],
   mungkin: ["#fef3c7", "#92400e", "KEMUNGKINAN TERCOVER (BUTUH CEK JALUR) ⚠️"],
   manual: ["#fff1f2", "#9f1239", "BELUM TERCOVER LANGSUNG 📝"],
-  wireless: ["#e0f2fe", "#075985", "TERCOVER WIRELESS (SIAP PASANG) ✅"],
+  wireless: ["#e0f2fe", "#075985", "TERCOVER XL ULTRA 5G+ WIRELESS (SIAP PASANG) ✅"],
   loading: ["#f3f4f6", "#666666", "MENGECEK JARINGAN..."],
 };
 
@@ -330,38 +330,23 @@ export function coverageDetail(cv: CoverageResult): string {
   const waSalesLink = "wa.me/6287778999141";
 
   if (cv.status === "fiber") {
-    const odpText = cv.odp ? `${cv.odp} ` : "";
-    const jarakText =
-      cv.jarakM != null
-        ? `(± ${cv.jarakM} meter dari lokasi Anda)`
-        : "(± dekat dari lokasi Anda)";
-    const barisOdp =
-      cv.odp || cv.jarakM != null
-        ? `🌐 Titik ODP Terdekat: ${odpText}${jarakText}`
-        : `🌐 Titik ODP Terdekat: Port jaringan aktif & terverifikasi`;
-
     return (
-      `Halo! Kabar gembira untuk area Anda. Jaringan XL Home Fiber Optic kini telah tersedia dan siap dipasang di lokasi terdekat:\n\n` +
-      `📍 Lokasi Acuan: ${alamatFormat} (Lokasi akurat bisa Whatsapp Sales ${waSalesLink})\n` +
-      `${barisOdp}\n` +
-      `🔌 Status: Port jaringan tersedia & siap langsung dipasang!\n\n` +
+      `📍 Prediksi Lokasi: ${alamatFormat} (Lokasi akurat bisa Whatsapp Sales ${waSalesLink})\n` +
+      `🌐 Tercover: FIBER dan WIRELESS\n` +
+      `🔌 Status: Jaringan tersedia & siap langsung dipasang!\n\n` +
       `Selain jalur kabel (Fiber Optic), jaringan Wireless (Nirkabel 4G + 5G) juga sudah aktif dan tersedia di area ini.\n\n` +
       `Hubungi kami sekarang untuk registrasi dan pemasangan! 🚀`
     );
   } else if (cv.status === "wireless") {
     const is5G = cv.zona && cv.zona.includes("5G");
     const labelSinyal = is5G ? "XL Ultra 5G+ Wireless (FWA)" : "XL Home Wireless 4G/5G (FWA)";
-    const barisFiber =
-      cv.fiberM != null || cv.jarakM != null
-        ? `🌐 Kabel Fiber Terdekat: ± ${cv.fiberM ?? cv.jarakM} meter dari lokasi Anda\n`
-        : "";
+    const zonaText = cv.zona ? ` [${cv.zona}]` : "";
 
     return (
-      `Halo! Kabar gembira untuk area Anda. Jaringan ${labelSinyal} kini telah aktif dan siap dipasang:\n\n` +
-      `📍 Lokasi Acuan: ${alamatFormat} (Lokasi akurat bisa Whatsapp Sales ${waSalesLink})\n` +
-      `📶 Sinyal: Wireless High-Speed Siap Pakai\n` +
-      `🔌 Status: Modem Plug & Play langsung aktif tanpa perlu tarik kabel!\n` +
-      `${barisFiber}\n` +
+      `📍 Prediksi Lokasi: ${alamatFormat} (Lokasi akurat bisa Whatsapp Sales ${waSalesLink})\n` +
+      `🌐 Tercover: ${labelSinyal}${zonaText}\n` +
+      `🔌 Status: Modem Plug & Play langsung aktif tanpa perlu tarik kabel!\n\n` +
+      `Jalur kabel belum masuk, namun sinyal Wireless resmi sudah aktif dan tersedia di area ini.\n\n` +
       `Hubungi kami sekarang untuk registrasi dan pemasangan cepat! 🚀`
     );
   } else if (cv.status === "mungkin") {
@@ -371,8 +356,7 @@ export function coverageDetail(cv: CoverageResult): string {
         : "(dalam radius tarikan kabel)";
 
     return (
-      `Halo! Jaringan XL Home Fiber Optic terdeteksi di sekitar area Anda:\n\n` +
-      `📍 Lokasi Acuan: ${alamatFormat} (Lokasi akurat bisa Whatsapp Sales ${waSalesLink})\n` +
+      `📍 Prediksi Lokasi: ${alamatFormat} (Lokasi akurat bisa Whatsapp Sales ${waSalesLink})\n` +
       `🌐 Estimasi Tarikan Kabel: ${jarakText}\n` +
       `🔌 Status: Masih dalam jangkauan tarikan kabel, butuh verifikasi rute oleh teknisi.\n\n` +
       `Selain itu, jaringan Wireless (Nirkabel 4G + 5G) juga tersedia sebagai alternatif cepat.\n\n` +
@@ -383,9 +367,8 @@ export function coverageDetail(cv: CoverageResult): string {
       cv.jarakM != null ? `± ${cv.jarakM} meter` : "di luar jangkauan langsung";
 
     return (
-      `Halo! Jaringan kabel fiber terdekat berjarak ${jarakText} dari lokasi Anda:\n\n` +
-      `📍 Lokasi Acuan: ${alamatFormat} (Lokasi akurat bisa Whatsapp Sales ${waSalesLink})\n` +
-      `🔌 Status: Belum tercover kabel langsung.\n\n` +
+      `📍 Prediksi Lokasi: ${alamatFormat} (Lokasi akurat bisa Whatsapp Sales ${waSalesLink})\n` +
+      `🔌 Status: Belum tercover kabel langsung (${jarakText}).\n\n` +
       `Kamu bisa isi formulir Pengajuan Pasang di bawah ini atau hubungi WhatsApp Sales agar tim kami verifikasi opsi pemasangan terbaik ke lokasimu! 🚀`
     );
   }

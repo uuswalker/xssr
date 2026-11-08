@@ -1,18 +1,22 @@
 /**
- * Cloudflare Worker: coverage-api (v2.4.0 - Enterprise Edge-Optimized)
- * Ultra-Fast FTTH & Wireless Coverage Lookup for XL Home Solo Raya & Central Java - DIY
+ * Cloudflare Worker: coverage-api (v3.0.0 - Enterprise Unified Master D1)
+ * Ultra-Fast FTTH & Wireless Coverage Lookup for XL Home Solo Raya & Nationwide Indonesia
  * 
- * Features:
- * 1. 3-Tier Multi-Level Caching (Isolate RAM Cache -> Cloudflare Edge Cache API -> D1 SQLite)
- * 2. Strict Rate Limiting (60 req/min per IP) to prevent ODP/Homepass database scraping
- * 3. Dynamic Whitelist CORS (Production domains, staging, and local dev)
- * 4. Federated Multi-Database Routing (env.DB: Solo Raya, env.DB_JATENG: Central Java & DIY)
- * 5. Instant Cache-Control (public, max-age=86400, s-maxage=604800) for sub-5ms search
+ * Architecture:
+ * 1. Unified Master D1 SQLite Database (7.095.867 titik FTTH resmi se-Indonesia)
+ * 2. Solo Raya terintegrasi alami di bawah Provinsi Jawa Tengah (Zero Fragmentation)
+ * 3. Multi-Level Caching (Isolate RAM Cache -> Cloudflare Edge Cache API -> Master D1)
+ * 4. Graceful Fallback to Wireless (XL Ultra 5G+ FWA / XL Home 4G jika jarak > 300m)
+ * 5. Strict Rate Limiting (60 req/min per IP) & Dynamic Whitelist CORS
  */
 
 const ADMIN_KEY = "xssr-tahap2-secure-2026";
 const RATE_LIMIT_MAX_REQUESTS = 60; // Max 60 requests per minute per IP
 const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute window
+const CACHE_VERSION = "v3.0.3";
+
+// Solo Raya Core Coverage Cities (Indexed B-Tree fast routing)
+const SOLO_CITIES = "'KOTA SURAKARTA', 'KAB. SUKOHARJO', 'KAB. KARANGANYAR', 'KAB. BOYOLALI', 'KAB. KLATEN', 'KAB. SRAGEN', 'KAB. WONOGIRI'";
 
 // In-Memory Fast LRU Cache for warm isolates (< 1ms response)
 const MEMORY_CACHE = new Map();
@@ -69,7 +73,6 @@ function applyRateLimit(clientIp) {
   const now = Date.now();
   let record = IP_RATE_LIMITS.get(clientIp);
 
-  // Periodically clean stale entries if map grows large
   if (IP_RATE_LIMITS.size > 5000) {
     for (const [ip, data] of IP_RATE_LIMITS.entries()) {
       if (now - data.startTime > RATE_LIMIT_WINDOW_MS) {
@@ -95,58 +98,47 @@ function applyRateLimit(clientIp) {
   return { allowed: true, remaining, resetSeconds };
 }
 
-/**
- * In-Memory RAM Cache helpers
- */
 function getMemoryCache(key) {
   const item = MEMORY_CACHE.get(key);
   if (!item) return null;
-  if (Date.now() > item.expiry) {
+  if (Date.now() > item.expiresAt) {
     MEMORY_CACHE.delete(key);
     return null;
   }
-  return item.data;
+  return item.value;
 }
 
-function setMemoryCache(key, data, ttlMs = MEMORY_CACHE_TTL_MS) {
+function setMemoryCache(key, value) {
   if (MEMORY_CACHE.size >= MEMORY_CACHE_MAX_ITEMS) {
-    // Evict oldest item
     const firstKey = MEMORY_CACHE.keys().next().value;
-    if (firstKey) MEMORY_CACHE.delete(firstKey);
+    MEMORY_CACHE.delete(firstKey);
   }
   MEMORY_CACHE.set(key, {
-    data,
-    expiry: Date.now() + ttlMs
+    value,
+    expiresAt: Date.now() + MEMORY_CACHE_TTL_MS
   });
 }
 
 function haversineMeters(lat1, lon1, lat2, lon2) {
-  const R = 6371000; // Earth radius in meters
-  const dLat = (lat2 - lat1) * Math.PI / 180;
-  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const R = 6371e3; // Earth radius in meters
+  const phi1 = (lat1 * Math.PI) / 180;
+  const phi2 = (lat2 * Math.PI) / 180;
+  const deltaPhi = ((lat2 - lat1) * Math.PI) / 180;
+  const deltaLambda = ((lon2 - lon1) * Math.PI) / 180;
+
   const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    Math.sin(deltaPhi / 2) * Math.sin(deltaPhi / 2) +
+    Math.cos(phi1) * Math.cos(phi2) * Math.sin(deltaLambda / 2) * Math.sin(deltaLambda / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
   return R * c;
 }
 
-function selectTargetDb(env, dbName) {
-  if (dbName && (dbName.toLowerCase() === "jateng" || dbName === "DB_JATENG")) {
-    if (env.DB_JATENG) return env.DB_JATENG;
-  }
-  return env.DB;
+function getMasterDb(env) {
+  // Support DB or DB_JATENG bindings smoothly
+  return env.DB || env.DB_JATENG;
 }
 
-// Bounding box for Solo Raya (Surakarta, Sukoharjo, Karanganyar, Boyolali, Klaten, Sragen, Wonogiri)
-function isSoloRaya(lat, lng) {
-  return lat >= -8.20 && lat <= -7.25 && lng >= 110.55 && lng <= 111.35;
-}
-
-/**
- * Daftar Kota / Area Resmi Blanket Coverage 5G XL Axiata (Per 2026)
- */
 const XL_5G_CITIES = [
   "SURAKARTA", "SOLO", "BOYOLALI", "KARANGANYAR", "SUKOHARJO", "KLATEN",
   "SEMARANG", "KOTA SEMARANG", "SALATIGA", "DEMAK", "KUDUS", "GROBOGAN", "JEPARA", "BLORA", "PATI",
@@ -178,7 +170,6 @@ function isXL5GCoverage(lat, lng, city) {
   return false;
 }
 
-
 async function queryCandidates(db, lat, lng, delta) {
   if (!db) return [];
   const minLat = lat - delta;
@@ -192,7 +183,7 @@ async function queryCandidates(db, lat, lng, delta) {
     FROM homepass
     WHERE lat BETWEEN ? AND ? AND lng BETWEEN ? AND ?
     ORDER BY distSq ASC
-    LIMIT 15
+    LIMIT 25
   `;
   try {
     const res = await db.prepare(query)
@@ -208,7 +199,7 @@ export default {
   async fetch(request, env, ctx) {
     const corsHeaders = getCorsHeaders(request);
 
-    // 1. Handle CORS OPTIONS Preflight
+    // 1. Handle CORS Preflight
     if (request.method === "OPTIONS") {
       return new Response(null, {
         status: 204,
@@ -218,140 +209,128 @@ export default {
 
     const url = new URL(request.url);
     const path = url.pathname;
-    const clientIp = request.headers.get("cf-connecting-ip") ||
-                     request.headers.get("x-real-ip") ||
-                     "unknown";
+    const clientIp = request.headers.get("cf-connecting-ip") || "unknown";
 
-    // Check for admin bypass
     const adminKey = request.headers.get("x-admin-key");
     const isAdmin = adminKey === ADMIN_KEY;
 
     // 2. IP Rate Limiting Middleware (Exempt admin endpoints & health check)
-    if (!isAdmin && path !== "/" && path !== "/api/health") {
-      const rateLimitResult = applyRateLimit(clientIp);
-      if (!rateLimitResult.allowed) {
-        return new Response(JSON.stringify({
-          error: "Too Many Requests",
-          message: "Akses dibatasi sementara untuk mencegah scraping database. Silakan coba lagi nanti.",
-          limit: RATE_LIMIT_MAX_REQUESTS,
-          retryAfter: rateLimitResult.resetSeconds
-        }), {
-          status: 429,
-          headers: {
-            ...corsHeaders,
-            "Retry-After": String(rateLimitResult.resetSeconds),
-            "X-RateLimit-Limit": String(RATE_LIMIT_MAX_REQUESTS),
-            "X-RateLimit-Remaining": "0",
-            "X-RateLimit-Reset": String(rateLimitResult.resetSeconds)
+    if (!isAdmin && path !== "/api/health" && !path.startsWith("/api/health/")) {
+      const rateCheck = applyRateLimit(clientIp);
+      if (!rateCheck.allowed) {
+        return new Response(
+          JSON.stringify({
+            error: "Too Many Requests",
+            message: "Batas pencarian tercapai (Maksimal 60 request/menit). Silakan tunggu sebentar.",
+            resetSeconds: rateCheck.resetSeconds
+          }),
+          {
+            status: 429,
+            headers: {
+              ...corsHeaders,
+              "Retry-After": String(rateCheck.resetSeconds),
+              "X-RateLimit-Limit": String(RATE_LIMIT_MAX_REQUESTS),
+              "X-RateLimit-Remaining": "0"
+            }
           }
-        });
+        );
       }
     }
 
     try {
-      // =========================================================================
-      // ENDPOINT 1: Health check & Multi-Database Federation Status
-      // =========================================================================
-      if (path === "/" || path === "/api/health") {
-        let soloTotal = 0;
-        let soloCities = [];
-        try {
-          const countRes = await env.DB.prepare("SELECT count(*) as total FROM homepass").first();
-          const cityRes = await env.DB.prepare("SELECT city, count(*) as count FROM homepass GROUP BY city").all();
-          soloTotal = countRes ? countRes.total : 0;
-          soloCities = cityRes ? cityRes.results : [];
-        } catch (e) {}
+      const masterDb = getMasterDb(env);
 
-        let jatengTotal = 0;
-        let jatengCities = [];
-        if (env.DB_JATENG) {
+      // =========================================================================
+      // ENDPOINT 1: Health & Unified Database Statistics
+      // =========================================================================
+      if (path === "/api/health" || path === "/api/health/") {
+        let totalCount = 0;
+        let totalWireless = 0;
+        let cities = [];
+
+        if (masterDb) {
           try {
-            const countJateng = await env.DB_JATENG.prepare("SELECT count(*) as total FROM homepass").first();
-            const cityJateng = await env.DB_JATENG.prepare("SELECT city, count(*) as count FROM homepass GROUP BY city").all();
-            jatengTotal = countJateng ? countJateng.total : 0;
-            jatengCities = cityJateng ? cityJateng.results : [];
+            const countRes = await masterDb.prepare("SELECT count(*) as total FROM homepass").first();
+            totalCount = countRes?.total || 0;
+            const wRes = await masterDb.prepare("SELECT count(*) as total FROM wireless_points").first();
+            totalWireless = wRes?.total || 0;
+            const cityRes = await masterDb.prepare("SELECT city, count(*) as count FROM homepass GROUP BY city ORDER BY count DESC").all();
+            cities = cityRes.results || [];
           } catch (e) {}
         }
 
-        return new Response(JSON.stringify({
-          status: "healthy",
-          engine: "Cloudflare Workers + Federated D1 Edge SQLite",
-          version: "2.4.0-optimized",
-          totalHomepass: soloTotal + jatengTotal,
-          optimizations: [
-            "Edge Caching (Cache-Control + Cloudflare Cache API)",
-            "In-Memory Isolate RAM Cache (< 1ms)",
-            "Dynamic Whitelist CORS (Production & Dev)",
-            "IP Anti-Scraping Rate Limiting (60 req/min)"
-          ],
-          databases: {
-            soloRaya: {
-              bound: true,
-              totalHomepass: soloTotal,
-              cities: soloCities
-            },
-            jatengDiy: {
-              bound: !!env.DB_JATENG,
-              totalHomepass: jatengTotal,
-              cities: jatengCities
+        return new Response(
+          JSON.stringify({
+            status: "healthy",
+            engine: "Cloudflare Workers + Unified Master D1 Edge SQLite",
+            version: "3.0.3-unified",
+            database: "xlhomesolo-coverage-db (Master FTTH & 5G/Wireless)",
+            totalHomepass: totalCount,
+            totalWireless: totalWireless,
+            totalCities: cities.length,
+            cities: cities.slice(0, 30),
+            optimizations: [
+              "Unified Master D1 Architecture (7.09M FTTH & 24.4k 5G/Wireless)",
+              "Precision KMZ Wireless Grid Lookup (70 DSA Zones)",
+              "Smart Two-Tier B-Tree Routing (Solo Raya 5ms, National Fallback)",
+              "Edge Caching (Cloudflare Cache API + S-MaxAge 86400)",
+              "In-Memory Isolate RAM Cache (< 1ms)",
+              "Dynamic Whitelist CORS (Production & Dev)",
+              "IP Anti-Scraping Rate Limiting (60 req/min)"
+            ]
+          }),
+          {
+            headers: {
+              ...corsHeaders,
+              "Cache-Control": "public, max-age=60, s-maxage=300"
             }
           }
-        }, null, 2), {
-          headers: {
-            ...corsHeaders,
-            "Cache-Control": "public, max-age=300, s-maxage=600"
-          }
-        });
+        );
       }
 
       // =========================================================================
-      // ENDPOINT 2: Autocomplete Cluster / Address Search with Edge Caching
-      // GET /api/search?q=kartasura
+      // ENDPOINT 2: Unified Free-Text Search (/api/search?q=...)
       // =========================================================================
-      if (path === "/api/search") {
-        const rawQ = url.searchParams.get("q") || "";
-        const q = rawQ.trim();
+      if (path === "/api/search" && request.method === "GET") {
+        const q = (url.searchParams.get("q") || "").trim();
+        const latParam = url.searchParams.get("lat");
+        const lngParam = url.searchParams.get("lng");
 
-        // Return empty results immediately if query too short
-        if (q.length < 2) {
-          return new Response(JSON.stringify({ query: q, results: [] }), {
-            headers: {
-              ...corsHeaders,
-              "Cache-Control": "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400"
-            }
-          });
+        // If coordinates provided, route directly to spatial lookup
+        if (latParam && lngParam && !q) {
+          return await handleCoordinatesLookup(latParam, lngParam, masterDb, corsHeaders, url);
         }
 
-        const normalizedKey = `search:${q.toLowerCase()}`;
+        if (!q || q.length < 2) {
+          return new Response(
+            JSON.stringify({ results: [], total: 0 }),
+            { headers: corsHeaders }
+          );
+        }
 
-        // Tier 1: In-Memory RAM Cache (< 1ms)
-        const memCached = getMemoryCache(normalizedKey);
+        // Tier 1: Check In-Memory RAM Cache (< 1ms)
+        const cacheKey = `search:${CACHE_VERSION}:${q.toLowerCase()}`;
+        const memCached = getMemoryCache(cacheKey);
         if (memCached) {
           return new Response(JSON.stringify(memCached), {
             headers: {
               ...corsHeaders,
-              "Cache-Control": "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400",
-              "X-Edge-Cache": "HIT-MEMORY"
+              "Cache-Control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400",
+              "X-RAM-Cache": "HIT"
             }
           });
         }
 
-        // Tier 2: Cloudflare Cache API (Edge Datacenter RAM < 5ms)
-        const cacheUrl = new URL(request.url);
-        cacheUrl.searchParams.set("q", q.toLowerCase());
-        const cacheKey = new Request(cacheUrl.toString(), {
-          method: "GET",
-          headers: request.headers
-        });
-
+        // Tier 2: Check Cloudflare Edge Cache API (Versioned Key)
         let cfCache = null;
+        const cacheUrl = new URL(url.toString());
+        cacheUrl.searchParams.set("__v", CACHE_VERSION);
         try {
           if (typeof caches !== "undefined" && caches.default) {
             cfCache = caches.default;
-            const match = await cfCache.match(cacheKey);
+            const match = await cfCache.match(cacheUrl.toString());
             if (match) {
               const resHeaders = new Headers(match.headers);
-              // Ensure CORS headers match incoming origin
               for (const [k, v] of Object.entries(corsHeaders)) {
                 resHeaders.set(k, v);
               }
@@ -362,215 +341,182 @@ export default {
               });
             }
           }
-        } catch (errCache) {
-          // Ignore cache errors and fallback to D1
-        }
+        } catch (errCache) {}
 
-        // Tier 3: Query Federated D1 Databases with Smart Token Routing
+        // Tier 3: Query Unified Master D1 Database Directly
         const rawTokens = q.replace(/[,._\-/]/g, " ").trim().split(/\s+/).filter(t => t.length >= 2);
-        const SOLO_KW = /sukoharjo|surakarta|solo|karanganyar|boyolali|klaten|sragen|wonogiri|cemani|grogol|kartasura|colomadu|palur|mojolaban|baki/i;
-        const NAS_KW = /jakarta|surabaya|semarang|bandung|medan|bekasi|tangerang|depok|bogor|sidoarjo|gresik|makassar|denpasar|bali|batam|pekanbaru|sleman|bantul|yogyakarta|jogja|malang/i;
+        let results = [];
 
-        const isSolo = SOLO_KW.test(q);
-        const isNas = NAS_KW.test(q);
-
-        let soloRows = [];
-        let jatengRows = [];
-
-        if (rawTokens.length <= 1) {
-          const searchPattern = `%${q}%`;
-          const singleSql = `
-            SELECT id, cluster_name, city, odp_id, lat, lng, status, address
-            FROM homepass
-            WHERE cluster_name LIKE ? OR address LIKE ? OR id LIKE ? OR odp_id LIKE ?
-            LIMIT 25
-          `;
-          if (isSolo && !isNas) {
+        if (masterDb) {
+          if (rawTokens.length <= 1) {
+            const searchPattern = `%${q}%`;
+            // Priority 1: Check Solo Raya (Ultra-fast via idx_hp_city, ~5ms)
+            const soloSql = `
+              SELECT id, cluster_name, city, odp_id, lat, lng, status, address
+              FROM homepass
+              WHERE city IN (${SOLO_CITIES})
+                AND (cluster_name LIKE ? OR address LIKE ? OR id LIKE ? OR odp_id LIKE ?)
+              LIMIT 25
+            `;
             try {
-              const res1 = await env.DB.prepare(singleSql).bind(searchPattern, searchPattern, searchPattern, searchPattern).all();
-              if (res1.results) soloRows = res1.results;
+              const res = await masterDb.prepare(soloSql).bind(searchPattern, searchPattern, searchPattern, searchPattern).all();
+              if (res.results && res.results.length > 0) results = res.results;
             } catch (e) {}
-          } else if (isNas && !isSolo && env.DB_JATENG) {
-            try {
-              const res2 = await env.DB_JATENG.prepare(singleSql).bind(searchPattern, searchPattern, searchPattern, searchPattern).all();
-              if (res2.results) jatengRows = res2.results;
-            } catch (e) {}
+
+            // Priority 2: If fewer than 10 results in Solo Raya, search nationwide
+            if (results.length < 10) {
+              const nationalSql = `
+                SELECT id, cluster_name, city, odp_id, lat, lng, status, address
+                FROM homepass
+                WHERE cluster_name LIKE ? OR address LIKE ? OR id LIKE ? OR odp_id LIKE ? OR city LIKE ?
+                LIMIT 25
+              `;
+              try {
+                const resNat = await masterDb.prepare(nationalSql).bind(searchPattern, searchPattern, searchPattern, searchPattern, searchPattern).all();
+                if (resNat.results) {
+                  const seenIds = new Set(results.map(r => r.id));
+                  for (const row of resNat.results) {
+                    if (!seenIds.has(row.id)) {
+                      seenIds.add(row.id);
+                      results.push(row);
+                    }
+                    if (results.length >= 25) break;
+                  }
+                }
+              } catch (e) {}
+            }
           } else {
-            const [p1, p2] = await Promise.allSettled([
-              env.DB ? env.DB.prepare(singleSql).bind(searchPattern, searchPattern, searchPattern, searchPattern).all() : Promise.resolve({ results: [] }),
-              env.DB_JATENG ? env.DB_JATENG.prepare(singleSql).bind(searchPattern, searchPattern, searchPattern, searchPattern).all() : Promise.resolve({ results: [] })
-            ]);
-            if (p1.status === "fulfilled" && p1.value?.results) soloRows = p1.value.results;
-            if (p2.status === "fulfilled" && p2.value?.results) jatengRows = p2.value.results;
-          }
-        } else {
-          // Multi-word intelligent token query across all columns (address, cluster, city, odp_id)
-          const whereParts = [];
-          const bindParams = [];
+            // Multi-tokens: check Solo Raya first
+            const whereSolo = [];
+            const bindSolo = [];
+            const whereNat = [];
+            const bindNat = [];
 
-          for (const tok of rawTokens.slice(0, 4)) {
-            const low = tok.toLowerCase();
-            if (low === "gang" || low === "gg") {
-              whereParts.push("((coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE '%gang%' OR (coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE '%gg%')");
-            } else if (low === "jalan" || low === "jl") {
-              whereParts.push("((coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE '%jalan%' OR (coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE '%jl%')");
-            } else {
-              whereParts.push("(coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE ?");
-              bindParams.push(`%${low}%`);
+            for (const tok of rawTokens.slice(0, 4)) {
+              const low = tok.toLowerCase();
+              if (low === "gang" || low === "gg") {
+                const cond = "((coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE '%gang%' OR (coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE '%gg%')";
+                whereSolo.push(cond);
+                whereNat.push(cond);
+              } else if (low === "jalan" || low === "jl") {
+                const cond = "((coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE '%jalan%' OR (coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE '%jl%')";
+                whereSolo.push(cond);
+                whereNat.push(cond);
+              } else {
+                whereSolo.push("(coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE ?");
+                bindSolo.push(`%${low}%`);
+                whereNat.push("(coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE ?");
+                bindNat.push(`%${low}%`);
+              }
+            }
+
+            const multiSoloSql = `
+              SELECT id, cluster_name, city, odp_id, lat, lng, status, address
+              FROM homepass
+              WHERE city IN (${SOLO_CITIES}) AND ${whereSolo.join(" AND ")}
+              LIMIT 25
+            `;
+
+            try {
+              const res = await masterDb.prepare(multiSoloSql).bind(...bindSolo).all();
+              if (res.results && res.results.length > 0) results = res.results;
+            } catch (e) {}
+
+            if (results.length < 10) {
+              const multiNatSql = `
+                SELECT id, cluster_name, city, odp_id, lat, lng, status, address
+                FROM homepass
+                WHERE ${whereNat.join(" AND ")}
+                LIMIT 25
+              `;
+              try {
+                const resNat = await masterDb.prepare(multiNatSql).bind(...bindNat).all();
+                if (resNat.results) {
+                  const seenIds = new Set(results.map(r => r.id));
+                  for (const row of resNat.results) {
+                    if (!seenIds.has(row.id)) {
+                      seenIds.add(row.id);
+                      results.push(row);
+                    }
+                    if (results.length >= 25) break;
+                  }
+                }
+              } catch (e) {}
             }
           }
-
-          const multiSql = `
-            SELECT id, cluster_name, city, odp_id, lat, lng, status, address
-            FROM homepass
-            WHERE ${whereParts.join(" AND ")}
-            LIMIT 25
-          `;
-
-          if (isSolo && !isNas) {
-            try {
-              const res1 = await env.DB.prepare(multiSql).bind(...bindParams).all();
-              if (res1.results) soloRows = res1.results;
-            } catch (e) {}
-          } else if (isNas && !isSolo && env.DB_JATENG) {
-            try {
-              const res2 = await env.DB_JATENG.prepare(multiSql).bind(...bindParams).all();
-              if (res2.results) jatengRows = res2.results;
-            } catch (e) {}
-          } else {
-            const [p1, p2] = await Promise.allSettled([
-              env.DB ? env.DB.prepare(multiSql).bind(...bindParams).all() : Promise.resolve({ results: [] }),
-              env.DB_JATENG ? env.DB_JATENG.prepare(multiSql).bind(...bindParams).all() : Promise.resolve({ results: [] })
-            ]);
-            if (p1.status === "fulfilled" && p1.value?.results) soloRows = p1.value.results;
-            if (p2.status === "fulfilled" && p2.value?.results) jatengRows = p2.value.results;
-          }
         }
 
-        // Combine and deduplicate
-        const seenIds = new Set();
-        const results = [];
-        const orderedRows = isSolo ? [...soloRows, ...jatengRows] : [...jatengRows, ...soloRows];
-
-        for (const r of orderedRows) {
-          if (r && r.id && !seenIds.has(r.id)) {
-            seenIds.add(r.id);
-            results.push(r);
-          }
-        }
-
-        const responsePayload = {
+        const payload = {
+          results: results,
+          total: results.length,
           query: q,
-          results: results.slice(0, 25)
+          database: "xlhomesolo-coverage-db"
         };
 
-        // Save to Tier 1 In-Memory RAM Cache
-        setMemoryCache(normalizedKey, responsePayload);
+        if (results.length > 0) {
+          // Cache in isolate RAM only if there are results
+          setMemoryCache(cacheKey, payload);
 
-        const edgeResponse = new Response(JSON.stringify(responsePayload), {
-          headers: {
-            ...corsHeaders,
-            "Cache-Control": "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400",
-            "X-Edge-Cache": "MISS"
-          }
-        });
-
-        // Save to Tier 2 Cloudflare Cache API in background
-        if (cfCache && ctx && typeof ctx.waitUntil === "function") {
-          try {
-            ctx.waitUntil(cfCache.put(cacheKey, edgeResponse.clone()));
-          } catch (ePut) {}
-        }
-
-        return edgeResponse;
-      }
-
-      // =========================================================================
-      // ENDPOINT 3: Intelligent Coverage / Radius ODP Checker
-      // GET /api/coverage?lat=-7.557&lng=110.743
-      // =========================================================================
-      if (path === "/api/coverage") {
-        const clusterQuery = url.searchParams.get("cluster");
-
-        // Cluster search support inside /api/coverage
-        if (clusterQuery) {
-          const q = clusterQuery.trim();
-          const querySql = "SELECT id, cluster_name, city, odp_id, lat, lng, status FROM homepass WHERE cluster_name LIKE ? LIMIT 10";
-          let results = [];
-          try {
-            const res1 = await env.DB.prepare(querySql).bind(`%${q}%`).all();
-            if (res1.results) results = results.concat(res1.results);
-          } catch (e) {}
-
-          if (env.DB_JATENG && results.length < 10) {
-            try {
-              const res2 = await env.DB_JATENG.prepare(querySql).bind(`%${q}%`).all();
-              if (res2.results) results = results.concat(res2.results);
-            } catch (e) {}
-          }
-
-          return new Response(JSON.stringify({
-            query: q,
-            results: results.slice(0, 15)
-          }), {
-            headers: {
-              ...corsHeaders,
-              "Cache-Control": "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400"
-            }
-          });
-        }
-
-        const latStr = url.searchParams.get("lat");
-        const lngStr = url.searchParams.get("lng");
-
-        if (!latStr || !lngStr) {
-          return new Response(JSON.stringify({ error: "Missing lat/lng parameters" }), {
-            status: 400,
-            headers: corsHeaders
-          });
-        }
-
-        const rawLat = parseFloat(latStr);
-        const rawLng = parseFloat(lngStr);
-
-        if (isNaN(rawLat) || isNaN(rawLng)) {
-          return new Response(JSON.stringify({ error: "Invalid lat/lng values" }), {
-            status: 400,
-            headers: corsHeaders
-          });
-        }
-
-        // Precision rounding to 5 decimal places (~1.1 meter accuracy) for caching
-        const lat = Number(rawLat.toFixed(5));
-        const lng = Number(rawLng.toFixed(5));
-        const coordKey = `cov:${lat},${lng}`;
-
-        // Tier 1: In-Memory Cache
-        const memCachedCov = getMemoryCache(coordKey);
-        if (memCachedCov) {
-          return new Response(JSON.stringify(memCachedCov), {
+          const edgeResponse = new Response(JSON.stringify(payload), {
             headers: {
               ...corsHeaders,
               "Cache-Control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400",
-              "X-Edge-Cache": "HIT-MEMORY"
+              "X-Edge-Cache": "MISS"
+            }
+          });
+
+          if (cfCache && request.method === "GET") {
+            try {
+              ctx.waitUntil(cfCache.put(cacheUrl.toString(), edgeResponse.clone()));
+            } catch (e) {}
+          }
+
+          return edgeResponse;
+        } else {
+          // NEVER cache empty results in edge or RAM
+          return new Response(JSON.stringify(payload), {
+            headers: {
+              ...corsHeaders,
+              "Cache-Control": "no-cache, no-store, must-revalidate",
+              "X-Edge-Cache": "BYPASS-EMPTY"
+            }
+          });
+        }
+      }
+
+      // =========================================================================
+      // ENDPOINT 3: Quick Autocomplete Suggestions (/api/suggestions?q=...)
+      // =========================================================================
+      if (path === "/api/suggestions" && request.method === "GET") {
+        const q = (url.searchParams.get("q") || "").trim();
+        if (!q || q.length < 2) {
+          return new Response(JSON.stringify([]), {
+            headers: {
+              ...corsHeaders,
+              "Cache-Control": "no-cache, no-store, must-revalidate"
             }
           });
         }
 
-        // Tier 2: Cloudflare Edge Cache API
-        const cacheUrl = new URL(request.url);
-        cacheUrl.searchParams.set("lat", String(lat));
-        cacheUrl.searchParams.set("lng", String(lng));
-        const cacheKey = new Request(cacheUrl.toString(), {
-          method: "GET",
-          headers: request.headers
-        });
+        const cacheKey = `sug:${CACHE_VERSION}:${q.toLowerCase()}`;
+        const memCached = getMemoryCache(cacheKey);
+        if (memCached) {
+          return new Response(JSON.stringify(memCached), {
+            headers: {
+              ...corsHeaders,
+              "Cache-Control": "public, max-age=86400, s-maxage=604800",
+              "X-RAM-Cache": "HIT"
+            }
+          });
+        }
 
         let cfCache = null;
+        const cacheUrl = new URL(url.toString());
+        cacheUrl.searchParams.set("__v", CACHE_VERSION);
         try {
           if (typeof caches !== "undefined" && caches.default) {
             cfCache = caches.default;
-            const match = await cfCache.match(cacheKey);
+            const match = await cfCache.match(cacheUrl.toString());
             if (match) {
               const resHeaders = new Headers(match.headers);
               for (const [k, v] of Object.entries(corsHeaders)) {
@@ -583,100 +529,93 @@ export default {
               });
             }
           }
-        } catch (e) {}
+        } catch (errCache) {}
 
-        const t0 = performance.now();
-
-        // Federated Intelligent Routing
-        // Primary DB is determined by geography, with automatic cross-database fallback
-        const primaryIsSolo = isSoloRaya(lat, lng);
-        const primaryDb = primaryIsSolo ? env.DB : (env.DB_JATENG || env.DB);
-        const secondaryDb = primaryIsSolo ? env.DB_JATENG : env.DB;
-
-        // Stage 1: Spatial query on Primary DB (delta 0.0032 = ~350m bounding box to cover 300m SOP radius)
-        let candidates = await queryCandidates(primaryDb, lat, lng, 0.0032);
-        let activeDbName = primaryIsSolo ? "coverage-db (Solo Raya)" : "coverage-jateng-db (Jateng-DIY)";
-
-        // Stage 2: Cross-boundary check if no candidates in Primary DB and Secondary DB is bound
-        if (candidates.length === 0 && secondaryDb) {
-          const secCandidates = await queryCandidates(secondaryDb, lat, lng, 0.0032);
-          if (secCandidates.length > 0) {
-            candidates = secCandidates;
-            activeDbName = primaryIsSolo ? "coverage-jateng-db (Jateng-DIY)" : "coverage-db (Solo Raya)";
-          }
-        }
-
-        // Stage 3: Wider 750m query fallback for nearest cluster identification if outside SOP
-        if (candidates.length === 0) {
-          candidates = await queryCandidates(primaryDb, lat, lng, 0.007);
-          if (candidates.length === 0 && secondaryDb) {
-            candidates = await queryCandidates(secondaryDb, lat, lng, 0.007);
-            if (candidates.length > 0) {
-              activeDbName = primaryIsSolo ? "coverage-jateng-db (Jateng-DIY)" : "coverage-db (Solo Raya)";
-            }
-          }
-        }
-
-        const t1 = performance.now();
-
-        let bestCandidate = null;
-        let minDistance = Infinity;
-
-        for (const item of candidates) {
-          const dist = haversineMeters(lat, lng, item.lat, item.lng);
-          if (dist < minDistance) {
-            minDistance = dist;
-            bestCandidate = item;
-          }
-        }
-
-        // FTTH standard drop cable SOP radius: 300 meters max from FAT box
-        const FTTH_MAX_DISTANCE = 300;
-        const isCovered = minDistance <= FTTH_MAX_DISTANCE;
-        const candidateCity = bestCandidate ? bestCandidate.city : null;
-        const is5G = isXL5GCoverage(lat, lng, candidateCity);
-
-        const responsePayload = {
-          covered: isCovered,
-          type: isCovered ? "FIBER_FTTH" : (is5G ? "WIRELESS_5G" : "WIRELESS_4G"),
-          wirelessCovered: true,
-          wirelessType: is5G ? "XL Ultra 5G+ (FWA)" : "XL Home Wireless 4G",
-          distance: minDistance === Infinity ? null : Math.round(minDistance),
-          maxDistance: FTTH_MAX_DISTANCE,
-          homepassId: bestCandidate ? bestCandidate.id : null,
-          cluster: bestCandidate ? bestCandidate.cluster_name : null,
-          odp: bestCandidate ? bestCandidate.odp_id : null,
-          city: bestCandidate ? bestCandidate.city : null,
-          address: bestCandidate ? bestCandidate.address : null,
-          status: bestCandidate ? bestCandidate.status : null,
-          lookupLatencyMs: Number((t1 - t0).toFixed(2)),
-          candidateCount: candidates.length,
-          databaseServed: activeDbName,
-          source: isCovered ? "CLOUDFLARE_D1_FTTH_OFFICIAL" : (is5G ? "XL_5G_ULTRA_BLANKET" : "XL_4G_NATIONAL_NETWORK")
-        };
-
-        // Cache coordinates result
-        setMemoryCache(coordKey, responsePayload);
-
-        const edgeCovResponse = new Response(JSON.stringify(responsePayload), {
-          headers: {
-            ...corsHeaders,
-            "Cache-Control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400",
-            "X-Edge-Cache": "MISS"
-          }
-        });
-
-        if (cfCache && ctx && typeof ctx.waitUntil === "function") {
+        let results = [];
+        if (masterDb) {
+          // Priority 1: Solo Raya clusters (Ultra-fast via idx_hp_city, ~5ms)
+          const soloQuerySql = `
+            SELECT DISTINCT cluster_name, city
+            FROM homepass
+            WHERE city IN (${SOLO_CITIES}) AND cluster_name LIKE ?
+            LIMIT 10
+          `;
           try {
-            ctx.waitUntil(cfCache.put(cacheKey, edgeCovResponse.clone()));
+            const res = await masterDb.prepare(soloQuerySql).bind(`%${q}%`).all();
+            if (res.results && res.results.length > 0) results = res.results;
           } catch (e) {}
+
+          // Priority 2: Nationwide clusters if fewer than 5
+          if (results.length < 5) {
+            const natQuerySql = `
+              SELECT DISTINCT cluster_name, city
+              FROM homepass
+              WHERE cluster_name LIKE ?
+              LIMIT 10
+            `;
+            try {
+              const resNat = await masterDb.prepare(natQuerySql).bind(`%${q}%`).all();
+              if (resNat.results) {
+                const seen = new Set(results.map(r => `${r.cluster_name}:${r.city}`));
+                for (const row of resNat.results) {
+                  const key = `${row.cluster_name}:${row.city}`;
+                  if (!seen.has(key)) {
+                    seen.add(key);
+                    results.push(row);
+                  }
+                  if (results.length >= 10) break;
+                }
+              }
+            } catch (e) {}
+          }
         }
 
-        return edgeCovResponse;
+        const suggestions = results.map(r => ({
+          label: `${r.cluster_name} (${r.city})`,
+          cluster: r.cluster_name,
+          city: r.city
+        }));
+
+        if (suggestions.length > 0) {
+          setMemoryCache(cacheKey, suggestions);
+
+          const edgeResponse = new Response(JSON.stringify(suggestions), {
+            headers: {
+              ...corsHeaders,
+              "Cache-Control": "public, max-age=86400, s-maxage=604800",
+              "X-Edge-Cache": "MISS"
+            }
+          });
+
+          if (cfCache && request.method === "GET") {
+            try {
+              ctx.waitUntil(cfCache.put(cacheUrl.toString(), edgeResponse.clone()));
+            } catch (e) {}
+          }
+
+          return edgeResponse;
+        } else {
+          return new Response(JSON.stringify([]), {
+            headers: {
+              ...corsHeaders,
+              "Cache-Control": "no-cache, no-store, must-revalidate",
+              "X-Edge-Cache": "BYPASS-EMPTY"
+            }
+          });
+        }
       }
 
       // =========================================================================
-      // ENDPOINT 4: Admin Direct SQL Execution
+      // ENDPOINT 4: Coordinates Exact Lookup (/api/coverage?lat=...&lng=...)
+      // =========================================================================
+      if ((path === "/api/coverage" || path === "/api/search") && request.method === "GET" && url.searchParams.get("lat") && url.searchParams.get("lng")) {
+        const latParam = url.searchParams.get("lat");
+        const lngParam = url.searchParams.get("lng");
+        return await handleCoordinatesLookup(latParam, lngParam, masterDb, corsHeaders, url, ctx);
+      }
+
+      // =========================================================================
+      // ENDPOINT 5: Admin Query (Unified Master)
       // =========================================================================
       if (path === "/api/admin/query" && request.method === "POST") {
         if (!isAdmin) {
@@ -694,14 +633,14 @@ export default {
           });
         }
 
-        const targetDb = selectTargetDb(env, body.db || body.targetDb);
+        const targetDb = masterDb;
         const stmt = targetDb.prepare(sql);
         const res = await stmt.all();
         return new Response(JSON.stringify(res), { headers: corsHeaders });
       }
 
       // =========================================================================
-      // ENDPOINT 5: Admin Batch Ingest
+      // ENDPOINT 6: Admin Batch Ingest (Unified Master)
       // =========================================================================
       if (path === "/api/admin/batch-import" && request.method === "POST") {
         if (!isAdmin) {
@@ -719,36 +658,173 @@ export default {
           });
         }
 
-        const targetDb = selectTargetDb(env, body.db || body.targetDb);
+        const targetDb = masterDb;
         const stmt = targetDb.prepare("INSERT OR REPLACE INTO homepass (id, h3_res10, lat, lng, cluster_name, status, odp_id, city, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         const batchStatements = rows.map(r => stmt.bind(r.id, r.h3, r.lat, r.lng, r.cluster, r.status, r.odp, r.city, r.address || null));
         
-        const t0 = performance.now();
-        const results = await targetDb.batch(batchStatements);
-        const t1 = performance.now();
+        await targetDb.batch(batchStatements);
 
-        // Clear memory cache after batch updates
-        MEMORY_CACHE.clear();
-
-        return new Response(JSON.stringify({
-          success: true,
-          count: rows.length,
-          timeMs: Number((t1 - t0).toFixed(2))
-        }), { headers: corsHeaders });
+        return new Response(
+          JSON.stringify({ success: true, count: rows.length }),
+          { headers: corsHeaders }
+        );
       }
 
-      return new Response(JSON.stringify({ error: "Endpoint Not Found" }), {
-        status: 404,
-        headers: corsHeaders
-      });
+      // Default fallback
+      return new Response(
+        JSON.stringify({
+          message: "XL Home Coverage API (Unified Master v3.0.0)",
+          documentation: "https://xlhomesolo.com"
+        }),
+        { headers: corsHeaders }
+      );
     } catch (err) {
-      return new Response(JSON.stringify({
-        error: err.message,
-        stack: err.stack
-      }), {
-        status: 500,
-        headers: corsHeaders
-      });
+      return new Response(
+        JSON.stringify({ error: "Internal Server Error", details: err.message }),
+        { status: 500, headers: corsHeaders }
+      );
     }
   }
 };
+
+/**
+ * Handle Coordinates Exact Lookup with Wireless Graceful Degradation
+ */
+async function handleCoordinatesLookup(latParam, lngParam, masterDb, corsHeaders, url, ctx) {
+  const lat = parseFloat(latParam);
+  const lng = parseFloat(lngParam);
+
+  if (isNaN(lat) || isNaN(lng)) {
+    return new Response(
+      JSON.stringify({ error: "Invalid latitude or longitude" }),
+      { status: 400, headers: corsHeaders }
+    );
+  }
+
+  // Precision 4 decimals (~11m bucket) for edge caching
+  const coordKey = `cov:${CACHE_VERSION}:${lat.toFixed(4)},${lng.toFixed(4)}`;
+  const memCached = getMemoryCache(coordKey);
+  if (memCached) {
+    return new Response(JSON.stringify(memCached), {
+      headers: {
+        ...corsHeaders,
+        "Cache-Control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400",
+        "X-RAM-Cache": "HIT"
+      }
+    });
+  }
+
+  const t0 = performance.now();
+  let candidates = [];
+
+  // Adaptive Expanding Bounding Box (~500m -> ~1.2km)
+  const deltas = [0.005, 0.012];
+  for (const delta of deltas) {
+    candidates = await queryCandidates(masterDb, lat, lng, delta);
+    if (candidates.length > 0) break;
+  }
+
+  const t1 = performance.now();
+
+  let bestCandidate = null;
+  let minDistance = Infinity;
+
+  for (const item of candidates) {
+    const dist = haversineMeters(lat, lng, item.lat, item.lng);
+    if (dist < minDistance) {
+      minDistance = dist;
+      bestCandidate = item;
+    }
+  }
+
+  // FTTH standard drop cable SOP radius: 300 meters max from FAT box
+  const FTTH_MAX_DISTANCE = 300;
+  const isCovered = minDistance <= FTTH_MAX_DISTANCE;
+
+  let isWirelessCovered = false;
+  let wirelessType = null;
+  let wirelessZone = null;
+  let wirelessSource = null;
+  let minWirelessDist = Infinity;
+
+  if (isCovered) {
+    isWirelessCovered = true;
+    wirelessType = "XL Ultra 5G+ (FWA)";
+    wirelessSource = "CLOUDFLARE_D1_FTTH_OFFICIAL";
+  } else {
+    // Check D1 official wireless_points (24,411 real KMZ grid points with 70 DSA zones)
+    if (masterDb) {
+      try {
+        const deltaW = 0.005; // ~500m bounding box
+        const wSql = `
+          SELECT zone, lat, lng
+          FROM wireless_points
+          WHERE lat BETWEEN ? AND ? AND lng BETWEEN ? AND ?
+          LIMIT 25
+        `;
+        const wRes = await masterDb.prepare(wSql).bind(
+          lat - deltaW, lat + deltaW,
+          lng - deltaW, lng + deltaW
+        ).all();
+        if (wRes.results && wRes.results.length > 0) {
+          for (const wp of wRes.results) {
+            const d = haversineMeters(lat, lng, wp.lat, wp.lng);
+            if (d < minWirelessDist) {
+              minWirelessDist = d;
+              wirelessZone = wp.zone;
+            }
+          }
+        }
+      } catch (e) {}
+    }
+
+    // Radius SOP wireless KMZ grid: 300 meters
+    if (wirelessZone && minWirelessDist <= 300) {
+      isWirelessCovered = true;
+      wirelessType = `XL Ultra 5G+ (FWA - Zona ${wirelessZone})`;
+      wirelessSource = "CLOUDFLARE_D1_WIRELESS_GRID_OFFICIAL";
+    } else {
+      const candidateCity = bestCandidate ? bestCandidate.city : null;
+      const is5G = isXL5GCoverage(lat, lng, candidateCity);
+      if (is5G) {
+        isWirelessCovered = true;
+        wirelessType = "XL Ultra 5G+ (FWA)";
+        wirelessSource = "XL_5G_NATIONAL_NETWORK";
+      } else {
+        isWirelessCovered = true;
+        wirelessType = "XL Home Wireless 4G";
+        wirelessSource = "XL_4G_NATIONAL_NETWORK";
+      }
+    }
+  }
+
+  const responsePayload = {
+    covered: isCovered,
+    type: isCovered ? "FIBER_FTTH" : (wirelessType.includes("5G") ? "WIRELESS_5G" : "WIRELESS_4G"),
+    wirelessCovered: isWirelessCovered,
+    wirelessType: wirelessType,
+    wirelessZone: wirelessZone || null,
+    distance: isCovered ? (minDistance === Infinity ? null : Math.round(minDistance)) : (minWirelessDist !== Infinity ? Math.round(minWirelessDist) : (minDistance === Infinity ? null : Math.round(minDistance))),
+    maxDistance: FTTH_MAX_DISTANCE,
+    homepassId: bestCandidate ? bestCandidate.id : null,
+    cluster: bestCandidate ? bestCandidate.cluster_name : null,
+    odp: bestCandidate ? bestCandidate.odp_id : null,
+    city: bestCandidate ? bestCandidate.city : null,
+    address: bestCandidate ? bestCandidate.address : null,
+    status: bestCandidate ? bestCandidate.status : null,
+    lookupLatencyMs: Number((t1 - t0).toFixed(2)),
+    candidateCount: candidates.length,
+    databaseServed: "xlhomesolo-coverage-db (Unified Master FTTH & 5G/Wireless)",
+    source: isCovered ? "CLOUDFLARE_D1_FTTH_OFFICIAL" : wirelessSource
+  };
+
+  setMemoryCache(coordKey, responsePayload);
+
+  return new Response(JSON.stringify(responsePayload), {
+    headers: {
+      ...corsHeaders,
+      "Cache-Control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400",
+      "X-Edge-Cache": "MISS"
+    }
+  });
+}

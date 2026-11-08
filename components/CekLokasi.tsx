@@ -259,7 +259,7 @@ export default function CekLokasi() {
           setQuery(alamatDisplay);
           if (finalCv.status === "fiber") {
             setStatusClass("cl-status success");
-            setStatusMsg(`✅ Tercover Fiber Optic XL Home (${alamatDisplay})!`);
+            setStatusMsg(`✅ Tercover Fiber Optic & Wireless XL Home (${alamatDisplay})!`);
             setLokasiInfo(`Lokasi: ${alamatDisplay}`);
           } else if (finalCv.status === "wireless") {
             const is5G = finalCv.zona && finalCv.zona.includes("5G");
