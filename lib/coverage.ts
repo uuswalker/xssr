@@ -9,19 +9,51 @@ export interface Pt {
 }
 
 export const KOTA_SOLORAYA: Pt[] = [
-  { nama: "Solo", lat: -7.5755, lng: 110.8243, radiusKm: 15 },
-  { nama: "Sukoharjo", lat: -7.6807, lng: 110.838, radiusKm: 20 },
-  { nama: "Klaten", lat: -7.7058, lng: 110.6069, radiusKm: 20 },
+  // Solo Raya & Jateng - DIY
+  { nama: "Solo", lat: -7.5755, lng: 110.8243, radiusKm: 18 },
+  { nama: "Sukoharjo", lat: -7.6807, lng: 110.838, radiusKm: 22 },
+  { nama: "Klaten", lat: -7.7058, lng: 110.6069, radiusKm: 22 },
   { nama: "Karanganyar", lat: -7.6, lng: 110.95, radiusKm: 25 },
   { nama: "Boyolali", lat: -7.5333, lng: 110.6, radiusKm: 25 },
   { nama: "Sleman", lat: -7.7167, lng: 110.3556, radiusKm: 25 },
-  { nama: "Yogyakarta", lat: -7.7956, lng: 110.3695, radiusKm: 18 },
+  { nama: "Yogyakarta", lat: -7.7956, lng: 110.3695, radiusKm: 20 },
   { nama: "Bantul", lat: -7.8897, lng: 110.3289, radiusKm: 25 },
   { nama: "Kulon Progo", lat: -7.7713, lng: 110.1581, radiusKm: 30 },
   { nama: "Gunungkidul", lat: -7.96, lng: 110.6033, radiusKm: 35 },
   { nama: "Magelang", lat: -7.4706, lng: 110.2178, radiusKm: 30 },
   { nama: "Semarang", lat: -7.0051, lng: 110.4381, radiusKm: 30 },
   { nama: "Salatiga", lat: -7.3305, lng: 110.5084, radiusKm: 20 },
+  // Jabodetabek
+  { nama: "Jakarta", lat: -6.2088, lng: 106.8456, radiusKm: 35 },
+  { nama: "Bogor", lat: -6.5971, lng: 106.806, radiusKm: 25 },
+  { nama: "Depok", lat: -6.4025, lng: 106.7942, radiusKm: 20 },
+  { nama: "Tangerang", lat: -6.1783, lng: 106.6319, radiusKm: 25 },
+  { nama: "Tangerang Selatan", lat: -6.2887, lng: 106.7179, radiusKm: 20 },
+  { nama: "Bekasi", lat: -6.2383, lng: 106.9756, radiusKm: 25 },
+  // Jawa Barat
+  { nama: "Bandung", lat: -6.9175, lng: 107.6191, radiusKm: 28 },
+  { nama: "Cimahi", lat: -6.8722, lng: 107.5422, radiusKm: 18 },
+  { nama: "Cirebon", lat: -6.732, lng: 108.5523, radiusKm: 22 },
+  // Jawa Timur
+  { nama: "Surabaya", lat: -7.2575, lng: 112.7521, radiusKm: 28 },
+  { nama: "Sidoarjo", lat: -7.4726, lng: 112.6675, radiusKm: 25 },
+  { nama: "Gresik", lat: -7.1566, lng: 112.6555, radiusKm: 25 },
+  { nama: "Malang", lat: -7.9666, lng: 112.6326, radiusKm: 25 },
+  // Bali
+  { nama: "Denpasar", lat: -8.6705, lng: 115.2126, radiusKm: 30 },
+  { nama: "Badung", lat: -8.5833, lng: 115.1833, radiusKm: 25 },
+  // Sumatera
+  { nama: "Medan", lat: 3.5952, lng: 98.6722, radiusKm: 30 },
+  { nama: "Palembang", lat: -2.9761, lng: 104.7754, radiusKm: 25 },
+  { nama: "Pekanbaru", lat: 0.5071, lng: 101.4478, radiusKm: 25 },
+  { nama: "Bandar Lampung", lat: -5.4292, lng: 105.2625, radiusKm: 25 },
+  // Kalimantan
+  { nama: "Balikpapan", lat: -1.2379, lng: 116.8529, radiusKm: 25 },
+  { nama: "Samarinda", lat: -0.5022, lng: 117.1536, radiusKm: 25 },
+  { nama: "Banjarmasin", lat: -3.3194, lng: 114.5908, radiusKm: 25 },
+  // Sulawesi
+  { nama: "Makassar", lat: -5.1477, lng: 119.4327, radiusKm: 30 },
+  { nama: "Manado", lat: 1.4748, lng: 124.8421, radiusKm: 25 },
 ];
 
 export const KOTA_ALIASES: Record<string, string> = {
@@ -40,6 +72,39 @@ export const KOTA_ALIASES: Record<string, string> = {
   magelang: "Magelang",
   semarang: "Semarang",
   salatiga: "Salatiga",
+  // Nasional
+  jakarta: "Jakarta",
+  jakartaselatan: "Jakarta",
+  jakartapusat: "Jakarta",
+  jakartatimur: "Jakarta",
+  jakartabarat: "Jakarta",
+  jakartautara: "Jakarta",
+  bogor: "Bogor",
+  depok: "Depok",
+  tangerang: "Tangerang",
+  tangerangselatan: "Tangerang Selatan",
+  tangsel: "Tangerang Selatan",
+  bekasi: "Bekasi",
+  bandung: "Bandung",
+  cimahi: "Cimahi",
+  cirebon: "Cirebon",
+  surabaya: "Surabaya",
+  sidoarjo: "Sidoarjo",
+  gresik: "Gresik",
+  malang: "Malang",
+  denpasar: "Denpasar",
+  badung: "Badung",
+  bali: "Denpasar",
+  medan: "Medan",
+  palembang: "Palembang",
+  pekanbaru: "Pekanbaru",
+  lampung: "Bandar Lampung",
+  bandarlampung: "Bandar Lampung",
+  balikpapan: "Balikpapan",
+  samarinda: "Samarinda",
+  banjarmasin: "Banjarmasin",
+  makassar: "Makassar",
+  manado: "Manado",
 };
 
 /** format Nominatim viewbox: left,top,right,bottom (lon,lat,lon,lat) */
