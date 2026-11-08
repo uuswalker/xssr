@@ -290,9 +290,23 @@ export function cekCoverage(
   return { status: "manual", jarakM: m, zona: null, fiberM: null, homepassId: bestHpId, alamat: bestAddr };
 }
 
+export function cleanAlamatResmi(rawAddress: string | null | undefined): string {
+  if (!rawAddress) return "";
+  let addr = rawAddress.trim();
+  // Strip ?- dummy vendor artifact e.g. "No. ?-69" -> "No. 69"
+  addr = addr.replace(/No\.\s*\?-\s*/gi, "No. ");
+  addr = addr.replace(/\?-\s*/g, "");
+  addr = addr.replace(/\?/g, "");
+  // Strip leading hyphen or dashes
+  addr = addr.replace(/^-\s*/, "");
+  // Strip (atau disekitarnya)
+  addr = addr.replace(/(\(|\[)?\s*atau disekitarnya\s*(\)|\])?/i, "").trim();
+  return addr;
+}
+
 export function formatAlamatDisekitarnya(rawAddress: string | null | undefined): string {
   if (!rawAddress) return "";
-  const addr = rawAddress.trim();
+  const addr = cleanAlamatResmi(rawAddress);
   if (!addr) return "";
   // Hindari duplikasi jika sudah ada kata "disekitarnya"
   if (/(\(|\[)?\s*atau disekitarnya\s*(\)|\])?/i.test(addr)) {
@@ -311,9 +325,7 @@ export const COV_TEXT: Record<CoverageStatus, [string, string, string]> = {
 
 /** Teks detail verdict — format resmi tercover fiber & wireless dengan ODP & jarak */
 export function coverageDetail(cv: CoverageResult): string {
-  const rawAlamat = cv.alamat
-    ? cv.alamat.replace(/(\(|\[)?\s*atau disekitarnya\s*(\)|\])?/i, "").trim()
-    : "";
+  const rawAlamat = cleanAlamatResmi(cv.alamat);
   const alamatFormat = rawAlamat || "Area Lokasi Anda";
   const waSalesLink = "wa.me/6287778999141";
 

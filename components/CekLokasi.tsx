@@ -10,6 +10,7 @@ import {
   cekCoverageWorkerAPI,
   coverageDetail,
   coverageLine,
+  cleanAlamatResmi,
   formatAlamatDisekitarnya,
   cekAreaBlacklist,
   deteksiKota,
@@ -193,11 +194,14 @@ export default function CekLokasi() {
       if (!alamatText) {
         reverseGeocodeNominatim(lat, lng).then((prediksi) => {
           if (prediksi && currentReqId === reqIdRef.current) {
-            posRef.current.alamat = prediksi;
-            const kotaFinal = posRef.current.kota || hasil.nama || "";
-            setLokasiInfo(
-              `Lokasi: ${prediksi}${kotaFinal && !prediksi.toLowerCase().includes(kotaFinal.toLowerCase()) ? ` (${kotaFinal})` : ""}`
-            );
+            setLokasiInfo((current) => {
+              // Jika alamat resmi FTTH dari database sudah tampil, jangan timpa dengan generic nominatim
+              if (!current || current.includes("Mengecek ketersediaan") || current.startsWith("Mengecek")) {
+                const kotaFinal = posRef.current.kota || hasil.nama || "";
+                return `Lokasi: ${prediksi}${kotaFinal && !prediksi.toLowerCase().includes(kotaFinal.toLowerCase()) ? ` (${kotaFinal})` : ""}`;
+              }
+              return current;
+            });
             setCoverage((prev) => {
               if (!prev) return prev;
               if (!prev.alamat || prev.alamat.startsWith("Area Layanan") || prev.alamat.startsWith("Area ")) {
@@ -248,8 +252,9 @@ export default function CekLokasi() {
           }
           setCoverage(finalCv);
           fireCoverageEvent(lat, lng, finalCv);
-          const rawAlamat = finalCv.alamat || q.alamat || alamatText;
-          const alamatDisplay = rawAlamat ? formatAlamatDisekitarnya(rawAlamat) : `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+          const rawAlamat = cleanAlamatResmi(finalCv.alamat || q.alamat || alamatText);
+          finalCv.alamat = rawAlamat;
+          const alamatDisplay = rawAlamat || `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
           q.alamat = alamatDisplay;
           setQuery(alamatDisplay);
           if (finalCv.status === "fiber") {
