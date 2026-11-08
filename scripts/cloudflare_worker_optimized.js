@@ -366,26 +366,97 @@ export default {
           // Ignore cache errors and fallback to D1
         }
 
-        // Tier 3: Query Federated D1 Databases
-        const searchPattern = `%${q}%`;
-        const querySql = `
-          SELECT id, cluster_name, city, odp_id, lat, lng, status, address
-          FROM homepass
-          WHERE cluster_name LIKE ? OR address LIKE ? OR id LIKE ? OR odp_id LIKE ?
-          LIMIT 25
-        `;
+        // Tier 3: Query Federated D1 Databases with Smart Token Routing
+        const rawTokens = q.replace(/[,._\-/]/g, " ").trim().split(/\s+/).filter(t => t.length >= 2);
+        const SOLO_KW = /sukoharjo|surakarta|solo|karanganyar|boyolali|klaten|sragen|wonogiri|cemani|grogol|kartasura|colomadu|palur|mojolaban|baki/i;
+        const NAS_KW = /jakarta|surabaya|semarang|bandung|medan|bekasi|tangerang|depok|bogor|sidoarjo|gresik|makassar|denpasar|bali|batam|pekanbaru|sleman|bantul|yogyakarta|jogja|malang/i;
 
-        let results = [];
-        try {
-          const res1 = await env.DB.prepare(querySql).bind(searchPattern, searchPattern, searchPattern, searchPattern).all();
-          if (res1.results) results = results.concat(res1.results);
-        } catch (e) {}
+        const isSolo = SOLO_KW.test(q);
+        const isNas = NAS_KW.test(q);
 
-        if (env.DB_JATENG && results.length < 25) {
-          try {
-            const res2 = await env.DB_JATENG.prepare(querySql).bind(searchPattern, searchPattern, searchPattern, searchPattern).all();
-            if (res2.results) results = results.concat(res2.results);
-          } catch (e) {}
+        let soloRows = [];
+        let jatengRows = [];
+
+        if (rawTokens.length <= 1) {
+          const searchPattern = `%${q}%`;
+          const singleSql = `
+            SELECT id, cluster_name, city, odp_id, lat, lng, status, address
+            FROM homepass
+            WHERE cluster_name LIKE ? OR address LIKE ? OR id LIKE ? OR odp_id LIKE ?
+            LIMIT 25
+          `;
+          if (isSolo && !isNas) {
+            try {
+              const res1 = await env.DB.prepare(singleSql).bind(searchPattern, searchPattern, searchPattern, searchPattern).all();
+              if (res1.results) soloRows = res1.results;
+            } catch (e) {}
+          } else if (isNas && !isSolo && env.DB_JATENG) {
+            try {
+              const res2 = await env.DB_JATENG.prepare(singleSql).bind(searchPattern, searchPattern, searchPattern, searchPattern).all();
+              if (res2.results) jatengRows = res2.results;
+            } catch (e) {}
+          } else {
+            const [p1, p2] = await Promise.allSettled([
+              env.DB ? env.DB.prepare(singleSql).bind(searchPattern, searchPattern, searchPattern, searchPattern).all() : Promise.resolve({ results: [] }),
+              env.DB_JATENG ? env.DB_JATENG.prepare(singleSql).bind(searchPattern, searchPattern, searchPattern, searchPattern).all() : Promise.resolve({ results: [] })
+            ]);
+            if (p1.status === "fulfilled" && p1.value?.results) soloRows = p1.value.results;
+            if (p2.status === "fulfilled" && p2.value?.results) jatengRows = p2.value.results;
+          }
+        } else {
+          // Multi-word intelligent token query across all columns (address, cluster, city, odp_id)
+          const whereParts = [];
+          const bindParams = [];
+
+          for (const tok of rawTokens.slice(0, 4)) {
+            const low = tok.toLowerCase();
+            if (low === "gang" || low === "gg") {
+              whereParts.push("((coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE '%gang%' OR (coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE '%gg%')");
+            } else if (low === "jalan" || low === "jl") {
+              whereParts.push("((coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE '%jalan%' OR (coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE '%jl%')");
+            } else {
+              whereParts.push("(coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE ?");
+              bindParams.push(`%${low}%`);
+            }
+          }
+
+          const multiSql = `
+            SELECT id, cluster_name, city, odp_id, lat, lng, status, address
+            FROM homepass
+            WHERE ${whereParts.join(" AND ")}
+            LIMIT 25
+          `;
+
+          if (isSolo && !isNas) {
+            try {
+              const res1 = await env.DB.prepare(multiSql).bind(...bindParams).all();
+              if (res1.results) soloRows = res1.results;
+            } catch (e) {}
+          } else if (isNas && !isSolo && env.DB_JATENG) {
+            try {
+              const res2 = await env.DB_JATENG.prepare(multiSql).bind(...bindParams).all();
+              if (res2.results) jatengRows = res2.results;
+            } catch (e) {}
+          } else {
+            const [p1, p2] = await Promise.allSettled([
+              env.DB ? env.DB.prepare(multiSql).bind(...bindParams).all() : Promise.resolve({ results: [] }),
+              env.DB_JATENG ? env.DB_JATENG.prepare(multiSql).bind(...bindParams).all() : Promise.resolve({ results: [] })
+            ]);
+            if (p1.status === "fulfilled" && p1.value?.results) soloRows = p1.value.results;
+            if (p2.status === "fulfilled" && p2.value?.results) jatengRows = p2.value.results;
+          }
+        }
+
+        // Combine and deduplicate
+        const seenIds = new Set();
+        const results = [];
+        const orderedRows = isSolo ? [...soloRows, ...jatengRows] : [...jatengRows, ...soloRows];
+
+        for (const r of orderedRows) {
+          if (r && r.id && !seenIds.has(r.id)) {
+            seenIds.add(r.id);
+            results.push(r);
+          }
         }
 
         const responsePayload = {

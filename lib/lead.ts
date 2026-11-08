@@ -142,6 +142,16 @@ export interface D1SearchResult {
   address?: string;
 }
 
+const ADMIN_CITY_WORDS = new Set([
+  "kab", "kabupaten", "kota", "kec", "kecamatan", "kel", "kelurahan",
+  "desa", "rt", "rw", "no", "nomor", "indonesia",
+  "jawa", "tengah", "barat", "timur", "jateng", "jabar", "jatim", "dki", "diy",
+  "sukoharjo", "surakarta", "solo", "karanganyar", "boyolali", "klaten", "sragen", "wonogiri",
+  "jakarta", "surabaya", "semarang", "bandung", "medan", "bekasi", "tangerang", "depok",
+  "bogor", "sidoarjo", "gresik", "makassar", "denpasar", "bali", "batam", "pekanbaru",
+  "sleman", "bantul", "yogyakarta", "jogja", "malang"
+]);
+
 export function generateSearchVariants(rawQ: string): string[] {
   const q = rawQ.trim().toLowerCase();
   const variants: string[] = [];
@@ -149,37 +159,30 @@ export function generateSearchVariants(rawQ: string): string[] {
   // 1. Query utuh
   variants.push(q);
 
-  // 2. Ekstrak pola ODP (misal FKS181, FRK053)
-  const odpMatch = q.match(/\b(f[a-z]{2}\s*\d+[a-z0-9]*)\b/i);
+  // 2. Ekstrak pola ODP (misal FKS181, FRK053, FRS101)
+  const odpMatch = q.match(/\b([a-z]{3}\s*\d+[a-z0-9]*)\b/i);
   if (odpMatch) {
     variants.push(odpMatch[1].replace(/\s+/g, ""));
   }
 
-  // 3. Tokenisasi tanpa kata henti administratif umum
-  const noise = new Set([
-    "kab", "kabupaten", "kota", "kec", "kecamatan", "kel", "kelurahan",
-    "desa", "rt", "rw", "sukoharjo", "surakarta", "solo", "karanganyar",
-    "boyolali", "klaten", "indonesia", "jawa", "tengah", "jateng"
-  ]);
+  // 3. Tokenisasi tanpa kata henti administratif dan nama kota
+  const allTokens = q.split(/[\s,]+/).filter((w) => w.length > 0);
+  const pureTokens = allTokens.filter((w) => !ADMIN_CITY_WORDS.has(w));
 
-  const tokens = q.split(/[\s,]+/).filter((w) => w.length > 0 && !noise.has(w));
-
-  if (tokens.length >= 2) {
+  if (pureTokens.length >= 2) {
     // Kombinasi 3 kata & 2 kata utama (misal: "gang salak cemani", "salak cemani", "gang salak")
-    variants.push(tokens.slice(0, 3).join(" "));
-    variants.push(tokens.slice(0, 2).join(" "));
+    variants.push(pureTokens.slice(0, 3).join(" "));
+    variants.push(pureTokens.slice(0, 2).join(" "));
 
-    if (tokens.includes("gang") || tokens.includes("gg")) {
-      const nonGang = tokens.filter((w) => w !== "gang" && w !== "gg");
-      if (nonGang.length >= 2) {
-        variants.push(nonGang.slice(0, 2).join(" "));
-      }
-      if (nonGang.length > 0) {
-        variants.push(nonGang[0]);
-      }
+    const nonStreetPrefix = pureTokens.filter((w) => w !== "gang" && w !== "gg" && w !== "jl" && w !== "jalan");
+    if (nonStreetPrefix.length >= 2) {
+      variants.push(nonStreetPrefix.slice(0, 2).join(" "));
     }
-  } else if (tokens.length === 1) {
-    variants.push(tokens[0]);
+    if (nonStreetPrefix.length > 0) {
+      variants.push(nonStreetPrefix[0]);
+    }
+  } else if (pureTokens.length === 1) {
+    variants.push(pureTokens[0]);
   }
 
   // Deduplikasi varian tetap menjaga prioritas urutan
@@ -207,6 +210,7 @@ function scoreD1Result(r: D1SearchResult, queryTokens: string[]): number {
     if (full.includes(tok)) {
       score += 10;
       if (addr.includes(tok)) score += 8;
+      if (city.includes(tok)) score += 15; // Bobot prioritas kota pencarian
       if (odp.includes(tok)) score += 15;
       if (cluster.includes(tok)) score += 5;
     }
