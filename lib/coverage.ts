@@ -137,6 +137,7 @@ export interface CoverageResult {
   homepassId: string | null;
   alamat: string | null;
   city?: string | null;
+  odp?: string | null;
 }
 
 export interface CoverageData {
@@ -345,6 +346,7 @@ export async function cekCoverageWorkerAPI(
           homepassId: data.homepassId,
           alamat: alamatLengkap,
           city: data.city,
+          odp: data.odp || null,
         };
       } else {
         // Jarak > 300m (SOP): Request Pasang Baru / Wireless Fallback dengan ODP lokal presisi (bukan lompat ke Solo Raya)
@@ -356,6 +358,7 @@ export async function cekCoverageWorkerAPI(
           homepassId: data.homepassId,
           alamat: alamatLengkap,
           city: data.city,
+          odp: data.odp || null,
         };
       }
     }

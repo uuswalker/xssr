@@ -152,6 +152,8 @@ export default function CekLokasi() {
         zona: coverage?.zona || null,
         homepassId: coverage?.homepassId || null,
         homepassAddress: coverage?.alamat || null,
+        odp: coverage?.odp || null,
+        paket: paketPilihan || null,
       })
     );
   }, [coverage, wa]);
@@ -573,6 +575,8 @@ export default function CekLokasi() {
           zona: coverage?.zona || null,
           homepassId: coverage?.homepassId || null,
           homepassAddress: coverage?.alamat || null,
+          odp: coverage?.odp || null,
+          paket: paketPilihan || null,
           peminatSekitar: peminatSekitar,
           providerSaatIni: providerSaatIni,
         })
@@ -634,6 +638,8 @@ export default function CekLokasi() {
         zona: coverage?.zona || null,
         homepassId: coverage?.homepassId || null,
         homepassAddress: coverage?.alamat || null,
+        odp: coverage?.odp || null,
+        paket: paketPilihan || null,
       })
     );
     gtag("event", "submit_cek_lokasi", {

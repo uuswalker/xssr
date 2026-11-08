@@ -50,6 +50,7 @@ export interface LeadPayload {
   zona: string | null;
   homepassId: string | null;
   homepassAddress: string | null;
+  odp?: string | null;
   mapsLink: string;
   halaman: string;
   referrer: string;
@@ -72,6 +73,7 @@ function basePayload(
     zona: string | null;
     homepassId: string | null;
     homepassAddress: string | null;
+    odp?: string | null;
     peminatSekitar?: string | null;
     providerSaatIni?: string | null;
   }
@@ -93,6 +95,7 @@ function basePayload(
     zona: f.zona,
     homepassId: f.homepassId,
     homepassAddress: f.homepassAddress,
+    odp: f.odp || null,
     mapsLink:
       f.lat != null && f.lng != null
         ? `https://www.google.com/maps?q=${f.lat},${f.lng}`
