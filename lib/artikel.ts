@@ -1443,7 +1443,24 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
 
   schemas: [],
 
-  faqs: [],
+  faqs: [
+    {
+      q: "Kapan waktu terbaik mengajukan pemutusan WiFi lama agar tidak kena tagihan ganda?",
+      a: "Waktu paling ideal adalah 3 hingga 5 hari sebelum tanggal cetak tagihan (billing cycle) provider lama Anda. Pastikan modem XL Home baru sudah terpasang dan aktif di rumah Anda terlebih dahulu sehingga keluarga tidak mengalami hari tanpa koneksi internet."
+    },
+    {
+      q: "Apakah pindah ke XL Home Fiber dikenakan biaya pasang baru?",
+      a: "Tidak! Pemasangan XL Home Fiber 100% Gratis (Rp 0). Perangkat modem WiFi Gigabit dan kabel optik dipinjamkan tanpa biaya sewa bulanan tambahan."
+    },
+    {
+      q: "Apakah XL Home memberlakukan FUP (Fair Usage Policy)?",
+      a: "XL Home Fiber murni 100% True Unlimited tanpa batasan FUP. Kecepatan internet Anda akan tetap kencang dari awal bulan sampai akhir bulan tanpa pernah diturunkan secara sepihak."
+    },
+    {
+      q: "Bagaimana cara klaim promo migrasi khusus pindahan di Solo Raya?",
+      a: "Anda cukup menghubungi WhatsApp Sales Resmi di 0877-7899-9141 dan menginformasikan bahwa Anda ingin migrasi dari provider lama. Tim kami akan memberikan asistensi prioritas dan opsi promo paket terbaik."
+    }
+  ],
 
   hero: {
 
@@ -1618,6 +1635,38 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
 
 
   <h2>Cek Area Layanan di Kotamu</h2>
+
+  <div class="cta-box" style="margin: 30px 0; padding: 24px; background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: white; border-radius: 12px; text-align: center;">
+    <h3 style="color: white; margin-top: 0; font-size: 20px;">Mau Pindah ke XL Home Tanpa Repot?</h3>
+    <p style="color: #e0f2fe; margin-bottom: 18px; font-size: 15px;">Tim Sales Resmi kami siap membantu proses migrasi dari IndiHome, Biznet, atau MyRepublic dengan promo gratis pasang Rp 0!</p>
+    <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20mau%20pindah%20dari%20provider%20lama%20ke%20XL%20Home.%20Mohon%20bantu%20cek%20promo%20migrasi%20terbaru" target="_blank" rel="noopener noreferrer" class="btn-cta" style="background: #22c55e; color: white; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-decoration: none; display: inline-block;">
+      Chat Sales Migrasi via WhatsApp (0877-7899-9141)
+    </a>
+  </div>
+
+  <div class="faq-section" style="margin-top: 35px; padding: 24px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0;">
+    <h2 style="margin-top: 0; color: #0f172a;">Tanya Jawab Seputar Migrasi Provider WiFi</h2>
+    
+    <div style="margin-bottom: 16px;">
+      <h4 style="margin-bottom: 6px; color: #1e3a8a;">1. Kapan waktu terbaik berhenti dari provider lama?</h4>
+      <p style="margin: 0; color: #475569; font-size: 15px;">Lakukan 3-5 hari sebelum tanggal tagihan baru, dan pastikan teknisi XL Home sudah memasang modem baru Anda lebih dulu agar tidak ada hari tanpa koneksi internet.</p>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <h4 style="margin-bottom: 6px; color: #1e3a8a;">2. Apakah pasang baru XL Home dipungut biaya instalasi?</h4>
+      <p style="margin: 0; color: #475569; font-size: 15px;">Instalasi 100% Gratis (Rp 0), modem WiFi Gigabit dipinjamkan cuma-cuma selama berlangganan.</p>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <h4 style="margin-bottom: 6px; color: #1e3a8a;">3. Apakah XL Home ada batas kuota FUP?</h4>
+      <p style="margin: 0; color: #475569; font-size: 15px;">XL Home Fiber murni True Unlimited 100% tanpa sistem batas kuota FUP.</p>
+    </div>
+
+    <div>
+      <h4 style="margin-bottom: 6px; color: #1e3a8a;">4. Bagaimana cara klaim promo migrasi di Solo Raya?</h4>
+      <p style="margin: 0; color: #475569; font-size: 15px;">Kirim pesan via WhatsApp Sales di <strong>0877-7899-9141</strong> untuk diprioritaskan oleh teknisi kami.</p>
+    </div>
+  </div>
 
   <p>XL Home melayani pemasangan internet rumah dan kos di 5 wilayah Solo Raya: Sudah siap daftar? Baca <a href="/cara-daftar-pasang-wifi-xl-home-solo/">panduan lengkap cara daftar & syarat pemasangan</a>.</p>
 
@@ -2644,13 +2693,35 @@ ARTIKEL["cara-cek-jaringan-xl-home-di-depan-rumah"] = {
   slug: "cara-cek-jaringan-xl-home-di-depan-rumah",
   title: "Cara Cek Jaringan XL Home di Rumah [Ciri Tiang ODP]",
   description: "Ingin tahu apakah rumah Anda tercover fiber XL Home? Kenali ciri tiang ODP resmi Link Net dan cara cek slot kabel gratis lewat WhatsApp sales.",
-  keywords: ["cara cek jaringan xl home", "tiang xl home", "odp xl home", "ciri tiang xl home", "cek jangkauan xl home solo", "tiang xl satu", "kotak fat xl"],
+  keywords: ["cara cek jaringan xl home", "tiang xl home", "odp xl home", "ciri tiang xl home", "cek jangkauan xl home solo", "tiang xl satu", "kotak fat xl", "cek tiang wifi solo", "tiang fiber xl home"],
   ogTitle: "Cara Cek Jaringan XL Home: Kenali Ciri Tiangnya!",
   ogDescription: "Cek sendiri jangkauan XL Home di depan rumah Anda. Cari tiang berpucuk hijau-biru dan kotak ini!",
   ogImage: "/images/tiang-xl-home-fat-box.jpg",
   schemas: [],
-  faqs: [],
-  hero: null,
+  faqs: [
+    {
+      q: "Bagaimana cara membedakan tiang XL Home dengan tiang provider lain?",
+      a: "Tiang fiber resmi XL Home (jaringan fiber optic Link Net / First Media) memiliki cat penanda warna hijau-biru di pucuk tiangnya dan dilengkapi kotak FAT/ODP putih bertuliskan kode unik warna hitam (contoh: FBJO46 SO1A08). Berbeda dengan tiang merah-putih milik Telkom atau tiang kuning Biznet."
+    },
+    {
+      q: "Berapa jarak maksimal tiang XL Home ke rumah agar bisa dipasang?",
+      a: "Jarak maksimal penarikan kabel drop core fiber optic dari kotak ODP ke rumah pelanggan adalah sekitar 150 hingga 250 meter agar kualitas redaman cahaya dan kecepatan internet tetap optimal 100% tanpa penurunan performa."
+    },
+    {
+      q: "Bagaimana jika ada tiang di depan rumah tetapi slot port ODP sudah penuh?",
+      a: "Jika slot port pada kotak ODP terdekat sudah penuh, Anda tidak perlu khawatir. Tim Sales Resmi kami di WhatsApp 0877-7899-9141 bisa langsung mengajukan penambahan splitter/port baru ke tim operasional Link Net atau mencarikan alternatif ODP terdekat tanpa biaya tambahan."
+    },
+    {
+      q: "Apakah pengecekan jangkauan tiang lewat WhatsApp Sales dikenakan biaya?",
+      a: "Pengecekan jangkauan 100% Gratis! Anda cukup mengirimkan foto tiang atau Share Loc Google Maps rumah Anda ke WhatsApp Sales Resmi di 0877-7899-9141, tim kami akan memverifikasi titik koordinat dan slot kabel dalam hitungan menit."
+    }
+  ],
+  hero: {
+    crumb: "<a href='https://xlhomesolo.com/'>Beranda</a> / Cara Cek Jaringan XL Home",
+    h1: "Cara Cek Jaringan XL Home di Depan Rumah [Ciri Tiang & Kotak ODP]",
+    sub: "Kenali ciri fisik tiang fiber resmi berpucuk hijau-biru, kotak FAT/ODP putih, dan cara cek ketersediaan slot kabel gratis via WhatsApp sales resmi 0877-7899-9141.",
+    meta: "Diperbarui 8 November 2026 • Panduan Teknisi & Sales Solo"
+  },
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20di%20depan%20rumah%20saya%20ada%20tiang%20XL%20Home.%20Mau%20pasang!",
   bodyHtml: `
     <h2>Cara Tercepat Mengetahui Area Anda Sudah Tercover XL Home</h2>
@@ -2690,12 +2761,36 @@ ARTIKEL["cara-cek-jaringan-xl-home-di-depan-rumah"] = {
       <li>Kami akan memproses pendaftaran Anda secara prioritas. Karena kotaknya sudah terlihat, teknisi bisa langsung datang untuk melakukan penarikan kabel!</li>
     </ol>
 
-    <div class="cta-box">
-      <h3>Daftar Jalur Cepat (Prioritas)</h3>
-      <p>Punya foto tiang XL Home di dekat rumah? Kirimkan fotonya sekarang dan dapatkan jadwal pemasangan lebih cepat!</p>
-      <a href="https://wa.me/6287778999141?text=Halo%20kak,%20di%20depan%20rumah%20saya%20sudah%20ada%20tiang%20dan%20kotak%20XL%20Home.%20Ini%20fotonya,%20mau%20daftar%20sekarang!" target="_blank" rel="noopener noreferrer" class="btn-cta">
-        Kirim Foto Tiang via WA
+    <div class="cta-box" style="margin: 28px 0; padding: 24px; background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: white; border-radius: 12px; text-align: center;">
+      <h3 style="color: white; margin-top: 0; font-size: 20px;">Daftar Jalur Cepat: Cek Tiang & Slot Port Instan</h3>
+      <p style="color: #e0f2fe; margin-bottom: 18px; font-size: 15px;">Punya foto tiang atau mau cek titik tiang terdekat dari rumah? Kirim foto / Share Loc sekarang ke tim Sales Resmi <strong>0877-7899-9141</strong> untuk dapat jadwal pemasangan prioritas!</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20kak,%20di%20depan%20rumah%20saya%20sudah%20ada%20tiang%20dan%20kotak%20XL%20Home.%20Ini%20fotonya,%20mau%20daftar%20sekarang!" target="_blank" rel="noopener noreferrer" class="btn-cta" style="background: #22c55e; color: white; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-decoration: none; display: inline-block;">
+        Kirim Foto Tiang / Share Loc via WhatsApp
       </a>
+    </div>
+
+    <div class="faq-section" style="margin-top: 40px; padding: 24px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0;">
+      <h2 style="margin-top: 0; color: #0f172a;">Tanya Jawab Seputar Tiang & Jaringan XL Home</h2>
+      
+      <div style="margin-bottom: 16px;">
+        <h4 style="margin-bottom: 6px; color: #1e3a8a;">1. Bagaimana membedakan tiang XL Home dengan provider lain?</h4>
+        <p style="margin: 0; color: #475569; font-size: 15px;">Tiang fiber resmi XL Home memiliki cat penanda <strong>hijau-biru</strong> di pucuk atasnya serta dilengkapi kotak FAT/ODP putih bertuliskan kode huruf/angka hitam tebal.</p>
+      </div>
+
+      <div style="margin-bottom: 16px;">
+        <h4 style="margin-bottom: 6px; color: #1e3a8a;">2. Berapa jarak maksimal tiang ke rumah?</h4>
+        <p style="margin: 0; color: #475569; font-size: 15px;">Idealnya maksimal <strong>150 hingga 250 meter</strong> dari kotak ODP agar sinyal redaman fiber tetap sempurna dan stabil 100%.</p>
+      </div>
+
+      <div style="margin-bottom: 16px;">
+        <h4 style="margin-bottom: 6px; color: #1e3a8a;">3. Bagaimana jika tiang ada tapi slot port penuh?</h4>
+        <p style="margin: 0; color: #475569; font-size: 15px;">Hubungi tim sales di WhatsApp <strong>0877-7899-9141</strong>. Kami bantu ajukan penambahan slot port atau dialihkan ke ODP terdekat lainnya tanpa biaya tambahan.</p>
+      </div>
+
+      <div>
+        <h4 style="margin-bottom: 6px; color: #1e3a8a;">4. Apakah cek lokasi tiang via WhatsApp dipungut biaya?</h4>
+        <p style="margin: 0; color: #475569; font-size: 15px;">100% Gratis! Cukup kirimkan Share Loc Google Maps rumah Anda ke sales resmi.</p>
+      </div>
     </div>
   `
 };
