@@ -103,6 +103,17 @@ export default function LiveSocialProof() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: `
+        body.modal-open .live-social-proof-wrap {
+          display: none !important;
+        }
+        @media (max-width: 640px) {
+          .live-social-proof-wrap {
+            left: 10px !important;
+            bottom: 10px !important;
+            max-width: calc(100vw - 20px) !important;
+            padding: 10px 14px !important;
+          }
+        }
         @keyframes pulseDot {
           0% { transform: scale(0.95); opacity: 1; }
           70% { transform: scale(1.3); opacity: 0.6; }
@@ -117,12 +128,12 @@ export default function LiveSocialProof() {
           animation: pulseDot 2s infinite;
         }
       ` }} />
-      <div
+      <div className="live-social-proof-wrap"
         style={{
           position: "fixed",
           bottom: "24px",
           left: "24px",
-          zIndex: 9999,
+          zIndex: 890,
           maxWidth: "340px",
           backgroundColor: "#ffffff",
           borderRadius: "12px",

@@ -32,13 +32,13 @@ import {
 } from "@/lib/lead";
 
 const DAFTAR_PAKET_OPTIONS = [
-  { id: "starter-20", name: "XL Home Starter — 20 Mbps (Rp 185.000/bln)" },
-  { id: "value-30", name: "XL Home Fiber Value — 30 Mbps (Rp 219.000/bln)" },
-  { id: "smart-50", name: "XL Home Fiber Smart — 50 Mbps (Rp 269.000/bln) [Favorit]" },
-  { id: "family-100", name: "XL Home Fiber Family — 100 Mbps (Rp 349.000/bln)" },
-  { id: "super-200", name: "XL Home Fiber Super — 200 Mbps (Rp 499.000/bln)" },
-  { id: "wireless-100", name: "XL Home Wireless 5G — 100 Mbps (Rp 219.500/bln) [Plug & Play]" },
-  { id: "rekomendasi", name: "Belum Memilih — Rekomendasikan yang Terbaik di Alamat Saya" },
+  { id: "starter-20", name: "Starter 20 Mbps — Rp 185.000/bln" },
+  { id: "value-30", name: "Value 30 Mbps — Rp 219.000/bln" },
+  { id: "smart-50", name: "Smart 50 Mbps — Rp 269.000/bln [Favorit]" },
+  { id: "family-100", name: "Family 100 Mbps — Rp 349.000/bln" },
+  { id: "super-200", name: "Super 200 Mbps — Rp 499.000/bln" },
+  { id: "wireless-100", name: "Wireless 5G 100 Mbps — Rp 219.500/bln" },
+  { id: "rekomendasi", name: "Belum Memilih — Rekomendasikan Terbaik" },
 ];
 
 export default function FormulirRegistrasi() {
@@ -369,8 +369,11 @@ export default function FormulirRegistrasi() {
           border: 1px solid #e2e8f0;
         }
         @media (max-width: 600px) {
-          .reg-form-wrap { padding: 22px 18px; border-radius: 16px; }
-          .reg-title { font-size: 23px; }
+          .reg-form-wrap { padding: 18px 14px; border-radius: 14px; }
+          .reg-title { font-size: 21px; }
+          .reg-sub { font-size: 13px; }
+          .reg-select { font-size: 13.5px; padding-left: 10px; padding-right: 36px; }
+          .cov-card-fiber, .cov-card-wireless, .cov-card-warning { padding: 12px; }
         }
         .reg-mode {
           display: flex;
@@ -539,6 +542,8 @@ export default function FormulirRegistrasi() {
           background: #f0f7ff;
         }
         .cov-card-fiber {
+          word-break: break-word;
+          overflow-wrap: anywhere;
           background: #ecfdf5;
           border: 1.5px solid #10b981;
           border-radius: 12px;
@@ -547,6 +552,8 @@ export default function FormulirRegistrasi() {
           margin-top: 14px;
         }
         .cov-card-wireless {
+          word-break: break-word;
+          overflow-wrap: anywhere;
           background: #f0f9ff;
           border: 1.5px solid #0284c7;
           border-radius: 12px;
@@ -758,8 +765,8 @@ export default function FormulirRegistrasi() {
                     >
                       <MapPin size={15} style={{ color: "#0066ff", flexShrink: 0, marginTop: 2 }} />
                       <div>
-                        <div style={{ fontSize: 13, fontWeight: 700, color: "#1e293b" }}>{item.title}</div>
-                        <div style={{ fontSize: 11, color: "#64748b" }}>{item.subtitle || item.display_name}</div>
+                        <div style={{ fontSize: 13, fontWeight: 700, color: "#1e293b", lineHeight: 1.35, whiteSpace: "normal", wordBreak: "break-word" }}>{item.title}</div>
+                        <div style={{ fontSize: 11.5, color: "#64748b", marginTop: 3, lineHeight: 1.35, whiteSpace: "normal", wordBreak: "break-word" }}>{item.subtitle || item.display_name}</div>
                       </div>
                     </button>
                   ))}
@@ -781,7 +788,7 @@ export default function FormulirRegistrasi() {
               <div>
                 {coverage.status === "fiber" ? (
                   <div className="cov-card-fiber">
-                    <div style={{ display: "flex", alignItems: "center", gap: 8, fontWeight: 800, fontSize: 15, color: "#065f46" }}>
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: 8, fontWeight: 800, fontSize: 14, color: "#065f46", lineHeight: 1.35 }}>
                       <CheckCircle2 size={18} style={{ color: "#10b981", flexShrink: 0 }} />
                       TERCOVER FIBER OPTIC &amp; WIRELESS (SIAP PASANG) ✅
                     </div>
@@ -805,7 +812,7 @@ export default function FormulirRegistrasi() {
                   </div>
                 ) : coverage.status === "wireless" ? (
                   <div className="cov-card-wireless">
-                    <div style={{ display: "flex", alignItems: "center", gap: 8, fontWeight: 800, fontSize: 15, color: "#0369a1" }}>
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: 8, fontWeight: 800, fontSize: 14, color: "#0369a1", lineHeight: 1.35 }}>
                       <Radio size={18} style={{ color: "#0284c7", flexShrink: 0 }} />
                       TERCOVER XL ULTRA 5G+ WIRELESS (SIAP PASANG) ✅
                     </div>

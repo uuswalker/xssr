@@ -22,7 +22,20 @@ export default function SmartPromoPopup() {
     };
 
     const handleScroll = () => {
-      // Muncul jika scroll sudah melewati 50% layar
+      if (typeof document !== "undefined") {
+        if (document.body.classList.contains("modal-open") || document.querySelector(".cl-modal-overlay")) {
+          setShow(false);
+          return;
+        }
+        const formEl = document.getElementById("form-registrasi") || document.querySelector(".reg-form-wrap");
+        if (formEl) {
+          const rect = formEl.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            setShow(false);
+            return;
+          }
+        }
+      }
       if (window.scrollY > window.innerHeight * 0.5) {
         triggerPopup();
       }
@@ -65,7 +78,7 @@ export default function SmartPromoPopup() {
         width: "100%",
         height: "100%",
         pointerEvents: "none",
-        zIndex: 9999,
+        zIndex: 900,
         display: "flex",
         alignItems: "flex-end",
         justifyContent: "center", // Center on mobile
@@ -184,6 +197,24 @@ export default function SmartPromoPopup() {
           to { transform: translateY(0); opacity: 1; }
         }
         
+        body.modal-open .promo-popup-overlay {
+          display: none !important;
+        }
+        @media (max-width: 640px) {
+          .promo-popup-overlay {
+            padding: 10px !important;
+          }
+          .promo-popup-card {
+            padding: 12px 14px !important;
+            gap: 12px !important;
+            max-width: 360px !important;
+          }
+          .promo-popup-card p {
+            font-size: 12px !important;
+            line-height: 1.4 !important;
+            margin-bottom: 8px !important;
+          }
+        }
         @media (min-width: 768px) {
           .promo-popup-overlay {
             justify-content: flex-end !important;

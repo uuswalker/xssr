@@ -53,6 +53,16 @@ interface IpCache {
 
 export default function CekLokasi() {
   const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.body.classList.toggle("modal-open", open);
+    }
+    return () => {
+      if (typeof document !== "undefined") {
+        document.body.classList.remove("modal-open");
+      }
+    };
+  }, [open]);
   const [step, setStep] = useState<"lokasi" | "form">("lokasi");
   const [statusMsg, setStatusMsg] = useState("");
   const [statusClass, setStatusClass] = useState("cl-status");
@@ -848,7 +858,7 @@ export default function CekLokasi() {
 
   .cl-modal-overlay {
     position: fixed; inset: 0; background: rgba(0,0,0,0.55);
-    z-index: 9999; display: flex; align-items: center; justify-content: center;
+    z-index: 100000; display: flex; align-items: center; justify-content: center;
     padding: 16px;
   }
   .cl-modal-box {
@@ -916,15 +926,15 @@ export default function CekLokasi() {
   .cl-suggestion-item.fiber-ready .cl-sugg-icon { color: #059669; }
   .cl-sugg-content { flex: 1; min-width: 0; }
   .cl-sugg-title {
-    font-weight: 600; color: #1e293b; display: flex; align-items: center; justify-content: space-between; gap: 8px;
-    font-size: 13.5px;
+    font-weight: 700; color: #1e293b; display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
+    font-size: 13px; line-height: 1.4;
   }
   .cl-sugg-title span:first-child {
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    flex: 1; min-width: 0; white-space: normal; word-break: break-word; overflow-wrap: anywhere;
   }
   .cl-sugg-sub {
-    font-size: 12px; color: #64748b; margin-top: 2px;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    font-size: 11.5px; color: #64748b; margin-top: 3px;
+    white-space: normal; word-break: break-word; overflow-wrap: anywhere; line-height: 1.35;
   }
   .cl-badge-fiber {
     font-size: 10px; font-weight: 700; color: #047857; background: #d1fae5; border: 1px solid #a7f3d0;
@@ -941,7 +951,19 @@ export default function CekLokasi() {
     font-size: 13px; color: #666; margin-top: 12px; text-align: center; min-height: 18px;
   }
   .cl-status.error { color: #d33; }
-  .cl-status.success { color: #037e64; font-weight: 600; }`}</style>
+  .cl-status.success { color: #037e64; font-weight: 600; }
+  @media (max-width: 480px) {
+    .cl-modal-overlay { padding: 8px; }
+    .cl-modal-box { padding: 18px 14px; border-radius: 14px; max-height: 94vh; width: 100%; box-sizing: border-box; }
+    .cl-title { font-size: 17px; }
+    .cl-sub { font-size: 13px; margin: 0 0 14px 0; }
+    .cl-btn-primary { padding: 12px; font-size: 14px; }
+    .cl-suggestions { max-height: 240px; }
+  }
+  body.modal-open .promo-popup-overlay,
+  body.modal-open .live-social-proof-wrap {
+    display: none !important;
+  }`}</style>
       <AnimatePresence>
         {strip !== null && !open && (
           <motion.div
@@ -1183,6 +1205,8 @@ export default function CekLokasi() {
                       whiteSpace: "pre-line",
                       lineHeight: 1.6,
                       boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+                      wordBreak: "break-word",
+                      overflowWrap: "anywhere",
                     }}
                   >
                     <strong style={{ display: "block", marginBottom: 8, fontSize: 14, letterSpacing: "-0.2px" }}>
