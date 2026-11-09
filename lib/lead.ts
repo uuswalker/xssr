@@ -172,7 +172,28 @@ export function generateSearchVariants(rawQ: string): string[] {
 
   // 2. Tokenisasi cerdas & strip prefix jalan / kata henti administratif
   const rawTokens = q.replace(/[,._\-/]/g, " ").split(/\s+/).filter((w) => w.length > 0);
-  let subTokens = rawTokens.filter((t) => !ADMIN_CITY_WORDS.has(t));
+
+  // Preserve frasa populer seperti "solo baru" agar tidak terpotong oleh stopword "solo"
+  const isSoloBaru = q.includes("solo baru");
+  if (isSoloBaru) {
+    variants.push("solo baru");
+  }
+
+  let subTokens: string[] = [];
+  for (let i = 0; i < rawTokens.length; i++) {
+    const t = rawTokens[i];
+    if (t === "solo" && rawTokens[i + 1] === "baru") {
+      subTokens.push("solo");
+      continue;
+    }
+    if (t === "baru" && i > 0 && rawTokens[i - 1] === "solo") {
+      subTokens.push("baru");
+      continue;
+    }
+    if (!ADMIN_CITY_WORDS.has(t)) {
+      subTokens.push(t);
+    }
+  }
   if (subTokens.length === 0) subTokens = rawTokens;
 
   // 3. Decompounding kata majemuk Indonesia tanpa spasi (misal: "semenromo" -> ["semen", "romo"])
@@ -189,7 +210,7 @@ export function generateSearchVariants(rawQ: string): string[] {
     if (!split) decompounded.push(tok);
   }
 
-  // 4. Deteksi nama kota nasional untuk routing cerdas bebas timeout
+  // 4. Deteksi nama kota nasional untuk routing cerdas
   const KNOWN_CITIES = [
     "jakarta", "jaksel", "jaktim", "jakpus", "jakbar", "jakut",
     "surabaya", "sidoarjo", "gresik", "malang",
@@ -200,17 +221,23 @@ export function generateSearchVariants(rawQ: string): string[] {
   ];
   const detectedCityToken = rawTokens.find((t) => KNOWN_CITIES.includes(t));
 
-  // Jika input memuat nama kota nasional, jadikan varian utama berpola: [nama_jalan] [nama_kota]
-  if (detectedCityToken && decompounded.length > 0) {
-    variants.push(`${decompounded.join(" ")} ${detectedCityToken}`);
-  }
-
-  // Varian Prioritas: Gabungan kata substantif bersih (menghasilkan akurasi instan di D1)
+  // Varian Prioritas 1: Gabungan kata substantif bersih (menghasilkan akurasi instan & kilat di D1)
   if (decompounded.length >= 2) {
     variants.push(decompounded.join(" "));
     variants.push(decompounded.slice(0, 2).join(" "));
   } else if (decompounded.length === 1) {
     variants.push(decompounded[0]);
+  }
+  if (subTokens.length >= 1) {
+    variants.push(subTokens.join(" "));
+  }
+
+  // Varian 2: Jika nama kota Solo dideteksi, sediakan juga alias Surakarta (agar pas dengan DB 'KOTA SURAKARTA')
+  if (detectedCityToken === "solo" && decompounded.length > 0) {
+    variants.push(`${decompounded.join(" ")} surakarta`);
+    variants.push(`${decompounded.join(" ")} solo`);
+  } else if (detectedCityToken && decompounded.length > 0) {
+    variants.push(`${decompounded.join(" ")} ${detectedCityToken}`);
   }
 
   // Sertakan query asli jika belum ada sebagai fallback

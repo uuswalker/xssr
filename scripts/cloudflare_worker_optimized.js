@@ -62,7 +62,14 @@ const NATIONAL_CITY_MAP = {
   "palembang": "PALEMBANG",
   "pekanbaru": "PEKANBARU",
   "batam": "BATAM",
-  "makassar": "MAKASSAR"
+  "makassar": "MAKASSAR",
+  "surakarta": "KOTA SURAKARTA",
+  "sukoharjo": "KAB. SUKOHARJO",
+  "karanganyar": "KAB. KARANGANYAR",
+  "boyolali": "KAB. BOYOLALI",
+  "klaten": "KAB. KLATEN",
+  "sragen": "KAB. SRAGEN",
+  "wonogiri": "KAB. WONOGIRI"
 };
 
 // In-Memory Fast LRU Cache for warm isolates (< 1ms response)
@@ -399,8 +406,23 @@ export default {
 
           // 1. Detect if a city name is explicitly provided in query tokens
           let detectedCity = null;
+          let isSoloRayaScope = false;
           const remainingTokens = [];
-          for (const t of rawTokens) {
+          for (let i = 0; i < rawTokens.length; i++) {
+            const t = rawTokens[i];
+            // Preserve "solo baru" phrase
+            if (t === "solo" && rawTokens[i + 1] === "baru") {
+              remainingTokens.push(t);
+              continue;
+            }
+            if (t === "baru" && i > 0 && rawTokens[i - 1] === "solo") {
+              remainingTokens.push(t);
+              continue;
+            }
+            if (t === "solo") {
+              isSoloRayaScope = true;
+              continue;
+            }
             if (NATIONAL_CITY_MAP[t] && !detectedCity) {
               detectedCity = NATIONAL_CITY_MAP[t];
             } else {
@@ -417,6 +439,9 @@ export default {
           }
 
           if (subTokens.length === 0) subTokens = remainingTokens.filter(t => t.length >= 2);
+          if (subTokens.length === 0 && (isSoloRayaScope || detectedCity)) {
+            subTokens = isSoloRayaScope ? ["surakarta"] : [detectedCity.toLowerCase()];
+          }
 
           // Decompound words like "semenromo" -> ["semen", "romo"]
           const substantiveTokens = [];
@@ -469,8 +494,8 @@ export default {
                 if (resSolo.results && resSolo.results.length > 0) results = resSolo.results;
               } catch (e) {}
 
-              // Priority C: Nationwide fallback ONLY if substantive tokens are specific (length >= 4)
-              if (results.length < 10 && substantiveTokens.some(t => t.length >= 4)) {
+              // Priority C: Nationwide fallback ONLY if substantive tokens are specific (length >= 4) and not scoped to Solo Raya
+              if (!isSoloRayaScope && results.length < 10 && substantiveTokens.some(t => t.length >= 4)) {
                 const nationalSql = `
                   SELECT id, cluster_name, city, odp_id, lat, lng, status, address
                   FROM homepass
