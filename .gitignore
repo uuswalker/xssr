@@ -42,3 +42,8 @@ next-env.d.ts
 
 # Automation scripts
 .scripts/
+
+# python
+__pycache__/
+*.py[cod]
+$py.class
