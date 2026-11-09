@@ -681,7 +681,12 @@ export default {
           });
         }
 
-        const targetDb = masterDb;
+        let targetDb = masterDb;
+        if (body.db === "DB_SOLO" || body.db === "SOLO") {
+          targetDb = env.DB_SOLO || masterDb;
+        } else if (body.db === "DB_JATENG" || body.db === "JATENG") {
+          targetDb = env.DB_JATENG || masterDb;
+        }
         const stmt = targetDb.prepare(sql);
         const res = body.binds && Array.isArray(body.binds) && body.binds.length > 0
           ? await stmt.bind(...body.binds).all()
