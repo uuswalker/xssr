@@ -797,6 +797,11 @@ export default function CekLokasi() {
     const mungkin = () => {
       if (stripShown.current || modalOpened.current) return;
       if (!boleh()) return;
+      const formEl = document.getElementById("form-registrasi") || document.querySelector(".reg-form-wrap");
+      if (formEl) {
+        const rect = formEl.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) return;
+      }
       stripShown.current = true;
       try {
         const c = JSON.parse(localStorage.getItem(LS_KOTA) || "null") as IpCache | null;
@@ -808,6 +813,14 @@ export default function CekLokasi() {
     };
     const t = window.setTimeout(mungkin, 12000);
     const onScroll = () => {
+      const formEl = document.getElementById("form-registrasi") || document.querySelector(".reg-form-wrap");
+      if (formEl) {
+        const rect = formEl.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          setStrip(null);
+          return;
+        }
+      }
       const progress =
         window.scrollY /
         Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
@@ -961,7 +974,11 @@ export default function CekLokasi() {
     .cl-suggestions { max-height: 240px; }
   }
   body.modal-open .promo-popup-overlay,
-  body.modal-open .live-social-proof-wrap {
+  body.modal-open .live-social-proof-wrap,
+  body.modal-open #xlsr-lokasi-strip,
+  body:has(#form-registrasi:focus-within) #xlsr-lokasi-strip,
+  body:has(.reg-sugg-dropdown) #xlsr-lokasi-strip,
+  body:has(#form-alamat:focus) #xlsr-lokasi-strip {
     display: none !important;
   }`}</style>
       <AnimatePresence>
