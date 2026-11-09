@@ -320,18 +320,306 @@ export default function FormulirRegistrasi() {
   };
 
   return (
-    <section className="reg-section py-12 px-4 sm:px-6 bg-gradient-to-b from-sky-50/70 via-white to-blue-50/50" id="daftar">
-      <div className="max-w-2xl mx-auto">
+    <section className="reg-section" id="daftar">
+      <style>{`
+        .reg-section {
+          padding: 70px 20px;
+          background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 50%, #f4f8fc 100%);
+          font-family: inherit;
+        }
+        .reg-container {
+          max-width: 600px;
+          margin: 0 auto;
+        }
+        .reg-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 5px 14px;
+          border-radius: 999px;
+          background: #e0f2fe;
+          color: #0369a1;
+          font-size: 11.5px;
+          font-weight: 800;
+          letter-spacing: 0.5px;
+          margin-bottom: 12px;
+          box-shadow: 0 1px 3px rgba(3,105,161,0.1);
+        }
+        .reg-title {
+          font-size: 28px;
+          font-weight: 800;
+          color: #0f172a;
+          margin: 0 0 10px 0;
+          line-height: 1.25;
+          text-align: center;
+        }
+        .reg-sub {
+          font-size: 14.5px;
+          color: #475569;
+          margin: 0 auto 28px auto;
+          line-height: 1.55;
+          text-align: center;
+          max-width: 520px;
+        }
+        .reg-form-wrap {
+          background: #ffffff;
+          border-radius: 20px;
+          padding: 34px 28px;
+          box-shadow: 0 12px 40px rgba(0, 51, 160, 0.08), 0 2px 6px rgba(0,0,0,0.04);
+          border: 1px solid #e2e8f0;
+        }
+        @media (max-width: 600px) {
+          .reg-form-wrap { padding: 22px 18px; border-radius: 16px; }
+          .reg-title { font-size: 23px; }
+        }
+        .reg-mode {
+          display: flex;
+          gap: 6px;
+          background: #f1f5f9;
+          border-radius: 12px;
+          padding: 5px;
+          margin-bottom: 24px;
+        }
+        .reg-mode button {
+          flex: 1;
+          border: none;
+          background: transparent;
+          padding: 12px 8px;
+          border-radius: 9px;
+          font-size: 14px;
+          font-weight: 700;
+          color: #64748b;
+          cursor: pointer;
+          transition: all 0.2s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 7px;
+          font-family: inherit;
+        }
+        .reg-mode button.active {
+          background: #ffffff;
+          color: #0033a0;
+          box-shadow: 0 3px 10px rgba(0, 51, 160, 0.12);
+        }
+        .reg-field {
+          margin-bottom: 20px;
+        }
+        .reg-label {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 12.5px;
+          font-weight: 700;
+          color: #1e293b;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          margin-bottom: 8px;
+        }
+        .reg-input, .reg-select {
+          width: 100%;
+          height: 48px;
+          box-sizing: border-box;
+          padding: 0 16px;
+          border: 1.5px solid #cbd5e1;
+          border-radius: 10px;
+          font-size: 14.5px;
+          font-family: inherit;
+          color: #0f172a;
+          background: #ffffff;
+          transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        .reg-input:focus, .reg-select:focus, .reg-textarea:focus {
+          outline: none;
+          border-color: #0066ff;
+          box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+        }
+        .reg-select {
+          appearance: none;
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230033A0' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 14px center;
+          background-size: 18px;
+          padding-right: 42px;
+          cursor: pointer;
+        }
+        .alamat-wrap {
+          display: flex;
+          align-items: stretch;
+        }
+        .reg-textarea {
+          flex: 1;
+          min-height: 84px;
+          box-sizing: border-box;
+          padding: 12px 16px;
+          border: 1.5px solid #cbd5e1;
+          border-radius: 10px 0 0 10px;
+          border-right: none;
+          font-size: 14.5px;
+          font-family: inherit;
+          color: #0f172a;
+          background: #ffffff;
+          resize: vertical;
+          line-height: 1.5;
+        }
+        .btn-lokasi {
+          flex-shrink: 0;
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          padding: 0 16px;
+          background: #0033a0;
+          color: #ffffff;
+          border: 1.5px solid #0033a0;
+          border-radius: 0 10px 10px 0;
+          font-size: 13px;
+          font-weight: 700;
+          cursor: pointer;
+          white-space: nowrap;
+          font-family: inherit;
+          transition: background 0.15s, transform 0.1s;
+          animation: btnPulse 2.5s infinite ease-in-out;
+        }
+        .btn-lokasi:hover {
+          background: #002277;
+        }
+        .btn-lokasi:disabled {
+          opacity: 0.75;
+          cursor: wait;
+        }
+        @keyframes btnPulse {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-2px); }
+        }
+        @media (max-width: 520px) {
+          .alamat-wrap {
+            flex-direction: column;
+          }
+          .reg-textarea {
+            border-radius: 10px 10px 0 0;
+            border-right: 1.5px solid #cbd5e1;
+            border-bottom: none;
+          }
+          .btn-lokasi {
+            border-radius: 0 0 10px 10px;
+            padding: 13px;
+          }
+        }
+        .reg-note {
+          font-size: 12px;
+          color: #64748b;
+          margin-top: 6px;
+          line-height: 1.45;
+        }
+        .reg-sugg-dropdown {
+          background: #ffffff;
+          border: 1.5px solid #cbd5e1;
+          border-radius: 10px;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+          margin-top: 6px;
+          max-height: 220px;
+          overflow-y: auto;
+        }
+        .reg-sugg-item {
+          width: 100%;
+          text-align: left;
+          padding: 10px 14px;
+          border: none;
+          background: transparent;
+          border-bottom: 1px solid #f1f5f9;
+          cursor: pointer;
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          font-family: inherit;
+        }
+        .reg-sugg-item:hover {
+          background: #f0f7ff;
+        }
+        .cov-card-fiber {
+          background: #ecfdf5;
+          border: 1.5px solid #10b981;
+          border-radius: 12px;
+          padding: 16px;
+          color: #064e3b;
+          margin-top: 14px;
+        }
+        .cov-card-wireless {
+          background: #f0f9ff;
+          border: 1.5px solid #0284c7;
+          border-radius: 12px;
+          padding: 16px;
+          color: #0c4a6e;
+          margin-top: 14px;
+        }
+        .cov-card-warning {
+          background: #fffbeb;
+          border: 1.5px solid #f59e0b;
+          border-radius: 12px;
+          padding: 16px;
+          color: #78350f;
+          margin-top: 14px;
+        }
+        .reg-checkbox-wrap {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          margin: 18px 0;
+          font-size: 13px;
+          color: #475569;
+          line-height: 1.5;
+        }
+        .reg-submit-btn {
+          width: 100%;
+          padding: 16px;
+          border: none;
+          border-radius: 12px;
+          background: #25d366;
+          color: #ffffff;
+          font-weight: 800;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background 0.15s, box-shadow 0.15s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+          font-family: inherit;
+        }
+        .reg-submit-btn:hover {
+          background: #1ebe5d;
+          box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+        }
+        .reg-submit-btn:disabled {
+          opacity: 0.75;
+          cursor: wait;
+        }
+        .reg-footer-shield {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          font-size: 12px;
+          color: #64748b;
+          margin-top: 12px;
+          text-align: center;
+        }
+      `}</style>
+
+      <div className="reg-container">
         {/* Header Section */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-bold mb-3 tracking-wide">
-            <Zap className="w-3.5 h-3.5 text-blue-600" />
+        <div style={{ textAlign: "center" }}>
+          <div className="reg-badge">
+            <Zap size={14} />
             PENDAFTARAN RESMI &amp; CEK JARINGAN REAL-TIME
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+          <h2 className="reg-title">
             {mode === "daftar" ? "Daftar Pasang Baru XL Home" : "Cek Ketersediaan Jaringan XL Home"}
           </h2>
-          <p className="mt-2 text-sm text-gray-600 max-w-lg mx-auto">
+          <p className="reg-sub">
             {mode === "daftar"
               ? "Isi formulir dan alamat pemasangan Anda untuk registrasi cepat langsung terhubung ke WhatsApp Sales Resmi."
               : "Cukup isi nama, WhatsApp, dan alamat. Tim kami akan mengecek jangkauan fiber & wireless di lokasi Anda."}
@@ -339,39 +627,31 @@ export default function FormulirRegistrasi() {
         </div>
 
         {/* Card Formulir */}
-        <div className="bg-white rounded-2xl shadow-xl border border-blue-100 p-6 sm:p-8 relative">
+        <div className="reg-form-wrap">
           {/* Mode Switcher Buttons */}
-          <div className="grid grid-cols-2 gap-2 bg-gray-100 p-1.5 rounded-xl mb-6 text-sm font-bold">
+          <div className="reg-mode" role="group" aria-label="Pilih keperluan formulir">
             <button
               type="button"
               onClick={() => setMode("daftar")}
-              className={`py-2.5 px-4 rounded-lg transition-all flex items-center justify-center gap-1.5 ${
-                mode === "daftar"
-                  ? "bg-white text-blue-900 shadow-sm"
-                  : "text-gray-500 hover:text-gray-800"
-              }`}
+              className={mode === "daftar" ? "active" : ""}
             >
-              <Wifi className="w-4 h-4 text-blue-600" />
+              <Wifi size={16} />
               Daftar Pasang Baru
             </button>
             <button
               type="button"
               onClick={() => setMode("cek")}
-              className={`py-2.5 px-4 rounded-lg transition-all flex items-center justify-center gap-1.5 ${
-                mode === "cek"
-                  ? "bg-white text-blue-900 shadow-sm"
-                  : "text-gray-500 hover:text-gray-800"
-              }`}
+              className={mode === "cek" ? "active" : ""}
             >
-              <Navigation className="w-4 h-4 text-blue-600" />
+              <Navigation size={16} />
               Cek Jaringan Saja
             </button>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit}>
             {/* Input Nama */}
-            <div>
-              <label htmlFor="form-nama" className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+            <div className="reg-field">
+              <label htmlFor="form-nama" className="reg-label">
                 Nama Lengkap
               </label>
               <input
@@ -382,13 +662,13 @@ export default function FormulirRegistrasi() {
                 placeholder="Contoh: Budi Santoso"
                 value={nama}
                 onChange={(e) => setNama(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none text-sm text-gray-900 placeholder-gray-400 font-medium transition"
+                className="reg-input"
               />
             </div>
 
             {/* Input WhatsApp */}
-            <div>
-              <label htmlFor="form-wa" className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">
+            <div className="reg-field">
+              <label htmlFor="form-wa" className="reg-label">
                 Nomor WhatsApp Aktif
               </label>
               <input
@@ -398,30 +678,28 @@ export default function FormulirRegistrasi() {
                 placeholder="Contoh: 081234567890"
                 value={wa}
                 onChange={(e) => setWa(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none text-sm text-gray-900 placeholder-gray-400 font-medium transition"
+                className="reg-input"
               />
             </div>
 
             {/* Alamat Lengkap + Tombol GPS */}
-            <div className="relative">
-              <div className="flex items-center justify-between mb-1.5">
-                <label htmlFor="form-alamat" className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
-                  Alamat Lengkap Pemasangan
-                </label>
+            <div className="reg-field" style={{ position: "relative" }}>
+              <div className="reg-label">
+                <span>Alamat Lengkap Pemasangan</span>
                 {mapsLink && (
                   <a
                     href={mapsLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs text-blue-600 hover:underline font-semibold"
+                    style={{ textTransform: "none", color: "#0066ff", textDecoration: "none", fontWeight: 700 }}
                   >
-                    Buka Google Maps <ExternalLink className="w-3 h-3" />
+                    Buka Google Maps ↗
                   </a>
                 )}
               </div>
 
               {/* Textarea + Tombol GPS samping */}
-              <div className="relative flex flex-col sm:flex-row items-stretch gap-2">
+              <div className="alamat-wrap">
                 <textarea
                   id="form-alamat"
                   required
@@ -430,58 +708,58 @@ export default function FormulirRegistrasi() {
                   placeholder="Ketik jalan, RT/RW, nomor rumah, perumahan, kelurahan, atau kecamatan..."
                   value={alamat}
                   onChange={(e) => handleAlamatChange(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none text-sm text-gray-900 placeholder-gray-400 font-medium transition resize-y"
+                  className="reg-textarea"
                 />
 
                 <button
                   type="button"
                   onClick={handleGpsClick}
                   disabled={gpsLoading}
-                  className="sm:w-44 flex-shrink-0 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white rounded-xl text-xs font-bold shadow-md hover:shadow-lg transition-all disabled:opacity-75 disabled:cursor-wait"
+                  className="btn-lokasi"
                   title="Deteksi titik koordinat akurat melalui GPS perangkat"
                 >
                   {gpsLoading ? (
                     <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      <span>Mencari Lokasi...</span>
+                      <Loader2 size={16} className="animate-spin" />
+                      <span>Mencari...</span>
                     </>
                   ) : (
                     <>
-                      <MapPin className="w-4 h-4 animate-pulse" />
+                      <MapPin size={16} />
                       <span>Pakai Lokasi Saya</span>
                     </>
                   )}
                 </button>
               </div>
 
-              <p className="mt-1.5 text-[11px] text-gray-500 leading-tight">
+              <div className="reg-note">
                 💡 Berbagi lokasi <strong>tidak wajib</strong>. Cukup ketik alamat lengkap, tim kami tetap dapat mengecek jaringan.
-              </p>
+              </div>
 
               {gpsError && (
-                <div className="mt-2 text-xs text-rose-600 flex items-center gap-1.5 font-medium">
-                  <AlertCircle className="w-4 h-4 flex-shrink-0" />
-                  {gpsError}
+                <div style={{ color: "#dc2626", fontSize: 13, marginTop: 6, display: "flex", alignItems: "center", gap: 6 }}>
+                  <AlertCircle size={15} />
+                  <span>{gpsError}</span>
                 </div>
               )}
 
               {/* Dropdown Suggestions Autocomplete */}
               {showSuggestions && suggestions.length > 0 && (
-                <div className="absolute z-20 left-0 right-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-xl overflow-hidden max-h-56 overflow-y-auto">
-                  <div className="px-3 py-1.5 bg-gray-50 border-b border-gray-100 text-[11px] font-bold text-gray-500">
-                    Saran Alamat Terdekat (Database Cloudflare D1 &amp; Peta)
+                <div className="reg-sugg-dropdown">
+                  <div style={{ padding: "8px 12px", background: "#f8fafc", fontSize: 11, fontWeight: 700, color: "#64748b" }}>
+                    SARAN ALAMAT TERDEKAT (DATABASE CLOUDFLARE D1 &amp; PETA)
                   </div>
                   {suggestions.map((item, idx) => (
                     <button
                       key={idx}
                       type="button"
                       onClick={() => handlePilihSuggestion(item)}
-                      className="w-full text-left px-3 py-2 text-xs text-gray-800 hover:bg-blue-50 border-b border-gray-50 last:border-none flex items-start gap-2"
+                      className="reg-sugg-item"
                     >
-                      <MapPin className="w-3.5 h-3.5 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <MapPin size={15} style={{ color: "#0066ff", flexShrink: 0, marginTop: 2 }} />
                       <div>
-                        <div className="font-semibold">{item.title}</div>
-                        <div className="text-[10px] text-gray-500">{item.subtitle || item.display_name}</div>
+                        <div style={{ fontSize: 13, fontWeight: 700, color: "#1e293b" }}>{item.title}</div>
+                        <div style={{ fontSize: 11, color: "#64748b" }}>{item.subtitle || item.display_name}</div>
                       </div>
                     </button>
                   ))}
@@ -491,27 +769,27 @@ export default function FormulirRegistrasi() {
 
             {/* Live Verification Box (Jika Coverage Terdeteksi) */}
             {checkingCoverage && (
-              <div className="p-4 rounded-xl bg-blue-50 border border-blue-200 text-blue-900 flex items-center gap-3 animate-pulse">
-                <Loader2 className="w-5 h-5 text-blue-600 animate-spin flex-shrink-0" />
-                <div className="text-xs font-semibold">
+              <div style={{ padding: 14, background: "#f0f7ff", border: "1.5px solid #bae6fd", borderRadius: 12, display: "flex", alignItems: "center", gap: 10, marginTop: 14 }}>
+                <Loader2 size={18} className="animate-spin" style={{ color: "#0284c7" }} />
+                <span style={{ fontSize: 13, fontWeight: 600, color: "#0369a1" }}>
                   Mengecek ketersediaan port ODP dan sinyal wireless di database Cloudflare D1...
-                </div>
+                </span>
               </div>
             )}
 
             {coverage && !checkingCoverage && (
               <div>
                 {coverage.status === "fiber" ? (
-                  <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-950 shadow-sm">
-                    <div className="flex items-center gap-2 font-extrabold text-emerald-800 text-sm sm:text-base">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                  <div className="cov-card-fiber">
+                    <div style={{ display: "flex", alignItems: "center", gap: 8, fontWeight: 800, fontSize: 15, color: "#065f46" }}>
+                      <CheckCircle2 size={18} style={{ color: "#10b981", flexShrink: 0 }} />
                       TERCOVER FIBER OPTIC &amp; WIRELESS (SIAP PASANG) ✅
                     </div>
-                    <div className="mt-2 text-xs sm:text-sm space-y-1 font-medium">
+                    <div style={{ marginTop: 8, fontSize: 13, lineHeight: 1.6, color: "#064e3b" }}>
                       <div>
                         📍 <strong>Prediksi Lokasi:</strong> {cleanAlamatResmi(coverage.alamat) || "Area Lokasi Anda"}{" "}
-                        <span className="text-gray-500 text-xs font-normal">
-                          (Lokasi akurat bisa Whatsapp Sales wa.me/{NOMOR_WA_SALES})
+                        <span style={{ color: "#6b7280", fontSize: 12, fontWeight: 400 }}>
+                          (Lokasi akurat via WA wa.me/{NOMOR_WA_SALES})
                         </span>
                       </div>
                       <div>
@@ -521,20 +799,20 @@ export default function FormulirRegistrasi() {
                         🔌 <strong>Status:</strong> Jaringan tersedia &amp; siap langsung dipasang!
                       </div>
                     </div>
-                    <div className="mt-2 pt-2 border-t border-emerald-200 text-xs text-emerald-800 leading-relaxed">
+                    <div style={{ marginTop: 8, paddingTop: 8, borderTop: "1px solid #a7f3d0", fontSize: 12, color: "#047857" }}>
                       Selain jalur kabel (Fiber Optic), jaringan Wireless (Nirkabel 4G + 5G) juga sudah aktif dan tersedia di area ini.
                     </div>
                   </div>
                 ) : coverage.status === "wireless" ? (
-                  <div className="p-4 rounded-xl bg-sky-50 border border-sky-300 text-sky-950 shadow-sm">
-                    <div className="flex items-center gap-2 font-extrabold text-sky-800 text-sm sm:text-base">
-                      <Radio className="w-5 h-5 text-sky-600 flex-shrink-0" />
+                  <div className="cov-card-wireless">
+                    <div style={{ display: "flex", alignItems: "center", gap: 8, fontWeight: 800, fontSize: 15, color: "#0369a1" }}>
+                      <Radio size={18} style={{ color: "#0284c7", flexShrink: 0 }} />
                       TERCOVER XL ULTRA 5G+ WIRELESS (SIAP PASANG) ✅
                     </div>
-                    <div className="mt-2 text-xs sm:text-sm space-y-1 font-medium">
+                    <div style={{ marginTop: 8, fontSize: 13, lineHeight: 1.6, color: "#075985" }}>
                       <div>
                         📍 <strong>Prediksi Lokasi:</strong> {cleanAlamatResmi(coverage.alamat) || "Area Lokasi Anda"}{" "}
-                        <span className="text-gray-500 text-xs font-normal">
+                        <span style={{ color: "#6b7280", fontSize: 12, fontWeight: 400 }}>
                           (Lokasi akurat via WA wa.me/{NOMOR_WA_SALES})
                         </span>
                       </div>
@@ -545,18 +823,15 @@ export default function FormulirRegistrasi() {
                         🔌 <strong>Status:</strong> Modem Plug &amp; Play langsung aktif tanpa perlu tarik kabel!
                       </div>
                     </div>
-                    <div className="mt-2 pt-2 border-t border-sky-200 text-xs text-sky-800 leading-relaxed">
-                      Sinyal nirkabel XL 5G aktif dengan jangkauan maksimal, kecepatan tinggi, dan bebas biaya penarikan kabel.
-                    </div>
                   </div>
                 ) : (
-                  <div className="p-4 rounded-xl bg-amber-50 border border-amber-300 text-amber-950 shadow-sm">
-                    <div className="flex items-center gap-2 font-extrabold text-amber-800 text-sm">
-                      <AlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                  <div className="cov-card-warning">
+                    <div style={{ display: "flex", alignItems: "center", gap: 8, fontWeight: 800, fontSize: 14, color: "#92400e" }}>
+                      <AlertCircle size={18} style={{ color: "#f59e0b", flexShrink: 0 }} />
                       KEMUNGKINAN TERCOVER (BUTUH CEK JALUR ODP) ⚠️
                     </div>
-                    <p className="mt-1.5 text-xs text-amber-900 leading-relaxed">
-                      Alamat Anda berada di sekitar area jaringan XL Home. Tim sales kami akan melakukan verifikasi fisik jarak kabel ke rumah Anda via WhatsApp.
+                    <p style={{ margin: "6px 0 0 0", fontSize: 12.5, lineHeight: 1.5, color: "#78350f" }}>
+                      Alamat Anda berada di sekitar area jaringan XL Home. Tim sales kami akan memverifikasi jarak tarikan kabel ke rumah Anda via WhatsApp.
                     </p>
                   </div>
                 )}
@@ -565,30 +840,25 @@ export default function FormulirRegistrasi() {
 
             {/* Pilihan Paket (Hanya tampil pada Mode Daftar) */}
             {mode === "daftar" && (
-              <div>
-                <div className="flex items-center justify-between mb-1.5">
-                  <label htmlFor="form-paket" className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
-                    Paket yang Diminati
-                  </label>
-                  <a href="#paket" className="text-xs text-blue-600 hover:underline font-semibold">
+              <div className="reg-field" style={{ marginTop: 20 }}>
+                <div className="reg-label">
+                  <span>Paket yang Diminati</span>
+                  <a href="#paket" style={{ textTransform: "none", color: "#0066ff", textDecoration: "none", fontWeight: 700 }}>
                     Lihat Daftar Paket di Atas ↑
                   </a>
                 </div>
-                <div className="relative">
-                  <select
-                    id="form-paket"
-                    value={paket}
-                    onChange={(e) => setPaket(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 outline-none text-sm text-gray-900 font-semibold bg-white transition appearance-none cursor-pointer pr-10"
-                  >
-                    {DAFTAR_PAKET_OPTIONS.map((opt) => (
-                      <option key={opt.id} value={opt.name}>
-                        {opt.name}
-                      </option>
-                    ))}
-                  </select>
-                  <ChevronDown className="w-4 h-4 text-gray-500 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                </div>
+                <select
+                  id="form-paket"
+                  value={paket}
+                  onChange={(e) => setPaket(e.target.value)}
+                  className="reg-select"
+                >
+                  {DAFTAR_PAKET_OPTIONS.map((opt) => (
+                    <option key={opt.id} value={opt.name}>
+                      {opt.name}
+                    </option>
+                  ))}
+                </select>
               </div>
             )}
 
@@ -607,15 +877,15 @@ export default function FormulirRegistrasi() {
             </div>
 
             {/* Checkbox Kebijakan Privasi */}
-            <div className="flex items-start gap-2.5 pt-1">
+            <div className="reg-checkbox-wrap">
               <input
                 id="form-setuju"
                 type="checkbox"
                 checked={setuju}
                 onChange={(e) => setSetuju(e.target.checked)}
-                className="mt-0.5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer"
+                style={{ marginTop: 3, width: 16, height: 16, cursor: "pointer" }}
               />
-              <label htmlFor="form-setuju" className="text-xs text-gray-600 font-normal leading-relaxed cursor-pointer">
+              <label htmlFor="form-setuju" style={{ cursor: "pointer" }}>
                 Saya menyetujui data di atas digunakan untuk konfirmasi pemasangan baru atau pengecekan jaringan resmi oleh tim sales XL Home.
               </label>
             </div>
@@ -623,17 +893,21 @@ export default function FormulirRegistrasi() {
             {/* Feedback Message */}
             {formFeedback && (
               <div
-                className={`p-3.5 rounded-xl text-xs font-semibold flex items-center gap-2 ${
-                  formFeedback.type === "error"
-                    ? "bg-rose-50 text-rose-700 border border-rose-200"
-                    : "bg-emerald-50 text-emerald-800 border border-emerald-200"
-                }`}
+                style={{
+                  padding: 12,
+                  borderRadius: 10,
+                  fontSize: 13,
+                  fontWeight: 600,
+                  marginBottom: 16,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                  background: formFeedback.type === "error" ? "#fef2f2" : "#ecfdf5",
+                  color: formFeedback.type === "error" ? "#b91c1c" : "#047857",
+                  border: `1px solid ${formFeedback.type === "error" ? "#fecaca" : "#a7f3d0"}`,
+                }}
               >
-                {formFeedback.type === "error" ? (
-                  <AlertCircle className="w-4 h-4 flex-shrink-0" />
-                ) : (
-                  <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
-                )}
+                {formFeedback.type === "error" ? <AlertCircle size={16} /> : <CheckCircle2 size={16} />}
                 <span>{formFeedback.msg}</span>
               </div>
             )}
@@ -642,16 +916,16 @@ export default function FormulirRegistrasi() {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full py-4 px-6 bg-[#25D366] hover:bg-[#1ebe5d] active:bg-[#16994a] text-white rounded-xl font-extrabold text-base shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2.5 disabled:opacity-75 disabled:cursor-wait"
+              className="reg-submit-btn"
             >
               {submitting ? (
                 <>
-                  <Loader2 className="w-5 h-5 animate-spin" />
+                  <Loader2 size={18} className="animate-spin" />
                   <span>Meneruskan ke WhatsApp...</span>
                 </>
               ) : (
                 <>
-                  <Send className="w-5 h-5" />
+                  <Send size={18} />
                   <span>
                     {mode === "daftar" ? "Daftar & Lanjut ke WhatsApp" : "Cek Coverage via WhatsApp"}
                   </span>
@@ -660,8 +934,8 @@ export default function FormulirRegistrasi() {
             </button>
 
             {/* Security Footnote */}
-            <div className="flex items-center justify-center gap-2 text-[11px] text-gray-400 text-center pt-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
+            <div className="reg-footer-shield">
+              <ShieldCheck size={14} style={{ color: "#10b981" }} />
               <span>Koneksi aman langsung ke WhatsApp Sales Resmi XL Home Solo Raya (0877-7899-9141)</span>
             </div>
           </form>
