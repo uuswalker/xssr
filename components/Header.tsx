@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { MessageCircle, MapPin } from "lucide-react";
+import { MessageCircle, MapPin, Flame } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Header({
@@ -30,9 +30,9 @@ export default function Header({
 
   return (
     <header role="banner" className={`site-header ${isTop ? "" : "is-scrolled"}`}>
-      <div className="promo-banner">
-          <span style={{ display: "inline-flex", alignItems: "center", background: "rgba(255,255,255,0.22)", padding: "1px 7px", borderRadius: 999, fontSize: 11, fontWeight: 700, marginRight: 6, letterSpacing: 0.5, textTransform: "uppercase" }}>Promo</span>
-          <span className="shimmer-text">Gratis Instalasi Khusus Paket 250 Mbps & XL Home Wireless s/d Akhir Bulan!</span>
+      <div className="promo-banner" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
+          <Flame size={15} color="#fbbf24" style={{ flexShrink: 0 }} aria-hidden="true" />
+          <span className="shimmer-text">Promo Terbatas: Gratis Instalasi Khusus Paket 250 Mbps & XL Home Wireless s/d Akhir Bulan!</span>
         </div>
       <div className="header-inner">
         <div className="logo">

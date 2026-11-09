@@ -255,7 +255,7 @@ export function HomeHeroLokal() {
     <section className="hero-lokal">
       <div className="hero-lokal-inner">
         <h1>
-          Pasang <span>WiFi Solo Murah</span> &amp; Provider Internet Terbaik Solo Raya — XL Home Resmi
+          Pasang <span>WiFi Solo Murah</span> &amp; Provider Internet Terbaik Solo Raya <Zap size={22} color="#0066ff" style={{ display: "inline-block", verticalAlign: "-2px" }} aria-hidden="true" /> XL Home Resmi
         </h1>
         <p>
           Layanan pasang WiFi murah di{" "}

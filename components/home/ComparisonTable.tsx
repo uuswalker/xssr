@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, XCircle, ShieldCheck, ArrowRight, AlertTriangle } from "lucide-react";
+import { CheckCircle2, XCircle, ShieldCheck, ArrowRight, AlertTriangle, Rocket } from "lucide-react";
 import { waLink } from "@/lib/site";
 
 const COMPARISON_ROWS = [
@@ -99,7 +99,7 @@ export default function ComparisonTable() {
                   borderTop: "4px solid #037e64",
                   fontSize: 15
                 }}>
-                  XL HOME SOLO
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>XL HOME SOLO <Rocket size={16} color="#037e64" style={{ flexShrink: 0 }} aria-hidden="true" /></span>
                 </th>
                 <th style={{ padding: "18px 18px", color: "#334155", fontWeight: 600, fontSize: 13 }}>Provider "I"</th>
                 <th style={{ padding: "18px 18px", color: "#334155", fontWeight: 600, fontSize: 13 }}>Provider "B"</th>

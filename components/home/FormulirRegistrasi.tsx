@@ -796,17 +796,22 @@ export default function FormulirRegistrasi() {
                       TERCOVER FIBER OPTIC &amp; WIRELESS (SIAP PASANG)
                     </div>
                     <div style={{ marginTop: 8, fontSize: 13, lineHeight: 1.6, color: "#064e3b" }}>
-                      <div>
-                        <strong>Prediksi Lokasi:</strong> {cleanAlamatResmi(coverage.alamat) || "Area Lokasi Anda"}{" "}
-                        <span style={{ color: "#6b7280", fontSize: 12, fontWeight: 400 }}>
-                          (Lokasi akurat via WA wa.me/{NOMOR_WA_SALES})
-                        </span>
+                      <div style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
+                        <MapPin size={15} style={{ color: "#059669", flexShrink: 0, marginTop: 4 }} aria-hidden="true" />
+                        <div>
+                          <strong>Prediksi Lokasi:</strong> {cleanAlamatResmi(coverage.alamat) || "Area Lokasi Anda"}{" "}
+                          <span style={{ color: "#6b7280", fontSize: 12, fontWeight: 400 }}>
+                            (Lokasi akurat via WA wa.me/{NOMOR_WA_SALES})
+                          </span>
+                        </div>
                       </div>
-                      <div>
-                        <strong>Tercover:</strong> FIBER dan WIRELESS
+                      <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 4 }}>
+                        <Wifi size={15} style={{ color: "#059669", flexShrink: 0 }} aria-hidden="true" />
+                        <div><strong>Tercover:</strong> FIBER dan WIRELESS</div>
                       </div>
-                      <div>
-                        <strong>Status:</strong> Jaringan tersedia &amp; siap langsung dipasang!
+                      <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 4 }}>
+                        <CheckCircle2 size={15} style={{ color: "#059669", flexShrink: 0 }} aria-hidden="true" />
+                        <div><strong>Status:</strong> Jaringan tersedia &amp; siap langsung dipasang!</div>
                       </div>
                     </div>
                     <div style={{ marginTop: 8, paddingTop: 8, borderTop: "1px solid #a7f3d0", fontSize: 12, color: "#047857" }}>
@@ -820,17 +825,22 @@ export default function FormulirRegistrasi() {
                       TERCOVER XL ULTRA 5G+ WIRELESS (SIAP PASANG)
                     </div>
                     <div style={{ marginTop: 8, fontSize: 13, lineHeight: 1.6, color: "#075985" }}>
-                      <div>
-                        <strong>Prediksi Lokasi:</strong> {cleanAlamatResmi(coverage.alamat) || "Area Lokasi Anda"}{" "}
-                        <span style={{ color: "#6b7280", fontSize: 12, fontWeight: 400 }}>
-                          (Lokasi akurat via WA wa.me/{NOMOR_WA_SALES})
-                        </span>
+                      <div style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
+                        <MapPin size={15} style={{ color: "#0284c7", flexShrink: 0, marginTop: 4 }} aria-hidden="true" />
+                        <div>
+                          <strong>Prediksi Lokasi:</strong> {cleanAlamatResmi(coverage.alamat) || "Area Lokasi Anda"}{" "}
+                          <span style={{ color: "#6b7280", fontSize: 12, fontWeight: 400 }}>
+                            (Lokasi akurat via WA wa.me/{NOMOR_WA_SALES})
+                          </span>
+                        </div>
                       </div>
-                      <div>
-                        <strong>Tercover:</strong> XL Ultra 5G+ Wireless {coverage.zona ? `[${coverage.zona}]` : ""}
+                      <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 4 }}>
+                        <Wifi size={15} style={{ color: "#0284c7", flexShrink: 0 }} aria-hidden="true" />
+                        <div><strong>Tercover:</strong> XL Ultra 5G+ Wireless {coverage.zona ? `[${coverage.zona}]` : ""}</div>
                       </div>
-                      <div>
-                        <strong>Status:</strong> Modem Plug &amp; Play langsung aktif tanpa perlu tarik kabel!
+                      <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 4 }}>
+                        <CheckCircle2 size={15} style={{ color: "#0284c7", flexShrink: 0 }} aria-hidden="true" />
+                        <div><strong>Status:</strong> Modem Plug &amp; Play langsung aktif tanpa perlu tarik kabel!</div>
                       </div>
                     </div>
                   </div>

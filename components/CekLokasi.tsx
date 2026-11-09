@@ -1,5 +1,5 @@
 "use client";
-import { MessageCircle, MapPin, CheckCircle2, Target, Search, ArrowRight, Zap } from "lucide-react";
+import { MessageCircle, MapPin, CheckCircle2, Target, Search, ArrowRight, Zap, Sparkles } from "lucide-react";
 
 
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -1136,9 +1136,9 @@ export default function CekLokasi() {
                               <div className="cl-sugg-title">
                                 <span>{s.title}</span>
                                 {s.isFiberReady ? (
-                                  <span className="cl-badge-fiber">Siap Pasang</span>
+                                  <span className="cl-badge-fiber" style={{ display: "inline-flex", alignItems: "center", gap: 3 }}><Zap size={11} aria-hidden="true" /> Siap Pasang</span>
                                 ) : (
-                                  <span className="cl-badge-street">Alamat</span>
+                                  <span className="cl-badge-street" style={{ display: "inline-flex", alignItems: "center", gap: 3 }}><MapPin size={11} aria-hidden="true" /> Alamat</span>
                                 )}
                               </div>
                               <div className="cl-sugg-sub">{s.subtitle}</div>
@@ -1297,7 +1297,7 @@ export default function CekLokasi() {
                   {coverage?.status === "manual" ? (
                     <>
                       <div style={{ background: "#fff5f5", border: "1px solid #fecaca", borderRadius: 10, padding: "10px 14px", margin: "14px 0", fontSize: 13, color: "#991b1b" }}>
-                        <strong>Formulir Pengajuan Pasang Baru</strong><br />
+                        <strong><Sparkles size={14} style={{ display: "inline-block", marginRight: 5, verticalAlign: "-2px" }} aria-hidden="true" /> Formulir Pengajuan Pasang Baru</strong><br />
                         Data ini langsung diteruskan ke tim sales XL Home Solo Raya untuk verifikasi opsi pemasangan ke lokasimu.
                       </div>
 
