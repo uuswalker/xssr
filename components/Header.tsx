@@ -47,6 +47,7 @@ export default function Header({
         <nav role="navigation">
           {showFiber && <Link className="hover-lift" href={`${anchorBase}#paket`}>Paket Fiber</Link>}
           {showWireless && <Link className="hover-lift" href={`${anchorBase}#wireless`}>Wireless</Link>}
+          <Link className="hover-lift" href={`${anchorBase}#daftar`}>Daftar Online</Link>
           <Link className="hover-lift" href={`${anchorBase}#area`}>Area Layanan</Link>
           <Link className="hover-lift" href={`${anchorBase}#bantuan`}>Bantuan</Link>
           <Link className="hover-lift" href={`${anchorBase}#hubungi`}>Hubungi Kami</Link>
