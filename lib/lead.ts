@@ -189,7 +189,23 @@ export function generateSearchVariants(rawQ: string): string[] {
     if (!split) decompounded.push(tok);
   }
 
-  // Varian Prioritas 1: Gabungan kata substantif bersih (menghasilkan akurasi instan di D1)
+  // 4. Deteksi nama kota nasional untuk routing cerdas bebas timeout
+  const KNOWN_CITIES = [
+    "jakarta", "jaksel", "jaktim", "jakpus", "jakbar", "jakut",
+    "surabaya", "sidoarjo", "gresik", "malang",
+    "bandung", "cimahi", "cirebon", "bogor", "depok", "tangerang", "tangsel", "bekasi",
+    "semarang", "jogja", "yogyakarta", "sleman", "bantul",
+    "denpasar", "bali", "badung", "medan", "palembang", "pekanbaru", "batam", "makassar",
+    "solo", "surakarta", "sukoharjo", "karanganyar", "klaten", "boyolali", "sragen", "wonogiri"
+  ];
+  const detectedCityToken = rawTokens.find((t) => KNOWN_CITIES.includes(t));
+
+  // Jika input memuat nama kota nasional, jadikan varian utama berpola: [nama_jalan] [nama_kota]
+  if (detectedCityToken && decompounded.length > 0) {
+    variants.push(`${decompounded.join(" ")} ${detectedCityToken}`);
+  }
+
+  // Varian Prioritas: Gabungan kata substantif bersih (menghasilkan akurasi instan di D1)
   if (decompounded.length >= 2) {
     variants.push(decompounded.join(" "));
     variants.push(decompounded.slice(0, 2).join(" "));
