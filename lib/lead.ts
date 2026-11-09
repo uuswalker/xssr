@@ -143,46 +143,63 @@ export interface D1SearchResult {
 }
 
 const ADMIN_CITY_WORDS = new Set([
-  "kab", "kabupaten", "kota", "kec", "kecamatan", "kel", "kelurahan",
-  "desa", "rt", "rw", "no", "nomor", "indonesia",
-  "jawa", "tengah", "barat", "timur", "jateng", "jabar", "jatim", "dki", "diy",
+  "jl", "jalan", "jln", "gang", "gg", "gng", "lorong", "lrg",
+  "no", "nomor", "rt", "rw", "blok", "kav",
+  "perum", "perumahan", "graha", "residence", "residences", "cluster",
+  "kel", "kelurahan", "desa", "ds",
+  "kec", "kecamatan", "kab", "kabupaten", "kota",
+  "indonesia", "jawa", "tengah", "barat", "timur", "jateng", "jabar", "jatim", "dki", "diy",
   "sukoharjo", "surakarta", "solo", "karanganyar", "boyolali", "klaten", "sragen", "wonogiri",
   "jakarta", "surabaya", "semarang", "bandung", "medan", "bekasi", "tangerang", "depok",
   "bogor", "sidoarjo", "gresik", "makassar", "denpasar", "bali", "batam", "pekanbaru",
   "sleman", "bantul", "yogyakarta", "jogja", "malang"
 ]);
 
+const COMPOUND_ROOTS = [
+  "semen", "karang", "suko", "rawa", "banyu", "colo", "kebon", "kelapa", 
+  "tanjung", "muara", "pondok", "pasar", "kali", "gunung", "batu"
+];
+
 export function generateSearchVariants(rawQ: string): string[] {
   const q = rawQ.trim().toLowerCase();
   const variants: string[] = [];
 
-  // 1. Query utuh
-  variants.push(q);
-
-  // 2. Ekstrak pola ODP (misal FKS181, FRK053, FRS101)
+  // 1. Ekstrak pola ODP (misal FKS181, FRK053, FRS101)
   const odpMatch = q.match(/\b([a-z]{3}\s*\d+[a-z0-9]*)\b/i);
   if (odpMatch) {
     variants.push(odpMatch[1].replace(/\s+/g, ""));
   }
 
-  // 3. Tokenisasi tanpa kata henti administratif dan nama kota
-  const allTokens = q.split(/[\s,]+/).filter((w) => w.length > 0);
-  const pureTokens = allTokens.filter((w) => !ADMIN_CITY_WORDS.has(w));
+  // 2. Tokenisasi cerdas & strip prefix jalan / kata henti administratif
+  const rawTokens = q.replace(/[,._\-/]/g, " ").split(/\s+/).filter((w) => w.length > 0);
+  let subTokens = rawTokens.filter((t) => !ADMIN_CITY_WORDS.has(t));
+  if (subTokens.length === 0) subTokens = rawTokens;
 
-  if (pureTokens.length >= 2) {
-    // Kombinasi 3 kata & 2 kata utama (misal: "gang salak cemani", "salak cemani", "gang salak")
-    variants.push(pureTokens.slice(0, 3).join(" "));
-    variants.push(pureTokens.slice(0, 2).join(" "));
+  // 3. Decompounding kata majemuk Indonesia tanpa spasi (misal: "semenromo" -> ["semen", "romo"])
+  const decompounded: string[] = [];
+  for (const tok of subTokens) {
+    let split = false;
+    for (const root of COMPOUND_ROOTS) {
+      if (tok.startsWith(root) && tok.length > root.length + 2) {
+        decompounded.push(root, tok.slice(root.length));
+        split = true;
+        break;
+      }
+    }
+    if (!split) decompounded.push(tok);
+  }
 
-    const nonStreetPrefix = pureTokens.filter((w) => w !== "gang" && w !== "gg" && w !== "jl" && w !== "jalan");
-    if (nonStreetPrefix.length >= 2) {
-      variants.push(nonStreetPrefix.slice(0, 2).join(" "));
-    }
-    if (nonStreetPrefix.length > 0) {
-      variants.push(nonStreetPrefix[0]);
-    }
-  } else if (pureTokens.length === 1) {
-    variants.push(pureTokens[0]);
+  // Varian Prioritas 1: Gabungan kata substantif bersih (menghasilkan akurasi instan di D1)
+  if (decompounded.length >= 2) {
+    variants.push(decompounded.join(" "));
+    variants.push(decompounded.slice(0, 2).join(" "));
+  } else if (decompounded.length === 1) {
+    variants.push(decompounded[0]);
+  }
+
+  // Sertakan query asli jika belum ada sebagai fallback
+  if (q.length >= 2 && !variants.includes(q)) {
+    variants.push(q);
   }
 
   // Deduplikasi varian tetap menjaga prioritas urutan
@@ -234,7 +251,7 @@ function dedupeAddressSegments(str: string): string {
 
 export async function cariAlamatSmart(
   query: string,
-  limit = 10
+  limit = 12
 ): Promise<SmartSuggestionItem[]> {
   const q = query.trim();
   if (q.length < 3) return [];

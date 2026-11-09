@@ -546,7 +546,7 @@ export default function CekLokasi() {
     }
     if (debounce.current) clearTimeout(debounce.current);
     debounce.current = setTimeout(() => {
-      cariAlamatSmart(q, 6).then(
+      cariAlamatSmart(q, 10).then(
         (data) => {
           setSuggestions(data || []);
           setShowSugg(true);

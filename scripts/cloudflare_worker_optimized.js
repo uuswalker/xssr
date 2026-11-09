@@ -13,7 +13,7 @@
 const ADMIN_KEY = "xssr-tahap2-secure-2026";
 const RATE_LIMIT_MAX_REQUESTS = 60; // Max 60 requests per minute per IP
 const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute window
-const CACHE_VERSION = "v3.0.3";
+const CACHE_VERSION = "v3.0.4-smartsearch";
 
 // Solo Raya Core Coverage Cities (Indexed B-Tree fast routing)
 const SOLO_CITIES = "'KOTA SURAKARTA', 'KAB. SUKOHARJO', 'KAB. KARANGANYAR', 'KAB. BOYOLALI', 'KAB. KLATEN', 'KAB. SRAGEN', 'KAB. WONOGIRI'";
@@ -343,23 +343,69 @@ export default {
           }
         } catch (errCache) {}
 
-        // Tier 3: Query Unified Master D1 Database Directly
-        const rawTokens = q.replace(/[,._\-/]/g, " ").trim().split(/\s+/).filter(t => t.length >= 2);
+        // Tier 3: Query Unified Master D1 Database with Indonesian Address Intelligence
         let results = [];
 
         if (masterDb) {
-          if (rawTokens.length <= 1) {
-            const searchPattern = `%${q}%`;
-            // Priority 1: Check Solo Raya (Ultra-fast via idx_hp_city, ~5ms)
+          const PREFIX_STOPWORDS = new Set([
+            "jl", "jalan", "jln", "gang", "gg", "gng", "lorong", "lrg",
+            "no", "nomor", "rt", "rw", "blok", "kav",
+            "perum", "perumahan", "graha", "residence", "residences", "cluster",
+            "kel", "kelurahan", "desa", "ds",
+            "kec", "kecamatan", "kab", "kabupaten", "kota"
+          ]);
+
+          const COMPOUND_ROOTS = [
+            "semen", "karang", "suko", "rawa", "banyu", "colo", "kebon", "kelapa", 
+            "tanjung", "muara", "pondok", "pasar", "kali", "gunung", "batu"
+          ];
+
+          const cleanQuery = q.toLowerCase().replace(/[,._\-/]/g, " ").trim();
+          const rawTokens = cleanQuery.split(/\s+/).filter(t => t.length >= 1);
+          let subTokens = rawTokens.filter(t => !PREFIX_STOPWORDS.has(t) && t.length >= 2);
+
+          // Preserve numeric/alphanumeric house tokens (e.g., "85", "107", "23a")
+          const numTokens = rawTokens.filter(t => /^\d+[a-z]?$/i.test(t));
+          for (const n of numTokens) {
+            if (!subTokens.includes(n)) subTokens.push(n);
+          }
+
+          if (subTokens.length === 0) subTokens = rawTokens.filter(t => t.length >= 2);
+
+          // Decompound words like "semenromo" -> ["semen", "romo"]
+          const substantiveTokens = [];
+          for (const tok of subTokens) {
+            let split = false;
+            for (const root of COMPOUND_ROOTS) {
+              if (tok.startsWith(root) && tok.length > root.length + 2) {
+                substantiveTokens.push(root, tok.slice(root.length));
+                split = true;
+                break;
+              }
+            }
+            if (!split) substantiveTokens.push(tok);
+          }
+
+          // Build query conditions for substantive tokens across (address, cluster_name, city, odp_id)
+          const whereParts = [];
+          const bindValues = [];
+
+          for (const tok of substantiveTokens.slice(0, 4)) {
+            whereParts.push("(address LIKE ? OR cluster_name LIKE ? OR city LIKE ? OR odp_id LIKE ?)");
+            const p = `%${tok}%`;
+            bindValues.push(p, p, p, p);
+          }
+
+          if (whereParts.length > 0) {
+            // Priority 1: Check Solo Raya Core (Ultra-fast via idx_hp_city, ~5-20ms)
             const soloSql = `
               SELECT id, cluster_name, city, odp_id, lat, lng, status, address
               FROM homepass
-              WHERE city IN (${SOLO_CITIES})
-                AND (cluster_name LIKE ? OR address LIKE ? OR id LIKE ? OR odp_id LIKE ?)
-              LIMIT 25
+              WHERE city IN (${SOLO_CITIES}) AND ${whereParts.join(" AND ")}
+              LIMIT 30
             `;
             try {
-              const res = await masterDb.prepare(soloSql).bind(searchPattern, searchPattern, searchPattern, searchPattern).all();
+              const res = await masterDb.prepare(soloSql).bind(...bindValues).all();
               if (res.results && res.results.length > 0) results = res.results;
             } catch (e) {}
 
@@ -368,11 +414,11 @@ export default {
               const nationalSql = `
                 SELECT id, cluster_name, city, odp_id, lat, lng, status, address
                 FROM homepass
-                WHERE cluster_name LIKE ? OR address LIKE ? OR id LIKE ? OR odp_id LIKE ? OR city LIKE ?
-                LIMIT 25
+                WHERE ${whereParts.join(" AND ")}
+                LIMIT 30
               `;
               try {
-                const resNat = await masterDb.prepare(nationalSql).bind(searchPattern, searchPattern, searchPattern, searchPattern, searchPattern).all();
+                const resNat = await masterDb.prepare(nationalSql).bind(...bindValues).all();
                 if (resNat.results) {
                   const seenIds = new Set(results.map(r => r.id));
                   for (const row of resNat.results) {
@@ -380,65 +426,7 @@ export default {
                       seenIds.add(row.id);
                       results.push(row);
                     }
-                    if (results.length >= 25) break;
-                  }
-                }
-              } catch (e) {}
-            }
-          } else {
-            // Multi-tokens: check Solo Raya first
-            const whereSolo = [];
-            const bindSolo = [];
-            const whereNat = [];
-            const bindNat = [];
-
-            for (const tok of rawTokens.slice(0, 4)) {
-              const low = tok.toLowerCase();
-              if (low === "gang" || low === "gg") {
-                const cond = "((coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE '%gang%' OR (coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE '%gg%')";
-                whereSolo.push(cond);
-                whereNat.push(cond);
-              } else if (low === "jalan" || low === "jl") {
-                const cond = "((coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE '%jalan%' OR (coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE '%jl%')";
-                whereSolo.push(cond);
-                whereNat.push(cond);
-              } else {
-                whereSolo.push("(coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE ?");
-                bindSolo.push(`%${low}%`);
-                whereNat.push("(coalesce(address, '') || ' ' || coalesce(cluster_name, '') || ' ' || coalesce(city, '') || ' ' || coalesce(odp_id, '')) LIKE ?");
-                bindNat.push(`%${low}%`);
-              }
-            }
-
-            const multiSoloSql = `
-              SELECT id, cluster_name, city, odp_id, lat, lng, status, address
-              FROM homepass
-              WHERE city IN (${SOLO_CITIES}) AND ${whereSolo.join(" AND ")}
-              LIMIT 25
-            `;
-
-            try {
-              const res = await masterDb.prepare(multiSoloSql).bind(...bindSolo).all();
-              if (res.results && res.results.length > 0) results = res.results;
-            } catch (e) {}
-
-            if (results.length < 10) {
-              const multiNatSql = `
-                SELECT id, cluster_name, city, odp_id, lat, lng, status, address
-                FROM homepass
-                WHERE ${whereNat.join(" AND ")}
-                LIMIT 25
-              `;
-              try {
-                const resNat = await masterDb.prepare(multiNatSql).bind(...bindNat).all();
-                if (resNat.results) {
-                  const seenIds = new Set(results.map(r => r.id));
-                  for (const row of resNat.results) {
-                    if (!seenIds.has(row.id)) {
-                      seenIds.add(row.id);
-                      results.push(row);
-                    }
-                    if (results.length >= 25) break;
+                    if (results.length >= 30) break;
                   }
                 }
               } catch (e) {}
@@ -635,7 +623,9 @@ export default {
 
         const targetDb = masterDb;
         const stmt = targetDb.prepare(sql);
-        const res = await stmt.all();
+        const res = body.binds && Array.isArray(body.binds) && body.binds.length > 0
+          ? await stmt.bind(...body.binds).all()
+          : await stmt.all();
         return new Response(JSON.stringify(res), { headers: corsHeaders });
       }
 
