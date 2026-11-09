@@ -301,6 +301,22 @@ export function cleanAlamatResmi(rawAddress: string | null | undefined): string 
   addr = addr.replace(/^-\s*/, "");
   // Strip (atau disekitarnya)
   addr = addr.replace(/(\(|\[)?\s*atau disekitarnya\s*(\)|\])?/i, "").trim();
+
+  // Deduplikasi segmen alamat berulang (misal: "..., KAB. SUKOHARJO, KAB. SUKOHARJO")
+  if (addr.includes(",")) {
+    const parts = addr.split(",").map((s) => s.trim()).filter(Boolean);
+    const seen = new Set<string>();
+    const res: string[] = [];
+    for (const p of parts) {
+      const key = p.toUpperCase();
+      if (!seen.has(key)) {
+        seen.add(key);
+        res.push(p);
+      }
+    }
+    addr = res.join(", ");
+  }
+
   return addr;
 }
 

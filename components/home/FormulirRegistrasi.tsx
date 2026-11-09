@@ -101,7 +101,7 @@ export default function FormulirRegistrasi() {
 
     searchDebounce.current = setTimeout(async () => {
       try {
-        const results = await cariAlamatSmart(val, 5);
+        const results = await cariAlamatSmart(val, 10);
         setSuggestions(results);
         setShowSuggestions(results.length > 0);
       } catch {
@@ -271,7 +271,7 @@ export default function FormulirRegistrasi() {
         `📱 *No. WhatsApp:* ${cleanWa}\n` +
         `📍 *Alamat Lengkap:* ${cleanAlamatVal}\n` +
         (mapsLink ? `🌐 *Titik Google Maps:* ${mapsLink}\n` : "") +
-        `🔌 *Status Deteksi D1:* ${statusCoverageStr}\n\n` +
+        `🔌 *Status Jaringan:* ${statusCoverageStr}\n\n` +
         `Mohon dibantu cek ketersediaan jalur dan rekomendasi paket terbaik. Terima kasih!`;
     } else {
       pesanWa =
@@ -281,7 +281,7 @@ export default function FormulirRegistrasi() {
         `📍 *Alamat Pemasangan:* ${cleanAlamatVal}\n` +
         (mapsLink ? `🌐 *Titik Google Maps:* ${mapsLink}\n` : "") +
         `📦 *Paket Diminati:* ${paket}\n` +
-        `🔌 *Status Deteksi D1:* ${statusCoverageStr}\n\n` +
+        `🔌 *Status Jaringan:* ${statusCoverageStr}\n\n` +
         `Mohon informasi proses pendaftaran dan jadwal pemasangan teknisi. Terima kasih!`;
     }
 
@@ -747,7 +747,7 @@ export default function FormulirRegistrasi() {
               {showSuggestions && suggestions.length > 0 && (
                 <div className="reg-sugg-dropdown">
                   <div style={{ padding: "8px 12px", background: "#f8fafc", fontSize: 11, fontWeight: 700, color: "#64748b" }}>
-                    SARAN ALAMAT TERDEKAT (DATABASE CLOUDFLARE D1 &amp; PETA)
+                    PILIH ALAMAT PEMASANGAN TERDEKAT
                   </div>
                   {suggestions.map((item, idx) => (
                     <button
@@ -772,7 +772,7 @@ export default function FormulirRegistrasi() {
               <div style={{ padding: 14, background: "#f0f7ff", border: "1.5px solid #bae6fd", borderRadius: 12, display: "flex", alignItems: "center", gap: 10, marginTop: 14 }}>
                 <Loader2 size={18} className="animate-spin" style={{ color: "#0284c7" }} />
                 <span style={{ fontSize: 13, fontWeight: 600, color: "#0369a1" }}>
-                  Mengecek ketersediaan port ODP dan sinyal wireless di database Cloudflare D1...
+                  Memverifikasi ketersediaan jaringan fiber &amp; wireless di lokasi Anda...
                 </span>
               </div>
             )}

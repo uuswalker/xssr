@@ -218,9 +218,23 @@ function scoreD1Result(r: D1SearchResult, queryTokens: string[]): number {
   return score;
 }
 
+function dedupeAddressSegments(str: string): string {
+  const parts = str.split(",").map((s) => s.trim()).filter(Boolean);
+  const seen = new Set<string>();
+  const res: string[] = [];
+  for (const p of parts) {
+    const key = p.toUpperCase();
+    if (!seen.has(key)) {
+      seen.add(key);
+      res.push(p);
+    }
+  }
+  return res.join(", ");
+}
+
 export async function cariAlamatSmart(
   query: string,
-  limit = 6
+  limit = 10
 ): Promise<SmartSuggestionItem[]> {
   const q = query.trim();
   if (q.length < 3) return [];
@@ -279,7 +293,7 @@ export async function cariAlamatSmart(
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 2500);
         const res = await fetch(
-          `https://nominatim.openstreetmap.org/search?format=json&addressdetails=0&limit=4&countrycodes=id&viewbox=${SOLORAYA_VIEWBOX}&bounded=0&q=${encodeURIComponent(q)}`,
+          `https://nominatim.openstreetmap.org/search?format=json&addressdetails=0&limit=6&countrycodes=id&viewbox=${SOLORAYA_VIEWBOX}&bounded=0&q=${encodeURIComponent(q)}`,
           { signal: controller.signal }
         );
         clearTimeout(timeoutId);
@@ -295,7 +309,7 @@ export async function cariAlamatSmart(
     // 1. Prioritas Titik Resmi D1 (Alamat jalan presisi + ODP aktif + Fiber Ready)
     if (Array.isArray(d1Results) && d1Results.length > 0) {
       for (const r of d1Results) {
-        const cleanAddr = cleanAlamatResmi(r.address);
+        const cleanAddr = dedupeAddressSegments(cleanAlamatResmi(r.address));
         const itemTitle = cleanAddr || r.cluster_name;
         if (!itemTitle) continue;
 
@@ -304,14 +318,17 @@ export async function cariAlamatSmart(
           seenAddresses.add(dedupeKey);
           const cityText = r.city ? r.city : "Solo Raya";
           const odpPart = r.odp_id ? ` • ODP: ${r.odp_id}` : "";
-          const clusterPart = r.cluster_name ? `${r.cluster_name}` : "Area Fiber";
+          const clusterPart = r.cluster_name ? `Cluster ${r.cluster_name}` : "Jaringan Fiber";
+
+          const hasCityInTitle = itemTitle.toUpperCase().includes(cityText.toUpperCase());
+          const fullDisplayName = hasCityInTitle ? itemTitle : `${itemTitle}, ${cityText}`;
 
           items.push({
             lat: String(r.lat),
             lon: String(r.lng),
             title: itemTitle,
-            subtitle: `${clusterPart}${odpPart} • Siap Pasang FTTH`,
-            display_name: `${itemTitle}, ${cityText}`,
+            subtitle: `${clusterPart}${odpPart} • Siap Pasang Fiber & Wireless`,
+            display_name: fullDisplayName,
             isFiberReady: true,
             odp: r.odp_id,
             cluster: r.cluster_name,
@@ -328,14 +345,18 @@ export async function cariAlamatSmart(
         const parts = r.display_name.split(",");
         const title = parts[0].trim();
         const subtitle = parts.slice(1, 4).join(",").trim();
-        items.push({
-          lat: r.lat,
-          lon: r.lon,
-          title,
-          subtitle: subtitle || "Wilayah Indonesia",
-          display_name: r.display_name,
-          isFiberReady: false,
-        });
+        const dedupeKey = title.toUpperCase();
+        if (!seenAddresses.has(dedupeKey)) {
+          seenAddresses.add(dedupeKey);
+          items.push({
+            lat: r.lat,
+            lon: r.lon,
+            title,
+            subtitle: subtitle || "Area Layanan Tercover",
+            display_name: dedupeAddressSegments(r.display_name),
+            isFiberReady: false,
+          });
+        }
         if (items.length >= limit) break;
       }
     }
