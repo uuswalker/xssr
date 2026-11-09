@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { HeroSlider, QuickActions, FiturPills } from "@/components/home/Hero";
 import PageTransition from "@/components/animations/PageTransition";
 import dynamic from "next/dynamic";
-import { MapPin, CheckCircle2 } from "lucide-react";
+import { MapPin, CheckCircle2, Award } from "lucide-react";
 
 const PaketSection = dynamic(() => import("@/components/home/PaketSection"));
 const InfoSections = dynamic(() => import("@/components/home/InfoSections"));
@@ -71,7 +71,7 @@ export default function PromoPerumahan() {
             </button>
             
             <div style={{ marginTop: "16px", display: "inline-flex", alignItems: "center", gap: "8px", background: "#fef3c7", padding: "6px 14px", borderRadius: "999px", border: "1px solid #fde68a" }}>
-              <span style={{ fontSize: "16px" }}>🏆</span>
+              <Award size={16} color="#b45309" style={{ flexShrink: 0 }} aria-hidden="true" />
               <span style={{ fontSize: "13px", fontWeight: 700, color: "#92400e" }}>Pemenang Opensignal 2026: Jaringan Paling Andal</span>
             </div>
 

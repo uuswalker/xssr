@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MapPin } from "lucide-react";
 
 const CITIES = [
   { name: "Solo", slug: "/wifi-solo" },
@@ -50,7 +51,7 @@ export default function CityPills() {
                 }
               }}
             >
-              📍 {city.name}
+              <MapPin size={13} style={{ display: "inline-block", marginRight: "4px", verticalAlign: "middle" }} aria-hidden="true" />{city.name}
             </Link>
           );
         })}

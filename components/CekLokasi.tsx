@@ -269,23 +269,23 @@ export default function CekLokasi() {
           setQuery(alamatDisplay);
           if (finalCv.status === "fiber") {
             setStatusClass("cl-status success");
-            setStatusMsg(`✅ Tercover Fiber Optic & Wireless XL Home (${alamatDisplay})!`);
+            setStatusMsg(`Tercover Fiber Optic & Wireless XL Home (${alamatDisplay})!`);
             setLokasiInfo(`Lokasi: ${alamatDisplay}`);
           } else if (finalCv.status === "wireless") {
             const is5G = finalCv.zona && finalCv.zona.includes("5G");
             setStatusClass("cl-status success");
             setStatusMsg(
               is5G
-                ? `📶 Tercover XL Ultra 5G+ Wireless (FWA)! Siap pasang hari ini (${alamatDisplay}).`
-                : `📶 Tercover XL Home Wireless (FWA)! Siap pasang hari ini (${alamatDisplay}).`
+                ? `Tercover XL Ultra 5G+ Wireless (FWA)! Siap pasang hari ini (${alamatDisplay}).`
+                : `Tercover XL Home Wireless (FWA)! Siap pasang hari ini (${alamatDisplay}).`
             );
             setLokasiInfo(`Lokasi: ${alamatDisplay}`);
           } else {
             setStatusClass("cl-status");
             setStatusMsg(
               finalCv.jarakM != null
-                ? `📍 Jaringan fiber di sekitar ${alamatDisplay} berjarak ±${finalCv.jarakM}m.`
-                : `📍 Lokasi tercatat. Sales kami akan konfirmasi ketersediaan jaringan terdekat.`
+                ? `Jaringan fiber di sekitar ${alamatDisplay} berjarak ±${finalCv.jarakM}m.`
+                : `Lokasi tercatat. Sales kami akan konfirmasi ketersediaan jaringan terdekat.`
             );
             setLokasiInfo(`Lokasi: ${alamatDisplay}`);
           }
@@ -300,14 +300,14 @@ export default function CekLokasi() {
       const bl = cekAreaBlacklist(alamatText || "");
       if (bl) {
         setStatusClass("cl-status error");
-        setStatusMsg(`⚠️ Area ${bl} belum tercover kabel fiber langsung. Kamu bisa kirim Pengajuan Pasang di bawah ini untuk diverifikasi tim sales.`);
+        setStatusMsg(`Area ${bl} belum tercover kabel fiber langsung. Kamu bisa kirim Pengajuan Pasang di bawah ini untuk diverifikasi tim sales.`);
       } else if (hasil.dalamArea) {
         setStatusClass("cl-status success");
-        setStatusMsg(`📍 Lokasi terdeteksi di area ${hasil.nama}`);
+        setStatusMsg(`Lokasi terdeteksi di area ${hasil.nama}`);
       } else {
         setStatusClass("cl-status");
         setStatusMsg(
-          `🔍 Mengecek ketersediaan jaringan fiber XL Home di lokasimu...`
+          `Mengecek ketersediaan jaringan fiber XL Home di lokasimu...`
         );
       }
 
@@ -346,7 +346,7 @@ export default function CekLokasi() {
       if (bl) {
         setStatusClass("cl-status error");
         setStatusMsg(
-          `⚠️ Area ${bl} di luar jangkauan jaringan fiber XL Home. Layanan kami fokus di Solo, Sukoharjo, Karanganyar, Boyolali & Klaten.`
+          `Area ${bl} di luar jangkauan jaringan fiber XL Home. Layanan kami fokus di Solo, Sukoharjo, Karanganyar, Boyolali & Klaten.`
         );
         later(() => {
           setLokasiInfo(`Alamat: ${alamatText} [LUAR JANGKAUAN - ${bl}]`);
@@ -1136,9 +1136,9 @@ export default function CekLokasi() {
                               <div className="cl-sugg-title">
                                 <span>{s.title}</span>
                                 {s.isFiberReady ? (
-                                  <span className="cl-badge-fiber">⚡ Siap Pasang</span>
+                                  <span className="cl-badge-fiber">Siap Pasang</span>
                                 ) : (
-                                  <span className="cl-badge-street">📍 Alamat</span>
+                                  <span className="cl-badge-street">Alamat</span>
                                 )}
                               </div>
                               <div className="cl-sugg-sub">{s.subtitle}</div>
@@ -1297,7 +1297,7 @@ export default function CekLokasi() {
                   {coverage?.status === "manual" ? (
                     <>
                       <div style={{ background: "#fff5f5", border: "1px solid #fecaca", borderRadius: 10, padding: "10px 14px", margin: "14px 0", fontSize: 13, color: "#991b1b" }}>
-                        <strong>✨ Formulir Pengajuan Pasang Baru</strong><br />
+                        <strong>Formulir Pengajuan Pasang Baru</strong><br />
                         Data ini langsung diteruskan ke tim sales XL Home Solo Raya untuk verifikasi opsi pemasangan ke lokasimu.
                       </div>
 

@@ -193,12 +193,12 @@
       gap: 8px;
     }
     .dot {
-      width: 24px;
-      height: 24px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: var(--slider-dot);
       background-clip: content-box;
-      padding: 7px;
+      padding: 17px;
       cursor: pointer;
       transition: background .3s;
       border: none;
@@ -1233,9 +1233,11 @@
       }
       .slide img { height: auto; }
       .slider-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+        min-width: 44px;
+        min-height: 44px;
       }
       .section-title {
         font-size: 18px;

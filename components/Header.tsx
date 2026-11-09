@@ -31,7 +31,8 @@ export default function Header({
   return (
     <header role="banner" className={`site-header ${isTop ? "" : "is-scrolled"}`}>
       <div className="promo-banner">
-          🔥 <span className="shimmer-text">Promo Terbatas: Gratis Instalasi Khusus Paket 250 Mbps & XL Home Wireless s/d Akhir Bulan!</span>
+          <span style={{ display: "inline-flex", alignItems: "center", background: "rgba(255,255,255,0.22)", padding: "1px 7px", borderRadius: 999, fontSize: 11, fontWeight: 700, marginRight: 6, letterSpacing: 0.5, textTransform: "uppercase" }}>Promo</span>
+          <span className="shimmer-text">Gratis Instalasi Khusus Paket 250 Mbps & XL Home Wireless s/d Akhir Bulan!</span>
         </div>
       <div className="header-inner">
         <div className="logo">

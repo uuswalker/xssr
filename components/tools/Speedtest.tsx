@@ -222,9 +222,9 @@ export default function Speedtest() {
   };
 
   const category = dlSpeed === null ? null
-    : dlSpeed >= 50 ? { label: "✅ Cepat", color: "#16a34a", bg: "#f0fdf4", text: "Lancar untuk streaming 4K, gaming, dan WFH sekeluarga." }
-    : dlSpeed >= 20 ? { label: "⚡ Sedang", color: "#d97706", bg: "#fffbeb", text: "Cukup untuk streaming HD dan browsing, tapi bisa lebih baik." }
-    : { label: "🐢 Lambat", color: "#dc2626", bg: "#fef2f2", text: "Kurang ideal untuk keluarga aktif. Pertimbangkan XL Home Fiber Optik!" };
+    : dlSpeed >= 50 ? { label: "Koneksi Cepat (Fiber Speed)", color: "#16a34a", bg: "#f0fdf4", text: "Lancar untuk streaming 4K, gaming, dan WFH sekeluarga." }
+    : dlSpeed >= 20 ? { label: "Koneksi Sedang", color: "#d97706", bg: "#fffbeb", text: "Cukup untuk streaming HD dan browsing, tapi bisa lebih baik." }
+    : { label: "Koneksi Lambat (Butuh Upgrade)", color: "#dc2626", bg: "#fef2f2", text: "Kurang ideal untuk keluarga aktif. Pertimbangkan XL Home Fiber Optik!" };
 
   return (
     <div style={{ maxWidth: 520, margin: "0 auto", fontFamily: "system-ui, sans-serif", padding: "0 4px" }}>
@@ -309,7 +309,7 @@ export default function Speedtest() {
       )}
 
       <div style={{ marginTop: 10, padding: "12px 16px", background: "#f8fafc", borderRadius: 12, fontSize: 13, color: "#475569" }}>
-        <strong style={{ color: "#0f172a", display: "block", marginBottom: 6 }}>💡 Acuan kecepatan</strong>
+        <strong style={{ color: "#0f172a", display: "block", marginBottom: 6 }}>Acuan Kecepatan Internet</strong>
         <div>≥50 Mbps — 4K + gaming + WFH sekeluarga</div>
         <div>20–49 Mbps — streaming HD, browsing normal</div>
         <div style={{ color: "#dc2626" }}>&lt;20 Mbps — kurang ideal untuk keluarga aktif</div>

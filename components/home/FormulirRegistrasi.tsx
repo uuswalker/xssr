@@ -14,6 +14,7 @@ import {
   Navigation,
   ShieldCheck,
   Zap,
+  Info,
 } from "lucide-react";
 import {
   cekCoverageWorkerAPI,
@@ -709,6 +710,7 @@ export default function FormulirRegistrasi() {
               <div className="alamat-wrap">
                 <textarea
                   id="form-alamat"
+                  aria-label="Alamat lengkap pemasangan"
                   required
                   rows={3}
                   maxLength={300}
@@ -739,8 +741,9 @@ export default function FormulirRegistrasi() {
                 </button>
               </div>
 
-              <div className="reg-note">
-                💡 Berbagi lokasi <strong>tidak wajib</strong>. Cukup ketik alamat lengkap, tim kami tetap dapat mengecek jaringan.
+              <div className="reg-note" style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
+                <Info size={14} style={{ color: "#0066ff", flexShrink: 0, marginTop: 2 }} aria-hidden="true" />
+                <span>Berbagi lokasi <strong>tidak wajib</strong>. Cukup ketik alamat lengkap, tim kami tetap dapat mengecek jaringan.</span>
               </div>
 
               {gpsError && (
@@ -789,21 +792,21 @@ export default function FormulirRegistrasi() {
                 {coverage.status === "fiber" ? (
                   <div className="cov-card-fiber">
                     <div style={{ display: "flex", alignItems: "flex-start", gap: 8, fontWeight: 800, fontSize: 14, color: "#065f46", lineHeight: 1.35 }}>
-                      <CheckCircle2 size={18} style={{ color: "#10b981", flexShrink: 0 }} />
-                      TERCOVER FIBER OPTIC &amp; WIRELESS (SIAP PASANG) ✅
+                      <CheckCircle2 size={18} style={{ color: "#10b981", flexShrink: 0 }} aria-hidden="true" />
+                      TERCOVER FIBER OPTIC &amp; WIRELESS (SIAP PASANG)
                     </div>
                     <div style={{ marginTop: 8, fontSize: 13, lineHeight: 1.6, color: "#064e3b" }}>
                       <div>
-                        📍 <strong>Prediksi Lokasi:</strong> {cleanAlamatResmi(coverage.alamat) || "Area Lokasi Anda"}{" "}
+                        <strong>Prediksi Lokasi:</strong> {cleanAlamatResmi(coverage.alamat) || "Area Lokasi Anda"}{" "}
                         <span style={{ color: "#6b7280", fontSize: 12, fontWeight: 400 }}>
                           (Lokasi akurat via WA wa.me/{NOMOR_WA_SALES})
                         </span>
                       </div>
                       <div>
-                        🌐 <strong>Tercover:</strong> FIBER dan WIRELESS
+                        <strong>Tercover:</strong> FIBER dan WIRELESS
                       </div>
                       <div>
-                        🔌 <strong>Status:</strong> Jaringan tersedia &amp; siap langsung dipasang!
+                        <strong>Status:</strong> Jaringan tersedia &amp; siap langsung dipasang!
                       </div>
                     </div>
                     <div style={{ marginTop: 8, paddingTop: 8, borderTop: "1px solid #a7f3d0", fontSize: 12, color: "#047857" }}>
@@ -813,29 +816,29 @@ export default function FormulirRegistrasi() {
                 ) : coverage.status === "wireless" ? (
                   <div className="cov-card-wireless">
                     <div style={{ display: "flex", alignItems: "flex-start", gap: 8, fontWeight: 800, fontSize: 14, color: "#0369a1", lineHeight: 1.35 }}>
-                      <Radio size={18} style={{ color: "#0284c7", flexShrink: 0 }} />
-                      TERCOVER XL ULTRA 5G+ WIRELESS (SIAP PASANG) ✅
+                      <Radio size={18} style={{ color: "#0284c7", flexShrink: 0 }} aria-hidden="true" />
+                      TERCOVER XL ULTRA 5G+ WIRELESS (SIAP PASANG)
                     </div>
                     <div style={{ marginTop: 8, fontSize: 13, lineHeight: 1.6, color: "#075985" }}>
                       <div>
-                        📍 <strong>Prediksi Lokasi:</strong> {cleanAlamatResmi(coverage.alamat) || "Area Lokasi Anda"}{" "}
+                        <strong>Prediksi Lokasi:</strong> {cleanAlamatResmi(coverage.alamat) || "Area Lokasi Anda"}{" "}
                         <span style={{ color: "#6b7280", fontSize: 12, fontWeight: 400 }}>
                           (Lokasi akurat via WA wa.me/{NOMOR_WA_SALES})
                         </span>
                       </div>
                       <div>
-                        🌐 <strong>Tercover:</strong> XL Ultra 5G+ Wireless {coverage.zona ? `[${coverage.zona}]` : ""}
+                        <strong>Tercover:</strong> XL Ultra 5G+ Wireless {coverage.zona ? `[${coverage.zona}]` : ""}
                       </div>
                       <div>
-                        🔌 <strong>Status:</strong> Modem Plug &amp; Play langsung aktif tanpa perlu tarik kabel!
+                        <strong>Status:</strong> Modem Plug &amp; Play langsung aktif tanpa perlu tarik kabel!
                       </div>
                     </div>
                   </div>
                 ) : (
                   <div className="cov-card-warning">
                     <div style={{ display: "flex", alignItems: "center", gap: 8, fontWeight: 800, fontSize: 14, color: "#92400e" }}>
-                      <AlertCircle size={18} style={{ color: "#f59e0b", flexShrink: 0 }} />
-                      KEMUNGKINAN TERCOVER (BUTUH CEK JALUR ODP) ⚠️
+                      <AlertCircle size={18} style={{ color: "#f59e0b", flexShrink: 0 }} aria-hidden="true" />
+                      KEMUNGKINAN TERCOVER (BUTUH CEK JALUR ODP)
                     </div>
                     <p style={{ margin: "6px 0 0 0", fontSize: 12.5, lineHeight: 1.5, color: "#78350f" }}>
                       Alamat Anda berada di sekitar area jaringan XL Home. Tim sales kami akan memverifikasi jarak tarikan kabel ke rumah Anda via WhatsApp.
@@ -856,6 +859,7 @@ export default function FormulirRegistrasi() {
                 </div>
                 <select
                   id="form-paket"
+                  aria-label="Pilihan paket internet"
                   value={paket}
                   onChange={(e) => setPaket(e.target.value)}
                   className="reg-select"

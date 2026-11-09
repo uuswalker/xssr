@@ -3,7 +3,7 @@
 import { preload } from "react-dom";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { MapPin, CheckCircle2 } from "lucide-react";
+import { MapPin, CheckCircle2, Award, Zap } from "lucide-react";
 import Image from "next/image";
 import { ADS_ID, WA_DAFTAR, WA_INFO, waLink } from "@/lib/site";
 
@@ -195,18 +195,14 @@ export function QuickActions() {
           rel="noopener noreferrer"
           className="qa-item"
         >
-          <Image
-            src="/images/xl-cdn/icon-kalender.svg"
-            alt=""
+          <Image src="/images/xl-cdn/icon-kalender.svg" alt="" aria-hidden="true"
             width={22}
             height={22}
             loading="lazy" />
           Daftar Sekarang
         </a>
         <a href="#paket" className="qa-item">
-          <Image
-            src="/images/xl-cdn/icon-jaringan.svg"
-            alt=""
+          <Image src="/images/xl-cdn/icon-jaringan.svg" alt="" aria-hidden="true"
             width={22}
             height={22}
             loading="lazy" />
@@ -218,9 +214,7 @@ export function QuickActions() {
           rel="noopener noreferrer"
           className="qa-item"
         >
-          <Image
-            src="/images/xl-cdn/icon-prabayar.svg"
-            alt=""
+          <Image src="/images/xl-cdn/icon-prabayar.svg" alt="" aria-hidden="true"
             width={22}
             height={22}
             loading="lazy" />
@@ -261,7 +255,7 @@ export function HomeHeroLokal() {
     <section className="hero-lokal">
       <div className="hero-lokal-inner">
         <h1>
-          Pasang <span>WiFi Solo Murah</span> &amp; Provider Internet Terbaik Solo Raya ⚡ XL Home Resmi
+          Pasang <span>WiFi Solo Murah</span> &amp; Provider Internet Terbaik Solo Raya — XL Home Resmi
         </h1>
         <p>
           Layanan pasang WiFi murah di{" "}
@@ -293,7 +287,7 @@ export function HomeHeroLokal() {
         </button>
         
         <div style={{ marginTop: "16px", display: "inline-flex", alignItems: "center", gap: "8px", background: "#fef3c7", padding: "6px 14px", borderRadius: "999px", border: "1px solid #fde68a" }}>
-          <span style={{ fontSize: "16px" }}>🏆</span>
+          <Award size={16} color="#b45309" style={{ flexShrink: 0 }} aria-hidden="true" />
           <span style={{ fontSize: "13px", fontWeight: 700, color: "#92400e" }}>Pemenang Opensignal 2026: Jaringan Paling Andal</span>
         </div>
         <div className="hero-lokal-stats">
@@ -341,7 +335,9 @@ export function HomeHeroLokal() {
           ))}
         </div>
         <div style={{ marginTop: 20, paddingTop: 16, borderTop: "1px dashed rgba(0,0,0,0.1)", display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: "8px 12px", fontSize: 13 }}>
-          <span style={{ fontWeight: 700, color: "#1f2937" }}>⚡ Area Prioritas Pasang Cepat:</span>
+          <span style={{ fontWeight: 700, color: "#1f2937", display: "inline-flex", alignItems: "center", gap: 4 }}>
+            <Zap size={14} color="#0284c7" style={{ flexShrink: 0 }} aria-hidden="true" /> Area Prioritas Pasang Cepat:
+          </span>
           <a href="/pasang-wifi-xl-home-kartasura/" style={{ background: "#f0fdf4", color: "#15803d", padding: "5px 12px", borderRadius: "999px", textDecoration: "none", fontWeight: 600, border: "1px solid #bbf7d0" }}>Pasang WiFi Kartasura (Dekat UMS)</a>
           <a href="/pasang-wifi-xl-home-solo-baru/" style={{ background: "#f0fdf4", color: "#15803d", padding: "5px 12px", borderRadius: "999px", textDecoration: "none", fontWeight: 600, border: "1px solid #bbf7d0" }}>Solo Baru Sektor 1-10</a>
           <a href="/pasang-wifi-xl-home-grogol/" style={{ background: "#f0fdf4", color: "#15803d", padding: "5px 12px", borderRadius: "999px", textDecoration: "none", fontWeight: 600, border: "1px solid #bbf7d0" }}>Grogol Sukoharjo</a>

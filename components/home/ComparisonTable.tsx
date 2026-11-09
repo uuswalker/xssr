@@ -99,7 +99,7 @@ export default function ComparisonTable() {
                   borderTop: "4px solid #037e64",
                   fontSize: 15
                 }}>
-                  XL HOME SOLO 🚀
+                  XL HOME SOLO
                 </th>
                 <th style={{ padding: "18px 18px", color: "#334155", fontWeight: 600, fontSize: 13 }}>Provider "I"</th>
                 <th style={{ padding: "18px 18px", color: "#334155", fontWeight: 600, fontSize: 13 }}>Provider "B"</th>
