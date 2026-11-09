@@ -42,4 +42,5 @@ Agen secara default berkomunikasi secara to-the-point, ringkas, dan fokus pada s
 ## 4. Kaidah Kritis Bisnis XL Home Solo (Non-Negotiable Guardrails)
 - **Kontak Sales Resmi**: Wajib dan hanya `087778999141` (`wa.me/6287778999141`).
 - **Skop Layanan**: HANYA melayani pasang baru (registrasi FTTH / homepass). Bukan pemindahan tiang / keluhan tiang.
+- **Kaidah Biaya Pasang (Zero Misinformation)**: Paket Starter 20 Mbps (Rp 185.000) **ADA biaya pasang Rp 100.000** (di luar paket, belum termasuk PPN 11%). Promo **Bebas Biaya Instalasi (Gratis Rp 0)** HANYA berlaku untuk paket 250 Mbps ke atas. Dilarang keras mengklaim paket 20 Mbps gratis pasang!
 - **Privasi Teknis**: Database ID / UUID Cloudflare D1 internal tidak boleh dibocorkan ke UI pengunjung.
