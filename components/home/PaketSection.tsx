@@ -181,7 +181,7 @@ export function FiberPaket({ promoBadge = "Promo XL Home Soloraya" }: { promoBad
 
         <div style={{ maxWidth: "700px", margin: "0 auto 24px auto", background: "#f0fdf4", border: "1.5px dashed #4ade80", borderRadius: "10px", padding: "12px 20px", display: "flex", alignItems: "center", gap: "12px", justifyContent: "center" }}>
           <Sparkles size={18} color="#16a34a" style={{ flexShrink: 0 }} aria-hidden="true" />
-          <p style={{ margin: 0, fontSize: "14px", fontWeight: 600, color: "#166534" }}>Beralih ke XL Home: 100% Tanpa FUP &amp; GRATIS Biaya Pasang (Hemat Rp 99.000!)</p>
+          <p style={{ margin: 0, fontSize: "14px", fontWeight: 600, color: "#166534" }}>Beralih ke XL Home: 100% Tanpa FUP &amp; GRATIS Biaya Pasang Mulai Paket 250 Mbps!</p>
         </div>
 
         <div className="paket-grid">

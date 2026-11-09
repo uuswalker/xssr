@@ -88,7 +88,7 @@ const SERVICE_JSONLD = {
   name: "XL Home Pasang WiFi Solo Murah",
   url: "https://xlhomesolo.com/wifi-solo/",
   description:
-    "Pasang WiFi Solo murah 2026 mulai Rp 185.000/bulan — XL Home fiber optic unlimited 20–1000 Mbps tanpa FUP, gratis biaya pasang.",
+    "Pasang WiFi Solo murah 2026 mulai Rp 185.000/bulan — XL Home fiber optic unlimited 20–1000 Mbps tanpa FUP, gratis biaya pasang mulai paket 250 Mbps.",
   provider: {
     "@type": "LocalBusiness",
     "@id": "https://xlhomesolo.com/#business",
@@ -280,7 +280,7 @@ export default function Page() {
               Berapa Biaya &amp; Rekomendasi Pasang WiFi di Solo 2026?
             </h2>
             <p style={{ fontSize: "15px", lineHeight: "1.7" }}>
-              Biaya pasang WiFi di Solo (Surakarta) tahun 2026 termurah mulai <strong>Rp 185.000/bulan</strong> untuk kecepatan 20 Mbps (Paket XL Home Starter) dengan promo <strong>Gratis Biaya Pasang Rp 0</strong>. Untuk pemakaian keluarga dan streaming 4K bebas lemot, rekomendasi terbaik adalah <strong>Paket Spark 250 Mbps seharga Rp 229.000/bulan</strong> (100% Fiber Optic simetris tanpa batasan kuota FUP).
+              Biaya pasang WiFi di Solo (Surakarta) tahun 2026 termurah mulai <strong>Rp 185.000/bulan</strong> untuk kecepatan 20 Mbps (Paket XL Home Starter, biaya pasang Rp 100.000 belum PPN). Untuk pemakaian keluarga dan streaming 4K bebas lemot, rekomendasi terbaik adalah <strong>Paket Spark 250 Mbps seharga Rp 229.000/bulan</strong> (100% Fiber Optic simetris tanpa batasan kuota FUP).
             </p>
             <div className="ai-grid">
               <div className="ai-grid-box">
@@ -335,7 +335,7 @@ export default function Page() {
               untuk kos mahasiswa di Jebres (UNS/ISI) dan Banjarsari, maupun hunian keluarga di Laweyan, Serengan, dan Pasar Kliwon.
             </p>
             <ul style={{ paddingLeft: "20px", marginTop: "12px", lineHeight: "1.8" }}>
-              <li><strong>Gratis Biaya Pasang (Rp 0):</strong> Promo bulan ini bebas biaya instalasi teknisi (hemat Rp 99.000).</li>
+              <li><strong>Gratis Biaya Pasang (Rp 0):</strong> Berlaku untuk paket 250 Mbps ke atas (khusus paket 20 Mbps biaya pasang Rp 100.000 belum PPN).</li>
               <li><strong>100% Tanpa FUP:</strong> Kuota unlimited murni, bebas streaming YouTube, TikTok, dan Zoom tanpa penurunan kecepatan akhir bulan.</li>
               <li><strong>Router Fiber Optic Gratis:</strong> Perangkat WiFi sudah include dipinjamkan selama berlangganan.</li>
             </ul>

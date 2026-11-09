@@ -32,7 +32,7 @@ export default function SiloSoloHub() {
         >
           pasang wifi solo murah
         </Link>{" "}
-        mulai <strong>Rp 185.000/bulan</strong> dengan promo <strong>Bebas Biaya Pasang Rp 0</strong> (100% Fiber Optic Tanpa Batas FUP), cek paket resmi &amp; ketersediaan tiang ODP di depan rumah Anda sekarang.
+        mulai <strong>Rp 185.000/bulan</strong> (100% Fiber Optic Tanpa Batas FUP) dengan promo <strong>Bebas Biaya Pasang Rp 0 (mulai paket 250 Mbps)</strong>, cek paket resmi &amp; ketersediaan tiang ODP di depan rumah Anda sekarang.
       </p>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center" }}>

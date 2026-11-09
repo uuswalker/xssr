@@ -19,7 +19,7 @@ import {
 export const metadata = pageMetadata({
   title: "Pasang WiFi Solo Murah Mulai 185 Ribu - Bebas FUP & Gratis Pasang 2026",
   description:
-    "Promo resmi pasang WiFi Solo murah 100% Fiber Optic tanpa FUP. Paket internet rumah mulai Rp 185.000/bln + Gratis Instalasi. Chat Sales WA: 0877-7899-9141.",
+    "Promo resmi pasang WiFi Solo murah 100% Fiber Optic tanpa FUP. Paket internet rumah mulai Rp 185.000/bln. Gratis biaya instalasi untuk paket 250 Mbps ke atas! Chat Sales WA: 0877-7899-9141.",
   path: "/",
 });
 

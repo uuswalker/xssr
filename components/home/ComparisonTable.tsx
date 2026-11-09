@@ -13,7 +13,7 @@ const COMPARISON_ROWS = [
   },
   {
     feature: "Modal Awal Pasang Baru",
-    xl: "Rp 0 (Bebas Pasang & Modem Gratis)",
+    xl: "Rp 0 (Bebas Pasang Paket 250 Mbps+ & Modem Dipinjamkan Gratis)",
     i: "Biaya PSB Rp 50.000 - Rp 150.000",
     b: "Rp 1 Juta+ (Wajib beli modem 500rb + pasang 250rb)",
     m: "Promo pasang Rp 0 (Klaim normal 500rb)",

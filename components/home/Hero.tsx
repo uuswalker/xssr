@@ -267,7 +267,7 @@ export function HomeHeroLokal() {
             href="/wifi-tanpa-fup-unlimited/"
             style={{ color: "inherit", textDecoration: "underline" }}
           >
-            tanpa FUP, gratis pasang Rp 0, CS & Sales 24 Jam siap survei 1-2 hari!
+            tanpa FUP, gratis pasang Rp 0 (mulai paket 250 Mbps), CS & Sales 24 Jam siap survei 1-2 hari!
           </a>
         </p>
         <button
