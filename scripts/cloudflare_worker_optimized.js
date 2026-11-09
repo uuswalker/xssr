@@ -263,7 +263,7 @@ export default {
           JSON.stringify({
             status: "healthy",
             engine: "Cloudflare Workers + Unified Master D1 Edge SQLite",
-            version: "3.0.3-unified",
+            version: "3.0.4-smartsearch",
             database: "xlhomesolo-coverage-db (Master FTTH & 5G/Wireless)",
             totalHomepass: totalCount,
             totalWireless: totalWireless,
@@ -456,15 +456,16 @@ export default {
                 if (resCity.results && resCity.results.length > 0) results = resCity.results;
               } catch (e) {}
             } else {
-              // Priority B: Default Solo Raya Core via idx_hp_city (Ultra-fast, ~5-20ms)
+              // Priority B: Default Solo Raya Core via DB_SOLO regional shard (Ultra-fast, ~3-10ms)
+              const soloDb = env.DB_SOLO || masterDb;
               const soloSql = `
                 SELECT id, cluster_name, city, odp_id, lat, lng, status, address
                 FROM homepass
-                WHERE city IN (${SOLO_CITIES}) AND ${whereParts.join(" AND ")}
+                WHERE ${env.DB_SOLO ? "" : `city IN (${SOLO_CITIES}) AND `}${whereParts.join(" AND ")}
                 LIMIT 30
               `;
               try {
-                const resSolo = await masterDb.prepare(soloSql).bind(...bindValues).all();
+                const resSolo = await soloDb.prepare(soloSql).bind(...bindValues).all();
                 if (resSolo.results && resSolo.results.length > 0) results = resSolo.results;
               } catch (e) {}
 
