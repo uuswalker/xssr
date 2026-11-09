@@ -13,10 +13,57 @@
 const ADMIN_KEY = "xssr-tahap2-secure-2026";
 const RATE_LIMIT_MAX_REQUESTS = 60; // Max 60 requests per minute per IP
 const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute window
-const CACHE_VERSION = "v3.0.4-smartsearch";
+const CACHE_VERSION = "v3.0.5-zerotimeout";
 
 // Solo Raya Core Coverage Cities (Indexed B-Tree fast routing)
 const SOLO_CITIES = "'KOTA SURAKARTA', 'KAB. SUKOHARJO', 'KAB. KARANGANYAR', 'KAB. BOYOLALI', 'KAB. KLATEN', 'KAB. SRAGEN', 'KAB. WONOGIRI'";
+
+const PREFIX_STOPWORDS = new Set([
+  "jl", "jalan", "jln", "gang", "gg", "gng", "lorong", "lrg",
+  "no", "nomor", "rt", "rw", "blok", "kav",
+  "perum", "perumahan", "graha", "residence", "residences", "cluster",
+  "kel", "kelurahan", "desa", "ds",
+  "kec", "kecamatan", "kab", "kabupaten", "kota"
+]);
+
+const COMPOUND_ROOTS = [
+  "semen", "karang", "suko", "rawa", "banyu", "colo", "kebon", "kelapa", 
+  "tanjung", "muara", "pondok", "pasar", "kali", "gunung", "batu"
+];
+
+const NATIONAL_CITY_MAP = {
+  "surabaya": "KOTA SURABAYA",
+  "sidoarjo": "KAB. SIDOARJO",
+  "gresik": "KAB. GRESIK",
+  "malang": "MALANG",
+  "bandung": "BANDUNG",
+  "cimahi": "KOTA CIMAHI",
+  "cirebon": "CIREBON",
+  "jakarta": "JAKARTA",
+  "jaksel": "JAKARTA SELATAN",
+  "jaktim": "JAKARTA TIMUR",
+  "jakpus": "JAKARTA PUSAT",
+  "jakbar": "JAKARTA BARAT",
+  "jakut": "JAKARTA UTARA",
+  "bogor": "BOGOR",
+  "depok": "KOTA DEPOK",
+  "tangerang": "TANGERANG",
+  "tangsel": "TANGERANG SELATAN",
+  "bekasi": "BEKASI",
+  "semarang": "SEMARANG",
+  "jogja": "YOGYAKARTA",
+  "yogyakarta": "YOGYAKARTA",
+  "sleman": "SLEMAN",
+  "bantul": "BANTUL",
+  "denpasar": "DENPASAR",
+  "bali": "DENPASAR",
+  "badung": "BADUNG",
+  "medan": "MEDAN",
+  "palembang": "PALEMBANG",
+  "pekanbaru": "PEKANBARU",
+  "batam": "BATAM",
+  "makassar": "MAKASSAR"
+};
 
 // In-Memory Fast LRU Cache for warm isolates (< 1ms response)
 const MEMORY_CACHE = new Map();
@@ -263,7 +310,7 @@ export default {
           JSON.stringify({
             status: "healthy",
             engine: "Cloudflare Workers + Unified Master D1 Edge SQLite",
-            version: "3.0.4-smartsearch",
+            version: "3.0.5-zerotimeout",
             database: "xlhomesolo-coverage-db (Master FTTH & 5G/Wireless)",
             totalHomepass: totalCount,
             totalWireless: totalWireless,
@@ -347,53 +394,6 @@ export default {
         let results = [];
 
         if (masterDb) {
-          const PREFIX_STOPWORDS = new Set([
-            "jl", "jalan", "jln", "gang", "gg", "gng", "lorong", "lrg",
-            "no", "nomor", "rt", "rw", "blok", "kav",
-            "perum", "perumahan", "graha", "residence", "residences", "cluster",
-            "kel", "kelurahan", "desa", "ds",
-            "kec", "kecamatan", "kab", "kabupaten", "kota"
-          ]);
-
-          const COMPOUND_ROOTS = [
-            "semen", "karang", "suko", "rawa", "banyu", "colo", "kebon", "kelapa", 
-            "tanjung", "muara", "pondok", "pasar", "kali", "gunung", "batu"
-          ];
-
-          const NATIONAL_CITY_MAP = {
-            "surabaya": "KOTA SURABAYA",
-            "sidoarjo": "KAB. SIDOARJO",
-            "gresik": "KAB. GRESIK",
-            "malang": "MALANG",
-            "bandung": "BANDUNG",
-            "cimahi": "KOTA CIMAHI",
-            "cirebon": "CIREBON",
-            "jakarta": "JAKARTA",
-            "jaksel": "JAKARTA SELATAN",
-            "jaktim": "JAKARTA TIMUR",
-            "jakpus": "JAKARTA PUSAT",
-            "jakbar": "JAKARTA BARAT",
-            "jakut": "JAKARTA UTARA",
-            "bogor": "BOGOR",
-            "depok": "KOTA DEPOK",
-            "tangerang": "TANGERANG",
-            "tangsel": "TANGERANG SELATAN",
-            "bekasi": "BEKASI",
-            "semarang": "SEMARANG",
-            "jogja": "YOGYAKARTA",
-            "yogyakarta": "YOGYAKARTA",
-            "sleman": "SLEMAN",
-            "bantul": "BANTUL",
-            "denpasar": "DENPASAR",
-            "bali": "DENPASAR",
-            "badung": "BADUNG",
-            "medan": "MEDAN",
-            "palembang": "PALEMBANG",
-            "pekanbaru": "PEKANBARU",
-            "batam": "BATAM",
-            "makassar": "MAKASSAR"
-          };
-
           const cleanQuery = q.toLowerCase().replace(/[,._\-/]/g, " ").trim();
           const rawTokens = cleanQuery.split(/\s+/).filter(t => t.length >= 1);
 
@@ -580,30 +580,53 @@ export default {
           }
         } catch (errCache) {}
 
+        const soloDb = env.DB_SOLO || masterDb;
         let results = [];
-        if (masterDb) {
-          // Priority 1: Solo Raya clusters (Ultra-fast via idx_hp_city, ~5ms)
+        if (soloDb) {
+          // Priority 1: Solo Raya clusters via soloDb shard (Ultra-fast < 10ms)
           const soloQuerySql = `
             SELECT DISTINCT cluster_name, city
             FROM homepass
-            WHERE city IN (${SOLO_CITIES}) AND cluster_name LIKE ?
+            WHERE cluster_name LIKE ?
             LIMIT 10
           `;
           try {
-            const res = await masterDb.prepare(soloQuerySql).bind(`%${q}%`).all();
+            const res = await soloDb.prepare(soloQuerySql).bind(`%${q}%`).all();
             if (res.results && res.results.length > 0) results = res.results;
           } catch (e) {}
 
-          // Priority 2: Nationwide clusters if fewer than 5
-          if (results.length < 5) {
-            const natQuerySql = `
-              SELECT DISTINCT cluster_name, city
-              FROM homepass
-              WHERE cluster_name LIKE ?
-              LIMIT 10
-            `;
+          // Priority 2: Nationwide clusters if fewer than 5 (City-indexed or Prefix-bounded)
+          if (results.length < 5 && masterDb) {
+            let natQuerySql = "";
+            let params = [];
+            const normQ = q.toLowerCase();
+            let foundCity = null;
+            for (const [key, cityName] of Object.entries(NATIONAL_CITY_MAP)) {
+              if (normQ.includes(key)) {
+                foundCity = cityName;
+                break;
+              }
+            }
+
+            if (foundCity) {
+              natQuerySql = `
+                SELECT DISTINCT cluster_name, city
+                FROM homepass
+                WHERE city = ? AND cluster_name LIKE ?
+                LIMIT 10
+              `;
+              params = [foundCity, `%${q}%`];
+            } else {
+              natQuerySql = `
+                SELECT DISTINCT cluster_name, city
+                FROM homepass
+                WHERE cluster_name LIKE ?
+                LIMIT 10
+              `;
+              params = [`${q}%`];
+            }
             try {
-              const resNat = await masterDb.prepare(natQuerySql).bind(`%${q}%`).all();
+              const resNat = await masterDb.prepare(natQuerySql).bind(...params).all();
               if (resNat.results) {
                 const seen = new Set(results.map(r => `${r.cluster_name}:${r.city}`));
                 for (const row of resNat.results) {
