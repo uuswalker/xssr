@@ -62,6 +62,10 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
   const total = SLIDES.length;
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+  const touchMoved = useRef(false);
+
   const resetTimer = useCallback(() => {
     if (timer.current) clearInterval(timer.current);
     timer.current = setInterval(() => setCur((c) => (c + 1) % total), 5000);
@@ -74,6 +78,43 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
     },
     [total, resetTimer]
   );
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+    touchMoved.current = false;
+    if (timer.current) clearInterval(timer.current);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const diffX = e.touches[0].clientX - touchStartX.current;
+    const diffY = e.touches[0].clientY - touchStartY.current;
+    if (Math.abs(diffX) > 10 && Math.abs(diffX) > Math.abs(diffY)) {
+      touchMoved.current = true;
+    }
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+    const diffX = endX - touchStartX.current;
+    const diffY = endY - touchStartY.current;
+
+    touchStartX.current = null;
+    touchStartY.current = null;
+
+    if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX < 0) {
+        goToSlide(cur + 1);
+      } else {
+        goToSlide(cur - 1);
+      }
+    } else {
+      resetTimer();
+    }
+  };
 
   useEffect(() => {
     resetTimer();
@@ -90,6 +131,9 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
         if (timer.current) clearInterval(timer.current);
       }}
       onMouseLeave={resetTimer}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
       <style dangerouslySetInnerHTML={{ __html: `
     .hero-img-lcp { 
@@ -109,12 +153,15 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
             key={i}
             className="slide"
             onClick={() => {
+              if (touchMoved.current) {
+                return;
+              }
               if (s.action === "wa") {
                 if (typeof (window as unknown as { gtag?: unknown }).gtag === "function") {
                   const gtagFn = (window as unknown as { gtag: (...a: unknown[]) => void }).gtag;
                   gtagFn("event", "click_whatsapp", {
                     link_text: "Hero Banner Slide " + (i + 1),
-                    link_url: WA_OPEN_DEFAULT,
+                    link_url: waText,
                     page_path: window.location.pathname,
                   });
                   gtagFn("event", "conversion", { send_to: `${ADS_ID}/uoD7CPXb27ADEN7y1b8D` });
@@ -129,7 +176,7 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
                     currency: "IDR",
                   });
                 }
-                let targetUrl = WA_OPEN_DEFAULT;
+                let targetUrl = waText || WA_OPEN_DEFAULT;
                 try {
                   const storedUtm = sessionStorage.getItem("xlsr_utm");
                   if (storedUtm) {

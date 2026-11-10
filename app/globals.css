@@ -102,6 +102,16 @@
     a:active, button:active, .btn-hero:active, .btn-pilih:active, .btn-cta:active, .btn-link:active, .btn-wa-header:active {
       transform: translateY(1px);
     }
+    /* Cegah tombol bergeser/meloncat saat diklik karena posisi dasarnya translateY(-50%) */
+    .slider-btn:active {
+      transform: translateY(-50%) scale(0.94) !important;
+    }
+    .play-btn:active, .about-video:hover .play-btn:active {
+      transform: translate(-50%, -50%) scale(0.95) !important;
+    }
+    .dot:active {
+      transform: scale(0.9) !important;
+    }
 
     /* â”€â”€ HEADER â”€â”€ */
     header {
@@ -166,6 +176,14 @@
       position: relative; 
       overflow: hidden;
       background: var(--slider-bg);
+    }
+    @media (min-width: 769px) {
+      .slider {
+        max-width: 1200px;
+        margin: 16px auto 0;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
     }
     .slides { 
       display: flex; 
@@ -1209,6 +1227,29 @@
         grid-template-columns: 1fr; 
       }
       .slide img { height: auto; }
+      /* Mobile Slider: Sembunyikan panah besar agar banner 100% bersih, dots ramping modern */
+      .slider-btn {
+        display: none !important;
+      }
+      .slider-dots {
+        bottom: 8px;
+        gap: 6px;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        min-width: 8px;
+        min-height: 8px;
+        padding: 0;
+        border-radius: 99px;
+        transition: all 0.25s ease;
+      }
+      .dot.active {
+        width: 22px;
+        border-radius: 99px;
+        background: #ffffff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+      }
       .section-title {
         font-size: 22px;
       }
@@ -1232,13 +1273,6 @@
         padding: 32px 16px;
       }
       .slide img { height: auto; }
-      .slider-btn {
-        width: 44px;
-        height: 44px;
-        font-size: 18px;
-        min-width: 44px;
-        min-height: 44px;
-      }
       .section-title {
         font-size: 18px;
       }
