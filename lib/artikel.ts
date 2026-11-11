@@ -4516,15 +4516,15 @@ ARTIKEL["wifi-tanpa-kabel-solo"] = {
       </tr>
       <tr>
         <td><strong>Paket Nirkabel Bulanan</strong></td>
-        <td>Hingga 30 - 50 Mbps</td>
-        <td>Mulai Rp 200 ribuan/bulan</td>
-        <td>Keluarga kecil, 3-5 gadget, YouTube, Zoom meeting & sosmed</td>
+        <td>Hingga 100 Mbps</td>
+        <td>Rp 219.500/bulan</td>
+        <td>Fleksibel bulanan, 3–8 gadget, YouTube, Zoom meeting & sosmed</td>
       </tr>
       <tr style="background: #e6f7f3;">
         <td><strong>Paket Promo Advance (Bayar 3 Dapat 4 Bln)</strong> 🔥</td>
-        <td>Hingga 50 - 100 Mbps</td>
-        <td>Bayar 3 bulan langsung gratis 1 bulan</td>
-        <td>Paling hemat untuk rumah tangga mandiri & ruko usaha</td>
+        <td>50 Mbps & 100 Mbps</td>
+        <td>Rp 650.000 (50 Mbps ≈ Rp 162.500/bln) & Rp 790.000 (100 Mbps ≈ Rp 197.500/bln) untuk 4 bulan</td>
+        <td>Paling laris & hemat untuk rumah tangga mandiri serta ruko usaha</td>
       </tr>
       <tr>
         <td><strong>Paket Nirkabel Tahunan</strong></td>

@@ -68,29 +68,36 @@ export default function Marquee() {
         }}
       >
         {/* Render 2 salinan identik — saat salinan pertama habis geser ke kiri,
-            salinan kedua sudah siap menggantikan tanpa celah */}
-        {[0, 1].map((copy) =>
-          items.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <span
-                key={`${copy}-${i}`}
-                style={{
-                  fontWeight: 700,
-                  fontSize: "15px",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  paddingRight: "3rem",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                <Icon size={18} strokeWidth={2.5} />
-                {item.text}
-              </span>
-            );
-          })
-        )}
+            salinan kedua sudah siap menggantikan tanpa celah. Kloning kedua diberi aria-hidden
+            agar tidak dianggap duplikasi konten oleh crawler & screen reader */}
+        {[0, 1].map((copy) => (
+          <div
+            key={copy}
+            aria-hidden={copy === 1 ? true : undefined}
+            style={{ display: "flex", alignItems: "center" }}
+          >
+            {items.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <span
+                  key={`${copy}-${i}`}
+                  style={{
+                    fontWeight: 700,
+                    fontSize: "15px",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    paddingRight: "3rem",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  <Icon size={18} strokeWidth={2.5} />
+                  {item.text}
+                </span>
+              );
+            })}
+          </div>
+        ))}
       </div>
     </div>
   );

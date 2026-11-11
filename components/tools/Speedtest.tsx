@@ -218,7 +218,7 @@ export default function Speedtest() {
   const gaugeStroke = phase === "upload" ? "#a78bfa" : phase === "download" ? "#4ade80" : "#38bdf8";
 
   const phaseLabel: Record<Phase, string> = {
-    idle: "Siap", ping: "Ping...", download: "Download", upload: "Upload", done: "Selesai",
+    idle: "Siap", ping: "Persiapan...", download: "Download", upload: "Upload", done: "Selesai",
   };
 
   const category = dlSpeed === null ? null
@@ -230,27 +230,20 @@ export default function Speedtest() {
     <div style={{ maxWidth: 520, margin: "0 auto", fontFamily: "system-ui, sans-serif", padding: "0 4px" }}>
       <div style={{ background: "#0f172a", borderRadius: 20, padding: "28px 20px 24px", color: "#fff", boxShadow: "0 8px 32px rgba(0,0,0,0.18)" }}>
 
-        {/* Stats row */}
-        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 24, padding: "0 4px" }}>
-          <div>
-            <div style={{ fontSize: 11, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginBottom: 3 }}>Ping</div>
-            <div style={{ fontSize: 20, fontWeight: 700 }}>
-              {ping === null ? "–" : ping}<span style={{ fontSize: 11, color: "#64748b", fontWeight: 400 }}> ms</span>
+        {/* Stats row: Download & Upload (Ping disembunyikan sesuai FAQ karena server M-Lab di luar negeri) */}
+        <div style={{ display: "flex", justifyContent: "space-around", marginBottom: 24, padding: "0 16px" }}>
+          <div style={{ textAlign: "center" }}>
+            <div style={{ fontSize: 12, color: "#4ade80", textTransform: "uppercase", letterSpacing: 1, marginBottom: 3, fontWeight: 700 }}>↓ Download</div>
+            <div style={{ fontSize: 24, fontWeight: 700 }}>
+              {phase === "done" ? fmt(dlSpeed) : phase === "download" ? fmt(liveSpeed) : fmt(dlSpeed)}
+              <span style={{ fontSize: 12, color: "#64748b", fontWeight: 400 }}> Mbps</span>
             </div>
-            {jitter !== null && <div style={{ fontSize: 11, color: "#475569" }}>±{jitter}ms</div>}
           </div>
           <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 11, color: "#4ade80", textTransform: "uppercase", letterSpacing: 1, marginBottom: 3 }}>↓ Download</div>
-            <div style={{ fontSize: 20, fontWeight: 700 }}>
-              {phase === "done" ? fmt(dlSpeed) : phase === "download" ? fmt(liveSpeed) : fmt(dlSpeed)}
-              <span style={{ fontSize: 11, color: "#64748b", fontWeight: 400 }}> Mbps</span>
-            </div>
-          </div>
-          <div style={{ textAlign: "right" }}>
-            <div style={{ fontSize: 11, color: "#a78bfa", textTransform: "uppercase", letterSpacing: 1, marginBottom: 3 }}>↑ Upload</div>
-            <div style={{ fontSize: 20, fontWeight: 700 }}>
+            <div style={{ fontSize: 12, color: "#a78bfa", textTransform: "uppercase", letterSpacing: 1, marginBottom: 3, fontWeight: 700 }}>↑ Upload</div>
+            <div style={{ fontSize: 24, fontWeight: 700 }}>
               {phase === "done" ? fmt(ulSpeed) : phase === "upload" ? fmt(liveSpeed) : fmt(ulSpeed)}
-              <span style={{ fontSize: 11, color: "#64748b", fontWeight: 400 }}> Mbps</span>
+              <span style={{ fontSize: 12, color: "#64748b", fontWeight: 400 }}> Mbps</span>
             </div>
           </div>
         </div>

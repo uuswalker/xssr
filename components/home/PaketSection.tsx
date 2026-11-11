@@ -31,7 +31,7 @@ function SpeedBar({ barWidth, barGradient, barDotColor }: { barWidth: number, ba
   }, []);
 
   return (
-    <div className="speed-bar-bg" ref={ref}>
+    <div className="speed-bar-bg" ref={ref} aria-hidden="true">
       <div
         className="speed-bar-fill"
         style={{
@@ -65,17 +65,21 @@ function FiberCard({ t }: { t: FiberTier }) {
       </div>
       <div style={{ padding: "16px 24px 0" }}>
         <div className="speed-label">
-            <span>0 Mbps</span>
-            <span>
-              {t.speedNormal && (
+          <span>0 Mbps</span>
+          {" "}
+          <span>
+            {t.speedNormal && (
+              <>
                 <span style={{ textDecoration: 'line-through', color: '#6b7280', marginRight: '6px' }}>
                   {t.speedNormal}
                 </span>
-              )}
-              {t.speedMax} Mbps
-            </span>
-          </div>
-          <SpeedBar barWidth={t.barWidth} barGradient={t.barGradient} barDotColor={t.barDotColor} />
+                {" "}
+              </>
+            )}
+            {t.speedMax} Mbps
+          </span>
+        </div>
+        <SpeedBar barWidth={t.barWidth} barGradient={t.barGradient} barDotColor={t.barDotColor} />
         <div className="speed-note">{t.speedNote}</div>
         {t.boosterNote && (
           <div
@@ -90,13 +94,13 @@ function FiberCard({ t }: { t: FiberTier }) {
         )}
       </div>
       <div className="paket-body">
-        <div className="ideal-tags">
+        <ul className="ideal-tags" style={{ listStyle: "none", padding: 0, margin: "0 0 20px 0" }}>
           {t.tags.map((tag) => (
-            <span className="tag" key={tag}>
+            <li className="tag" key={tag}>
               {tag}
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
         <div className="fitur-list">
           {t.feats.map((f) => (
             <div className="fitur-item" key={f.text}>
@@ -298,17 +302,21 @@ export function TahunanPaket() {
               </div>
               <div style={{ padding: "16px 24px 0" }}>
                 <div className="speed-label">
-            <span>0 Mbps</span>
-            <span>
-              {t.speedNormal && (
-                <span style={{ textDecoration: 'line-through', color: '#6b7280', marginRight: '6px' }}>
-                  {t.speedNormal}
-                </span>
-              )}
-              {t.speedMax} Mbps
-            </span>
-          </div>
-                  <SpeedBar barWidth={t.barWidth} barGradient="linear-gradient(90deg, #1e1b4b 0%, #7c3aed 100%)" barDotColor="#7c3aed" />
+                  <span>0 Mbps</span>
+                  {" "}
+                  <span>
+                    {t.speedNormal && (
+                      <>
+                        <span style={{ textDecoration: 'line-through', color: '#6b7280', marginRight: '6px' }}>
+                          {t.speedNormal}
+                        </span>
+                        {" "}
+                      </>
+                    )}
+                    {t.speedMax} Mbps
+                  </span>
+                </div>
+                <SpeedBar barWidth={t.barWidth} barGradient="linear-gradient(90deg, #1e1b4b 0%, #7c3aed 100%)" barDotColor="#7c3aed" />
                 <div className="speed-note">Ideal untuk perangkat keluarga</div>
                 <div
                   style={{
@@ -341,13 +349,13 @@ export function TahunanPaket() {
                   </div>
               </div>
               <div className="paket-body">
-                <div className="ideal-tags">
+                <ul className="ideal-tags" style={{ listStyle: "none", padding: 0, margin: "0 0 20px 0" }}>
                   {t.tags.map((tag) => (
-                    <span className="tag" key={tag}>
+                    <li className="tag" key={tag}>
                       {tag}
-                    </span>
+                    </li>
                   ))}
-                </div>
+                </ul>
                 <div className="fitur-list">
                   {t.feats.map((f) => (
                     <div className="fitur-item" key={f.text}>
@@ -468,7 +476,7 @@ export function WirelessPaket({
               <Wifi size={20} color="var(--green)" /> Sinyal Stabil Di Setiap Ruangan
             </div>
             <div className="pill-item">
-              <Gauge size={20} color="var(--green)" /> Internet Cepat Tanpa Batas Kuota
+              <Gauge size={20} color="var(--green)" /> Internet Cepat Kuota Lega 1 TB
             </div>
             <div className="pill-item">
               <PlugZap size={20} color="var(--green)" /> Praktis, Tanpa Kabel Tanpa Repot

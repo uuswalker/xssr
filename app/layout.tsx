@@ -68,23 +68,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             __html: `(function(){document.addEventListener('click',function(e){var el=e.target&&e.target.closest&&e.target.closest('#btn-buka-cek-lokasi,.btn-cek-lokasi-trigger');if(el){window.__pendingCekLokasi=el.getAttribute('data-paket')||'trigger';}},true);})();`,
           }}
         />
-        {/* Honeypot anti-scraper — parity xssr, JANGAN dihapus */}
-        <a
-          href="https://xlhomesolo.com/trap/"
-          className="hp-trap"
-          tabIndex={-1}
-          aria-hidden="true"
-          rel="nofollow"
-          style={{
-            position: "absolute",
-            left: -9999,
-            width: 1,
-            height: 1,
-            overflow: "hidden",
-          }}
-        >
-          arsip
-        </a>
         {children}
         <script
           id="webmcp-registry"

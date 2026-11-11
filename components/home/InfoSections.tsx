@@ -378,11 +378,11 @@ export function Kenapa() {
 
         <div className="area-inner">
 
-          <h2 className="section-title">Kenapa Pilih agen resmi Kami?</h2>
+          <h2 className="section-title">Kenapa Pilih Agen Resmi Kami?</h2>
 
           <p className="section-sub">
 
-            Bukan sekadar jualan ?" kami yang pegang tanggung jawab dari daftar
+            Bukan sekadar jualan — kami yang pegang tanggung jawab dari daftar
 
             sampai internet nyala
 
@@ -584,9 +584,9 @@ export function About() {
               controls
               autoPlay={false}
               loop={false}
-              muted={false}
+              muted={true}
               playsInline
-              preload="none"
+              preload="metadata"
               poster="/images/banner-xlsatu-jadi-xlhome.webp"
               style={{ width: "100%", height: "auto", display: "block", borderRadius: 16 }}
               aria-label="Video: XL SATU resmi berganti nama menjadi XL Home - Internet rumah terbaik di Solo Raya">
