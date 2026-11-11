@@ -305,42 +305,39 @@ export async function cariAlamatSmart(
 
   try {
     const d1Promise = (async (): Promise<D1SearchResult[]> => {
-      const variants = generateSearchVariants(q);
+      const variants = generateSearchVariants(q).slice(0, 3);
       const collected: D1SearchResult[] = [];
       const seenIds = new Set<string>();
 
-      for (const variant of variants) {
-        const endpoints = [
-          `https://coverage-api.oktaarrijal.workers.dev/api/search?q=${encodeURIComponent(variant)}`,
-          typeof window !== "undefined" ? `/api/search?q=${encodeURIComponent(variant)}` : null
-        ].filter(Boolean) as string[];
-
-        for (const url of endpoints) {
-          try {
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 4000);
-            const res = await fetch(url, {
+      // Fetch top variants in parallel direct to Cloudflare Worker (Zero redundant 404s)
+      const fetchVariant = async (variant: string): Promise<D1SearchResult[]> => {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 4000);
+          const res = await fetch(
+            `https://coverage-api.oktaarrijal.workers.dev/api/search?q=${encodeURIComponent(variant)}`,
+            {
               signal: controller.signal,
               headers: { Accept: "application/json" }
-            });
-            clearTimeout(timeoutId);
-            if (!res.ok) continue;
-
-            const json = (await res.json()) as { results?: D1SearchResult[] };
-            if (json && Array.isArray(json.results)) {
-              for (const item of json.results) {
-                if (item && item.id && !seenIds.has(item.id)) {
-                  seenIds.add(item.id);
-                  collected.push(item);
-                }
-              }
             }
-            if (collected.length >= 25) break;
-          } catch {
-            // Next endpoint/variant
+          );
+          clearTimeout(timeoutId);
+          if (!res.ok) return [];
+          const json = (await res.json()) as { results?: D1SearchResult[] };
+          return Array.isArray(json?.results) ? json.results : [];
+        } catch {
+          return [];
+        }
+      };
+
+      const resultsArray = await Promise.all(variants.map(fetchVariant));
+      for (const resList of resultsArray) {
+        for (const item of resList) {
+          if (item && item.id && !seenIds.has(item.id)) {
+            seenIds.add(item.id);
+            collected.push(item);
           }
         }
-        if (collected.length >= 25) break;
       }
 
       // Sortir hasil berdasarkan relevansi skor terhadap query pengguna

@@ -456,25 +456,21 @@ export async function cekCoverageWorkerAPI(
   lat: number,
   lng: number
 ): Promise<CoverageResult | null> {
-  // Direct Cloudflare Worker first (Ultra-fast ~70ms edge lookup, CORS verified)
-  const endpoints = [
-    `${WORKER_COVERAGE_API}?lat=${lat}&lng=${lng}`,
-    typeof window !== "undefined" ? `/api/coverage?lat=${lat}&lng=${lng}` : null
-  ].filter(Boolean) as string[];
+  // Direct Cloudflare Worker API (Ultra-fast edge lookup, CORS verified)
+  const targetUrl = `${WORKER_COVERAGE_API}?lat=${lat}&lng=${lng}`;
 
-  for (const url of endpoints) {
-    for (let attempt = 0; attempt < 2; attempt++) {
-      try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 7500); // 7.5s toleransi jaringan seluler
-        const res = await fetch(url, {
-          signal: controller.signal,
-          headers: { "Accept": "application/json" }
-        });
-        clearTimeout(timeoutId);
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 7500); // 7.5s toleransi jaringan seluler
+      const res = await fetch(targetUrl, {
+        signal: controller.signal,
+        headers: { "Accept": "application/json" }
+      });
+      clearTimeout(timeoutId);
 
-        if (!res.ok) continue;
-        const data: WorkerCoverageResponse = await res.json();
+      if (!res.ok) continue;
+      const data: WorkerCoverageResponse = await res.json();
 
         if (data && (data.distance !== null || data.wirelessCovered || data.covered)) {
           const clusterText = data.cluster || (data.city ? `Area ${data.city}` : "Area Layanan");
@@ -525,7 +521,6 @@ export async function cekCoverageWorkerAPI(
         // Fallback or retry
       }
     }
-  }
   return null;
 }
 

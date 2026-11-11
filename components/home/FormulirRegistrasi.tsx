@@ -205,20 +205,21 @@ export default function FormulirRegistrasi() {
       return;
     }
 
-    // Deteksi via GPS (Titik Lokasi)
-    reverseGeocodeNominatim(lat, lng).then((res) => {
+    // Deteksi via GPS (Titik Lokasi) - Paralel & Cepat (Zero Waterfall Delay)
+    Promise.all([
+      cekCoverageWorkerAPI(lat, lng),
+      reverseGeocodeNominatim(lat, lng).catch(() => null)
+    ]).then(([cv, res]) => {
+      setCoverage(cv);
       const osmAddr = res || `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
-      cekCoverageWorkerAPI(lat, lng).then((cv) => {
-        setCoverage(cv);
-        // Prioritaskan titik Homepass / Cluster FTTH resmi dari database XL Home jika terdeteksi
-        const rawDbAddr = cv?.alamat ? cleanAlamatResmi(cv.alamat) : null;
-        const finalAddr = rawDbAddr || osmAddr;
+      // Prioritaskan titik Homepass / Cluster FTTH resmi dari database XL Home jika terdeteksi
+      const rawDbAddr = cv?.alamat ? cleanAlamatResmi(cv.alamat) : null;
+      const finalAddr = rawDbAddr || osmAddr;
 
-        posRef.current = { lat, lng, kota: cv?.city || kota, alamat: finalAddr };
-        setLokasiInfo(`${finalAddr} (${lat.toFixed(5)}, ${lng.toFixed(5)})`);
-        setStep("form");
-        setStatusMsg("");
-      });
+      posRef.current = { lat, lng, kota: cv?.city || kota, alamat: finalAddr };
+      setLokasiInfo(`${finalAddr} (${lat.toFixed(5)}, ${lng.toFixed(5)})`);
+      setStep("form");
+      setStatusMsg("");
     });
   }, []);
 
