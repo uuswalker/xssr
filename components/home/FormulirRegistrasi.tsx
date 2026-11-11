@@ -32,14 +32,33 @@ import {
   type SmartSuggestionItem,
 } from "@/lib/lead";
 
-const DAFTAR_PAKET_OPTIONS = [
-  { id: "starter-20", name: "Starter 20 Mbps — Rp 185.000/bln" },
-  { id: "value-30", name: "Value 30 Mbps — Rp 219.000/bln" },
-  { id: "smart-50", name: "Smart 50 Mbps — Rp 269.000/bln [Favorit]" },
-  { id: "family-100", name: "Family 100 Mbps — Rp 349.000/bln" },
-  { id: "super-200", name: "Super 200 Mbps — Rp 499.000/bln" },
-  { id: "wireless-100", name: "Wireless 5G 100 Mbps — Rp 219.500/bln" },
-  { id: "rekomendasi", name: "Belum Memilih — Rekomendasikan Terbaik" },
+export interface PaketOption {
+  id: string;
+  name: string;
+  group: "fiber" | "wireless" | "tahunan" | "lainnya";
+}
+
+const DAFTAR_PAKET_OPTIONS: PaketOption[] = [
+  // 1. Fiber Optic (True Unlimited — 100% Tanpa FUP)
+  { id: "spark-250", name: "XL Home Spark 250 Mbps — Promo Rp 229.000/bln [Best Seller]", group: "fiber" },
+  { id: "starter-20", name: "XL Home Starter 20 Mbps — Rp 185.000/bln", group: "fiber" },
+  { id: "spark-300", name: "XL Home Spark 300 Mbps — Rp 239.000/bln", group: "fiber" },
+  { id: "spark-400", name: "XL Home Spark 400 Mbps — Rp 299.000/bln", group: "fiber" },
+  { id: "spark-500", name: "XL Home Spark 500 Mbps — Rp 399.000/bln", group: "fiber" },
+  { id: "spark-1000", name: "XL Home Spark 1000 Mbps (1 Gbps) — Rp 899.000/bln", group: "fiber" },
+
+  // 2. WiFi Rumah Tanpa Kabel (FWA Nirkabel)
+  { id: "fwa-advance-100", name: "WiFi Tanpa Kabel (FWA) 100 Mbps — Rp 790.000 / 4 bln [Best Seller]", group: "wireless" },
+  { id: "fwa-advance-50", name: "WiFi Tanpa Kabel (FWA) 50 Mbps — Rp 650.000 / 4 bln (≈ Rp 162.500/bln)", group: "wireless" },
+  { id: "fwa-monthly-100", name: "WiFi Tanpa Kabel (FWA Bulanan) 100 Mbps — Rp 219.500/bln", group: "wireless" },
+
+  // 3. Paket Promo Tahunan (Bayar 10 Dapat 12)
+  { id: "tahunan-smart-50", name: "Tahunan Basic Smart 50 Mbps — Rp 2.490.000/thn (≈ Rp 207.500/bln)", group: "tahunan" },
+  { id: "tahunan-family-100", name: "Tahunan Basic Family 100 Mbps — Rp 3.190.000/thn (≈ Rp 265.800/bln)", group: "tahunan" },
+  { id: "tahunan-superuser-150", name: "Tahunan Basic Superuser 150 Mbps — Rp 3.690.000/thn (≈ Rp 307.500/bln)", group: "tahunan" },
+
+  // 4. Konsultasi / Rekomendasi
+  { id: "rekomendasi", name: "Belum Memilih — Rekomendasikan Paket yang Paling Pas", group: "lainnya" },
 ];
 
 export default function FormulirRegistrasi() {
@@ -47,7 +66,7 @@ export default function FormulirRegistrasi() {
   const [nama, setNama] = useState("");
   const [wa, setWa] = useState("");
   const [alamat, setAlamat] = useState("");
-  const [paket, setPaket] = useState(DAFTAR_PAKET_OPTIONS[1].name); // default 30 Mbps
+  const [paket, setPaket] = useState(DAFTAR_PAKET_OPTIONS[0].name); // default Spark 250 Mbps Best Seller
   const [setuju, setSetuju] = useState(true);
 
   // GPS & Coverage state
@@ -324,8 +343,10 @@ export default function FormulirRegistrasi() {
     <section className="reg-section" id="daftar">
       <style>{`
         .reg-section {
-          padding: 70px 20px;
-          background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 50%, #f4f8fc 100%);
+          padding: 64px 20px;
+          background: var(--gray-bg);
+          border-top: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
           font-family: inherit;
         }
         .reg-container {
@@ -336,27 +357,27 @@ export default function FormulirRegistrasi() {
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          padding: 5px 14px;
+          padding: 6px 14px;
           border-radius: 999px;
-          background: #e0f2fe;
-          color: #0369a1;
+          background: var(--green-light);
+          color: var(--green-dark);
+          border: 1px solid rgba(3, 126, 100, 0.2);
           font-size: 11.5px;
           font-weight: 800;
           letter-spacing: 0.5px;
           margin-bottom: 12px;
-          box-shadow: 0 1px 3px rgba(3,105,161,0.1);
         }
         .reg-title {
           font-size: 28px;
           font-weight: 800;
-          color: #0f172a;
+          color: var(--text);
           margin: 0 0 10px 0;
           line-height: 1.25;
           text-align: center;
         }
         .reg-sub {
           font-size: 14.5px;
-          color: #475569;
+          color: var(--text-muted);
           margin: 0 auto 28px auto;
           line-height: 1.55;
           text-align: center;
@@ -364,22 +385,24 @@ export default function FormulirRegistrasi() {
         }
         .reg-form-wrap {
           background: #ffffff;
-          border-radius: 20px;
-          padding: 34px 28px;
-          box-shadow: 0 12px 40px rgba(0, 51, 160, 0.08), 0 2px 6px rgba(0,0,0,0.04);
-          border: 1px solid #e2e8f0;
+          border-radius: 18px;
+          padding: 32px 26px;
+          box-shadow: var(--shadow-card);
+          border: 1.5px solid var(--border);
         }
         @media (max-width: 600px) {
-          .reg-form-wrap { padding: 18px 14px; border-radius: 14px; }
-          .reg-title { font-size: 21px; }
-          .reg-sub { font-size: 13px; }
-          .reg-select { font-size: 13.5px; padding-left: 10px; padding-right: 36px; }
+          .reg-section { padding: 48px 16px; }
+          .reg-form-wrap { padding: 20px 16px; border-radius: 14px; }
+          .reg-title { font-size: 22px; }
+          .reg-sub { font-size: 13.5px; margin-bottom: 22px; }
+          .reg-select { font-size: 13.5px; padding-left: 12px; padding-right: 36px; }
           .cov-card-fiber, .cov-card-wireless, .cov-card-warning { padding: 12px; }
         }
         .reg-mode {
           display: flex;
           gap: 6px;
-          background: #f1f5f9;
+          background: var(--color-paper-3);
+          border: 1px solid var(--border);
           border-radius: 12px;
           padding: 5px;
           margin-bottom: 24px;
@@ -388,11 +411,11 @@ export default function FormulirRegistrasi() {
           flex: 1;
           border: none;
           background: transparent;
-          padding: 12px 8px;
+          padding: 11px 8px;
           border-radius: 9px;
           font-size: 14px;
           font-weight: 700;
-          color: #64748b;
+          color: var(--text-muted);
           cursor: pointer;
           transition: all 0.2s;
           display: flex;
@@ -403,8 +426,9 @@ export default function FormulirRegistrasi() {
         }
         .reg-mode button.active {
           background: #ffffff;
-          color: #0033a0;
-          box-shadow: 0 3px 10px rgba(0, 51, 160, 0.12);
+          color: var(--green-dark);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+          border: 1px solid rgba(0, 0, 0, 0.04);
         }
         .reg-field {
           margin-bottom: 20px;
@@ -413,9 +437,9 @@ export default function FormulirRegistrasi() {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          font-size: 12.5px;
+          font-size: 12px;
           font-weight: 700;
-          color: #1e293b;
+          color: var(--text-muted);
           text-transform: uppercase;
           letter-spacing: 0.5px;
           margin-bottom: 8px;
@@ -425,103 +449,81 @@ export default function FormulirRegistrasi() {
           height: 48px;
           box-sizing: border-box;
           padding: 0 16px;
-          border: 1.5px solid #cbd5e1;
+          border: 1.5px solid var(--border);
           border-radius: 10px;
           font-size: 14.5px;
           font-family: inherit;
-          color: #0f172a;
+          color: var(--text);
           background: #ffffff;
           transition: border-color 0.15s, box-shadow 0.15s;
         }
         .reg-input:focus, .reg-select:focus, .reg-textarea:focus {
           outline: none;
-          border-color: #0066ff;
-          box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+          border-color: var(--green);
+          box-shadow: 0 0 0 3px var(--green-light);
         }
         .reg-select {
           appearance: none;
-          background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230033A0' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23037E64' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
           background-repeat: no-repeat;
           background-position: right 14px center;
           background-size: 18px;
           padding-right: 42px;
           cursor: pointer;
         }
-        .alamat-wrap {
-          display: flex;
-          align-items: stretch;
-        }
         .reg-textarea {
-          flex: 1;
+          width: 100%;
           min-height: 84px;
           box-sizing: border-box;
           padding: 12px 16px;
-          border: 1.5px solid #cbd5e1;
-          border-radius: 10px 0 0 10px;
-          border-right: none;
+          border: 1.5px solid var(--border);
+          border-radius: 10px;
           font-size: 14.5px;
           font-family: inherit;
-          color: #0f172a;
+          color: var(--text);
           background: #ffffff;
           resize: vertical;
           line-height: 1.5;
+          transition: border-color 0.15s, box-shadow 0.15s;
         }
-        .btn-lokasi {
-          flex-shrink: 0;
+        .btn-lokasi-action {
+          width: 100%;
           box-sizing: border-box;
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 6px;
-          padding: 0 16px;
-          background: #0033a0;
-          color: #ffffff;
-          border: 1.5px solid #0033a0;
-          border-radius: 0 10px 10px 0;
-          font-size: 13px;
+          gap: 8px;
+          padding: 11px 16px;
+          margin-top: 8px;
+          background: var(--green-light);
+          color: var(--green-dark);
+          border: 1.5px solid rgba(3, 126, 100, 0.25);
+          border-radius: 10px;
+          font-size: 13.5px;
           font-weight: 700;
           cursor: pointer;
-          white-space: nowrap;
           font-family: inherit;
-          transition: background 0.15s, transform 0.1s;
-          animation: btnPulse 2.5s infinite ease-in-out;
+          transition: background 0.15s, border-color 0.15s, transform 0.1s;
         }
-        .btn-lokasi:hover {
-          background: #002277;
+        .btn-lokasi-action:hover {
+          background: rgba(3, 126, 100, 0.15);
+          border-color: var(--green);
         }
-        .btn-lokasi:disabled {
+        .btn-lokasi-action:disabled {
           opacity: 0.75;
           cursor: wait;
         }
-        @keyframes btnPulse {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-2px); }
-        }
-        @media (max-width: 520px) {
-          .alamat-wrap {
-            flex-direction: column;
-          }
-          .reg-textarea {
-            border-radius: 10px 10px 0 0;
-            border-right: 1.5px solid #cbd5e1;
-            border-bottom: none;
-          }
-          .btn-lokasi {
-            border-radius: 0 0 10px 10px;
-            padding: 13px;
-          }
-        }
         .reg-note {
           font-size: 12px;
-          color: #64748b;
-          margin-top: 6px;
+          color: var(--text-muted);
+          margin-top: 8px;
           line-height: 1.45;
         }
         .reg-sugg-dropdown {
           background: #ffffff;
-          border: 1.5px solid #cbd5e1;
+          border: 1.5px solid var(--border);
           border-radius: 10px;
-          box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+          box-shadow: var(--shadow-card-hover);
           margin-top: 6px;
           max-height: 220px;
           overflow-y: auto;
@@ -532,7 +534,7 @@ export default function FormulirRegistrasi() {
           padding: 10px 14px;
           border: none;
           background: transparent;
-          border-bottom: 1px solid #f1f5f9;
+          border-bottom: 1px solid var(--color-rule-2);
           cursor: pointer;
           display: flex;
           align-items: flex-start;
@@ -540,16 +542,16 @@ export default function FormulirRegistrasi() {
           font-family: inherit;
         }
         .reg-sugg-item:hover {
-          background: #f0f7ff;
+          background: var(--green-light);
         }
         .cov-card-fiber {
           word-break: break-word;
           overflow-wrap: anywhere;
-          background: #ecfdf5;
-          border: 1.5px solid #10b981;
+          background: var(--green-light);
+          border: 1.5px solid var(--green);
           border-radius: 12px;
           padding: 16px;
-          color: #064e3b;
+          color: var(--green-dark);
           margin-top: 14px;
         }
         .cov-card-wireless {
@@ -576,30 +578,34 @@ export default function FormulirRegistrasi() {
           gap: 10px;
           margin: 18px 0;
           font-size: 13px;
-          color: #475569;
+          color: var(--text-muted);
           line-height: 1.5;
+        }
+        .reg-checkbox-wrap input[type="checkbox"] {
+          accent-color: var(--green);
         }
         .reg-submit-btn {
           width: 100%;
-          padding: 16px;
+          padding: 15px 20px;
           border: none;
           border-radius: 12px;
-          background: #25d366;
+          background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
           color: #ffffff;
-          font-weight: 800;
+          font-weight: 700;
           font-size: 16px;
           cursor: pointer;
-          transition: background 0.15s, box-shadow 0.15s;
+          transition: opacity 0.15s, transform 0.1s, box-shadow 0.15s;
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 8px;
-          box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+          box-shadow: 0 4px 14px rgba(3, 126, 100, 0.25);
           font-family: inherit;
         }
         .reg-submit-btn:hover {
-          background: #1ebe5d;
-          box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+          opacity: 0.94;
+          transform: translateY(-1px);
+          box-shadow: 0 6px 18px rgba(3, 126, 100, 0.35);
         }
         .reg-submit-btn:disabled {
           opacity: 0.75;
@@ -611,8 +617,8 @@ export default function FormulirRegistrasi() {
           justify-content: center;
           gap: 6px;
           font-size: 12px;
-          color: #64748b;
-          margin-top: 12px;
+          color: var(--text-muted);
+          margin-top: 14px;
           text-align: center;
         }
       `}</style>
@@ -699,50 +705,49 @@ export default function FormulirRegistrasi() {
                     href={mapsLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ textTransform: "none", color: "#0066ff", textDecoration: "none", fontWeight: 700 }}
+                    style={{ textTransform: "none", color: "var(--green)", textDecoration: "underline", fontWeight: 700 }}
                   >
                     Buka Google Maps ↗
                   </a>
                 )}
               </div>
 
-              {/* Textarea + Tombol GPS samping */}
-              <div className="alamat-wrap">
-                <textarea
-                  id="form-alamat"
-                  aria-label="Alamat lengkap pemasangan"
-                  required
-                  rows={3}
-                  maxLength={300}
-                  placeholder="Ketik jalan, RT/RW, nomor rumah, perumahan, kelurahan, atau kecamatan..."
-                  value={alamat}
-                  onChange={(e) => handleAlamatChange(e.target.value)}
-                  className="reg-textarea"
-                />
+              {/* Textarea Alamat Full-Width Proporsional */}
+              <textarea
+                id="form-alamat"
+                aria-label="Alamat lengkap pemasangan"
+                required
+                rows={3}
+                maxLength={300}
+                placeholder="Ketik jalan, RT/RW, nomor rumah, perumahan, kelurahan, atau kecamatan..."
+                value={alamat}
+                onChange={(e) => handleAlamatChange(e.target.value)}
+                className="reg-textarea"
+              />
 
-                <button
-                  type="button"
-                  onClick={handleGpsClick}
-                  disabled={gpsLoading}
-                  className="btn-lokasi"
-                  title="Deteksi titik koordinat akurat melalui GPS perangkat"
-                >
-                  {gpsLoading ? (
-                    <>
-                      <Loader2 size={16} className="animate-spin" />
-                      <span>Mencari...</span>
-                    </>
-                  ) : (
-                    <>
-                      <MapPin size={16} />
-                      <span>Pakai Lokasi Saya</span>
-                    </>
-                  )}
-                </button>
-              </div>
+              {/* Tombol Deteksi Lokasi GPS Elegan & Nyaman Ditekan */}
+              <button
+                type="button"
+                onClick={handleGpsClick}
+                disabled={gpsLoading}
+                className="btn-lokasi-action"
+                title="Deteksi titik koordinat akurat melalui GPS perangkat"
+              >
+                {gpsLoading ? (
+                  <>
+                    <Loader2 size={16} className="animate-spin" />
+                    <span>Mencari titik koordinat GPS Anda...</span>
+                  </>
+                ) : (
+                  <>
+                    <MapPin size={16} />
+                    <span>Pakai Lokasi Saya Sekarang (Deteksi GPS Otomatis)</span>
+                  </>
+                )}
+              </button>
 
               <div className="reg-note" style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
-                <Info size={14} style={{ color: "#0066ff", flexShrink: 0, marginTop: 2 }} aria-hidden="true" />
+                <Info size={14} style={{ color: "var(--green)", flexShrink: 0, marginTop: 2 }} aria-hidden="true" />
                 <span>Berbagi lokasi <strong>tidak wajib</strong>. Cukup ketik alamat lengkap, tim kami tetap dapat mengecek jaringan.</span>
               </div>
 
@@ -756,7 +761,7 @@ export default function FormulirRegistrasi() {
               {/* Dropdown Suggestions Autocomplete */}
               {showSuggestions && suggestions.length > 0 && (
                 <div className="reg-sugg-dropdown">
-                  <div style={{ padding: "8px 12px", background: "#f8fafc", fontSize: 11, fontWeight: 700, color: "#64748b" }}>
+                  <div style={{ padding: "8px 12px", background: "var(--color-paper-2)", fontSize: 11, fontWeight: 700, color: "var(--text-muted)" }}>
                     PILIH ALAMAT PEMASANGAN TERDEKAT
                   </div>
                   {suggestions.map((item, idx) => (
@@ -766,10 +771,10 @@ export default function FormulirRegistrasi() {
                       onClick={() => handlePilihSuggestion(item)}
                       className="reg-sugg-item"
                     >
-                      <MapPin size={15} style={{ color: "#0066ff", flexShrink: 0, marginTop: 2 }} />
+                      <MapPin size={15} style={{ color: "var(--green)", flexShrink: 0, marginTop: 2 }} />
                       <div>
-                        <div style={{ fontSize: 13, fontWeight: 700, color: "#1e293b", lineHeight: 1.35, whiteSpace: "normal", wordBreak: "break-word" }}>{item.title}</div>
-                        <div style={{ fontSize: 11.5, color: "#64748b", marginTop: 3, lineHeight: 1.35, whiteSpace: "normal", wordBreak: "break-word" }}>{item.subtitle || item.display_name}</div>
+                        <div style={{ fontSize: 13, fontWeight: 700, color: "var(--text)", lineHeight: 1.35, whiteSpace: "normal", wordBreak: "break-word" }}>{item.title}</div>
+                        <div style={{ fontSize: 11.5, color: "var(--text-muted)", marginTop: 3, lineHeight: 1.35, whiteSpace: "normal", wordBreak: "break-word" }}>{item.subtitle || item.display_name}</div>
                       </div>
                     </button>
                   ))}
@@ -863,7 +868,7 @@ export default function FormulirRegistrasi() {
               <div className="reg-field" style={{ marginTop: 20 }}>
                 <div className="reg-label">
                   <span>Paket yang Diminati</span>
-                  <a href="#paket" style={{ textTransform: "none", color: "#0066ff", textDecoration: "none", fontWeight: 700 }}>
+                  <a href="#paket" style={{ textTransform: "none", color: "var(--green)", textDecoration: "underline", fontWeight: 700 }}>
                     Lihat Daftar Paket di Atas ↑
                   </a>
                 </div>
@@ -874,11 +879,34 @@ export default function FormulirRegistrasi() {
                   onChange={(e) => setPaket(e.target.value)}
                   className="reg-select"
                 >
-                  {DAFTAR_PAKET_OPTIONS.map((opt) => (
-                    <option key={opt.id} value={opt.name}>
-                      {opt.name}
-                    </option>
-                  ))}
+                  <optgroup label="Fiber Optic (True Unlimited — 100% Bebas FUP)">
+                    {DAFTAR_PAKET_OPTIONS.filter((o) => o.group === "fiber").map((opt) => (
+                      <option key={opt.id} value={opt.name}>
+                        {opt.name}
+                      </option>
+                    ))}
+                  </optgroup>
+                  <optgroup label="WiFi Rumah Tanpa Kabel (FWA Nirkabel)">
+                    {DAFTAR_PAKET_OPTIONS.filter((o) => o.group === "wireless").map((opt) => (
+                      <option key={opt.id} value={opt.name}>
+                        {opt.name}
+                      </option>
+                    ))}
+                  </optgroup>
+                  <optgroup label="Paket Promo Tahunan (Bayar 10 Dapat 12)">
+                    {DAFTAR_PAKET_OPTIONS.filter((o) => o.group === "tahunan").map((opt) => (
+                      <option key={opt.id} value={opt.name}>
+                        {opt.name}
+                      </option>
+                    ))}
+                  </optgroup>
+                  <optgroup label="Konsultasi Kebutuhan">
+                    {DAFTAR_PAKET_OPTIONS.filter((o) => o.group === "lainnya").map((opt) => (
+                      <option key={opt.id} value={opt.name}>
+                        {opt.name}
+                      </option>
+                    ))}
+                  </optgroup>
                 </select>
               </div>
             )}
