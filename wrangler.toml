@@ -1,0 +1,21 @@
+name = "coverage-api"
+main = "scripts/cloudflare_worker_optimized.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+account_id = "1b43e6040ffcccca7c3d8066fc45f801"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "coverage-db"
+database_id = "690219af-468a-4206-a10c-89581a9e0256"
+
+[[d1_databases]]
+binding = "DB_SOLO"
+database_name = "coverage-db"
+database_id = "690219af-468a-4206-a10c-89581a9e0256"
+
+[[d1_databases]]
+binding = "DB_JATENG"
+database_name = "coverage-jateng-db"
+database_id = "dc44c3d2-0c05-469c-b559-8c987381e341"
