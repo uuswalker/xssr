@@ -352,7 +352,7 @@ export default {
 
         // If coordinates provided, route directly to spatial lookup
         if (latParam && lngParam && !q) {
-          return await handleCoordinatesLookup(latParam, lngParam, masterDb, corsHeaders, url);
+          return await handleCoordinatesLookup(latParam, lngParam, env, masterDb, corsHeaders, url);
         }
 
         if (!q || q.length < 2) {
@@ -477,8 +477,15 @@ export default {
                 LIMIT 30
               `;
               try {
-                const resCity = await masterDb.prepare(citySql).bind(`%${detectedCity}%`, ...bindValues).all();
-                if (resCity.results && resCity.results.length > 0) results = resCity.results;
+                // Jika kota target masuk cakupan Solo Raya, utamakan DB_SOLO (berisi Master Solo + TeleOWS)
+                if (env.DB_SOLO && SOLO_CITIES.includes(detectedCity)) {
+                  const resSolo = await env.DB_SOLO.prepare(citySql).bind(`%${detectedCity}%`, ...bindValues).all();
+                  if (resSolo.results && resSolo.results.length > 0) results = resSolo.results;
+                }
+                if (results.length === 0) {
+                  const resCity = await masterDb.prepare(citySql).bind(`%${detectedCity}%`, ...bindValues).all();
+                  if (resCity.results && resCity.results.length > 0) results = resCity.results;
+                }
               } catch (e) {}
             } else {
               // Priority B: Default Solo Raya Core via DB_SOLO regional shard (Ultra-fast, ~3-10ms)
@@ -708,7 +715,7 @@ export default {
       if ((path === "/api/coverage" || path === "/api/search") && request.method === "GET" && url.searchParams.get("lat") && url.searchParams.get("lng")) {
         const latParam = url.searchParams.get("lat");
         const lngParam = url.searchParams.get("lng");
-        return await handleCoordinatesLookup(latParam, lngParam, masterDb, corsHeaders, url, ctx);
+        return await handleCoordinatesLookup(latParam, lngParam, env, masterDb, corsHeaders, url, ctx);
       }
 
       // =========================================================================
@@ -794,7 +801,7 @@ export default {
 /**
  * Handle Coordinates Exact Lookup with Wireless Graceful Degradation
  */
-async function handleCoordinatesLookup(latParam, lngParam, masterDb, corsHeaders, url, ctx) {
+async function handleCoordinatesLookup(latParam, lngParam, env, masterDb, corsHeaders, url, ctx) {
   const lat = parseFloat(latParam);
   const lng = parseFloat(lngParam);
 
@@ -821,11 +828,24 @@ async function handleCoordinatesLookup(latParam, lngParam, masterDb, corsHeaders
   const t0 = performance.now();
   let candidates = [];
 
-  // Adaptive Expanding Bounding Box (~500m -> ~1.2km)
+  // Routing Cerdas: Jika koordinat berada di Solo Raya, prioritaskan DB_SOLO (Master Solo + TeleOWS)
+  const isSoloRayaCoord = (lat >= -8.10 && lat <= -7.20 && lng >= 110.45 && lng <= 111.30);
+  const primaryDb = (isSoloRayaCoord && env && env.DB_SOLO) ? env.DB_SOLO : masterDb;
+  const secondaryDb = (primaryDb === env?.DB_SOLO) ? masterDb : (env?.DB_SOLO || null);
+
+  // Adaptive Expanding Bounding Box (~500m -> ~1.2km) dengan Dual-Database Fallback
   const deltas = [0.005, 0.012];
-  for (const delta of deltas) {
-    candidates = await queryCandidates(masterDb, lat, lng, delta);
-    if (candidates.length > 0) break;
+  if (primaryDb) {
+    for (const delta of deltas) {
+      candidates = await queryCandidates(primaryDb, lat, lng, delta);
+      if (candidates.length > 0) break;
+    }
+  }
+  if (candidates.length === 0 && secondaryDb) {
+    for (const delta of deltas) {
+      candidates = await queryCandidates(secondaryDb, lat, lng, delta);
+      if (candidates.length > 0) break;
+    }
   }
 
   const t1 = performance.now();
