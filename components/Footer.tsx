@@ -103,29 +103,28 @@ export default function Footer() {
           <div className="footer-copy">
             Copyright © 2026 XL Home Solo Raya. All rights reserved.
           </div>
-          <div style={{ fontSize: 11, color: "rgba(255,255,255,.7)", marginTop: 2 }}>
+          <div className="footer-meta">
             XL Home Fiber (d/h XL SATU Fiber) • Dikelola Tim Sales Resmi Solo Raya
           </div>
-          <div style={{ fontSize: 11, marginTop: 4, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px" }}>
+          <div className="footer-contact">
             <a
               href="https://wa.me/xlhomesolo"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "rgba(255,255,255,.9)", textDecoration: "underline", fontWeight: 700 }}
+              className="footer-contact-pill"
+              title="Profil Resmi WhatsApp Business XL Home Solo"
             >
               wa.me/xlhomesolo
             </a>
-            <span style={{ opacity: 0.35 }}>|</span>
             <a
               href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20mau%20tanya%20promo%20pasang%20WiFi%20terbaru"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "rgba(255,255,255,.9)", textDecoration: "underline" }}
+              className="footer-contact-pill"
+              title="Chat WhatsApp Sales 0877-7899-9141"
             >
               0877-7899-9141
             </a>
-            <span style={{ opacity: 0.35 }}>|</span>
-            <span>Dikelola tim sales resmi Solo&nbsp;Raya</span>
           </div>
         </div>
         
@@ -133,8 +132,8 @@ export default function Footer() {
           <a href="/nomor-sales-xl-home-solo-raya/" style={{ color: "inherit" }}>
             Nomor Sales &amp; Agen
           </a>
-          <a href="/kebijakan-privasi/" style={{ color: "inherit" }}>
-            Privasi &amp; Cookie
+          <a href="/area-layanan/" style={{ color: "inherit" }}>
+            Area Layanan
           </a>
           <a
             href="https://satu.xl.co.id/syarat-ketentuan"
@@ -143,11 +142,7 @@ export default function Footer() {
           >
             Syarat &amp; Ketentuan
           </a>
-          <a
-            href="https://www.xlsmart.co.id/id/pemberitahuan-privasi"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="/kebijakan-privasi/" style={{ color: "inherit" }}>
             Kebijakan Privasi
           </a>
         </div>

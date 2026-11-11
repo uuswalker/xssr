@@ -246,14 +246,14 @@ export function QuickActions() {
             width={22}
             height={22}
             loading="lazy" />
-          Daftar Sekarang
+          <span>Daftar Sekarang</span>
         </a>
         <a href="#paket" className="qa-item">
           <Image src="/images/xl-cdn/icon-jaringan.svg" alt="" aria-hidden="true"
             width={22}
             height={22}
             loading="lazy" />
-          Cek Paket
+          <span>Cek Paket</span>
         </a>
         <a
           href={WA_INFO}
@@ -265,7 +265,7 @@ export function QuickActions() {
             width={22}
             height={22}
             loading="lazy" />
-          Tanya Dulu
+          <span>Tanya Dulu</span>
         </a>
       </div>
     </div>
@@ -289,7 +289,7 @@ export function FiturPills() {
               width={28}
               height={28}
               loading="lazy" />
-            {label}
+            <span>{label}</span>
           </div>
         ))}
       </div>
