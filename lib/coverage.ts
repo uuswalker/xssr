@@ -292,19 +292,37 @@ export function cekCoverage(
 
 export function cleanAlamatResmi(rawAddress: string | null | undefined): string {
   if (!rawAddress) return "";
-  let addr = rawAddress.trim();
-  // Strip ?- dummy vendor artifact e.g. "No. ?-69" -> "No. 69"
-  addr = addr.replace(/No\.\s*\?-\s*/gi, "No. ");
-  addr = addr.replace(/\?-\s*/g, "");
-  addr = addr.replace(/\?/g, "");
-  // Strip leading hyphen or dashes
-  addr = addr.replace(/^-\s*/, "");
-  // Strip (atau disekitarnya)
-  addr = addr.replace(/(\(|\[)?\s*atau disekitarnya\s*(\)|\])?/i, "").trim();
+  let s = rawAddress.trim();
 
-  // Deduplikasi segmen alamat berulang (misal: "..., KAB. SUKOHARJO, KAB. SUKOHARJO")
-  if (addr.includes(",")) {
-    const parts = addr.split(",").map((s) => s.trim()).filter(Boolean);
+  // 1. Bersihkan awalan Homepass ID numerik (misal: "04991939 - ")
+  s = s.replace(/^\d{6,10}\s*-\s*/g, "");
+
+  // 2. Bersihkan pola internal vendor rollout (misal: "WARU AREA (2) ADD HP - - - ")
+  s = s.replace(/[A-Z0-9\s]+\(\d+\)\s*ADD\s*HP\s*-\s*-?\s*-?\s*/gi, "");
+
+  // 3. Bersihkan placeholder kosong pada jalan, blok, rt, rw
+  s = s.replace(/JL\.\s*-+\s*/gi, "");
+  s = s.replace(/BLOK\s*-+\s*/gi, "");
+  s = s.replace(/RT\s*-+\s*/gi, "");
+  s = s.replace(/RW\s*-+\s*/gi, "");
+
+  // 4. Bersihkan pola artifact ?- pada nomor rumah
+  s = s.replace(/NO\.\s*\?-\s*/gi, "No. ");
+  s = s.replace(/\?-\s*/g, "");
+  s = s.replace(/\?/g, "");
+
+  // 5. Normalisasi dash/hyphen pemisah menjadi koma
+  s = s.replace(/\s*-\s*-\s*/g, ", ");
+  s = s.replace(/\s*-\s*/g, ", ");
+  s = s.replace(/,\s*,+/g, ",");
+  s = s.replace(/^[\s,]+|[\s,]+$/g, "");
+
+  // 6. Bersihkan suffix "atau disekitarnya" jika ada
+  s = s.replace(/(\(|\[)?\s*atau disekitarnya\s*(\)|\])?/i, "").trim();
+
+  // 7. Deduplikasi segmen alamat berulang (misal: "WARU, WARU, No. 98, KAB. SUKOHARJO")
+  if (s.includes(",")) {
+    const parts = s.split(",").map((p) => p.trim()).filter(Boolean);
     const seen = new Set<string>();
     const res: string[] = [];
     for (const p of parts) {
@@ -314,10 +332,10 @@ export function cleanAlamatResmi(rawAddress: string | null | undefined): string 
         res.push(p);
       }
     }
-    addr = res.join(", ");
+    s = res.join(", ");
   }
 
-  return addr;
+  return s;
 }
 
 export function formatAlamatDisekitarnya(rawAddress: string | null | undefined): string {

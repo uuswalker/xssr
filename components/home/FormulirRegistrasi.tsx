@@ -205,12 +205,17 @@ export default function FormulirRegistrasi() {
       return;
     }
 
+    // Deteksi via GPS (Titik Lokasi)
     reverseGeocodeNominatim(lat, lng).then((res) => {
-      const addr = res || `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
-      posRef.current = { lat, lng, kota, alamat: addr };
-      setLokasiInfo(`${addr} (${lat.toFixed(5)}, ${lng.toFixed(5)})`);
+      const osmAddr = res || `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
       cekCoverageWorkerAPI(lat, lng).then((cv) => {
         setCoverage(cv);
+        // Prioritaskan titik Homepass / Cluster FTTH resmi dari database XL Home jika terdeteksi
+        const rawDbAddr = cv?.alamat ? cleanAlamatResmi(cv.alamat) : null;
+        const finalAddr = rawDbAddr || osmAddr;
+
+        posRef.current = { lat, lng, kota: cv?.city || kota, alamat: finalAddr };
+        setLokasiInfo(`${finalAddr} (${lat.toFixed(5)}, ${lng.toFixed(5)})`);
         setStep("form");
         setStatusMsg("");
       });
