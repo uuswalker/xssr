@@ -199,7 +199,7 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
                 className="hero-img-lcp"
                 fetchPriority={s.eager ? "high" : "auto"}
                 loading={s.eager ? "eager" : "lazy"}
-                decoding="async"
+                decoding={s.eager ? "sync" : "async"}
               />
             </picture>
           </div>

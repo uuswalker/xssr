@@ -56,7 +56,7 @@ const PRODUCT_OFFER_JSONLD = {
 
 const Marquee = dynamic(() => import("@/components/animations/Marquee"));
 const ComparisonTable = dynamic(() => import("@/components/home/ComparisonTable"));
-const FormulirRegistrasi = dynamic(() => import("@/components/home/FormulirRegistrasi"));
+import FormulirRegistrasiClient from "@/components/home/FormulirRegistrasiClient";
 
 export default function Home() {
   return (
@@ -76,7 +76,7 @@ export default function Home() {
         <InfoSections />
         <ComparisonTable />
         <Faq faqs={FAQ_HOME} />
-        <FormulirRegistrasi />
+        <FormulirRegistrasiClient />
         <WaFloat />
       </PageTransition>
       <Footer />

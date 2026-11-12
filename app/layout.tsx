@@ -50,6 +50,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://connect.facebook.net" />
+        <link rel="preload" href="/fonts/pjs-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/pjs-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="webmcp" id="webmcp" href="/webmcp.json" />
         <link rel="ard" href="/.well-known/ard.json" type="application/json" />
         <link rel="ai-catalog" href="/.well-known/ai-catalog.json" type="application/json" />
