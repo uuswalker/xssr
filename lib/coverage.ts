@@ -278,16 +278,17 @@ export function cekCoverage(
       jarakM: w.jarakM,
       zona: w.zona,
       fiberM: null,
-      homepassId: w.homepassId || bestHpId,
-      alamat: w.alamat || bestAddr
+      homepassId: null,
+      alamat: w.alamat || bestAddr,
+      odp: null
     };
 
   // 4. Fallback Klaten jika di luar jangkauan fiber langsung
   if (kota === "Klaten")
-    return { status: "wireless", jarakM: null, zona: null, fiberM: null, homepassId: bestHpId, alamat: bestAddr };
+    return { status: "wireless", jarakM: null, zona: null, fiberM: null, homepassId: null, alamat: bestAddr, odp: null };
 
   // 5. Default: Cek manual sales / Request Pasang Baru
-  return { status: "manual", jarakM: m, zona: null, fiberM: null, homepassId: bestHpId, alamat: bestAddr };
+  return { status: "manual", jarakM: m, zona: null, fiberM: null, homepassId: null, alamat: bestAddr, odp: null };
 }
 
 export function cleanAlamatResmi(rawAddress: string | null | undefined): string {
@@ -420,15 +421,28 @@ export function coverageLine(cv: CoverageResult | null): string {
       : cv.status === "mungkin"
       ? "KEMUNGKINAN TERCOVER"
       : "PENGAJUAN PASANG BARU";
-  const odpInfo = cv.odp ? ` [ODP: ${cv.odp}]` : "";
-  const jarakInfo = cv.jarakM != null ? ` (±${cv.jarakM}m)` : "";
+  const odpInfo = cv.status === "fiber" && cv.odp ? ` [ODP: ${cv.odp}]` : "";
+  const jarakInfo = cv.status === "fiber" && cv.jarakM != null ? ` (±${cv.jarakM}m)` : "";
   return `Status Jaringan: ${label}${odpInfo}${jarakInfo}\n`;
+}
+
+/** Cek apakah paket atau status coverage tergolong Wireless / FWA (Nirkabel) */
+export function isWirelessSelection(paket: string | null | undefined, coverageStatus?: string | null): boolean {
+  if (coverageStatus === "wireless") return true;
+  if (!paket) return false;
+  const p = paket.toLowerCase();
+  return (
+    p.includes("wireless") ||
+    p.includes("fwa") ||
+    p.includes("tanpa kabel") ||
+    p.includes("nirkabel")
+  );
 }
 
 /** Kolom jarakFiberM payload sheet (logika v6.3 xssr). */
 export function jarakFiberField(cv: CoverageResult | null): number | string {
   if (!cv) return "";
-  if (cv.status === "wireless") return cv.fiberM != null ? cv.fiberM : "";
+  if (cv.status === "wireless" || cv.status === "manual") return "";
   return cv.jarakM != null ? cv.jarakM : "";
 }
 
@@ -498,11 +512,11 @@ export async function cekCoverageWorkerAPI(
               status: "wireless",
               jarakM: data.distance,
               zona: is5G ? "5G Ultra" : "4G LTE",
-              fiberM: data.distance,
-              homepassId: data.homepassId,
+              fiberM: null,
+              homepassId: null,
               alamat: alamatLengkap,
               city: data.city,
-              odp: data.odp || null,
+              odp: null,
             };
           } else {
             return {
@@ -510,10 +524,10 @@ export async function cekCoverageWorkerAPI(
               jarakM: data.distance,
               zona: null,
               fiberM: null,
-              homepassId: data.homepassId,
+              homepassId: null,
               alamat: alamatLengkap,
               city: data.city,
-              odp: data.odp || null,
+              odp: null,
             };
           }
         }

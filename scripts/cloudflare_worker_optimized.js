@@ -13,7 +13,7 @@
 const ADMIN_KEY = "xssr-tahap2-secure-2026";
 const RATE_LIMIT_MAX_REQUESTS = 60; // Max 60 requests per minute per IP
 const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute window
-const CACHE_VERSION = "v3.0.5-zerotimeout";
+const CACHE_VERSION = "v3.0.6-wirelesssop";
 
 // Solo Raya Core Coverage Cities (Indexed B-Tree fast routing)
 const SOLO_CITIES = "'KOTA SURAKARTA', 'KAB. SUKOHARJO', 'KAB. KARANGANYAR', 'KAB. BOYOLALI', 'KAB. KLATEN', 'KAB. SRAGEN', 'KAB. WONOGIRI'";
@@ -317,7 +317,7 @@ export default {
           JSON.stringify({
             status: "healthy",
             engine: "Cloudflare Workers + Unified Master D1 Edge SQLite",
-            version: "3.0.5-zerotimeout",
+            version: "3.0.6-wirelesssop",
             database: "xlhomesolo-coverage-db (Master FTTH & 5G/Wireless)",
             totalHomepass: totalCount,
             totalWireless: totalWireless,
@@ -861,8 +861,9 @@ async function handleCoordinatesLookup(latParam, lngParam, env, masterDb, corsHe
     }
   }
 
-  // FTTH standard drop cable SOP radius: 300 meters max from FAT box
-  const FTTH_MAX_DISTANCE = 300;
+  // FTTH standard drop cable SOP radius: 150 meters max from FAT box (Direct Cover)
+  // Distance > 150m is OUT OF DROP CABLE REACH -> fallback to Wireless FWA
+  const FTTH_MAX_DISTANCE = 150;
   const isCovered = minDistance <= FTTH_MAX_DISTANCE;
 
   let isWirelessCovered = false;
@@ -930,12 +931,12 @@ async function handleCoordinatesLookup(latParam, lngParam, env, masterDb, corsHe
     wirelessZone: wirelessZone || null,
     distance: isCovered ? (minDistance === Infinity ? null : Math.round(minDistance)) : (minWirelessDist !== Infinity ? Math.round(minWirelessDist) : (minDistance === Infinity ? null : Math.round(minDistance))),
     maxDistance: FTTH_MAX_DISTANCE,
-    homepassId: bestCandidate ? bestCandidate.id : null,
-    cluster: bestCandidate ? bestCandidate.cluster_name : null,
-    odp: bestCandidate ? bestCandidate.odp_id : null,
+    homepassId: isCovered && bestCandidate ? bestCandidate.id : null,
+    cluster: isCovered ? (bestCandidate ? bestCandidate.cluster_name : null) : (wirelessZone ? `Zona ${wirelessZone}` : (bestCandidate?.city || null)),
+    odp: isCovered && bestCandidate ? bestCandidate.odp_id : null,
     city: bestCandidate ? bestCandidate.city : null,
-    address: bestCandidate ? bestCandidate.address : null,
-    status: bestCandidate ? bestCandidate.status : null,
+    address: isCovered && bestCandidate ? bestCandidate.address : null,
+    status: isCovered && bestCandidate ? bestCandidate.status : "WIRELESS_AVAILABLE",
     lookupLatencyMs: Number((t1 - t0).toFixed(2)),
     candidateCount: candidates.length,
     databaseServed: "xlhomesolo-coverage-db (Unified Master FTTH & 5G/Wireless)",

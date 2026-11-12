@@ -27,6 +27,7 @@ import {
   cekAreaBlacklist,
   deteksiKota,
   jarakFiberField,
+  isWirelessSelection,
   type CoverageResult,
 } from "@/lib/coverage";
 import { ADS_ID } from "@/lib/site";
@@ -372,7 +373,20 @@ export default function FormulirRegistrasi() {
     const mapsLink = p.lat != null && p.lng != null ? `https://www.google.com/maps?q=${p.lat},${p.lng}` : "";
     const kotaKirim = p.kota || coverage?.city || "Solo Raya";
     const alamatKirim = p.alamat || (p.lat && p.lng ? `${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}` : "Area Solo Raya");
-    const isManual = coverage?.status === "manual";
+
+    // SOP Coverage & Paket: Wireless / FWA tidak boleh memiliki Homepass ID maupun ODP
+    const isWireless = isWirelessSelection(paketPilihan, coverage?.status);
+    const effectiveStatus = isWireless ? "wireless" : (coverage?.status || "manual");
+    const isManual = effectiveStatus === "manual";
+
+    const effectiveHpId = effectiveStatus === "fiber" ? (coverage?.homepassId || null) : null;
+    const effectiveOdp = effectiveStatus === "fiber" ? (coverage?.odp || null) : null;
+
+    // Pastikan homepassAddress bukan koordinat murni
+    const rawHpAddr = coverage?.alamat ? cleanAlamatResmi(coverage.alamat) : null;
+    const isKoordOnly = rawHpAddr ? /^-?\d+\.\d+,\s*-?\d+\.\d+$/.test(rawHpAddr) : false;
+    const effectiveHpAddress = (effectiveStatus === "fiber" && !isKoordOnly) ? rawHpAddr : null;
+    const effectiveJarak = effectiveStatus === "fiber" ? jarakFiberField(coverage) : "";
 
     // 1. Google Sheets Webhook Lead Telemetry (Internal Sales)
     postLead(
@@ -383,12 +397,12 @@ export default function FormulirRegistrasi() {
         lng: p.lng,
         alamat: alamatKirim,
         kota: kotaKirim,
-        coverage: coverage?.status || "",
-        jarakFiberM: jarakFiberField(coverage),
-        zona: coverage?.zona || null,
-        homepassId: coverage?.homepassId || null,
-        homepassAddress: coverage?.alamat || null,
-        odp: coverage?.odp || null,
+        coverage: effectiveStatus,
+        jarakFiberM: effectiveJarak,
+        zona: coverage?.zona || (isWireless ? "5G Ultra" : null),
+        homepassId: effectiveHpId,
+        homepassAddress: effectiveHpAddress,
+        odp: effectiveOdp,
         paket: paketPilihan || null,
       })
     );
@@ -418,7 +432,9 @@ export default function FormulirRegistrasi() {
       if (u) utmSuffix = `\n[Sumber: ${u}]`;
     } catch {}
 
-    const covLine = coverageLine(coverage);
+    const covLine = isWireless
+      ? "Status Jaringan: TERCOVER WIRELESS (FWA)\n"
+      : coverageLine(coverage);
     const paketLine = paketPilihan ? `Paket: ${paketPilihan}\n` : "";
 
     // Pesan WhatsApp ke Sales Resmi (Privasi Aman: Tidak menampilkan ODP / Homepass ID ke customer)

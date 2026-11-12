@@ -752,12 +752,27 @@ function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId, jar
       paketDisplay = "Spark 250 Mbps";
     }
 
+    const isWireless = (coverage && String(coverage).toLowerCase() === "wireless") || /wireless|fwa|tanpa kabel|nirkabel/i.test(paketDisplay);
+
+    let statusText = "CEK JARINGAN";
+    if (isWireless) {
+      statusText = "TERCOVER WIRELESS (FWA)";
+    } else if (coverage) {
+      const cLower = String(coverage).toLowerCase();
+      if (cLower === "fiber") statusText = "TERCOVER FIBER (SIAP PASANG)";
+      else if (cLower === "mungkin") statusText = "KEMUNGKINAN TERCOVER (CEK JALUR)";
+      else if (cLower === "manual" || cLower === "request-pasang-baru") statusText = "REQUEST PASANG BARU (>150m / PERLU SURVEY)";
+      else statusText = String(coverage).toUpperCase();
+    }
+
     // Jarak Fiber
     let jarakText = "-";
-    if (jarakFiberM !== "" && jarakFiberM != null && !isNaN(Number(jarakFiberM))) {
-      jarakText = "±" + Math.round(Number(jarakFiberM)) + " meter";
-    } else if (jarakFiberM) {
-      jarakText = String(jarakFiberM);
+    if (!isWireless) {
+      if (jarakFiberM !== "" && jarakFiberM != null && !isNaN(Number(jarakFiberM))) {
+        jarakText = "±" + Math.round(Number(jarakFiberM)) + " meter";
+      } else if (jarakFiberM) {
+        jarakText = String(jarakFiberM);
+      }
     }
 
     // Alamat dengan format "(atau disekitarnya)"
@@ -774,38 +789,69 @@ function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId, jar
       alamatFinal = alamatFinal + " (atau disekitarnya)";
     }
 
-    // Homepass ID (dengan label "(atau disekitarnya)")
+    // Homepass ID (Hanya untuk Fiber)
     let hpDisplay = "-";
-    if (homepassId && String(homepassId).trim() !== "") {
+    if (!isWireless && homepassId && String(homepassId).trim() !== "") {
       const cleanHp = String(homepassId).trim();
       hpDisplay = cleanHp.includes("atau disekitarnya") ? cleanHp : cleanHp + " (atau disekitarnya)";
     }
 
-    // ODP Code
-    let odpDisplay = String(odpParam || "").trim();
-    if (!odpDisplay) {
-      const odpMatch = String(homepassAddress || alamat || "").match(/ODP[:\s]+([A-Za-z0-9_-]+)/i);
-      if (odpMatch) {
-        odpDisplay = odpMatch[1];
+    // ODP Code (Hanya untuk Fiber)
+    let odpDisplay = "-";
+    if (!isWireless) {
+      odpDisplay = String(odpParam || "").trim();
+      if (!odpDisplay) {
+        const odpMatch = String(homepassAddress || alamat || "").match(/ODP[:\s]+([A-Za-z0-9_-]+)/i);
+        if (odpMatch) {
+          odpDisplay = odpMatch[1];
+        }
       }
-    }
-    if (!odpDisplay || odpDisplay === "-") {
-      odpDisplay = "Cek Jalur OWS";
+      if (!odpDisplay || odpDisplay === "-") {
+        odpDisplay = "Cek Jalur OWS";
+      }
     }
 
     // Google Maps Link
     const maps = (lat !== "" && lat != null && lng !== "" && lng != null)
       ? "https://maps.google.com/?q=" + lat + "," + lng : "-";
 
-    const pesan = "🔥 LEAD BARU XL HOME SOLO\n" +
-      "Nama: " + nama + " (" + waDisplay + ")\n" +
-      "Paket: " + paketDisplay + "\n" +
-      "Alamat: " + alamatFinal + "\n\n" +
-      "📋 DATA OWS (INTERNAL SALES):\n" +
-      "• Homepass ID: " + hpDisplay + "\n" +
-      "• ODP: " + odpDisplay + "\n" +
-      "• Jarak Fiber: " + jarakText + "\n" +
-      "• Google Maps: " + maps;
+    const d = new Date();
+    const pad = (n) => (n < 10 ? "0" : "") + n;
+    const waktu = pad(d.getDate()) + "-" + pad(d.getMonth() + 1) + "-" + d.getFullYear() +
+      " " + pad(d.getHours()) + ":" + pad(d.getMinutes()) + " WIB";
+
+    let pesan = "";
+    if (isWireless) {
+      pesan = "⚡ *LEAD BARU XL HOME*\n" +
+        "━━━━━━━━━━━━━━━━━━━\n" +
+        "📅 Waktu: " + waktu + "\n" +
+        "👤 Nama: " + nama + "\n" +
+        "📱 WA: https://wa.me/" + wa + " (" + waDisplay + ")\n" +
+        "📍 Alamat: " + alamatFinal + "\n" +
+        "🏙️ Kota: " + kota + "\n" +
+        "📶 Status: " + statusText + "\n" +
+        "📦 Paket: " + paketDisplay + "\n" +
+        "🗺️ Maps: " + maps + "\n" +
+        "📄 Halaman: " + halaman + "\n" +
+        "━━━━━━━━━━━━━━━━━━━";
+    } else {
+      const hp = (hpDisplay !== "-") ? "\nHOMEPASS_ID: " + hpDisplay : "";
+      const odp = (odpDisplay !== "-") ? "\nODP / Cluster: " + odpDisplay : "";
+      const jarak = (jarakText !== "-") ? "\n📏 Jarak ke ODP: " + jarakText : "";
+      pesan = "⚡ *LEAD BARU XL HOME*\n" +
+        "━━━━━━━━━━━━━━━━━━━\n" +
+        "📅 Waktu: " + waktu + "\n" +
+        "👤 Nama: " + nama + "\n" +
+        "📱 WA: https://wa.me/" + wa + " (" + waDisplay + ")\n" +
+        "📍 Alamat: " + alamatFinal + "\n" +
+        "🏙️ Kota: " + kota + "\n" +
+        "📶 Status: " + statusText +
+        jarak + odp + hp + "\n" +
+        "📦 Paket: " + paketDisplay + "\n" +
+        "🗺️ Maps: " + maps + "\n" +
+        "📄 Halaman: " + halaman + "\n" +
+        "━━━━━━━━━━━━━━━━━━━";
+    }
 
     const res = UrlFetchApp.fetch("https://api.fonnte.com/send", {
       method: "post",
@@ -885,6 +931,11 @@ function doPost(e) {
     const hpAddr = data.homepassAddress || "";
     const paket = data.paket || "";
 
+    const isWirelessLead = (cov && String(cov).toLowerCase() === "wireless") || (paket && /wireless|fwa|tanpa kabel|nirkabel/i.test(paket));
+    if (isWirelessLead || cov === "manual" || cov === "request-pasang-baru") {
+      hpId = "";
+    }
+
     // ── FILTER HOMEPASS ID RESMI OWS (BUANG UUID JIKA ADA) ────────
     hpId = String(hpId).trim();
     if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i.test(hpId)) {
@@ -927,11 +978,17 @@ function doPost(e) {
           ws.getRange(row, 5).setValue(pilih(data.longitude, cur[4]));
           ws.getRange(row, 6).setValue(pilih(alamatFinal, cur[5]));
           ws.getRange(row, 7).setValue(pilih(kota, cur[6]));
-          ws.getRange(row, 8).setValue(pilih(hpId, cur[7]));
+          // Khusus Wireless & Request Pasang Baru: WAJIB kosongkan Homepass ID lama
+          if (isWirelessLead || cov === "manual" || cov === "request-pasang-baru") {
+            ws.getRange(row, 8).setValue("");
+          } else {
+            ws.getRange(row, 8).setValue(pilih(hpId, cur[7]));
+          }
           ws.getRange(row, 10).setValue(pilih(data.halaman, cur[9]));
           _formatSingleRow(ws, row);
-          const odp = data.odp || "";
-          if (_bolehNotif(wa)) kirimNotifWA(pilih(data.nama, cur[1]), wa, pilih(alamatFinal, cur[5]), pilih(kota, cur[6]), pilih(data.halaman, cur[9]), pilih(data.latitude, cur[3]), pilih(data.longitude, cur[4]), pilih(hpId, cur[7]), jarakFiber, cov, hpAddr, paket, odp);
+          const effectiveNotifHp = (isWirelessLead || cov === "manual" || cov === "request-pasang-baru") ? "" : pilih(hpId, cur[7]);
+          const odp = isWirelessLead ? "" : (data.odp || "");
+          if (_bolehNotif(wa)) kirimNotifWA(pilih(data.nama, cur[1]), wa, pilih(alamatFinal, cur[5]), pilih(kota, cur[6]), pilih(data.halaman, cur[9]), pilih(data.latitude, cur[3]), pilih(data.longitude, cur[4]), effectiveNotifHp, jarakFiber, cov, hpAddr, paket, odp);
           return ContentService
             .createTextOutput(JSON.stringify({ status: "updated", row }))
             .setMimeType(ContentService.MimeType.JSON);
@@ -939,6 +996,7 @@ function doPost(e) {
       }
     }
 
+    const effectiveNewHp = (isWirelessLead || cov === "manual" || cov === "request-pasang-baru") ? "" : hpId;
     const newRow = ws.getLastRow() + 1;
     ws.getRange(newRow, 1, 1, 11).setValues([[
       new Date(data.timestamp || Date.now()),
@@ -948,15 +1006,15 @@ function doPost(e) {
       (data.longitude ?? ""),
       alamatFinal,
       kota,
-      hpId,
+      effectiveNewHp,
       "",   // Link Maps — diisi formula oleh _formatSingleRow
       data.halaman || "",
       data.status || "Baru",
     ]]);
 
     _formatSingleRow(ws, newRow);
-    const odp = data.odp || "";
-    if (_bolehNotif(wa)) kirimNotifWA(String(data.nama || "").trim(), wa, alamatFinal, kota, data.halaman || "", data.latitude, data.longitude, hpId, jarakFiber, cov, hpAddr, paket, odp);
+    const odp = isWirelessLead ? "" : (data.odp || "");
+    if (_bolehNotif(wa)) kirimNotifWA(String(data.nama || "").trim(), wa, alamatFinal, kota, data.halaman || "", data.latitude, data.longitude, effectiveNewHp, jarakFiber, cov, hpAddr, paket, odp);
 
     return ContentService
       .createTextOutput(JSON.stringify({ status: "ok", row: newRow }))

@@ -15,6 +15,7 @@ import {
   cekAreaBlacklist,
   deteksiKota,
   jarakFiberField,
+  isWirelessSelection,
   type CoverageResult,
 } from "@/lib/coverage";
 import { ADS_ID } from "@/lib/site";
@@ -162,18 +163,27 @@ export default function CekLokasi() {
     softSent.current = true;
     const kotaKirim = p.kota || coverage?.city || "";
     const alamatKirim = p.alamat || (p.lat && p.lng ? `${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}` : "");
+    const isWirelessSoft = isWirelessSelection(paketPilihan, coverage?.status);
+    const effStatusSoft = isWirelessSoft ? "wireless" : (coverage?.status || "manual");
+    const effHpIdSoft = effStatusSoft === "fiber" ? (coverage?.homepassId || null) : null;
+    const effOdpSoft = effStatusSoft === "fiber" ? (coverage?.odp || null) : null;
+    const rawHpAddrSoft = coverage?.alamat ? cleanAlamatResmi(coverage.alamat) : null;
+    const isKoordOnlySoft = rawHpAddrSoft ? /^-?\d+\.\d+,\s*-?\d+\.\d+$/.test(rawHpAddrSoft) : false;
+    const effHpAddrSoft = (effStatusSoft === "fiber" && !isKoordOnlySoft) ? rawHpAddrSoft : null;
+    const effJarakSoft = effStatusSoft === "fiber" ? jarakFiberField(coverage) : "";
+
     postLead(
       basePayload("lokasi-saja", {
         lat: p.lat,
         lng: p.lng,
         alamat: alamatKirim,
         kota: kotaKirim,
-        coverage: coverage?.status || "",
-        jarakFiberM: jarakFiberField(coverage),
-        zona: coverage?.zona || null,
-        homepassId: coverage?.homepassId || null,
-        homepassAddress: coverage?.alamat || null,
-        odp: coverage?.odp || null,
+        coverage: effStatusSoft,
+        jarakFiberM: effJarakSoft,
+        zona: coverage?.zona || (isWirelessSoft ? "5G Ultra" : null),
+        homepassId: effHpIdSoft,
+        homepassAddress: effHpAddrSoft,
+        odp: effOdpSoft,
         paket: paketPilihan || null,
       })
     );
@@ -615,9 +625,20 @@ export default function CekLokasi() {
       p.lat != null && p.lng != null
         ? `https://www.google.com/maps?q=${p.lat},${p.lng}`
         : "";
-    const isReq = coverage?.status === "manual";
+    const isWireless = isWirelessSelection(paketPilihan, coverage?.status);
+    const effectiveStatus = isWireless ? "wireless" : (coverage?.status || "manual");
+    const isReq = effectiveStatus === "manual";
     const kotaKirim = p.kota || coverage?.city || "Area Layanan";
     const alamatKirim = p.alamat || (p.lat && p.lng ? `${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}` : "");
+
+    const effectiveHpId = effectiveStatus === "fiber" ? (coverage?.homepassId || null) : null;
+    const effectiveOdp = effectiveStatus === "fiber" ? (coverage?.odp || null) : null;
+
+    const rawHpAddr = coverage?.alamat ? cleanAlamatResmi(coverage.alamat) : null;
+    const isKoordOnly = rawHpAddr ? /^-?\d+\.\d+,\s*-?\d+\.\d+$/.test(rawHpAddr) : false;
+    const effectiveHpAddress = (effectiveStatus === "fiber" && !isKoordOnly) ? rawHpAddr : null;
+    const effectiveJarak = effectiveStatus === "fiber" ? jarakFiberField(coverage) : "";
+
     if (isReq) {
       postLead(
         basePayload("request-pasang-baru", {
@@ -628,11 +649,11 @@ export default function CekLokasi() {
           alamat: alamatKirim,
           kota: kotaKirim,
           coverage: "request-pasang-baru",
-          jarakFiberM: jarakFiberField(coverage),
+          jarakFiberM: "",
           zona: coverage?.zona || null,
-          homepassId: coverage?.homepassId || null,
-          homepassAddress: coverage?.alamat || null,
-          odp: coverage?.odp || null,
+          homepassId: null,
+          homepassAddress: null,
+          odp: null,
           paket: paketPilihan || null,
           peminatSekitar: peminatSekitar,
           providerSaatIni: providerSaatIni,
@@ -690,12 +711,12 @@ export default function CekLokasi() {
         lng: p.lng,
         alamat: alamatKirim,
         kota: kotaKirim,
-        coverage: coverage?.status || "",
-        jarakFiberM: jarakFiberField(coverage),
-        zona: coverage?.zona || null,
-        homepassId: coverage?.homepassId || null,
-        homepassAddress: coverage?.alamat || null,
-        odp: coverage?.odp || null,
+        coverage: effectiveStatus,
+        jarakFiberM: effectiveJarak,
+        zona: coverage?.zona || (isWireless ? "5G Ultra" : null),
+        homepassId: effectiveHpId,
+        homepassAddress: effectiveHpAddress,
+        odp: effectiveOdp,
         paket: paketPilihan || null,
       })
     );
@@ -732,7 +753,9 @@ export default function CekLokasi() {
     } catch {
       /* abaikan */
     }
-    const covLine = coverageLine(coverage);
+    const covLine = isWireless
+      ? "Status Jaringan: TERCOVER WIRELESS (FWA)\n"
+      : coverageLine(coverage);
     const paketLine = paketPilihan ? `Paket: ${paketPilihan}\n` : "";
     // Customer tidak perlu tahu Homepass ID atau Site ID / ODP (laporan teknis dikirim lengkap via Fonnte & Sheets)
     const pesan =
