@@ -381,27 +381,125 @@ ARTIKEL["250-mbps-untuk-berapa-orang"] = {
 
   slug: "250-mbps-untuk-berapa-orang",
 
-  title: "250 Mbps Apakah Cepat? [Panduan WiFi Rumah 2026]",
+  title: "250 Mbps untuk Berapa Orang? [Panduan Lengkap WiFi 2026]",
 
-  description: "Berapa kencang 250 Mbps dan cocok untuk berapa orang? Simak simulasi pemakaian streaming 4K, WFH & gaming tanpa lag paket Spark XL Home Solo!",
+  description: "Kecepatan 250 Mbps untuk berapa orang & berapa device? Simak simulasi pemakaian streaming 4K, WFH & game tanpa lag paket Spark 250 Mbps XL Home Solo!",
 
   keywords: "250 mbps untuk berapa orang, wifi 250 mbps untuk berapa orang, 250 mbps cukup untuk berapa device, paket xl satu 250 mbps, wifi 250 mbps kuat berapa tv".split(/,\s*/),
 
-  ogTitle: "250 Mbps Apakah Cepat & untuk Berapa Orang? Panduan Lengkap WiFi Rumah 2026",
+  ogTitle: "250 Mbps untuk Berapa Orang? Panduan Lengkap WiFi Rumah 2026",
 
-  ogDescription: "Kecepatan 250 Mbps sangat cepat untuk 4-8 perangkat, streaming 4K & game tanpa lag! Cek paket Spark 250 Mbps XL Home Solo Raya (229rb/bln) + Gratis Pasang Rp 0.",
+  ogDescription: "Kecepatan 250 Mbps sangat cepat untuk 6-10 orang & 15-25 perangkat aktif, streaming 4K & game tanpa lag! Cek paket Spark 250 Mbps XL Home Solo Raya (229rb/bln) + Gratis Pasang Rp 0.",
 
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
 
-  schemas: [{"@context":"https://schema.org","@type":"Article","headline":"250 Mbps untuk Berapa Orang? Panduan Lengkap + Tabel Aktivitas","description":"250 Mbps nyaman untuk 4—6 pengguna aktif bersamaan (streaming 4K, video call, gaming) atau hingga 10 perangkat total, lengkap dengan hitungan per aktivitas dan paket XL SATU 250 Mbps.","author":{"@type":"Organization","name":"XL Home Solo Raya"},"publisher":{"@type":"Organization","name":"XL Home Solo Raya"},"datePublished":"2026-09-17","dateModified":"2026-09-17","mainEntityOfPage":"https://xlhomesolo.com/250-mbps-untuk-berapa-orang/"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"250 Mbps untuk berapa orang?","acceptedAnswer":{"@type":"Answer","text":"250 Mbps nyaman untuk 4—6 pengguna aktif yang internetan di waktu bersamaan (streaming, video call, gaming). Dalam hitungan perangkat, 250 Mbps melayani hingga 10 perangkat total menurut klaim resmi XL SATU, karena sebagian perangkat hanya standby dan hampir tidak memakai bandwidth."}},{"@type":"Question","name":"Apakah 250 Mbps cukup untuk streaming 4K di beberapa TV?","acceptedAnswer":{"@type":"Answer","text":"Ya. Satu streaming 4K butuh 15—25 Mbps, jadi 250 Mbps menampung 4—5 TV 4K yang menyala bersamaan dan masih sisa untuk HP dan laptop. Untuk 1—2 TV 4K plus pemakaian normal, 250 Mbps sangat longgar."}},{"@type":"Question","name":"Apakah 250 Mbps cukup untuk gaming sambil streaming?","acceptedAnswer":{"@type":"Answer","text":"Cukup. Gaming online hanya butuh 5—25 Mbps —  yang penting latensi rendah khas fiber optik. Sisa 200+ Mbps masih menampung streaming 4K dan video call di perangkat lain tanpa rebutan."}},{"@type":"Question","name":"Kapan 250 Mbps kurang dan perlu naik ke 350—400 Mbps?","acceptedAnswer":{"@type":"Answer","text":"Naik kelas kalau penghuni 7+ orang dengan 4+ pengguna berat bersamaan setiap malam, ada kreator yang upload file besar rutin, atau rumah/kos dengan belasan perangkat aktif. Kalau tidak, 250 Mbps sudah sweet spot."}},{"@type":"Question","name":"Berapa harga paket XL SATU 250 Mbps?","acceptedAnswer":{"@type":"Answer","text":"Paket XL SATU 250 Mbps (kecepatan normal 100 Mbps + Speed Booster hingga 250 Mbps) dibanderol Rp229.000/bulan harga promo (Rp254.190 setelah PPN), sudah termasuk gratis biaya instalasi dan untuk hingga 10 perangkat. Harga promo dapat berubah, konfirmasi ke sales Solo Raya."}}]}],
+  schemas: [{"@context":"https://schema.org","@type":"Article","headline":"250 Mbps untuk Berapa Orang? Panduan Lengkap + Tabel Aktivitas","description":"Kecepatan 250 Mbps sangat ideal untuk 6 hingga 10 orang anggota keluarga atau 15 hingga 25 perangkat aktif sekaligus tanpa buffering, lengkap dengan simulasi pemakaian per aktivitas.","author":{"@type":"Organization","name":"XL Home Solo Raya"},"publisher":{"@type":"Organization","name":"XL Home Solo Raya"},"datePublished":"2026-09-17","dateModified":"2026-11-12","mainEntityOfPage":"https://xlhomesolo.com/250-mbps-untuk-berapa-orang/"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"250 Mbps untuk berapa orang?","acceptedAnswer":{"@type":"Answer","text":"Kecepatan internet 250 Mbps sangat ideal untuk 6 hingga 10 orang anggota keluarga atau 15 hingga 25 perangkat aktif sekaligus tanpa risiko buffering. Sangat cukup untuk 4-5 TV 4K, Zoom meeting bersamaan, dan gaming kompetitif."}},{"@type":"Question","name":"Apakah 250 Mbps cukup untuk streaming 4K di beberapa TV?","acceptedAnswer":{"@type":"Answer","text":"Ya. Satu streaming 4K butuh 15—25 Mbps, jadi 250 Mbps menampung 4—5 TV 4K yang menyala bersamaan dan masih sisa untuk HP dan laptop. Untuk 1—2 TV 4K plus pemakaian normal, 250 Mbps sangat longgar."}},{"@type":"Question","name":"Apakah 250 Mbps cukup untuk gaming sambil streaming?","acceptedAnswer":{"@type":"Answer","text":"Cukup. Gaming online hanya butuh 5—25 Mbps — yang penting latensi rendah khas fiber optik. Sisa 200+ Mbps masih menampung streaming 4K dan video call di perangkat lain tanpa rebutan."}},{"@type":"Question","name":"Kapan 250 Mbps kurang dan perlu naik ke 350—400 Mbps?","acceptedAnswer":{"@type":"Answer","text":"Naik kelas kalau penghuni 10+ orang dengan pemakaian berat serentak setiap malam, ada kreator yang upload file besar rutin, atau rumah kos dengan puluhan perangkat aktif. Kalau untuk rumah tangga menengah, 250 Mbps sudah sweet spot paling hemat."}},{"@type":"Question","name":"Berapa harga paket XL Home 250 Mbps di Solo Raya?","acceptedAnswer":{"@type":"Answer","text":"Paket XL Home Spark 250 Mbps (kecepatan normal 100 Mbps + Speed Booster promo hingga 250 Mbps) dibanderol hanya Rp229.000/bulan (belum PPN), sudah termasuk gratis biaya instalasi Rp 0 dan pinjam modem WiFi fiber optik."}}]}],
 
-  faqs: [{"q":"250 Mbps untuk berapa orang?","a":"250 Mbps nyaman untuk 4—6 pengguna aktif yang internetan di waktu bersamaan (streaming, video call, gaming). Dalam hitungan perangkat, 250 Mbps melayani hingga 10 perangkat total menurut klaim resmi XL SATU, karena sebagian perangkat hanya standby dan hampir tidak memakai bandwidth."},{"q":"Apakah 250 Mbps cukup untuk streaming 4K di beberapa TV?","a":"Ya. Satu streaming 4K butuh 15—25 Mbps, jadi 250 Mbps menampung 4—5 TV 4K yang menyala bersamaan dan masih sisa untuk HP dan laptop. Untuk 1—2 TV 4K plus pemakaian normal, 250 Mbps sangat longgar."},{"q":"Apakah 250 Mbps cukup untuk gaming sambil streaming?","a":"Cukup. Gaming online hanya butuh 5—25 Mbps —  yang penting latensi rendah khas fiber optik. Sisa 200+ Mbps masih menampung streaming 4K dan video call di perangkat lain tanpa rebutan."},{"q":"Kapan 250 Mbps kurang dan perlu naik ke 350—400 Mbps?","a":"Naik kelas kalau penghuni 7+ orang dengan 4+ pengguna berat bersamaan setiap malam, ada kreator yang upload file besar rutin, atau rumah/kos dengan belasan perangkat aktif. Kalau tidak, 250 Mbps sudah sweet spot."},{"q":"Berapa harga paket XL SATU 250 Mbps?","a":"Paket XL SATU 250 Mbps (kecepatan normal 100 Mbps + Speed Booster hingga 250 Mbps) dibanderol Rp229.000/bulan harga promo (Rp254.190 setelah PPN), sudah termasuk gratis biaya instalasi dan untuk hingga 10 perangkat. Harga promo dapat berubah, konfirmasi ke sales Solo Raya."}],
+  faqs: [{"q":"250 Mbps untuk berapa orang?","a":"Kecepatan internet 250 Mbps sangat ideal untuk 6 hingga 10 orang anggota keluarga atau 15 hingga 25 perangkat aktif sekaligus tanpa risiko buffering. Sangat cukup untuk 4-5 TV 4K, Zoom meeting bersamaan, dan gaming kompetitif."},{"q":"Apakah 250 Mbps cukup untuk streaming 4K di beberapa TV?","a":"Ya. Satu streaming 4K butuh 15—25 Mbps, jadi 250 Mbps menampung 4—5 TV 4K yang menyala bersamaan dan masih sisa untuk HP dan laptop. Untuk 1—2 TV 4K plus pemakaian normal, 250 Mbps sangat longgar."},{"q":"Apakah 250 Mbps cukup untuk gaming sambil streaming?","a":"Cukup. Gaming online hanya butuh 5—25 Mbps — yang penting latensi rendah khas fiber optik. Sisa 200+ Mbps masih menampung streaming 4K dan video call di perangkat lain tanpa rebutan."},{"q":"Kapan 250 Mbps kurang dan perlu naik ke 350—400 Mbps?","a":"Naik kelas kalau penghuni 10+ orang dengan pemakaian berat serentak setiap malam, ada kreator yang upload file besar rutin, atau rumah kos dengan puluhan perangkat aktif. Kalau untuk rumah tangga menengah, 250 Mbps sudah sweet spot paling hemat."},{"q":"Berapa harga paket XL Home 250 Mbps di Solo Raya?","a":"Paket XL Home Spark 250 Mbps (kecepatan normal 100 Mbps + Speed Booster promo hingga 250 Mbps) dibanderol hanya Rp229.000/bulan (belum PPN), sudah termasuk gratis biaya instalasi Rp 0 dan pinjam modem WiFi fiber optik."}],
 
-  hero: {"crumb":"<a href=\"https://xlhomesolo.com/\">Beranda</a> / 250 Mbps untuk Berapa Orang","h1":"250 Mbps untuk Berapa Orang? Panduan Lengkap + Tabel Aktivitas","sub":"Hitungan jujur: berapa pengguna aktif, berapa TV 4K, dan kapan 250 Mbps kurang —  plus paket XL SATU 250 Mbps.","meta":"Diperbarui 17 September 2026 • XL SATU Solo Raya"},
+  hero: {"crumb":"<a href=\"https://xlhomesolo.com/\">Beranda</a> / 250 Mbps untuk Berapa Orang","h1":"250 Mbps untuk Berapa Orang? Panduan Lengkap + Tabel Aktivitas","sub":"Hitungan jujur: berapa pengguna aktif, berapa TV 4K, dan simulasi kebutuhan — plus paket XL Home Spark 250 Mbps Solo Raya.","meta":"Diperbarui 12 November 2026 • Tim XL Home Solo Raya"},
 
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20apakah%20250%20Mbps%20cukup%20untuk%20rumah%20saya",
 
-  bodyHtml: "\n\n  <div class=\"info-box\">\n    <strong>Jawaban singkat:</strong> 250 Mbps nyaman untuk <strong>4—6 pengguna aktif</strong> yang internetan di waktu bersamaan —  misalnya 2 TV streaming 4K + 1 video call + 1 gaming + HP. Dalam hitungan perangkat, klaim resmi XL SATU: <strong>hingga 10 perangkat</strong>, karena sebagian perangkat hanya standby dan hampir tidak memakai bandwidth.\n  </div>\n\n  <p>Angka \"250 Mbps\" terdengar besar, tapi yang menentukan cukup-tidaknya bukan angka itu saja —  melainkan <strong>berapa aktivitas berat yang jalan bersamaan</strong>. Satu TV 4K menyala jauh lebih rakus daripada 10 HP yang cuma standby. Artikel ini membedah hitungannya supaya kamu tidak bayar lebih (atau kurang).</p>\n\n  <h2>Kebutuhan Bandwidth per Aktivitas</h2>\n  <p>Patokan umum industri (Netflix, YouTube, dan panduan teknis 2026):</p>\n  <table class=\"speed-table\">\n    <tr><th>Aktivitas (per perangkat)</th><th>Butuh ±</th></tr>\n    <tr><td>Streaming 4K (Netflix/YouTube/Disney+)</td><td>15—25 Mbps</td></tr>\n    <tr><td>Streaming HD 1080p</td><td>5—8 Mbps</td></tr>\n    <tr><td>Video call / meeting online (HD)</td><td>3—4 Mbps</td></tr>\n    <tr><td>Gaming online</td><td>5—25 Mbps (yang penting ping rendah)</td></tr>\n    <tr><td>Browsing & media sosial</td><td>1—5 Mbps</td></tr>\n    <tr><td>Smart home / sensor / standby</td><td>di bawah 1 Mbps</td></tr>\n  </table>\n\n  <h2>Simulasi: 250 Mbps Dipakai Bareng-Bareng</h2>\n  <p>Contoh rumah 5 orang di jam sibuk malam hari:</p>\n  <ul>\n    <li>2 TV streaming 4K: ±50 Mbps</li>\n    <li>1 video call kerja: ±4 Mbps</li>\n    <li>1 gaming online: ±10 Mbps</li>\n    <li>5 HP scrolling sosmed: ±15 Mbps</li>\n    <li>Smart TV standby + CCTV + smart home: ±5 Mbps</li>\n  </ul>\n  <p>Total ±<strong>84 Mbps</strong> —  baru sepertiga dari 250 Mbps. Sisanya jadi buffer saat ada download besar, update game puluhan GB, atau tamu yang ikut nebeng WiFi. Inilah alasan 250 Mbps disebut <em>sweet spot</em> keluarga menengah: lega tanpa mubazir.</p>\n\n  <div class=\"info-box\">\n    <strong>Kunci yang sering dilupakan:</strong> hitung <strong>perangkat aktif</strong>, bukan total perangkat. Rumah dengan 25 perangkat yang hanya 4 aktif bersamaan butuh jauh lebih kecil daripada rumah 8 perangkat yang semuanya streaming. Klaim \"hingga 10 perangkat\" dari provider mengasumsikan campuran aktif dan standby yang wajar.\n  </div>\n\n  <h2>Paket XL SATU 250 Mbps: Isi & Harga Resmi</h2>\n  <p>Di XL SATU, 250 Mbps adalah kecepatan <strong>Speed Booster</strong> dari paket normal 100 Mbps. Isinya menurut halaman resmi XL SATU:</p>\n  <ul>\n    <li><strong>Kecepatan:</strong> normal 100 Mbps, booster hingga 250 Mbps</li>\n    <li><strong>Perangkat:</strong> hingga 10 perangkat</li>\n    <li><strong>Aktivitas ideal:</strong> browsing, sosmed, streaming 4K, video conference HD, game online, upload konten HD</li>\n    <li><strong>Instalasi:</strong> gratis biaya instalasi</li>\n    <li><strong>Harga promo:</strong> Rp229.000/bulan (Rp254.190 setelah PPN 11%)</li>\n    <li><strong>Bonus khas XL SATU:</strong> kuota HP sekeluarga + satu tagihan + satu aplikasi MyXL</li>\n  </ul>\n  <p>Harga promo dapat berubah sewaktu-waktu —  konfirmasi harga Solo Raya terbaru via WhatsApp sales di bawah. Bandingkan juga dengan <a href=\"/biaya-pasang-wifi-solo-raya/\">rincian biaya semua paket</a>.</p>\n\n  <div class=\"cta-box\" style=\"background:linear-gradient(135deg, #0d7a5f 0%, #037e64 100%);\">\n    <h3>250 Mbps: Rp229.000/bln —  Pas untuk Rumahmu?</h3>\n    <p>Ceritakan jumlah penghuni + kebiasaan internet (berapa TV, WFH, gaming), sales bantu pastikan 250 Mbps cukup atau perlu naik kelas.</p>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20paket%20250%20Mbps%20untuk%20rumah%20saya\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\" style=\"background:#fff; color:var(--green-dark);\"><i class=\"fab fa-whatsapp\"></i> Tanya Paket 250 Mbps</a>\n  </div>\n\n  <h2>Kapan 250 Mbps Kurang?</h2>\n  <p>Naik ke 350—400 Mbps kalau kondisimu seperti ini:</p>\n  <ul>\n    <li>Penghuni 7+ orang dengan 4+ pengguna berat tiap malam</li>\n    <li>Ada kreator/karyawan yang upload file besar rutin (upload butuh headroom)</li>\n    <li>Rumah kos/kontrakan dengan belasan perangkat aktif bersamaan</li>\n    <li>3+ TV 4K menyala bareng setiap hari + WFH + gaming</li>\n  </ul>\n  <p>Sebaliknya, kalau cuma 1—3 orang tanpa 4K, 250 Mbps itu kelebihan —  hemat dengan paket 50—100 Mbps. Masih bingung? Pakai <a href=\"/berapa-mbps-untuk-berapa-orang/\">kalkulator kebutuhan Mbps</a> (masukkan orang + aktivitas, keluar rekomendasi paket).</p>\n\n  <h2>Pertanyaan yang Sering Ditanyakan promo yang sedang berlaku ke admin.</p>\n\n  <div class=\"cta-box\">\n    <h3>Cek Apakah 250 Mbps Tersedia di Alamatmu</h3>\n    <p>XL SATU melayani Solo, Sukoharjo, Karanganyar, Klaten, Boyolali. Kirim alamat, sales cek coverage + jadwal survei.</p>\n    <a href=\"https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20coverage%20250%20Mbps%20di%20alamat%20saya\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-cta\">\n      <i class=\"fab fa-whatsapp\"></i> Cek Coverage via WhatsApp\n    </a>\n  </div>\n\n  <h2>Baca Juga</h2>\n  <p>Hitung presisi kebutuhanmu dengan <a href=\"/berapa-mbps-untuk-berapa-orang/\">kalkulator Mbps per jumlah orang</a>, pahami patokan keluarga di <a href=\"/kecepatan-wifi-ideal-keluarga/\">panduan kecepatan WiFi ideal keluarga</a>, dan pastikan paketmu <a href=\"/wifi-tanpa-fup-unlimited/\">tanpa FUP yang bikin lemot</a>.</p>\n\n  <h2>Cek Area Layanan di Kotamu</h2>\n  <div class=\"related-cities\">\n    <a href=\"/wifi-solo/\">Pasang WiFi Solo</a>\n    <a href=\"/wifi-sukoharjo/\">Pasang WiFi Sukoharjo</a>\n    <a href=\"/wifi-karanganyar/\">Pasang WiFi Karanganyar</a>\n    <a href=\"/wifi-klaten/\">Pasang WiFi Klaten</a>\n    <a href=\"/wifi-boyolali/\">Pasang WiFi Boyolali</a>\n    <a href=\"/wifi-surakarta/\">Pasang WiFi Surakarta</a>\n  </div>\n\n  <p class=\"source-note\">Disusun dari data resmi <a href=\"https://satu.xl.co.id/paket\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">XL SATU</a> (paket & harga promo), rekomendasi teknis <a href=\"https://www.myrepublic.co.id/blog/berapa-kecepatan-internet-yang-ideal-untuk-streaming-4-k\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">streaming 4K</a>, dan panduan kebutuhan perangkat 2026 —  ditulis ulang untuk konteks Solo Raya.</p>\n\n",
+  bodyHtml: `
+
+  <div class="info-box" style="border-left: 4px solid var(--green); background: #f0fdf4; padding: 18px 20px; border-radius: 10px; margin: 0 0 24px 0; box-shadow: 0 2px 8px rgba(16,185,129,0.08);">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; color: #15803d; font-weight: 800; font-size: 15px;">
+      <span>💡</span> Ringkasan Cepat: 250 Mbps untuk Berapa Orang?
+    </div>
+    <p style="margin: 0 0 10px 0; line-height: 1.65; font-size: 15px; color: #166534;">
+      Kecepatan internet <strong>250 Mbps sangat ideal untuk 6 hingga 10 orang</strong> anggota keluarga atau <strong>15 hingga 25 perangkat aktif sekaligus</strong> tanpa risiko buffering.
+    </p>
+    <ul style="margin: 0; padding-left: 20px; line-height: 1.6; font-size: 14px; color: #1e3a2b;">
+      <li><strong>Streaming 4K:</strong> Mampu memutar 4—5 Smart TV layar 4K secara bersamaan (kebutuhan 15–25 Mbps/TV).</li>
+      <li><strong>WFH & Zoom:</strong> Meeting video HD lancar untuk beberapa orang sekaligus dengan latensi fiber rendah.</li>
+      <li><strong>Gaming Pro:</strong> Ping stabil &lt;20ms karena rasio upload-download simetris 100% tanpa FUP.</li>
+      <li><strong>CCTV & Smart Home:</strong> Sisa bandwidth sangat longgar untuk standby puluhan sensor IoT dan CCTV cloud.</li>
+    </ul>
+  </div>
+
+  <p>Angka "250 Mbps" terdengar besar, tapi yang menentukan cukup-tidaknya bukan angka itu saja — melainkan <strong>berapa aktivitas berat yang jalan bersamaan</strong>. Satu TV 4K menyala jauh lebih rakus daripada 10 HP yang cuma standby. Artikel ini membedah hitungannya supaya kamu tidak bayar lebih (atau kurang).</p>
+
+  <h2>Kebutuhan Bandwidth per Aktivitas</h2>
+  <p>Patokan umum industri (Netflix, YouTube, dan panduan teknis 2026):</p>
+  <table class="speed-table">
+    <tr><th>Aktivitas (per perangkat)</th><th>Butuh ±</th></tr>
+    <tr><td>Streaming 4K (Netflix/YouTube/Disney+)</td><td>15—25 Mbps</td></tr>
+    <tr><td>Streaming HD 1080p</td><td>5—8 Mbps</td></tr>
+    <tr><td>Video call / meeting online (HD)</td><td>3—4 Mbps</td></tr>
+    <tr><td>Gaming online</td><td>5—25 Mbps (yang penting ping rendah)</td></tr>
+    <tr><td>Browsing & media sosial</td><td>1—5 Mbps</td></tr>
+    <tr><td>Smart home / sensor / standby</td><td>di bawah 1 Mbps</td></tr>
+  </table>
+
+  <h2>Simulasi: 250 Mbps Dipakai Bareng-Bareng</h2>
+  <p>Contoh rumah 5-7 orang di jam sibuk malam hari:</p>
+  <ul>
+    <li>2 TV streaming 4K: ±50 Mbps</li>
+    <li>1 video call kerja: ±4 Mbps</li>
+    <li>1 gaming online: ±10 Mbps</li>
+    <li>5 HP scrolling sosmed: ±15 Mbps</li>
+    <li>Smart TV standby + CCTV + smart home: ±5 Mbps</li>
+  </ul>
+  <p>Total ±<strong>84 Mbps</strong> — baru sepertiga dari 250 Mbps. Sisanya jadi buffer saat ada download besar, update game puluhan GB, atau tamu yang ikut nebeng WiFi. Inilah alasan 250 Mbps disebut <em>sweet spot</em> keluarga menengah: lega tanpa mubazir.</p>
+
+  <div class="info-box">
+    <strong>Kunci yang sering dilupakan:</strong> hitung <strong>perangkat aktif</strong>, bukan total perangkat. Rumah dengan 25 perangkat yang hanya 4 aktif bersamaan butuh jauh lebih kecil daripada rumah 8 perangkat yang semuanya streaming. Klaim "hingga 10 perangkat" dari provider mengasumsikan campuran aktif dan standby yang wajar.
+  </div>
+
+  <h2>Paket XL Home Spark 250 Mbps: Isi & Promo Resmi</h2>
+  <p>Di XL Home Solo Raya, 250 Mbps adalah kecepatan <strong>Speed Booster</strong> dari paket normal 100 Mbps (paket Spark). Isinya menurut penawaran resmi:</p>
+  <ul>
+    <li><strong>Kecepatan:</strong> normal 100 Mbps, promo booster hingga 250 Mbps</li>
+    <li><strong>Perangkat:</strong> optimal hingga 10–15 perangkat aktif</li>
+    <li><strong>Aktivitas ideal:</strong> browsing, sosmed, streaming 4K, video conference HD, game online, upload konten HD</li>
+    <li><strong>Instalasi:</strong> Gratis biaya instalasi Rp 0 (hemat Rp 100.000 dibanding paket Starter 20 Mbps)</li>
+    <li><strong>Harga promo:</strong> Rp229.000/bulan (harga belum PPN)</li>
+    <li><strong>Koneksi:</strong> 100% Fiber Optik simetris murni tanpa FUP</li>
+  </ul>
+  <p>Harga promo dapat berubah sewaktu-waktu — konfirmasi ketersediaan coverage Solo Raya via WhatsApp sales di bawah. Bandingkan juga dengan <a href="/biaya-pasang-wifi-solo-raya/">rincian biaya semua paket</a>.</p>
+
+  <div class="cta-box" style="background:linear-gradient(135deg, #0d7a5f 0%, #037e64 100%);">
+    <h3>Spark 250 Mbps: Rp229.000/bln — Pas untuk Rumahmu?</h3>
+    <p>Ceritakan jumlah penghuni + kebiasaan internet (berapa TV, WFH, gaming), tim sales bantu pastikan 250 Mbps cukup atau pilih paket lain.</p>
+    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20tanya%20paket%20250%20Mbps%20untuk%20rumah%20saya" target="_blank" rel="noopener noreferrer" class="btn-cta" style="background:#fff; color:var(--green-dark);"><i class="fab fa-whatsapp"></i> Tanya Paket 250 Mbps</a>
+  </div>
+
+  <h2>Kapan 250 Mbps Kurang?</h2>
+  <p>Naik ke 300—400 Mbps kalau kondisimu seperti ini:</p>
+  <ul>
+    <li>Penghuni 8+ orang dengan banyak pengguna berat tiap malam</li>
+    <li>Ada konten kreator / editor yang upload video raw puluhan GB rutin</li>
+    <li>Rumah kos / kontrakan dengan belasan penghuni aktif bersamaan</li>
+    <li>3+ TV 4K menyala bareng setiap hari + WFH + gaming turnamen</li>
+  </ul>
+  <p>Sebaliknya, kalau cuma 1—3 orang tanpa TV 4K, 250 Mbps itu kelebihan — kamu bisa pertimbangkan paket Starter 20 Mbps. Masih bingung? Pakai <a href="/berapa-mbps-untuk-berapa-orang/">kalkulator kebutuhan Mbps</a>.</p>
+
+  <h2>Pertanyaan yang Sering Ditanyakan (FAQ)</h2>
+
+  <div class="cta-box">
+    <h3>Cek Apakah 250 Mbps Tersedia di Alamatmu</h3>
+    <p>XL Home melayani Solo, Sukoharjo, Karanganyar, Klaten, Boyolali, Sragen, dan Wonogiri. Kirim alamat, sales cek coverage + jadwal survei.</p>
+    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20cek%20coverage%20250%20Mbps%20di%20alamat%20saya" target="_blank" rel="noopener noreferrer" class="btn-cta">
+      <i class="fab fa-whatsapp"></i> Cek Coverage via WhatsApp
+    </a>
+  </div>
+
+  <h2>Baca Juga</h2>
+  <p>Hitung presisi kebutuhanmu dengan <a href="/berapa-mbps-untuk-berapa-orang/">kalkulator Mbps per jumlah orang</a>, pahami patokan keluarga di <a href="/kecepatan-wifi-ideal-keluarga/">panduan kecepatan WiFi ideal keluarga</a>, dan pastikan paketmu <a href="/wifi-tanpa-fup-unlimited/">tanpa FUP yang bikin lemot</a>.</p>
+
+  <h2>Cek Area Layanan di Kotamu</h2>
+  <div class="related-cities">
+    <a href="/wifi-solo/">Pasang WiFi Solo</a>
+    <a href="/wifi-sukoharjo/">Pasang WiFi Sukoharjo</a>
+    <a href="/wifi-karanganyar/">Pasang WiFi Karanganyar</a>
+    <a href="/wifi-klaten/">Pasang WiFi Klaten</a>
+    <a href="/wifi-boyolali/">Pasang WiFi Boyolali</a>
+    <a href="/wifi-surakarta/">Pasang WiFi Surakarta</a>
+  </div>
+
+  <p class="source-note">Disusun dari data resmi penawaran XL Home Solo Raya, rekomendasi teknis streaming 4K, dan panduan kebutuhan perangkat 2026.</p>
+`,
 
 };
 

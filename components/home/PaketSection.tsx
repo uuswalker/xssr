@@ -130,7 +130,6 @@ function FiberCard({ t }: { t: FiberTier }) {
             className="btn-pilih btn-cek-lokasi-trigger"
             aria-label={`Saya Pilih Ini - Paket ${t.name}`}
             data-paket={t.waText}
-            style={t.badgePromo ? { background: 'var(--navy)', borderColor: 'var(--navy)', width: '100%' } : undefined}
           >
             Saya Pilih Ini
           </button>

@@ -52,6 +52,26 @@ interface IpCache {
   ts: number;
 }
 
+export const SOLO_RAYA_CITIES = new Set([
+  "solo", "surakarta", "sukoharjo", "karanganyar", "boyolali", "klaten", "sragen", "wonogiri",
+  "baki", "grogol", "kartasura", "colomadu", "palur"
+]);
+
+export function normalizePaketOption(input: string | null | undefined): string {
+  if (!input) return "";
+  const s = input.toLowerCase();
+  if (s.includes("20") && s.includes("mbps")) return "Saya minat paket XL Home Starter 20 Mbps Rp185.000";
+  if (s.includes("250") && s.includes("mbps")) return "Saya minat paket XL Home Spark 250 Mbps Rp229.000";
+  if (s.includes("300") && s.includes("mbps")) return "Saya minat paket XL Home Spark 300 Mbps Rp239.000";
+  if (s.includes("400") && s.includes("mbps")) return "Saya minat paket XL Home Spark 400 Mbps Rp299.000";
+  if (s.includes("500") && s.includes("mbps")) return "Saya minat paket XL Home Spark 500 Mbps Rp399.000";
+  if (s.includes("1000") && s.includes("mbps")) return "Saya minat paket XL Home Spark 1000 Mbps Rp899.000";
+  if (s.includes("advance") && s.includes("50")) return "Saya minat XL Home Wireless 50 Mbps Advance Rp650.000";
+  if (s.includes("advance") && s.includes("100")) return "Saya minat XL Home Wireless 100 Mbps Advance Rp790.000";
+  if (s.includes("wireless") || s.includes("fwa")) return "Saya minat XL Home Wireless Monthly 100 Mbps Rp219.500";
+  return input;
+}
+
 export default function CekLokasi() {
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -410,7 +430,7 @@ export default function CekLokasi() {
       if ((window as any).__pendingCekLokasi) {
         const p = (window as any).__pendingCekLokasi;
         (window as any).__pendingCekLokasi = null;
-        setPaketPilihan(p !== "trigger" ? p : null);
+        setPaketPilihan(p !== "trigger" ? (normalizePaketOption(p) || null) : null);
         bukaModal(p !== "trigger" ? "paket" : "header");
       } else {
         try {
@@ -422,9 +442,9 @@ export default function CekLokasi() {
             modalOpened.current = true;
             setStrip(null);
             if (paketParam) {
-              setPaketPilihan(paketParam);
+              setPaketPilihan(normalizePaketOption(paketParam) || null);
             } else if (cekParam && cekParam !== "1" && cekParam !== "lokasi" && cekParam !== "true") {
-              setPaketPilihan(`Spark ${cekParam} Mbps`);
+              setPaketPilihan(normalizePaketOption(`Spark ${cekParam} Mbps`) || null);
             }
             window.setTimeout(() => {
               bukaModal("url_param");
@@ -442,9 +462,10 @@ export default function CekLokasi() {
       if (!el) return;
       modalOpened.current = true;
       setStrip(null);
-      // Tangkap info paket dari data-paket attribute (jika ada)
+      // Tangkap info paket dari data-paket attribute (jika ada) dan normalisasi ke exact option value
       const paketData = el.getAttribute("data-paket");
-      setPaketPilihan(paketData || null);
+      const norm = paketData ? normalizePaketOption(paketData) : null;
+      setPaketPilihan(norm || null);
       if (el.classList.contains("btn-cek-lokasi-trigger")) bukaModal(paketData ? "paket" : "header");
       else bukaModal();
     };
@@ -778,22 +799,17 @@ export default function CekLokasi() {
     try {
       const c = JSON.parse(localStorage.getItem(LS_KOTA) || "null") as IpCache | null;
       if (c && Date.now() - c.ts < 24 * 3600 * 1000 && c.kota) {
-        kotaIP = c.kota;
+        const cachedRaw = c.kota.toLowerCase().trim();
+        kotaIP = SOLO_RAYA_CITIES.has(cachedRaw) ? c.kota : "Solo Raya";
         gtag("event", "ip_kota_terdeteksi", { kota_ip: kotaIP, page_path: location.pathname });
       } else if (!c) {
         fetch("https://ipwho.is/")
           .then((r) => r.json())
           .then((d: { success?: boolean; city?: string }) => {
             if (!d?.success || !d.city) return;
-            const k = KOTA_ALIASES[String(d.city).toLowerCase().trim()];
-            if (!k) {
-              try {
-                localStorage.setItem(LS_KOTA, JSON.stringify({ kota: "", ts: Date.now() }));
-              } catch {
-                /* abaikan */
-              }
-              return;
-            }
+            const raw = String(d.city).toLowerCase().trim();
+            // Hanya tampilkan jika IP berada di wilayah Solo Raya; bila di luar (cth: Tangerang, Jakarta, atau ISP datacenter), set fallback aman "Solo Raya"
+            const k = SOLO_RAYA_CITIES.has(raw) ? (KOTA_ALIASES[raw] || "Solo") : "Solo Raya";
             try {
               localStorage.setItem(LS_KOTA, JSON.stringify({ kota: k, ts: Date.now() }));
             } catch {
@@ -828,9 +844,10 @@ export default function CekLokasi() {
       stripShown.current = true;
       try {
         const c = JSON.parse(localStorage.getItem(LS_KOTA) || "null") as IpCache | null;
-        setStrip(c?.kota || "");
+        const raw = (c?.kota || "").toLowerCase().trim();
+        setStrip(SOLO_RAYA_CITIES.has(raw) ? (c?.kota || "Solo Raya") : "Solo Raya");
       } catch {
-        setStrip("");
+        setStrip("Solo Raya");
       }
       gtag("event", "lokasi_strip_muncul", { page_path: location.pathname });
     };
