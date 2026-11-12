@@ -120,7 +120,7 @@ function FiberCard({ t }: { t: FiberTier }) {
             <span>/bulan</span>
           </div>
           {t.badgePromo && (
-            <div style={{ background: '#fef2f2', color: '#dc2626', padding: '2px 8px', borderRadius: 99, fontSize: 11, fontWeight: 700, marginTop: 4, display: "inline-flex", alignItems: "center", gap: 3 }}>
+            <div style={{ background: '#fef2f2', color: '#991b1b', padding: '2px 8px', borderRadius: 99, fontSize: 11, fontWeight: 700, marginTop: 4, display: "inline-flex", alignItems: "center", gap: 3 }}>
               <Flame size={12} style={{ flexShrink: 0 }} aria-hidden="true" /> {t.badgePromo}
             </div>
           )}

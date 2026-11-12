@@ -1264,21 +1264,40 @@
         display: none !important;
       }
       .slider-dots {
-        bottom: 8px;
-        gap: 6px;
+        bottom: 6px;
+        gap: 4px;
       }
       .dot {
+        position: relative;
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        min-height: 28px;
+        padding: 0;
+        background: transparent !important;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .dot::before {
+        content: "";
+        display: block;
         width: 8px;
         height: 8px;
-        min-width: 8px;
-        min-height: 8px;
-        padding: 0;
         border-radius: 99px;
+        background: var(--slider-dot);
         transition: all 0.25s ease;
       }
       .dot.active {
+        width: 32px;
+        min-width: 32px;
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+      .dot.active::before {
         width: 22px;
-        border-radius: 99px;
         background: #ffffff;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
       }
@@ -1935,4 +1954,52 @@
   background: #dcfce7;
   border-color: #86efac;
   color: #166534;
+}
+
+/* Accessibility Enhancement: Article Hero, Breadcrumbs & Contrast */
+.article-hero {
+  background: var(--green-light);
+  padding: 48px 24px;
+  text-align: center;
+}
+.article-hero .breadcrumb {
+  font-size: 13px;
+  color: #374151 !important;
+  margin-bottom: 16px;
+}
+.article-hero .breadcrumb a {
+  color: #026b55 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+.article-hero .breadcrumb a:hover {
+  color: #014335 !important;
+}
+.article-hero h1 {
+  font-size: 32px;
+  font-weight: 800;
+  max-width: 800px;
+  margin: 0 auto 12px;
+  line-height: 1.3;
+  color: #111827 !important;
+}
+.article-hero .subtitle {
+  font-size: 16px;
+  color: #374151 !important;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.article-hero .article-meta,
+.article-meta {
+  font-size: 13px;
+  color: #374151 !important;
+  margin-top: 16px;
+}
+.cta-box {
+  background: #026b55 !important;
+  color: #ffffff !important;
+}
+.cta-box p {
+  color: #ffffff !important;
 }
