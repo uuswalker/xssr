@@ -67,7 +67,7 @@ Repo ini memiliki mekanisme pengawasan mutu otomatis sebelum setiap proses rilis
 ## 💻 Panduan Menjalankan Proyek
 
 ### Prasyarat
-* Node.js v18.18+ atau v20+
+* Node.js v20.9+ (disarankan v22, sesuai CI)
 * npm
 
 ### Instalasi & Menjalankan Lokal
@@ -109,8 +109,23 @@ npm run start
 │   └── tools/            # Komponen alat interaktif (Speedtest, Kalkulator, Kuis, dll.)
 ├── lib/                  # Single Source of Truth & Logic (paket.ts, site.ts, artikel.ts, geo-pages.ts)
 ├── public/               # Aset statis publik (gambar, icon, video webm/mp4, Web Vitals, robots.txt)
-└── scripts/              # Skrip pendukung (guard-contacts.mjs, DevTools helpers, scraping parsers)
+├── scripts/              # guard-contacts.mjs, Code.gs (webhook lead), worker Cloudflare, parser data coverage
+└── .github/workflows/    # CI: guard contacts, lint, build (termasuk typecheck)
 ```
+
+---
+
+## 🔐 Secret & Konfigurasi Worker
+
+Worker `coverage-api` (`scripts/cloudflare_worker_optimized.js`, konfigurasi `wrangler.toml`) **tidak boleh** menyimpan kunci di source code.
+
+```bash
+# Set / rotasi kunci admin (disimpan sebagai Cloudflare secret)
+npx wrangler secret put ADMIN_KEY
+```
+
+* Endpoint `/api/admin/*` hanya aktif jika `ADMIN_KEY` terpasang dan header `x-admin-key` cocok.
+* Data mentah (`data-mentah/`, `gsc_*.csv`) di-ignore dari git; simpan secara lokal.
 
 ---
 

@@ -10,7 +10,14 @@
  * 5. Strict Rate Limiting (60 req/min per IP) & Dynamic Whitelist CORS
  */
 
-const ADMIN_KEY = "xssr-tahap2-secure-2026";
+// ADMIN_KEY dibaca dari Cloudflare secret (env.ADMIN_KEY), JANGAN di-hardcode.
+// Set dengan: npx wrangler secret put ADMIN_KEY
+function safeEqual(a, b) {
+  if (typeof a !== "string" || typeof b !== "string" || a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
 const RATE_LIMIT_MAX_REQUESTS = 60; // Max 60 requests per minute per IP
 const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute window
 const CACHE_VERSION = "v3.0.6-wirelesssop";
@@ -266,7 +273,7 @@ export default {
     const clientIp = request.headers.get("cf-connecting-ip") || "unknown";
 
     const adminKey = request.headers.get("x-admin-key");
-    const isAdmin = adminKey === ADMIN_KEY;
+    const isAdmin = Boolean(env.ADMIN_KEY) && safeEqual(adminKey, env.ADMIN_KEY);
 
     // 2. IP Rate Limiting Middleware (Exempt admin endpoints & health check)
     if (!isAdmin && path !== "/api/health" && !path.startsWith("/api/health/")) {
