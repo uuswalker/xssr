@@ -37,7 +37,7 @@ const COMPARISON_ROWS = [
     xl: "100% via Virtual Account Resmi XL (Anti Pungli)",
     i: "Via loket / tagihan bulanan",
     b: "Bayar di muka sistem invoice",
-    m: "Rentan titip tunai ke sales (Banyak kasus nilep)",
+    m: "Sistem tagihan invoice / loket pihak ketiga",
   },
 ];
 
