@@ -47,3 +47,9 @@ next-env.d.ts
 __pycache__/
 *.py[cod]
 $py.class
+
+# playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
