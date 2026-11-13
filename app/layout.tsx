@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ClientOnlyComponents from "@/components/ClientOnlyComponents";
 import Trackers from "@/components/Trackers";
+import PostHogLoader from "@/components/PostHogLoader";
 import { ADS_ID, GA_ID, FB_PIXEL_ID, IS_STAGING, SITE_NAME } from "@/lib/site";
 
 const jakarta = localFont({
@@ -118,6 +119,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
         <Trackers />
+        {!IS_STAGING && <PostHogLoader />}
         <ClientOnlyComponents />
         {!IS_STAGING && (
           <>
