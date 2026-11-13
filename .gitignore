@@ -32,15 +32,17 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
-# vercel
+# deployment platforms
 .vercel
+.wrangler/
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
 
-# Automation scripts
+# Automation scripts & tools
 .scripts/
 
 # python

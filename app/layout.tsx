@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ClientOnlyComponents from "@/components/ClientOnlyComponents";
 import Trackers from "@/components/Trackers";
-import { ADS_ID, GA_ID, FB_PIXEL_ID, IS_STAGING, SITE_NAME } from "@/lib/site";
+import { ADS_ID, GA_ID, FB_PIXEL_ID, POSTHOG_KEY, POSTHOG_HOST, IS_STAGING } from "@/lib/site";
 
 const jakarta = localFont({
   src: [
@@ -16,7 +16,7 @@ const jakarta = localFont({
   ],
   display: "swap",
   variable: "--font-jakarta",
-  preload: false,
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -50,8 +50,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://connect.facebook.net" />
-        <link rel="preload" href="/fonts/pjs-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/pjs-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://static.cloudflareinsights.com" crossOrigin="anonymous" />
+        <link rel="preload" href="/images/banner-xlsatu-jadi-xlhome.webp" as="image" type="image/webp" fetchPriority="high" />
         <link rel="webmcp" id="webmcp" href="/webmcp.json" />
         <link rel="ard" href="/.well-known/ard.json" type="application/json" />
         <link rel="ai-catalog" href="/.well-known/ai-catalog.json" type="application/json" />
@@ -138,6 +138,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                     f.async=true;
                     f.src='https://connect.facebook.net/en_US/fbevents.js';
                     document.head.appendChild(f);
+
+                    var phKey='${POSTHOG_KEY}';
+                    if(phKey){
+                      !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+                      posthog.init(phKey, { api_host: '${POSTHOG_HOST}', person_profiles: 'identified_only', capture_pageview: true });
+                    }
                   }
                   ['pointerdown','touchstart','scroll','click'].forEach(function(e){
                     window.addEventListener(e,_loadTrackers,{once:true,passive:true});

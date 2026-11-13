@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { ADS_ID } from "@/lib/site";
 
-// Port 1:1 perilaku xssr: tracking klik WA (GA4 + Ads conversion) + anti-copy gambar + UTM tracking
+// Port 1:1 perilaku xssr: tracking klik WA (GA4 + Ads conversion + PostHog) + anti-copy gambar + UTM tracking
 export default function Trackers() {
   useEffect(() => {
     // 1. Simpan UTM parameter ke sessionStorage agar bertahan pindah halaman
@@ -11,7 +11,7 @@ export default function Trackers() {
     const utmSource = urlParams.get("utm_source");
     const utmMedium = urlParams.get("utm_medium");
     const utmCampaign = urlParams.get("utm_campaign");
-    
+
     let currentUtm = sessionStorage.getItem("xlsr_utm");
     if (utmSource) {
       const parts = [utmSource, utmMedium, utmCampaign].filter(Boolean);
@@ -24,7 +24,7 @@ export default function Trackers() {
       const t = e.target as HTMLElement | null;
       const l = t?.closest?.('a[href*="wa.me"]') as HTMLAnchorElement | null;
       if (!l) return;
-      
+
       // Sisipkan UTM ke pesan WA jika ada
       if (currentUtm) {
         try {
@@ -35,18 +35,20 @@ export default function Trackers() {
             url.searchParams.set("text", text);
             l.href = url.toString();
           }
-        } catch(err) {
+        } catch {
           // ignore parsing error
         }
       }
 
+      const linkText = (l.textContent || "").trim().slice(0, 100) || l.className || "wa_link";
+
       if (typeof (window as unknown as { gtag?: unknown }).gtag === "function") {
         const gtag = (window as unknown as { gtag: (...a: unknown[]) => void }).gtag;
         gtag("event", "click_whatsapp", {
-          link_text: ((l.textContent || "").trim().slice(0, 100) || l.className || "wa_link"),
+          link_text: linkText,
           link_url: l.href,
           page_path: window.location.pathname,
-          utm_data: currentUtm || "organic"
+          utm_data: currentUtm || "organic",
         });
         gtag("event", "conversion", { send_to: `${ADS_ID}/uoD7CPXb27ADEN7y1b8D` });
       }
@@ -55,10 +57,20 @@ export default function Trackers() {
         const fbq = (window as unknown as { fbq: (...a: unknown[]) => void }).fbq;
         fbq("track", "Contact");
         fbq("track", "Lead", {
-          content_name: ((l.textContent || "").trim().slice(0, 100) || "whatsapp_click"),
+          content_name: linkText,
           content_category: "whatsapp",
           value: 185000,
           currency: "IDR",
+        });
+      }
+
+      const posthog = (window as unknown as { posthog?: { capture: (ev: string, p?: Record<string, unknown>) => void } }).posthog;
+      if (posthog && typeof posthog.capture === "function") {
+        posthog.capture("click_whatsapp", {
+          link_text: linkText,
+          link_url: l.href,
+          page_path: window.location.pathname,
+          utm_data: currentUtm || "organic",
         });
       }
     };

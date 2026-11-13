@@ -13,6 +13,8 @@ export const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61594596763
 export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-5YWJ5LP9LG";
 export const ADS_ID = process.env.NEXT_PUBLIC_ADS_ID || "AW-938834270";
 export const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID || "1440911638104275";
+export const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY || "";
+export const POSTHOG_HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com";
 export const IS_STAGING = (process.env.NEXT_PUBLIC_STAGING ?? "false") !== "false";
 
 export function waLink(text: string): string {
@@ -154,5 +156,3 @@ export const V1_ROUTES: string[] = [
   "/pasang-wifi-perumahan-klewer-indah-sawit/",
   "/pasang-wifi-perumahan-asabri-gagaksipat/",
 ];
-
-
