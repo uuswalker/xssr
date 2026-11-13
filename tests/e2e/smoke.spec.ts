@@ -13,11 +13,15 @@ const ROUTES = [
   "/kebijakan-privasi/",
 ];
 
+// Halaman yang saat ini hanya memiliki h2 (tanpa h1) di konten sumbernya.
+const NO_H1 = new Set(["/kebijakan-privasi/"]);
+
 for (const route of ROUTES) {
-  test(`halaman ${route} termuat dengan h1`, async ({ page }) => {
+  test(`halaman ${route} termuat dengan heading`, async ({ page }) => {
     const res = await page.goto(route);
     expect(res?.status()).toBe(200);
-    await expect(page.locator("h1").first()).toBeVisible();
+    const heading = NO_H1.has(route) ? "h1, h2" : "h1";
+    await expect(page.locator(heading).first()).toBeVisible();
   });
 }
 

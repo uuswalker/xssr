@@ -13,6 +13,8 @@ export default defineConfig({
   use: {
     baseURL: BASE_URL,
     trace: "on-first-retry",
+    // Pakai browser yang sudah terpasang (mis. E2E_CHANNEL=chrome) tanpa unduh Chromium Playwright.
+    ...(process.env.E2E_CHANNEL ? { channel: process.env.E2E_CHANNEL } : {}),
   },
   projects: [
     { name: "mobile-chromium", use: { ...devices["Pixel 7"] } },
@@ -22,7 +24,7 @@ export default defineConfig({
   webServer: process.env.E2E_BASE_URL
     ? undefined
     : {
-        command: "npm run build && npm run start",
+        command: `npm run build && npx serve out -l ${PORT} --no-clipboard`,
         url: BASE_URL,
         reuseExistingServer: !process.env.CI,
         timeout: 300_000,
