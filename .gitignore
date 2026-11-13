@@ -47,3 +47,7 @@ next-env.d.ts
 __pycache__/
 *.py[cod]
 $py.class
+
+# Data mentah & export lokal (jangan di-commit)
+/data-mentah/
+gsc_*.csv
