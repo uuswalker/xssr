@@ -1,7 +1,7 @@
 // Pengiriman lead + pencarian alamat — port 1:1 cek-lokasi.js xssr@ec66035.
 // Dipakai client-side saja (fetch/browser APIs).
 
-import { SOLORAYA_VIEWBOX, cleanAlamatResmi } from "./coverage";
+import { SOLORAYA_VIEWBOX, cleanAlamatResmi, cekCoverageWorkerAPI } from "./coverage";
 
 export const WEBHOOK_URL =
   process.env.NEXT_PUBLIC_LEAD_WEBHOOK ||
@@ -51,6 +51,7 @@ export interface LeadPayload {
   homepassId: string | null;
   homepassAddress: string | null;
   odp?: string | null;
+  cluster?: string | null;
   mapsLink: string;
   halaman: string;
   referrer: string;
@@ -74,6 +75,7 @@ function basePayload(
     homepassId: string | null;
     homepassAddress: string | null;
     odp?: string | null;
+    cluster?: string | null;
     peminatSekitar?: string | null;
     providerSaatIni?: string | null;
   }
@@ -96,6 +98,7 @@ function basePayload(
     homepassId: f.homepassId,
     homepassAddress: f.homepassAddress,
     odp: f.odp || null,
+    cluster: f.cluster || null,
     mapsLink:
       f.lat != null && f.lng != null
         ? `https://www.google.com/maps?q=${f.lat},${f.lng}`
@@ -298,6 +301,41 @@ export async function cariAlamatSmart(
 ): Promise<SmartSuggestionItem[]> {
   const q = query.trim();
   if (q.length < 3) return [];
+
+  // 0. Deteksi Cepat Input Koordinat / Google Maps Link (Contoh: "-7.58823, 110.94024" atau "?q=-7.588,110.940")
+  const coordRegex = /(-?\d+\.\d+)[\s,]+(-?\d+\.\d+)/;
+  const matchCoord = q.match(coordRegex);
+  if (matchCoord) {
+    const lat = parseFloat(matchCoord[1]);
+    const lng = parseFloat(matchCoord[2]);
+    if (!isNaN(lat) && !isNaN(lng)) {
+      try {
+        const cv = await cekCoverageWorkerAPI(lat, lng);
+        if (cv) {
+          const odpPart = cv.odp ? `ODP: ${cv.odp}` : "ODP Terdeteksi";
+          const clusterPart = cv.cluster ? `Cluster: ${cv.cluster}` : (cv.city ? `Area ${cv.city}` : "Area Layanan");
+          const distPart = cv.jarakM != null ? `(±${cv.jarakM}m)` : "";
+          const subtitle = `${odpPart} • ${clusterPart} ${distPart}`.trim();
+          const title = cv.alamat || `${clusterPart}, ${cv.city || "Solo Raya"}`;
+          return [
+            {
+              lat: String(lat),
+              lon: String(lng),
+              title,
+              subtitle: cv.status === "fiber" ? `${subtitle} • Siap Pasang Fiber` : `${subtitle} • Tercover Wireless`,
+              display_name: title,
+              isFiberReady: cv.status === "fiber",
+              odp: cv.odp || undefined,
+              cluster: cv.cluster || undefined,
+              city: cv.city || undefined,
+            },
+          ];
+        }
+      } catch {
+        /* lanjut ke pencarian text */
+      }
+    }
+  }
 
   const items: SmartSuggestionItem[] = [];
   const seenAddresses = new Set<string>();

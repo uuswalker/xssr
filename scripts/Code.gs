@@ -732,7 +732,27 @@ function _prediksiAlamatGoogleMaps(lat, lng) {
 }
 
 // ── NOTIF WA: kirim ringkasan lead ke owner via Fonnte ─────────
-function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId, jarakFiberM, coverage, homepassAddress, paket, odpParam) {
+
+// ── HELPER: QUERY CLOUDFLARE D1 COVERAGE DIRECTLY (FAIL-SAFE ENRICHMENT) ──
+function _queryCloudflareWorkerCoverage(lat, lng) {
+  try {
+    if (!lat || !lng || isNaN(Number(lat)) || isNaN(Number(lng))) return null;
+    const url = "https://coverage-api.oktaarrijal.workers.dev/api/coverage?lat=" + encodeURIComponent(lat) + "&lng=" + encodeURIComponent(lng);
+    const res = UrlFetchApp.fetch(url, {
+      muteHttpExceptions: true,
+      headers: { "Accept": "application/json" }
+    });
+    if (res.getResponseCode() === 200) {
+      const json = JSON.parse(res.getContentText());
+      return json;
+    }
+  } catch (err) {
+    console.log("CF-WORKER-LOOKUP-ERR: " + err.message);
+  }
+  return null;
+}
+
+function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId, jarakFiberM, coverage, homepassAddress, paket, odpParam, clusterParam) {
   try {
     // Normalisasi nomor HP ke format 08...
     let waDisplay = String(wa || "").trim();
@@ -796,8 +816,9 @@ function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId, jar
       hpDisplay = cleanHp.includes("atau disekitarnya") ? cleanHp : cleanHp + " (atau disekitarnya)";
     }
 
-    // ODP Code (Hanya untuk Fiber)
+    // ODP & Cluster Code (Hanya untuk Fiber)
     let odpDisplay = "-";
+    let clusterDisplay = String(clusterParam || "").trim();
     if (!isWireless) {
       odpDisplay = String(odpParam || "").trim();
       if (!odpDisplay) {
@@ -806,8 +827,21 @@ function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId, jar
           odpDisplay = odpMatch[1];
         }
       }
+
+      // FAIL-SAFE D1 EDGE LOOKUP: Jika odp atau cluster masih kosong tapi koordinat ada
+      if ((!odpDisplay || odpDisplay === "-" || !clusterDisplay || hpDisplay === "-") && lat && lng) {
+        const cfRes = _queryCloudflareWorkerCoverage(lat, lng);
+        if (cfRes) {
+          if ((!odpDisplay || odpDisplay === "-") && cfRes.odp) odpDisplay = cfRes.odp;
+          if (!clusterDisplay && cfRes.cluster) clusterDisplay = cfRes.cluster;
+          if (hpDisplay === "-" && cfRes.homepassId) hpDisplay = cfRes.homepassId + " (atau disekitarnya)";
+          if (jarakText === "-" && cfRes.distance != null) jarakText = "±" + Math.round(Number(cfRes.distance)) + " meter";
+          if (cfRes.address && (!alamatFinal || isKoord)) alamatFinal = cfRes.address + " (atau disekitarnya)";
+        }
+      }
+
       if (!odpDisplay || odpDisplay === "-") {
-        odpDisplay = "Cek Jalur OWS";
+        odpDisplay = clusterDisplay ? clusterDisplay : "Tercover Fiber (ODP Terdekat)";
       }
     }
 
@@ -836,7 +870,10 @@ function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId, jar
         "━━━━━━━━━━━━━━━━━━━";
     } else {
       const hp = (hpDisplay !== "-") ? "\nHOMEPASS_ID: " + hpDisplay : "";
-      const odp = (odpDisplay !== "-") ? "\nODP / Cluster: " + odpDisplay : "";
+      const odpClusterText = (odpDisplay !== "-" && clusterDisplay && !odpDisplay.includes(clusterDisplay))
+        ? odpDisplay + " (Cluster: " + clusterDisplay + ")"
+        : odpDisplay;
+      const odp = (odpDisplay !== "-") ? "\nODP / Cluster: " + odpClusterText : "";
       const jarak = (jarakText !== "-") ? "\n📏 Jarak ke ODP: " + jarakText : "";
       pesan = "⚡ *LEAD BARU XL HOME*\n" +
         "━━━━━━━━━━━━━━━━━━━\n" +
@@ -987,8 +1024,18 @@ function doPost(e) {
           ws.getRange(row, 10).setValue(pilih(data.halaman, cur[9]));
           _formatSingleRow(ws, row);
           const effectiveNotifHp = (isWirelessLead || cov === "manual" || cov === "request-pasang-baru") ? "" : pilih(hpId, cur[7]);
-          const odp = isWirelessLead ? "" : (data.odp || "");
-          if (_bolehNotif(wa)) kirimNotifWA(pilih(data.nama, cur[1]), wa, pilih(alamatFinal, cur[5]), pilih(kota, cur[6]), pilih(data.halaman, cur[9]), pilih(data.latitude, cur[3]), pilih(data.longitude, cur[4]), effectiveNotifHp, jarakFiber, cov, hpAddr, paket, odp);
+          let odp = isWirelessLead ? "" : (data.odp || "");
+          let cluster = data.cluster || "";
+          if (!isWirelessLead && (!odp || !cluster || !effectiveNotifHp) && latOk && lngOk) {
+            const cfData = _queryCloudflareWorkerCoverage(data.latitude, data.longitude);
+            if (cfData) {
+              if (!odp && cfData.odp) odp = cfData.odp;
+              if (!cluster && cfData.cluster) cluster = cfData.cluster;
+              if (!effectiveNotifHp && cfData.homepassId) effectiveNotifHp = cfData.homepassId;
+              if (!jarakFiber && cfData.distance != null) jarakFiber = cfData.distance;
+            }
+          }
+          if (_bolehNotif(wa)) kirimNotifWA(pilih(data.nama, cur[1]), wa, pilih(alamatFinal, cur[5]), pilih(kota, cur[6]), pilih(data.halaman, cur[9]), pilih(data.latitude, cur[3]), pilih(data.longitude, cur[4]), effectiveNotifHp, jarakFiber, cov, hpAddr, paket, odp, cluster);
           return ContentService
             .createTextOutput(JSON.stringify({ status: "updated", row }))
             .setMimeType(ContentService.MimeType.JSON);
@@ -1013,8 +1060,18 @@ function doPost(e) {
     ]]);
 
     _formatSingleRow(ws, newRow);
-    const odp = isWirelessLead ? "" : (data.odp || "");
-    if (_bolehNotif(wa)) kirimNotifWA(String(data.nama || "").trim(), wa, alamatFinal, kota, data.halaman || "", data.latitude, data.longitude, effectiveNewHp, jarakFiber, cov, hpAddr, paket, odp);
+    let odp = isWirelessLead ? "" : (data.odp || "");
+    let cluster = data.cluster || "";
+    if (!isWirelessLead && (!odp || !cluster || !effectiveNewHp) && latOk && lngOk) {
+      const cfData = _queryCloudflareWorkerCoverage(data.latitude, data.longitude);
+      if (cfData) {
+        if (!odp && cfData.odp) odp = cfData.odp;
+        if (!cluster && cfData.cluster) cluster = cfData.cluster;
+        if (!effectiveNewHp && cfData.homepassId) effectiveNewHp = cfData.homepassId;
+        if (!jarakFiber && cfData.distance != null) jarakFiber = cfData.distance;
+      }
+    }
+    if (_bolehNotif(wa)) kirimNotifWA(String(data.nama || "").trim(), wa, alamatFinal, kota, data.halaman || "", data.latitude, data.longitude, effectiveNewHp, jarakFiber, cov, hpAddr, paket, odp, cluster);
 
     return ContentService
       .createTextOutput(JSON.stringify({ status: "ok", row: newRow }))

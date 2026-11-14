@@ -175,7 +175,7 @@ export default function FormulirRegistrasi() {
   }, []);
 
   // Core Location Processing
-  const prosesLokasi = useCallback((lat: number, lng: number, alamatExplicit: string | null) => {
+  const prosesLokasi = useCallback((lat: number, lng: number, alamatExplicit: string | null, suggItem?: SmartSuggestionItem) => {
     timers.current.forEach(clearTimeout);
     intervals.current.forEach(clearInterval);
     timers.current = [];
@@ -195,11 +195,25 @@ export default function FormulirRegistrasi() {
     setStatusClass("reg-status success");
     setStatusMsg("Lokasi terdeteksi! Memverifikasi ketersediaan jaringan...");
 
+    if (suggItem && suggItem.isFiberReady) {
+      setCoverage({
+        status: "fiber",
+        jarakM: null,
+        zona: "5G Ultra",
+        fiberM: null,
+        homepassId: null,
+        alamat: alamatExplicit || suggItem.display_name,
+        city: suggItem.city || kota,
+        odp: suggItem.odp || null,
+        cluster: suggItem.cluster || null,
+      });
+    }
+
     if (alamatExplicit) {
       posRef.current = { lat, lng, kota, alamat: alamatExplicit };
       setLokasiInfo(`${alamatExplicit} (${lat.toFixed(5)}, ${lng.toFixed(5)})`);
       cekCoverageWorkerAPI(lat, lng).then((cv) => {
-        setCoverage(cv);
+        if (cv) setCoverage(cv);
         setStep("form");
         setStatusMsg("");
       });
@@ -211,7 +225,7 @@ export default function FormulirRegistrasi() {
       cekCoverageWorkerAPI(lat, lng),
       reverseGeocodeNominatim(lat, lng).catch(() => null)
     ]).then(([cv, res]) => {
-      setCoverage(cv);
+      if (cv) setCoverage(cv);
       const osmAddr = res || `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
       // Prioritaskan titik Homepass / Cluster FTTH resmi dari database XL Home jika terdeteksi
       const rawDbAddr = cv?.alamat ? cleanAlamatResmi(cv.alamat) : null;
@@ -345,7 +359,7 @@ export default function FormulirRegistrasi() {
   );
 
   // Submit Form ke WhatsApp & Google Sheets Webhook
-  const handleKirim = useCallback(() => {
+  const handleKirim = useCallback(async () => {
     const nm = nama.trim();
     const w = normalisasiWA(wa);
 
@@ -379,14 +393,29 @@ export default function FormulirRegistrasi() {
     const effectiveStatus = isWireless ? "wireless" : (coverage?.status || "manual");
     const isManual = effectiveStatus === "manual";
 
-    const effectiveHpId = effectiveStatus === "fiber" ? (coverage?.homepassId || null) : null;
-    const effectiveOdp = effectiveStatus === "fiber" ? (coverage?.odp || null) : null;
+    let effectiveHpId = effectiveStatus === "fiber" ? (coverage?.homepassId || null) : null;
+    let effectiveOdp = effectiveStatus === "fiber" ? (coverage?.odp || null) : null;
+    let effectiveCluster = effectiveStatus === "fiber" ? (coverage?.cluster || null) : null;
+    let activeCv = coverage;
+
+    // Fail-safe D1 Cloudflare Worker: jika ODP / Homepass / Cluster belum terisi tapi koordinat tersedia
+    if (effectiveStatus === "fiber" && (!effectiveOdp || !effectiveHpId || !effectiveCluster) && p.lat != null && p.lng != null) {
+      try {
+        const freshCv = await cekCoverageWorkerAPI(p.lat, p.lng);
+        if (freshCv) {
+          activeCv = freshCv;
+          if (!effectiveOdp && freshCv.odp) effectiveOdp = freshCv.odp;
+          if (!effectiveCluster && freshCv.cluster) effectiveCluster = freshCv.cluster;
+          if (!effectiveHpId && freshCv.homepassId) effectiveHpId = freshCv.homepassId;
+        }
+      } catch {}
+    }
 
     // Pastikan homepassAddress bukan koordinat murni
-    const rawHpAddr = coverage?.alamat ? cleanAlamatResmi(coverage.alamat) : null;
+    const rawHpAddr = activeCv?.alamat ? cleanAlamatResmi(activeCv.alamat) : null;
     const isKoordOnly = rawHpAddr ? /^-?\d+\.\d+,\s*-?\d+\.\d+$/.test(rawHpAddr) : false;
     const effectiveHpAddress = (effectiveStatus === "fiber" && !isKoordOnly) ? rawHpAddr : null;
-    const effectiveJarak = effectiveStatus === "fiber" ? jarakFiberField(coverage) : "";
+    const effectiveJarak = effectiveStatus === "fiber" ? jarakFiberField(activeCv) : "";
 
     // 1. Google Sheets Webhook Lead Telemetry (Internal Sales)
     postLead(
@@ -399,10 +428,11 @@ export default function FormulirRegistrasi() {
         kota: kotaKirim,
         coverage: effectiveStatus,
         jarakFiberM: effectiveJarak,
-        zona: coverage?.zona || (isWireless ? "5G Ultra" : null),
+        zona: activeCv?.zona || (isWireless ? "5G Ultra" : null),
         homepassId: effectiveHpId,
         homepassAddress: effectiveHpAddress,
         odp: effectiveOdp,
+        cluster: effectiveCluster,
         paket: paketPilihan || null,
       })
     );
@@ -824,7 +854,7 @@ export default function FormulirRegistrasi() {
                               const formatted = formatAlamatDisekitarnya(s.display_name);
                               setQuery(formatted);
                               setShowSugg(false);
-                              prosesLokasi(parseFloat(s.lat), parseFloat(s.lon), formatted);
+                              prosesLokasi(parseFloat(s.lat), parseFloat(s.lon), formatted, s);
                             }}
                           >
                             <div className="reg-sugg-icon">

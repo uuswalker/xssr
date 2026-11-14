@@ -203,6 +203,7 @@ export interface CoverageResult {
   alamat: string | null;
   city?: string | null;
   odp?: string | null;
+  cluster?: string | null;
 }
 
 export interface CoverageData {
@@ -505,6 +506,7 @@ export async function cekCoverageWorkerAPI(
               alamat: alamatLengkap,
               city: data.city,
               odp: data.odp || null,
+              cluster: data.cluster || null,
             };
           } else if (data.wirelessCovered) {
             const is5G = data.type === "WIRELESS_5G" || (data.wirelessType && data.wirelessType.includes("5G"));
@@ -517,6 +519,7 @@ export async function cekCoverageWorkerAPI(
               alamat: alamatLengkap,
               city: data.city,
               odp: null,
+              cluster: data.cluster || null,
             };
           } else {
             return {
@@ -528,6 +531,7 @@ export async function cekCoverageWorkerAPI(
               alamat: alamatLengkap,
               city: data.city,
               odp: null,
+              cluster: data.cluster || null,
             };
           }
         }

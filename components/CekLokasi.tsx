@@ -187,6 +187,7 @@ export default function CekLokasi() {
     const effStatusSoft = isWirelessSoft ? "wireless" : (coverage?.status || "manual");
     const effHpIdSoft = effStatusSoft === "fiber" ? (coverage?.homepassId || null) : null;
     const effOdpSoft = effStatusSoft === "fiber" ? (coverage?.odp || null) : null;
+    const effClusterSoft = effStatusSoft === "fiber" ? (coverage?.cluster || null) : null;
     const rawHpAddrSoft = coverage?.alamat ? cleanAlamatResmi(coverage.alamat) : null;
     const isKoordOnlySoft = rawHpAddrSoft ? /^-?\d+\.\d+,\s*-?\d+\.\d+$/.test(rawHpAddrSoft) : false;
     const effHpAddrSoft = (effStatusSoft === "fiber" && !isKoordOnlySoft) ? rawHpAddrSoft : null;
@@ -204,6 +205,7 @@ export default function CekLokasi() {
         homepassId: effHpIdSoft,
         homepassAddress: effHpAddrSoft,
         odp: effOdpSoft,
+        cluster: effClusterSoft,
         paket: paketPilihan || null,
       })
     );
@@ -218,7 +220,7 @@ export default function CekLokasi() {
   // ---- peta ----
   // ---- alur lokasi ----
   const prosesLokasi = useCallback(
-    (lat: number, lng: number, alamatText: string | null) => {
+    (lat: number, lng: number, alamatText: string | null, suggItem?: SmartSuggestionItem) => {
       setTanpaPeta(null);
       setGeoFallback(false);
       const currentReqId = ++reqIdRef.current;
@@ -253,6 +255,20 @@ export default function CekLokasi() {
         });
       }
       
+      if (suggItem && suggItem.isFiberReady) {
+        setCoverage({
+          status: "fiber",
+          jarakM: null,
+          zona: "5G Ultra",
+          fiberM: null,
+          homepassId: null,
+          alamat: alamatText || suggItem.display_name,
+          city: suggItem.city || hasil.nama,
+          odp: suggItem.odp || null,
+          cluster: suggItem.cluster || null,
+        });
+      }
+
       const cvLoading: CoverageResult = {
         status: "loading",
         jarakM: null,
@@ -261,7 +277,9 @@ export default function CekLokasi() {
         homepassId: null,
         alamat: null,
       };
-      setCoverage(cvLoading);
+      if (!suggItem || !suggItem.isFiberReady) {
+        setCoverage(cvLoading);
+      }
 
       // Cek Cloudflare D1 National FTTH API (Multi-Database Edge SQLite)
       cekCoverageWorkerAPI(lat, lng).then((apiCv) => {
@@ -277,6 +295,8 @@ export default function CekLokasi() {
             homepassId: null,
             alamat: q.alamat || `Area Layanan ${hasil.nama}`,
             city: hasil.nama,
+            odp: suggItem?.odp || null,
+            cluster: suggItem?.cluster || null,
           } : {
             status: "manual",
             jarakM: null,
@@ -287,6 +307,10 @@ export default function CekLokasi() {
             city: q.kota || hasil.nama,
           });
 
+          if (suggItem) {
+            if (!finalCv.odp && suggItem.odp) finalCv.odp = suggItem.odp;
+            if (!finalCv.cluster && suggItem.cluster) finalCv.cluster = suggItem.cluster;
+          }
           if (finalCv.city) {
             q.kota = finalCv.city;
           }
@@ -562,7 +586,7 @@ export default function CekLokasi() {
         (data) => {
           setSearching(false);
           if (data && data.length > 0) {
-            prosesLokasi(parseFloat(data[0].lat), parseFloat(data[0].lon), data[0].display_name);
+            prosesLokasi(parseFloat(data[0].lat), parseFloat(data[0].lon), data[0].display_name, data[0]);
           } else {
             setTanpaPeta(alamat);
           }
@@ -613,7 +637,7 @@ export default function CekLokasi() {
   }, []);
 
   // ---- kirim ----
-  const kirim = useCallback(() => {
+  const kirim = useCallback(async () => {
     const nm = nama.trim();
     let w = normalisasiWA(wa);
     if (!nm || nm.length < 2) {
@@ -652,13 +676,30 @@ export default function CekLokasi() {
     const kotaKirim = p.kota || coverage?.city || "Area Layanan";
     const alamatKirim = p.alamat || (p.lat && p.lng ? `${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}` : "");
 
-    const effectiveHpId = effectiveStatus === "fiber" ? (coverage?.homepassId || null) : null;
-    const effectiveOdp = effectiveStatus === "fiber" ? (coverage?.odp || null) : null;
+    let effectiveHpId = effectiveStatus === "fiber" ? (coverage?.homepassId || null) : null;
+    let effectiveOdp = effectiveStatus === "fiber" ? (coverage?.odp || null) : null;
+    let effectiveCluster = effectiveStatus === "fiber" ? (coverage?.cluster || null) : null;
+    let activeCv = coverage;
 
-    const rawHpAddr = coverage?.alamat ? cleanAlamatResmi(coverage.alamat) : null;
+    // Fail-safe D1 Cloudflare Worker: jika ODP / Cluster / Homepass belum terisi tapi koordinat tersedia
+    if (effectiveStatus === "fiber" && (!effectiveOdp || !effectiveHpId || !effectiveCluster) && p.lat != null && p.lng != null) {
+      try {
+        const freshCv = await cekCoverageWorkerAPI(p.lat, p.lng);
+        if (freshCv) {
+          activeCv = freshCv;
+          if (!effectiveOdp && freshCv.odp) effectiveOdp = freshCv.odp;
+          if (!effectiveCluster && freshCv.cluster) effectiveCluster = freshCv.cluster;
+          if (!effectiveHpId && freshCv.homepassId) effectiveHpId = freshCv.homepassId;
+        }
+      } catch {
+        /* abaikan */
+      }
+    }
+
+    const rawHpAddr = activeCv?.alamat ? cleanAlamatResmi(activeCv.alamat) : null;
     const isKoordOnly = rawHpAddr ? /^-?\d+\.\d+,\s*-?\d+\.\d+$/.test(rawHpAddr) : false;
     const effectiveHpAddress = (effectiveStatus === "fiber" && !isKoordOnly) ? rawHpAddr : null;
-    const effectiveJarak = effectiveStatus === "fiber" ? jarakFiberField(coverage) : "";
+    const effectiveJarak = effectiveStatus === "fiber" ? jarakFiberField(activeCv) : "";
 
     if (isReq) {
       postLead(
@@ -675,6 +716,7 @@ export default function CekLokasi() {
           homepassId: null,
           homepassAddress: null,
           odp: null,
+          cluster: null,
           paket: paketPilihan || null,
           peminatSekitar: peminatSekitar,
           providerSaatIni: providerSaatIni,
@@ -738,6 +780,7 @@ export default function CekLokasi() {
         homepassId: effectiveHpId,
         homepassAddress: effectiveHpAddress,
         odp: effectiveOdp,
+        cluster: effectiveCluster,
         paket: paketPilihan || null,
       })
     );
@@ -1166,7 +1209,7 @@ export default function CekLokasi() {
                               const formatted = formatAlamatDisekitarnya(s.display_name);
                               setQuery(formatted);
                               setShowSugg(false);
-                              prosesLokasi(parseFloat(s.lat), parseFloat(s.lon), formatted);
+                              prosesLokasi(parseFloat(s.lat), parseFloat(s.lon), formatted, s);
                             }}
                           >
                             <div className="cl-sugg-icon">
