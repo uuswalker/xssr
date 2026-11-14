@@ -1,15 +1,54 @@
 "use client";
 
-import { CheckCircle2, XCircle, ShieldCheck, ArrowRight, AlertTriangle, Rocket } from "lucide-react";
+import { CheckCircle2, ShieldCheck, ArrowRight, AlertTriangle, Rocket, Sparkles, TrendingDown, HelpCircle } from "lucide-react";
 import { waLink } from "@/lib/site";
+
+const EFFICIENCY_METRICS = [
+  {
+    provider: "XL HOME SPARK",
+    speed: "250 Mbps",
+    price: "Rp 229.000 / bln",
+    ratio: "Rp 916",
+    ratioLabel: "Paling Hemat di Solo Raya 🏆",
+    isWinner: true,
+    badges: ["Pasang Rp 0 (Gratis)", "100% Fiber Simetris", "Bebas FUP"],
+  },
+  {
+    provider: "Provider \"M\"",
+    speed: "150 Mbps",
+    price: "Rp 250.000+ / bln",
+    ratio: "Rp 1.666",
+    ratioLabel: "1,8x Lebih Mahal per Mbps",
+    isWinner: false,
+    badges: ["Biaya sewa ONT", "Harga promo terbatas"],
+  },
+  {
+    provider: "Provider \"B\"",
+    speed: "100 Mbps",
+    price: "Rp 250.000+ / bln",
+    ratio: "Rp 2.500",
+    ratioLabel: "2,7x Lebih Mahal per Mbps",
+    isWinner: false,
+    badges: ["Wajib beli router Rp 500rb+", "FUP ketat"],
+  },
+  {
+    provider: "Provider \"I\"",
+    speed: "50 Mbps",
+    price: "Rp 250.000+ / bln",
+    ratio: "Rp 5.000",
+    ratioLabel: "5,4x LEBIH MAHAL per Mbps ⚠️",
+    isWinner: false,
+    badges: ["FUP kuota bulanan", "Speed turun saat kuota habis"],
+  },
+];
 
 const COMPARISON_ROWS = [
   {
     feature: "Kecepatan vs Harga",
-    xl: "Spark 250 Mbps cuma Rp 229.000/bln",
-    i: "Rp 283.000 cuma dapat 30 Mbps",
-    b: "Rp 277.500 cuma dapat 50-100 Mbps",
-    m: "Rp 277.500++ baru dapat 150 Mbps",
+    xl: "Spark 250 Mbps cuma Rp 229.000/bln (Rp 916/Mbps)",
+    i: "Rp 283.000 cuma dapat 30 Mbps (Rp 9.433/Mbps)",
+    b: "Rp 277.500 cuma dapat 50-100 Mbps (Rp 2.775/Mbps)",
+    m: "Rp 277.500++ baru dapat 150 Mbps (Rp 1.850/Mbps)",
   },
   {
     feature: "Modal Awal Pasang Baru",
@@ -43,9 +82,9 @@ const COMPARISON_ROWS = [
 
 const STEPS = [
   { step: "1", title: "Registrasi Online", desc: "Kirim alamat & share loc via web atau WhatsApp resmi sales." },
-  { step: "2", title: "Verifikasi ODP", desc: "Data & jarak tiang divalidasi langsung oleh sistem pusat XL." },
-  { step: "3", title: "Bayar via VA Resmi XL", desc: "Hanya bayar lewat Virtual Account resmi XL. Dilarang titip tunai ke sales!" },
-  { step: "4", title: "Jadwal Teknisi", desc: "Pilih tanggal & jam instalasi yang nyaman untuk keluarga Anda." },
+  { step: "2", title: "Verifikasi ODP", desc: "Data & jarak tiang divalidasi langsung oleh sistem pusat XL dalam 10 menit." },
+  { step: "3", title: "Bayar via VA Resmi XL", desc: "Hanya bayar lewat Virtual Account resmi XL setelah aktif. Dilarang titip tunai ke sales!" },
+  { step: "4", title: "Jadwal Teknisi", desc: "Pilih tanggal & jam instalasi yang nyaman untuk keluarga Anda (1-3 hari kerja)." },
   { step: "5", title: "Teknisi Pasang Rp 0", desc: "Pemasangan gratis tanpa pungli, internet langsung aktif siap dipakai." },
 ];
 
@@ -56,7 +95,7 @@ export default function ComparisonTable() {
     <section id="bandingkan" style={{ padding: "72px 20px", background: "#f8fafc" }}>
       <div style={{ maxWidth: 1040, margin: "0 auto" }}>
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: 44 }}>
+        <div style={{ textAlign: "center", marginBottom: 36 }}>
           <span style={{ 
             display: "inline-block", 
             padding: "6px 16px", 
@@ -68,17 +107,128 @@ export default function ComparisonTable() {
             marginBottom: 12,
             letterSpacing: "0.5px"
           }}>
-            FAKTA RISET PASAR SOLO RAYA 2026
+            FAKTA RISET TARIF INTERNET SOLO RAYA 2026
           </span>
           <h2 style={{ fontSize: "clamp(24px, 4vw, 32px)", fontWeight: 800, color: "#0f172a", marginBottom: 12, lineHeight: 1.25 }}>
             Kenapa Warga Solo Raya Berbondong-bondong Pindah ke XL Home?
           </h2>
-          <p style={{ color: "#475569", fontSize: "clamp(14px, 2vw, 16px)", maxWidth: 720, margin: "0 auto" }}>
-            Bandingkan sendiri fakta riil kecepatan, modal awal, biaya tersembunyi, dan keamanan transaksi kami dengan provider lain di Surakarta, Sukoharjo, Karanganyar, dan Boyolali.
+          <p style={{ color: "#475569", fontSize: "clamp(14px, 2vw, 16px)", maxWidth: 740, margin: "0 auto", lineHeight: 1.6 }}>
+            Bandingkan sendiri fakta riil tarif per Mbps, modal awal pasang baru, biaya tersembunyi, dan keamanan transaksi kami dengan provider lain di Surakarta, Sukoharjo, Karanganyar, Klaten, dan Boyolali.
           </p>
         </div>
 
-        {/* Comparison Table */}
+        {/* 1. Value-to-Speed Cards (Rp 916 / Mbps Highlight) */}
+        <div style={{ marginBottom: 40 }}>
+          <div style={{ 
+            display: "flex", 
+            flexWrap: "wrap", 
+            alignItems: "center", 
+            justifyContent: "space-between", 
+            gap: 12, 
+            background: "#f0fdf4", 
+            border: "1px solid #bbf7d0", 
+            borderRadius: 14, 
+            padding: "12px 18px", 
+            marginBottom: 20 
+          }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13.5, color: "#166534", fontWeight: 700 }}>
+              <TrendingDown size={18} color="#16a34a" />
+              <span>Matriks Nilai Riil: Biaya per 1 Mbps Bandwidth di Solo Raya</span>
+            </div>
+            <div style={{ fontSize: 12, color: "#475569" }}>
+              *Rumus: Tarif Bulanan ÷ Kecepatan (Mbps). Makin rendah = makin hemat!
+            </div>
+          </div>
+
+          <div style={{ 
+            display: "grid", 
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", 
+            gap: 16 
+          }}>
+            {EFFICIENCY_METRICS.map((m, idx) => (
+              <div 
+                key={idx}
+                style={{
+                  background: m.isWinner ? "linear-gradient(180deg, #ecfdf5 0%, #ffffff 100%)" : "#ffffff",
+                  border: m.isWinner ? "2px solid #10b981" : "1px solid #e2e8f0",
+                  borderRadius: 16,
+                  padding: "20px 18px",
+                  boxShadow: m.isWinner ? "0 10px 25px -5px rgba(16, 185, 129, 0.2)" : "0 2px 6px rgba(0,0,0,0.03)",
+                  position: "relative",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between"
+                }}
+              >
+                {m.isWinner && (
+                  <div style={{
+                    position: "absolute",
+                    top: -12,
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    background: "#037e64",
+                    color: "#ffffff",
+                    fontSize: 11,
+                    fontWeight: 800,
+                    padding: "3px 12px",
+                    borderRadius: 999,
+                    letterSpacing: "0.5px",
+                    whiteSpace: "nowrap",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 4
+                  }}>
+                    <Sparkles size={12} /> PALING HEMAT
+                  </div>
+                )}
+
+                <div>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: m.isWinner ? "#037e64" : "#64748b", textTransform: "uppercase", marginBottom: 4 }}>
+                    {m.provider}
+                  </div>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: "#1e293b", marginBottom: 12 }}>
+                    Speed: <strong>{m.speed}</strong> ({m.price})
+                  </div>
+
+                  <div style={{ 
+                    background: m.isWinner ? "#d1fae5" : "#f1f5f9", 
+                    borderRadius: 10, 
+                    padding: "10px", 
+                    textAlign: "center", 
+                    marginBottom: 12 
+                  }}>
+                    <div style={{ fontSize: 11, color: m.isWinner ? "#065f46" : "#64748b", fontWeight: 600, textTransform: "uppercase" }}>
+                      Biaya per 1 Mbps:
+                    </div>
+                    <div style={{ fontSize: 26, fontWeight: 900, color: m.isWinner ? "#047857" : "#334155", lineHeight: 1.15 }}>
+                      {m.ratio}
+                      <span style={{ fontSize: 13, fontWeight: 600, color: "#64748b" }}>/bln</span>
+                    </div>
+                  </div>
+
+                  <div style={{ fontSize: 12, fontWeight: 700, color: m.isWinner ? "#047857" : "#b91c1c", marginBottom: 12, textAlign: "center" }}>
+                    {m.ratioLabel}
+                  </div>
+                </div>
+
+                <div style={{ borderTop: "1px dashed #e2e8f0", paddingTop: 10, display: "flex", flexDirection: "column", gap: 4 }}>
+                  {m.badges.map((b, bIdx) => (
+                    <div key={bIdx} style={{ fontSize: 11.5, color: "#475569", display: "flex", alignItems: "center", gap: 6 }}>
+                      {m.isWinner ? (
+                        <CheckCircle2 size={13} color="#10b981" style={{ flexShrink: 0 }} />
+                      ) : (
+                        <span style={{ display: "inline-block", width: 4, height: 4, borderRadius: "50%", background: "#94a3b8" }} />
+                      )}
+                      <span>{b}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 2. Detailed Comparison Table */}
         <div style={{ 
           overflowX: "auto", 
           borderRadius: 16, 
@@ -133,7 +283,7 @@ export default function ComparisonTable() {
           </table>
         </div>
 
-        {/* Trust & Safety Box (Anti-Sales Nakal & Alur Resmi) */}
+        {/* 3. Trust & Safety Box (Anti-Sales Nakal & Alur Resmi) */}
         <div style={{ 
           background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)", 
           borderRadius: 20, 
@@ -205,7 +355,7 @@ export default function ComparisonTable() {
             <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "#cbd5e1" }}>
               <AlertTriangle size={18} color="#f59e0b" />
               <span>
-                <strong>Penting:</strong> Tim sales kami <u>TIDAK PERNAH</u> menerima titip tunai atau transfer ke rekening pribadi. Pembayaran hanya via nomor Virtual Account resmi XL.
+                <strong>Penting:</strong> Tim sales kami <u>TIDAK PERNAH</u> menerima titip tunai atau transfer ke rekening pribadi. Pembayaran hanya via nomor Virtual Account resmi XL setelah internet aktif.
               </span>
             </div>
             <a 

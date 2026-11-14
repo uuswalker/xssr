@@ -317,21 +317,55 @@ export function HomeHeroLokal() {
             tanpa FUP, gratis pasang Rp 0 (mulai paket 250 Mbps), CS & Sales 24 Jam siap survei 1-2 hari!
           </a>
         </p>
-        <button
-          type="button"
-          id="btn-buka-cek-lokasi"
-          className="btn-pilih btn-cek-lokasi-trigger"
-          style={{
-            display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, width: "auto", padding: "14px 32px",
-            borderRadius: 999,
-            fontSize: 15,
-            border: "none",
-            cursor: "pointer",
-          }}
-        >
-          <MapPin size={18} style={{ flexShrink: 0 }} />
-          Cek Ketersediaan di Area Saya
-        </button>
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12, margin: "20px 0 10px 0" }}>
+          <a
+            href={waLink("Halo Sales Resmi XL Home Solo, saya mau Cek Coverage 10 Menit untuk lokasi rumah/kos saya. Ini titik atau alamatnya: ")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-pilih"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+              width: "auto",
+              padding: "14px 28px",
+              borderRadius: 999,
+              fontSize: 15,
+              fontWeight: 800,
+              textDecoration: "none",
+              background: "#037e64",
+              color: "#ffffff",
+              boxShadow: "0 6px 18px rgba(3, 126, 100, 0.35)",
+            }}
+          >
+            <Zap size={18} style={{ flexShrink: 0 }} />
+            ⚡ Cek Coverage 10 Menit (WA)
+          </a>
+
+          <a
+            href="#cek-coverage-10-menit"
+            className="btn-pilih"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+              width: "auto",
+              padding: "14px 24px",
+              borderRadius: 999,
+              fontSize: 15,
+              fontWeight: 700,
+              textDecoration: "none",
+              background: "#ffffff",
+              color: "#0f172a",
+              border: "1.5px solid #cbd5e1",
+            }}
+          >
+            <MapPin size={18} style={{ flexShrink: 0 }} />
+            Cara Radar ODP Bekerja
+          </a>
+        </div>
         
         <div style={{ marginTop: "16px", display: "inline-flex", alignItems: "center", gap: "8px", background: "#fef3c7", padding: "6px 14px", borderRadius: "999px", border: "1px solid #fde68a" }}>
           <Award size={16} color="#b45309" style={{ flexShrink: 0 }} aria-hidden="true" />

@@ -55,6 +55,7 @@ const PRODUCT_OFFER_JSONLD = {
 };
 
 const Marquee = dynamic(() => import("@/components/animations/Marquee"));
+const CekCoverage10Menit = dynamic(() => import("@/components/home/CekCoverage10Menit"));
 const ComparisonTable = dynamic(() => import("@/components/home/ComparisonTable"));
 import FormulirRegistrasiClient from "@/components/home/FormulirRegistrasiClient";
 
@@ -72,6 +73,7 @@ export default function Home() {
       <PageTransition>
         <Hero />
         <Marquee />
+        <CekCoverage10Menit />
         <PaketSection />
         <InfoSections />
         <ComparisonTable />
