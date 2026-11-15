@@ -315,7 +315,12 @@ export default function FormulirRegistrasi() {
           bersih();
           setGeoDisabled(false);
           setStatusClass("reg-status error");
-          setStatusMsg("Gagal mengakses GPS. Pastikan GPS aktif atau gunakan input alamat manual di bawah.");
+          const isFB = typeof navigator !== "undefined" && /FBAN|FBAV|Instagram/i.test(navigator.userAgent);
+          setStatusMsg(
+            isFB
+              ? "Browser Facebook/Instagram membatasi GPS. Silakan ketik nama perumahan / jalan di bawah:"
+              : "Gagal mengakses GPS. Pastikan GPS aktif atau gunakan input alamat manual di bawah."
+          );
         }
       },
       { enableHighAccuracy: true, timeout: MAX_TUNGGU_DETIK * 1000, maximumAge: 0 }
@@ -477,7 +482,15 @@ export default function FormulirRegistrasi() {
       covLine +
       utmSuffix;
 
-    window.open(`https://wa.me/${NOMOR_WA_SALES}?text=${encodeURIComponent(pesan)}`, "_blank");
+    const waUrl = `https://wa.me/${NOMOR_WA_SALES}?text=${encodeURIComponent(pesan)}`;
+    try {
+      const win = window.open(waUrl, "_blank");
+      if (!win || win.closed || typeof win.closed === "undefined") {
+        window.location.href = waUrl;
+      }
+    } catch {
+      window.location.href = waUrl;
+    }
     setSending(false);
   }, [nama, wa, paketPilihan, coverage]);
 

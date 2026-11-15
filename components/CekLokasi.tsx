@@ -1,5 +1,5 @@
 "use client";
-import { MessageCircle, MapPin, CheckCircle2, Target, Search, ArrowRight, Zap, Sparkles } from "lucide-react";
+import { MessageCircle, MapPin, CheckCircle2, Target, Search, ArrowRight, Zap, Sparkles, Info } from "lucide-react";
 
 
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -102,6 +102,13 @@ export default function CekLokasi() {
   const [paketPilihan, setPaketPilihan] = useState<string | null>(null);
   const [peminatSekitar, setPeminatSekitar] = useState("1 Rumah (Hanya rumah saya)");
   const [providerSaatIni, setProviderSaatIni] = useState("Belum ada internet kabel / Kuota HP");
+  const [isFBOrIG, setIsFBOrIG] = useState(false);
+
+  useEffect(() => {
+    if (typeof navigator !== "undefined" && /FBAN|FBAV|Instagram/i.test(navigator.userAgent)) {
+      setIsFBOrIG(true);
+    }
+  }, []);
 
   useEffect(() => {
     if (coverage && coverage.status === "wireless") {
@@ -540,7 +547,13 @@ export default function CekLokasi() {
         } else {
           setGeoFallback(true);
           setStatusClass("cl-status error");
-          setStatusMsg("Aktifkan izin lokasi di browser lalu coba lagi, atau isi alamat di bawah.");
+          const isFB = typeof navigator !== "undefined" && /FBAN|FBAV|Instagram/i.test(navigator.userAgent);
+          setStatusMsg(
+            isFB
+              ? "Browser Facebook/Instagram membatasi akses GPS. Silakan ketik nama perumahan, jalan, atau kelurahan di bawah:"
+              : "Izin lokasi tidak aktif. Silakan ketik alamat manual di bawah, atau aktifkan GPS."
+          );
+          setTimeout(() => inputRef.current?.focus(), 150);
         }
       }, MAX_TUNGGU_DETIK * 1000) as unknown as number
     );
@@ -560,7 +573,13 @@ export default function CekLokasi() {
           setGeoDisabled(false);
           setGeoFallback(true);
           setStatusClass("cl-status error");
-          setStatusMsg("Aktifkan izin lokasi di browser lalu coba lagi, atau isi alamat di bawah.");
+          const isFB = typeof navigator !== "undefined" && /FBAN|FBAV|Instagram/i.test(navigator.userAgent);
+          setStatusMsg(
+            isFB
+              ? "Browser Facebook/Instagram membatasi akses GPS. Silakan ketik nama perumahan, jalan, atau kelurahan di bawah:"
+              : "Izin lokasi dibatasi. Silakan ketik alamat manual di bawah, atau aktifkan GPS."
+          );
+          setTimeout(() => inputRef.current?.focus(), 150);
         }
       },
       { enableHighAccuracy: true, timeout: MAX_TUNGGU_DETIK * 1000, maximumAge: 0 }
@@ -760,7 +779,15 @@ export default function CekLokasi() {
         "Mohon dibantu pengecekan dan verifikasi jadwal pemasangan baru ya min. Terima kasih!" +
         utmSuffix;
 
-      window.open("https://wa.me/" + NOMOR_WA_SALES + "?text=" + encodeURIComponent(pesan), "_blank");
+      const waUrl = "https://wa.me/" + NOMOR_WA_SALES + "?text=" + encodeURIComponent(pesan);
+      try {
+        const win = window.open(waUrl, "_blank");
+        if (!win || win.closed || typeof win.closed === "undefined") {
+          window.location.href = waUrl;
+        }
+      } catch {
+        window.location.href = waUrl;
+      }
       tutupModal();
       setSending(false);
       return;
@@ -830,7 +857,15 @@ export default function CekLokasi() {
       (kotaKirim ? `Area/Kota: ${kotaKirim}\n` : "") +
       covLine +
       utmSuffix;
-    window.open(`https://wa.me/${NOMOR_WA_SALES}?text=${encodeURIComponent(pesan)}`, "_blank");
+    const waUrl = `https://wa.me/${NOMOR_WA_SALES}?text=${encodeURIComponent(pesan)}`;
+    try {
+      const win = window.open(waUrl, "_blank");
+      if (!win || win.closed || typeof win.closed === "undefined") {
+        window.location.href = waUrl;
+      }
+    } catch {
+      window.location.href = waUrl;
+    }
     tutupModal();
     setSending(false);
     setPaketPilihan(null);
@@ -1169,6 +1204,29 @@ export default function CekLokasi() {
                     ? `Kamu memilih ${paketPilihan.replace(/Saya minat paket /i, '').replace(/Saya minat /i, '')}. Cek ketersediaan di lokasimu dulu ya!`
                     : "Bagikan lokasimu — sistem cek otomatis coverage fiber di lokasimu."}
                 </p>
+                {isFBOrIG && (
+                  <div
+                    style={{
+                      margin: "0 0 12px 0",
+                      padding: "8px 12px",
+                      background: "#f0fdf4",
+                      border: "1px solid #bbf7d0",
+                      borderRadius: 8,
+                      fontSize: 12,
+                      color: "#166534",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                      lineHeight: 1.4,
+                      textAlign: "left",
+                    }}
+                  >
+                    <Info size={15} style={{ flexShrink: 0, color: "#16a34a" }} />
+                    <span>
+                      Buka via <strong>Facebook / Instagram</strong>? Jika GPS dibatasi, Anda bisa langsung ketik nama perumahan atau jalan di bawah.
+                    </span>
+                  </div>
+                )}
                 <button
                   type="button"
                   className="cl-btn-primary"
