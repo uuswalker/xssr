@@ -1527,36 +1527,104 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
 
   slug: "cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo",
 
-  title: "Cara Pindah Provider WiFi ke XL Home Solo [Anti Putus]",
+  title: "Cara Berhenti Langganan IndiHome Pindah ke XL Home Solo [Anti Putus]",
 
-  description: "Kecewa internet lemot kena FUP? Panduan lengkap cara berhenti IndiHome/Biznet dan pindah ke XL Home Solo tanpa putus koneksi. Cek promo migrasinya!",
+  description: "Panduan resmi cara berhenti langganan IndiHome & Biznet lalu pindah ke XL Home Fiber Solo tanpa jeda internet. Bebas FUP, gratis pasang Rp0 & info Plasa Telkom Solo.",
 
-  keywords: ["cara berhenti indihome", "cara putus biznet", "pindah ke xl home solo", "wifi tanpa fup", "promo xl home solo", "cara ganti provider wifi"],
+  keywords: ["cara berhenti langganan indihome pindah ke xl home solo", "cara putus indihome solo", "pindah indihome ke xl home solo", "cara berhenti biznet solo", "plasa telkom solo berhenti indihome", "ganti provider wifi solo raya", "xl home fiber solo promo migrasi", "wifi tanpa fup solo"],
 
-  ogTitle: "Cara Berhenti Langganan IndiHome/Biznet & Pindah ke XL Home Solo",
+  ogTitle: "Cara Berhenti Langganan IndiHome & Pindah ke XL Home Solo [Zero Downtime]",
 
-  ogDescription: "Kecewa dengan FUP dan internet lemot di akhir bulan? Ini panduan lengkap cara ganti provider wifi ke XL Home Fiber Solo tanpa mati koneksi.",
+  ogDescription: "Panduan lengkap cara berhenti langganan IndiHome atau Biznet dan beralih ke XL Home Fiber Solo tanpa putus koneksi. 100% Fiber Unlimited tanpa FUP & gratis pasang Rp0.",
 
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
 
-  schemas: [],
+  schemas: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Cara Berhenti Langganan IndiHome dan Pindah ke XL Home Solo Tanpa Putus Koneksi",
+      "description": "Panduan langkah demi langkah berhenti langganan IndiHome/Biznet dan beralih ke XL Home Fiber di Solo Raya tanpa jeda koneksi internet.",
+      "author": {
+        "@type": "Organization",
+        "name": "XL Home Solo Raya"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "XL Home Solo Raya"
+      },
+      "datePublished": "2026-08-20",
+      "dateModified": "2026-11-16",
+      "mainEntityOfPage": "https://xlhomesolo.com/cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Bagaimana urutan langkah pindah dari IndiHome ke XL Home Solo agar internet tidak mati?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kuncinya: Jangan putus IndiHome dulu! Daftar dan pasang XL Home Solo terlebih dahulu via WhatsApp Sales Resmi 0877-7899-9141. Setelah teknisi XL Home selesai memasang router dan internet baru aktif stabil di rumah, barulah hubungi Call Center 188 atau datang ke Plasa Telkom Solo (Gladak/Slamet Riyadi) untuk memproses pemutusan IndiHome."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Di mana alamat Plasa Telkom di Solo untuk pemutusan IndiHome dan pengembalian modem?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Anda bisa mendatangi Plasa Telkom Solo di Jl. Mayor Sunaryo No. 1 (Gladak, dekat Pasar Gede) atau GraPARI Telkomsel di Jl. Slamet Riyadi No. 437. Bawa e-KTP asli pemilik akun, modem/ONT, dan STB TV beserta adaptornya."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kapan waktu paling tepat mengajukan pemutusan provider lama agar tidak kena tagihan ganda?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Waktu paling ideal adalah 3 sampai 5 hari sebelum tanggal cetak tagihan (billing cycle) baru. IndiHome mencetak tagihan sekitar tanggal 20 setiap bulan, jadi ajukan pemutusan sekitar tanggal 15-18 setelah XL Home Anda menyala."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah pindah ke XL Home Fiber Solo dipungut biaya pasang baru?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tidak! Pemasangan XL Home Fiber 100% Gratis (Rp 0). Perangkat router WiFi Gigabit dan kabel optik dipinjamkan cuma-cuma selama berlangganan tanpa biaya sewa bulanan tambahan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah XL Home memberlakukan batas kuota FUP seperti IndiHome?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sama sekali tidak! XL Home Fiber 100% True Unlimited murni tanpa batas kuota FUP. Kecepatan simetris tetap kencang stabil dari awal hingga akhir bulan tanpa penurunan kecepatan sepihak."
+          }
+        }
+      ]
+    }
+  ],
 
   faqs: [
     {
-      q: "Kapan waktu terbaik mengajukan pemutusan WiFi lama agar tidak kena tagihan ganda?",
-      a: "Waktu paling ideal adalah 3 hingga 5 hari sebelum tanggal cetak tagihan (billing cycle) provider lama Anda. Pastikan modem XL Home baru sudah terpasang dan aktif di rumah Anda terlebih dahulu sehingga keluarga tidak mengalami hari tanpa koneksi internet."
+      q: "Bagaimana urutan langkah pindah dari IndiHome ke XL Home Solo agar internet tidak mati?",
+      a: "Kuncinya: Jangan putus IndiHome dulu! Daftar dan pasang XL Home Solo terlebih dahulu via WhatsApp Sales Resmi 0877-7899-9141. Setelah teknisi XL Home selesai memasang router dan internet baru aktif stabil di rumah, barulah hubungi Call Center 188 atau datang ke Plasa Telkom Solo (Gladak/Slamet Riyadi) untuk memproses pemutusan IndiHome."
     },
     {
-      q: "Apakah pindah ke XL Home Fiber dikenakan biaya pasang baru?",
-      a: "Tidak! Pemasangan XL Home Fiber 100% Gratis (Rp 0). Perangkat modem WiFi Gigabit dan kabel optik dipinjamkan tanpa biaya sewa bulanan tambahan."
+      q: "Di mana alamat Plasa Telkom di Solo untuk pemutusan IndiHome dan pengembalian modem?",
+      a: "Anda bisa mendatangi Plasa Telkom Solo di Jl. Mayor Sunaryo No. 1 (Gladak, dekat Pasar Gede) atau GraPARI Telkomsel di Jl. Slamet Riyadi No. 437. Bawa e-KTP asli pemilik akun, modem/ONT, dan STB TV beserta adaptornya."
     },
     {
-      q: "Apakah XL Home memberlakukan FUP (Fair Usage Policy)?",
-      a: "XL Home Fiber murni 100% True Unlimited tanpa batasan FUP. Kecepatan internet Anda akan tetap kencang dari awal bulan sampai akhir bulan tanpa pernah diturunkan secara sepihak."
+      q: "Kapan waktu paling tepat mengajukan pemutusan provider lama agar tidak kena tagihan ganda?",
+      a: "Waktu paling ideal adalah 3 sampai 5 hari sebelum tanggal cetak tagihan (billing cycle) baru. IndiHome mencetak tagihan sekitar tanggal 20 setiap bulan, jadi ajukan pemutusan sekitar tanggal 15-18 setelah XL Home Anda menyala."
     },
     {
-      q: "Bagaimana cara klaim promo migrasi khusus pindahan di Solo Raya?",
-      a: "Anda cukup menghubungi WhatsApp Sales Resmi di 0877-7899-9141 dan menginformasikan bahwa Anda ingin migrasi dari provider lama. Tim kami akan memberikan asistensi prioritas dan opsi promo paket terbaik."
+      q: "Apakah pindah ke XL Home Fiber Solo dipungut biaya pasang baru?",
+      a: "Tidak! Pemasangan XL Home Fiber 100% Gratis (Rp 0). Perangkat router WiFi Gigabit dan kabel optik dipinjamkan cuma-cuma selama berlangganan tanpa biaya sewa bulanan tambahan."
+    },
+    {
+      q: "Apakah XL Home memberlakukan batas kuota FUP seperti IndiHome?",
+      a: "Sama sekali tidak! XL Home Fiber 100% True Unlimited murni tanpa batas kuota FUP. Kecepatan simetris tetap kencang stabil dari awal hingga akhir bulan tanpa penurunan kecepatan sepihak."
     }
   ],
 
@@ -1564,23 +1632,31 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
 
     crumb: "<a href='https://xlhomesolo.com/'>Beranda</a> / Cara Pindah Provider WiFi",
 
-    h1: "Cara Berhenti Langganan IndiHome/Biznet & Pindah ke XL Home",
+    h1: "Cara Berhenti Langganan IndiHome & Pindah ke XL Home Solo [Anti Putus]",
 
-    sub: "Solusi jitu untuk Anda yang lelah dengan FUP, internet lemot di akhir bulan, dan tagihan siluman. Pindah ke XL Home tanpa putus koneksi!",
+    sub: "Panduan langkah demi langkah warga Solo Raya beralih dari IndiHome atau Biznet ke XL Home Fiber — zero downtime, bebas penalti, dan 100% Fiber Unlimited tanpa FUP.",
 
-    meta: "Diperbarui 13 Oktober 2026 • XL Home Solo Raya"
+    meta: "Diperbarui 16 November 2026 • Layanan Sales Resmi XL Home Solo Raya"
 
   },
 
-  headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pindah%20dari%20provider%20lama%20ke%20XL%20Home",
+  headerCta: "https://wa.me/6287778999141?text=Halo%20Sales%20Resmi%20XL%20Home%20Solo,%20saya%20mau%20pindah%20dari%20IndiHome%20ke%20XL%20Home.%20Mohon%20bantu%20cek%20coverage%20dan%20promo%20migrasi%20di%20alamat%20saya",
 
   bodyHtml: `
 
-  <p>Internet sudah menjadi kebutuhan primer, namun banyak pelanggan ISP lama (seperti IndiHome, Biznet, atau MyRepublic) di Solo Raya yang merasa frustrasi. Jika Anda salah satunya, ini panduan lengkap untuk Anda.</p>
+  <p>Ingin berhenti berlangganan IndiHome (Telkomsel) atau Biznet di Solo Raya karena lelah dengan penurunan kecepatan di akhir bulan (FUP), tagihan yang terus naik, atau koneksi sering gangguan? Anda berada di tempat yang tepat. Panduan ini dirancang khusus agar Anda bisa <strong>berpindah ke XL Home Fiber tanpa kehilangan akses internet sedetik pun (Zero Downtime)</strong> dan terhindar dari tagihan ganda.</p>
 
+  <div class="info-box" style="background:#eff6ff; border-left:4px solid #2563eb; padding:16px 20px; border-radius:8px; margin:24px 0;">
+    <strong style="color:#1e40af; font-size:15px;"><i class="fas fa-bolt"></i> Ringkasan Cepat: 4 Langkah Pindah WiFi Tanpa Putus Koneksi</strong>
+    <ol style="margin:10px 0 0 18px; padding:0; color:#1e293b; line-height:1.7;">
+      <li><strong>Cek Coverage & Pasang XL Home Terlebih Dahulu:</strong> Chat Sales Resmi di <a href="https://wa.me/6287778999141?text=Halo%20Sales%20Resmi%20XL%20Home%20Solo,%20saya%20mau%20migrasi%20dari%20IndiHome" style="color:#2563eb; font-weight:700;">0877-7899-9141</a> untuk cek tiang dan jadwalkan pasang baru gratis (Rp0).</li>
+      <li><strong>Tunggu Sampai Internet XL Home Menyala & Stabil:</strong> Biarkan WiFi lama tetap aktif sampai router XL Home baru Anda terpasang dan siap dipakai seluruh keluarga.</li>
+      <li><strong>Ajukan Pemutusan Layanan Lama:</strong> Hubungi Call Center 188 (IndiHome) atau datang ke Plasa Telkom Solo 3-5 hari sebelum tanggal cetak tagihan bulanan.</li>
+      <li><strong>Kembalikan Perangkat & Simpan Bukti Pemutusan:</strong> Bawa modem ONT dan STB TV lama untuk menyelesaikan administrasi tanpa sisa tunggakan.</li>
+    </ol>
+  </div>
 
-
-  <h2>Mengapa Banyak Warga Solo Pindah Provider WiFi?</h2>
+  <h2>Mengapa Banyak Warga Solo Pindah dari IndiHome ke XL Home Fiber?</h2>
 
   <div class="cause-grid">
 
@@ -1590,9 +1666,9 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
 
       <div>
 
-        <h4>Kena Jebakan FUP</h4>
+        <h4>Bebas FUP Murni (100% True Unlimited)</h4>
 
-        <p>Awal bulan kencang, tapi di akhir bulan kecepatan diturunkan drastis (throttling) karena kuota FUP habis.</p>
+        <p>Di provider lama, kecepatan sering dicekik drastis (throttling) setelah pemakaian kuota wajar habis di pertengahan bulan. Di XL Home Fiber, internet tetap kencang 100% dari tanggal 1 sampai akhir bulan tanpa batas FUP.</p>
 
       </div>
 
@@ -1604,9 +1680,9 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
 
       <div>
 
-        <h4>Tagihan Siluman</h4>
+        <h4>Kecepatan Simetris 1:1 (Upload = Download)</h4>
 
-        <p>Harga promo di bulan pertama, namun tiba-tiba melonjak di bulan ke-4 tanpa pemberitahuan.</p>
+        <p>IndiHome umumnya menerapkan rasio asimetris (kecepatan upload jauh lebih kecil dibanding download). XL Home Fiber memberikan kecepatan simetris 1:1, membuat live streaming jualan TikTok/Shopee, meeting Zoom, dan gaming bebas patah-patah.</p>
 
       </div>
 
@@ -1618,9 +1694,9 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
 
       <div>
 
-        <h4>Lampu Merah (LOS) Berkepanjangan</h4>
+        <h4>Tagihan Transparan & Harga Tetap</h4>
 
-        <p>Jika kabel putus, penanganan teknisi seringkali lambat dan susah dihubungi.</p>
+        <p>Tidak ada lonjakan biaya tak terduga setelah masa promo habis. Apa yang disepakati di awal adalah apa yang Anda bayar setiap bulan, lengkap dengan layanan sales lokal yang siap sedia membantu.</p>
 
       </div>
 
@@ -1628,23 +1704,11 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
 
   </div>
 
-
-
-  <div class="info-box">
-
-    <strong>Kabar Baik:</strong> Jika Anda mengalami hal di atas, ini saat yang tepat untuk bermigrasi ke <strong>XL SATU Fiber</strong> yang menawarkan 100% Unlimited Asli tanpa FUP dan harga tetap!
-
-  </div>
-
-
-
   <h2>Strategi Pindah Provider Tanpa Putus Koneksi (Zero Downtime)</h2>
 
-  <p>Ketakutan terbesar saat ganti WiFi adalah <em>"Nanti internet mati beberapa hari pas kerja dari rumah gimana?"</em>. Berikut adalah strategi aman agar Anda tetap online:</p>
+  <p>Ketakutan terbesar saat ganti provider adalah <em>"Nanti kalau diputus duluan terus teknisi baru belum datang, kerjaan WFH dan anak sekolah daring gimana?"</em>. Terapkan strategi urutan berikut agar rumah Anda tidak pernah kehilangan internet sedetik pun:</p>
 
-  
-
-  <div style="background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border: 1px solid #bbf7d0; border-radius: 14px; padding: 28px 24px; margin: 32px 0;">
+  <div style="background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border: 1px solid #bbf7d0; border-radius: 14px; padding: 24px 20px; margin: 28px 0;">
 
     <div style="display:grid; gap:14px;">
 
@@ -1652,7 +1716,7 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
 
         <div style="flex-shrink:0; width:36px; height:36px; background:#dcfce7; border-radius:8px; display:flex; align-items:center; justify-content:center;"><i class="fas fa-wifi" style="color:#16a34a; font-size:15px;"></i></div>
 
-        <div><strong style="font-size:14.5px;">1. Jangan Putus Provider Lama Dulu</strong><br><span style="font-size:13.5px; color:#555;">Biarkan WiFi lama Anda tetap aktif dan menyala di rumah.</span></div>
+        <div><strong style="font-size:14.5px;">Langkah 1: Jangan Putus IndiHome Terlebih Dahulu</strong><br><span style="font-size:13.5px; color:#555;">Biarkan kabel dan modem IndiHome Anda tetap menyala normal. Jangan cabut kabel atau lapor berhenti sebelum internet pengganti benar-benar terpasang.</span></div>
 
       </div>
 
@@ -1660,7 +1724,7 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
 
         <div style="flex-shrink:0; width:36px; height:36px; background:#fef3c7; border-radius:8px; display:flex; align-items:center; justify-content:center;"><i class="fas fa-headset" style="color:#d97706; font-size:15px;"></i></div>
 
-        <div><strong style="font-size:14.5px;">2. Hubungi Agen XL SATU Solo</strong><br><span style="font-size:13.5px; color:#555;">Daftar lewat WA, biarkan tim kami cek jaringan dan menjadwalkan teknisi (3-7 hari kerja).</span></div>
+        <div><strong style="font-size:14.5px;">Langkah 2: Hubungi Sales Resmi XL Home Solo Raya</strong><br><span style="font-size:13.5px; color:#555;">Kirim alamat lengkap atau titik share lokasi via WhatsApp ke <a href="https://wa.me/6287778999141" style="color:#d97706; font-weight:700;">0877-7899-9141</a>. Tim sales resmi kami langsung mengecek tiang ODP fiber terdekat dan menjadwalkan teknisi pasang baru ke rumah Anda.</span></div>
 
       </div>
 
@@ -1668,7 +1732,7 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
 
         <div style="flex-shrink:0; width:36px; height:36px; background:#dbeafe; border-radius:8px; display:flex; align-items:center; justify-content:center;"><i class="fas fa-check-circle" style="color:#2563eb; font-size:15px;"></i></div>
 
-        <div><strong style="font-size:14.5px;">3. Tunggu Sampai XL SATU Menyala</strong><br><span style="font-size:13.5px; color:#555;">Biarkan teknisi mengaktifkan router XL SATU Anda terlebih dahulu.</span></div>
+        <div><strong style="font-size:14.5px;">Langkah 3: Tunggu Sampai XL Home Menyala & Teruji</strong><br><span style="font-size:13.5px; color:#555;">Setelah teknisi memasang kabel optik baru dan mengaktifkan router Dual Band XL Home, sambungkan HP dan laptop Anda. Pastikan koneksi berjalan lancar dan stabil.</span></div>
 
       </div>
 
@@ -1676,7 +1740,7 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
 
         <div style="flex-shrink:0; width:36px; height:36px; background:#fee2e2; border-radius:8px; display:flex; align-items:center; justify-content:center;"><i class="fas fa-power-off" style="color:#dc2626; font-size:15px;"></i></div>
 
-        <div><strong style="font-size:14.5px;">4. Lakukan Pemutusan (Disconnect) Provider Lama</strong><br><span style="font-size:13.5px; color:#555;">Barulah Anda mengurus pemutusan provider lama. Rumah Anda tidak akan pernah tanpa internet sedetik pun!</span></div>
+        <div><strong style="font-size:14.5px;">Langkah 4: Baru Lakukan Pemutusan IndiHome / Provider Lama</strong><br><span style="font-size:13.5px; color:#555;">Kini Anda aman mengajukan pemutusan resmi tanpa khawatir pekerjaan atau hiburan keluarga terganggu sedetik pun.</span></div>
 
       </div>
 
@@ -1684,89 +1748,84 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
 
   </div>
 
+  <h2>Panduan Lengkap Cara Mengurus Pemutusan IndiHome di Solo Raya</h2>
 
+  <p>Penting: Jangan sekadar mencabut colokan modem tanpa melapor secara resmi! Jika tidak ditutup di sistem Telkom, tagihan bulanan dan denda keterlambatan akan terus berjalan atas nama Anda. Ada 2 jalur resmi untuk berhenti berlangganan IndiHome di Solo:</p>
 
-  <h2>Cara Mengurus Pemutusan IndiHome, Biznet & MyRepublic</h2>
+  <h3>Jalur 1: Melalui Call Center 188 (Paling Praktis Tanpa Keluar Rumah)</h3>
+  <ol>
+    <li>Siapkan nomor pelanggan IndiHome Anda (12 digit angka) dan e-KTP pemilik akun.</li>
+    <li>Hubungi Call Center Telkomsel di nomor <strong>188</strong> dari ponsel Anda.</li>
+    <li>Pilih layanan pelanggan IndiHome dan sampaikan ingin <strong>mengajukan pemutusan layanan secara permanen</strong> karena ingin beralih ke provider fiber lain.</li>
+    <li>Petugas akan mengonfirmasi alasan pemutusan, memverifikasi identitas, dan menghitung tagihan berjalan (prorata).</li>
+    <li>Minta nomor tiket pelaporan pemutusan dan instruksi pengembalian perangkat (apakah dijemput teknisi ke rumah atau diantar ke Plasa Telkom terdekat).</li>
+  </ol>
 
-  <p>Untuk berhenti berlangganan, ikuti langkah berikut agar tidak terus ditagih:</p>
-
+  <h3>Jalur 2: Datang Langsung ke Plasa Telkom / GraPARI Solo</h3>
+  <p>Jika ingin proses langsung tuntas dan serah terima modem di tempat, Anda bisa mendatangi kantor layanan fisik di area Solo Raya:</p>
   <ul>
-
-    <li><strong>IndiHome:</strong> Datang ke Plasa Telkom (misal: Gladak) dengan membawa KTP asli dan Router/Modem/STB. Lunasi tagihan terakhir (prorata) agar tidak di-blacklist.</li>
-
-    <li><strong>Biznet:</strong> Karena prabayar, cukup hubungi <em>customer service</em> atau datang ke cabang Biznet Solo untuk lapor penghentian dan kembalikan modem.</li>
-
-    <li><strong>MyRepublic:</strong> Hubungi Call Center/Email maksimal 14 hari sebelum siklus tagihan berikutnya agar tidak kena penalti (bila sudah lewat masa kontrak).</li>
-
+    <li><strong>Plasa Telkom Solo Gladak:</strong> Jl. Mayor Sunaryo No. 1, Kauman, Kec. Pasar Kliwon, Kota Surakarta (Dekat Beteng Trade Center / Pusat Grosir Solo).</li>
+    <li><strong>GraPARI Telkomsel Slamet Riyadi:</strong> Jl. Slamet Riyadi No. 437, Purwosari, Kec. Laweyan, Kota Surakarta.</li>
+    <li><strong>Plasa Telkom Solo Baru:</strong> Area Ruko Solo Baru Sektor 1, Grogol, Sukoharjo.</li>
+  </ul>
+  <p><strong>Dokumen & Perangkat yang Wajib Dibawa:</strong></p>
+  <ul>
+    <li>e-KTP asli pemilik nama pendaftar IndiHome.</li>
+    <li>Perangkat Optical Network Terminal (ONT / Modem WiFi) beserta kabel adaptor dayanya.</li>
+    <li>Set Top Box (STB) TV IndiHome beserta remote control dan kabel HDMI (jika sebelumnya berlangganan paket TV).</li>
+    <li>Uang tunai atau kartu debit untuk melunasi sisa tagihan hari pemakaian berjalan (prorata).</li>
   </ul>
 
-
-
-  <h2>Keuntungan Pindah ke XL SATU Fiber</h2>
-
+  <h2>Bagaimana dengan Pemutusan Biznet & MyRepublic di Solo?</h2>
   <ul>
-
-    <li><strong>Bebas FUP:</strong> Nonton Netflix 4K, main game, dan download file besar sepuasnya tanpa takut speed turun.</li>
-
-    <li><strong>Harga Flat:</strong> Apa yang Anda lihat, itu yang Anda bayar. Tidak ada tagihan siluman.</li>
-
-    <li><strong>CS Lokal & Responsif:</strong> Dibantu langsung oleh tim sales resmi lokal Solo Raya, tanpa harus lewat bot yang membingungkan.</li>
-
+    <li><strong>Biznet Home Solo:</strong> Hubungi Call Center Biznet di <strong>1500933</strong> atau kunjungi Biznet Store Solo di Jl. Veteran atau koridor Slamet Riyadi. Ajukan penutupan akun minimal 14 hari sebelum masa tagihan bulan berikutnya dan serahkan modem pinjaman.</li>
+    <li><strong>MyRepublic Solo:</strong> Hubungi Call Center di <strong>1500818</strong> atau WhatsApp resmi MyRepublic. Pastikan masa kontrak minimal (biasanya 12 bulan) sudah terpenuhi agar tidak terkena denda penalti pemutusan sebelum masa kontrak.</li>
   </ul>
 
+  <h2>Keuntungan Memilih XL Home Fiber Solo Raya</h2>
 
+  <ul>
+    <li><strong>100% True Unlimited Tanpa FUP:</strong> Nonton streaming 4K di Smart TV, gaming latensi rendah, download ribuan GB tanpa pernah khawatir kecepatan turun di akhir bulan.</li>
+    <li><strong>Gratis Biaya Pasang Rp 0:</strong> Pendaftaran lewat Layanan Sales Resmi tidak dipungut biaya registrasi sepeser pun.</li>
+    <li><strong>Modem WiFi Gigabit Dual-Band Gratis:</strong> Dipinjamkan perangkat modern berkecepatan tinggi yang mendukung frekuensi 2.4 GHz dan 5 GHz secara simultan.</li>
+    <li><strong>Sales & Support Lokal Solo Raya Responsif:</strong> Dikelola langsung oleh tim sales lokal Solo Raya via WhatsApp <a href="https://wa.me/6287778999141" style="font-weight:700; color:#2563eb;">0877-7899-9141</a>, bukan bot mesin yang memusingkan.</li>
+    <li><strong>Pilihan Paket Hemat:</strong> Tersedia paket terpopuler <strong>Spark 250 Mbps hanya Rp229.000/bulan</strong> serta paket hemat Starter 20 Mbps mulai Rp185.000/bulan.</li>
+  </ul>
 
-  <div class="cta-box">
-
-    <h3>Siap Pindah Tanpa Ribet?</h3>
-
-    <p>Tim support XL SATU siap bantu cek ketersediaan fiber optic di area kamu dan memproses pemasangan dengan cepat.</p>
-
-    <a href="https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pindah%20dari%20provider%20lama%20ke%20XL%20SATU" target="_blank" rel="noopener noreferrer" class="btn-cta">
-
-      <span style="display:inline-flex;align-items:center;vertical-align:middle;width:1em;height:1em"><svg viewBox="0 0 448 512" fill="currentColor" width="1em" height="1em"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.8-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5.1-3.9-10.6-6.9z"/></svg></span> Chat Admin Sekarang
-
-    </a>
-
-  </div>
-
-
-
-  <h2>Cek Area Layanan di Kotamu</h2>
-
-  <div class="cta-box" style="margin: 30px 0; padding: 24px; background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: white; border-radius: 12px; text-align: center;">
-    <h3 style="color: white; margin-top: 0; font-size: 20px;">Mau Pindah ke XL Home Tanpa Repot?</h3>
-    <p style="color: #e0f2fe; margin-bottom: 18px; font-size: 15px;">Tim Sales Resmi kami siap membantu proses migrasi dari IndiHome, Biznet, atau MyRepublic dengan promo gratis pasang Rp 0!</p>
-    <a href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20mau%20pindah%20dari%20provider%20lama%20ke%20XL%20Home.%20Mohon%20bantu%20cek%20promo%20migrasi%20terbaru" target="_blank" rel="noopener noreferrer" class="btn-cta" style="background: #22c55e; color: white; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-decoration: none; display: inline-block;">
-      Chat Sales Migrasi via WhatsApp (0877-7899-9141)
+  <div class="cta-box" style="margin: 30px 0; padding: 26px; background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: white; border-radius: 12px; text-align: center;">
+    <h3 style="color: white; margin-top: 0; font-size: 21px;">Siap Pindah ke XL Home Tanpa Repot & Bebas FUP?</h3>
+    <p style="color: #e0f2fe; margin-bottom: 20px; font-size: 15.5px;">Hubungi Layanan Sales Resmi XL Home Solo Raya sekarang. Kami bantu cek tiang fiber di depan rumah Anda dan kawal proses instalasi sampai aktif lancar!</p>
+    <a href="https://wa.me/6287778999141?text=Halo%20Sales%20Resmi%20XL%20Home%20Solo,%20saya%20mau%20pindah%20dari%20IndiHome%20ke%20XL%20Home.%20Mohon%20bantu%20cek%20coverage%20dan%20promo%20migrasi%20di%20alamat%20saya" target="_blank" rel="noopener noreferrer" class="btn-cta" style="background: #22c55e; color: white; font-weight: bold; padding: 13px 28px; border-radius: 8px; text-decoration: none; display: inline-block; font-size:16px;">
+      <i class="fab fa-whatsapp"></i> Chat WhatsApp Sales Resmi: 0877-7899-9141
     </a>
   </div>
 
   <div class="faq-section" style="margin-top: 35px; padding: 24px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0;">
-    <h2 style="margin-top: 0; color: #0f172a;">Tanya Jawab Seputar Migrasi Provider WiFi</h2>
+    <h2 style="margin-top: 0; color: #0f172a;">Pertanyaan Seputar Pindah Provider WiFi ke XL Home Solo</h2>
     
-    <div style="margin-bottom: 16px;">
-      <h4 style="margin-bottom: 6px; color: #1e3a8a;">1. Kapan waktu terbaik berhenti dari provider lama?</h4>
-      <p style="margin: 0; color: #475569; font-size: 15px;">Lakukan 3-5 hari sebelum tanggal tagihan baru, dan pastikan teknisi XL Home sudah memasang modem baru Anda lebih dulu agar tidak ada hari tanpa koneksi internet.</p>
+    <div style="margin-bottom: 18px;">
+      <h4 style="margin-bottom: 6px; color: #1e3a8a;">1. Apakah kabel lama IndiHome bisa dipakai untuk XL Home?</h4>
+      <p style="margin: 0; color: #475569; font-size: 15px;">Tidak. Setiap provider memiliki kabel fiber optik dan titik distribusi (ODP) masing-masing. Teknisi XL Home akan menarik kabel serat optik baru dari tiang XL Home terdekat langsung ke dalam rumah Anda secara rapi dan gratis.</p>
     </div>
 
-    <div style="margin-bottom: 16px;">
-      <h4 style="margin-bottom: 6px; color: #1e3a8a;">2. Apakah pasang baru XL Home dipungut biaya instalasi?</h4>
-      <p style="margin: 0; color: #475569; font-size: 15px;">Instalasi 100% Gratis (Rp 0), modem WiFi Gigabit dipinjamkan cuma-cuma selama berlangganan.</p>
+    <div style="margin-bottom: 18px;">
+      <h4 style="margin-bottom: 6px; color: #1e3a8a;">2. Berapa lama proses pemasangan XL Home baru sampai aktif?</h4>
+      <p style="margin: 0; color: #475569; font-size: 15px;">Setelah alamat diverifikasi dan jadwal disepakati, teknisi biasanya datang dalam 1–3 hari kerja. Pemasangan kabel dan modem di lokasi hanya memakan waktu sekitar 1–2 jam sampai internet langsung aktif.</p>
     </div>
 
-    <div style="margin-bottom: 16px;">
-      <h4 style="margin-bottom: 6px; color: #1e3a8a;">3. Apakah XL Home ada batas kuota FUP?</h4>
-      <p style="margin: 0; color: #475569; font-size: 15px;">XL Home Fiber murni True Unlimited 100% tanpa sistem batas kuota FUP.</p>
+    <div style="margin-bottom: 18px;">
+      <h4 style="margin-bottom: 6px; color: #1e3a8a;">3. Apakah ada biaya siluman saat pertama kali mendaftar XL Home?</h4>
+      <p style="margin: 0; color: #475569; font-size: 15px;">Sama sekali tidak ada. Untuk paket Spark 250 Mbps, biaya instalasi Rp0 (gratis). Anda hanya membayar biaya langganan bulanan paket resmi sesuai kesepakatan awal.</p>
     </div>
 
     <div>
-      <h4 style="margin-bottom: 6px; color: #1e3a8a;">4. Bagaimana cara klaim promo migrasi di Solo Raya?</h4>
-      <p style="margin: 0; color: #475569; font-size: 15px;">Kirim pesan via WhatsApp Sales di <strong>0877-7899-9141</strong> untuk diprioritaskan oleh teknisi kami.</p>
+      <h4 style="margin-bottom: 6px; color: #1e3a8a;">4. Bagaimana jika lokasi rumah saya belum ada tiang fiber XL Home?</h4>
+      <p style="margin: 0; color: #475569; font-size: 15px;">Jika area Anda belum terjangkau tiang fiber optik, tim sales kami akan menawarkan solusi <strong>XL Home Wireless / FWA</strong> (internet nirkabel tanpa tiang, colok listrik langsung aktif) dengan promo hemat Bayar 3 Dapat 4.</p>
     </div>
   </div>
 
-  <p>XL Home melayani pemasangan internet rumah dan kos di 5 wilayah Solo Raya: Sudah siap daftar? Baca <a href="/cara-daftar-pasang-wifi-xl-home-solo/">panduan lengkap cara daftar & syarat pemasangan</a>.</p>
+  <h2>Cek Area Layanan Sales Resmi di Kotamu</h2>
+  <p>Layanan Sales Resmi XL Home melayani pemasangan internet rumah dan migrasi provider di seluruh wilayah Solo Raya:</p>
 
   <div class="related-cities">
 
@@ -1783,6 +1842,8 @@ ARTIKEL["cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo"] = {
     <a href="/wifi-surakarta/">Pasang WiFi Surakarta</a>
 
   </div>
+
+  <p style="margin-top:16px;">Pelajari juga <a href="/biaya-pasang-wifi-solo-raya/">rincian biaya pasang WiFi Solo Raya</a> atau <a href="/cara-daftar-pasang-wifi-xl-home-solo/">syarat dan cara daftar pasang baru</a>.</p>
 
   `
 
