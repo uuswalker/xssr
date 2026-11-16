@@ -3029,7 +3029,18 @@ ARTIKEL["cara-cek-jaringan-xl-home-di-depan-rumah"] = {
   },
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20di%20depan%20rumah%20saya%20ada%20tiang%20XL%20Home.%20Mau%20pasang!",
   bodyHtml: `
-    <h2>Cara Tercepat Mengetahui Area Anda Sudah Tercover XL Home</h2>
+        <div class="info-box" style="background:#eff6ff; border-left:4px solid #2563eb; padding:18px 20px; border-radius:8px; margin:0 0 24px 0;">
+      <strong style="color:#1e40af; font-size:16px;">💡 Ringkasan Jawaban: 2 Cara Cek Jaringan XL Home di Rumah (1 Menit Selesai)</strong>
+      <p style="margin:8px 0 10px 0; color:#1e293b; font-size:14.5px; line-height:1.65;">
+        Untuk memastikan apakah rumah Anda di Solo Raya sudah terjangkau jaringan fiber optik XL Home, Anda bisa melakukan 2 langkah pengecekan berikut:
+      </p>
+      <ul style="margin:0; padding-left:18px; color:#1e293b; font-size:14px; line-height:1.65;">
+        <li><strong>1. Cek Fisik di Depan Rumah:</strong> Lihat tiang besi terdekat dalam radius maksimal 150 meter dari rumah. Tiang resmi XL Home memiliki sabuk/pucuk berwarna <strong>Hijau-Biru / Tosca</strong> dan terdapat <strong>Kotak FAT (ODP) warna putih</strong> berstiker segitiga merah dengan kode nomor hitam tebal (misal format kode area <code>SO</code> atau FiberStar).</li>
+        <li><strong>2. Cek Digital via WhatsApp Sales Resmi (Paling Akurat &amp; Real-Time):</strong> Kirimkan <em>Share Location</em> (titik koordinat Google Maps) rumah Anda ke WhatsApp Sales Resmi Solo Raya di <strong>0877-7899-9141</strong>. Tim kami akan mengecek ketersediaan port kosong dan jarak kabel ODP secara gratis dalam hitungan 3 menit tanpa Anda perlu survei sendiri!</li>
+      </ul>
+    </div>
+
+<h2>Cara Tercepat Mengetahui Area Anda Sudah Tercover XL Home</h2>
     <p>Seringkali calon pelanggan bingung dan harus menunggu lama hanya untuk menanyakan apakah alamatnya sudah tercover jaringan <strong>XL Home (XL SATU)</strong>. Padahal, ada cara yang sangat cepat dan akurat yang bisa Anda lakukan sendiri dalam 1 menit: <strong>Cek tiang listrik atau tiang internet di sekitar rumah Anda!</strong></p>
     
     <p>Di jalan raya Solo Raya (Solo, Sukoharjo, Karanganyar, Boyolali, Klaten), banyak sekali tiang kabel yang saling tumpang tindih. Agar tidak tertukar dengan tiang milik IndiHome, Biznet, atau PLN, berikut adalah 2 ciri fisik mutlak dari jaringan XL Home.</p>
@@ -3102,49 +3113,149 @@ ARTIKEL["cara-cek-jaringan-xl-home-di-depan-rumah"] = {
 
 ARTIKEL["xl-center-solo-terdekat-pasang-wifi"] = {
   slug: "xl-center-solo-terdekat-pasang-wifi",
-  title: "Alamat XL Center Solo & CS Pasang WiFi [Resmi 2026]",
-  description: "Info alamat XL Center Solo Penumping, call center CS 24 jam, dan panduan daftar pasang baru WiFi XL Home tanpa antre di gerai. Chat via WhatsApp!",
-  keywords: ["xl center solo", "store xl terdekat", "alamat xl center solo", "gerai xl solo", "pasang wifi xl solo", "xl center penumping", "xl center terdekat"],
-  ogTitle: "Jangan Ke XL Center Dulu Sebelum Baca Ini!",
-  ogDescription: "Mau pasang WiFi XL Home? Gak perlu capek antre di gerai fisik. Daftar online lebih cepat.",
+  title: "Alamat XL Center Solo Penumping, Jam Buka & Pasang WiFi 2026",
+  description: "Alamat resmi XL Center Solo Penumping (Sriwedari), jam buka operasional, call center CS, dan cara daftar pasang WiFi XL Home tanpa antre di gerai via WhatsApp.",
+  keywords: ["xl center solo", "alamat xl center solo", "jam buka xl center solo", "gerai xl solo", "store xl terdekat", "pasang wifi xl solo", "xl center penumping", "call center xl solo"],
+  ogTitle: "Alamat XL Center Solo Penumping, Jam Buka & Pasang WiFi 2026",
+  ogDescription: "Cek alamat lengkap Jl. Bhayangkara Sriwedari, jam operasional, dan info pasang baru WiFi XL Home tanpa antre gerai via WA resmi.",
   ogImage: "/images/banner-xlsatu-jadi-xlhome.jpg",
-  schemas: [],
-  faqs: [],
-  hero: null,
+  schemas: [
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "XL Center Solo",
+      "image": "https://xlhomesolo.com/images/banner-xlsatu-jadi-xlhome.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Bhayangkara No.81, Penumping, Kec. Laweyan",
+        "addressLocality": "Surakarta",
+        "addressRegion": "Jawa Tengah",
+        "postalCode": "57141",
+        "addressCountry": "ID"
+      },
+      "telephone": "+6287778999141",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "13:00"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Di mana alamat persis XL Center Solo dan jam bukanya?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "XL Center Solo beralamat di Jl. Bhayangkara No.81, Penumping, Kec. Laweyan, Kota Surakarta (sebelah barat Stadion Sriwedari). Jam buka resmi Senin-Jumat pukul 08.00-17.00 WIB dan Sabtu pukul 08.00-13.00 WIB (Minggu dan libur nasional tutup)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah untuk pasang baru WiFi XL Home harus datang ke gerai XL Center Solo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tidak perlu datang ke gerai fisik! Pendaftaran pasang baru WiFi XL Home di seluruh Solo Raya (Solo, Sukoharjo, Karanganyar, Klaten, Boyolali) dapat diproses 100% online via WhatsApp Sales Resmi di 0877-7899-9141 tanpa biaya administrasi."
+          }
+        }
+      ]
+    }
+  ],
+  hero: {
+    crumb: '<a href="/">Beranda</a> / Alamat XL Center Solo',
+    h1: "Alamat XL Center Solo, Jam Buka & Layanan Pasang WiFi 2026",
+    sub: "Info resmi lokasi gerai XL Center Penumping (Sriwedari), jam operasional, dan panduan daftar pasang baru WiFi XL Home tanpa repot antre.",
+    meta: "Diperbarui 16 November 2026 • Tim Sales Resmi XL Home Solo Raya",
+  },
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home%20di%20Solo%20tanpa%20harus%20ke%20gerai",
+  faqs: [
+    {
+      q: "Di mana alamat persis XL Center Solo dan jam bukanya?",
+      a: "XL Center Solo beralamat di Jl. Bhayangkara No.81, Penumping, Kec. Laweyan, Kota Surakarta (sebelah barat Stadion Sriwedari). Jam operasional resmi: Senin–Jumat pukul 08.00–17.00 WIB, Sabtu pukul 08.00–13.00 WIB, sedangkan Minggu dan hari libur nasional tutup."
+    },
+    {
+      q: "Apakah untuk pasang WiFi XL Home baru harus datang langsung ke XL Center Solo?",
+      a: "Tidak perlu sama sekali! Calon pelanggan WiFi rumah XL Home di wilayah Solo Raya (Solo, Sukoharjo, Karanganyar, Klaten, Boyolali) tidak perlu antre di gerai fisik. Pendaftaran, cek tiang ODP, hingga penjadwalan teknisi dapat diproses 100% online melalui WhatsApp Sales Resmi di 0877-7899-9141."
+    },
+    {
+      q: "Urusan apa saja yang mewajibkan pelanggan datang langsung ke gerai fisik XL Center?",
+      a: "Anda wajib datang langsung ke gerai fisik jika mengurus kartu SIM seluler fisik yang hilang/rusak, migrasi ke kartu fisik pengganti, atau urusan verifikasi biometrik langsung yang mewajibkan kehadiran pemilik nomor asli dengan e-KTP."
+    },
+    {
+      q: "Berapa lama proses pemasangan teknisi jika mendaftar online lewat sales resmi?",
+      a: "Setelah pendaftaran online via WhatsApp terverifikasi dan slot tiang ODP dipastikan aman, pemasangan oleh tim teknisi resmi biasanya langsung dijadwalkan dalam 1 hingga 2 hari kerja."
+    }
+  ],
   bodyHtml: `
-    <h2>Mencari Alamat XL Center Solo? Tunggu Dulu!</h2>
-    <p>Apakah Anda sedang mencari rute ke <strong>XL Center Solo terdekat</strong> (Jl. Bhayangkara No.81, Penumping, Laweyan) untuk mengurus internet Anda hari ini? Jika ya, mohon baca informasi penting ini sebelum Anda memanaskan kendaraan bermotor Anda.</p>
-    
-    <p>Untuk menghemat waktu Anda dari kemacetan, panas terik, dan panjangnya antrean, kita harus memastikan dulu <strong>apa tujuan utama Anda</strong> mencari gerai fisik XL.</p>
-
-    <div class="info-box" style="background: #fff3e0; border-left: 4px solid #f97316; padding: 16px; margin: 24px 0; border-radius: 4px;">
-      <h3 style="color: #c2410c; margin-top:0;">?? Jika Anda Ingin Ganti Kartu SIM Hilang / Rusak</h3>
-      <p style="margin-bottom:0;">Mohon maaf, Anda <strong>wajib</strong> datang langsung ke XL Center fisik dengan membawa KTP asli. Agen *online* mana pun tidak memiliki wewenang untuk mencetak ulang kartu SIM seluler Anda demi keamanan data pribadi.</p>
+    <div class="info-box" style="background:#eff6ff; border-left:4px solid #2563eb; padding:20px; border-radius:10px; margin:0 0 24px 0;">
+      <strong style="color:#1e40af; font-size:16px;">📍 Informasi Resmi Gerai XL Center Solo (Penumping / Sriwedari)</strong>
+      <table style="width:100%; margin-top:12px; font-size:14.5px; border-collapse:collapse;">
+        <tr style="border-bottom:1px solid #dbeafe;">
+          <td style="padding:8px 0; font-weight:700; width:35%; color:#1e3a8a;">Nama Gerai</td>
+          <td style="padding:8px 0; color:#1e293b;"><strong>XL Center Solo</strong></td>
+        </tr>
+        <tr style="border-bottom:1px solid #dbeafe;">
+          <td style="padding:8px 0; font-weight:700; color:#1e3a8a;">Alamat Lengkap</td>
+          <td style="padding:8px 0; color:#1e293b;">Jl. Bhayangkara No.81, Penumping, Kec. Laweyan, Kota Surakarta, Jawa Tengah 57141 <em>(Sebelah barat Stadion Sriwedari)</em></td>
+        </tr>
+        <tr style="border-bottom:1px solid #dbeafe;">
+          <td style="padding:8px 0; font-weight:700; color:#1e3a8a;">Jam Buka / Operasional</td>
+          <td style="padding:8px 0; color:#1e293b;">
+            <strong>Senin – Jumat:</strong> 08.00 – 17.00 WIB<br>
+            <strong>Sabtu:</strong> 08.00 – 13.00 WIB<br>
+            <strong>Minggu &amp; Libur Nasional:</strong> Tutup
+          </td>
+        </tr>
+        <tr style="border-bottom:1px solid #dbeafe;">
+          <td style="padding:8px 0; font-weight:700; color:#1e3a8a;">Layanan di Gerai Fisik</td>
+          <td style="padding:8px 0; color:#1e293b;">Ganti kartu SIM hilang/rusak, aktivasi eSIM, pengaktifan nomor hangus, dan komplain seluler XL/Axis.</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 0; font-weight:700; color:#166534;">Pasang WiFi XL Home</td>
+          <td style="padding:8px 0; color:#166534; font-weight:700;">
+            TIDAK PERLU KE GERAI! Pendaftaran WiFi rumah bisa 100% online via WhatsApp Sales Resmi di <a href="https://wa.me/6287778999141?text=Halo%20Sales%20Resmi%20XL%20Home%20Solo,%20saya%20mau%20pasang%20wifi%20tanpa%20antre%20di%20gerai" style="color:#037e64; text-decoration:underline;">0877-7899-9141</a> (Respon Cepat, Gratis Pasang Rp 0).
+          </td>
+        </tr>
+      </table>
     </div>
 
-    <div class="info-box" style="background: #e6f7f3; border-left: 4px solid #037e64; padding: 16px; margin: 24px 0; border-radius: 4px;">
-      <h3 style="color: #047857; margin-top:0;">? Jika Anda Ingin Pasang WiFi XL Home (Internet Rumah)</h3>
-      <p style="margin-bottom:0;">BERHENTI! Anda <strong>tidak perlu datang ke XL Center</strong> sama sekali! Anda bisa mengurus pendaftaran 100% dari layar HP Anda sekarang juga. Kami adalah Tim Sales Resmi XL Home Area Solo Raya yang siap memproses pendaftaran Anda secara instan.</p>
+    <h2>Mencari Alamat XL Center Solo? Simak Sebelum Berangkat!</h2>
+    <p>Apakah Anda sedang mencari rute ke <strong>XL Center Solo terdekat</strong> di Jl. Bhayangkara No.81 Penumping Sriwedari? Sebelum Anda memanaskan kendaraan bermotor dan menembus macetnya jalanan kota Solo, pastikan dulu apa kebutuhan utama Anda.</p>
+
+    <div class="info-box" style="background: #fff3e0; border-left: 4px solid #f97316; padding: 16px; margin: 24px 0; border-radius: 6px;">
+      <h3 style="color: #c2410c; margin-top:0;">⚠️ Jika Anda Ingin Ganti Kartu SIM Hilang / Rusak</h3>
+      <p style="margin-bottom:0;">Anda <strong>wajib</strong> datang langsung ke XL Center fisik dengan membawa e-KTP asli. Demi keamanan data biometrik pelanggan, agen online mana pun tidak berwenang mencetak ulang fisik kartu SIM seluler.</p>
     </div>
 
-    <h2>Kenapa Lebih Baik Daftar WiFi Via WhatsApp Agen?</h2>
-    <p>Memaksakan diri datang ke gerai fisik hanya untuk berlangganan WiFi rumah justru akan memperlambat proses Anda. Berikut alasannya:</p>
+    <div class="info-box" style="background: #e6f7f3; border-left: 4px solid #037e64; padding: 16px; margin: 24px 0; border-radius: 6px;">
+      <h3 style="color: #047857; margin-top:0;">✅ Jika Anda Ingin Pasang Baru WiFi XL Home (Internet Rumah)</h3>
+      <p style="margin-bottom:0;">BERHENTI! Anda <strong>TIDAK PERLU datang atau mengantre ke XL Center</strong> sama sekali! Seluruh pendaftaran pasang WiFi rumah diproses secara digital melalui WhatsApp Sales Resmi Area Solo Raya. Pengecekan tiang ODP langsung dilakukan via share location maps.</p>
+    </div>
+
+    <h2>Kenapa Lebih Baik Daftar WiFi Via WhatsApp Sales Resmi?</h2>
     <ul>
-      <li><strong>Tanpa Antre:</strong> Di gerai, Anda harus mengambil nomor antrean dan menunggu. Di WhatsApp, chat Anda akan langsung dibalas dalam hitungan menit.</li>
-      <li><strong>Bebas Cuaca & Macet:</strong> Daftar dari ruang tamu Anda sambil minum kopi. Biar teknisi kami yang berjibaku di jalanan menuju rumah Anda.</li>
-      <li><strong>Proses Survei Lebih Cepat:</strong> Dengan <em>Share Lokasi</em> via WA, kami bisa langsung mengecek ketersediaan jaringan tiang fiber optic di depan rumah Anda secara *real-time*.</li>
-      <li><strong>Syarat Sangat Mudah:</strong> Cukup siapkan foto KTP, Alamat Lengkap, dan Email aktif. Semuanya dikirim via *chat* yang dijamin aman 100%.</li>
+      <li><strong>Tanpa Antrean Gerai:</strong> Di gerai Anda wajib mengambil nomor antrean panjang. Di WhatsApp resmi, chat Anda dijawab langsung oleh tim sales lokal Solo.</li>
+      <li><strong>Survei Titik ODP Akurat:</strong> Cukup kirim fitur <em>Share Lokasi</em> Google Maps via WA, tim teknisi langsung memetakan jarak tiang fiber terdekat ke rumah Anda dalam 3 menit.</li>
+      <li><strong>Klaim Promo Bebas Biaya Pasang Rp 0:</strong> Dapatkan promo gratis biaya instalasi teknisi dan pinjam pakai modem Optical Network Terminal (ONT) Gigabit tanpa biaya deposit tambahan.</li>
+      <li><strong>Syarat Praktis Digital:</strong> Cukup siapkan foto e-KTP dan data alamat pemasangan. Dokumen diproses langsung ke sistem terpadu PT XL Axiata Tbk secara aman.</li>
     </ul>
 
-    <h2>Dapatkan Layanan "Daftar Pagi, Sore Dipasang!"</h2>
-    <p>Kami memiliki akses prioritas ke tim teknisi lapangan di area Surakarta, Sukoharjo, Karanganyar, Klaten, dan Boyolali. Selama slot masih tersedia dan jarak tiang (ODP) memadai, pendaftaran hari ini akan langsung dikerjakan hari ini juga.</p>
-
     <div class="cta-box">
-      <h3>Batal Ke Gerai XL Center? Bagus!</h3>
-      <p>Simpan bensin dan tenaga Anda. Klik tombol di bawah ini untuk terhubung langsung dengan admin resmi kami di area Solo. Pendaftaran GRATIS tanpa biaya instalasi tambahan!</p>
-      <a href="https://wa.me/6287778999141?text=Halo%20Admin,%20saya%20batal%20ke%20XL%20Center.%20Mau%20langsung%20daftar%20pasang%20WiFi%20XL%20Home%20lewat%20WA%20saja.%20Bisa%20cek%20lokasi%20saya?" target="_blank" rel="noopener noreferrer" class="btn-cta">
-        Chat WA Agen XL Home Solo
+      <h3>Mau Pasang WiFi Rumah XL Home Sekarang?</h3>
+      <p>Simpan bensin dan tenaga Anda. Hubungi WhatsApp Sales Resmi Solo Raya untuk cek jaringan dan jadwal pemasangan teknisi hari ini.</p>
+      <a href="https://wa.me/6287778999141?text=Halo%20Sales%20Resmi%20XL%20Home%20Solo,%20saya%20batal%20ke%20gerai.%20Mau%20daftar%20pasang%20WiFi%20lewat%20WA.%20Bisa%20cek%20area%20rumah%20saya?" target="_blank" rel="noopener noreferrer" class="btn-cta">
+        <i class="fab fa-whatsapp"></i> Chat WhatsApp Sales Resmi XL Home Solo
       </a>
     </div>
   `
@@ -3671,7 +3782,20 @@ ARTIKEL["wifi-untuk-live-streaming-jualan-solo"] = {
   },
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20pelaku%20usaha%20di%20Solo%20mau%20konsultasi%20paket%20WiFi%20simetris%20untuk%20live%20streaming%20jualan",
   bodyHtml: `
-    <p>Bagi ribuan pelaku usaha, UMKM, dan pengrajin fashion di Kota Solo — mulai dari <strong>Kampung Batik Laweyan & Kauman</strong>, pedagang grosir kain <strong>Pasar Kliwon, PGS, dan BTC</strong>, hingga toko modern di koridor <strong>Ruko Solo Baru dan Manahan</strong> — siaran langsung jualan (<em>live shopping streaming</em>) di <strong>TikTok Shop Live</strong> dan <strong>Shopee Live</strong> kini telah menjadi mesin penghasil omzet terbesar setiap harinya.</p>
+        <div class="info-box" style="background:#eff6ff; border-left:4px solid #2563eb; padding:18px 20px; border-radius:8px; margin:0 0 24px 0;">
+      <strong style="color:#1e40af; font-size:16px;">🏆 Rekomendasi Provider WiFi Terbaik untuk Live Streaming Jualan di Solo Raya (Update 2026)</strong>
+      <p style="margin:8px 0 10px 0; color:#1e293b; font-size:14.5px; line-height:1.65;">
+        Untuk siaran langsung TikTok Shop Live &amp; Shopee Live tanpa patah-patah (<em>anti-lag</em>), kunci teknis utamanya adalah <strong>Kecepatan Upload Simetris 1:1</strong>, <strong>Latency/Ping Rendah (&lt; 20ms)</strong>, dan <strong>100% Bebas FUP</strong>. Berikut urutan rekomendasi provider di Solo Raya:
+      </p>
+      <ol style="margin:0; padding-left:18px; color:#1e293b; font-size:14px; line-height:1.7;">
+        <li><strong>XL Home Fiber Spark 250 Mbps (Pilihan #1 Paling Direkomendasikan &amp; Best Value):</strong> Upload simetris murni 250 Mbps, 100% bebas FUP, ping stabil &lt;15ms. Biaya hanya <strong>Rp 229.000/bln</strong> (Gratis Pasang Rp 0). Sanggup menopang hingga 4–6 akun live streaming resolusi Full HD 1080p 60fps serentak tanpa <em>dropped frame</em>!</li>
+        <li><strong>Biznet Home:</strong> Koneksi simetris 1:1 handal, namun tarif bulanan dan biaya awal instalasi teknisi lebih mahal (mulai Rp 250rb–Rp 350rb/bln + PSB Rp 250rb).</li>
+        <li><strong>MyRepublic:</strong> Memiliki paket simetris tanpa FUP yang bagus untuk gamer/seller, namun harga paket berada di kisaran Rp 250rb–Rp 300rb-an ke atas dan coverage tiang di Solo Raya belum merata di semua gang/ruko.</li>
+        <li><strong>IndiHome / EZnet:</strong> Rasio kecepatan asimetris (kecepatan upload biasanya hanya 1:3 atau 1:4 dari download) serta menerapkan batas kuota FUP bulanan, sehingga rawan drop jika dipakai live berjam-jam setiap hari.</li>
+      </ol>
+    </div>
+
+<p>Bagi ribuan pelaku usaha, UMKM, dan pengrajin fashion di Kota Solo — mulai dari <strong>Kampung Batik Laweyan & Kauman</strong>, pedagang grosir kain <strong>Pasar Kliwon, PGS, dan BTC</strong>, hingga toko modern di koridor <strong>Ruko Solo Baru dan Manahan</strong> — siaran langsung jualan (<em>live shopping streaming</em>) di <strong>TikTok Shop Live</strong> dan <strong>Shopee Live</strong> kini telah menjadi mesin penghasil omzet terbesar setiap harinya.</p>
 
     <p>Namun, kendala nomor satu yang paling sering menghancurkan penjualan adalah <strong>siaran live yang patah-patah (lag), gambar buram pixelated, dan sinyal mendadak terputus</strong> di tengah-tengah penjelasan promo. Padahal dalam live commerce, jeda 5 detik saja bisa membuat ratusan calon pembeli langsung keluar dari room live Anda!</p>
 
@@ -4277,7 +4401,19 @@ ARTIKEL["pasang-wifi-xl-home-kartasura"] = {
   },
   headerCta: "https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home,%20saya%20mau%20pasang%20WiFi%20di%20Kartasura%20dekat%20UMS.%20Mau%20tanya%20paket%20hemat%20kos%20dan%20promo%20Bayar%2010%20Dapat%2012.",
   bodyHtml: `
-    <p>Kecamatan <strong>Kartasura (Kabupaten Sukoharjo)</strong> merupakan episentrum pendidikan tinggi dan aglomerasi tersibuk di barat Solo Raya. Menjadi rumah bagi puluhan ribu mahasiswa di <strong>Universitas Muhammadiyah Surakarta (UMS Pabelan & Gonilan)</strong> dan <strong>UIN Raden Mas Said Surakarta (Pucangan)</strong>, kebutuhan internet cepat dan stabil di Kartasura adalah kebutuhan mutlak — baik untuk belajar daring, riset skripsi, streaming hiburan, gaming kompetitif, maupun operasional bisnis kuliner legendaris.</p>
+        <div class="info-box" style="background:#eff6ff; border-left:4px solid #2563eb; padding:18px 20px; border-radius:8px; margin:0 0 24px 0;">
+      <strong style="color:#1e40af; font-size:16px;">🏆 Rekomendasi WiFi Terbaik &amp; Termurah di Kartasura (Dekat UMS &amp; UIN) 2026</strong>
+      <p style="margin:8px 0 10px 0; color:#1e293b; font-size:14.5px; line-height:1.65;">
+        Bagi warga perumahan, pemilik kos, dan mahasiswa di sekitar kampus UMS (Pabelan, Gonilan, Mendungan) serta UIN (Pucangan, Kartasura), berikut panduan memilih WiFi paling hemat dan anti-lemot:
+      </p>
+      <ul style="margin:0; padding-left:18px; color:#1e293b; font-size:14px; line-height:1.65;">
+        <li><strong>XL Home Fiber (Rekomendasi Utama &amp; Paling Hemat):</strong> 100% Fiber Optic simetris 1:1, <strong>Murni Tanpa FUP</strong>, Gratis Biaya Pasang Rp 0. Paket Spark 250 Mbps hanya <strong>Rp 229.000/bln</strong> (patungan 6 orang anak kos hanya ~<strong>Rp 38.000/anak/bulan</strong>) atau Paket Starter 20 Mbps Rp 185.000/bln.</li>
+        <li><strong>EZnet by Telkomsel:</strong> Harga mulai Rp 150.000-an, namun menerapkan batasan kuota FUP bulanan yang sering membuat WiFi mendadak lemot saat tanggal tua ketika dipakai banyak penghuni kos.</li>
+        <li><strong>MyRepublic Kartasura:</strong> Koneksi kencang, namun paket internet-only berada di kisaran Rp 200 ribuan ke atas dengan pilihan kecepatan awal yang lebih rendah dibanding 250 Mbps XL Home.</li>
+      </ul>
+    </div>
+
+<p>Kecamatan <strong>Kartasura (Kabupaten Sukoharjo)</strong> merupakan episentrum pendidikan tinggi dan aglomerasi tersibuk di barat Solo Raya. Menjadi rumah bagi puluhan ribu mahasiswa di <strong>Universitas Muhammadiyah Surakarta (UMS Pabelan & Gonilan)</strong> dan <strong>UIN Raden Mas Said Surakarta (Pucangan)</strong>, kebutuhan internet cepat dan stabil di Kartasura adalah kebutuhan mutlak — baik untuk belajar daring, riset skripsi, streaming hiburan, gaming kompetitif, maupun operasional bisnis kuliner legendaris.</p>
 
     <div class="info-box" style="border-left: 4px solid #037e64; background: #e6f7f3;">
       <strong>Solusi Anti-FUP untuk Kartasura:</strong> Lupakan WiFi lemot akibat kuota FUP habis di tanggal tua! XL SATU kini bertransformasi menjadi <strong>XL Home Fiber</strong> dengan kecepatan fiber optik <strong>100% Tanpa FUP</strong>, rasio simetris 1:1, dan <strong>Promo Bebas Biaya Instalasi Rp 0 (Hemat Rp 99.000)</strong>.
@@ -4506,7 +4642,21 @@ ARTIKEL["biaya-pasang-wifi-pertama-kali-solo"] = {
   },
   headerCta: "https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home,%20saya%20mau%20tanya%20rincian%20biaya%20pasang%20pertama%20kali%20di%20Solo%20Raya",
   bodyHtml: `
-    <p>Pertanyaan nomor satu yang paling sering diajukan masyarakat Solo Raya sebelum memutuskan memasang internet rumah adalah: <strong>"Berapa total biaya pasang WiFi pertama kali?"</strong> Banyak calon pelanggan takut terjebak dengan istilah <em>biaya pasang baru (PSB)</em>, deposit perangkat modem, biaya materai, hingga biaya administrasi tersembunyi yang membuat tagihan bulan pertama membengkak dua kali lipat dari harga iklan.</p>
+        <div class="info-box" style="background:#eff6ff; border-left:4px solid #2563eb; padding:18px 20px; border-radius:8px; margin:0 0 24px 0;">
+      <strong style="color:#1e40af; font-size:16px;">💡 Ringkasan Jawaban: Berapa Biaya Pasang WiFi Pertama Kali di Solo Raya?</strong>
+      <p style="margin:8px 0 10px 0; color:#1e293b; font-size:14.5px; line-height:1.65;">
+        Secara umum di Solo Raya, total biaya pasang WiFi pertama kali terdiri dari <strong>Biaya Pasang Baru (PSB/Instalasi)</strong> + <strong>Biaya Paket Internet Bulan ke-1</strong> + <strong>PPN 11%</strong>. Berikut perbandingan estimasi total biaya pertama kali antar-provider:
+      </p>
+      <ul style="margin:0; padding-left:18px; color:#1e293b; font-size:14px; line-height:1.65;">
+        <li><strong>XL Home Fiber (Paling Hemat &amp; Rekomendasi Utama):</strong> Total mulai <strong>Rp 254.190 nett</strong> (Paket Spark 250 Mbps Rp 229.000 + PPN 11%, <strong>GRATIS Biaya Pasang Rp 0</strong> &amp; pinjam modem gratis). Pasang dulu, internet aktif, baru bayar!</li>
+        <li><strong>EZnet by Telkomsel:</strong> Sekitar <strong>Rp 250.000–Rp 350.000</strong> (Paket Rp 150.000 + Biaya PSB Rp 150.000 + PPN 11%).</li>
+        <li><strong>IndiHome Reguler:</strong> Sekitar <strong>Rp 380.000–Rp 550.000</strong> (Paket mulai Rp 280.000 + Biaya PSB Rp 99.000–Rp 166.500 + PPN 11%).</li>
+        <li><strong>Biznet Home:</strong> Sekitar <strong>Rp 450.000–Rp 650.000</strong> (Paket mulai Rp 175.000–Rp 250.000 + Biaya Instalasi Rp 250.000 + PPN 11%).</li>
+        <li><strong>MyRepublic:</strong> Sekitar <strong>Rp 250.000–Rp 400.000</strong> (Paket mulai Rp 200 ribuan + PPN 11%).</li>
+      </ul>
+    </div>
+
+<p>Pertanyaan nomor satu yang paling sering diajukan masyarakat Solo Raya sebelum memutuskan memasang internet rumah adalah: <strong>"Berapa total biaya pasang WiFi pertama kali?"</strong> Banyak calon pelanggan takut terjebak dengan istilah <em>biaya pasang baru (PSB)</em>, deposit perangkat modem, biaya materai, hingga biaya administrasi tersembunyi yang membuat tagihan bulan pertama membengkak dua kali lipat dari harga iklan.</p>
 
     <div class="info-box" style="border-left: 4px solid #037e64; background: #e6f7f3;">
       <strong>Fakta Lapangan Solo Raya:</strong> Di XL Home Fiber (evolusi resmi XL SATU), Anda <strong>TIDAK dikenakan Biaya Instalasi (Hemat Rp 99.000 s/d Rp 500.000)</strong> untuk paket 100-250 Mbps ke atas. Modem fiber optik dipinjamkan gratis, dan pembayaran tagihan pertama dilakukan <strong>SETELAH</strong> internet berhasil aktif di rumah Anda!
