@@ -9,7 +9,7 @@ import { FiberPaket, TahunanPaket, WirelessPaket } from "@/components/home/Paket
 import { About, Hubungi, Kenapa, Myxl } from "@/components/home/InfoSections";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Marquee from "@/components/animations/Marquee";
-import { KecamatanBlock, KotaArea, KotaHero } from "@/components/kota/KotaSections";
+import { KecamatanBlock, KotaArea, KotaHero, KotaProviderCompare } from "@/components/kota/KotaSections";
 import CityPills from "@/components/kota/CityPills";
 import PageTransition from "@/components/animations/PageTransition";
 import {
@@ -74,6 +74,9 @@ export function KotaPage({ slug }: { slug: string }) {
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
           <KecamatanBlock city={city} />
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <KotaProviderCompare city={city} />
         </ScrollReveal>
         {city.has_fiber && (
           <>

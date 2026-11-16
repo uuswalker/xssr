@@ -336,3 +336,163 @@ export function KecamatanBlock({ city }: { city: City }) {
     </section>
   );
 }
+
+/** Rekomendasi & Komparasi Provider WiFi per Kota untuk SEO Intent makro. */
+export function KotaProviderCompare({ city }: { city: City }) {
+  const kota = city.h1_kota as string;
+  const waUrl = `https://wa.me/6287778999141?text=${waEncode(
+    `Halo Sales Resmi XL Home ${kota}, saya mau tanya promo pasang wifi murah di ${kota}`
+  )}`;
+
+  return (
+    <section className="area-section" style={{ paddingTop: 10, paddingBottom: 20 }}>
+      <div className="area-inner">
+        <div
+          style={{
+            background: "#ffffff",
+            border: "1.5px solid #e2e8f0",
+            borderRadius: 16,
+            padding: "28px 24px",
+            boxShadow: "0 4px 16px rgba(0,0,0,0.04)",
+            textAlign: "left",
+          }}
+        >
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              background: "#dcfce7",
+              color: "#166534",
+              padding: "4px 12px",
+              borderRadius: 999,
+              fontSize: 13,
+              fontWeight: 700,
+              marginBottom: 12,
+            }}
+          >
+            <CheckCircle2 size={15} /> PANDUAN PROVIDER WIFI {kota.toUpperCase()} 2026
+          </div>
+          <h2 style={{ fontSize: 22, color: "#0f172a", margin: "0 0 12px 0", lineHeight: 1.35 }}>
+            Rekomendasi Provider WiFi Terbaik &amp; Termurah di {kota}
+          </h2>
+          <p style={{ fontSize: 15, color: "#475569", lineHeight: 1.7, margin: "0 0 20px 0" }}>
+            Sedang mencari layanan pasang WiFi murah di wilayah <strong>{kota}</strong>? Sebelum memutuskan berlangganan, bandingkan kelebihan dan rincian biaya dari provider internet populer yang beroperasi di {kota}:
+          </p>
+
+          <div style={{ display: "grid", gap: 14, marginBottom: 24 }}>
+            <div
+              style={{
+                border: "1.5px solid #22c55e",
+                background: "#f0fdf4",
+                borderRadius: 12,
+                padding: "16px 18px",
+              }}
+            >
+              <h4 style={{ margin: "0 0 6px 0", color: "#166534", fontSize: 16 }}>
+                1. XL Home Fiber {kota} (Rekomendasi Utama &amp; Best Value)
+              </h4>
+              <p style={{ margin: 0, fontSize: 14, color: "#1e3a2b", lineHeight: 1.6 }}>
+                <strong>Harga:</strong> Mulai Rp185.000/bln (Starter 20 Mbps) hingga Rp229.000/bln (Spark 250 Mbps Best Seller).<br />
+                <strong>Keunggulan:</strong> 100% Fiber Optic simetris 1:1, <strong>Murni Tanpa Batas FUP</strong> seumur hidup, dan <strong>Gratis Biaya Pasang Rp0</strong> (pinjam modem Gigabit Dual Band gratis).
+              </p>
+            </div>
+
+            <div
+              style={{
+                border: "1px solid #e2e8f0",
+                background: "#f8fafc",
+                borderRadius: 12,
+                padding: "16px 18px",
+              }}
+            >
+              <h4 style={{ margin: "0 0 6px 0", color: "#334155", fontSize: 15 }}>
+                2. EZnet by Telkomsel / IndiHome {kota}
+              </h4>
+              <p style={{ margin: 0, fontSize: 14, color: "#64748b", lineHeight: 1.6 }}>
+                <strong>Harga:</strong> Mulai Rp150.000–Rp280.000/bln.<br />
+                <strong>Catatan:</strong> Jangkauan tiang sangat luas, namun menerapkan batasan kuota FUP bulanan dan dikenakan Biaya Pasang Baru (PSB) di tagihan pertama.
+              </p>
+            </div>
+
+            <div
+              style={{
+                border: "1px solid #e2e8f0",
+                background: "#f8fafc",
+                borderRadius: 12,
+                padding: "16px 18px",
+              }}
+            >
+              <h4 style={{ margin: "0 0 6px 0", color: "#334155", fontSize: 15 }}>
+                3. Biznet Home {kota}
+              </h4>
+              <p style={{ margin: 0, fontSize: 14, color: "#64748b", lineHeight: 1.6 }}>
+                <strong>Harga:</strong> Mulai Rp175.000–Rp250.000/bln.<br />
+                <strong>Catatan:</strong> Koneksi kencang, namun biaya awal instalasi dan pembelian/deposit perangkat router relatif lebih tinggi (Rp250rb–Rp500rb).
+              </p>
+            </div>
+
+            <div
+              style={{
+                border: "1px solid #e2e8f0",
+                background: "#f8fafc",
+                borderRadius: 12,
+                padding: "16px 18px",
+              }}
+            >
+              <h4 style={{ margin: "0 0 6px 0", color: "#334155", fontSize: 15 }}>
+                4. MyRepublic {kota}
+              </h4>
+              <p style={{ margin: 0, fontSize: 14, color: "#64748b", lineHeight: 1.6 }}>
+                <strong>Harga:</strong> Mulai Rp200 ribuan/bln.<br />
+                <strong>Catatan:</strong> Paket khusus gamer yang stabil, namun cakupan tiang fiber optik masih terkonsentrasi di perumahan dan klaster tertentu.
+              </p>
+            </div>
+          </div>
+
+          <div
+            style={{
+              background: "#eff6ff",
+              border: "1px solid #bfdbfe",
+              borderRadius: 12,
+              padding: "16px 18px",
+              marginBottom: 20,
+            }}
+          >
+            <h4 style={{ margin: "0 0 6px 0", color: "#1e40af", fontSize: 15 }}>
+              💡 Tips Cerdas Sebelum Pasang WiFi di {kota}:
+            </h4>
+            <ul style={{ margin: 0, paddingLeft: 18, color: "#1e293b", fontSize: 14, lineHeight: 1.65 }}>
+              <li><strong>Cek Titik Tiang ODP:</strong> Pastikan tiang kabel fiber berada dalam jarak aman (&le; 150 meter) dari rumah Anda di {kota}.</li>
+              <li><strong>Pilih Bebas FUP:</strong> Hindari paket murah yang kecepatannya anjlok di pertengahan bulan setelah kuota wajar habis.</li>
+              <li><strong>Manfaatkan Promo Pasang Baru Rp0:</strong> Daftar lewat WhatsApp Sales Resmi untuk klaim gratis biaya instalasi teknisi.</li>
+            </ul>
+          </div>
+
+          <div style={{ textAlign: "center" }}>
+            <a
+              href={waUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                background: "var(--green, #037e64)",
+                color: "#ffffff",
+                padding: "12px 24px",
+                borderRadius: 999,
+                fontWeight: 700,
+                fontSize: 14.5,
+                textDecoration: "none",
+                boxShadow: "0 4px 12px rgba(3, 126, 100, 0.25)",
+              }}
+            >
+              <MapPin size={16} /> Konsultasi &amp; Cek Jaringan {kota} via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
