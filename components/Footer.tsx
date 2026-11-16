@@ -62,7 +62,7 @@ export default function Footer() {
               <li><a href="/internet-rakyat-vs-xl-home/">Internet Rakyat vs XL Home</a></li>
               <li><a href="/cara-berhenti-langganan-indihome-biznet-pindah-xl-home-solo/">Cara Ganti Provider ke XL Home</a></li>
               <li><a href="/wfh-angkringan-solo-xl-home/">WFH &amp; Usaha Angkringan Solo</a></li>
-              <li><a href="/nomor-sales-xl-home-solo-raya/">Nomor Sales &amp; Agen Resmi</a></li>
+              <li><a href="/nomor-sales-xl-home-solo-raya/">Nomor WhatsApp Sales Resmi</a></li>
             </ul>
           </div>
 

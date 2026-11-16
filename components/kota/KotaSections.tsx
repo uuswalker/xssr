@@ -82,7 +82,7 @@ export function KotaHero({ city }: { city: City }) {
             }}
           >
             {[
-              "agen resmi XL Home",
+              "Layanan Sales Resmi XL Home",
               "Harga Transparan, Tanpa Biaya Tersembunyi",
               "Ditemani Sampai Internet Nyala",
             ].map((t) => (

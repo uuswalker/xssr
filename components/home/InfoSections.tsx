@@ -378,7 +378,7 @@ export function Kenapa() {
 
         <div className="area-inner">
 
-          <h2 className="section-title">Kenapa Pilih Agen Resmi Kami?</h2>
+          <h2 className="section-title">Kenapa Daftar Melalui Layanan Sales Resmi Kami?</h2>
 
           <p className="section-sub">
 
