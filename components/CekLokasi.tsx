@@ -1,5 +1,5 @@
 "use client";
-import { MessageCircle, MapPin, CheckCircle2, Target, Search, ArrowRight, Zap, Sparkles, Info, AlertCircle, Wifi, Clock } from "lucide-react";
+import { MessageCircle, MapPin, CheckCircle2, Target, Search, ArrowRight, Zap, Sparkles, Info, AlertCircle, Wifi, Clock, ShieldCheck } from "lucide-react";
 
 
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -90,6 +90,7 @@ export default function CekLokasi() {
   const [lokasiInfo, setLokasiInfo] = useState("");
   
   const [suggestions, setSuggestions] = useState<SmartSuggestionItem[]>([]);
+  const [activeSuggIndex, setActiveSuggIndex] = useState(-1);
   const [showSugg, setShowSugg] = useState(false);
   const [query, setQuery] = useState("");
   const [nama, setNama] = useState("");
@@ -1083,6 +1084,36 @@ export default function CekLokasi() {
   }
   .cl-status.error { color: #d33; }
   .cl-status.success { color: #037e64; font-weight: 600; }
+  .cl-trust-banner {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin: 0 0 16px 0;
+    text-align: left;
+  }
+  .cl-trust-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #166534;
+    margin-bottom: 5px;
+  }
+  .cl-trust-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    font-size: 11.5px;
+    color: #15803d;
+    font-weight: 600;
+  }
+  .cl-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
   @media (max-width: 480px) {
     .cl-modal-overlay { padding: 8px; }
     .cl-modal-box { padding: 18px 14px; border-radius: 14px; max-height: 94vh; width: 100%; box-sizing: border-box; }
@@ -1204,6 +1235,19 @@ export default function CekLokasi() {
                     ? `Kamu memilih ${paketPilihan.replace(/Saya minat paket /i, '').replace(/Saya minat /i, '')}. Cek ketersediaan di lokasimu dulu ya!`
                     : "Bagikan lokasimu — sistem cek otomatis coverage fiber di lokasimu."}
                 </p>
+
+                <div className="cl-trust-banner">
+                  <div className="cl-trust-title">
+                    <ShieldCheck size={16} color="#16a34a" style={{ flexShrink: 0 }} />
+                    <span>Mitra Resmi XL Home Solo Raya</span>
+                  </div>
+                  <div className="cl-trust-items">
+                    <span className="cl-trust-item">✓ 100% Bebas Biaya Pasang</span>
+                    <span className="cl-trust-item">✓ Bebas Biaya Survei Jalur</span>
+                    <span className="cl-trust-item">✓ Tanpa DP (Bayar Pasca Aktif)</span>
+                  </div>
+                </div>
+
                 {isFBOrIG && (
                   <div
                     style={{
@@ -1250,7 +1294,31 @@ export default function CekLokasi() {
                     autoComplete="off"
                     ref={inputRef}
                     value={query}
-                    onChange={(e) => setQuery(e.target.value)}
+                    onChange={(e) => {
+                      setQuery(e.target.value);
+                      setActiveSuggIndex(-1);
+                    }}
+                    onKeyDown={(e) => {
+                      if (!showSugg || suggestions.length === 0) return;
+                      if (e.key === "ArrowDown") {
+                        e.preventDefault();
+                        setActiveSuggIndex((prev) => (prev < suggestions.length - 1 ? prev + 1 : 0));
+                      } else if (e.key === "ArrowUp") {
+                        e.preventDefault();
+                        setActiveSuggIndex((prev) => (prev > 0 ? prev - 1 : suggestions.length - 1));
+                      } else if (e.key === "Enter") {
+                        if (activeSuggIndex >= 0 && suggestions[activeSuggIndex]) {
+                          e.preventDefault();
+                          const s = suggestions[activeSuggIndex];
+                          const formatted = formatAlamatDisekitarnya(s.display_name);
+                          setQuery(formatted);
+                          setShowSugg(false);
+                          prosesLokasi(parseFloat(s.lat), parseFloat(s.lon), formatted, s);
+                        }
+                      } else if (e.key === "Escape") {
+                        setShowSugg(false);
+                      }
+                    }}
                   />
                   {showSugg && (
                     <div id="cl-suggestions" className="cl-suggestions">
@@ -1262,7 +1330,7 @@ export default function CekLokasi() {
                         suggestions.map((s, i) => (
                           <div
                             key={i}
-                            className={`cl-suggestion-item ${s.isFiberReady ? "fiber-ready" : ""}`}
+                            className={`cl-suggestion-item ${s.isFiberReady ? "fiber-ready" : ""} ${i === activeSuggIndex ? "active" : ""}`}
                             onClick={() => {
                               const formatted = formatAlamatDisekitarnya(s.display_name);
                               setQuery(formatted);
@@ -1577,6 +1645,32 @@ export default function CekLokasi() {
                       {formError}
                     </p>
                   )}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexWrap: "wrap",
+                      gap: "6px 12px",
+                      fontSize: 11.5,
+                      color: "#059669",
+                      fontWeight: 600,
+                      margin: "12px 0 2px",
+                      padding: "8px 10px",
+                      background: "#f0fdf4",
+                      borderRadius: 8,
+                      border: "1px dashed #a7f3d0",
+                    }}
+                  >
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
+                      <ShieldCheck size={13} color="#059669" />
+                      Mitra Resmi
+                    </span>
+                    <span>•</span>
+                    <span>Gratis Pasang 100%</span>
+                    <span>•</span>
+                    <span>Tanpa Uang Muka</span>
+                  </div>
                   <button
                     type="submit"
                     className="cl-btn-primary"
