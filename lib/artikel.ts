@@ -400,9 +400,9 @@ ARTIKEL["kecepatan-wifi-ideal-keluarga"] = {
 
   slug: "kecepatan-wifi-ideal-keluarga",
 
-  title: "Kecepatan WiFi Rumah Ideal Keluarga [2026] Mulai Rp185rb",
+  title: "Berapa Kecepatan WiFi Ideal untuk Keluarga? [Tabel Mbps 2026]",
 
-  description: "Berapa kecepatan WiFi ideal untuk keluarga? Simak rekomendasi Mbps 2-6 orang di Solo Raya: paket 20, 100, hingga 250 Mbps mulai 185rb/bln bebas FUP. Cek selengkapnya!",
+  description: "Berapa kecepatan WiFi ideal untuk keluarga? Simak tabel Mbps akurat 2–6+ orang: 20–50 Mbps vs 100–250 Mbps untuk streaming 4K & WFH bebas lemot sekeluarga!",
 
   keywords: "kecepatan wifi ideal keluarga, berapa mbps untuk keluarga, wifi keluarga 4 orang, kecepatan internet rumah tangga solo, wifi rumah murah solo, paket wifi keluarga solo raya, wifi tanpa fup solo, rekomendasi wifi solo 2026".split(/,\s*/),
 
@@ -2830,8 +2830,8 @@ ARTIKEL["daftar-xl-home-online-tanpa-ke-kantor"] = {
 
 ARTIKEL["perbedaan-paket-layanan-xl-home"] = {
   slug: "perbedaan-paket-layanan-xl-home",
-  title: "Beda XL Satu & XL Home Resmi [Panduan Migrasi 2026]",
-  description: "Apakah XL Satu dan XL Home sama? Simak penjelasan resmi evolusi layanan, perubahan paket fiber, dan cara daftar pasang baru di Solo Raya.",
+  title: "Perbedaan XL Home dan XL Satu: Apakah Sama? [Jawaban Resmi 2026]",
+  description: "Apakah XL Home dan XL Satu sama? Simak penjelasan resmi perbedaannya: 100% produk yang sama hasil rebranding, kecepatan fiber murni tanpa FUP, & tarif mulai Rp185rb!",
   keywords: ["beda xl home dan xl satu", "perbedaan xl satu dan xl home", "apa bedanya xl home dan xl satu", "xl satu dan xl home apakah sama", "apakah xl home dan xl satu sama", "xl home", "xl satu", "internet xl rumah", "rebranding xl satu solo"],
   ogTitle: "XL Satu & XL Home Apakah Sama? Ini Perbedaan Resmi, Tarif & Cara Migrasi 2026",
   ogDescription: "Ternyata XL Satu resmi berganti nama jadi XL Home! Simak beda kuota HP, kecepatan fiber murni tanpa FUP, tarif mulai 185rb di Solo Raya, & cara daftar via WA sales.",
@@ -2909,6 +2909,46 @@ ARTIKEL["perbedaan-paket-layanan-xl-home"] = {
   },
   headerCta: "https://wa.me/6287778999141?text=Halo%20kak,%20saya%20mau%20pasang%20XL%20Home%20di%20Solo",
   bodyHtml: `
+    <div class="info-box" style="background:#eff6ff; border-left:4px solid #2563eb; padding:18px 20px; border-radius:10px; margin:0 0 24px 0;">
+      <strong style="color:#1e40af; font-size:16px;">💡 Ringkasan Jawaban: Perbedaan XL Home dan XL Satu, Apakah Sama?</strong>
+      <p style="margin:8px 0 10px 0; color:#1e293b; font-size:14.5px; line-height:1.65;">
+        Jawabannya: <strong>YA, XL SATU dan XL Home 100% PRODUK YANG SAMA!</strong> Keduanya adalah layanan resmi internet rumah fiber optik dari PT XL Axiata Tbk. Perbedaannya murni merupakan penyederhanaan merek (rebranding resmi per akhir 2024–2026):
+      </p>
+      <div style="overflow-x:auto;">
+        <table style="width:100%; font-size:14px; border-collapse:collapse; margin-top:10px; background:#ffffff; border-radius:8px; border:1px solid #cbd5e1;">
+          <tr style="background:#dbeafe; color:#1e3a8a; font-weight:700;">
+            <th style="padding:8px 10px; text-align:left;">Parameter</th>
+            <th style="padding:8px 10px; text-align:left;">XL SATU (Nama Lama)</th>
+            <th style="padding:8px 10px; text-align:left;">XL Home (Nama Resmi Sekarang)</th>
+          </tr>
+          <tr style="border-bottom:1px solid #e2e8f0;">
+            <td style="padding:8px 10px; font-weight:600;">Status Merek</td>
+            <td style="padding:8px 10px; color:#64748b;">Nama sebelumnya (Fokus bundling HP)</td>
+            <td style="padding:8px 10px; color:#166534; font-weight:700;">Brand tunggal resmi internet rumah</td>
+          </tr>
+          <tr style="border-bottom:1px solid #e2e8f0;">
+            <td style="padding:8px 10px; font-weight:600;">Jaringan &amp; Kabel</td>
+            <td style="padding:8px 10px;">100% Fiber Optic FTTH</td>
+            <td style="padding:8px 10px; color:#166534; font-weight:700;">100% Fiber Optic FTTH (Persis Sama)</td>
+          </tr>
+          <tr style="border-bottom:1px solid #e2e8f0;">
+            <td style="padding:8px 10px; font-weight:600;">Kebijakan FUP</td>
+            <td style="padding:8px 10px;">Tanpa FUP (Unlimited)</td>
+            <td style="padding:8px 10px; color:#166534; font-weight:700;">Tanpa FUP (Tetap 100% Unlimited)</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 10px; font-weight:600;">Tarif Pasang Baru</td>
+            <td style="padding:8px 10px;">Mulai Rp 185.000/bln</td>
+            <td style="padding:8px 10px; color:#166534; font-weight:700;">Mulai Rp 185.000/bln (Spark 250 Mbps Rp 229rb)</td>
+          </tr>
+        </table>
+      </div>
+      <p style="margin:10px 0 0; font-size:13.5px; color:#1e293b; line-height:1.6;">
+        <strong>Kesimpulan:</strong> Jika Anda melihat brosur XL SATU atau XL Home di jalanan Solo Raya, Anda tidak perlu ragu karena keduanya adalah jaringan fiber optik yang sama, dikerjakan oleh teknisi resmi XL Axiata yang sama.
+      </p>
+    </div>
+
+
     <div class="info-box">
       <strong>Info Transformasi Resmi:</strong> Jika Anda bertanya apakah <strong>XL SATU dan XL Home sama?</strong> Jawabannya adalah <strong>YA, 100% SAMA!</strong> Keduanya adalah produk internet rumah fiber optik resmi dari PT XL Axiata Tbk.
     </div>
