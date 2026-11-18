@@ -52,6 +52,89 @@ interface IpCache {
   ts: number;
 }
 
+interface VisualCardItem {
+  key: string;
+  name: string;
+  badge?: string;
+  badgeBg?: string;
+  badgeColor?: string;
+  note: string;
+  price: string;
+  priceNormal?: string;
+  period: string;
+  popular?: boolean;
+}
+
+const FEATURED_WIRELESS: VisualCardItem[] = [
+  {
+    key: "Saya minat XL Home Wireless Monthly 100 Mbps Rp219.500",
+    name: "Wireless Monthly 100 Mbps",
+    badge: "🔥 Best Seller 5G",
+    badgeBg: "#e0f2fe",
+    badgeColor: "#075985",
+    note: "Sinyal 5G Ultra • Kuota 1 TB • Bebas Tarik Kabel",
+    price: "Rp 219.500",
+    period: "/bln",
+    popular: true,
+  },
+  {
+    key: "Saya minat XL Home Wireless 50 Mbps Advance Rp650.000",
+    name: "Wireless Advance 50 Mbps",
+    badge: "Hemat 25%",
+    badgeBg: "#fef9c3",
+    badgeColor: "#854d0e",
+    note: "Bayar 3 Dapat 4 Bulan (≈ Rp162.500/bln)",
+    price: "Rp 650.000",
+    period: "/4 bln",
+  },
+  {
+    key: "Saya minat XL Home Wireless 100 Mbps Advance Rp790.000",
+    name: "Wireless Advance 100 Mbps",
+    badge: "Super Cepat",
+    badgeBg: "#d1fae5",
+    badgeColor: "#065f46",
+    note: "Bayar 3 Dapat 4 Bulan (≈ Rp197.500/bln)",
+    price: "Rp 790.000",
+    period: "/4 bln",
+  },
+];
+
+const FEATURED_FIBER: VisualCardItem[] = [
+  {
+    key: "Saya minat paket XL Home Spark 250 Mbps Rp229.000",
+    name: "Spark 250 Mbps",
+    badge: "🔥 Paling Laris • Gratis Pasang",
+    badgeBg: "#d1fae5",
+    badgeColor: "#065f46",
+    note: "Normal 100M + Booster 250M • Bebas FUP • s/d 10 HP",
+    price: "Rp 229.000",
+    priceNormal: "Rp 279.000",
+    period: "/bln",
+    popular: true,
+  },
+  {
+    key: "Saya minat paket XL Home Starter 20 Mbps Rp185.000",
+    name: "Starter 20 Mbps",
+    badge: "⭐ Paling Hemat",
+    badgeBg: "#dbeafe",
+    badgeColor: "#1e3a8a",
+    note: "Browsing, Medsos, YouTube SD • Bebas FUP • s/d 5 HP",
+    price: "Rp 185.000",
+    period: "/bln",
+  },
+  {
+    key: "Saya minat paket XL Home Spark 300 Mbps Rp239.000",
+    name: "Spark 300 Mbps",
+    badge: "⚡ +Rp10rb Dapat 300M",
+    badgeBg: "#f3e8ff",
+    badgeColor: "#6b21a8",
+    note: "Normal 200M + Booster 300M • Gratis Pasang • s/d 12 HP",
+    price: "Rp 239.000",
+    priceNormal: "Rp 349.000",
+    period: "/bln",
+  },
+];
+
 export const SOLO_RAYA_CITIES = new Set([
   "solo", "surakarta", "sukoharjo", "karanganyar", "boyolali", "klaten", "sragen", "wonogiri",
   "baki", "grogol", "kartasura", "colomadu", "palur"
@@ -112,19 +195,23 @@ export default function CekLokasi() {
   }, []);
 
   useEffect(() => {
-    if (coverage && coverage.status === "wireless") {
-      if (
-        !paketPilihan ||
-        (!paketPilihan.toLowerCase().includes("monthly") &&
-          !paketPilihan.toLowerCase().includes("advance") &&
-          !paketPilihan.toLowerCase().includes("wireless") &&
-          !paketPilihan.toLowerCase().includes("request") &&
-          !paketPilihan.toLowerCase().includes("kabel"))
-      ) {
-        setPaketPilihan("Saya minat XL Home Wireless Monthly 100 Mbps Rp219.500");
+    if (step === "form") {
+      if (coverage && coverage.status === "wireless") {
+        if (
+          !paketPilihan ||
+          (!paketPilihan.toLowerCase().includes("monthly") &&
+            !paketPilihan.toLowerCase().includes("advance") &&
+            !paketPilihan.toLowerCase().includes("wireless") &&
+            !paketPilihan.toLowerCase().includes("request") &&
+            !paketPilihan.toLowerCase().includes("kabel"))
+        ) {
+          setPaketPilihan("Saya minat XL Home Wireless Monthly 100 Mbps Rp219.500");
+        }
+      } else if (!paketPilihan) {
+        setPaketPilihan("Saya minat paket XL Home Spark 250 Mbps Rp229.000");
       }
     }
-  }, [coverage, paketPilihan]);
+  }, [step, coverage, paketPilihan]);
 
   const posRef = useRef<{ lat: number | null; lng: number | null; kota: string | null; alamat: string | null }>({
     lat: null,
@@ -1114,6 +1201,36 @@ export default function CekLokasi() {
     align-items: center;
     gap: 4px;
   }
+  .cl-paket-card {
+    border: 1.5px solid #e2e8f0;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 10px 14px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    transition: border-color 0.15s, background-color 0.15s, box-shadow 0.15s;
+  }
+  .cl-paket-card:hover {
+    border-color: #037e64;
+    background: #f8fafc;
+  }
+  .cl-paket-card.active {
+    border: 2px solid #037e64;
+    background: #f0fdf4;
+    box-shadow: 0 4px 14px rgba(3, 126, 100, 0.12);
+  }
+  .cl-paket-badge {
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 999px;
+    letter-spacing: 0.2px;
+    display: inline-block;
+  }
   @media (max-width: 480px) {
     .cl-modal-overlay { padding: 8px; }
     .cl-modal-box { padding: 18px 14px; border-radius: 14px; max-height: 94vh; width: 100%; box-sizing: border-box; }
@@ -1565,32 +1682,122 @@ export default function CekLokasi() {
                     // @ts-ignore
                     toolparamdescription="Nomor WhatsApp aktif pemohon untuk konfirmasi jadwal pasang teknisi"
                   />
-                  {coverage?.status === "manual" ? (
-                    <>
-                      <div style={{ background: "#fff5f5", border: "1px solid #fecaca", borderRadius: 10, padding: "10px 14px", margin: "14px 0", fontSize: 13, color: "#991b1b" }}>
-                        <strong><Sparkles size={14} style={{ display: "inline-block", marginRight: 5, verticalAlign: "-2px" }} aria-hidden="true" /> Formulir Pengajuan Pasang Baru</strong><br />
-                        Data ini langsung diteruskan ke tim sales XL Home Solo Raya untuk verifikasi opsi pemasangan ke lokasimu.
-                      </div>
+                  {coverage?.status === "manual" && (
+                    <div style={{ background: "#fff5f5", border: "1px solid #fecaca", borderRadius: 10, padding: "10px 14px", margin: "14px 0", fontSize: 13, color: "#991b1b" }}>
+                      <strong><Sparkles size={14} style={{ display: "inline-block", marginRight: 5, verticalAlign: "-2px" }} aria-hidden="true" /> Formulir Pengajuan Pasang Baru</strong><br />
+                      Data ini langsung diteruskan ke tim sales XL Home Solo Raya untuk verifikasi opsi pemasangan ke lokasimu.
+                    </div>
+                  )}
 
-                      <label htmlFor="cl-paket-manual" className="cl-label">
-                        Pilihan Paket yang Ingin Dipasang
-                      </label>
+                  {/* Visual Package Selector Cards */}
+                  <label className="cl-label" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+                    <span>Pilihan Paket Internet</span>
+                    <span style={{ fontSize: 11, fontWeight: 600, color: "#037e64" }}>1-Klik Langsung Pilih</span>
+                  </label>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 8, margin: "0 0 10px" }}>
+                    {(coverage?.status === "wireless" ? FEATURED_WIRELESS : FEATURED_FIBER).map((c) => {
+                      const isSelected = paketPilihan === c.key;
+                      return (
+                        <div
+                          key={c.key}
+                          className={`cl-paket-card ${isSelected ? "active" : ""}`}
+                          onClick={() => setPaketPilihan(c.key)}
+                          role="button"
+                          tabIndex={0}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault();
+                              setPaketPilihan(c.key);
+                            }
+                          }}
+                        >
+                          <div style={{ flex: 1, minWidth: 0 }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap", marginBottom: 3 }}>
+                              <span style={{ fontWeight: 700, fontSize: 13.5, color: "#1e293b" }}>{c.name}</span>
+                              {c.badge && (
+                                <span
+                                  className="cl-paket-badge"
+                                  style={{
+                                    color: c.badgeColor,
+                                    background: c.badgeBg,
+                                  }}
+                                >
+                                  {c.badge}
+                                </span>
+                              )}
+                            </div>
+                            <div style={{ fontSize: 11.5, color: "#64748b", lineHeight: 1.35 }}>
+                              {c.note}
+                            </div>
+                          </div>
+                          <div style={{ textAlign: "right", flexShrink: 0, paddingLeft: 6 }}>
+                            {c.priceNormal && (
+                              <div style={{ textDecoration: "line-through", color: "#94a3b8", fontSize: 10.5, lineHeight: 1 }}>
+                                {c.priceNormal}
+                              </div>
+                            )}
+                            <div style={{ fontWeight: 800, fontSize: 14, color: isSelected ? "#037e64" : "#0f172a" }}>
+                              {c.price}
+                            </div>
+                            <div style={{ fontSize: 10, color: "#64748b" }}>{c.period}*</div>
+                          </div>
+                          <div style={{ marginLeft: 6, flexShrink: 0 }}>
+                            {isSelected ? (
+                              <CheckCircle2 size={19} color="#037e64" />
+                            ) : (
+                              <div style={{ width: 17, height: 17, borderRadius: "50%", border: "2px solid #cbd5e1" }} />
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Dropdown untuk opsi paket lainnya */}
+                  <details
+                    style={{
+                      margin: "6px 0 14px",
+                      fontSize: 12,
+                      background: "#f8fafc",
+                      borderRadius: 8,
+                      padding: "6px 10px",
+                      border: "1px solid #e2e8f0",
+                    }}
+                  >
+                    <summary style={{ cursor: "pointer", color: "#037e64", fontWeight: 600, userSelect: "none" }}>
+                      + Pilihan paket lainnya (400M, 500M, 1Gbps, Tahunan)...
+                    </summary>
+                    <div style={{ marginTop: 8 }}>
                       <select
-                        id="cl-paket-manual"
+                        id={coverage?.status === "manual" ? "cl-paket-manual" : "cl-paket"}
                         name="paket"
                         className="cl-input"
                         value={paketPilihan || ""}
                         onChange={(e) => setPaketPilihan(e.target.value)}
+                        style={{ fontSize: 13, background: "#fff" }}
                       >
-                        <option value="">-- Pilih Paket Internet --</option>
+                        <option value="">-- Pilih Paket Lainnya --</option>
                         <option value="Saya minat paket XL Home Starter 20 Mbps Rp185.000">XL Home Starter 20 Mbps (Rp185.000)</option>
                         <option value="Saya minat paket XL Home Spark 250 Mbps Rp229.000">XL Home Spark 250 Mbps (Rp229.000)</option>
                         <option value="Saya minat paket XL Home Spark 300 Mbps Rp239.000">XL Home Spark 300 Mbps (Rp239.000)</option>
                         <option value="Saya minat paket XL Home Spark 400 Mbps Rp299.000">XL Home Spark 400 Mbps (Rp299.000)</option>
                         <option value="Saya minat paket XL Home Spark 500 Mbps Rp399.000">XL Home Spark 500 Mbps (Rp399.000)</option>
-                        <option value="Saya minat XL Home Wireless Monthly 100 Mbps Rp219.500">XL Home Wireless 100 Mbps (Rp219.500)</option>
+                        <option value="Saya minat paket XL Home Spark 1000 Mbps Rp899.000">XL Home Spark 1000 Mbps (Rp899.000)</option>
+                        <option value="Saya minat XL Home Wireless Monthly 100 Mbps Rp219.500">XL Home Wireless Monthly 100 Mbps (Rp219.500)</option>
+                        <option value="Saya minat XL Home Wireless 50 Mbps Advance Rp650.000">XL Home Wireless 50 Mbps Advance (Rp650.000 / 4 bln)</option>
+                        <option value="Saya minat XL Home Wireless 100 Mbps Advance Rp790.000">XL Home Wireless 100 Mbps Advance (Rp790.000 / 4 bln)</option>
+                        <option value="Saya minat paket Tahunan Basic Smart 50 Mbps Rp2.490.000">Tahunan Basic Smart 50 Mbps (Rp2.490.000 / thn)</option>
+                        <option value="Saya minat paket Tahunan Basic Family 100 Mbps Rp3.190.000">Tahunan Basic Family 100 Mbps (Rp3.190.000 / thn)</option>
+                        <option value="Saya minat paket Tahunan Basic Superuser 150 Mbps Rp3.690.000">Tahunan Basic Superuser 150 Mbps (Rp3.690.000 / thn)</option>
+                        {coverage?.status === "wireless" && (
+                          <option value="Saya ingin konsultasi pasang kabel fiber">Konsultasi Opsi Pasang Kabel Fiber</option>
+                        )}
                       </select>
+                    </div>
+                  </details>
 
+                  {coverage?.status === "manual" && (
+                    <>
                       <label htmlFor="cl-provider" className="cl-label">
                         Provider internet saat ini di rumah (opsional)
                       </label>
@@ -1605,39 +1812,6 @@ export default function CekLokasi() {
                         <option value="Biznet / MyRepublic / First Media">Biznet / MyRepublic / First Media</option>
                         <option value="Provider lokal lainnya / RT-RW Net">Provider lokal lainnya / RT-RW Net</option>
                       </select>
-                    </>
-                  ) : (
-                    <>
-                      <label htmlFor="cl-paket" className="cl-label">
-                        Pilihan Paket
-                      </label>
-                  <select
-                    id="cl-paket"
-                    name="paket"
-                    className="cl-input"
-                    value={paketPilihan || ""}
-                    onChange={(e) => setPaketPilihan(e.target.value)}
-                    // @ts-ignore
-                    toolparamdescription="Pilihan paket internet WiFi XL Home yang diinginkan"
-                  >
-                    <option value="">-- Pilih Paket --</option>
-                    {(!coverage || coverage.status !== "wireless") && (
-                      <>
-                        <option value="Saya minat paket XL Home Starter 20 Mbps Rp185.000">XL Home Starter 20 Mbps (Rp185.000)</option>
-                        <option value="Saya minat paket XL Home Spark 250 Mbps Rp229.000">XL Home Spark 250 Mbps (Rp229.000)</option>
-                        <option value="Saya minat paket XL Home Spark 300 Mbps Rp239.000">XL Home Spark 300 Mbps (Rp239.000)</option>
-                        <option value="Saya minat paket XL Home Spark 400 Mbps Rp299.000">XL Home Spark 400 Mbps (Rp299.000)</option>
-                        <option value="Saya minat paket XL Home Spark 500 Mbps Rp399.000">XL Home Spark 500 Mbps (Rp399.000)</option>
-                        <option value="Saya minat paket XL Home Spark 1000 Mbps Rp899.000">XL Home Spark 1000 Mbps (Rp899.000)</option>
-                      </>
-                    )}
-                    <option value="Saya minat XL Home Wireless Monthly 100 Mbps Rp219.500">Wireless Monthly 100 Mbps (Rp219.500)</option>
-                    <option value="Saya minat XL Home Wireless 50 Mbps Advance Rp650.000">Wireless Advance 50 Mbps (Rp650.000)</option>
-                    <option value="Saya minat XL Home Wireless 100 Mbps Advance Rp790.000">Wireless Advance 100 Mbps (Rp790.000)</option>
-                    {coverage?.status === "wireless" && (
-                      <option value="Saya ingin konsultasi pasang kabel fiber">Konsultasi Opsi Pasang Kabel Fiber</option>
-                    )}
-                  </select>
                     </>
                   )}
                   {formError && (
