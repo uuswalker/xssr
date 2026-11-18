@@ -365,13 +365,13 @@ export default function Page() {
                       <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}><Sparkles size={14} color="var(--color-signal-amber-dark)" /> <strong>XL Home Solo</strong></span>
                     </td>
                     <td className="matrix-cell-brand">
-                      <strong>Rp 185rb</strong> (20M)<br/><strong>Rp 229rb</strong> (250M)
+                      <strong>Rp 185rb</strong> (20 Mbps)<br/><strong>Rp 229rb</strong> (250 Mbps)
                     </td>
                     <td className="matrix-cell-success">
                       <strong>100% Bebas FUP</strong>
                     </td>
                     <td className="matrix-cell-success">
-                      <strong>Gratis Rp 0</strong> (Dipinjamkan)
+                      <strong>Gratis Rp 0</strong> (250 Mbps+)<br/><span style={{ fontSize: "11px", color: "#64748b" }}>20 Mbps biaya pasang Rp 100rb</span>
                     </td>
                     <td>
                       Simetris 1:1
