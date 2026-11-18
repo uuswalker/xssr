@@ -105,7 +105,7 @@ const FEATURED_FIBER: VisualCardItem[] = [
     badge: "🔥 Paling Laris • Gratis Pasang Rp0",
     badgeBg: "#d1fae5",
     badgeColor: "#065f46",
-    note: "Gratis Pasang Rp 0 • Normal 100M + Booster 250M • Bebas FUP",
+    note: "Gratis Pasang Rp 0 • Normal 100 Mbps + Booster 250 Mbps • Bebas FUP",
     price: "Rp 229.000",
     period: "/bln",
     popular: true,
@@ -116,17 +116,17 @@ const FEATURED_FIBER: VisualCardItem[] = [
     badge: "⭐ Paling Hemat",
     badgeBg: "#dbeafe",
     badgeColor: "#1e3a8a",
-    note: "Biaya Pasang Rp 100.000 (Khusus paket 20M) • Bebas FUP",
+    note: "Biaya Pasang Rp 100.000 (Khusus paket 20 Mbps) • Bebas FUP",
     price: "Rp 185.000",
     period: "/bln",
   },
   {
     key: "Saya minat paket XL Home Spark 300 Mbps Rp239.000",
     name: "Spark 300 Mbps",
-    badge: "⚡ +Rp10rb Dapat 300M",
+    badge: "⚡ +Rp10rb Dapat 300 Mbps",
     badgeBg: "#f3e8ff",
     badgeColor: "#6b21a8",
-    note: "Gratis Pasang Rp 0 • Normal 200M + Booster 300M • Bebas FUP",
+    note: "Gratis Pasang Rp 0 • Normal 200 Mbps + Booster 300 Mbps • Bebas FUP",
     price: "Rp 239.000",
     period: "/bln",
   },
@@ -1356,7 +1356,7 @@ export default function CekLokasi() {
                     <span>Sales Resmi XL Home Solo Raya</span>
                   </div>
                   <div className="cl-trust-items">
-                    <span className="cl-trust-item">✓ Gratis Pasang (Mulai Paket 250M)</span>
+                    <span className="cl-trust-item">✓ Gratis Pasang (Mulai Paket 250 Mbps)</span>
                     <span className="cl-trust-item">✓ Bebas Biaya Survei Jalur</span>
                     <span className="cl-trust-item">✓ Tanpa Biaya Tersembunyi</span>
                   </div>
@@ -1757,7 +1757,7 @@ export default function CekLokasi() {
                     }}
                   >
                     <summary style={{ cursor: "pointer", color: "#037e64", fontWeight: 600, userSelect: "none" }}>
-                      + Pilihan paket lainnya (400M, 500M, 1Gbps, Tahunan)...
+                      + Pilihan paket lainnya (400 Mbps, 500 Mbps, 1 Gbps, Tahunan)...
                     </summary>
                     <div style={{ marginTop: 8 }}>
                       <select
@@ -1835,8 +1835,8 @@ export default function CekLokasi() {
                     <span>•</span>
                     <span style={{ color: paketPilihan?.includes("20 Mbps") ? "#b45309" : "#059669" }}>
                       {paketPilihan?.includes("20 Mbps")
-                        ? "Biaya Pasang: Rp 100.000 (Khusus 20M)"
-                        : "Gratis Pasang Rp 0 (Mulai 250M)"}
+                        ? "Biaya Pasang: Rp 100.000 (Khusus 20 Mbps)"
+                        : "Gratis Pasang Rp 0 (Mulai 250 Mbps)"}
                     </span>
                     <span>•</span>
                     <span>Tanpa Biaya Tersembunyi</span>
