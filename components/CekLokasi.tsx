@@ -258,6 +258,10 @@ export default function CekLokasi() {
   useEffect(() => {
     if (step !== "form" || posRef.current.lat == null || posRef.current.lng == null) return;
     let isMounted = true;
+    let retryTimer: ReturnType<typeof setTimeout> | null = null;
+    let invalidateTimer1: ReturnType<typeof setTimeout> | null = null;
+    let invalidateTimer2: ReturnType<typeof setTimeout> | null = null;
+    let invalidateTimer3: ReturnType<typeof setTimeout> | null = null;
 
     // Load Leaflet CSS
     if (!document.getElementById("leaflet-css")) {
@@ -268,47 +272,85 @@ export default function CekLokasi() {
       document.head.appendChild(link);
     }
 
-    const initMap = () => {
-      if (!isMounted || !mapRef.current || !window.L) return;
-      if (mapInstance.current) {
-        try {
-          mapInstance.current.remove();
-        } catch {}
-        mapInstance.current = null;
+    // Load Leaflet JS
+    if (!window.L && !document.getElementById("leaflet-js")) {
+      const script = document.createElement("script");
+      script.id = "leaflet-js";
+      script.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+
+    let attempts = 0;
+    const maxAttempts = 50; // 50 * 60ms = 3000ms
+
+    const tryInitMap = () => {
+      if (!isMounted) return;
+      attempts++;
+
+      const container = mapRef.current;
+      const L = window.L;
+
+      if (!L || !container || !document.body.contains(container)) {
+        if (attempts < maxAttempts) {
+          retryTimer = setTimeout(tryInitMap, 60);
+        }
+        return;
       }
+
+      // Check if container has rendered dimensions (not 0 height/width)
+      if (container.offsetWidth === 0 && attempts < maxAttempts) {
+        retryTimer = setTimeout(tryInitMap, 60);
+        return;
+      }
+
       const curLat = posRef.current.lat;
       const curLng = posRef.current.lng;
       if (curLat == null || curLng == null) return;
 
       try {
-        const map = window.L.map(mapRef.current, {
+        // Clean up previous map instance if any
+        if (mapInstance.current) {
+          try {
+            mapInstance.current.remove();
+          } catch {}
+          mapInstance.current = null;
+        }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        if ((container as any)._leaflet_id) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          delete (container as any)._leaflet_id;
+        }
+
+        const map = L.map(container, {
           center: [curLat, curLng],
           zoom: 17,
           zoomControl: false,
           attributionControl: false,
+          scrollWheelZoom: false,
         });
         mapInstance.current = map;
 
-        window.L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          subdomains: ["a", "b", "c"],
           maxZoom: 19,
         }).addTo(map);
 
-        const pinIcon = window.L.divIcon({
+        const pinIcon = L.divIcon({
           className: "custom-leaflet-pin",
-          html: `<div style="background:#037e64;width:24px;height:24px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:center;margin:-12px 0 0 -12px;"><div style="width:7px;height:7px;background:#fff;border-radius:50%;"></div></div>`,
+          html: `<div style="background:#037e64;width:24px;height:24px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;margin:-12px 0 0 -12px;cursor:grab;"><div style="width:7px;height:7px;background:#fff;border-radius:50%;"></div></div>`,
           iconSize: [24, 24],
           iconAnchor: [0, 0],
         });
 
-        const marker = window.L.marker([curLat, curLng], {
+        const marker = L.marker([curLat, curLng], {
           draggable: true,
           icon: pinIcon,
         }).addTo(map);
         markerRef.current = marker;
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        marker.on("dragend", async (e: any) => {
-          const pos = e.target.getLatLng();
+        const handleNewPos = async (pos: { lat: number; lng: number }) => {
           posRef.current.lat = pos.lat;
           posRef.current.lng = pos.lng;
           setUpdatingCov(true);
@@ -318,6 +360,8 @@ export default function CekLokasi() {
               setCoverage(freshCv);
               if (freshCv.jarakM != null) {
                 setLokasiInfo(`Titik Baru: ${pos.lat.toFixed(5)}, ${pos.lng.toFixed(5)} (Jarak: ±${freshCv.jarakM}m)`);
+              } else {
+                setLokasiInfo(`Titik Baru: ${pos.lat.toFixed(5)}, ${pos.lng.toFixed(5)}`);
               }
             }
           } catch {
@@ -325,36 +369,47 @@ export default function CekLokasi() {
           } finally {
             if (isMounted) setUpdatingCov(false);
           }
+        };
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        marker.on("dragend", (e: any) => {
+          handleNewPos(e.target.getLatLng());
         });
 
-        setTimeout(() => {
+        // Allow clicking anywhere on the mini-map to reposition the pin
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        map.on("click", (e: any) => {
+          if (markerRef.current) {
+            markerRef.current.setLatLng(e.latlng);
+            handleNewPos(e.latlng);
+          }
+        });
+
+        // Invalidate size several times as Framer Motion transitions complete
+        const triggerInvalidate = () => {
           if (isMounted && mapInstance.current) {
             try {
               mapInstance.current.invalidateSize();
             } catch {}
           }
-        }, 300);
+        };
+
+        invalidateTimer1 = setTimeout(triggerInvalidate, 100);
+        invalidateTimer2 = setTimeout(triggerInvalidate, 250);
+        invalidateTimer3 = setTimeout(triggerInvalidate, 500);
       } catch (err) {
         console.error("Leaflet init error:", err);
       }
     };
 
-    if (window.L) {
-      initMap();
-    } else {
-      let script = document.getElementById("leaflet-js") as HTMLScriptElement;
-      if (!script) {
-        script = document.createElement("script");
-        script.id = "leaflet-js";
-        script.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
-        script.async = true;
-        document.body.appendChild(script);
-      }
-      script.addEventListener("load", initMap);
-    }
+    tryInitMap();
 
     return () => {
       isMounted = false;
+      if (retryTimer) clearTimeout(retryTimer);
+      if (invalidateTimer1) clearTimeout(invalidateTimer1);
+      if (invalidateTimer2) clearTimeout(invalidateTimer2);
+      if (invalidateTimer3) clearTimeout(invalidateTimer3);
       if (mapInstance.current) {
         try {
           mapInstance.current.remove();
