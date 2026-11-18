@@ -1244,7 +1244,7 @@ export default function CekLokasi() {
                   <div className="cl-trust-items">
                     <span className="cl-trust-item">✓ 100% Bebas Biaya Pasang</span>
                     <span className="cl-trust-item">✓ Bebas Biaya Survei Jalur</span>
-                    <span className="cl-trust-item">✓ Tanpa DP (Bayar Pasca Aktif)</span>
+                    <span className="cl-trust-item">✓ Tanpa Biaya Tersembunyi</span>
                   </div>
                 </div>
 
@@ -1669,7 +1669,7 @@ export default function CekLokasi() {
                     <span>•</span>
                     <span>Gratis Pasang 100%</span>
                     <span>•</span>
-                    <span>Tanpa Uang Muka</span>
+                    <span>Tanpa Biaya Tersembunyi</span>
                   </div>
                   <button
                     type="submit"
