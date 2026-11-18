@@ -256,7 +256,15 @@ export default function CekLokasi() {
 
   // Mini-map Leaflet initialization when in step === 'form' and coordinates are available
   useEffect(() => {
-    if (step !== "form" || posRef.current.lat == null || posRef.current.lng == null) return;
+    if (
+      step !== "form" ||
+      posRef.current.lat == null ||
+      posRef.current.lng == null ||
+      isNaN(posRef.current.lat) ||
+      isNaN(posRef.current.lng)
+    )
+      return;
+
     let isMounted = true;
     let retryTimer: ReturnType<typeof setTimeout> | null = null;
     let invalidateTimer1: ReturnType<typeof setTimeout> | null = null;
@@ -272,43 +280,30 @@ export default function CekLokasi() {
       document.head.appendChild(link);
     }
 
-    // Load Leaflet JS
-    if (!window.L && !document.getElementById("leaflet-js")) {
-      const script = document.createElement("script");
-      script.id = "leaflet-js";
-      script.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
-      script.async = true;
-      document.body.appendChild(script);
-    }
-
     let attempts = 0;
-    const maxAttempts = 50; // 50 * 60ms = 3000ms
+    const maxAttempts = 40; // 40 * 60ms = 2400ms
 
-    const tryInitMap = () => {
+    const tryInitMap = async () => {
       if (!isMounted) return;
       attempts++;
 
       const container = mapRef.current;
-      const L = window.L;
-
-      if (!L || !container || !document.body.contains(container)) {
+      if (!container || !document.body.contains(container) || container.offsetWidth === 0) {
         if (attempts < maxAttempts) {
           retryTimer = setTimeout(tryInitMap, 60);
         }
         return;
       }
 
-      // Check if container has rendered dimensions (not 0 height/width)
-      if (container.offsetWidth === 0 && attempts < maxAttempts) {
-        retryTimer = setTimeout(tryInitMap, 60);
-        return;
-      }
-
       const curLat = posRef.current.lat;
       const curLng = posRef.current.lng;
-      if (curLat == null || curLng == null) return;
+      if (curLat == null || curLng == null || isNaN(curLat) || isNaN(curLng)) return;
 
       try {
+        const leafletModule = await import("leaflet");
+        const L = leafletModule.default || leafletModule;
+        if (!isMounted) return;
+
         // Clean up previous map instance if any
         if (mapInstance.current) {
           try {
@@ -349,7 +344,6 @@ export default function CekLokasi() {
         }).addTo(map);
         markerRef.current = marker;
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const handleNewPos = async (pos: { lat: number; lng: number }) => {
           posRef.current.lat = pos.lat;
           posRef.current.lng = pos.lng;
@@ -1639,7 +1633,14 @@ export default function CekLokasi() {
                           const formatted = formatAlamatDisekitarnya(s.display_name);
                           setQuery(formatted);
                           setShowSugg(false);
-                          prosesLokasi(parseFloat(s.lat), parseFloat(s.lon), formatted, s);
+                          const sLat = parseFloat(s.lat);
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          const sLng = parseFloat((s as any).lng || s.lon);
+                          if (!isNaN(sLat) && !isNaN(sLng)) {
+                            prosesLokasi(sLat, sLng, formatted, s);
+                          } else {
+                            prosesLokasiTanpaKoordinat(formatted);
+                          }
                         }
                       } else if (e.key === "Escape") {
                         setShowSugg(false);
@@ -1661,7 +1662,14 @@ export default function CekLokasi() {
                               const formatted = formatAlamatDisekitarnya(s.display_name);
                               setQuery(formatted);
                               setShowSugg(false);
-                              prosesLokasi(parseFloat(s.lat), parseFloat(s.lon), formatted, s);
+                              const sLat = parseFloat(s.lat);
+                              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                              const sLng = parseFloat((s as any).lng || s.lon);
+                              if (!isNaN(sLat) && !isNaN(sLng)) {
+                                prosesLokasi(sLat, sLng, formatted, s);
+                              } else {
+                                prosesLokasiTanpaKoordinat(formatted);
+                              }
                             }}
                           >
                             <div className="cl-sugg-icon">
@@ -1879,7 +1887,10 @@ export default function CekLokasi() {
                   {lokasiInfo}
                 </p>
                 {/* Mini-Map Pin Adjustment (Peta Interaktif Ringan) */}
-                {posRef.current.lat != null && posRef.current.lng != null && (
+                {posRef.current.lat != null &&
+                  posRef.current.lng != null &&
+                  !isNaN(posRef.current.lat) &&
+                  !isNaN(posRef.current.lng) && (
                   <div style={{ margin: "0 0 14px" }}>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 12, color: "#475569", marginBottom: 5 }}>
                       <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontWeight: 600 }}>
