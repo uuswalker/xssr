@@ -451,7 +451,8 @@ export const WORKER_COVERAGE_API = "https://coverage-api.oktaarrijal.workers.dev
 
 export interface WorkerCoverageResponse {
   covered: boolean;
-  type: "FIBER_FTTH" | "WIRELESS_5G" | "WIRELESS_4G" | "WIRELESS_FALLBACK";
+  isNearFiber?: boolean;
+  type: "FIBER_FTTH" | "FIBER_POSSIBLE" | "WIRELESS_5G" | "WIRELESS_4G" | "WIRELESS_FALLBACK";
   wirelessCovered?: boolean;
   wirelessType?: string | null;
   distance: number | null;
@@ -499,6 +500,18 @@ export async function cekCoverageWorkerAPI(
           if (data.covered) {
             return {
               status: "fiber",
+              jarakM: data.distance,
+              zona: data.wirelessType || "5G Ultra",
+              fiberM: null,
+              homepassId: data.homepassId,
+              alamat: alamatLengkap,
+              city: data.city,
+              odp: data.odp || null,
+              cluster: data.cluster || null,
+            };
+          } else if (data.status === "mungkin" || data.isNearFiber || (data.distance !== null && data.distance > 150 && data.distance <= 250 && data.odp)) {
+            return {
+              status: "mungkin",
               jarakM: data.distance,
               zona: data.wirelessType || "5G Ultra",
               fiberM: null,

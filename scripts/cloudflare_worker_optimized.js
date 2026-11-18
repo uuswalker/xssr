@@ -13,7 +13,7 @@
 const ADMIN_KEY = "xssr-tahap2-secure-2026";
 const RATE_LIMIT_MAX_REQUESTS = 60; // Max 60 requests per minute per IP
 const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute window
-const CACHE_VERSION = "v3.0.6-wirelesssop";
+const CACHE_VERSION = "v3.1.0-alignsop";
 
 // Solo Raya Core Coverage Cities (Indexed B-Tree fast routing)
 const SOLO_CITIES = "'KOTA SURAKARTA', 'KAB. SUKOHARJO', 'KAB. KARANGANYAR', 'KAB. BOYOLALI', 'KAB. KLATEN', 'KAB. SRAGEN', 'KAB. WONOGIRI'";
@@ -189,8 +189,9 @@ function haversineMeters(lat1, lon1, lat2, lon2) {
 }
 
 function getMasterDb(env) {
-  // Support DB or DB_JATENG bindings smoothly
-  return env.DB || env.DB_JATENG;
+  // DB_JATENG is the full master database with 7.09M homepasses & 24.4k wireless grid points
+  // env.DB_SOLO handles regional Solo Raya queries (<5ms)
+  return env.DB_JATENG || env.DB;
 }
 
 const XL_5G_CITIES = [
@@ -306,8 +307,12 @@ export default {
           try {
             const countRes = await masterDb.prepare("SELECT count(*) as total FROM homepass").first();
             totalCount = countRes?.total || 0;
+          } catch (e) {}
+          try {
             const wRes = await masterDb.prepare("SELECT count(*) as total FROM wireless_points").first();
             totalWireless = wRes?.total || 0;
+          } catch (e) {}
+          try {
             const cityRes = await masterDb.prepare("SELECT city, count(*) as count FROM homepass GROUP BY city ORDER BY count DESC").all();
             cities = cityRes.results || [];
           } catch (e) {}
@@ -317,7 +322,7 @@ export default {
           JSON.stringify({
             status: "healthy",
             engine: "Cloudflare Workers + Unified Master D1 Edge SQLite",
-            version: "3.0.6-wirelesssop",
+            version: "3.1.0-alignsop",
             database: "xlhomesolo-coverage-db (Master FTTH & 5G/Wireless)",
             totalHomepass: totalCount,
             totalWireless: totalWireless,
@@ -862,9 +867,12 @@ async function handleCoordinatesLookup(latParam, lngParam, env, masterDb, corsHe
   }
 
   // FTTH standard drop cable SOP radius: 150 meters max from FAT box (Direct Cover)
-  // Distance > 150m is OUT OF DROP CABLE REACH -> fallback to Wireless FWA
+  // Distance 151m - 250m: KEMUNGKINAN TERCOVER (Butuh verifikasi rute oleh teknisi)
+  // Distance > 250m: Out of drop cable reach -> fallback to Wireless FWA
   const FTTH_MAX_DISTANCE = 150;
-  const isCovered = minDistance <= FTTH_MAX_DISTANCE;
+  const FTTH_POSSIBLE_DISTANCE = 250;
+  const isDirectCovered = minDistance <= FTTH_MAX_DISTANCE;
+  const isPossibleCovered = minDistance > FTTH_MAX_DISTANCE && minDistance <= FTTH_POSSIBLE_DISTANCE;
 
   let isWirelessCovered = false;
   let wirelessType = null;
@@ -872,7 +880,7 @@ async function handleCoordinatesLookup(latParam, lngParam, env, masterDb, corsHe
   let wirelessSource = null;
   let minWirelessDist = Infinity;
 
-  if (isCovered) {
+  if (isDirectCovered || isPossibleCovered) {
     isWirelessCovered = true;
     wirelessType = "XL Ultra 5G+ (FWA)";
     wirelessSource = "CLOUDFLARE_D1_FTTH_OFFICIAL";
@@ -923,24 +931,29 @@ async function handleCoordinatesLookup(latParam, lngParam, env, masterDb, corsHe
     }
   }
 
+  const responseStatus = isDirectCovered ? (bestCandidate?.status || "ACTIVE") : (isPossibleCovered ? "mungkin" : "WIRELESS_AVAILABLE");
+  const responseType = isDirectCovered ? "FIBER_FTTH" : (isPossibleCovered ? "FIBER_POSSIBLE" : (wirelessType.includes("5G") ? "WIRELESS_5G" : "WIRELESS_4G"));
+
   const responsePayload = {
-    covered: isCovered,
-    type: isCovered ? "FIBER_FTTH" : (wirelessType.includes("5G") ? "WIRELESS_5G" : "WIRELESS_4G"),
+    covered: isDirectCovered,
+    isNearFiber: isPossibleCovered,
+    type: responseType,
     wirelessCovered: isWirelessCovered,
     wirelessType: wirelessType,
     wirelessZone: wirelessZone || null,
-    distance: isCovered ? (minDistance === Infinity ? null : Math.round(minDistance)) : (minWirelessDist !== Infinity ? Math.round(minWirelessDist) : (minDistance === Infinity ? null : Math.round(minDistance))),
+    distance: (isDirectCovered || isPossibleCovered) ? (minDistance === Infinity ? null : Math.round(minDistance)) : (minWirelessDist !== Infinity ? Math.round(minWirelessDist) : (minDistance === Infinity ? null : Math.round(minDistance))),
     maxDistance: FTTH_MAX_DISTANCE,
-    homepassId: isCovered && bestCandidate ? bestCandidate.id : null,
-    cluster: isCovered ? (bestCandidate ? bestCandidate.cluster_name : null) : (wirelessZone ? `Zona ${wirelessZone}` : (bestCandidate?.city || null)),
-    odp: isCovered && bestCandidate ? bestCandidate.odp_id : null,
+    maxPossibleDistance: FTTH_POSSIBLE_DISTANCE,
+    homepassId: (isDirectCovered || isPossibleCovered) && bestCandidate ? bestCandidate.id : null,
+    cluster: (isDirectCovered || isPossibleCovered) ? (bestCandidate ? bestCandidate.cluster_name : null) : (wirelessZone ? `Zona ${wirelessZone}` : (bestCandidate?.city || null)),
+    odp: (isDirectCovered || isPossibleCovered) && bestCandidate ? bestCandidate.odp_id : null,
     city: bestCandidate ? bestCandidate.city : null,
-    address: isCovered && bestCandidate ? bestCandidate.address : null,
-    status: isCovered && bestCandidate ? bestCandidate.status : "WIRELESS_AVAILABLE",
+    address: (isDirectCovered || isPossibleCovered) && bestCandidate ? bestCandidate.address : null,
+    status: responseStatus,
     lookupLatencyMs: Number((t1 - t0).toFixed(2)),
     candidateCount: candidates.length,
     databaseServed: "xlhomesolo-coverage-db (Unified Master FTTH & 5G/Wireless)",
-    source: isCovered ? "CLOUDFLARE_D1_FTTH_OFFICIAL" : wirelessSource
+    source: (isDirectCovered || isPossibleCovered) ? "CLOUDFLARE_D1_FTTH_OFFICIAL" : wirelessSource
   };
 
   setMemoryCache(coordKey, responsePayload);
