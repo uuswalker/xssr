@@ -1,5 +1,5 @@
 "use client";
-import { MessageCircle, MapPin, CheckCircle2, Target, Search, ArrowRight, Zap, Sparkles, Info } from "lucide-react";
+import { MessageCircle, MapPin, CheckCircle2, Target, Search, ArrowRight, Zap, Sparkles, Info, AlertCircle, Wifi, Clock } from "lucide-react";
 
 
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -384,7 +384,7 @@ export default function CekLokasi() {
           );
           setStep("form");
         }
-      }, 900);
+      }, 150);
       kirimSoftLead();
       fokusForm();
     },
@@ -412,7 +412,7 @@ export default function CekLokasi() {
         later(() => {
           setLokasiInfo(`Alamat: ${alamatText} [LUAR JANGKAUAN - ${bl}]`);
           setStep("form");
-        }, 800);
+        }, 150);
       } else {
         setStatusClass("cl-status");
         setStatusMsg(
@@ -421,7 +421,7 @@ export default function CekLokasi() {
         later(() => {
           setLokasiInfo(`Alamat: ${alamatText} (lokasi belum terverifikasi peta)`);
           setStep("form");
-        }, 600);
+        }, 150);
       }
       kirimSoftLead();
       fokusForm();
@@ -768,14 +768,14 @@ export default function CekLokasi() {
       const pesan =
         "*PENGAJUAN PASANG BARU XL HOME*\n" +
         "Halo Admin XL Home, saya ingin mengajukan *Pemasangan Baru* untuk alamat saya:\n\n" +
-        "👤 *Nama:* " + nm + "\n" +
-        "📱 *No. WhatsApp:* " + w + "\n" +
-        (alamatKirim ? "📍 *Alamat:* " + alamatKirim + "\n" : "") +
-        (kotaKirim ? "🏙️ *Kota/Area:* " + kotaKirim + "\n" : "") +
-        (mapsLink ? "🧭 *Titik Koordinat:* " + mapsLink + "\n" : "") +
-        (coverage?.jarakM != null ? "📏 *Jarak Jaringan Terdekat:* ±" + coverage.jarakM + " meter\n" : "") +
-        (paketPilihan ? "📦 *Minat Paket:* " + paketPilihan + "\n" : "") +
-        (providerSaatIni ? "📡 *Provider Saat Ini:* " + providerSaatIni + "\n\n" : "\n") +
+        "• *Nama:* " + nm + "\n" +
+        "• *No. WhatsApp:* " + w + "\n" +
+        (alamatKirim ? "• *Alamat:* " + alamatKirim + "\n" : "") +
+        (kotaKirim ? "• *Kota/Area:* " + kotaKirim + "\n" : "") +
+        (mapsLink ? "• *Titik Koordinat:* " + mapsLink + "\n" : "") +
+        (coverage?.jarakM != null ? "• *Jarak Jaringan Terdekat:* ±" + coverage.jarakM + " meter\n" : "") +
+        (paketPilihan ? "• *Minat Paket:* " + paketPilihan + "\n" : "") +
+        (providerSaatIni ? "• *Provider Saat Ini:* " + providerSaatIni + "\n\n" : "\n") +
         "Mohon dibantu pengecekan dan verifikasi jadwal pemasangan baru ya min. Terima kasih!" +
         utmSuffix;
 
@@ -1341,12 +1341,74 @@ export default function CekLokasi() {
                 )}
               </motion.div>
             ) : (
-              <motion.div key="form" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ type: "spring", stiffness: 300, damping: 30 }} id="cl-step-form">
-                <h3 className="cl-title">
-                  <CheckCircle2 size={18} color="var(--green)" style={{ flexShrink: 0 }} />
-                  Lokasi Ditemukan!
-                </h3>
-                <p className="cl-sub" id="cl-lokasi-info">
+              <motion.div key="form" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.15 }} id="cl-step-form">
+                {(() => {
+                  const isUnverified = !coverage || coverage.status === "manual" || (lokasiInfo && (lokasiInfo.includes("belum terverifikasi") || lokasiInfo.includes("LUAR JANGKAUAN")));
+                  const isMungkin = coverage?.status === "mungkin";
+                  const isWireless = coverage?.status === "wireless";
+                  const isFiber = coverage?.status === "fiber";
+
+                  let icon = <CheckCircle2 size={18} color="#026b55" style={{ flexShrink: 0 }} />;
+                  let title = "Lokasi Tercover Fiber Optic Siap Pasang!";
+                  let badgeBg = "#ecfdf5";
+                  let badgeBorder = "#a7f3d0";
+                  let badgeColor = "#065f46";
+                  let badgeText = "⚡ Jaringan Fiber Tersedia & Siap Dipasang";
+
+                  if (isUnverified) {
+                    icon = <Info size={18} color="#b45309" style={{ flexShrink: 0 }} />;
+                    title = "Alamat Menunggu Verifikasi Tim Sales";
+                    badgeBg = "#fffbeb";
+                    badgeBorder = "#fde68a";
+                    badgeColor = "#92400e";
+                    badgeText = "📝 Data dicatat untuk survei jalur manual teknisi";
+                  } else if (isMungkin) {
+                    icon = <AlertCircle size={18} color="#d97706" style={{ flexShrink: 0 }} />;
+                    title = "Dalam Jangkauan (Butuh Cek Jalur Teknisi)";
+                    badgeBg = "#fefce8";
+                    badgeBorder = "#fef08a";
+                    badgeColor = "#854d0e";
+                    badgeText = "⚠️ Dalam radius tarikan kabel, butuh verifikasi rute";
+                  } else if (isWireless) {
+                    icon = <Wifi size={18} color="#0284c7" style={{ flexShrink: 0 }} />;
+                    title = "Tercover XL Ultra 5G+ Wireless!";
+                    badgeBg = "#f0f9ff";
+                    badgeBorder = "#bae6fd";
+                    badgeColor = "#075985";
+                    badgeText = "📶 Sinyal Wireless 5G Siap Pasang Tanpa Tarik Kabel";
+                  }
+
+                  return (
+                    <div style={{ marginBottom: 12 }}>
+                      <h3 className="cl-title" style={{ display: "flex", alignItems: "center", gap: 8, margin: "0 0 6px" }}>
+                        {icon}
+                        <span>{title}</span>
+                      </h3>
+                      <div
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: 6,
+                          fontSize: 12,
+                          padding: "4px 10px",
+                          borderRadius: 999,
+                          background: badgeBg,
+                          border: `1px solid ${badgeBorder}`,
+                          color: badgeColor,
+                          fontWeight: 600,
+                          margin: "2px 0 6px",
+                        }}
+                      >
+                        {badgeText}
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 11.5, color: "#64748b", margin: "2px 0 8px" }}>
+                        <Clock size={12} color="#037e64" />
+                        <span>Verifikasi Sales: <strong>±15 Menit</strong> • Pemasangan: <strong>1–2 Hari Kerja</strong></span>
+                      </div>
+                    </div>
+                  );
+                })()}
+                <p className="cl-sub" id="cl-lokasi-info" style={{ margin: "0 0 14px" }}>
                   {lokasiInfo}
                 </p>
                 {coverage && (
