@@ -60,7 +60,6 @@ interface VisualCardItem {
   badgeColor?: string;
   note: string;
   price: string;
-  priceNormal?: string;
   period: string;
   popular?: boolean;
 }
@@ -108,7 +107,6 @@ const FEATURED_FIBER: VisualCardItem[] = [
     badgeColor: "#065f46",
     note: "Normal 100M + Booster 250M • Bebas FUP • s/d 10 HP",
     price: "Rp 229.000",
-    priceNormal: "Rp 279.000",
     period: "/bln",
     popular: true,
   },
@@ -130,7 +128,6 @@ const FEATURED_FIBER: VisualCardItem[] = [
     badgeColor: "#6b21a8",
     note: "Normal 200M + Booster 300M • Gratis Pasang • s/d 12 HP",
     price: "Rp 239.000",
-    priceNormal: "Rp 349.000",
     period: "/bln",
   },
 ];
@@ -1731,11 +1728,6 @@ export default function CekLokasi() {
                             </div>
                           </div>
                           <div style={{ textAlign: "right", flexShrink: 0, paddingLeft: 6 }}>
-                            {c.priceNormal && (
-                              <div style={{ textDecoration: "line-through", color: "#94a3b8", fontSize: 10.5, lineHeight: 1 }}>
-                                {c.priceNormal}
-                              </div>
-                            )}
                             <div style={{ fontWeight: 800, fontSize: 14, color: isSelected ? "#037e64" : "#0f172a" }}>
                               {c.price}
                             </div>
