@@ -102,10 +102,10 @@ const FEATURED_FIBER: VisualCardItem[] = [
   {
     key: "Saya minat paket XL Home Spark 250 Mbps Rp229.000",
     name: "Spark 250 Mbps",
-    badge: "🔥 Paling Laris • Gratis Pasang",
+    badge: "🔥 Paling Laris • Gratis Pasang Rp0",
     badgeBg: "#d1fae5",
     badgeColor: "#065f46",
-    note: "Normal 100M + Booster 250M • Bebas FUP • s/d 10 HP",
+    note: "Gratis Pasang Rp 0 • Normal 100M + Booster 250M • Bebas FUP",
     price: "Rp 229.000",
     period: "/bln",
     popular: true,
@@ -116,7 +116,7 @@ const FEATURED_FIBER: VisualCardItem[] = [
     badge: "⭐ Paling Hemat",
     badgeBg: "#dbeafe",
     badgeColor: "#1e3a8a",
-    note: "Browsing, Medsos, YouTube SD • Bebas FUP • s/d 5 HP",
+    note: "Biaya Pasang Rp 100.000 (Khusus paket 20M) • Bebas FUP",
     price: "Rp 185.000",
     period: "/bln",
   },
@@ -126,7 +126,7 @@ const FEATURED_FIBER: VisualCardItem[] = [
     badge: "⚡ +Rp10rb Dapat 300M",
     badgeBg: "#f3e8ff",
     badgeColor: "#6b21a8",
-    note: "Normal 200M + Booster 300M • Gratis Pasang • s/d 12 HP",
+    note: "Gratis Pasang Rp 0 • Normal 200M + Booster 300M • Bebas FUP",
     price: "Rp 239.000",
     period: "/bln",
   },
@@ -1356,7 +1356,7 @@ export default function CekLokasi() {
                     <span>Sales Resmi XL Home Solo Raya</span>
                   </div>
                   <div className="cl-trust-items">
-                    <span className="cl-trust-item">✓ 100% Bebas Biaya Pasang</span>
+                    <span className="cl-trust-item">✓ Gratis Pasang (Mulai Paket 250M)</span>
                     <span className="cl-trust-item">✓ Bebas Biaya Survei Jalur</span>
                     <span className="cl-trust-item">✓ Tanpa Biaya Tersembunyi</span>
                   </div>
@@ -1769,12 +1769,12 @@ export default function CekLokasi() {
                         style={{ fontSize: 13, background: "#fff" }}
                       >
                         <option value="">-- Pilih Paket Lainnya --</option>
-                        <option value="Saya minat paket XL Home Starter 20 Mbps Rp185.000">XL Home Starter 20 Mbps (Rp185.000)</option>
-                        <option value="Saya minat paket XL Home Spark 250 Mbps Rp229.000">XL Home Spark 250 Mbps (Rp229.000)</option>
-                        <option value="Saya minat paket XL Home Spark 300 Mbps Rp239.000">XL Home Spark 300 Mbps (Rp239.000)</option>
-                        <option value="Saya minat paket XL Home Spark 400 Mbps Rp299.000">XL Home Spark 400 Mbps (Rp299.000)</option>
-                        <option value="Saya minat paket XL Home Spark 500 Mbps Rp399.000">XL Home Spark 500 Mbps (Rp399.000)</option>
-                        <option value="Saya minat paket XL Home Spark 1000 Mbps Rp899.000">XL Home Spark 1000 Mbps (Rp899.000)</option>
+                        <option value="Saya minat paket XL Home Starter 20 Mbps Rp185.000">XL Home Starter 20 Mbps (Rp185.000, Biaya Pasang Rp100rb)</option>
+                        <option value="Saya minat paket XL Home Spark 250 Mbps Rp229.000">XL Home Spark 250 Mbps (Rp229.000, Gratis Pasang)</option>
+                        <option value="Saya minat paket XL Home Spark 300 Mbps Rp239.000">XL Home Spark 300 Mbps (Rp239.000, Gratis Pasang)</option>
+                        <option value="Saya minat paket XL Home Spark 400 Mbps Rp299.000">XL Home Spark 400 Mbps (Rp299.000, Gratis Pasang)</option>
+                        <option value="Saya minat paket XL Home Spark 500 Mbps Rp399.000">XL Home Spark 500 Mbps (Rp399.000, Gratis Pasang)</option>
+                        <option value="Saya minat paket XL Home Spark 1000 Mbps Rp899.000">XL Home Spark 1000 Mbps (Rp899.000, Gratis Pasang)</option>
                         <option value="Saya minat XL Home Wireless Monthly 100 Mbps Rp219.500">XL Home Wireless Monthly 100 Mbps (Rp219.500)</option>
                         <option value="Saya minat XL Home Wireless 50 Mbps Advance Rp650.000">XL Home Wireless 50 Mbps Advance (Rp650.000 / 4 bln)</option>
                         <option value="Saya minat XL Home Wireless 100 Mbps Advance Rp790.000">XL Home Wireless 100 Mbps Advance (Rp790.000 / 4 bln)</option>
@@ -1833,7 +1833,11 @@ export default function CekLokasi() {
                       Sales Resmi
                     </span>
                     <span>•</span>
-                    <span>Gratis Pasang 100%</span>
+                    <span style={{ color: paketPilihan?.includes("20 Mbps") ? "#b45309" : "#059669" }}>
+                      {paketPilihan?.includes("20 Mbps")
+                        ? "Biaya Pasang: Rp 100.000 (Khusus 20M)"
+                        : "Gratis Pasang Rp 0 (Mulai 250M)"}
+                    </span>
                     <span>•</span>
                     <span>Tanpa Biaya Tersembunyi</span>
                   </div>
