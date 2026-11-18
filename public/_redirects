@@ -6,6 +6,9 @@
 
 # Cloudflare Pages 301 Redirect Rules
 
+/cek-jaringan/wifi-sukoharjo /wifi-sukoharjo/ 301
+/cek-jaringan/wifi-sukoharjo/ /wifi-sukoharjo/ 301
+
 /xl-satu-resmi-jadi-xl-home /perubahan-resmi-xl-home/ 301
 /xl-satu-resmi-jadi-xl-home/ /perubahan-resmi-xl-home/ 301
 /xl-satu-dan-xl-home-apakah-sama /perbedaan-paket-layanan-xl-home/ 301
