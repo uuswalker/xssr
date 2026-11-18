@@ -1239,7 +1239,7 @@ export default function CekLokasi() {
                 <div className="cl-trust-banner">
                   <div className="cl-trust-title">
                     <ShieldCheck size={16} color="#16a34a" style={{ flexShrink: 0 }} />
-                    <span>Mitra Resmi XL Home Solo Raya</span>
+                    <span>Sales Resmi XL Home Solo Raya</span>
                   </div>
                   <div className="cl-trust-items">
                     <span className="cl-trust-item">✓ 100% Bebas Biaya Pasang</span>
@@ -1664,7 +1664,7 @@ export default function CekLokasi() {
                   >
                     <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
                       <ShieldCheck size={13} color="#059669" />
-                      Mitra Resmi
+                      Sales Resmi
                     </span>
                     <span>•</span>
                     <span>Gratis Pasang 100%</span>
