@@ -230,6 +230,140 @@ export default function CekLokasi() {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const debounce = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const [showExitIntent, setShowExitIntent] = useState(false);
+  const exitIntentShown = useRef(false);
+  const [updatingCov, setUpdatingCov] = useState(false);
+  const mapRef = useRef<HTMLDivElement | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const mapInstance = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const markerRef = useRef<any>(null);
+
+  // Desktop exit intent
+  useEffect(() => {
+    if (!open || step !== "form" || exitIntentShown.current) return;
+    if (coverage?.status !== "fiber" && coverage?.status !== "wireless" && coverage?.status !== "mungkin") return;
+
+    const onMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 15 && !exitIntentShown.current) {
+        exitIntentShown.current = true;
+        setShowExitIntent(true);
+      }
+    };
+    document.addEventListener("mouseleave", onMouseLeave);
+    return () => document.removeEventListener("mouseleave", onMouseLeave);
+  }, [open, step, coverage]);
+
+  // Mini-map Leaflet initialization when in step === 'form' and coordinates are available
+  useEffect(() => {
+    if (step !== "form" || posRef.current.lat == null || posRef.current.lng == null) return;
+    let isMounted = true;
+
+    // Load Leaflet CSS
+    if (!document.getElementById("leaflet-css")) {
+      const link = document.createElement("link");
+      link.id = "leaflet-css";
+      link.rel = "stylesheet";
+      link.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+      document.head.appendChild(link);
+    }
+
+    const initMap = () => {
+      if (!isMounted || !mapRef.current || !window.L) return;
+      if (mapInstance.current) {
+        try {
+          mapInstance.current.remove();
+        } catch {}
+        mapInstance.current = null;
+      }
+      const curLat = posRef.current.lat;
+      const curLng = posRef.current.lng;
+      if (curLat == null || curLng == null) return;
+
+      try {
+        const map = window.L.map(mapRef.current, {
+          center: [curLat, curLng],
+          zoom: 17,
+          zoomControl: false,
+          attributionControl: false,
+        });
+        mapInstance.current = map;
+
+        window.L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+        }).addTo(map);
+
+        const pinIcon = window.L.divIcon({
+          className: "custom-leaflet-pin",
+          html: `<div style="background:#037e64;width:24px;height:24px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:center;margin:-12px 0 0 -12px;"><div style="width:7px;height:7px;background:#fff;border-radius:50%;"></div></div>`,
+          iconSize: [24, 24],
+          iconAnchor: [0, 0],
+        });
+
+        const marker = window.L.marker([curLat, curLng], {
+          draggable: true,
+          icon: pinIcon,
+        }).addTo(map);
+        markerRef.current = marker;
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        marker.on("dragend", async (e: any) => {
+          const pos = e.target.getLatLng();
+          posRef.current.lat = pos.lat;
+          posRef.current.lng = pos.lng;
+          setUpdatingCov(true);
+          try {
+            const freshCv = await cekCoverageWorkerAPI(pos.lat, pos.lng);
+            if (freshCv && isMounted) {
+              setCoverage(freshCv);
+              if (freshCv.jarakM != null) {
+                setLokasiInfo(`Titik Baru: ${pos.lat.toFixed(5)}, ${pos.lng.toFixed(5)} (Jarak: ±${freshCv.jarakM}m)`);
+              }
+            }
+          } catch {
+            /* ignore */
+          } finally {
+            if (isMounted) setUpdatingCov(false);
+          }
+        });
+
+        setTimeout(() => {
+          if (isMounted && mapInstance.current) {
+            try {
+              mapInstance.current.invalidateSize();
+            } catch {}
+          }
+        }, 300);
+      } catch (err) {
+        console.error("Leaflet init error:", err);
+      }
+    };
+
+    if (window.L) {
+      initMap();
+    } else {
+      let script = document.getElementById("leaflet-js") as HTMLScriptElement;
+      if (!script) {
+        script = document.createElement("script");
+        script.id = "leaflet-js";
+        script.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+        script.async = true;
+        document.body.appendChild(script);
+      }
+      script.addEventListener("load", initMap);
+    }
+
+    return () => {
+      isMounted = false;
+      if (mapInstance.current) {
+        try {
+          mapInstance.current.remove();
+        } catch {}
+        mapInstance.current = null;
+      }
+    };
+  }, [step]);
+
   const later = useCallback((fn: () => void, ms: number) => {
     const id = window.setTimeout(fn, ms);
     timers.current.push(id);
@@ -515,13 +649,27 @@ export default function CekLokasi() {
   );
 
   // ---- buka/tutup ----
-  const tutupModal = useCallback(() => {
+  const tutupModalReal = useCallback(() => {
     setOpen(false);
+    setShowExitIntent(false);
     setCoverage(null);
     setStatusMsg("");
     setStatusClass("cl-status");
     setFormError(null);
   }, []);
+
+  const tutupModal = useCallback(() => {
+    if (
+      !exitIntentShown.current &&
+      step === "form" &&
+      (coverage?.status === "fiber" || coverage?.status === "wireless" || coverage?.status === "mungkin")
+    ) {
+      exitIntentShown.current = true;
+      setShowExitIntent(true);
+      return;
+    }
+    tutupModalReal();
+  }, [coverage, step, tutupModalReal]);
 
   const bukaModal = useCallback(
     (trigger?: string) => {
@@ -530,6 +678,8 @@ export default function CekLokasi() {
       modalOpened.current = true;
       setStrip(null);
       setCoverage(null);
+      setShowExitIntent(false);
+      exitIntentShown.current = false;
       
       gtag("event", "open_cek_lokasi", {
         page_path: window.location.pathname,
@@ -873,7 +1023,7 @@ export default function CekLokasi() {
       } catch {
         window.location.href = waUrl;
       }
-      tutupModal();
+      tutupModalReal();
       setSending(false);
       return;
     }
@@ -951,10 +1101,10 @@ export default function CekLokasi() {
     } catch {
       window.location.href = waUrl;
     }
-    tutupModal();
+    tutupModalReal();
     setSending(false);
     setPaketPilihan(null);
-  }, [nama, wa, coverage, paketPilihan, tutupModal]);
+  }, [nama, wa, coverage, paketPilihan, tutupModalReal]);
 
   // ---- strip + IP layer ----
   useEffect(() => {
@@ -1227,6 +1377,13 @@ export default function CekLokasi() {
     border-radius: 999px;
     letter-spacing: 0.2px;
     display: inline-block;
+  }
+  :global(.custom-leaflet-pin) {
+    background: transparent !important;
+    border: none !important;
+  }
+  :global(.leaflet-container) {
+    font-family: inherit;
   }
   @media (max-width: 480px) {
     .cl-modal-overlay { padding: 8px; }
@@ -1524,6 +1681,79 @@ export default function CekLokasi() {
               </motion.div>
             ) : (
               <motion.div key="form" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.15 }} id="cl-step-form">
+                {/* Exit-Intent Micro-Recovery Banner */}
+                <AnimatePresence>
+                  {showExitIntent && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.96, y: -8 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.96, y: -8 }}
+                      style={{
+                        background: "linear-gradient(135deg, #064e3b 0%, #037e64 100%)",
+                        color: "#ffffff",
+                        borderRadius: 12,
+                        padding: "12px 14px",
+                        margin: "0 0 14px",
+                        boxShadow: "0 8px 20px rgba(3, 126, 100, 0.25)",
+                      }}
+                    >
+                      <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                        <Sparkles size={18} color="#fbbf24" style={{ flexShrink: 0, marginTop: 2 }} />
+                        <div style={{ flex: 1 }}>
+                          <strong style={{ display: "block", fontSize: 13, marginBottom: 3 }}>
+                            Tunggu Sebentar! Jaringan Siap Dipasang ⚡
+                          </strong>
+                          <p style={{ margin: 0, fontSize: 12, opacity: 0.95, lineHeight: 1.4 }}>
+                            Lokasi Anda sudah siap pasang fiber! Mau kami bantu amankan promo <strong>Gratis Biaya Pasang</strong> hari ini?
+                          </p>
+                          <div style={{ display: "flex", gap: 8, marginTop: 10, flexWrap: "wrap", alignItems: "center" }}>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setShowExitIntent(false);
+                                kirim();
+                              }}
+                              style={{
+                                background: "#22c55e",
+                                color: "#ffffff",
+                                border: "none",
+                                borderRadius: 8,
+                                padding: "6px 12px",
+                                fontSize: 12,
+                                fontWeight: 700,
+                                cursor: "pointer",
+                                display: "inline-flex",
+                                alignItems: "center",
+                                gap: 5,
+                              }}
+                            >
+                              <MessageCircle size={14} /> Amankan Promo via WhatsApp
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setShowExitIntent(false);
+                                tutupModalReal();
+                              }}
+                              style={{
+                                background: "transparent",
+                                color: "rgba(255,255,255,0.85)",
+                                border: "1px solid rgba(255,255,255,0.3)",
+                                borderRadius: 8,
+                                padding: "5px 10px",
+                                fontSize: 11.5,
+                                cursor: "pointer",
+                              }}
+                            >
+                              Tutup Saja
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
                 {(() => {
                   const isUnverified = !coverage || coverage.status === "manual" || (lokasiInfo && (lokasiInfo.includes("belum terverifikasi") || lokasiInfo.includes("LUAR JANGKAUAN")));
                   const isMungkin = coverage?.status === "mungkin";
@@ -1593,6 +1823,36 @@ export default function CekLokasi() {
                 <p className="cl-sub" id="cl-lokasi-info" style={{ margin: "0 0 14px" }}>
                   {lokasiInfo}
                 </p>
+                {/* Mini-Map Pin Adjustment (Peta Interaktif Ringan) */}
+                {posRef.current.lat != null && posRef.current.lng != null && (
+                  <div style={{ margin: "0 0 14px" }}>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 12, color: "#475569", marginBottom: 5 }}>
+                      <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontWeight: 600 }}>
+                        <MapPin size={13} color="#037e64" />
+                        Titik Peta: <span style={{ fontWeight: 400, color: "#64748b" }}>Geser pin jika posisi rumah meleset</span>
+                      </span>
+                      {updatingCov && (
+                        <span style={{ fontSize: 11, color: "#037e64", fontWeight: 700 }}>
+                          Mengecek ulang...
+                        </span>
+                      )}
+                    </div>
+                    <div
+                      id="cl-mini-map"
+                      ref={mapRef}
+                      style={{
+                        width: "100%",
+                        height: 145,
+                        borderRadius: 12,
+                        border: "1.5px solid #cbd5e1",
+                        background: "#f1f5f9",
+                        overflow: "hidden",
+                        position: "relative",
+                        zIndex: 1,
+                      }}
+                    />
+                  </div>
+                )}
                 {coverage && (
                   <div
                     id="cl-coverage"
