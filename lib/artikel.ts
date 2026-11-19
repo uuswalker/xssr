@@ -357,7 +357,20 @@ ARTIKEL["cara-daftar-pasang-wifi-xl-home-solo"] = {
   hero: {"crumb":"<a href=\"https://xlhomesolo.com/\">Beranda</a> / Cara Daftar & Pasang WiFi XL Home","h1":"Cara Daftar & Pasang WiFi XL Home di Solo Raya","sub":"Panduan lengkap syarat, dokumen, dan langkah daftar lewat sales resmi lokal — proses cepat tanpa perlu ke kantor.","meta":"Diperbarui 13 Oktober 2026 • XL Home Solo Raya"},
   headerCta: "https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo,%20saya%20mau%20daftar%20pasang%20WiFi",
   bodyHtml: `
-  <p>Mau pasang WiFi XL Home (transformasi resmi XL SATU Fiber) di Solo, Sukoharjo, Karanganyar, Klaten, atau Boyolali tapi bingung mulai dari mana? Kabar baiknya, prosesnya jauh lebih simpel daripada yang dibayangkan — nggak perlu datang ke kantor, cukup lewat WhatsApp ke sales resmi area Solo Raya. Artikel ini merangkum semua yang perlu kamu tahu: harga, syarat, pilihan jaringan, sampai estimasi waktu pemasangan.</p>
+  <div class="featured-snippet-box" style="background:#f0fdf4; border:1.5px solid #037e64; border-radius:12px; padding:18px 20px; margin:16px 0 24px;">
+    <p style="margin:0 0 10px; font-size:16px; font-weight:800; color:#0f172a;">
+      📌 Jawaban Cepat: Nomor WhatsApp Sales Resmi XL Home Solo Raya 2026
+    </p>
+    <p style="margin:0 0 10px; font-size:15px; color:#1e293b; line-height:1.65;">
+      Untuk wilayah Solo Raya (Kota Surakarta / Solo, Sukoharjo, Karanganyar, Boyolali, dan Klaten), <strong>pendaftaran dan cek area cepat resmi dilayani melalui Sales Resmi via WhatsApp di nomor 0877-7899-9141</strong> (<a href="https://wa.me/6287778999141" style="color:#037e64; font-weight:700;">wa.me/6287778999141</a>).
+    </p>
+    <ul style="margin:0 0 10px; padding-left:20px; font-size:13.5px; color:#334155; line-height:1.6;">
+      <li><strong>Pendaftaran Cepat:</strong> Cukup kirim share location dan foto depan rumah via WhatsApp ke <strong>0877-7899-9141</strong>. Jadwal instalasi teknisi 1–3 hari kerja.</li>
+      <li><strong>Promo Bebas Biaya Pasang:</strong> Gratis biaya pasang 100% (Rp 0) untuk paket Spark 250 Mbps (Rp 229.000/bln) ke atas. Biaya pasang Rp 100.000 hanya berlaku khusus untuk paket Starter 20 Mbps.</li>
+      <li><strong>Peringatan Keamanan:</strong> Waspadai nomor sales tidak resmi atau nomor lama eks-First Media (seperti nomor tidak resmi yang beredar di media sosial lama). Kontak Sales Resmi XL Home Solo Raya yang aktif, terverifikasi resmi, dan aman saat ini HANYA melalui <strong>0877-7899-9141</strong>. Sistem pembayaran resmi prabayar (tanpa uang muka tunai ke teknisi).</li>
+    </ul>
+  </div>
+<p>Mau pasang WiFi XL Home (transformasi resmi XL SATU Fiber) di Solo, Sukoharjo, Karanganyar, Klaten, atau Boyolali tapi bingung mulai dari mana? Kabar baiknya, prosesnya jauh lebih simpel daripada yang dibayangkan — nggak perlu datang ke kantor, cukup lewat WhatsApp ke sales resmi area Solo Raya. Artikel ini merangkum semua yang perlu kamu tahu: harga, syarat, pilihan jaringan, sampai estimasi waktu pemasangan.</p>
 
   <div class="info-box">
     <strong>Ringkas:</strong> Harga mulai Rp185.000/bulan (Starter) hingga Rp229.000/bulan (Spark 250 Mbps Best Seller), pilih Fiber (kabel simetris) atau Wireless (tanpa kabel), daftar cukup kirim alamat + foto rumah ke WhatsApp <strong>0877-7899-9141</strong>, proses instalasi cepat didampingi teknisi resmi.
@@ -2956,6 +2969,20 @@ ARTIKEL["nomor-sales-xl-home-solo-raya"] = {
   ],
 
   bodyHtml: `
+    <div class="featured-snippet-box" style="background:#f0fdf4; border:1.5px solid #037e64; border-radius:12px; padding:18px 20px; margin:16px 0 24px;">
+    <p style="margin:0 0 10px; font-size:16px; font-weight:800; color:#0f172a;">
+      📌 Jawaban Cepat: Nomor WhatsApp Sales Resmi XL Home Solo Raya 2026
+    </p>
+    <p style="margin:0 0 10px; font-size:15px; color:#1e293b; line-height:1.65;">
+      Untuk wilayah Solo Raya (Kota Surakarta / Solo, Sukoharjo, Karanganyar, Boyolali, dan Klaten), <strong>pendaftaran dan cek area cepat resmi dilayani melalui Sales Resmi via WhatsApp di nomor 0877-7899-9141</strong> (<a href="https://wa.me/6287778999141" style="color:#037e64; font-weight:700;">wa.me/6287778999141</a>).
+    </p>
+    <ul style="margin:0 0 10px; padding-left:20px; font-size:13.5px; color:#334155; line-height:1.6;">
+      <li><strong>Pendaftaran Cepat:</strong> Cukup kirim share location dan foto depan rumah via WhatsApp ke <strong>0877-7899-9141</strong>. Jadwal instalasi teknisi 1–3 hari kerja.</li>
+      <li><strong>Promo Bebas Biaya Pasang:</strong> Gratis biaya pasang 100% (Rp 0) untuk paket Spark 250 Mbps (Rp 229.000/bln) ke atas. Biaya pasang Rp 100.000 hanya berlaku khusus untuk paket Starter 20 Mbps.</li>
+      <li><strong>Peringatan Keamanan:</strong> Waspadai nomor sales tidak resmi atau nomor lama eks-First Media (seperti nomor tidak resmi yang beredar di media sosial lama). Kontak Sales Resmi XL Home Solo Raya yang aktif, terverifikasi resmi, dan aman saat ini HANYA melalui <strong>0877-7899-9141</strong>. Sistem pembayaran resmi prabayar (tanpa uang muka tunai ke teknisi).</li>
+    </ul>
+  </div>
+
   <div style="background: #e6f7f3; border-left: 5px solid #037e64; padding: 20px 24px; border-radius: 8px; margin: 24px 0 32px; box-shadow: 0 4px 12px rgba(3,126,100,0.08);">
     <div style="display:inline-block; background:#037e64; color:#fff; font-size:12px; font-weight:800; padding:2px 10px; border-radius:20px; margin-bottom:10px; text-transform:uppercase;">Kontak Resmi Solo Raya 2026</div>
     <h3 style="margin: 0 0 10px; font-size: 18px; color: #023835; font-weight: 800;">Berapa Nomor Resmi Sales XL Home Solo Raya?</h3>
