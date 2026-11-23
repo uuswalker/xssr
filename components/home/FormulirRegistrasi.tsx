@@ -141,6 +141,28 @@ export default function FormulirRegistrasi() {
     return () => document.removeEventListener("click", handleTrigger, true);
   }, []);
 
+  // Sinkronisasi otomatis paket pilihan berdasarkan status coverage
+  useEffect(() => {
+    if (coverage?.status === "wireless") {
+      if (!isWirelessSelection(paketPilihan)) {
+        const defaultWireless = DAFTAR_PAKET_OPTIONS.find((p) => p.group === "wireless");
+        if (defaultWireless) {
+          setPaketPilihan(defaultWireless.name);
+        }
+      }
+    } else if (coverage && (coverage.status === "fiber" || coverage.status === "mungkin")) {
+      if (isWirelessSelection(paketPilihan)) {
+        try {
+          if (!sessionStorage.getItem("xlsr_user_chose_wireless")) {
+            setPaketPilihan(DAFTAR_PAKET_OPTIONS[0].name);
+          }
+        } catch {
+          setPaketPilihan(DAFTAR_PAKET_OPTIONS[0].name);
+        }
+      }
+    }
+  }, [coverage, paketPilihan]);
+
   // Autocomplete debouncer
   useEffect(() => {
     const q = query.trim();
@@ -398,13 +420,14 @@ export default function FormulirRegistrasi() {
     const effectiveStatus = isWireless ? "wireless" : (coverage?.status || "manual");
     const isManual = effectiveStatus === "manual";
 
-    let effectiveHpId = effectiveStatus === "fiber" ? (coverage?.homepassId || null) : null;
-    let effectiveOdp = effectiveStatus === "fiber" ? (coverage?.odp || null) : null;
-    let effectiveCluster = effectiveStatus === "fiber" ? (coverage?.cluster || null) : null;
+    const isFiberLike = effectiveStatus === "fiber" || effectiveStatus === "mungkin";
+    let effectiveHpId = isFiberLike ? (coverage?.homepassId || null) : null;
+    let effectiveOdp = isFiberLike ? (coverage?.odp || null) : null;
+    let effectiveCluster = isFiberLike ? (coverage?.cluster || null) : null;
     let activeCv = coverage;
 
     // Fail-safe D1 Cloudflare Worker: jika ODP / Homepass / Cluster belum terisi tapi koordinat tersedia
-    if (effectiveStatus === "fiber" && (!effectiveOdp || !effectiveHpId || !effectiveCluster) && p.lat != null && p.lng != null) {
+    if (isFiberLike && (!effectiveOdp || !effectiveHpId || !effectiveCluster) && p.lat != null && p.lng != null) {
       try {
         const freshCv = await cekCoverageWorkerAPI(p.lat, p.lng);
         if (freshCv) {
@@ -419,8 +442,8 @@ export default function FormulirRegistrasi() {
     // Pastikan homepassAddress bukan koordinat murni
     const rawHpAddr = activeCv?.alamat ? cleanAlamatResmi(activeCv.alamat) : null;
     const isKoordOnly = rawHpAddr ? /^-?\d+\.\d+,\s*-?\d+\.\d+$/.test(rawHpAddr) : false;
-    const effectiveHpAddress = (effectiveStatus === "fiber" && !isKoordOnly) ? rawHpAddr : null;
-    const effectiveJarak = effectiveStatus === "fiber" ? jarakFiberField(activeCv) : "";
+    const effectiveHpAddress = (isFiberLike && !isKoordOnly) ? rawHpAddr : null;
+    const effectiveJarak = isFiberLike ? jarakFiberField(activeCv) : "";
 
     // 1. Google Sheets Webhook Lead Telemetry (Internal Sales)
     postLead(
@@ -467,7 +490,7 @@ export default function FormulirRegistrasi() {
       if (u) utmSuffix = `\n[Sumber: ${u}]`;
     } catch {}
 
-    const covLine = isWireless
+    const covLine = isWireless && coverage?.status === "wireless"
       ? "Status Jaringan: TERCOVER WIRELESS (FWA)\n"
       : coverageLine(coverage);
     const paketLine = paketPilihan ? `Paket: ${paketPilihan}\n` : "";
@@ -1030,13 +1053,20 @@ export default function FormulirRegistrasi() {
                     </div>
                     <select
                       value={paketPilihan}
-                      onChange={(e) => setPaketPilihan(e.target.value)}
+                      onChange={(e) => {
+                        setPaketPilihan(e.target.value);
+                        if (isWirelessSelection(e.target.value)) {
+                          try { sessionStorage.setItem("xlsr_user_chose_wireless", "1"); } catch {}
+                        } else {
+                          try { sessionStorage.removeItem("xlsr_user_chose_wireless"); } catch {}
+                        }
+                      }}
                       className="reg-select"
                     >
                       <optgroup label="FIBER OPTIC (UNLIMITED TANPA FUP)">
                         {DAFTAR_PAKET_OPTIONS.filter((p) => p.group === "fiber").map((p) => (
-                          <option key={p.id} value={p.name}>
-                            {p.name}
+                          <option key={p.id} value={p.name} disabled={coverage?.status === "wireless"}>
+                            {p.name}{coverage?.status === "wireless" ? " — (Belum Tercover Kabel)" : ""}
                           </option>
                         ))}
                       </optgroup>
@@ -1049,8 +1079,8 @@ export default function FormulirRegistrasi() {
                       </optgroup>
                       <optgroup label="PAKET PROMO TAHUNAN (BAYAR 10 DAPAT 12)">
                         {DAFTAR_PAKET_OPTIONS.filter((p) => p.group === "tahunan").map((p) => (
-                          <option key={p.id} value={p.name}>
-                            {p.name}
+                          <option key={p.id} value={p.name} disabled={coverage?.status === "wireless"}>
+                            {p.name}{coverage?.status === "wireless" ? " — (Belum Tercover Kabel)" : ""}
                           </option>
                         ))}
                       </optgroup>

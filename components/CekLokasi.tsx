@@ -194,15 +194,12 @@ export default function CekLokasi() {
   useEffect(() => {
     if (step === "form") {
       if (coverage && coverage.status === "wireless") {
-        if (
-          !paketPilihan ||
-          (!paketPilihan.toLowerCase().includes("monthly") &&
-            !paketPilihan.toLowerCase().includes("advance") &&
-            !paketPilihan.toLowerCase().includes("wireless") &&
-            !paketPilihan.toLowerCase().includes("request") &&
-            !paketPilihan.toLowerCase().includes("kabel"))
-        ) {
+        if (!paketPilihan || !isWirelessSelection(paketPilihan)) {
           setPaketPilihan("Saya minat XL Home Wireless Monthly 100 Mbps Rp219.500");
+        }
+      } else if (coverage && (coverage.status === "fiber" || coverage.status === "mungkin")) {
+        if (!paketPilihan || isWirelessSelection(paketPilihan)) {
+          setPaketPilihan("Saya minat paket XL Home Spark 250 Mbps Rp229.000");
         }
       } else if (!paketPilihan) {
         setPaketPilihan("Saya minat paket XL Home Spark 250 Mbps Rp229.000");
@@ -460,13 +457,14 @@ export default function CekLokasi() {
     const alamatKirim = p.alamat || (p.lat && p.lng ? `${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}` : "");
     const isWirelessSoft = isWirelessSelection(paketPilihan, coverage?.status);
     const effStatusSoft = isWirelessSoft ? "wireless" : (coverage?.status || "manual");
-    const effHpIdSoft = effStatusSoft === "fiber" ? (coverage?.homepassId || null) : null;
-    const effOdpSoft = effStatusSoft === "fiber" ? (coverage?.odp || null) : null;
-    const effClusterSoft = effStatusSoft === "fiber" ? (coverage?.cluster || null) : null;
+    const isFiberLikeSoft = effStatusSoft === "fiber" || effStatusSoft === "mungkin";
+    const effHpIdSoft = isFiberLikeSoft ? (coverage?.homepassId || null) : null;
+    const effOdpSoft = isFiberLikeSoft ? (coverage?.odp || null) : null;
+    const effClusterSoft = isFiberLikeSoft ? (coverage?.cluster || null) : null;
     const rawHpAddrSoft = coverage?.alamat ? cleanAlamatResmi(coverage.alamat) : null;
     const isKoordOnlySoft = rawHpAddrSoft ? /^-?\d+\.\d+,\s*-?\d+\.\d+$/.test(rawHpAddrSoft) : false;
-    const effHpAddrSoft = (effStatusSoft === "fiber" && !isKoordOnlySoft) ? rawHpAddrSoft : null;
-    const effJarakSoft = effStatusSoft === "fiber" ? jarakFiberField(coverage) : "";
+    const effHpAddrSoft = (isFiberLikeSoft && !isKoordOnlySoft) ? rawHpAddrSoft : null;
+    const effJarakSoft = isFiberLikeSoft ? jarakFiberField(coverage) : "";
 
     postLead(
       basePayload("lokasi-saja", {
@@ -979,13 +977,14 @@ export default function CekLokasi() {
     const kotaKirim = p.kota || coverage?.city || "Area Layanan";
     const alamatKirim = p.alamat || (p.lat && p.lng ? `${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}` : "");
 
-    let effectiveHpId = effectiveStatus === "fiber" ? (coverage?.homepassId || null) : null;
-    let effectiveOdp = effectiveStatus === "fiber" ? (coverage?.odp || null) : null;
-    let effectiveCluster = effectiveStatus === "fiber" ? (coverage?.cluster || null) : null;
+    const isFiberLike = effectiveStatus === "fiber" || effectiveStatus === "mungkin";
+    let effectiveHpId = isFiberLike ? (coverage?.homepassId || null) : null;
+    let effectiveOdp = isFiberLike ? (coverage?.odp || null) : null;
+    let effectiveCluster = isFiberLike ? (coverage?.cluster || null) : null;
     let activeCv = coverage;
 
     // Fail-safe D1 Cloudflare Worker: jika ODP / Cluster / Homepass belum terisi tapi koordinat tersedia
-    if (effectiveStatus === "fiber" && (!effectiveOdp || !effectiveHpId || !effectiveCluster) && p.lat != null && p.lng != null) {
+    if (isFiberLike && (!effectiveOdp || !effectiveHpId || !effectiveCluster) && p.lat != null && p.lng != null) {
       try {
         const freshCv = await cekCoverageWorkerAPI(p.lat, p.lng);
         if (freshCv) {
@@ -1001,8 +1000,8 @@ export default function CekLokasi() {
 
     const rawHpAddr = activeCv?.alamat ? cleanAlamatResmi(activeCv.alamat) : null;
     const isKoordOnly = rawHpAddr ? /^-?\d+\.\d+,\s*-?\d+\.\d+$/.test(rawHpAddr) : false;
-    const effectiveHpAddress = (effectiveStatus === "fiber" && !isKoordOnly) ? rawHpAddr : null;
-    const effectiveJarak = effectiveStatus === "fiber" ? jarakFiberField(activeCv) : "";
+    const effectiveHpAddress = (isFiberLike && !isKoordOnly) ? rawHpAddr : null;
+    const effectiveJarak = isFiberLike ? jarakFiberField(activeCv) : "";
 
     if (isReq) {
       postLead(
@@ -1128,7 +1127,7 @@ export default function CekLokasi() {
     } catch {
       /* abaikan */
     }
-    const covLine = isWireless
+    const covLine = isWireless && coverage?.status === "wireless"
       ? "Status Jaringan: TERCOVER WIRELESS (FWA)\n"
       : coverageLine(coverage);
     const paketLine = paketPilihan ? `Paket: ${paketPilihan}\n` : "";

@@ -322,7 +322,12 @@ export async function cariAlamatSmart(
               lat: String(lat),
               lon: String(lng),
               title,
-              subtitle: cv.status === "fiber" ? `${subtitle} • Siap Pasang Fiber` : `${subtitle} • Tercover Wireless`,
+              subtitle:
+                cv.status === "fiber"
+                  ? `${subtitle} • Siap Pasang Fiber & Wireless`
+                  : cv.status === "wireless"
+                  ? `${subtitle} • Tercover Wireless (FWA)`
+                  : `${subtitle} • Cek Jalur & Opsi Pasang`,
               display_name: title,
               isFiberReady: cv.status === "fiber",
               odp: cv.odp || undefined,

@@ -276,7 +276,7 @@ export function cekCoverage(
   if (w)
     return {
       status: "wireless",
-      jarakM: w.jarakM,
+      jarakM: null,
       zona: w.zona,
       fiberM: null,
       homepassId: null,
@@ -284,11 +284,7 @@ export function cekCoverage(
       odp: null
     };
 
-  // 4. Fallback Klaten jika di luar jangkauan fiber langsung
-  if (kota === "Klaten")
-    return { status: "wireless", jarakM: null, zona: null, fiberM: null, homepassId: null, alamat: bestAddr, odp: null };
-
-  // 5. Default: Cek manual sales / Request Pasang Baru
+  // 4. Default: Cek manual sales / Request Pasang Baru
   return { status: "manual", jarakM: m, zona: null, fiberM: null, homepassId: null, alamat: bestAddr, odp: null };
 }
 
@@ -420,10 +416,10 @@ export function coverageLine(cv: CoverageResult | null): string {
       : cv.status === "wireless"
       ? "TERCOVER WIRELESS (FWA)"
       : cv.status === "mungkin"
-      ? "KEMUNGKINAN TERCOVER"
+      ? "KEMUNGKINAN TERCOVER (Butuh Cek Jalur)"
       : "PENGAJUAN PASANG BARU";
-  const odpInfo = cv.status === "fiber" && cv.odp ? ` [ODP: ${cv.odp}]` : "";
-  const jarakInfo = cv.status === "fiber" && cv.jarakM != null ? ` (±${cv.jarakM}m)` : "";
+  const odpInfo = (cv.status === "fiber" || cv.status === "mungkin") && cv.odp ? ` [ODP: ${cv.odp}]` : "";
+  const jarakInfo = (cv.status === "fiber" || cv.status === "mungkin") && cv.jarakM != null ? ` (±${cv.jarakM}m)` : "";
   return `Status Jaringan: ${label}${odpInfo}${jarakInfo}\n`;
 }
 
@@ -525,7 +521,7 @@ export async function cekCoverageWorkerAPI(
             const is5G = data.type === "WIRELESS_5G" || (data.wirelessType && data.wirelessType.includes("5G"));
             return {
               status: "wireless",
-              jarakM: data.distance,
+              jarakM: null,
               zona: is5G ? "5G Ultra" : "4G LTE",
               fiberM: null,
               homepassId: null,
