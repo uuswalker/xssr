@@ -139,9 +139,119 @@ function FiberCard({ t }: { t: FiberTier }) {
   );
 }
 
-export function FiberPaket({ promoBadge = "Promo XL Home Soloraya" }: { promoBadge?: string }) {
+function TahunanCard({ t }: { t: typeof TAHUNAN_TIERS[0] }) {
+  return (
+    <div className={`paket-card ${t.badge ? "best-seller" : ""}`} key={t.name}>
+      {t.badge && <div className="badge-laris">{t.badge}</div>}
+      <div
+        className="paket-card-header"
+        style={{ background: t.headerGradient }}
+      >
+        <div className="paket-title">{t.name}</div>
+        <div className="paket-subtitle">
+          Paket Tahunan — Bayar 10 Dapat 12
+        </div>
+      </div>
+      <div style={{ padding: "16px 24px 0" }}>
+        <div className="speed-label">
+          <span>0 Mbps</span>{" "}
+          <span>
+            {t.speedNormal && (
+              <>
+                <span style={{ textDecoration: 'line-through', color: '#6b7280', marginRight: '6px' }}>
+                  {t.speedNormal}
+                </span>{" "}
+              </>
+            )}
+            {t.speedMax} Mbps
+          </span>
+        </div>
+        <SpeedBar barWidth={t.barWidth} barGradient="linear-gradient(90deg, #1e1b4b 0%, #7c3aed 100%)" barDotColor="#7c3aed" />
+        <div className="speed-note">Ideal untuk perangkat keluarga</div>
+        <div
+          style={{
+            fontSize: 11,
+            color: "var(--text-muted)",
+            marginTop: 6,
+          }}
+        >
+          {t.boosterNote}
+        </div>
+        
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "6px",
+            margin: "14px 0 0",
+            padding: "8px 12px",
+            background: "#f5f3ff",
+            borderRadius: 8,
+            fontSize: 11.5,
+            color: "#4c1d95",
+            fontWeight: 600,
+            textAlign: "center",
+          }}
+        >
+          <Gift size={16} color="#8b5cf6" />
+          <span>Bonus Kuota HP <strong>{t.kuota}</strong> ({t.members})</span>
+        </div>
+      </div>
+      <div className="paket-body">
+        <ul className="ideal-tags" style={{ listStyle: "none", padding: 0, margin: "0 0 20px 0" }}>
+          {t.tags.map((tag) => (
+            <li className="tag" key={tag}>
+              {tag}
+            </li>
+          ))}
+        </ul>
+        <div className="fitur-list">
+          {t.feats.map((f) => (
+            <div className="fitur-item" key={f.text}>
+              <img src={f.img} alt="" width={28} height={28} loading="lazy" />
+              {f.text}
+            </div>
+          ))}
+        </div>
+        <div className="price-box">
+          <div className="price-before">{t.before}</div>
+          <div className="price-main">
+            {t.price}
+            <span>/tahun</span>
+          </div>
+          <div className="price-ppn">
+            Belum termasuk PPN 11% — Bayar 10 dapat 12 bulan
+          </div>
+          <div
+            style={{
+              textAlign: "center",
+              fontSize: 12,
+              color: "var(--green)",
+              fontWeight: 700,
+              marginTop: 4,
+            }}
+          >
+            {t.perMonth} • {t.save}
+          </div>
+          <button
+            type="button"
+            className="btn-pilih btn-cek-lokasi-trigger"
+            aria-label={`Saya Pilih Ini - Paket ${t.name}`}
+            data-paket={t.waText}
+          >
+            Saya Pilih Ini
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function FiberPaket({ promoBadge = "Promo XL Home Soloraya", withToggle = true }: { promoBadge?: string, withToggle?: boolean }) {
   const [showAll, setShowAll] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [cycle, setCycle] = useState<"bulanan" | "tahunan">("bulanan");
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 768px)");
@@ -151,18 +261,32 @@ export function FiberPaket({ promoBadge = "Promo XL Home Soloraya" }: { promoBad
     return () => mq.removeEventListener("change", sync);
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash;
+      if (hash === "#paket-tahunan" || hash === "#tahunan") {
+        setCycle("tahunan");
+      }
+    }
+  }, []);
+
   const visibleFiber = FIBER_TIERS.slice(0, 3);
   const extraFiber = FIBER_TIERS.slice(3);
   const showExtra = !isMobile || showAll;
+
+  const visibleTahunan = TAHUNAN_TIERS.slice(0, 3);
+  const extraTahunan = TAHUNAN_TIERS.slice(3);
+  const showExtraTahunan = !isMobile || showAll;
 
   return (
     <>
       {/* PAKET FIBER */}
       <section className="paket-section" id="paket">
+        <div id="paket-tahunan" style={{ scrollMarginTop: 80 }} />
         <div style={{ textAlign: "center", marginBottom: 16 }}>
           <span
             style={{
-              background: "var(--green)",
+              background: cycle === "bulanan" ? "var(--green)" : "linear-gradient(135deg, #1e1b4b 0%, #6d28d9 100%)",
               color: "#fff",
               fontSize: 12,
               fontWeight: 700,
@@ -170,35 +294,130 @@ export function FiberPaket({ promoBadge = "Promo XL Home Soloraya" }: { promoBad
               borderRadius: 999,
               display: "inline-block",
               letterSpacing: ".3px",
+              transition: "all 0.3s ease",
             }}
           >
-            {promoBadge}
+            {cycle === "bulanan" ? promoBadge : "Hemat 2 Bulan — Bayar 10 Dapat 12"}
           </span>
         </div>
-        <h2 className="section-title">Internet Cepat untuk Keluarga Bahagia!</h2>
+        <h2 className="section-title">
+          {cycle === "bulanan" ? "Internet Cepat untuk Keluarga Bahagia!" : "Paket Tahunan Lebih Hemat"}
+        </h2>
         <p className="section-sub">
-          Nikmati koneksi stabil untuk streaming, belajar, bekerja, dan hiburan
-          tanpa batas · Harga belum termasuk PPN · Syarat &amp; ketentuan
-          berlaku
+          {cycle === "bulanan"
+            ? "Nikmati koneksi stabil untuk streaming, belajar, bekerja, dan hiburan tanpa batas · Harga belum termasuk PPN · Syarat & ketentuan berlaku"
+            : "Bayar 10 bulan, pakai 12 bulan. Bonus Speed Booster + Kuota HP se-keluarga. Harga belum termasuk PPN 11%."}
         </p>
+
+        {withToggle && (
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", margin: "0 auto 28px auto" }}>
+            <div
+              style={{
+                display: "inline-flex",
+                background: "#f1f5f9",
+                padding: "5px",
+                borderRadius: 999,
+                border: "1.5px solid #e2e8f0",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+              }}
+              role="tablist"
+              aria-label="Pilih Periode Langganan"
+            >
+              <button
+                type="button"
+                role="tab"
+                aria-selected={cycle === "bulanan"}
+                onClick={() => setCycle("bulanan")}
+                style={{
+                  padding: "10px 22px",
+                  borderRadius: 999,
+                  fontSize: 14,
+                  fontWeight: 700,
+                  border: "none",
+                  cursor: "pointer",
+                  background: cycle === "bulanan" ? "#037e64" : "transparent",
+                  color: cycle === "bulanan" ? "#ffffff" : "#475569",
+                  boxShadow: cycle === "bulanan" ? "0 2px 8px rgba(3,126,100,0.3)" : "none",
+                  transition: "all 0.2s ease",
+                }}
+              >
+                ⚡ Paket Bulanan
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={cycle === "tahunan"}
+                onClick={() => setCycle("tahunan")}
+                style={{
+                  padding: "10px 22px",
+                  borderRadius: 999,
+                  fontSize: 14,
+                  fontWeight: 700,
+                  border: "none",
+                  cursor: "pointer",
+                  background: cycle === "tahunan" ? "linear-gradient(135deg, #1e1b4b 0%, #6d28d9 100%)" : "transparent",
+                  color: cycle === "tahunan" ? "#ffffff" : "#475569",
+                  boxShadow: cycle === "tahunan" ? "0 2px 8px rgba(109,40,217,0.3)" : "none",
+                  transition: "all 0.2s ease",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 6,
+                }}
+              >
+                <span>🎁 Paket Tahunan</span>
+                <span
+                  style={{
+                    fontSize: 11,
+                    background: cycle === "tahunan" ? "#fef08a" : "#fef9c3",
+                    color: "#854d0e",
+                    padding: "2px 8px",
+                    borderRadius: 999,
+                    fontWeight: 800,
+                  }}
+                >
+                  Hemat 2 Bln
+                </span>
+              </button>
+            </div>
+          </div>
+        )}
 
         <div style={{ maxWidth: "700px", margin: "0 auto 24px auto", background: "#f0fdf4", border: "1.5px dashed #4ade80", borderRadius: "10px", padding: "12px 20px", display: "flex", alignItems: "center", gap: "12px", justifyContent: "center" }}>
           <Sparkles size={18} color="#16a34a" style={{ flexShrink: 0 }} aria-hidden="true" />
-          <p style={{ margin: 0, fontSize: "14px", fontWeight: 600, color: "#166534" }}>Beralih ke XL Home: 100% Tanpa FUP &amp; GRATIS Biaya Pasang Mulai Paket 250 Mbps!</p>
+          <p style={{ margin: 0, fontSize: "14px", fontWeight: 600, color: "#166534" }}>
+            {cycle === "bulanan"
+              ? "Beralih ke XL Home: 100% Tanpa FUP & GRATIS Biaya Pasang Mulai Paket 250 Mbps!"
+              : "Semua paket tahunan sudah termasuk GRATIS Instalasi & Bonus Kuota HP Sekeluarga!"}
+          </p>
         </div>
 
-        <div className="paket-grid">
-          {visibleFiber.map((t) => (
-            <FiberCard key={t.name} t={t} />
-          ))}
-          {showExtra && (
-            <div id="paket-extra" style={{ display: "contents" }}>
-              {extraFiber.map((t) => (
-                <FiberCard key={t.name} t={t} />
-              ))}
-            </div>
-          )}
-        </div>
+        {cycle === "bulanan" ? (
+          <div className="paket-grid">
+            {visibleFiber.map((t) => (
+              <FiberCard key={t.name} t={t} />
+            ))}
+            {showExtra && (
+              <div id="paket-extra" style={{ display: "contents" }}>
+                {extraFiber.map((t) => (
+                  <FiberCard key={t.name} t={t} />
+                ))}
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="paket-grid">
+            {visibleTahunan.map((t) => (
+              <TahunanCard key={t.name} t={t} />
+            ))}
+            {showExtraTahunan && (
+              <div id="paket-extra-tahunan" style={{ display: "contents" }}>
+                {extraTahunan.map((t) => (
+                  <TahunanCard key={t.name} t={t} />
+                ))}
+              </div>
+            )}
+          </div>
+        )}
 
         <p
           style={{
@@ -689,7 +908,6 @@ export default function PaketSection() {
   return (
     <>
       <FiberPaket />
-      <TahunanPaket />
       <WirelessPaket badge="Khusus Area Soloraya" intro="home" />
     </>
   );

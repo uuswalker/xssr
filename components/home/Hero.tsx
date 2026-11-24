@@ -35,13 +35,6 @@ const SLIDES = [
     alt: "Promo Apartemen",
     eager: false,
     action: "hubungi" as const,
-  },
-  {
-    imgWebp: "/images/banner-opensignal.webp",
-    imgFallback: "/images/banner-opensignal.webp",
-    alt: "Opensignal Award",
-    eager: false,
-    action: "hubungi" as const,
   }
 ];
 

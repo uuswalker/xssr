@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import WaFloat from "@/components/WaFloat";
 import Watermark from "@/components/Watermark";
 import Faq from "@/components/home/Faq";
-import { FiberPaket, TahunanPaket, WirelessPaket } from "@/components/home/PaketSection";
+import { FiberPaket, WirelessPaket } from "@/components/home/PaketSection";
 import { About, Hubungi, Kenapa, Myxl } from "@/components/home/InfoSections";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Marquee from "@/components/animations/Marquee";
@@ -79,14 +79,9 @@ export function KotaPage({ slug }: { slug: string }) {
           <KotaProviderCompare city={city} />
         </ScrollReveal>
         {city.has_fiber && (
-          <>
-            <ScrollReveal delay={0.1}>
-          <FiberPaket promoBadge={city.promo_badge as string} />
-        </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-          <TahunanPaket />
-        </ScrollReveal>
-          </>
+          <ScrollReveal delay={0.1}>
+            <FiberPaket promoBadge={city.promo_badge as string} />
+          </ScrollReveal>
         )}
         {city.has_wireless && (
           <ScrollReveal delay={0.1}>
