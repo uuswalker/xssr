@@ -132,10 +132,12 @@ export function HeroSlider({ waText = WA_OPEN_DEFAULT }: { waText?: string }) {
     .hero-img-lcp { 
       width: 100%; 
       height: auto; 
-      object-fit: contain; 
+      aspect-ratio: 1440 / 390;
+      object-fit: cover; 
+      object-position: center;
       display: block; 
     }
-    /* Karena height auto, gambar akan selalu menyesuaikan proporsi aslinya (tidak akan pernah terpotong) baik di HP maupun Desktop */
+    /* Aspect ratio 1440:390 menjaga seluruh banner seragam dengan sudut membulat konsisten */
   ` }} />
         <div className="slides"
         id="slides"
@@ -295,14 +297,14 @@ export function HomeHeroLokal() {
     <section className="hero-lokal">
       <div className="hero-lokal-inner">
         <h1>
-          Pasang <span>WiFi Solo Murah</span> &amp; Provider Internet Terbaik Solo Raya <Zap size={22} color="#0066ff" style={{ display: "inline-block", verticalAlign: "-2px" }} aria-hidden="true" /> XL Home Resmi
+          Pasang <span>WiFi Solo Murah</span> &amp; Provider Internet Terbaik Solo Raya <Zap size={22} color="#0066ff" style={{ display: "inline-block", verticalAlign: "-2px" }} aria-hidden="true" /> <span style={{ color: "inherit", whiteSpace: "nowrap" }}>XL Home Resmi</span>
         </h1>
         <p>
           Layanan pasang WiFi murah di{" "}
           <strong>
             Solo (Surakarta), Sukoharjo, Karanganyar, Klaten, dan Boyolali
           </strong>
-          . Internet fiber optic 100% unlimited mulai Rp 185.000/bulan —{" "}
+          . Internet fiber optic 100% unlimited mulai <span style={{ whiteSpace: "nowrap" }}>Rp&nbsp;185.000/bulan</span> —{" "}
           <a
             href="/wifi-tanpa-fup-unlimited/"
             style={{ color: "inherit", textDecoration: "underline" }}
@@ -332,8 +334,8 @@ export function HomeHeroLokal() {
               boxShadow: "0 6px 18px rgba(3, 126, 100, 0.35)",
             }}
           >
-            <Zap size={18} style={{ flexShrink: 0 }} />
-            ⚡ Cek Coverage 10 Menit (WA)
+            <Zap size={18} style={{ flexShrink: 0 }} aria-hidden="true" />
+            Cek Coverage 10 Menit (WA)
           </a>
 
           <a
@@ -366,7 +368,7 @@ export function HomeHeroLokal() {
         </div>
         <div className="hero-lokal-stats">
           {[
-            ["5", "Kota Soloraya"],
+            ["5", "Kota Solo Raya"],
             ["7", "Pilihan Paket"],
             ["1000Mbps", "Kecepatan Maksimal"],
             ["24/7", "Layanan Sales"],

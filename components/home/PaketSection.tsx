@@ -63,7 +63,7 @@ function FiberCard({ t }: { t: FiberTier }) {
         <div className="paket-title">{t.name}</div>
         <div className="paket-subtitle">{t.subtitle}</div>
       </div>
-      <div style={{ padding: "16px 24px 0" }}>
+      <div className="paket-card-meta">
         <div className="speed-label">
           <span>0 Mbps</span>
           {" "}
@@ -81,17 +81,9 @@ function FiberCard({ t }: { t: FiberTier }) {
         </div>
         <SpeedBar barWidth={t.barWidth} barGradient={t.barGradient} barDotColor={t.barDotColor} />
         <div className="speed-note">{t.speedNote}</div>
-        {t.boosterNote && (
-          <div
-            style={{
-              fontSize: 11,
-              color: "var(--text-muted)",
-              marginTop: 6,
-            }}
-          >
-            {t.boosterNote}
-          </div>
-        )}
+        <div className="paket-booster-note">
+          {t.boosterNote || "\u00A0"}
+        </div>
       </div>
       <div className="paket-body">
         <ul className="ideal-tags" style={{ listStyle: "none", padding: 0, margin: "0 0 20px 0" }}>
@@ -141,7 +133,7 @@ function FiberCard({ t }: { t: FiberTier }) {
 
 function TahunanCard({ t }: { t: typeof TAHUNAN_TIERS[0] }) {
   return (
-    <div className={`paket-card ${t.badge ? "best-seller" : ""}`} key={t.name}>
+    <div className={`paket-card is-tahunan ${t.badge ? "best-seller" : ""}`} key={t.name}>
       {t.badge && <div className="badge-laris">{t.badge}</div>}
       <div
         className="paket-card-header"
@@ -152,7 +144,7 @@ function TahunanCard({ t }: { t: typeof TAHUNAN_TIERS[0] }) {
           Paket Tahunan — Bayar 10 Dapat 12
         </div>
       </div>
-      <div style={{ padding: "16px 24px 0" }}>
+      <div className="paket-card-meta">
         <div className="speed-label">
           <span>0 Mbps</span>{" "}
           <span>
@@ -168,13 +160,7 @@ function TahunanCard({ t }: { t: typeof TAHUNAN_TIERS[0] }) {
         </div>
         <SpeedBar barWidth={t.barWidth} barGradient="linear-gradient(90deg, #1e1b4b 0%, #7c3aed 100%)" barDotColor="#7c3aed" />
         <div className="speed-note">Ideal untuk perangkat keluarga</div>
-        <div
-          style={{
-            fontSize: 11,
-            color: "var(--text-muted)",
-            marginTop: 6,
-          }}
-        >
+        <div className="paket-booster-note">
           {t.boosterNote}
         </div>
         
@@ -184,7 +170,7 @@ function TahunanCard({ t }: { t: typeof TAHUNAN_TIERS[0] }) {
             alignItems: "center",
             justifyContent: "center",
             gap: "6px",
-            margin: "14px 0 0",
+            margin: "12px 0 0",
             padding: "8px 12px",
             background: "#f5f3ff",
             borderRadius: 8,
@@ -194,7 +180,7 @@ function TahunanCard({ t }: { t: typeof TAHUNAN_TIERS[0] }) {
             textAlign: "center",
           }}
         >
-          <Gift size={16} color="#8b5cf6" />
+          <Gift size={16} color="#8b5cf6" style={{ flexShrink: 0 }} />
           <span>Bonus Kuota HP <strong>{t.kuota}</strong> ({t.members})</span>
         </div>
       </div>
@@ -230,6 +216,7 @@ function TahunanCard({ t }: { t: typeof TAHUNAN_TIERS[0] }) {
               color: "var(--green)",
               fontWeight: 700,
               marginTop: 4,
+              marginBottom: 14,
             }}
           >
             {t.perMonth} • {t.save}
@@ -248,7 +235,7 @@ function TahunanCard({ t }: { t: typeof TAHUNAN_TIERS[0] }) {
   );
 }
 
-export function FiberPaket({ promoBadge = "Promo XL Home Soloraya", withToggle = true }: { promoBadge?: string, withToggle?: boolean }) {
+export function FiberPaket({ promoBadge = "Promo XL Home Solo Raya", withToggle = true }: { promoBadge?: string, withToggle?: boolean }) {
   const [showAll, setShowAll] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [cycle, setCycle] = useState<"bulanan" | "tahunan">("bulanan");
@@ -312,14 +299,7 @@ export function FiberPaket({ promoBadge = "Promo XL Home Soloraya", withToggle =
         {withToggle && (
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", margin: "0 auto 28px auto" }}>
             <div
-              style={{
-                display: "inline-flex",
-                background: "#f1f5f9",
-                padding: "5px",
-                borderRadius: 999,
-                border: "1.5px solid #e2e8f0",
-                boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
-              }}
+              className="paket-tablist"
               role="tablist"
               aria-label="Pilih Periode Langganan"
             >
@@ -328,18 +308,7 @@ export function FiberPaket({ promoBadge = "Promo XL Home Soloraya", withToggle =
                 role="tab"
                 aria-selected={cycle === "bulanan"}
                 onClick={() => setCycle("bulanan")}
-                style={{
-                  padding: "10px 22px",
-                  borderRadius: 999,
-                  fontSize: 14,
-                  fontWeight: 700,
-                  border: "none",
-                  cursor: "pointer",
-                  background: cycle === "bulanan" ? "#037e64" : "transparent",
-                  color: cycle === "bulanan" ? "#ffffff" : "#475569",
-                  boxShadow: cycle === "bulanan" ? "0 2px 8px rgba(3,126,100,0.3)" : "none",
-                  transition: "all 0.2s ease",
-                }}
+                className={`paket-tab paket-tab-bulanan ${cycle === "bulanan" ? "active" : ""}`}
               >
                 ⚡ Paket Bulanan
               </button>
@@ -348,33 +317,10 @@ export function FiberPaket({ promoBadge = "Promo XL Home Soloraya", withToggle =
                 role="tab"
                 aria-selected={cycle === "tahunan"}
                 onClick={() => setCycle("tahunan")}
-                style={{
-                  padding: "10px 22px",
-                  borderRadius: 999,
-                  fontSize: 14,
-                  fontWeight: 700,
-                  border: "none",
-                  cursor: "pointer",
-                  background: cycle === "tahunan" ? "linear-gradient(135deg, #1e1b4b 0%, #6d28d9 100%)" : "transparent",
-                  color: cycle === "tahunan" ? "#ffffff" : "#475569",
-                  boxShadow: cycle === "tahunan" ? "0 2px 8px rgba(109,40,217,0.3)" : "none",
-                  transition: "all 0.2s ease",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 6,
-                }}
+                className={`paket-tab paket-tab-tahunan ${cycle === "tahunan" ? "active" : ""}`}
               >
                 <span>🎁 Paket Tahunan</span>
-                <span
-                  style={{
-                    fontSize: 11,
-                    background: cycle === "tahunan" ? "#fef08a" : "#fef9c3",
-                    color: "#854d0e",
-                    padding: "2px 8px",
-                    borderRadius: 999,
-                    fontWeight: 800,
-                  }}
-                >
+                <span className="paket-tab-hemat">
                   Hemat 2 Bln
                 </span>
               </button>
@@ -439,7 +385,7 @@ export function FiberPaket({ promoBadge = "Promo XL Home Soloraya", withToggle =
             href="/trik-hemat-pasang-wifi-solo-raya/"
             style={{ color: "var(--green)", fontWeight: 700 }}
           >
-            trik hemat pasang baru (250 Mbps vs 20 Mbps)
+            trik hemat pasang baru (<span style={{ whiteSpace: "nowrap" }}>250&nbsp;Mbps</span> vs <span style={{ whiteSpace: "nowrap" }}>20&nbsp;Mbps</span>)
           </a>
           .
         </p>
@@ -641,7 +587,7 @@ export function TahunanPaket() {
 }
 
 export function WirelessPaket({
-  badge = "Khusus Area Soloraya",
+  badge = "Khusus Area Solo Raya",
   intro = "home",
 }: {
   badge?: string;
@@ -701,31 +647,14 @@ export function WirelessPaket({
             </div>
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              gap: 12,
-              margin: "24px 0 32px",
-            }}
-          >
+          <div className="wireless-tabs">
             {(["advance", "monthly"] as const).map((tab) => (
               <button
                 key={tab}
+                type="button"
                 onClick={() => setWirelessTab(tab)}
                 id={tab === "advance" ? "tab-advance" : "tab-monthly"}
-                style={{
-                  padding: "10px 28px",
-                  borderRadius: 999,
-                  border: "2px solid var(--green)",
-                  background:
-                    wirelessTab === tab ? "var(--green)" : "#fff",
-                  color: wirelessTab === tab ? "#fff" : "var(--green)",
-                  fontSize: 14,
-                  fontWeight: 700,
-                  cursor: "pointer",
-                  transition: ".2s",
-                }}
+                className={`wireless-tab ${wirelessTab === tab ? "active" : ""}`}
               >
                 {tab === "advance" ? "Advance Payment" : "Monthly Plan"}
               </button>
@@ -908,7 +837,7 @@ export default function PaketSection() {
   return (
     <>
       <FiberPaket />
-      <WirelessPaket badge="Khusus Area Soloraya" intro="home" />
+      <WirelessPaket badge="Khusus Area Solo Raya" intro="home" />
     </>
   );
 }

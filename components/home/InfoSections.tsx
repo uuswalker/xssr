@@ -162,7 +162,7 @@ export function AreaHome() {
 
             Kami melayani pemasangan internet rumah fiber optic dan wireless di
 
-            5 kabupaten/kota Soloraya
+            5 kabupaten/kota Solo Raya
 
           </p>
 
@@ -758,21 +758,7 @@ export function Tools() {
 
           </p>
 
-          <div
-
-            style={{
-
-              display: "grid",
-
-              gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
-
-              gap: 16,
-
-              textAlign: "left",
-
-            }}
-
-          >
+          <div className="tools-grid">
 
             {TOOLS.map((t) => (
 
@@ -804,11 +790,13 @@ export function Tools() {
 
                 flexDirection: "column",
 
+                height: "100%",
+
               }}
 
             >
 
-              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12, minHeight: 44 }}>
 
                 <div style={{ background: "var(--green-light)", color: "var(--green)", width: 40, height: 40, borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
 
@@ -816,7 +804,7 @@ export function Tools() {
 
                 </div>
 
-                <h3 style={{ fontSize: 15, fontWeight: 800, color: "var(--text)", margin: 0, lineHeight: 1.2 }}>
+                <h3 style={{ fontSize: 15, fontWeight: 800, color: "var(--text)", margin: 0, lineHeight: 1.25 }}>
 
                   {t.title}
 
@@ -824,7 +812,7 @@ export function Tools() {
 
               </div>
 
-              <p style={{ fontSize: 13, color: "#4b5563", lineHeight: 1.5, margin: 0, flex: 1 }}>
+              <p style={{ fontSize: 13, color: "#4b5563", lineHeight: 1.5, margin: 0 }}>
 
                 {t.desc}
 
@@ -832,7 +820,7 @@ export function Tools() {
 
               
 
-              <div style={{ marginTop: 16, fontSize: 12, fontWeight: 700, color: "var(--green)", display: "flex", alignItems: "center", gap: 4 }}>
+              <div style={{ marginTop: "auto", paddingTop: 16, fontSize: 12, fontWeight: 700, color: "var(--green)", display: "flex", alignItems: "center", gap: 4 }}>
 
                 Coba Sekarang <ArrowRight size={14} />
 

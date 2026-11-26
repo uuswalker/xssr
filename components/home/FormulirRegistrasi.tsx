@@ -879,9 +879,11 @@ export default function FormulirRegistrasi() {
         }
         @media (max-width: 480px) {
           .reg-section { padding: 48px 14px; }
+          .reg-badge-top { font-size: 10px; padding: 5px 12px; letter-spacing: 0.2px; white-space: nowrap; }
           .reg-card { padding: 22px 16px; border-radius: 14px; }
           .reg-title { font-size: 18px; }
           .reg-sub { font-size: 13px; }
+          .reg-input::placeholder { font-size: 13px; }
           .reg-btn-primary { padding: 12px 16px; font-size: 14px; }
         }
       `}</style>
@@ -933,7 +935,7 @@ export default function FormulirRegistrasi() {
                     type="text"
                     id="reg-alamat-input"
                     className="reg-input"
-                    placeholder="Contoh: Jl. Slamet Riyadi, Solo atau nama perumahan..."
+                    placeholder="Misal: Jl. Slamet Riyadi / Solo Baru"
                     autoComplete="off"
                     ref={inputRef}
                     value={query}
@@ -1221,8 +1223,8 @@ export default function FormulirRegistrasi() {
           </AnimatePresence>
 
           <div className="reg-trust">
-            <ShieldCheck size={16} color="var(--green)" />
-            <span>Koneksi langsung ke WhatsApp Sales Resmi XL Home Solo Raya (0877-7899-9141)</span>
+            <ShieldCheck size={16} color="var(--green)" style={{ flexShrink: 0 }} />
+            <span>Koneksi langsung ke WhatsApp Sales Resmi XL Home Solo Raya <span style={{ whiteSpace: "nowrap" }}>(0877-7899-9141)</span></span>
           </div>
         </div>
       </div>

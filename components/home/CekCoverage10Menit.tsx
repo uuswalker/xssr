@@ -37,9 +37,9 @@ export default function CekCoverage10Menit() {
               </span>
             </div>
 
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 12.5, color: "#15803d", fontWeight: 600 }}>
-              <span style={{ display: "inline-block", width: 8, height: 8, borderRadius: "50%", background: "#22c55e" }} />
-              Sales Lokal Online Siaga Cek ODP (Solo, Sukoharjo, Karanganyar, Klaten, Boyolali)
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 12.5, color: "#15803d", fontWeight: 600, textAlign: "left" }}>
+              <span style={{ display: "inline-block", width: 8, height: 8, borderRadius: "50%", background: "#22c55e", flexShrink: 0 }} />
+              <span>Sales Lokal Online Siaga Cek ODP (Solo, Sukoharjo, Karanganyar, Klaten, Boyolali)</span>
             </div>
           </div>
 
@@ -129,9 +129,9 @@ export default function CekCoverage10Menit() {
                 <ArrowRight size={18} color="#037e64" style={{ flexShrink: 0 }} />
               </a>
 
-              <div style={{ marginTop: 14, fontSize: 12, color: "#d1fae5", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
-                <CheckCircle2 size={14} color="#86efac" />
-                <span>Nomor Sales Resmi: <strong>{PHONE_DISPLAY}</strong></span>
+              <div style={{ marginTop: 14, fontSize: 12, color: "#d1fae5", display: "flex", alignItems: "center", justifyContent: "center", flexWrap: "wrap", gap: 6 }}>
+                <CheckCircle2 size={14} color="#86efac" style={{ flexShrink: 0 }} />
+                <span>Nomor Sales Resmi: <strong style={{ whiteSpace: "nowrap" }}>{PHONE_DISPLAY}</strong></span>
               </div>
               <div style={{ marginTop: 8, fontSize: 11, color: "#a7f3d0" }}>
                 *Gratis Biaya Pasang Rp 0 berlaku khusus paket 250 Mbps ke atas.

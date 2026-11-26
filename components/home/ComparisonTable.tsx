@@ -110,7 +110,7 @@ export default function ComparisonTable() {
             FAKTA RISET TARIF INTERNET SOLO RAYA 2026
           </span>
           <h2 style={{ fontSize: "clamp(24px, 4vw, 32px)", fontWeight: 800, color: "#0f172a", marginBottom: 12, lineHeight: 1.25 }}>
-            Kenapa Warga Solo Raya Berbondong-bondong Pindah ke XL Home?
+            Kenapa Warga Solo Raya Berbondong-bondong Pindah ke <span style={{ whiteSpace: "nowrap" }}>XL&nbsp;Home?</span>
           </h2>
           <p style={{ color: "#475569", fontSize: "clamp(14px, 2vw, 16px)", maxWidth: 740, margin: "0 auto", lineHeight: 1.6 }}>
             Bandingkan sendiri fakta riil tarif per Mbps, modal awal pasang baru, biaya tersembunyi, dan keamanan transaksi kami dengan provider lain di Surakarta, Sukoharjo, Karanganyar, Klaten, dan Boyolali.
@@ -292,7 +292,7 @@ export default function ComparisonTable() {
           boxShadow: "0 20px 25px -5px rgba(15, 23, 42, 0.25)"
         }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
-            <ShieldCheck size={32} color="#10b981" />
+            <ShieldCheck size={32} color="#10b981" style={{ flexShrink: 0 }} />
             <div>
               <h3 style={{ fontSize: "clamp(18px, 3vw, 22px)", fontWeight: 800, margin: 0, color: "#f8fafc" }}>
                 Jaminan 100% Bebas Sales Nakal & Transparansi Pembayaran XL Home
@@ -303,13 +303,7 @@ export default function ComparisonTable() {
             </div>
           </div>
 
-          <div style={{ 
-            display: "grid", 
-            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", 
-            gap: 16, 
-            marginTop: 28,
-            marginBottom: 28
-          }}>
+          <div className="compare-steps-grid">
             {STEPS.map((s) => (
               <div key={s.step} style={{ 
                 background: "rgba(255, 255, 255, 0.05)", 

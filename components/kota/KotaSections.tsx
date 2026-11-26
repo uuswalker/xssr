@@ -52,7 +52,7 @@ export function KotaHero({ city }: { city: City }) {
           <div className="hero-lokal-stats">
             <div className="hero-lokal-stat">
               <span className="num">5</span>
-              <span className="label">Kota Soloraya</span>
+              <span className="label">Kota Solo Raya</span>
             </div>
             <div className="hero-lokal-stat">
               <span className="num">{String(city.paket_count)}</span>
@@ -112,7 +112,7 @@ export function KotaArea({
         <h2 className="section-title">Area Layanan XL Home di Solo Raya</h2>
         <p className="section-sub">
           Kami melayani pemasangan internet rumah fiber optic dan wireless di
-          5 kabupaten/kota Soloraya
+          5 kabupaten/kota Solo Raya
         </p>
         <div className="area-grid">
           {KOTA_SLUGS.map((slug) => {
