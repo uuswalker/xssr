@@ -112,12 +112,25 @@ function basePayload(
 
 export function postLead(p: LeadPayload): void {
   if (!WEBHOOK_URL || WEBHOOK_URL.indexOf("GANTI_DENGAN") !== -1) return;
-  fetch(WEBHOOK_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "text/plain" },
-    body: JSON.stringify(p),
-  }).catch(() => {});
+  const body = JSON.stringify(p);
+  try {
+    // keepalive memastikan pengiriman webhook tidak terputus saat mobile redirect ke WhatsApp
+    fetch(WEBHOOK_URL, {
+      method: "POST",
+      mode: "no-cors",
+      keepalive: true,
+      headers: { "Content-Type": "text/plain" },
+      body,
+    }).catch(() => {});
+  } catch {
+    try {
+      if (typeof navigator !== "undefined" && typeof navigator.sendBeacon === "function") {
+        navigator.sendBeacon(WEBHOOK_URL, new Blob([body], { type: "text/plain" }));
+      }
+    } catch {
+      /* abaikan */
+    }
+  }
 }
 
 export { basePayload };
@@ -312,9 +325,16 @@ export async function cariAlamatSmart(
       try {
         const cv = await cekCoverageWorkerAPI(lat, lng);
         if (cv) {
-          const odpPart = cv.odp ? `ODP: ${cv.odp}` : "ODP Terdeteksi";
+          const isFiberLike = cv.status === "fiber" || cv.status === "mungkin";
+          const odpPart = cv.odp
+            ? `ODP: ${cv.odp}`
+            : isFiberLike
+            ? "ODP Terdeteksi"
+            : cv.status === "wireless"
+            ? "Jaringan Wireless FWA"
+            : "Area Survei Jalur";
           const clusterPart = cv.cluster ? `Cluster: ${cv.cluster}` : (cv.city ? `Area ${cv.city}` : "Area Layanan");
-          const distPart = cv.jarakM != null ? `(±${cv.jarakM}m)` : "";
+          const distPart = isFiberLike && cv.jarakM != null ? `(±${cv.jarakM}m)` : "";
           const subtitle = `${odpPart} • ${clusterPart} ${distPart}`.trim();
           const title = cv.alamat || `${clusterPart}, ${cv.city || "Solo Raya"}`;
           return [
@@ -337,8 +357,19 @@ export async function cariAlamatSmart(
           ];
         }
       } catch {
-        /* lanjut ke pencarian text */
+        /* fallback koordinat langsung tanpa menebak teks random */
       }
+      const coordLabel = `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+      return [
+        {
+          lat: String(lat),
+          lon: String(lng),
+          title: `Titik Koordinat (${coordLabel})`,
+          subtitle: "Cek ketersediaan jaringan di titik koordinat ini",
+          display_name: coordLabel,
+          isFiberReady: false,
+        },
+      ];
     }
   }
 

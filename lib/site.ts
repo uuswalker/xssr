@@ -2,7 +2,7 @@
 // Staging default ON (noindex) sampai cutover eksplisit.
 
 export const SITE_DOMAIN = "https://xlhomesolo.com";
-export const SITE_NAME = "XL Home (XL SATU) Solo Raya";
+export const SITE_NAME = "XL Home Solo Raya";
 export const PHONE_DISPLAY = "0877-7899-9141";
 export const PHONE_INTL = "6287778999141";
 export const PHONE_TEL = "+6287778999141";
@@ -21,8 +21,8 @@ export function waLink(text: string): string {
   return `https://wa.me/${PHONE_INTL}?text=${encodeURIComponent(text)}`;
 }
 
-export const WA_INFO = waLink("Halo Sales XL Home Solo, mau tanya promo pasang baru WiFi XL Home (d/h XL SATU)...");
-export const WA_DAFTAR = waLink("Halo Sales XL Home Solo, saya mau daftar pasang baru WiFi XL Home (d/h XL SATU)...");
+export const WA_INFO = waLink("Halo Sales XL Home Solo, mau tanya promo pasang baru WiFi XL Home...");
+export const WA_DAFTAR = waLink("Halo Sales XL Home Solo, saya mau daftar pasang baru WiFi XL Home...");
 
 // Rute v1 (tumbuh per fase; dipakai sitemap + QA paritas)
 export const V1_ROUTES: string[] = [

@@ -886,7 +886,7 @@ export function Hubungi() {
 
                   <a
 
-                    href="https://wa.me/6287778999141"
+                    href="https://wa.me/6287778999141?text=Halo%20Sales%20XL%20Home%20Solo%2C%20saya%20mau%20tanya%20promo%20pasang%20WiFi%20terbaru"
 
                     target="_blank"
 
@@ -945,6 +945,8 @@ export function Hubungi() {
                   <a
 
                     href="https://wa.me/628170010820"
+
+                    data-wa-type="support"
 
                     target="_blank"
 

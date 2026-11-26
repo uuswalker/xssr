@@ -140,6 +140,9 @@ export const SOLO_RAYA_CITIES = new Set([
 export function normalizePaketOption(input: string | null | undefined): string {
   if (!input) return "";
   const s = input.toLowerCase();
+  if (s.includes("smart") && s.includes("50")) return "Saya minat paket Tahunan Basic Smart 50 Mbps Rp2.490.000";
+  if (s.includes("family") && s.includes("100")) return "Saya minat paket Tahunan Basic Family 100 Mbps Rp3.190.000";
+  if (s.includes("superuser") && s.includes("150")) return "Saya minat paket Tahunan Basic Superuser 150 Mbps Rp3.690.000";
   if (s.includes("20") && s.includes("mbps")) return "Saya minat paket XL Home Starter 20 Mbps Rp185.000";
   if (s.includes("250") && s.includes("mbps")) return "Saya minat paket XL Home Spark 250 Mbps Rp229.000";
   if (s.includes("300") && s.includes("mbps")) return "Saya minat paket XL Home Spark 300 Mbps Rp239.000";
@@ -494,9 +497,15 @@ export default function CekLokasi() {
   // ---- alur lokasi ----
   const prosesLokasi = useCallback(
     (lat: number, lng: number, alamatText: string | null, suggItem?: SmartSuggestionItem) => {
+      timers.current.forEach(clearTimeout);
+      timers.current = [];
       setTanpaPeta(null);
       setGeoFallback(false);
+      setFormError(null);
+      setShowExitIntent(false);
+      exitIntentShown.current = false;
       const currentReqId = ++reqIdRef.current;
+      let apiResolved = false;
       const p = posRef.current;
       p.lat = lat;
       p.lng = lng;
@@ -510,7 +519,6 @@ export default function CekLokasi() {
         reverseGeocodeNominatim(lat, lng).then((prediksi) => {
           if (prediksi && currentReqId === reqIdRef.current) {
             setLokasiInfo((current) => {
-              // Jika alamat resmi FTTH dari database sudah tampil, jangan timpa dengan generic nominatim
               if (!current || current.includes("Mengecek ketersediaan") || current.startsWith("Mengecek")) {
                 const kotaFinal = posRef.current.kota || hasil.nama || "";
                 return `Lokasi: ${prediksi}${kotaFinal && !prediksi.toLowerCase().includes(kotaFinal.toLowerCase()) ? ` (${kotaFinal})` : ""}`;
@@ -557,6 +565,7 @@ export default function CekLokasi() {
       // Cek Cloudflare D1 National FTTH API (Multi-Database Edge SQLite)
       cekCoverageWorkerAPI(lat, lng).then((apiCv) => {
         if (currentReqId === reqIdRef.current) {
+          apiResolved = true;
           const q = posRef.current;
           // Fallback cerdas: Jika API tidak merespons tapi koordinat berada di Area Layanan Terkonfirmasi (Solo Raya dll),
           // anggap tercover fiber aktif agar calon pelanggan tidak terlempar ke "Request Pasang Baru".
@@ -576,7 +585,7 @@ export default function CekLokasi() {
             zona: null,
             fiberM: null,
             homepassId: null,
-            alamat: null,
+            alamat: q.alamat || alamatText || null,
             city: q.kota || hasil.nama,
           });
 
@@ -604,7 +613,7 @@ export default function CekLokasi() {
             setStatusMsg(
               is5G
                 ? `Tercover XL Ultra 5G+ Wireless (FWA)! Siap pasang hari ini (${alamatDisplay}).`
-                : `Tercover XL Home Wireless (FWA)! Siap pasang hari ini (${alamatDisplay}).`
+                : `Tercover XL Home Wireless 4G/5G (FWA)! Siap pasang hari ini (${alamatDisplay}).`
             );
             setLokasiInfo(`Lokasi: ${alamatDisplay}`);
           } else {
@@ -640,14 +649,14 @@ export default function CekLokasi() {
 
       later(() => {
         if (currentReqId === reqIdRef.current) {
-          const q = posRef.current;
-          const tagLuar = bl ? ` [LUAR JANGKAUAN - ${bl}]` : "";
-          const curAlamat = q.alamat || alamatText;
-          const alamatDisplay = curAlamat ? formatAlamatDisekitarnya(curAlamat) : `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
-          q.alamat = alamatDisplay;
-          setLokasiInfo(
-            `Lokasi Terpilih: ${alamatDisplay}` + tagLuar
-          );
+          if (!apiResolved) {
+            const q = posRef.current;
+            const tagLuar = bl ? ` [LUAR JANGKAUAN - ${bl}]` : "";
+            const curAlamat = q.alamat || alamatText;
+            const alamatDisplay = curAlamat ? formatAlamatDisekitarnya(curAlamat) : `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+            q.alamat = alamatDisplay;
+            setLokasiInfo(`Lokasi Terpilih: ${alamatDisplay}` + tagLuar);
+          }
           setStep("form");
         }
       }, 150);
@@ -659,6 +668,15 @@ export default function CekLokasi() {
 
   const prosesLokasiTanpaKoordinat = useCallback(
     (alamatText: string) => {
+      timers.current.forEach(clearTimeout);
+      timers.current = [];
+      reqIdRef.current += 1;
+      setTanpaPeta(null);
+      setGeoFallback(false);
+      setFormError(null);
+      setShowExitIntent(false);
+      exitIntentShown.current = false;
+
       const p = posRef.current;
       p.lat = null;
       p.lng = null;
@@ -670,6 +688,18 @@ export default function CekLokasi() {
         page_path: window.location.pathname,
       });
       const bl = cekAreaBlacklist(alamatText);
+      // Wajib set status "manual" agar state lokasi sebelumnya tidak bocor dan form Pengajuan Pasang tampil utuh
+      setCoverage({
+        status: "manual",
+        jarakM: null,
+        zona: null,
+        fiberM: null,
+        homepassId: null,
+        alamat: alamatText,
+        city: null,
+        odp: null,
+        cluster: null,
+      });
       if (bl) {
         setStatusClass("cl-status error");
         setStatusMsg(
@@ -697,12 +727,23 @@ export default function CekLokasi() {
 
   // ---- buka/tutup ----
   const tutupModalReal = useCallback(() => {
+    timers.current.forEach(clearTimeout);
+    timers.current = [];
+    reqIdRef.current += 1;
     setOpen(false);
     setShowExitIntent(false);
+    exitIntentShown.current = false;
     setCoverage(null);
     setStatusMsg("");
     setStatusClass("cl-status");
     setFormError(null);
+    setTanpaPeta(null);
+    setQuery("");
+    setSuggestions([]);
+    setShowSugg(false);
+    setSending(false);
+    softSent.current = false;
+    posRef.current = { lat: null, lng: null, kota: null, alamat: null };
   }, []);
 
   const tutupModal = useCallback(() => {
@@ -720,6 +761,9 @@ export default function CekLokasi() {
 
   const bukaModal = useCallback(
     (trigger?: string) => {
+      timers.current.forEach(clearTimeout);
+      timers.current = [];
+      reqIdRef.current += 1;
       setOpen(true);
       setStep("lokasi");
       modalOpened.current = true;
@@ -727,6 +771,16 @@ export default function CekLokasi() {
       setCoverage(null);
       setShowExitIntent(false);
       exitIntentShown.current = false;
+      setFormError(null);
+      setTanpaPeta(null);
+      setQuery("");
+      setSuggestions([]);
+      setShowSugg(false);
+      setStatusMsg("");
+      setStatusClass("cl-status");
+      setSending(false);
+      softSent.current = false;
+      posRef.current = { lat: null, lng: null, kota: null, alamat: null };
       
       gtag("event", "open_cek_lokasi", {
         page_path: window.location.pathname,
@@ -912,9 +966,9 @@ export default function CekLokasi() {
     }
     if (debounce.current) clearTimeout(debounce.current);
     debounce.current = setTimeout(() => {
-      cariAlamatSmart(q, 10).then(
+      cariAlamatSmart(q, 6).then(
         (data) => {
-          setSuggestions(data || []);
+          setSuggestions((data || []).slice(0, 6));
           setShowSugg(true);
         },
         () => setShowSugg(false)
@@ -946,11 +1000,11 @@ export default function CekLokasi() {
       return;
     }
     if (!w) {
-      setFormError("Nomor WhatsApp wajib diisi agar sales bisa menghubungi kamu. Contoh: 0812xxxxxxx.");
+      setFormError("Nomor WhatsApp wajib diisi agar sales bisa menghubungi kamu. Contoh: 081234567890.");
       return;
     }
-    if (w.length < 11 || w.length > 14) {
-      setFormError("Nomor WhatsApp sepertinya belum benar. Contoh: 081234567890 (8-13 digit).");
+    if (w.length < 10 || w.length > 15) {
+      setFormError("Nomor WhatsApp belum valid (minimal 10 digit). Contoh: 081234567890.");
       return;
     }
     const isRequestPasangBaru = coverage?.status === "manual";
@@ -1066,10 +1120,14 @@ export default function CekLokasi() {
       try {
         const win = window.open(waUrl, "_blank");
         if (!win || win.closed || typeof win.closed === "undefined") {
-          window.location.href = waUrl;
+          window.setTimeout(() => {
+            window.location.href = waUrl;
+          }, 220);
         }
       } catch {
-        window.location.href = waUrl;
+        window.setTimeout(() => {
+          window.location.href = waUrl;
+        }, 220);
       }
       tutupModalReal();
       setSending(false);
@@ -1144,10 +1202,14 @@ export default function CekLokasi() {
     try {
       const win = window.open(waUrl, "_blank");
       if (!win || win.closed || typeof win.closed === "undefined") {
-        window.location.href = waUrl;
+        window.setTimeout(() => {
+          window.location.href = waUrl;
+        }, 220);
       }
     } catch {
-      window.location.href = waUrl;
+      window.setTimeout(() => {
+        window.location.href = waUrl;
+      }, 220);
     }
     tutupModalReal();
     setSending(false);
@@ -1197,11 +1259,13 @@ export default function CekLokasi() {
     const mungkin = () => {
       if (stripShown.current || modalOpened.current) return;
       if (!boleh()) return;
-      const formEl = document.getElementById("form-registrasi") || document.querySelector(".reg-form-wrap");
+      const formEl = document.getElementById("daftar") || document.querySelector(".reg-section");
       if (formEl) {
         const rect = formEl.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) return;
       }
+      // Jangan tampilkan strip lokasi jika banner cookie #xlsr-consent masih terbuka agar tidak menumpuk di mobile/desktop
+      if (document.getElementById("xlsr-consent")) return;
       stripShown.current = true;
       try {
         const c = JSON.parse(localStorage.getItem(LS_KOTA) || "null") as IpCache | null;
@@ -1214,7 +1278,7 @@ export default function CekLokasi() {
     };
     const t = window.setTimeout(mungkin, 12000);
     const onScroll = () => {
-      const formEl = document.getElementById("form-registrasi") || document.querySelector(".reg-form-wrap");
+      const formEl = document.getElementById("daftar") || document.querySelector(".reg-section");
       if (formEl) {
         const rect = formEl.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
@@ -1222,6 +1286,7 @@ export default function CekLokasi() {
           return;
         }
       }
+      if (document.getElementById("xlsr-consent")) return;
       const progress =
         window.scrollY /
         Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
@@ -1282,7 +1347,7 @@ export default function CekLokasi() {
   }
   .cl-modal-close {
     position: absolute; top: 14px; right: 16px; background: none; border: none;
-    font-size: 28px; line-height: 1; color: #999; cursor: pointer; padding: 4px;
+    font-size: 28px; line-height: 1; color: #999; cursor: pointer; padding: 4px; z-index: 5;
   }
   .cl-modal-close:hover { color: #333; }
   .cl-title { font-size: 19px; font-weight: 700; margin: 0 0 8px 0; color: #1a1a1a; display:flex; align-items:center; gap:8px; }
@@ -1324,7 +1389,7 @@ export default function CekLokasi() {
   .cl-suggestions {
     position: absolute; top: calc(100% + 4px); left: 0; right: 0;
     background: #fff; border: 1.5px solid #e0e0e0; border-radius: 10px;
-    max-height: 220px; overflow-y: auto; z-index: 10;
+    max-height: 185px; overflow-y: auto; z-index: 10;
     box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   }
   .cl-suggestion-item {
@@ -1444,9 +1509,11 @@ export default function CekLokasi() {
   body.modal-open .promo-popup-overlay,
   body.modal-open .live-social-proof-wrap,
   body.modal-open #xlsr-lokasi-strip,
-  body:has(#form-registrasi:focus-within) #xlsr-lokasi-strip,
-  body:has(.reg-sugg-dropdown) #xlsr-lokasi-strip,
-  body:has(#form-alamat:focus) #xlsr-lokasi-strip {
+  body.modal-open #xlsr-consent,
+  body:has(#xlsr-consent) #xlsr-lokasi-strip,
+  body:has(#daftar:focus-within) #xlsr-lokasi-strip,
+  body:has(.reg-suggestions) #xlsr-lokasi-strip,
+  body:has(#reg-alamat-input:focus) #xlsr-lokasi-strip {
     display: none !important;
   }`}</style>
       <AnimatePresence>
@@ -1460,7 +1527,7 @@ export default function CekLokasi() {
             style={{
               position: "fixed",
               left: "50%",
-              bottom: "calc(96px + env(safe-area-inset-bottom))",
+              bottom: "calc(82px + env(safe-area-inset-bottom))",
               zIndex: 9998,
               width: "min(92%,340px)",
               background: "#fff",
@@ -1527,6 +1594,9 @@ export default function CekLokasi() {
       {open && (
         <div
           id="modal-cek-lokasi"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Cek Ketersediaan Jaringan XL Home"
           className="cl-modal-overlay"
           style={{ display: "flex" }}
           onClick={(e) => {
@@ -1561,7 +1631,13 @@ export default function CekLokasi() {
                     <span>Sales Resmi XL Home Solo Raya</span>
                   </div>
                   <div className="cl-trust-items">
-                    <span className="cl-trust-item">✓ Gratis Pasang (Mulai Paket 250 Mbps)</span>
+                    <span className="cl-trust-item">
+                      {paketPilihan?.includes("20 Mbps")
+                        ? "✓ Paket Hemat 20 Mbps (Pasang Rp 100rb)"
+                        : isWirelessSelection(paketPilihan)
+                        ? "✓ Modem Plug & Play Tanpa Tarik Kabel"
+                        : "✓ Gratis Pasang Rp 0 (Mulai Paket 250 Mbps)"}
+                    </span>
                     <span className="cl-trust-item">✓ Bebas Biaya Survei Jalur</span>
                     <span className="cl-trust-item">✓ Tanpa Biaya Tersembunyi</span>
                   </div>
@@ -1755,7 +1831,7 @@ export default function CekLokasi() {
                         color: "#ffffff",
                         borderRadius: 12,
                         padding: "12px 14px",
-                        margin: "0 0 14px",
+                        margin: "22px 0 14px",
                         boxShadow: "0 8px 20px rgba(3, 126, 100, 0.25)",
                       }}
                     >
@@ -1817,10 +1893,11 @@ export default function CekLokasi() {
                 </AnimatePresence>
 
                 {(() => {
-                  const isUnverified = !coverage || coverage.status === "manual" || (lokasiInfo && (lokasiInfo.includes("belum terverifikasi") || lokasiInfo.includes("LUAR JANGKAUAN")));
+                  const isLoadingCov = coverage?.status === "loading";
+                  const isUnverified = !isLoadingCov && (!coverage || coverage.status === "manual" || (lokasiInfo && (lokasiInfo.includes("belum terverifikasi") || lokasiInfo.includes("LUAR JANGKAUAN"))));
                   const isMungkin = coverage?.status === "mungkin";
                   const isWireless = coverage?.status === "wireless";
-                  const isFiber = coverage?.status === "fiber";
+                  const is5G = !!(coverage?.zona && coverage.zona.includes("5G"));
 
                   let icon = <CheckCircle2 size={18} color="#026b55" style={{ flexShrink: 0 }} />;
                   let title = "Lokasi Tercover Fiber Optic Siap Pasang!";
@@ -1829,7 +1906,14 @@ export default function CekLokasi() {
                   let badgeColor = "#065f46";
                   let badgeText = "⚡ Jaringan Fiber Tersedia & Siap Dipasang";
 
-                  if (isUnverified) {
+                  if (isLoadingCov) {
+                    icon = <Clock size={18} color="#037e64" style={{ flexShrink: 0 }} />;
+                    title = "Mengecek Jaringan Terdekat...";
+                    badgeBg = "#f1f5f9";
+                    badgeBorder = "#cbd5e1";
+                    badgeColor = "#334155";
+                    badgeText = "⏳ Memeriksa ketersediaan Fiber & Wireless...";
+                  } else if (isUnverified) {
                     icon = <Info size={18} color="#b45309" style={{ flexShrink: 0 }} />;
                     title = "Alamat Menunggu Verifikasi Tim Sales";
                     badgeBg = "#fffbeb";
@@ -1845,11 +1929,13 @@ export default function CekLokasi() {
                     badgeText = "⚠️ Dalam radius tarikan kabel, butuh verifikasi rute";
                   } else if (isWireless) {
                     icon = <Wifi size={18} color="#0284c7" style={{ flexShrink: 0 }} />;
-                    title = "Tercover XL Ultra 5G+ Wireless!";
+                    title = is5G ? "Tercover XL Ultra 5G+ Wireless!" : "Tercover XL Home Wireless 4G/5G!";
                     badgeBg = "#f0f9ff";
                     badgeBorder = "#bae6fd";
                     badgeColor = "#075985";
-                    badgeText = "📶 Sinyal Wireless 5G Siap Pasang Tanpa Tarik Kabel";
+                    badgeText = is5G
+                      ? "📶 Sinyal Wireless 5G Siap Pasang Tanpa Tarik Kabel"
+                      : "📶 Sinyal Wireless 4G/5G Siap Pasang Tanpa Tarik Kabel";
                   }
 
                   return (
@@ -2001,6 +2087,7 @@ export default function CekLokasi() {
                     placeholder="0812xxxxxxx"
                     value={wa}
                     onChange={(e) => setWa(e.target.value)}
+                    onBlur={() => kirimSoftLead()}
                     // @ts-ignore
                     toolparamdescription="Nomor WhatsApp aktif pemohon untuk konfirmasi jadwal pasang teknisi"
                   />
@@ -2094,18 +2181,36 @@ export default function CekLokasi() {
                         style={{ fontSize: 13, background: "#fff" }}
                       >
                         <option value="">-- Pilih Paket Lainnya --</option>
-                        <option value="Saya minat paket XL Home Starter 20 Mbps Rp185.000">XL Home Starter 20 Mbps (Rp185.000, Biaya Pasang Rp100rb)</option>
-                        <option value="Saya minat paket XL Home Spark 250 Mbps Rp229.000">XL Home Spark 250 Mbps (Rp229.000, Gratis Pasang)</option>
-                        <option value="Saya minat paket XL Home Spark 300 Mbps Rp239.000">XL Home Spark 300 Mbps (Rp239.000, Gratis Pasang)</option>
-                        <option value="Saya minat paket XL Home Spark 400 Mbps Rp299.000">XL Home Spark 400 Mbps (Rp299.000, Gratis Pasang)</option>
-                        <option value="Saya minat paket XL Home Spark 500 Mbps Rp399.000">XL Home Spark 500 Mbps (Rp399.000, Gratis Pasang)</option>
-                        <option value="Saya minat paket XL Home Spark 1000 Mbps Rp899.000">XL Home Spark 1000 Mbps (Rp899.000, Gratis Pasang)</option>
+                        <option value="Saya minat paket XL Home Starter 20 Mbps Rp185.000" disabled={coverage?.status === "wireless"}>
+                          XL Home Starter 20 Mbps (Rp185.000, Biaya Pasang Rp100rb){coverage?.status === "wireless" ? " — Belum Tercover Kabel" : ""}
+                        </option>
+                        <option value="Saya minat paket XL Home Spark 250 Mbps Rp229.000" disabled={coverage?.status === "wireless"}>
+                          XL Home Spark 250 Mbps (Rp229.000, Gratis Pasang){coverage?.status === "wireless" ? " — Belum Tercover Kabel" : ""}
+                        </option>
+                        <option value="Saya minat paket XL Home Spark 300 Mbps Rp239.000" disabled={coverage?.status === "wireless"}>
+                          XL Home Spark 300 Mbps (Rp239.000, Gratis Pasang){coverage?.status === "wireless" ? " — Belum Tercover Kabel" : ""}
+                        </option>
+                        <option value="Saya minat paket XL Home Spark 400 Mbps Rp299.000" disabled={coverage?.status === "wireless"}>
+                          XL Home Spark 400 Mbps (Rp299.000, Gratis Pasang){coverage?.status === "wireless" ? " — Belum Tercover Kabel" : ""}
+                        </option>
+                        <option value="Saya minat paket XL Home Spark 500 Mbps Rp399.000" disabled={coverage?.status === "wireless"}>
+                          XL Home Spark 500 Mbps (Rp399.000, Gratis Pasang){coverage?.status === "wireless" ? " — Belum Tercover Kabel" : ""}
+                        </option>
+                        <option value="Saya minat paket XL Home Spark 1000 Mbps Rp899.000" disabled={coverage?.status === "wireless"}>
+                          XL Home Spark 1000 Mbps (Rp899.000, Gratis Pasang){coverage?.status === "wireless" ? " — Belum Tercover Kabel" : ""}
+                        </option>
                         <option value="Saya minat XL Home Wireless Monthly 100 Mbps Rp219.500">XL Home Wireless Monthly 100 Mbps (Rp219.500)</option>
                         <option value="Saya minat XL Home Wireless 50 Mbps Advance Rp650.000">XL Home Wireless 50 Mbps Advance (Rp650.000 / 4 bln)</option>
                         <option value="Saya minat XL Home Wireless 100 Mbps Advance Rp790.000">XL Home Wireless 100 Mbps Advance (Rp790.000 / 4 bln)</option>
-                        <option value="Saya minat paket Tahunan Basic Smart 50 Mbps Rp2.490.000">Tahunan Basic Smart 50 Mbps (Rp2.490.000 / thn)</option>
-                        <option value="Saya minat paket Tahunan Basic Family 100 Mbps Rp3.190.000">Tahunan Basic Family 100 Mbps (Rp3.190.000 / thn)</option>
-                        <option value="Saya minat paket Tahunan Basic Superuser 150 Mbps Rp3.690.000">Tahunan Basic Superuser 150 Mbps (Rp3.690.000 / thn)</option>
+                        <option value="Saya minat paket Tahunan Basic Smart 50 Mbps Rp2.490.000" disabled={coverage?.status === "wireless"}>
+                          Tahunan Basic Smart 50 Mbps (Rp2.490.000 / thn){coverage?.status === "wireless" ? " — Belum Tercover Kabel" : ""}
+                        </option>
+                        <option value="Saya minat paket Tahunan Basic Family 100 Mbps Rp3.190.000" disabled={coverage?.status === "wireless"}>
+                          Tahunan Basic Family 100 Mbps (Rp3.190.000 / thn){coverage?.status === "wireless" ? " — Belum Tercover Kabel" : ""}
+                        </option>
+                        <option value="Saya minat paket Tahunan Basic Superuser 150 Mbps Rp3.690.000" disabled={coverage?.status === "wireless"}>
+                          Tahunan Basic Superuser 150 Mbps (Rp3.690.000 / thn){coverage?.status === "wireless" ? " — Belum Tercover Kabel" : ""}
+                        </option>
                         {coverage?.status === "wireless" && (
                           <option value="Saya ingin konsultasi pasang kabel fiber">Konsultasi Opsi Pasang Kabel Fiber</option>
                         )}
@@ -2115,6 +2220,20 @@ export default function CekLokasi() {
 
                   {coverage?.status === "manual" && (
                     <>
+                      <label htmlFor="cl-peminat" className="cl-label">
+                        Perkiraan peminat pasang di sekitar rumah
+                      </label>
+                      <select
+                        id="cl-peminat"
+                        className="cl-input"
+                        value={peminatSekitar}
+                        onChange={(e) => setPeminatSekitar(e.target.value)}
+                      >
+                        <option value="1 Rumah (Hanya rumah saya)">1 Rumah (Hanya rumah saya)</option>
+                        <option value="2-4 Rumah (Ada tetangga berminat)">2-4 Rumah (Ada tetangga berminat)</option>
+                        <option value="5+ Rumah / RT (Prioritas perluasan jaringan)">5+ Rumah / RT (Prioritas perluasan jaringan)</option>
+                      </select>
+
                       <label htmlFor="cl-provider" className="cl-label">
                         Provider internet saat ini di rumah (opsional)
                       </label>
@@ -2161,6 +2280,8 @@ export default function CekLokasi() {
                     <span style={{ color: paketPilihan?.includes("20 Mbps") ? "#b45309" : "#059669" }}>
                       {paketPilihan?.includes("20 Mbps")
                         ? "Biaya Pasang: Rp 100.000 (Khusus 20 Mbps)"
+                        : isWirelessSelection(paketPilihan, coverage?.status)
+                        ? "Bebas Tarik Kabel (Modem Plug & Play)"
                         : "Gratis Pasang Rp 0 (Mulai 250 Mbps)"}
                     </span>
                     <span>•</span>
@@ -2179,9 +2300,19 @@ export default function CekLokasi() {
                     type="button"
                     className="cl-btn-text"
                     onClick={() => {
+                      timers.current.forEach(clearTimeout);
+                      timers.current = [];
+                      reqIdRef.current += 1;
                       setStep("lokasi");
                       setStatusMsg("");
                       setStatusClass("cl-status");
+                      setFormError(null);
+                      setShowExitIntent(false);
+                      exitIntentShown.current = false;
+                      setTanpaPeta(null);
+                      setCoverage(null);
+                      setSending(false);
+                      softSent.current = false;
                     }}
                   >
                     Ganti lokasi

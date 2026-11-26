@@ -6,7 +6,7 @@ import WaFloat from "@/components/WaFloat";
 import PageTransition from "@/components/animations/PageTransition";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import { pageMetadata } from "@/lib/seo";
-import { MapPin, CheckCircle2 } from "lucide-react";
+import { MapPin, CheckCircle2, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = pageMetadata({
   title: "Cek Ketersediaan Jaringan XL Home | Fiber & Wireless",
@@ -101,7 +101,7 @@ export default function CekJaringanPage() {
               Lebih nyaman kirim Share Location manual via WhatsApp?
             </p>
             <a 
-              href="https://wa.me/6287778999141?text=Halo%20kak,%20tolong%20bantu%20cek%20ketersediaan%20jaringan%20XL%20SATU%20di%20lokasi%20rumah%20saya.%20(Berikut%20saya%20kirimkan%20Share%20Location-nya)"
+              href="https://wa.me/6287778999141?text=Halo%20kak,%20tolong%20bantu%20cek%20ketersediaan%20jaringan%20XL%20Home%20di%20lokasi%20rumah%20saya.%20(Berikut%20saya%20kirimkan%20Share%20Location-nya)"
               target="_blank" 
               rel="noopener noreferrer"
               style={{
@@ -110,7 +110,7 @@ export default function CekJaringanPage() {
                 fontSize: "16px"
               }}
             >
-              <i className="fab fa-whatsapp" style={{ fontSize: "20px" }}></i>
+              <MessageCircle size={20} style={{ flexShrink: 0 }} />
               Chat Admin via WhatsApp
             </a>
           </ScrollReveal>

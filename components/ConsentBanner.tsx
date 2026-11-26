@@ -64,7 +64,7 @@ export default function ConsentBanner() {
           left: 20px;
           bottom: 20px;
           z-index: 10001;
-          max-width: 350px;
+          max-width: 320px;
           background: #ffffff;
           border: 1px solid #e2e8f0;
           border-radius: 14px;
@@ -80,7 +80,7 @@ export default function ConsentBanner() {
           #xlsr-consent {
             left: 12px;
             right: 12px;
-            bottom: 84px; /* Posisi presisi di atas sticky mobile bar agar tidak saling menumpuk */
+            bottom: 78px; /* Posisi presisi di atas sticky mobile bar agar tidak saling menumpuk */
             max-width: calc(100vw - 24px);
             padding: 12px 14px;
           }

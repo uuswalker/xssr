@@ -35,7 +35,7 @@ export default function Faq({
             >
               <div className="faq-q">
                 <span>{f.q}</span>
-                <i className={"fas fa-plus icon " + (isOpen ? "rotate-45" : "")} style={{ transition: "transform 0.2s", transform: isOpen ? "rotate(45deg)" : "rotate(0)" }} />
+                <Plus size={18} className={"icon " + (isOpen ? "rotate-45" : "")} style={{ transition: "transform 0.2s", transform: isOpen ? "rotate(45deg)" : "rotate(0)", flexShrink: 0 }} />
               </div>
 
               <div className={`faq-a-wrapper ${isOpen ? "open" : ""}`} style={{ display: "grid", gridTemplateRows: isOpen ? "1fr" : "0fr", transition: "grid-template-rows 0.3s ease" }}>
@@ -70,7 +70,7 @@ export default function Faq({
 
         <div style={{ textAlign: "center", marginTop: 24 }}>
           <a
-            href="https://wa.me/6287778999141?text=Halo%20kak%2C%20saya%20punya%20pertanyaan%20lainnya%20soal%20XL%20SATU%20di%20Solo%20Raya"
+            href="https://wa.me/6287778999141?text=Halo%20kak%2C%20saya%20punya%20pertanyaan%20lainnya%20soal%20XL%20Home%20di%20Solo%20Raya"
             target="_blank"
             rel="noopener noreferrer"
             className="more-btn"

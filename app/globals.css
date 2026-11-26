@@ -88,7 +88,8 @@
     html, body {
       overflow-x: clip;
     }
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    section[id], #paket, #paket-tahunan, #wireless, #area, #bantuan, #hubungi, #daftar { scroll-margin-top: 96px; }
     body { 
       font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif; 
       background: var(--white); 
@@ -1550,6 +1551,15 @@
     display: flex;
   }
   .float-wa {
+    display: none !important;
+  }
+  #xlsr-consent {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: calc(82px + env(safe-area-inset-bottom)) !important;
+    max-width: calc(100vw - 24px) !important;
+  }
+  body:has(#xlsr-consent) #xlsr-lokasi-strip {
     display: none !important;
   }
   body {

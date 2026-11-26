@@ -22,8 +22,8 @@ const FONNTE_TOKEN = "GANTI_DENGAN_TOKEN_FONNTE"; // token device, isi di Apps S
 const NOMOR_NOTIF  = "6287778999141"; // WA owner penerima notif lead (format 62, tanpa 0)
 
 // Batas notif (v6.3)
-const NOTIF_MAX_PER_NOMOR_HARI = 2;
-const NOTIF_MAX_GLOBAL_JAM     = 30;
+const NOTIF_MAX_PER_NOMOR_HARI = 5;
+const NOTIF_MAX_GLOBAL_JAM     = 50;
 
 const COLOR = {
   HEADER_BG  : "#1A56A0",
@@ -849,10 +849,7 @@ function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId, jar
     const maps = (lat !== "" && lat != null && lng !== "" && lng != null)
       ? "https://maps.google.com/?q=" + lat + "," + lng : "-";
 
-    const d = new Date();
-    const pad = (n) => (n < 10 ? "0" : "") + n;
-    const waktu = pad(d.getDate()) + "-" + pad(d.getMonth() + 1) + "-" + d.getFullYear() +
-      " " + pad(d.getHours()) + ":" + pad(d.getMinutes()) + " WIB";
+    const waktu = Utilities.formatDate(new Date(), "Asia/Jakarta", "dd-MM-yyyy HH:mm 'WIB'");
 
     let pesan = "";
     if (isWireless) {
@@ -890,15 +887,28 @@ function kirimNotifWA(nama, wa, alamat, kota, halaman, lat, lng, homepassId, jar
         "━━━━━━━━━━━━━━━━━━━";
     }
 
+    if (!FONNTE_TOKEN || FONNTE_TOKEN === "GANTI_DENGAN_TOKEN_FONNTE") {
+      console.log("FONNTE-SKIP: Token placeholder belum diganti di Apps Script");
+      return { ok: false, reason: "token_placeholder" };
+    }
+
     const res = UrlFetchApp.fetch("https://api.fonnte.com/send", {
       method: "post",
       headers: { Authorization: FONNTE_TOKEN },
       payload: { target: NOMOR_NOTIF, message: pesan },
       muteHttpExceptions: true
     });
-    console.log("FONNTE:" + res.getContentText());
+    const rawBody = res.getContentText();
+    console.log("FONNTE:" + rawBody);
+    try {
+      const parsed = JSON.parse(rawBody);
+      return { ok: !!parsed.status, detail: parsed.reason || parsed.detail || (parsed.status ? "sent" : "failed") };
+    } catch (e) {
+      return { ok: res.getResponseCode() === 200, code: res.getResponseCode() };
+    }
   } catch (err) {
     console.log("FONNTE-ERR:" + err.message);
+    return { ok: false, reason: err.message };
   }
 }
 
@@ -913,7 +923,7 @@ function _bolehNotif(wa) {
     const p = parseInt(cache.get(pKey) || "0", 10);
     if (p >= NOTIF_MAX_PER_NOMOR_HARI) { console.log("COSTGUARD: per-nomor cap " + wa); return false; }
     cache.put(gKey, String(g + 1), 3600);
-    cache.put(pKey, String(p + 1), 86400);
+    cache.put(pKey, String(p + 1), 21600); // Max legal CacheService TTL = 6 jam (21600s)
     return true;
   } catch (e) { return true; }
 }
@@ -931,7 +941,14 @@ function _logTrap(data) {
     String(data.ref || ""), String(data.ts || "")]);
 }
 
-// ── WEBHOOK: Terima lead dari website (v5.1 gabungan) ─────────
+// ── HEALTH CHECK (GET) ─────────────────────────────────────────
+function doGet() {
+  return ContentService
+    .createTextOutput(JSON.stringify({ status: "ok", service: "xlhomesolo-lead-webhook", version: "7.1" }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+// ── WEBHOOK: Terima lead dari website (v7.1 gabungan) ─────────
 function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents);
@@ -963,7 +980,7 @@ function doPost(e) {
     const ws = ss.getSheetByName(SHEET_NAME);
     const kota = data.kotaTerdeteksi || data.kota || "";
     let hpId = data.homepassId || "";
-    const jarakFiber = (data.jarakFiberM !== "" && data.jarakFiberM != null) ? data.jarakFiberM : "";
+    let jarakFiber = (data.jarakFiberM !== "" && data.jarakFiberM != null) ? data.jarakFiberM : "";
     const cov = data.coverage || "";
     const hpAddr = data.homepassAddress || "";
     const paket = data.paket || "";
@@ -1023,7 +1040,7 @@ function doPost(e) {
           }
           ws.getRange(row, 10).setValue(pilih(data.halaman, cur[9]));
           _formatSingleRow(ws, row);
-          const effectiveNotifHp = (isWirelessLead || cov === "manual" || cov === "request-pasang-baru") ? "" : pilih(hpId, cur[7]);
+          let effectiveNotifHp = (isWirelessLead || cov === "manual" || cov === "request-pasang-baru") ? "" : pilih(hpId, cur[7]);
           let odp = isWirelessLead ? "" : (data.odp || "");
           let cluster = data.cluster || "";
           if (!isWirelessLead && (!odp || !cluster || !effectiveNotifHp) && latOk && lngOk) {
@@ -1035,9 +1052,12 @@ function doPost(e) {
               if (!jarakFiber && cfData.distance != null) jarakFiber = cfData.distance;
             }
           }
-          if (_bolehNotif(wa)) kirimNotifWA(pilih(data.nama, cur[1]), wa, pilih(alamatFinal, cur[5]), pilih(kota, cur[6]), pilih(data.halaman, cur[9]), pilih(data.latitude, cur[3]), pilih(data.longitude, cur[4]), effectiveNotifHp, jarakFiber, cov, hpAddr, paket, odp, cluster);
+          let notifRes = { ok: false, reason: "costguard_cap" };
+          if (_bolehNotif(wa)) {
+            notifRes = kirimNotifWA(pilih(data.nama, cur[1]), wa, pilih(alamatFinal, cur[5]), pilih(kota, cur[6]), pilih(data.halaman, cur[9]), pilih(data.latitude, cur[3]), pilih(data.longitude, cur[4]), effectiveNotifHp, jarakFiber, cov, hpAddr, paket, odp, cluster);
+          }
           return ContentService
-            .createTextOutput(JSON.stringify({ status: "updated", row }))
+            .createTextOutput(JSON.stringify({ status: "updated", row, notif: notifRes }))
             .setMimeType(ContentService.MimeType.JSON);
         }
       }
@@ -1062,19 +1082,23 @@ function doPost(e) {
     _formatSingleRow(ws, newRow);
     let odp = isWirelessLead ? "" : (data.odp || "");
     let cluster = data.cluster || "";
-    if (!isWirelessLead && (!odp || !cluster || !effectiveNewHp) && latOk && lngOk) {
+    let notifHp = effectiveNewHp;
+    if (!isWirelessLead && (!odp || !cluster || !notifHp) && latOk && lngOk) {
       const cfData = _queryCloudflareWorkerCoverage(data.latitude, data.longitude);
       if (cfData) {
         if (!odp && cfData.odp) odp = cfData.odp;
         if (!cluster && cfData.cluster) cluster = cfData.cluster;
-        if (!effectiveNewHp && cfData.homepassId) effectiveNewHp = cfData.homepassId;
+        if (!notifHp && cfData.homepassId) notifHp = cfData.homepassId;
         if (!jarakFiber && cfData.distance != null) jarakFiber = cfData.distance;
       }
     }
-    if (_bolehNotif(wa)) kirimNotifWA(String(data.nama || "").trim(), wa, alamatFinal, kota, data.halaman || "", data.latitude, data.longitude, effectiveNewHp, jarakFiber, cov, hpAddr, paket, odp, cluster);
+    let notifRes = { ok: false, reason: "costguard_cap" };
+    if (_bolehNotif(wa)) {
+      notifRes = kirimNotifWA(String(data.nama || "").trim(), wa, alamatFinal, kota, data.halaman || "", data.latitude, data.longitude, notifHp, jarakFiber, cov, hpAddr, paket, odp, cluster);
+    }
 
     return ContentService
-      .createTextOutput(JSON.stringify({ status: "ok", row: newRow }))
+      .createTextOutput(JSON.stringify({ status: "ok", row: newRow, notif: notifRes }))
       .setMimeType(ContentService.MimeType.JSON);
 
   } catch (err) {

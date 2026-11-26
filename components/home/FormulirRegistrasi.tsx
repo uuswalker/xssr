@@ -145,7 +145,9 @@ export default function FormulirRegistrasi() {
   useEffect(() => {
     if (coverage?.status === "wireless") {
       if (!isWirelessSelection(paketPilihan)) {
-        const defaultWireless = DAFTAR_PAKET_OPTIONS.find((p) => p.group === "wireless");
+        const defaultWireless =
+          DAFTAR_PAKET_OPTIONS.find((p) => p.id === "fwa-monthly-100") ||
+          DAFTAR_PAKET_OPTIONS.find((p) => p.group === "wireless");
         if (defaultWireless) {
           setPaketPilihan(defaultWireless.name);
         }
@@ -202,6 +204,8 @@ export default function FormulirRegistrasi() {
     intervals.current.forEach(clearInterval);
     timers.current = [];
     intervals.current = [];
+    setFormError(null);
+    setTanpaPeta(null);
 
     const bl = cekAreaBlacklist(alamatExplicit || "");
     if (bl) {
@@ -224,18 +228,60 @@ export default function FormulirRegistrasi() {
         zona: "5G Ultra",
         fiberM: null,
         homepassId: null,
-        alamat: alamatExplicit || suggItem.display_name,
+        alamat: cleanAlamatResmi(alamatExplicit || suggItem.display_name),
         city: suggItem.city || kota,
         odp: suggItem.odp || null,
         cluster: suggItem.cluster || null,
       });
+    } else {
+      setCoverage({
+        status: "loading",
+        jarakM: null,
+        zona: null,
+        fiberM: null,
+        homepassId: null,
+        alamat: null,
+      });
     }
 
+    const fmtLoc = (addr: string) =>
+      /^-?\d+\.\d+,\s*-?\d+\.\d+$/.test(addr.trim())
+        ? `Titik Koordinat (${lat.toFixed(5)}, ${lng.toFixed(5)})`
+        : `${addr} (${lat.toFixed(5)}, ${lng.toFixed(5)})`;
+
     if (alamatExplicit) {
-      posRef.current = { lat, lng, kota, alamat: alamatExplicit };
-      setLokasiInfo(`${alamatExplicit} (${lat.toFixed(5)}, ${lng.toFixed(5)})`);
+      const cleanExp = cleanAlamatResmi(alamatExplicit) || alamatExplicit;
+      posRef.current = { lat, lng, kota, alamat: cleanExp };
+      setLokasiInfo(fmtLoc(cleanExp));
       cekCoverageWorkerAPI(lat, lng).then((cv) => {
-        if (cv) setCoverage(cv);
+        const finalCv: CoverageResult = cv || (det.dalamArea ? {
+          status: "fiber",
+          jarakM: null,
+          zona: "5G Ultra",
+          fiberM: null,
+          homepassId: null,
+          alamat: cleanExp,
+          city: kota,
+          odp: suggItem?.odp || null,
+          cluster: suggItem?.cluster || null,
+        } : {
+          status: "manual",
+          jarakM: null,
+          zona: null,
+          fiberM: null,
+          homepassId: null,
+          alamat: cleanExp,
+          city: kota,
+        });
+        if (suggItem) {
+          if (!finalCv.odp && suggItem.odp) finalCv.odp = suggItem.odp;
+          if (!finalCv.cluster && suggItem.cluster) finalCv.cluster = suggItem.cluster;
+        }
+        const resolvedAddr = cleanAlamatResmi(finalCv.alamat) || cleanExp;
+        finalCv.alamat = resolvedAddr;
+        posRef.current = { lat, lng, kota: finalCv.city || kota, alamat: resolvedAddr };
+        setLokasiInfo(fmtLoc(resolvedAddr));
+        setCoverage(finalCv);
         setStep("form");
         setStatusMsg("");
       });
@@ -247,20 +293,40 @@ export default function FormulirRegistrasi() {
       cekCoverageWorkerAPI(lat, lng),
       reverseGeocodeNominatim(lat, lng).catch(() => null)
     ]).then(([cv, res]) => {
-      if (cv) setCoverage(cv);
       const osmAddr = res || `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+      const finalCv: CoverageResult = cv || (det.dalamArea ? {
+        status: "fiber",
+        jarakM: null,
+        zona: "5G Ultra",
+        fiberM: null,
+        homepassId: null,
+        alamat: osmAddr,
+        city: kota,
+      } : {
+        status: "manual",
+        jarakM: null,
+        zona: null,
+        fiberM: null,
+        homepassId: null,
+        alamat: osmAddr,
+        city: kota,
+      });
       // Prioritaskan titik Homepass / Cluster FTTH resmi dari database XL Home jika terdeteksi
-      const rawDbAddr = cv?.alamat ? cleanAlamatResmi(cv.alamat) : null;
-      const finalAddr = rawDbAddr || osmAddr;
+      const rawDbAddr = finalCv.alamat ? cleanAlamatResmi(finalCv.alamat) : null;
+      const finalAddr = rawDbAddr && rawDbAddr !== "Area Layanan" ? rawDbAddr : osmAddr;
+      finalCv.alamat = finalAddr;
 
-      posRef.current = { lat, lng, kota: cv?.city || kota, alamat: finalAddr };
-      setLokasiInfo(`${finalAddr} (${lat.toFixed(5)}, ${lng.toFixed(5)})`);
+      posRef.current = { lat, lng, kota: finalCv.city || kota, alamat: finalAddr };
+      setLokasiInfo(fmtLoc(finalAddr));
+      setCoverage(finalCv);
       setStep("form");
       setStatusMsg("");
     });
   }, []);
 
   const prosesLokasiTanpaKoordinat = useCallback((alamat: string) => {
+    setFormError(null);
+    setTanpaPeta(null);
     posRef.current = { lat: null, lng: null, kota: "Solo", alamat };
     setLokasiInfo(alamat);
     setCoverage({
@@ -367,7 +433,7 @@ export default function FormulirRegistrasi() {
         (data) => {
           setSearching(false);
           if (data && data.length > 0) {
-            prosesLokasi(parseFloat(data[0].lat), parseFloat(data[0].lon), data[0].display_name);
+            prosesLokasi(parseFloat(data[0].lat), parseFloat(data[0].lon), data[0].display_name, data[0]);
           } else {
             setTanpaPeta(alamat);
             setStatusClass("reg-status error");
@@ -398,8 +464,8 @@ export default function FormulirRegistrasi() {
       setFormError("Nomor WhatsApp aktif wajib diisi. Contoh: 081234567890.");
       return;
     }
-    if (w.length < 10 || w.length > 14) {
-      setFormError("Nomor WhatsApp belum valid (minimal 10-14 digit). Contoh: 081234567890.");
+    if (w.length < 10 || w.length > 15) {
+      setFormError("Nomor WhatsApp belum valid (minimal 10 digit). Contoh: 081234567890.");
       return;
     }
     if (!paketPilihan) {
@@ -509,10 +575,14 @@ export default function FormulirRegistrasi() {
     try {
       const win = window.open(waUrl, "_blank");
       if (!win || win.closed || typeof win.closed === "undefined") {
-        window.location.href = waUrl;
+        window.setTimeout(() => {
+          window.location.href = waUrl;
+        }, 220);
       }
     } catch {
-      window.location.href = waUrl;
+      window.setTimeout(() => {
+        window.location.href = waUrl;
+      }, 220);
     }
     setSending(false);
   }, [nama, wa, paketPilihan, coverage]);
@@ -967,7 +1037,7 @@ export default function FormulirRegistrasi() {
                   <CheckCircle2 size={20} color="var(--green)" /> Lokasi Terkonfirmasi!
                 </h3>
                 <p className="reg-sub" style={{ margin: "0 0 14px 0" }}>
-                  {cleanAlamatResmi(lokasiInfo) || "Area Solo Raya dan sekitarnya"}
+                  {lokasiInfo || "Area Solo Raya dan sekitarnya"}
                 </p>
 
                 {/* Banner Status Coverage Resmi */}
@@ -1134,7 +1204,12 @@ export default function FormulirRegistrasi() {
                   <div style={{ textAlign: "center" }}>
                     <button
                       type="button"
-                      onClick={() => setStep("lokasi")}
+                      onClick={() => {
+                        setStep("lokasi");
+                        setFormError(null);
+                        setTanpaPeta(null);
+                        setCoverage(null);
+                      }}
                       className="reg-btn-text"
                     >
                       <ArrowLeft size={14} /> Ubah Alamat / Cek Lokasi Lain
